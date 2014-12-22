@@ -1,5 +1,5 @@
 CREATE TABLE Client
-(idClient INT,
+(idClient INT PRIMARY KEY (idClient),
 NomReferent VARCHAR(30),
 PrenomReferent VARCHAR(30),
 Societe VARCHAR(30),
@@ -9,46 +9,39 @@ Ville VARCHAR(30),
 Mail VARCHAR(30),
 TelephonePort INT,
 TelephoneFixe INT,
-Fax INT,
-CONSTRAINT pk_client PRIMARY KEY (idClient));
+Fax INT);
 
 CREATE TABLE Project
-(idProject INT
+(idProject INT PRIMARY KEY (idProject),
 Nom VARCHAR2(30),
 Description TEXT,
 TarifJournalier INT,
 idClient INT,
-CONSTRAINT pk_project PRIMARY KEY (idProject),
-CONSTRAINT fk_project FOREIGN KEY (idClient)
-REFERENCES Client (idClient));
+FOREIGN KEY (idClient) REFERENCES Client (idClient));
 
 CREATE TABLE Facturation
-(idFacturation INT,
+(idFacturation INT PRIMARY KEY (idFacturation),
 Titre VARCHAR(20),
 numero INT,
 Type BOOLEAN,
-Date DATE,
-CONSTRAINT pk_facturation PRIMARY KEY (idFacturation));
+Date DATE);
 
 CREATE TABLE Prestation
-(idPrestation INT,
+(idPrestation INT PRIMARY KEY (idPrestation),
 Description TEXT,
 nbDays INT,
-CONSTRAINT pk_prestation PRIMARY KEY (idPrestation));
+CONSTRAINT pk_prestation );
 
 CREATE TABLE FacturationProject
 (idProject INT,
 idFacturation INT,
 idPrestation INT,
-CONSTRAINT fk_factProjectP FOREIGN KEY (idProject)
-REFERENCES Project (idProject),
-CONSTRAINT fk_factProjectF FOREIGN KEY (idFacturation)
-REFERENCES Facturation (idFacturation),
-CONSTRAINT fk_factProjectPr FOREIGN KEY (idPrestation)
-REFERENCES Prestation (idPrestation));
+FOREIGN KEY (idProject) REFERENCES Project (idProject),
+FOREIGN KEY (idFacturation) REFERENCES Facturation (idFacturation),
+FOREIGN KEY (idPrestation) REFERENCES Prestation (idPrestation));
 
 CREATE TABLE Users
-(idUser INT,
+(idUser INT PRIMARY KEY (idUser),
 Nom VARCHAR(30),
 Prenom VARCHAR(30),
 Organisation VARCHAR(30),
@@ -59,5 +52,4 @@ Ville VARCHAR(30),
 Mail VARCHAR(30),
 TelephonePort INT,
 TelephoneFixe INT,
-NoSiret INT,
-CONSTRAINT pk_user PRIMARY KEY (idUser));
+NoSiret INT);
