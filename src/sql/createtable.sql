@@ -1,45 +1,45 @@
 CREATE TABLE Client
-(idClient NUMBER,
-NomReferent VARCHAR2(30),
-PrenomReferent VARCHAR2(30),
-Societe VARCHAR2(30),
-Adresse VARCHAR2(50),
-CodePostal NUMBER,
-Ville VARCHAR2(30),
-Mail VARCHAR2(30),
-TelephonePort NUMBER,
-TelephoneFixe NUMBER,
-Fax NUMBER,
+(idClient INT,
+NomReferent VARCHAR(30),
+PrenomReferent VARCHAR(30),
+Societe VARCHAR(30),
+Adresse VARCHAR(50),
+CodePostal INT,
+Ville VARCHAR(30),
+Mail VARCHAR(30),
+TelephonePort INT,
+TelephoneFixe INT,
+Fax INT,
 CONSTRAINT pk_client PRIMARY KEY (idClient));
 
 CREATE TABLE Project
-(idProject NUMBER
+(idProject INT
 Nom VARCHAR2(30),
 Description TEXT,
-TarifJournalier NUMBER,
-idClient NUMBER,
+TarifJournalier INT,
+idClient INT,
 CONSTRAINT pk_project PRIMARY KEY (idProject),
 CONSTRAINT fk_project FOREIGN KEY (idClient)
 REFERENCES Client (idClient));
 
 CREATE TABLE Facturation
-(idFacturation NUMBER,
+(idFacturation INT,
 Titre VARCHAR(20),
-numero NUMBER,
+numero INT,
 Type BOOLEAN,
 Date DATE,
 CONSTRAINT pk_facturation PRIMARY KEY (idFacturation));
 
 CREATE TABLE Prestation
-(idPrestation NUMBER,
+(idPrestation INT,
 Description TEXT,
-nbDays NUMBER,
+nbDays INT,
 CONSTRAINT pk_prestation PRIMARY KEY (idPrestation));
 
 CREATE TABLE FacturationProject
-(idProject NUMBER,
-idFacturation NUMBER,
-idPrestation NUMBER,
+(idProject INT,
+idFacturation INT,
+idPrestation INT,
 CONSTRAINT fk_factProjectP FOREIGN KEY (idProject)
 REFERENCES Project (idProject),
 CONSTRAINT fk_factProjectF FOREIGN KEY (idFacturation)
@@ -48,16 +48,16 @@ CONSTRAINT fk_factProjectPr FOREIGN KEY (idPrestation)
 REFERENCES Prestation (idPrestation));
 
 CREATE TABLE Users
-(idUser NUMBER,
-Nom VARCHAR2(30),
-Prenom VARCHAR2(30),
-Organisation VARCHAR2(30),
-Titre VARCHAR2(20),
-Adresse VARCHAR2(50),
-CodePostal NUMBER,
-Ville VARCHAR2(30),
-Mail VARCHAR2(30),
-TelephonePort NUMBER,
-TelephoneFixe NUMBER,
-NoSiret NUMBER,
+(idUser INT,
+Nom VARCHAR(30),
+Prenom VARCHAR(30),
+Organisation VARCHAR(30),
+Titre VARCHAR(20),
+Adresse VARCHAR(50),
+CodePostal INT,
+Ville VARCHAR(30),
+Mail VARCHAR(30),
+TelephonePort INT,
+TelephoneFixe INT,
+NoSiret INT,
 CONSTRAINT pk_user PRIMARY KEY (idUser));
