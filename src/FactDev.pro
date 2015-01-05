@@ -19,22 +19,28 @@ SOURCES += main.cpp\
         database/database.cpp \
         # Exceptions
         exceptions/dbexception.cpp \
-        models/client.cpp \
         parameters.cpp \
-        dialogaddclient.cpp
+        database/customerdatabase.cpp \
+        dialogs/dialogaddcustomer.cpp \
+        models/customer.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
-        dialogaddclient.h \
         # Database files
         database/database.h \
         #Exceptions
         exceptions/dbexception.h \
-        models/client.h \
-        parameters.h
+        parameters.h \
+        database/customerdatabase.h \
+        models/customer.h \
+        dialogs/dialogaddcustomer.h
 
 FORMS    += mainwindow.ui \
-        dialogaddclient.ui
+        dialogaddcustomer.ui
 
 RESOURCES += \
         Ressources.qrc
+
+OTHER_FILES += \
+        sql/createtable.sql \
+        sql/removetable.sql

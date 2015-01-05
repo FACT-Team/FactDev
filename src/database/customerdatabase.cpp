@@ -38,7 +38,7 @@ QStandardItemModel* ClientDatabase::getClientsTable() throw(DbException*) {
 //              "FROM Client WHERE archive = 0 ORDER BY UPPER(nom_p), UPPER(prenom_p)");
 
 //    if(!q.exec()) {
-//        throw new DbException("Impossible d'obtenir la liste des Clients", "BddClient::getTableauClients", derniereErreur(q), 1.1);
+//        throw new DbException("Impossible d'obtenir la liste des Clients", "ClientDatabase::getTableauClients", lastError(q), 1.1);
 //    }
 
 //    while(q.next()) {
@@ -100,27 +100,27 @@ QStandardItemModel* ClientDatabase::getClientList(QString pSearch, bool archive)
 
 Client ClientDatabase::getClient(const int pId) {
     QSqlQuery q;
-//    Client retour;
+    Client retour;
 
-//    q.prepare("SELECT id_p, nom_p, prenom_p, sexe_p, ddn_p,telephone_p, adresse_p, codepostal_p, ville_p , nss_p, autorisation_p, archive "
-//              "FROM Client WHERE id_p = :pId");
-//    q.bindValue(":pId", pId);
+    q.prepare("SELECT * "
+              "FROM Client WHERE id_p = :pId");
+    q.bindValue(":pId", pId);
 
-//    if(!q.exec()) {
-//        throw new DbException("Impossible d'obtenir les informations du Client", "BddClient::getClient", derniereErreur(q), 1.5);
-//    }
-//    q.next();
-//    retour.setId(valeur(q, "id_p").toInt());
-//    retour.setSurname(valeur(q, "nom_p").toString());
-//    retour.setName(valeur(q, "prenom_p").toString());
-//    retour.setSex(valeur(q, "sexe_p").toString());
-//    retour.setBornDate(valeur(q, "ddn_p").toDate());
-//    retour.setPhone(valeur(q, "telephone_p").toString());
-//    retour.setPostalCode(valeur(q, "codepostal_p").toString());
-//    retour.setAddress(valeur(q, "adresse_p").toString());
-//    retour.setTown(valeur(q, "ville_p").toString());
-//    retour.setSsNum(valeur(q, "nss_p").toString());
-//    retour.setAcceptSendData(valeur(q, "autorisation_p").toBool());
+    if(!q.exec()) {
+        throw new DbException("Impossible d'obtenir les informations du Client", "BddClient::getClient", derniereErreur(q), 1.5);
+    }
+    q.next();
+    retour.setId(valeur(q, "id_p").toInt());
+    retour.setSurname(valeur(q, "nom_p").toString());
+    retour.setName(valeur(q, "prenom_p").toString());
+    retour.setSex(valeur(q, "sexe_p").toString());
+    retour.setBornDate(valeur(q, "ddn_p").toDate());
+    retour.setPhone(valeur(q, "telephone_p").toString());
+    retour.setPostalCode(valeur(q, "codepostal_p").toString());
+    retour.setAddress(valeur(q, "adresse_p").toString());
+    retour.setTown(valeur(q, "ville_p").toString());
+    retour.setSsNum(valeur(q, "nss_p").toString());
+    retour.setAcceptSendData(valeur(q, "autorisation_p").toBool());
 //    retour.setArchive(valeur(q, "archive").toBool());
     return retour;
 }
@@ -128,24 +128,24 @@ Client ClientDatabase::getClient(const int pId) {
 int ClientDatabase::addClient(const Client& pClient) {
     QSqlQuery q;
 
-//    q.prepare("insert into Client "
-//              "(nom_p, prenom_p, sexe_p, "
-//              "telephone_p, ddn_p, "
-//              "adresse_p, codepostal_p, ville_p, autorisation_p, nss_p, archive) "
-//              "values (:surname, :name, "
-//              ":sex, :phone, :bornDate, :address, "
-//              ":postalcode, :town, :acceptSendData, :ssNum, 0)");
+    q.prepare("insert into Client "
+              "(nom_p, prenom_p, sexe_p, "
+              "telephone_p, ddn_p, "
+              "adresse_p, codepostal_p, ville_p, autorisation_p, nss_p, archive) "
+              "values (:surname, :name, "
+              ":sex, :phone, :bornDate, :address, "
+              ":postalcode, :town, :acceptSendData, :ssNum, 0)");
 
-//    q.bindValue(":name", pClient.getName());
-//    q.bindValue(":surname", pClient.getSurname());
-//    q.bindValue(":sex", pClient.getSex());
-//    q.bindValue(":bornDate", pClient.getBornDate().toString("yyyy-MM-dd"));
-//    q.bindValue(":phone", pClient.getPhone());
-//    q.bindValue(":address", pClient.getAddress());
-//    q.bindValue(":postalcode", pClient.getPostalCode());
-//    q.bindValue(":town", pClient.getTown());
-//    q.bindValue(":acceptSendData", (pClient.getAcceptSendData() ? 1 : 0));
-//    q.bindValue(":ssNum", pClient.getSsNum());
+    q.bindValue(":name", pClient.getName());
+    q.bindValue(":surname", pClient.getSurname());
+    q.bindValue(":sex", pClient.getSex());
+    q.bindValue(":bornDate", pClient.getBornDate().toString("yyyy-MM-dd"));
+    q.bindValue(":phone", pClient.getPhone());
+    q.bindValue(":address", pClient.getAddress());
+    q.bindValue(":postalcode", pClient.getPostalCode());
+    q.bindValue(":town", pClient.getTown());
+    q.bindValue(":acceptSendData", (pClient.getAcceptSendData() ? 1 : 0));
+    q.bindValue(":ssNum", pClient.getSsNum());
 
     if(!q.exec()) {
         throw new DbException("Impossible d'ajouter le client", "BddClient::addClient", derniereErreur(q), 1.3);
@@ -185,12 +185,11 @@ int ClientDatabase::getNbClients() {
 
     q.prepare("select count(id_p) as nb_p from Client");
     if(!q.exec()) {
-        Log::getInstance(WARNING) << "BddClient::getNbClients";
-        Log::getInstance(WARNING) << derniereErreur(q);
+        throw new DbException*("...");
     }
     q.next();
 
-    return valeur(q, "nb_p").toInt();
+    return value(q, "nb_p").toInt();
 }
 
 int ClientDatabase::getNbWomen() {
