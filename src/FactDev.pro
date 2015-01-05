@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +13,18 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+# Database files
+database/database.cpp \
+# Exceptions
+exceptions/dbexception.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+log.h\
+# Database files
+database/database.h \
+#Exceptions
+exceptions/dbexception.h
+
 
 FORMS    += mainwindow.ui
