@@ -24,7 +24,8 @@ SOURCES += main.cpp\
         dialogs/dialogaddcustomer.cpp \
         models/customer.cpp \
     models/project.cpp \
-    models/billing.cpp
+    models/billing.cpp \
+    models/contributory.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
         dialogs/dialogaddcustomer.h \
     models/project.h \
     models/idatabasemodel.h \
-    models/billing.h
+    models/billing.h \
+    models/contributory.h
 
 FORMS    += mainwindow.ui \
         dialogaddcustomer.ui
