@@ -1,6 +1,6 @@
 DROP TABLE Users;
-DROP TABLE FacturationProject;
-DROP TABLE Facturation;
-DROP TABLE Prestation;
+DROP TABLE BillingProject;
+DROP TABLE Billing;
+DROP TABLE Contributory;
 DROP TABLE Project;
-DROP TABLE Client;
+DROP TABLE Customers;
