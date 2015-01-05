@@ -10,9 +10,11 @@
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlRecord>
 
+#include "parameters.h"
+
 // SINGLETON
 Database* Database::_instance = 0;
-bool Database::_bdInstance = 0;
+bool Database::_dbInstance = 0;
 bool Database::isOpen = false;
 
 
@@ -61,12 +63,9 @@ Database::Database() throw(DbException*) {
 Database::~Database() {
     mDatabase.close();
     _instance = 0;
-    _bdInstance = 0;
- /*   for(QList<Database*>::Iterator it = _instances.begin() ; it!=_instances.end() ; ++it) {
-        delete *it;
-    }
+    _dbInstance = 0;
 
-    delete _instance;*/
+    delete _instance;
 }
 
 
@@ -77,22 +76,22 @@ void Database::open() {
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
 
-    _settings = new QSettings("BilanMDT", "Antoine de Roquemaurel");
+    _settings = new QSettings("FACT", "FactDev");
     qDebug() << _settings->value("dbPath").toString();
 
     if(_settings->value("dbPath").toString() == "") {
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
     }
-    if(!QFile::exists(_settings->value("dbPath").toString()+"/database_0.5.db")) {
+    if(!QFile::exists(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME)) {
         creerStructure = true;
         _settings->setValue("version", 0);
     }
-    Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/database_0.5.db");
+    Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
 
     if(!Database::mDatabase.open()) {
         mDatabase.close();
         mDatabase = QSqlDatabase::database();
-        Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/database_0.5.db");
+        Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
         if(!Database::mDatabase.open()) {
             throw new DbException("Impossible d'ouvrir la base de données", "Database::Database", "Impossible d'ouvrir la base de données", 22.1);
             exit(22);
@@ -119,28 +118,28 @@ void Database::open() {
  * @brief Database::jeuDEssai Create
  */
 inline void Database::jeuDEssai() {
-    executerFichier(QCoreApplication::applicationDirPath()+"/jeuEssai.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/jeuEssai.sql");
 }
 
 /**
  * @brief Database::viderDatabase Clear database
  */
-inline void Database::viderDatabase() {
-    executerFichier(QCoreApplication::applicationDirPath()+"/viderDatabase.sql");
+inline void Database::cleanDatabase() {
+    executeFile(QCoreApplication::applicationDirPath()+"/clearDatabase.sql");
 }
 
 /**
  * @brief Database::creerDatabase Create a new database
  */
 inline void Database::   creerDatabase() {
-    executerFichier(QCoreApplication::applicationDirPath()+"/creation.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/createTables.sql");
 }
 
 /**
  * @brief Database::executerFichier Exeute a specified file
  * @param pNom File name
  */
-void Database::executerFichier(QString pNom) {
+void Database::executeFile(QString pNom) {
     QSqlQuery q;
 
     Log::instance() << "Execution de " + pNom;
@@ -148,16 +147,16 @@ void Database::executerFichier(QString pNom) {
     QFile file(pNom);
     file.open(QIODevice::ReadOnly);
 
-    QStringList requetes = QString(file.readAll()).split(";", QString::SkipEmptyParts);
-    QStringListIterator i(requetes);
+    QStringList querys = QString(file.readAll()).split(";", QString::SkipEmptyParts);
+    QStringListIterator i(querys);
     while(i.hasNext()) {
-        QString requete = i.next();
-        // Verifier que la requete n'est pas vide
-        if(requete.contains(QRegExp("[a-zA-Z]"))) {
-            q.prepare(requete);
+        QString query = i.next();
+        // Check if query is not empty
+        if(query.contains(QRegExp("[a-zA-Z]"))) {
+            q.prepare(query);
 
             if(!q.exec()) {
-                Log::instance(WARNING) << derniereErreur(q);
+                Log::instance(WARNING) << lastError(q);
             }
         }
     }
@@ -174,7 +173,7 @@ void Database::openTransaction()
     q.prepare("BEGIN TRANSACTION");
     if(!q.exec()) {
         Log::instance(WARNING) << "Erreur d'ouverture de la transaction";
-        Log::instance(WARNING) << derniereErreur(q);
+        Log::instance(WARNING) << lastError(q);
 
         throw std::exception();
     }
@@ -191,7 +190,7 @@ void Database::closeTransaction()
 
     if(!q.exec()) {
         Log::instance(WARNING) << "Erreur de fermeture de la transaction";
-        Log::instance(WARNING) << derniereErreur(q);
+        Log::instance(WARNING) << lastError(q);
     }
 
 }
@@ -201,9 +200,9 @@ void Database::closeTransaction()
  * @param q Query
  * @return error message
  */
-inline QString Database::derniereErreur(const QSqlQuery& q) {
+inline QString Database::lastError(const QSqlQuery& q) {
     QString ret = "[ ERREUR  ] " + q.lastError().text()+"\n"
-                +"[ REQUETE ] " + q.lastQuery() +"\n";
+                +"[ query ] " + q.lastQuery() +"\n";
 
     return ret;
 }

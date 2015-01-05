@@ -16,10 +16,10 @@
 class Database {
 public:
     static Database* instance() throw(DbException*);
-    QString  derniereErreur(const QSqlQuery& q);
+    QString  lastError(const QSqlQuery& q);
     void jeuDEssai();
-    void viderDatabase();
-    void executerFichier(QString pNom);
+    void cleanDatabase();
+    void executeFile(QString pNom);
     void openTransaction();
     void closeTransaction();
 
@@ -31,7 +31,7 @@ public:
 protected:
     Database()throw(DbException*);
     static Database* _instance;
-    static bool _bdInstance;
+    static bool _dbInstance;
     QVariant value(const QSqlQuery& q, const QString& champ);
     QSettings* _settings;
 

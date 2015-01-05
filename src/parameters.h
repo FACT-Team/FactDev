@@ -8,7 +8,7 @@ class Parameters
 public:
     Parameters();
 
-    static const QString WORKSPACE_FOLDER;
+    static const QString DB_FILENAME;
     static const double VERSION;
 };
 
