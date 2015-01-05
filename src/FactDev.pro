@@ -14,22 +14,27 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-log.cpp\
-# Database files
-database/database.cpp \
-# Exceptions
-exceptions/dbexception.cpp \
-    models/client.cpp \
-    parameters.cpp
+        log.cpp\
+        # Database files
+        database/database.cpp \
+        # Exceptions
+        exceptions/dbexception.cpp \
+        models/client.cpp \
+        parameters.cpp \
+        dialogaddclient.cpp
 
 HEADERS  += mainwindow.h \
-log.h\
-# Database files
-database/database.h \
-#Exceptions
-exceptions/dbexception.h \
-    models/client.h \
-    parameters.h
+        log.h\
+        dialogaddclient.h \
+        # Database files
+        database/database.h \
+        #Exceptions
+        exceptions/dbexception.h \
+        models/client.h \
+        parameters.h
 
+FORMS    += mainwindow.ui \
+        dialogaddclient.ui
 
-FORMS    += mainwindow.ui
+RESOURCES += \
+        Ressources.qrc
