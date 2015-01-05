@@ -22,7 +22,9 @@ SOURCES += main.cpp\
         parameters.cpp \
         database/customerdatabase.cpp \
         dialogs/dialogaddcustomer.cpp \
-        models/customer.cpp
+        models/customer.cpp \
+    models/project.cpp \
+    models/billing.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -33,7 +35,10 @@ HEADERS  += mainwindow.h \
         parameters.h \
         database/customerdatabase.h \
         models/customer.h \
-        dialogs/dialogaddcustomer.h
+        dialogs/dialogaddcustomer.h \
+    models/project.h \
+    models/idatabasemodel.h \
+    models/billing.h
 
 FORMS    += mainwindow.ui \
         dialogaddcustomer.ui
