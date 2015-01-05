@@ -3,8 +3,10 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QSettings>
+#include <QString>
 
 #include "log.h"
+#include "parameters.h"
 Log* Log::_instance = 0;
 TypeLog Log::_type = INFO;
 
@@ -13,7 +15,7 @@ TypeLog Log::_type = INFO;
  */
 Log::Log() {
     QSettings settings("BilanMDT", "Antoine de Roquemaurel");
-    _file = new QFile(settings.value("workspace").toString()+"/"+Util::WORKSPACE_FOLDER+"/"+"/message.log");
+    _file = new QFile(settings.value("workspace").toString()+"/"+"/message.log");
     bool exists = _file->exists();
     _file->open(QIODevice::Append | QIODevice::Text);
     if(!exists) {
@@ -71,5 +73,5 @@ void Log::write(const QString text) {
  * @return The head instruction : date Version logType
  */
 inline QString Log::head() {
-    return"["+QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss")+" V"+VERSION_STRING+" "+typeLog2String(_type)+"] ";
+    return"["+QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss")+" V"+QString::number(Parameters::VERSION)+" "+typeLog2String(_type)+"] ";
 }

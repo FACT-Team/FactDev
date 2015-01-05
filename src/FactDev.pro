@@ -19,7 +19,8 @@ log.cpp\
 database/database.cpp \
 # Exceptions
 exceptions/dbexception.cpp \
-    models/client.cpp
+    models/client.cpp \
+    parameters.cpp
 
 HEADERS  += mainwindow.h \
 log.h\
@@ -27,7 +28,8 @@ log.h\
 database/database.h \
 #Exceptions
 exceptions/dbexception.h \
-    models/client.h
+    models/client.h \
+    parameters.h
 
 
 FORMS    += mainwindow.ui
