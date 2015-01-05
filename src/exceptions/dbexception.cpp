@@ -19,8 +19,8 @@ void DbException::popupMessage(QWidget* parent)
  * @param errorCode Code of error
  */
 DbException::DbException(const QString userError, const QString fctName, const QString logError, float errorCode) {
-    Log::getInstance(ERREUR) << "["+QString::number(errorCode)+"] Erreur dans la fonction " + fctName;
-    Log::getInstance(ERREUR) << logError;
+    Log::instance(ERREUR) << "["+QString::number(errorCode)+"] Erreur dans la fonction " + fctName;
+    Log::instance(ERREUR) << logError;
 
     _userError = "<span style=\"font-size:10pt\">"+userError+"</span>";
     _userError += "<br/><br/><span style=\"font-size:7.3pt\">Nous vous conseillons de vous rapprocher auprès de l'association avec le code d'erreur inscrit ci-dessous<br/>"

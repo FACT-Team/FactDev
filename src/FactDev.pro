@@ -17,14 +17,16 @@ SOURCES += main.cpp\
 # Database files
 database/database.cpp \
 # Exceptions
-exceptions/dbexception.cpp
+exceptions/dbexception.cpp \
+    models/client.cpp
 
 HEADERS  += mainwindow.h \
 log.h\
 # Database files
 database/database.h \
 #Exceptions
-exceptions/dbexception.h
+exceptions/dbexception.h \
+    models/client.h
 
 
 FORMS    += mainwindow.ui
