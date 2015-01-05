@@ -14,6 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
+log.cpp\
 # Database files
 database/database.cpp \
 # Exceptions
