@@ -49,5 +49,5 @@ RESOURCES += \
         Ressources.qrc
 
 OTHER_FILES += \
-        sql/createtable.sql \
-        sql/removetable.sql
+        sql/removetable.sql \
+    sql/createtables.sql

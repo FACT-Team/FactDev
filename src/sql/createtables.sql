@@ -1,6 +1,6 @@
 CREATE TABLE Customer
 (
-    idCustomer INT PRIMARY KEY,
+    idCustomer INTEGER PRIMARY KEY AUTOINCREMENT,
     firstnameReferent VARCHAR(64),
     lastnameReferent VARCHAR(64),
     company VARCHAR(64),
@@ -66,3 +66,5 @@ CREATE TABLE User
     phone VARCHAR(16),
     NoSiret INT
 );
+
+CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC);

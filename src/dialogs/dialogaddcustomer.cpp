@@ -1,5 +1,5 @@
 #include "dialogs/dialogaddcustomer.h"
-#include "ui_dialogaddclient.h"
+#include "ui_dialogaddcustomer.h"
 
 DialogAddClient::DialogAddClient(QWidget *parent) :
     QDialog(parent),
