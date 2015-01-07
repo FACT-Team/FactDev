@@ -28,6 +28,7 @@ public:
     ~Database();
     void setDatabase(QSqlDatabase sql);
 
+    void createDatabase();
 protected:
     Database()throw(DbException*);
     static Database* _instance;
@@ -39,11 +40,6 @@ protected:
     QList<Database*> _instances;
 
     static bool isOpen;
-
-
-private:
-    void creerDatabase();
-
 
 };
 

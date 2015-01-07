@@ -106,7 +106,7 @@ void Database::open() {
     query.exec("PRAGMA default_cache_size=10000");
     query.exec("PRAGMA locking_mode=EXCLUSIVE");
     if(creerStructure) {
-        creerDatabase();
+        createDatabase();
 
         #ifndef QT_NO_DEBUG
             jeuDEssai();
