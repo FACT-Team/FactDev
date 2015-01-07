@@ -109,6 +109,16 @@ void Customer::setFax(const QString &fax)
 {
     _fax = fax;
 }
+QString Customer::getCountry() const
+{
+    return _country;
+}
+
+void Customer::setCountry(const QString &country)
+{
+    _country = country;
+}
+
 
 
 

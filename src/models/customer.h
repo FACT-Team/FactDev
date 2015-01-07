@@ -29,6 +29,9 @@ public:
     QString getCity() const;
     void setCity(const QString &getCity);
 
+    QString getCountry() const;
+    void setCountry(const QString &country);
+
     QString getEmail() const;
     void setEmail(const QString &getEmail);
 
@@ -41,6 +44,8 @@ public:
     QString getFax() const;
     void setFax(const QString &getFax);
 
+
+
 private:
     int _id;
     QString _firstnameReferent;
@@ -49,6 +54,7 @@ private:
     QString _address;
     QString _postalCode;
     QString _city;
+    QString _country;
     QString _email;
     QString _mobilePhone;
     QString _phone;

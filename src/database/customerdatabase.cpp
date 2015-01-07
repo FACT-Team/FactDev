@@ -88,58 +88,62 @@ Customer CustomerDatabase::getCustomer(const int pId) {
 
 int CustomerDatabase::addCustomer(const Customer& pCustomer) {
     // TODO implement me !
-//    QSqlQuery q;
+    QSqlQuery q;
 
-//    q.prepare("insert into Customer "
-//              "(nom_p, prenom_p, sexe_p, "
-//              "telephone_p, ddn_p, "
-//              "adresse_p, codepostal_p, ville_p, autorisation_p, nss_p, archive) "
-//              "values (:surname, :name, "
-//              ":sex, :phone, :bornDate, :address, "
-//              ":postalcode, :town, :acceptSendData, :ssNum, 0)");
+    q.prepare(
+        "INSERT INTO Customer "
+        "(firstnameReferent, lastnameReferent, company, address, "
+        "postalCode, city, country, email, mobilePhone, phone, fax)"
+        "VALUES"
+        "(:firstnameReferent, :lastnameReferent, :company, :address, "
+        ":postalCode, :city, :country, :email, :mobilePhone, :phone, :fax)"
+    );
 
-//    q.bindValue(":name", pCustomer.getName());
-//    q.bindValue(":surname", pCustomer.getSurname());
-//    q.bindValue(":sex", pCustomer.getSex());
-//    q.bindValue(":bornDate", pCustomer.getBornDate().toString("yyyy-MM-dd"));
-//    q.bindValue(":phone", pCustomer.getPhone());
-//    q.bindValue(":address", pCustomer.getAddress());
-//    q.bindValue(":postalcode", pCustomer.getPostalCode());
-//    q.bindValue(":town", pCustomer.getTown());
-//    q.bindValue(":acceptSendData", (pCustomer.getAcceptSendData() ? 1 : 0));
-//    q.bindValue(":ssNum", pCustomer.getSsNum());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":company", pCustomer.getCompany());
+    q.bindValue(":address", pCustomer.getAddress());
+    q.bindValue(":postalCode", pCustomer.getPostalCode());
+    q.bindValue(":city", pCustomer.getCity());
+    q.bindValue(":country", pCustomer.getCountry());
+    q.bindValue(":email", pCustomer.getEmail());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
+    q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":fax", pCustomer.getFax());
 
 //    if(!q.exec()) {
 //        throw new DbException("Impossible d'ajouter le Customer", "BddCustomer::addCustomer", derniereErreur(q), 1.3);
 //    }
 
-//    return q.lastInsertId().toInt();
+    return q.lastInsertId().toInt();
 }
 
 void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
     // TODO implement me !
     QSqlQuery q;
-//    q.prepare("update Customer set "
-//              "prenom_p=:name, nom_p=:surname, sexe_p=:sex, "
-//              "telephone_p=:phone, ddn_p=:bornDate, "
-//              "adresse_p=:address, codepostal_p=:postalcode, ville_p=:town, "
-//              "autorisation_p=:acceptSendData, nss_p=:ssNum, archive=:archive "
-//              "where id_p=:id");
-//    q.bindValue(":id", pCustomer.getId());
-//    q.bindValue(":name", pCustomer.getName());
-//    q.bindValue(":surname", pCustomer.getSurname());
-//    q.bindValue(":sex", pCustomer.getSex());
-//    q.bindValue(":bornDate", pCustomer.getBornDate().toString("yyyy-MM-dd"));
-//    q.bindValue(":phone", pCustomer.getPhone());
-//    q.bindValue(":address", pCustomer.getAddress());
-//    q.bindValue(":postalcode", pCustomer.getPostalCode());
-//    q.bindValue(":town", pCustomer.getTown());
-//    q.bindValue(":acceptSendData", (pCustomer.getAcceptSendData() ? 1 : 0));
-//    q.bindValue(":ssNum", pCustomer.getSsNum());
-//    q.bindValue(":archive", pCustomer.isArchive() ? 1 : 0);
-    if(!q.exec()) {
-        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
-    }
+    q.prepare(
+        "UPDATE Customer SET "
+        "firstnameReferent=:firstnameReferent, lastnameReferent=:lastnameReferent,"
+        "company=:company, address=:address, postalCode=:postalCode, city:=city,"
+        "country:=country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
+        "fax=:fax"
+        "WHERE idCustomer=:idCustomer");
+    q.bindValue(":idCustomer", pCustomer.getId());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":company", pCustomer.getCompany();
+    q.bindValue(":address", pCustomer.getAddress());
+    q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":postalCode", pCustomer.getPostalCode());
+    q.bindValue(":city", pCustomer.getCity());
+    q.bindValue(":country", pCustomer.getCountry());
+    q.bindValue(":email", (pCustomer.getEmail()));
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
+    q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":fax", pCustomer.getFax());
+//    if(!q.exec()) {
+//        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
+//    }
 
 }
 
