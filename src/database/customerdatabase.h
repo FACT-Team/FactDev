@@ -13,10 +13,11 @@ public:
     static CustomerDatabase* getInstance()throw(DbException*);
 
     QStandardItemModel* getCustomersTable() throw(DbException*);
-    QStandardItemModel* getCustomerList(QString pSearch, bool);
     Customer getCustomer(const int pId);
     int addCustomer(const Customer&);
     void updateCustomer(const Customer&);
+    void removeCustomer(const int pId);
+
     int getNbCustomers();
     int getNbWomen();
     int getNbMen();

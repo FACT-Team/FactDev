@@ -20,6 +20,8 @@ CustomerDatabase*CustomerDatabase::getInstance()throw(DbException*)
 
 
 QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
+    // TODO implement me
+
 //    QStandardItemModel* retour = new QStandardItemModel();
 
 //        retour->setColumnCount(5);
@@ -56,49 +58,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
 //    return retour;
 }
 
-QStandardItemModel* CustomerDatabase::getCustomerList(QString pSearch, bool archive) {
-    QStandardItemModel* retour = new QStandardItemModel();
-
-//        retour->setColumnCount(5);
-//        retour->setHorizontalHeaderLabels(
-//                    QStringList()
-//                    << qApp->tr("Id")
-//                    << qApp->tr("Nom")
-//                    << qApp->tr("Prénom")
-//                    << qApp->tr("Date naissance")
-//                    << qApp->tr("Téléphone")
-//                    );
-
-//    QSqlQuery q;
-
-//    q.prepare("SELECT id_p, nom_p, prenom_p, ddn_p,telephone_p "
-//              "FROM Customer WHERE UPPER(nom_p) LIKE :pSearch AND (archive=0 OR archive=:archive) ORDER BY nom_p, prenom_p");
-//    q.bindValue(":pSearch", '%'+pSearch.toUpper()+'%');
-//    q.bindValue(":archive", archive);
-
-
-//    if(!q.exec()) {
-//        throw new DbException("Impossible de lister les Customers", "BddCustomer::getListeCustomers", derniereErreur(q), 1.2);
-//    }
-//    while(q.next()) {
-//        QList<QStandardItem*> ligne;
-
-//        ligne << new QStandardItem(valeur(q, "id_p").toString());
-//        // Nom
-//        ligne << new QStandardItem(valeur(q, "nom_p").toString().toUpper());
-//        // Prénom
-//        ligne << new QStandardItem(Util::stringFirstUpper(valeur(q, "prenom_p").toString()));
-//        // ddn
-//        ligne << new QStandardItem(valeur(q, "ddn_p").toDate().toString("dd/MM/yyyy"));
-
-//        ligne << new QStandardItem(valeur(q, "telephone_p").toString());
-
-//        retour->appendRow(ligne);
-//    }
-    return retour;
-}
-
 Customer CustomerDatabase::getCustomer(const int pId) {
+    // TODO implement me !
 //    QSqlQuery q;
 //    Customer retour;
 
@@ -126,6 +87,7 @@ Customer CustomerDatabase::getCustomer(const int pId) {
 }
 
 int CustomerDatabase::addCustomer(const Customer& pCustomer) {
+    // TODO implement me !
 //    QSqlQuery q;
 
 //    q.prepare("insert into Customer "
@@ -155,6 +117,7 @@ int CustomerDatabase::addCustomer(const Customer& pCustomer) {
 }
 
 void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
+    // TODO implement me !
     QSqlQuery q;
 //    q.prepare("update Customer set "
 //              "prenom_p=:name, nom_p=:surname, sexe_p=:sex, "
@@ -178,6 +141,11 @@ void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
         throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
     }
 
+}
+
+void CustomerDatabase::removeCustomer(const int pId)
+{
+    // TODO implement me !
 }
 
 int CustomerDatabase::getNbCustomers() {
