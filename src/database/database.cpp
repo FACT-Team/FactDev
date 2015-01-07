@@ -118,21 +118,21 @@ void Database::open() {
  * @brief Database::jeuDEssai Create
  */
 inline void Database::jeuDEssai() {
-    executeFile(QCoreApplication::applicationDirPath()+"/jeuEssai.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/jeuEssai.sql");
 }
 
 /**
  * @brief Database::viderDatabase Clear database
  */
 inline void Database::cleanDatabase() {
-    executeFile(QCoreApplication::applicationDirPath()+"/clearDatabase.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/clearDatabase.sql");
 }
 
 /**
  * @brief Database::creerDatabase Create a new database
  */
-inline void Database::   creerDatabase() {
-    executeFile(QCoreApplication::applicationDirPath()+"/createTables.sql");
+inline void Database::createDatabase() {
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/createTables.sql");
 }
 
 /**
