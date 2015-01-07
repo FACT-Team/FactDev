@@ -1,11 +1,15 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <QString>
+#include "models/idatabasemodel.h"
 
-class Customer
+class Customer : public IDatabaseModel
 {
 public:
     Customer();
+    void commit();
+    void hydrat(int getId);
+    void remove();
 
     QString getFirstnameReferent() const;
     void setFirstnameReferent(const QString &getFirstnameReferent);

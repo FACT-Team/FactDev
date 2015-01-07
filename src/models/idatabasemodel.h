@@ -4,11 +4,16 @@
 class IDatabaseModel
 {
 public:
-    void virtual commit() = 0;
-    void virtual hydrat() = 0;
-    void virtual remove() = 0;
+    virtual void commit() = 0;
+    virtual void hydrat(int id) = 0;
+    virtual void remove() = 0;
+
+    int getId() const { return _id; }
+    void setId(int id) { _id = id; }
+
 protected:
-    int id;
+    int _id;
 };
 
 #endif // IDATABASEMODEL_H
+

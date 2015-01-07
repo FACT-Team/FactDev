@@ -3,6 +3,21 @@
 Customer::Customer()
 {
 }
+
+void Customer::commit()
+{
+
+}
+
+void Customer::hydrat(int id)
+{
+
+}
+
+void Customer::remove()
+{
+
+}
 QString Customer::getFirstnameReferent() const
 {
     return _firstnameReferent;

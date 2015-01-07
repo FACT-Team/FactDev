@@ -6,11 +6,14 @@
 #include <QDate>
 #include <QMap>
 #include <QList>
+
 class Billing:public IDatabaseModel
 {
 public:
     Billing();
-
+    void commit();
+    void hydrat(int getId);
+    void remove();
 
     QMap<Project, QList<Contributory> > getContributories() const;
     void setContributories(const QMap<Project, QList<Contributory> > &getContributories);

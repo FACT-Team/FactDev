@@ -3,6 +3,26 @@
 Billing::Billing()
 {
 }
+
+void Billing::commit()
+{
+
+}
+
+void Billing::hydrat(int id)
+{
+
+}
+
+void Billing::hydrat()
+{
+
+}
+
+void Billing::remove()
+{
+
+}
 QMap<Project, QList<Contributory> > Billing::getContributories() const
 {
     return _contributories;

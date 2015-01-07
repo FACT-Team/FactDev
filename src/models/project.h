@@ -1,11 +1,15 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 #include <QString>
+#include "models/idatabasemodel.h"
 
-class Project
+class Project : public IDatabaseModel
 {
 public:
     Project();
+    void commit();
+    void hydrat(int getId);
+    void remove();
 
     QString getName() const;
     void setName(const QString &getName);

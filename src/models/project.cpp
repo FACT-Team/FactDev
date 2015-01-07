@@ -3,6 +3,21 @@
 Project::Project()
 {
 }
+
+void Project::commit()
+{
+
+}
+
+void Project::hydrat(int id)
+{
+
+}
+
+void Project::remove()
+{
+
+}
 QString Project::getName() const
 {
     return _name;
