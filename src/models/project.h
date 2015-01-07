@@ -16,15 +16,15 @@ public:
     double geDailyRate() const;
     void setDailyRate(double geDailyRate);
 
-    int getIdCustomer() const;
-    void setIdCustomer(int getIdCustomer);
+    int getCustomer() const;
+    void setCustomer(int getCustomer);
 
 private:
     int _id;
     QString _name;
     QString _description;
     double _dailyRate;
-    int _idCustomer;
+    Customer _customer;
 };
 
 #endif // PROJECT_H

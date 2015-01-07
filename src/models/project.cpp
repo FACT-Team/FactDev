@@ -30,14 +30,14 @@ void Project::setDailyRate(double dailyRate)
 {
     _dailyRate = dailyRate;
 }
-int Project::getIdCustomer() const
+int Project::getCustomer() const
 {
-    return _idCustomer;
+    return _customer;
 }
 
-void Project::setIdCustomer(int idCustomer)
+void Project::setCustomer(int customer)
 {
-    _idCustomer = idCustomer;
+    _customer = customer;
 }
 
 
