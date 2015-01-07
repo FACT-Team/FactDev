@@ -6,18 +6,19 @@ Project::Project()
 
 void Project::commit()
 {
-
+    // TODO implement me !
 }
 
 void Project::hydrat(int id)
 {
-
+    // TODO implement me !
 }
 
 void Project::remove()
 {
-
+    // TODO implement me !
 }
+
 QString Project::getName() const
 {
     return _name;
@@ -45,12 +46,12 @@ void Project::setDailyRate(double dailyRate)
 {
     _dailyRate = dailyRate;
 }
-int Project::getCustomer() const
+Customer Project::getCustomer() const
 {
     return _customer;
 }
 
-void Project::setCustomer(int customer)
+void Project::setCustomer(Customer customer)
 {
     _customer = customer;
 }

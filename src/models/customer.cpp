@@ -6,18 +6,19 @@ Customer::Customer()
 
 void Customer::commit()
 {
-
+    // TODO implement me !
 }
 
 void Customer::hydrat(int id)
 {
-
+    // TODO implement me !
 }
 
 void Customer::remove()
 {
-
+    // TODO implement me !
 }
+
 QString Customer::getFirstnameReferent() const
 {
     return _firstnameReferent;

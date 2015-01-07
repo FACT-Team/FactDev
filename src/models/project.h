@@ -2,6 +2,7 @@
 #define PROJECT_H
 #include <QString>
 #include "models/idatabasemodel.h"
+#include "models/customer.h"
 
 class Project : public IDatabaseModel
 {
@@ -20,8 +21,8 @@ public:
     double geDailyRate() const;
     void setDailyRate(double geDailyRate);
 
-    int getCustomer() const;
-    void setCustomer(int getCustomer);
+    Customer getCustomer() const;
+    void setCustomer(Customer getCustomer);
 
 private:
     int _id;

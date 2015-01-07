@@ -6,22 +6,17 @@ Billing::Billing()
 
 void Billing::commit()
 {
-
+    // TODO implement me !
 }
 
 void Billing::hydrat(int id)
 {
-
-}
-
-void Billing::hydrat()
-{
-
+    // TODO implement me !
 }
 
 void Billing::remove()
 {
-
+    // TODO implement me !
 }
 QMap<Project, QList<Contributory> > Billing::getContributories() const
 {
@@ -33,15 +28,6 @@ void Billing::setContributories(const QMap<Project, QList<Contributory> > &contr
     _contributories = contributories;
 }
 
-QMap<Project, QList<Contributory> > Billing::getContributories() const
-{
-    return getContributories;
-}
-
-void Billing::setContributories(const QMap<Project, QList<Contributory> > &value)
-{
-    getContributories = value;
-}
 QString Billing::getTitle() const
 {
     return _title;

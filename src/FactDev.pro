@@ -43,7 +43,7 @@ HEADERS  += mainwindow.h \
     models/contributory.h
 
 FORMS    += mainwindow.ui \
-        dialogaddcustomer.ui
+        dialogs/dialogaddcustomer.ui
 
 RESOURCES += \
         Ressources.qrc

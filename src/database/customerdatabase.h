@@ -2,22 +2,22 @@
 #define BDDPATIENT_H
 #include "database/database.h"
 #include "exceptions/dbexception.h"
-#include "models/client.h"
+#include "models/customer.h"
 
-class ClientDatabase : public Bdd
+class CustomerDatabase : public Database
 {
 private:
-    static ClientDatabase* _instance;
-    ClientDatabase()throw(DbException*) ;
+    static CustomerDatabase* _instance;
+    CustomerDatabase()throw(DbException*) ;
 public:
-    static ClientDatabase* getInstance()throw(DbException*);
+    static CustomerDatabase* getInstance()throw(DbException*);
 
-    QStandardItemModel* getClientsTable() throw(DbException*);
-    QStandardItemModel* getClientList(QString pSearch, bool);
-    Client getClient(const int pId);
-    int addClient(const Patient&);
-    void updateClient(const Patient&);
-    int getNbClients();
+    QStandardItemModel* getCustomersTable() throw(DbException*);
+    QStandardItemModel* getCustomerList(QString pSearch, bool);
+    Customer getCustomer(const int pId);
+    int addCustomer(const Customer&);
+    void updateCustomer(const Customer&);
+    int getNbCustomers();
     int getNbWomen();
     int getNbMen();
     int getNbUsageData();

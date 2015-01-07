@@ -1,4 +1,4 @@
-#include "dialogaddclient.h"
+#include "dialogs/dialogaddcustomer.h"
 #include "ui_dialogaddclient.h"
 
 DialogAddClient::DialogAddClient(QWidget *parent) :

@@ -1,11 +1,13 @@
 #ifndef BILLING_H
 #define BILLING_H
-#include "models/idatabasemodel.h"
-#include "models/project.h"
 #include <QString>
 #include <QDate>
 #include <QMap>
 #include <QList>
+
+#include "models/idatabasemodel.h"
+#include "models/project.h"
+#include "models/contributory.h"
 
 class Billing:public IDatabaseModel
 {
