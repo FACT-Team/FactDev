@@ -13,6 +13,13 @@ public:
     static CustomerDatabase* getInstance()throw(DbException*);
 
     QStandardItemModel* getCustomersTable() throw(DbException*);
+
+    /**
+     * @brief getCustomer
+     * @param pId customer id
+     * get informations about the customer identified by 'pId'
+     * @return the Customer
+     */
     Customer getCustomer(const int pId);
 
     /**

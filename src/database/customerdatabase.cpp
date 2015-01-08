@@ -60,30 +60,35 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
 
 Customer CustomerDatabase::getCustomer(const int pId) {
     // TODO implement me !
-//    QSqlQuery q;
-//    Customer retour;
+    QSqlQuery q;
+    Customer customer;
 
-//    q.prepare("SELECT * "
-//              "FROM Customer WHERE id_p = :pId");
-//    q.bindValue(":pId", pId);
+    q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
+    q.bindValue(":pId", pId);
 
-//    if(!q.exec()) {
-//        throw new DbException("Impossible d'obtenir les informations du Customer", "BddCustomer::getCustomer", derniereErreur(q), 1.5);
-//    }
-//    q.next();
-//    retour.setId(valeur(q, "id_p").toInt());
-//    retour.setSurname(valeur(q, "nom_p").toString());
-//    retour.setName(valeur(q, "prenom_p").toString());
-//    retour.setSex(valeur(q, "sexe_p").toString());
-//    retour.setBornDate(valeur(q, "ddn_p").toDate());
-//    retour.setPhone(valeur(q, "telephone_p").toString());
-//    retour.setPostalCode(valeur(q, "codepostal_p").toString());
-//    retour.setAddress(valeur(q, "adresse_p").toString());
-//    retour.setTown(valeur(q, "ville_p").toString());
-//    retour.setSsNum(valeur(q, "nss_p").toString());
-//    retour.setAcceptSendData(valeur(q, "autorisation_p").toBool());
-////    retour.setArchive(valeur(q, "archive").toBool());
-//    return retour;
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'ajouter le Customer",
+            "BddCustomer::getCustomer",
+            lastError(q),
+            1.2);
+    }
+    q.next();
+
+    customer.setId(value(q, "pId").toInt());
+    customer.setFirstnameReferent(value(q,"firstnameReferent").toString());
+    customer.setLastnameReferent(value(q,"lastnameReferent").toString());
+    customer.setCompany(value(q,"company").toString());
+    customer.setAddress(value(q,"address").toString());
+    customer.setPostalCode(value(q,"postalCode").toString());
+    customer.setCity(value(q,"city").toString());
+    customer.setCountry(value(q,"country").toString());
+    customer.setEmail(value(q,"email").toString());
+    customer.setMobilePhone(value(q,"mobilePhone").toString());
+    customer.setPhone(value(q,"phone").toString());
+    customer.setFax(value(q,"fax").toString());
+
+    return customer;
 }
 
 
@@ -136,7 +141,7 @@ void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
     q.bindValue(":idCustomer", pCustomer.getId());
     q.bindValue(":firstname", pCustomer.getFirstnameReferent());
     q.bindValue(":lastname", pCustomer.getLastnameReferent());
-    q.bindValue(":company", pCustomer.getCompany();
+    q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
