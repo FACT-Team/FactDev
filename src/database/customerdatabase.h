@@ -14,13 +14,34 @@ public:
 
     QStandardItemModel* getCustomersTable() throw(DbException*);
     Customer getCustomer(const int pId);
+
+    /**
+     * @brief addCustomer
+     * add the customer 'pCustomer' to the database
+     * @return customer id
+     */
     int addCustomer(const Customer&);
+
+    /**
+     * @brief updateCustomer
+     * update informations about the customer 'pCustomer'
+     */
     void updateCustomer(const Customer&);
+
+    /**
+     * @brief removeCustomer
+     * @param pId customer id
+     * remove the customer with the id 'pId'
+     */
     void removeCustomer(const int pId);
 
+    /**
+     * @brief getNbCustomers
+     * Return the number of customers existing
+     * @return number of customers
+     */
     int getNbCustomers();
-    int getNbWomen();
-    int getNbMen();
+
     int getNbUsageData();
 };
 

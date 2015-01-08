@@ -86,8 +86,8 @@ Customer CustomerDatabase::getCustomer(const int pId) {
 //    return retour;
 }
 
+
 int CustomerDatabase::addCustomer(const Customer& pCustomer) {
-    // TODO implement me !
     QSqlQuery q;
 
     q.prepare(
@@ -111,26 +111,31 @@ int CustomerDatabase::addCustomer(const Customer& pCustomer) {
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":fax", pCustomer.getFax());
 
-//    if(!q.exec()) {
-//        throw new DbException("Impossible d'ajouter le Customer", "BddCustomer::addCustomer", derniereErreur(q), 1.3);
-//    }
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'ajouter le Customer",
+            "BddCustomer::addCustomer",
+            lastError(q),
+            1.3);
+    }
 
     return q.lastInsertId().toInt();
 }
 
 void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
-    // TODO implement me !
+
     QSqlQuery q;
     q.prepare(
         "UPDATE Customer SET "
-        "firstnameReferent=:firstnameReferent, lastnameReferent=:lastnameReferent,"
+        "firstnameReferent=:firstname, lastnameReferent=:lastname,"
         "company=:company, address=:address, postalCode=:postalCode, city:=city,"
         "country:=country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
         "fax=:fax"
         "WHERE idCustomer=:idCustomer");
+
     q.bindValue(":idCustomer", pCustomer.getId());
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":firstname", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastname", pCustomer.getLastnameReferent());
     q.bindValue(":company", pCustomer.getCompany();
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":phone", pCustomer.getPhone());
@@ -141,48 +146,48 @@ void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":fax", pCustomer.getFax());
-//    if(!q.exec()) {
-//        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
-//    }
+
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'éditer les informations du Customer",
+            "BddCustomer::updateCustomer",
+            lastError(q),
+            1.4);
+    }
 
 }
 
 void CustomerDatabase::removeCustomer(const int pId)
 {
-    // TODO implement me !
+    QSqlQuery q;
+    q.prepare(
+        "DELETE FROM Customer "
+        "WHERE idCustomer=:pId"
+        );
+
+    q.bindValue(":pId", pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'éditer les informations du Customer",
+            "BddCustomer::updateCustomer",
+            lastError(q),
+            1.5);
+    }
+
 }
 
 int CustomerDatabase::getNbCustomers() {
     QSqlQuery q;
 
-    q.prepare("select count(id_p) as nb_p from Customer");
+    q.prepare("SELECT count(idCustomer) AS nb_p FROM Customer");
+
     if(!q.exec()) {
-        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
-    }
-    q.next();
-
-    return value(q, "nb_p").toInt();
-}
-
-int CustomerDatabase::getNbWomen() {
-    QSqlQuery q;
-
-    q.prepare("select count(id_p) as nb_p from Customer where sexe_p = 'F' ");
-    if(!q.exec()) {
-        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
-    }
-    q.next();
-
-    return value(q, "nb_p").toInt();
-
-}
-
-int CustomerDatabase::getNbMen() {
-    QSqlQuery q;
-
-    q.prepare("select count(id_p) as nb_p from Customer where sexe_p = 'M' ");
-    if(!q.exec()) {
-        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
+        throw new DbException(
+            "Impossible d'éditer les informations du Customer",
+            "BddCustomer::updateCustomer",
+            lastError(q),
+            1.6);
     }
     q.next();
 
