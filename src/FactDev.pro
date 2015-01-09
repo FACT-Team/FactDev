@@ -25,7 +25,7 @@ SOURCES += main.cpp\
         models/customer.cpp \
     models/project.cpp \
     models/billing.cpp \
-    models/contributory.cpp
+    models/contributory.cpp \
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -40,7 +40,7 @@ HEADERS  += mainwindow.h \
     models/project.h \
     models/idatabasemodel.h \
     models/billing.h \
-    models/contributory.h
+    models/contributory.h \
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui
@@ -51,3 +51,4 @@ RESOURCES += \
 OTHER_FILES += \
         sql/removetable.sql \
     sql/createtables.sql
+
