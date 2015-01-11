@@ -12,8 +12,6 @@ HEADERS += \
     CustomTestPrinter.h
 
 SOURCES += \
-    test4.cpp \
     main.cpp \
-    test5.cpp \
-    test6.cpp \
-    CustomTestPrinter.cpp
+    CustomTestPrinter.cpp \
+    database/customerdatabasetest.cpp
