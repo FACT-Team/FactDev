@@ -3,17 +3,17 @@
 # Project created by QtCreator 2014-12-18T13:44:51
 #
 #-------------------------------------------------
+include(../defaults.pri)
 
 QT       += core gui sql printsupport
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+#greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = FactDev
-TEMPLATE = app
+TEMPLATE = lib
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
+SOURCES += mainwindow.cpp \
         log.cpp\
         # Database files
         database/database.cpp \
