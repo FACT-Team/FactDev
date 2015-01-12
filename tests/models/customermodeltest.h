@@ -13,7 +13,8 @@ private slots:
     void equals2();
     void notEquals();
 
-    void commit();
+    void commitUpdate();
+    void commitInsert();
     void hydrat();
     void remove();
 private:

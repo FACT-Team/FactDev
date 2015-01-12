@@ -7,6 +7,8 @@ class Customer : public IDatabaseModel
 {
 public:
     Customer();
+    Customer(int id);
+
     void commit();
     void hydrat(int getId);
     void remove();
@@ -47,7 +49,6 @@ public:
     bool operator ==(const Customer &c);
     bool operator !=(const Customer &c);
 private:
-    int _id;
     QString _firstnameReferent;
     QString _lastnameReferent;
     QString _company;

@@ -1,22 +1,43 @@
 #include "models/customer.h"
+#include "database/customerdatabase.h"
 
 Customer::Customer()
 {
+    _id = 0;
 }
 
-void Customer::commit()
-{
-    // TODO implement me !
+Customer::Customer(int id) {
+    hydrat(id);
+}
+
+void Customer::commit() {
+    if(_id == 0) {
+        _id = CustomerDatabase::instance()->addCustomer(*this);
+    } else {
+        CustomerDatabase::instance()->updateCustomer(*this);
+    }
 }
 
 void Customer::hydrat(int id)
 {
-    // TODO implement me !
+    Customer* c = CustomerDatabase::instance()->getCustomer(id);
+    _id = id;
+    _address = c->getAddress();
+    _city = c->getCity();
+    _company = c->getCompany();
+    _country = c->getCountry();
+    _email = c->getEmail();
+    _fax = c->getFax();
+    _firstnameReferent = c->getFirstnameReferent();
+    _lastnameReferent = c->getLastnameReferent();
+    _phone = c->getPhone();
+    _mobilePhone = c->getMobilePhone();
+    _postalCode = c->getPostalCode();
 }
 
 void Customer::remove()
 {
-    // TODO implement me !
+    CustomerDatabase::instance()->removeCustomer(_id);
 }
 bool Customer::operator==(const Customer &c)
 {

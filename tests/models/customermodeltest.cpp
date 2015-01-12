@@ -1,4 +1,5 @@
 #include "customermodeltest.h"
+#include "database/customerdatabase.h"
 
 CustomerModelTest::CustomerModelTest()
 {
@@ -44,20 +45,46 @@ void CustomerModelTest::notEquals()
     QVERIFY(c1 != c2);
 }
 
-void CustomerModelTest::commit()
+void CustomerModelTest::commitInsert()
 {
-    // TODO implements me!
-    QVERIFY(false);
+    c1.setId(0);
+    c1.commit();
+    Customer* c2 = CustomerDatabase::instance()->getCustomer(c1.getId());
+    QVERIFY(*c2 == c1);
 }
+
+void CustomerModelTest::commitUpdate()
+{
+    int id = CustomerDatabase::instance()->addCustomer(c1);
+    c1.setAddress("NEW ADDRESS");
+    c1.setId(id);
+    c1.commit();
+    Customer* c2 = CustomerDatabase::instance()->getCustomer(id);
+    QVERIFY(*c2 == c1);
+}
+
 
 void CustomerModelTest::hydrat()
 {
-    // TODO implements me!
-    QVERIFY(false);
+    Customer c2 = Customer(1);
+    c1.setFirstnameReferent("Jonah");
+    c1.setLastnameReferent("Boyle");
+    c1.setCompany("Sit Amet Ornare Consulting");
+    c1.setAddress("P.O. Box 592, 3094 Vel Rd.");
+    c1.setPostalCode("9924BN");
+    c1.setCity("Miraj");
+    c1.setCountry("Greece");
+    c1.setEmail("pede.ultrices@atnisiCum.org");
+    c1.setMobilePhone("(831) 972-1407");
+    c1.setPhone("(672) 742-3297");
+    c1.setFax("(535) 117-9670");
+
+    QVERIFY(c1 == c2);
 }
 
 void CustomerModelTest::remove()
 {
-    // TODO implements me!
-    QVERIFY(false);
+    c1.remove();
+    QVERIFY(CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
+
 }
