@@ -1,6 +1,6 @@
-#include <QtTest/QtTest>
-#include "testqstring.h"
-int main(void) {
-    TestQString* t = new TestQString();
-    QTest::qExec(t);
+#include "QTestRunner/testrunner.h"
+
+int main(int argc, char *argv[])
+{
+    return RUN_ALL_TESTS(argc, argv);
 }

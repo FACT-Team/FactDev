@@ -1,9 +1,10 @@
 include(../defaults.pri)
 
 QT       -= gui
-CONFIG += qtestlib
+QT       += testlib sql printsupport
 
 TARGET = tests
+QMAKE_CXXFLAGS += -std=c++11
 
 TEMPLATE = app
 
@@ -11,10 +12,16 @@ LIBS += -L../src -lFactDev
 
 HEADERS += \
     #CustomTestPrinter.h
-    testqstring.h
+database/customerdatabasetest.h \
+    QTestRunner/testadder.h \
+    QTestRunner/testrunner.h \
+    models/customermodeltest.h
 
 SOURCES += \
-    main.cpp \
+    QTestRunner/main.cpp \
+database/customerdatabasetest.cpp \
+    QTestRunner/testrunner.cpp \
+    QTestRunner/testadder.cpp \
+    models/customermodeltest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
-    testqstring.cpp
