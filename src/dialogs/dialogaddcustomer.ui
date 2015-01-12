@@ -144,7 +144,7 @@
         <string>Sauvegarder</string>
        </property>
        <property name="icon">
-        <iconset resource="Ressources.qrc">
+        <iconset resource="../Ressources.qrc">
          <normaloff>:/img/img/yes.png</normaloff>:/img/img/yes.png</iconset>
        </property>
       </widget>
@@ -155,7 +155,7 @@
         <string>Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="Ressources.qrc">
+        <iconset resource="../Ressources.qrc">
          <normaloff>:/img/img/cancel.png</normaloff>:/img/img/cancel.png</iconset>
        </property>
       </widget>
@@ -165,7 +165,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="Ressources.qrc"/>
+  <include location="../Ressources.qrc"/>
  </resources>
  <connections/>
 </ui>
