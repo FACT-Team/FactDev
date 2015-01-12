@@ -50,5 +50,6 @@ RESOURCES += \
 
 OTHER_FILES += \
         sql/removetable.sql \
-    sql/createtables.sql
+        sql/createtables.sql\
+        sql/tests.sql
 
