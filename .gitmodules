@@ -1,0 +1,3 @@
+[submodule "tests/QTestRunner"]
+	path = tests/QTestRunner
+	url = git@github.com:FACT-Team/QTestRunner.git

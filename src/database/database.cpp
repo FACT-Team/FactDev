@@ -77,11 +77,11 @@ void Database::open() {
     bool creerStructure = false;
 
     _settings = new QSettings("FACT", "FactDev");
-    qDebug() << _settings->value("dbPath").toString();
+//    qDebug() << _settings->value("dbPath").toString();
 
-    if(_settings->value("dbPath").toString() == "") {
+//    if(_settings->value("dbPath").toString() == "") {
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
-    }
+//    }
     if(!QFile::exists(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME)) {
         creerStructure = true;
         _settings->setValue("version", 0);
@@ -214,5 +214,6 @@ inline QString Database::lastError(const QSqlQuery& q) {
  * @return  The value
  */
 QVariant Database::value(const QSqlQuery& q, const QString& champ) {
-    return q.value(q.record().indexOf(champ));
+    return q.value(champ);
 }
+
