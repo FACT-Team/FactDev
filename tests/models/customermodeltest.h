@@ -12,6 +12,10 @@ private slots:
     void equals1();
     void equals2();
     void notEquals();
+
+    void commit();
+    void hydrat();
+    void remove();
 private:
     Customer c1;
     Customer c2;

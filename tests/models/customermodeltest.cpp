@@ -46,3 +46,21 @@ void CustomerModelTest::notEquals()
 {
     QVERIFY(c1 != c2);
 }
+
+void CustomerModelTest::commit()
+{
+    // TODO implements me!
+    QVERIFY(false);
+}
+
+void CustomerModelTest::hydrat()
+{
+    // TODO implements me!
+    QVERIFY(false);
+}
+
+void CustomerModelTest::remove()
+{
+    // TODO implements me!
+    QVERIFY(false);
+}
