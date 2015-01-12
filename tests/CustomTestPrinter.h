@@ -2,7 +2,7 @@
 #define CUSTOMTESTPRINTER_H
 
 #include <iostream>
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 namespace testing
 {
