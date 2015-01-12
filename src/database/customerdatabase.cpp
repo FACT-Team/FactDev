@@ -137,12 +137,13 @@ void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
     q.prepare(
         "UPDATE Customer SET "
         "firstnameReferent=:firstname, lastnameReferent=:lastname,"
-        "company=:company, address=:address, postalCode=:postalCode, city:=city,"
-        "country:=country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
-        "fax=:fax"
+        "company=:company, address=:address, postalCode=:postalCode, city=:city,"
+        "country=:country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
+        "fax=:fax "
         "WHERE idCustomer=:idCustomer");
 
     q.bindValue(":idCustomer", pCustomer.getId());
+
     q.bindValue(":firstname", pCustomer.getFirstnameReferent());
     q.bindValue(":lastname", pCustomer.getLastnameReferent());
     q.bindValue(":company", pCustomer.getCompany());

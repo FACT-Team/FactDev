@@ -32,6 +32,17 @@ void CustomerDatabaseTest::remove()
     QVERIFY(c2 == 0);
 }
 
+void CustomerDatabaseTest::update()
+{
+    _lastInsert = CustomerDatabase::instance()->addCustomer(c1);
+    c1.setId(_lastInsert);
+    c1.setAddress("New address");
+    c1.setFirstnameReferent("New name !");
+    CustomerDatabase::instance()->updateCustomer(c1);
+    Customer* c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
+    QVERIFY(*c2 == c1);
+}
+
 void CustomerDatabaseTest::selectCustomerNotFound()
 {
     QVERIFY(CustomerDatabase::instance()->getCustomer(321654) == NULL);

@@ -13,6 +13,7 @@ public:
 private slots:
     void insert();
     void remove();
+    void update();
     void selectCustomerNotFound();
     void selectCustomerFound();
 private:
