@@ -10,7 +10,7 @@ private:
     static CustomerDatabase* _instance;
     CustomerDatabase()throw(DbException*) ;
 public:
-    static CustomerDatabase* getInstance()throw(DbException*);
+    static CustomerDatabase* instance()throw(DbException*);
 
     QStandardItemModel* getCustomersTable() throw(DbException*);
 
@@ -20,7 +20,7 @@ public:
      * get informations about the customer identified by 'pId'
      * @return the Customer
      */
-    Customer getCustomer(const int pId);
+    Customer *getCustomer(const int pId);
 
     /**
      * @brief addCustomer
@@ -48,8 +48,6 @@ public:
      * @return number of customers
      */
     int getNbCustomers();
-
-    int getNbUsageData();
 };
 
 #endif // BDDPATIENT_H

@@ -9,7 +9,7 @@ _instances << this;
 // SINGLETON
 CustomerDatabase* CustomerDatabase::_instance = 0;
 
-CustomerDatabase*CustomerDatabase::getInstance()throw(DbException*)
+CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 {
     if (!_instance) {
         _instance = new CustomerDatabase();
@@ -58,10 +58,10 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
 //    return retour;
 }
 
-Customer CustomerDatabase::getCustomer(const int pId) {
+Customer* CustomerDatabase::getCustomer(const int pId) {
     // TODO implement me !
     QSqlQuery q;
-    Customer customer;
+    Customer* customer;
 
     q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -73,20 +73,24 @@ Customer CustomerDatabase::getCustomer(const int pId) {
             lastError(q),
             1.2);
     }
-    q.next();
 
-    customer.setId(value(q, "pId").toInt());
-    customer.setFirstnameReferent(value(q,"firstnameReferent").toString());
-    customer.setLastnameReferent(value(q,"lastnameReferent").toString());
-    customer.setCompany(value(q,"company").toString());
-    customer.setAddress(value(q,"address").toString());
-    customer.setPostalCode(value(q,"postalCode").toString());
-    customer.setCity(value(q,"city").toString());
-    customer.setCountry(value(q,"country").toString());
-    customer.setEmail(value(q,"email").toString());
-    customer.setMobilePhone(value(q,"mobilePhone").toString());
-    customer.setPhone(value(q,"phone").toString());
-    customer.setFax(value(q,"fax").toString());
+    if(q.first()) {
+        customer = new Customer();
+        customer->setId(value(q, "idCustomer").toInt());
+        customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
+        customer->setLastnameReferent(value(q,"lastnameReferent").toString());
+        customer->setCompany(value(q,"company").toString());
+        customer->setAddress(value(q,"address").toString());
+        customer->setPostalCode(value(q,"postalCode").toString());
+        customer->setCity(value(q,"city").toString());
+        customer->setCountry(value(q,"country").toString());
+        customer->setEmail(value(q,"email").toString());
+        customer->setMobilePhone(value(q,"mobilePhone").toString());
+        customer->setPhone(value(q,"phone").toString());
+        customer->setFax(value(q,"fax").toString());
+    } else {
+        customer = NULL;
+    }
 
     return customer;
 }
@@ -199,14 +203,3 @@ int CustomerDatabase::getNbCustomers() {
     return value(q, "nb_p").toInt();
 }
 
-int CustomerDatabase::getNbUsageData() {
-    QSqlQuery q;
-
-    q.prepare("select count(id_p) as nb_p from Customer where autorisation_p = 1 ");
-    if(!q.exec()) {
-        throw new DbException("Impossible d'éditer les informations du Customer", "BddCustomer::updateCustomer", lastError(q), 1.4);
-    }
-    q.next();
-
-    return value(q, "nb_p").toInt();
-}
