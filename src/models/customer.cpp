@@ -18,6 +18,20 @@ void Customer::remove()
 {
     // TODO implement me !
 }
+bool Customer::operator==(const Customer &c)
+{
+    // all fields are the same.
+    return getAddress() == c.getAddress() && getFirstnameReferent() == c.getFirstnameReferent() &&
+            getCity() == c.getCity() && getCompany() == c.getCompany() && getCountry() == c.getCountry() &&
+            getEmail() == c.getEmail() && getFax() == c.getFax() && getId() == c.getId() &&
+            getLastnameReferent() == c.getLastnameReferent() &&
+            getMobilePhone() == c.getMobilePhone() && getPhone() == c.getPhone() && getPostalCode() == c.getPostalCode();
+}
+
+bool Customer::operator!=(const Customer &c)
+{
+    return !(*this == c); // not equals
+}
 
 QString Customer::getFirstnameReferent() const
 {
@@ -109,6 +123,8 @@ void Customer::setFax(const QString &fax)
 {
     _fax = fax;
 }
+
+
 QString Customer::getCountry() const
 {
     return _country;

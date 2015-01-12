@@ -44,8 +44,8 @@ public:
     QString getFax() const;
     void setFax(const QString &getFax);
 
-
-
+    bool operator ==(const Customer &c);
+    bool operator !=(const Customer &c);
 private:
     int _id;
     QString _firstnameReferent;
