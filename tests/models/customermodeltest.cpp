@@ -2,9 +2,6 @@
 
 CustomerModelTest::CustomerModelTest()
 {
-    Customer c1;
-    Customer c2;
-
     c1.setAddress("Address");
     c1.setCity("Toulouse");
     c1.setCompany("Mine");
