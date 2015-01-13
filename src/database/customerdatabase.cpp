@@ -20,8 +20,6 @@ CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 
 
 QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
-    // TODO implement me
-
     QStandardItemModel* retour = new QStandardItemModel();
 
         retour->setColumnCount(5);
@@ -37,7 +35,7 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
 
 
     q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, phone, email "
-              "FROM Customer ORDER BY UPPER(firstnameReferent), UPPER(lastnameReferent)");
+              "FROM Customer ORDER BY UPPER(lastnameReferent), UPPER(firstnameReferent)");
 
     if(!q.exec()) {
         throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getCustomersTable", lastError(q), 1.1);
@@ -53,6 +51,42 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
         ligne << new QStandardItem(value(q, "email").toString());
 
         retour->appendRow(ligne);
+    }
+
+    return retour;
+}
+
+QStandardItemModel* CustomerDatabase::getCustomersTree() throw(DbException*) {
+    // TODO implement me
+
+    QStandardItemModel* retour = new QStandardItemModel();
+
+    QSqlQuery q;
+
+
+    q.prepare("SELECT * "
+              "FROM Customer ORDER BY UPPER(company), UPPER(lastnameReferent)");
+
+    if(!q.exec()) {
+        throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getCustomersTable", lastError(q), 1.1);
+    }
+
+    QStandardItem* item;
+
+    item = new QStandardItem("Tous les clients");
+
+    retour->appendRow(item);
+
+
+    while(q.next()) {
+        QStandardItem* item;
+
+        if(value(q,"company").isNull())
+            item = new QStandardItem(value(q, "lastnameReferent").toString()+" "+value(q,"firstnameReferent").toString());
+        else
+            item = new QStandardItem(value(q,"company").toString());
+
+        retour->appendRow(item);
     }
 
     return retour;
