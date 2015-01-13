@@ -49,8 +49,6 @@ FORMS    += mainwindow.ui \
     userdialog.ui
 
 RESOURCES += \
-        Ressources.qrc \
-    ressources.qrc \
     icons.qrc
 
 OTHER_FILES += \
