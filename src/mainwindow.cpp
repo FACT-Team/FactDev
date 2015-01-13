@@ -29,6 +29,20 @@ void MainWindow::addCustomer()
 
 }
 
+void MainWindow::deleteCustomer()
+{
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        qDebug() << "Delete";
+        QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
+        int pid = ui->tblCustomers->model()->data(ls,Qt::DisplayRole).toInt();
+        CustomerDatabase::instance()->removeCustomer(pid);
+        updateTable();
+        updateTree();
+    }
+
+
+}
+
 void MainWindow::updateTable()
 {
     ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable());

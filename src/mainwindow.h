@@ -17,6 +17,9 @@ public:
 
 public slots:
     void addCustomer();
+private slots:
+    void deleteCustomer();
+
 private:
     void updateTable();
     void updateTree();
