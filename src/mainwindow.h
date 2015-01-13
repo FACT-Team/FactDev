@@ -18,6 +18,7 @@ public:
 public slots:
     void addCustomer();
 private:
+    void updateTable();
     Ui::MainWindow *ui;
 };
 
