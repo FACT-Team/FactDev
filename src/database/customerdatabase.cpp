@@ -103,7 +103,7 @@ int CustomerDatabase::addCustomer(const Customer& pCustomer) {
         "INSERT INTO Customer "
         "(firstnameReferent, lastnameReferent, company, address, "
         "postalCode, city, country, email, mobilePhone, phone, fax)"
-        "VALUES"
+        " VALUES "
         "(:firstnameReferent, :lastnameReferent, :company, :address, "
         ":postalCode, :city, :country, :email, :mobilePhone, :phone, :fax)"
     );

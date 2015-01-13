@@ -2,7 +2,7 @@
 #define DIALOGADDCUSTOMER_H
 
 #include <QDialog>
-
+#include "models/customer.h"
 namespace Ui {
 class DialogAddCustomer;
 }
@@ -15,9 +15,12 @@ public:
     explicit DialogAddCustomer(int id=0, QWidget *parent = 0);
     ~DialogAddCustomer();
 
+    void fillFields(Customer custom);
     void accept();
     void reject();
 private:
+    int mode;
+    Customer _custom;
     Ui::DialogAddCustomer *ui;
 };
 

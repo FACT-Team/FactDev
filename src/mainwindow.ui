@@ -477,6 +477,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>771</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>764</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
