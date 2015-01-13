@@ -7,7 +7,7 @@ TARGET = tests
 QMAKE_CXXFLAGS += -std=c++11
 
 TEMPLATE = app
-
+CONFIG += c++11
 LIBS += -L../src -lFactDev
 
 HEADERS += \
