@@ -51,8 +51,6 @@ FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui
 
 RESOURCES += \
-        Ressources.qrc \
-    ressources.qrc \
     icons.qrc
 
 OTHER_FILES += \
