@@ -45,8 +45,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
         QList<QStandardItem*> ligne;
 
         ligne << new QStandardItem(value(q, "idCustomer").toString());
-        ligne << new QStandardItem(value(q, "firstNameReferent").toString().toUpper());
         ligne << new QStandardItem(value(q, "lastnameReferent").toString().toUpper());
+        ligne << new QStandardItem(value(q, "firstNameReferent").toString().toUpper());
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
 
