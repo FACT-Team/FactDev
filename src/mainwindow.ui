@@ -63,6 +63,9 @@
           </item>
           <item row="0" column="0" colspan="4">
            <widget class="QTableView" name="tblCustomers">
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::SingleSelection</enum>
             </property>
@@ -141,7 +144,11 @@
       <widget class="QLineEdit" name="lineEdit"/>
      </item>
      <item row="3" column="0">
-      <widget class="QTreeView" name="trCustomers"/>
+      <widget class="QTreeView" name="trCustomers">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
