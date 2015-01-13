@@ -1,22 +1,22 @@
 #ifndef USERDATADIALOG_H
 #define USERDATADIALOG_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
-class userdatadialog;
+class UserDataDialog;
 }
 
-class userdatadialog : public QWidget
+class UserDataDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit userdatadialog(QWidget *parent = 0);
-    ~userdatadialog();
+    explicit UserDataDialog(QWidget *parent = 0);
+    ~UserDataDialog();
 
 private:
-    Ui::userdatadialog *ui;
+    Ui::UserDataDialog *ui;
 };
 
 #endif // USERDATADIALOG_H

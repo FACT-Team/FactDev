@@ -1,14 +1,14 @@
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 
-userdatadialog::userdatadialog(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::userdatadialog)
+UserDataDialog::UserDataDialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::UserDataDialog)
 {
     ui->setupUi(this);
 }
 
-userdatadialog::~userdatadialog()
+UserDataDialog::~UserDataDialog()
 {
     delete ui;
 }
