@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1127</width>
-    <height>351</height>
+    <height>353</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,167 +23,25 @@
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="1" column="0">
-         <widget class="QTableWidget" name="tableWidget">
-          <property name="selectionMode">
-           <enum>QAbstractItemView::SingleSelection</enum>
-          </property>
-          <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectRows</enum>
-          </property>
-          <row>
-           <property name="text">
-            <string>0</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>1</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>2</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>3</string>
-           </property>
-          </row>
-          <row>
-           <property name="text">
-            <string>5</string>
-           </property>
-          </row>
-          <column>
-           <property name="text">
-            <string>Organisation</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Nom</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Prénom</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Téléphone</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Mail</string>
-           </property>
-          </column>
-          <item row="0" column="0">
-           <property name="text">
-            <string>A</string>
-           </property>
-          </item>
-          <item row="0" column="1">
-           <property name="text">
-            <string>a</string>
-           </property>
-          </item>
-          <item row="0" column="2">
-           <property name="text">
-            <string>g</string>
-           </property>
-          </item>
-          <item row="1" column="0">
-           <property name="text">
-            <string>C</string>
-           </property>
-          </item>
-          <item row="1" column="1">
-           <property name="text">
-            <string>c</string>
-           </property>
-          </item>
-          <item row="1" column="2">
-           <property name="text">
-            <string>i</string>
-           </property>
-          </item>
-          <item row="2" column="0">
-           <property name="text">
-            <string>D</string>
-           </property>
-          </item>
-          <item row="2" column="1">
-           <property name="text">
-            <string>d</string>
-           </property>
-          </item>
-          <item row="2" column="2">
-           <property name="text">
-            <string>j</string>
-           </property>
-          </item>
-          <item row="3" column="0">
-           <property name="text">
-            <string>E</string>
-           </property>
-          </item>
-          <item row="3" column="1">
-           <property name="text">
-            <string>e</string>
-           </property>
-          </item>
-          <item row="3" column="2">
-           <property name="text">
-            <string>k</string>
-           </property>
-          </item>
-          <item row="4" column="0">
-           <property name="text">
-            <string>F</string>
-           </property>
-          </item>
-          <item row="4" column="1">
-           <property name="text">
-            <string>f</string>
-           </property>
-          </item>
-          <item row="4" column="2">
-           <property name="text">
-            <string>l</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="2" column="0">
          <layout class="QGridLayout" name="gridLayout_12">
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item row="0" column="1">
+          <item row="1" column="1">
            <widget class="QPushButton" name="btnAddCustomer">
             <property name="text">
              <string>+</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="text">
-             <string>Edit</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
+          <item row="1" column="2">
            <widget class="QPushButton" name="pushButton_2">
             <property name="text">
              <string>-</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
+          <item row="1" column="0">
            <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -195,6 +53,16 @@
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="text">
+             <string>Edit</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="4">
+           <widget class="QTableView" name="tblCustomers"/>
           </item>
          </layout>
         </item>
@@ -211,7 +79,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">

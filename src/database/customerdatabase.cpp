@@ -22,40 +22,40 @@ CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
     // TODO implement me
 
-//    QStandardItemModel* retour = new QStandardItemModel();
+    QStandardItemModel* retour = new QStandardItemModel();
 
-//        retour->setColumnCount(5);
-//        retour->setHorizontalHeaderLabels(
-//                    QStringList()
-//                    << qApp->tr("Id")
-//                    << qApp->tr("Nom")
-//                    << qApp->tr("Prénom")
-//                    << qApp->tr("Date naissance")
-//                    << qApp->tr("Téléphone")
-//                    );
-//    QSqlQuery q;
+        retour->setColumnCount(5);
+        retour->setHorizontalHeaderLabels(
+                    QStringList()
+                    << ("Id")
+                    << ("Nom")
+                    << ("Prénom")
+                    << ("Telephone")
+                    << ("Mail")
+                    );
+    QSqlQuery q;
 
 
-//    q.prepare("SELECT id_p ,nom_p, prenom_p, ddn_p, telephone_p "
-//              "FROM Customer WHERE archive = 0 ORDER BY UPPER(nom_p), UPPER(prenom_p)");
+    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, phone, email "
+              "FROM Customer ORDER BY UPPER(firstnameReferent), UPPER(lastnameReferent)");
 
-//    if(!q.exec()) {
-//        throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getTableauCustomers", lastError(q), 1.1);
-//    }
+    if(!q.exec()) {
+        throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getCustomersTable", lastError(q), 1.1);
+    }
 
-//    while(q.next()) {
-//        QList<QStandardItem*> ligne;
+    while(q.next()) {
+        QList<QStandardItem*> ligne;
 
-//        ligne << new QStandardItem(valeur(q, "id_p").toString());
-//        ligne << new QStandardItem(valeur(q, "nom_p").toString().toUpper());
-//        ligne << new QStandardItem(Util::stringFirstUpper(valeur(q, "prenom_p").toString().toUpper()));
-//        ligne << new QStandardItem(valeur(q, "ddn_p").toDate().toString("dd/MM/yyyy"));
-//        ligne << new QStandardItem(valeur(q, "telephone_p").toString());
+        ligne << new QStandardItem(value(q, "idCustomer").toString());
+        ligne << new QStandardItem(value(q, "firstNameReferent").toString().toUpper());
+        ligne << new QStandardItem(value(q, "lastnameReferent").toString().toUpper());
+        ligne << new QStandardItem(value(q, "phone").toString());
+        ligne << new QStandardItem(value(q, "email").toString());
 
-//        retour->appendRow(ligne);
-//    }
+        retour->appendRow(ligne);
+    }
 
-//    return retour;
+    return retour;
 }
 
 Customer* CustomerDatabase::getCustomer(const int pId) {
