@@ -20,6 +20,7 @@ void MainWindow::addCustomer()
     DialogAddCustomer win;
     if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
         qDebug() << "accept";
+        updateTable();
     } else {
 
     }
