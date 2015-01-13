@@ -62,7 +62,14 @@
            </widget>
           </item>
           <item row="0" column="0" colspan="4">
-           <widget class="QTableView" name="tblCustomers"/>
+           <widget class="QTableView" name="tblCustomers">
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -134,98 +141,7 @@
       <widget class="QLineEdit" name="lineEdit"/>
      </item>
      <item row="3" column="0">
-      <widget class="QTreeWidget" name="treeWidget">
-       <column>
-        <property name="text">
-         <string/>
-        </property>
-       </column>
-       <item>
-        <property name="text">
-         <string>Tous les clients (xx)</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Client A (yy)</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>Projet X (zz)</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Devis</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>n°1 jj/mm/yyyy</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>n°2 jj/mm/yyyy</string>
-           </property>
-          </item>
-         </item>
-         <item>
-          <property name="text">
-           <string>Factures</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>n°1 jj/mm/yyyy</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>n°2 jj/mm/yyyy</string>
-           </property>
-          </item>
-         </item>
-        </item>
-        <item>
-         <property name="text">
-          <string>Projet Y</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Devis</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>n°3 jj/mm/yyyy</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>n°4 jj/mm/yyyy</string>
-           </property>
-          </item>
-         </item>
-         <item>
-          <property name="text">
-           <string>Factures</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>n°3 jj/mm/yyyy</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>n°4 jj/mm/yyyy</string>
-           </property>
-          </item>
-         </item>
-        </item>
-       </item>
-       <item>
-        <property name="text">
-         <string>Client B</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QTreeView" name="trCustomers"/>
      </item>
     </layout>
    </widget>

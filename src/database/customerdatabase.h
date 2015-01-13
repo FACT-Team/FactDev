@@ -48,6 +48,7 @@ public:
      * @return number of customers
      */
     int getNbCustomers();
+    QStandardItemModel *getCustomersTree() throw(DbException*);
 };
 
 #endif // BDDPATIENT_H

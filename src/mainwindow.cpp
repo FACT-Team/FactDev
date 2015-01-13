@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     updateTable();
+    updateTree();
 }
 
 MainWindow::~MainWindow()
@@ -34,7 +35,12 @@ void MainWindow::updateTable()
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 100);
     ui->tblCustomers->setColumnWidth(2, 100);
-    ui->tblCustomers->setColumnWidth(3, 100);
-    ui->tblCustomers->setColumnWidth(4, 150);
+    ui->tblCustomers->setColumnWidth(3, 150);
+    ui->tblCustomers->setColumnWidth(4, 200);
+}
+
+void MainWindow::updateTree()
+{
+    ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree());
 }
 

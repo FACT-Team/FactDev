@@ -19,6 +19,7 @@ public slots:
     void addCustomer();
 private:
     void updateTable();
+    void updateTree();
     Ui::MainWindow *ui;
 };
 
