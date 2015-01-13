@@ -26,6 +26,7 @@ SOURCES += mainwindow.cpp \
     models/project.cpp \
     models/billing.cpp \
     models/contributory.cpp \
+    userdialog.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -41,12 +42,16 @@ HEADERS  += mainwindow.h \
     models/idatabasemodel.h \
     models/billing.h \
     models/contributory.h \
+    userdialog.h
 
 FORMS    += mainwindow.ui \
-        dialogs/dialogaddcustomer.ui
+        dialogs/dialogaddcustomer.ui \
+    userdialog.ui
 
 RESOURCES += \
-        Ressources.qrc
+        Ressources.qrc \
+    ressources.qrc \
+    icons.qrc
 
 OTHER_FILES += \
         sql/removetable.sql \
