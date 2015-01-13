@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1127</width>
-    <height>349</height>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -163,7 +163,7 @@
            <number>0</number>
           </property>
           <item row="0" column="1">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="btnAddCustomer">
             <property name="text">
              <string>+</string>
             </property>
@@ -211,7 +211,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -234,7 +234,7 @@
    <property name="minimumSize">
     <size>
      <width>200</width>
-     <height>163</height>
+     <height>190</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -460,5 +460,25 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnAddCustomer</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>652</x>
+     <y>297</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addCustomer()</slot>
+ </slots>
 </ui>

@@ -15,6 +15,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+    void addCustomer();
 private:
     Ui::MainWindow *ui;
 };

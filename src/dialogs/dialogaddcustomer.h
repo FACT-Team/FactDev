@@ -1,22 +1,24 @@
-#ifndef DIALOGADDCLIENT_H
-#define DIALOGADDCLIENT_H
+#ifndef DIALOGADDCUSTOMER_H
+#define DIALOGADDCUSTOMER_H
 
 #include <QDialog>
 
 namespace Ui {
-class DialogAddClient;
+class DialogAddCustomer;
 }
 
-class DialogAddClient : public QDialog
+class DialogAddCustomer : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DialogAddClient(QWidget *parent = 0);
-    ~DialogAddClient();
+    explicit DialogAddCustomer(int id=0, QWidget *parent = 0);
+    ~DialogAddCustomer();
 
+    void accept();
+    void reject();
 private:
-    Ui::DialogAddClient *ui;
+    Ui::DialogAddCustomer *ui;
 };
 
-#endif // DIALOGADDCLIENT_H
+#endif // DIALOGADDCUSTOMER_H

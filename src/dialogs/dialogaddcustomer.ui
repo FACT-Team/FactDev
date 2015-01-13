@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DialogAddClient</class>
- <widget class="QDialog" name="DialogAddClient">
+ <class>DialogAddCustomer</class>
+ <widget class="QDialog" name="DialogAddCustomer">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -177,5 +177,38 @@
  <resources>
   <include location="../Ressources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnSave</sender>
+   <signal>released()</signal>
+   <receiver>DialogAddCustomer</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>279</x>
+     <y>377</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnCancel</sender>
+   <signal>released()</signal>
+   <receiver>DialogAddCustomer</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>391</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>147</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
