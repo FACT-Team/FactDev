@@ -4,6 +4,7 @@
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
 #include "models/search.h"
+#include "widgets/popup.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -39,7 +40,7 @@ void MainWindow::addCustomer()
 void MainWindow::editCustomer()
 {
     // TODO Implement me
-    qDebug() << "MainWindow::editCustomer" << "TODO Implement me";
+    Popup::toImplement("MainWindow::editCustomer", this);
 }
 
 void MainWindow::removeCustomer()
@@ -55,14 +56,12 @@ void MainWindow::removeCustomer()
             updateTree();
         }
     }
-    else
-        QMessageBox::information(this,"Suppression de client impossible","Aucun client sélectionné",1);
 }
 
 void MainWindow::openCustomer()
 {
     // TODO Implement me
-    qDebug() << "MainWindow::openCustomer" << "TODO Implement me";
+    Popup::toImplement("MainWindow::openCustomer", this);
 }
 void MainWindow::search() {
     emit search(ui->leSearch->text());
