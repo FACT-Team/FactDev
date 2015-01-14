@@ -44,15 +44,16 @@ void MainWindow::editCustomer()
 
 void MainWindow::removeCustomer()
 {
-    // TODO Implement me
-    qDebug() << "MainWindow::removeCustomer" << "TODO Implement me";
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
-        qDebug() << "Delete";
-        QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
-        int pid = ui->tblCustomers->model()->data(ls,Qt::DisplayRole).toInt();
-        CustomerDatabase::instance()->removeCustomer(pid);
-        updateTable();
-        updateTree();
+        if(QMessageBox::warning(this, "Suppression d'un client", "Voulez vous supprimer le client sélectionné ? ", "Supprimer", "Annuler") == 0) {
+
+            qDebug() << "Delete";
+            QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
+            int pid = ui->tblCustomers->model()->data(ls,Qt::DisplayRole).toInt();
+            CustomerDatabase::instance()->removeCustomer(pid);
+            updateTable();
+            updateTree();
+        }
     }
 }
 
