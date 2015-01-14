@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "database/customerdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
+#include "widgets/customercontextualmenu.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -9,7 +10,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     updateTable();
     updateTree();
+    ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->trCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->tblCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenuTable(const QPoint &)));
+    connect(ui->trCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenuTree(const QPoint &)));
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -29,6 +35,42 @@ void MainWindow::addCustomer()
 
 }
 
+void MainWindow::editCustomer()
+{
+    // TODO Implement me
+    qDebug() << "MainWindow::editCustomer" << "TODO Implement me";
+}
+
+void MainWindow::removeCustomer()
+{
+    // TODO Implement me
+    qDebug() << "MainWindow::removeCustomer" << "TODO Implement me";
+}
+
+void MainWindow::openCustomer()
+{
+    // TODO Implement me
+    qDebug() << "MainWindow::openCustomer" << "TODO Implement me";
+}
+
+void MainWindow::openContextualMenuTable(const QPoint point)
+{
+    QMenu* menu = new CustomerContextualMenu(this);
+
+    QPoint buffPoint = point;
+    buffPoint.setX(point.x()+35);
+    buffPoint.setY(point.y()+35);
+    menu->exec(ui->tblCustomers->mapToGlobal(buffPoint));
+}
+void MainWindow::openContextualMenuTree(const QPoint point)
+{
+    QMenu* menu = new CustomerContextualMenu(this);
+
+    QPoint buffPoint = point;
+    buffPoint.setX(point.x()+35);
+    buffPoint.setY(point.y()+35);
+    menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
+}
 void MainWindow::updateTable()
 {
     ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable());
