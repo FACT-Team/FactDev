@@ -28,13 +28,14 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
                     << ("Id")
                     << ("Nom")
                     << ("Prénom")
+                    << ("Société")
                     << ("Telephone")
                     << ("Mail")
                     );
     QSqlQuery q;
 
 
-    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, phone, email "
+    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, company, phone, email "
               "FROM Customer ORDER BY UPPER(lastnameReferent), UPPER(firstnameReferent)");
 
     if(!q.exec()) {
@@ -47,6 +48,7 @@ QStandardItemModel* CustomerDatabase::getCustomersTable() throw(DbException*) {
         ligne << new QStandardItem(value(q, "idCustomer").toString());
         ligne << new QStandardItem(value(q, "lastnameReferent").toString().toUpper());
         ligne << new QStandardItem(value(q, "firstNameReferent").toString().toUpper());
+        ligne << new QStandardItem(value(q,"company").toString().toUpper());
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
 

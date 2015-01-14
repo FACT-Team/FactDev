@@ -49,9 +49,10 @@ void MainWindow::updateTable()
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 100);
-    ui->tblCustomers->setColumnWidth(2, 100);
+    ui->tblCustomers->setColumnWidth(2, 150);
     ui->tblCustomers->setColumnWidth(3, 150);
-    ui->tblCustomers->setColumnWidth(4, 200);
+    ui->tblCustomers->setColumnWidth(4, 100);
+    ui->tblCustomers->setColumnWidth(5, 200);
 }
 
 void MainWindow::updateTree()
