@@ -28,7 +28,8 @@ SOURCES += mainwindow.cpp \
     models/billing.cpp \
     models/contributory.cpp \
     models/user.cpp \
-    dialogs/userdatadialog.cpp
+    dialogs/userdatadialog.cpp \
+    widgets/customercontextualmenu.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -47,7 +48,8 @@ HEADERS  += mainwindow.h \
     models/contributory.h \
     database/userdatabase.h \
     models/user.h \
-    dialogs/userdatadialog.h
+    dialogs/userdatadialog.h \
+    widgets/customercontextualmenu.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

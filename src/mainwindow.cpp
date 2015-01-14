@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "database/customerdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
+#include "widgets/customercontextualmenu.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -10,7 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     updateTable();
     updateTree();
     ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(ui->tblCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenu(const QPoint &)));}
+    ui->trCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->tblCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenuTable(const QPoint &)));
+    connect(ui->trCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenuTree(const QPoint &)));
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -30,30 +35,24 @@ void MainWindow::addCustomer()
 
 }
 
-void MainWindow::openContextualMenu(const QPoint point)
+void MainWindow::openContextualMenuTable(const QPoint point)
 {
-    QMenu* menu = new QMenu(this);
-    QAction* deleteBilan = new QAction("Ouvrir le client", this);
-    QAction* editBilan = new QAction("Modifier le client", this);
-    QAction* pdfBilan = new QAction("Supprimer le client", this);
+    QMenu* menu = new CustomerContextualMenu(this);
 
-    QIcon icon;
-    //icon.addFile(QStringLiteral(":/icones/pdf"), QSize(), QIcon::Normal, QIcon::Off);
-    //pdfBilan->setIcon(icon);
-    //icon.addFile(QStringLiteral(":/icones/editer"), QSize(), QIcon::Normal, QIcon::Off);
-    //editBilan->setIcon(icon);
-    //icon.addFile(QStringLiteral(":/icones/non"), QSize(), QIcon::Normal, QIcon::Off);
-    //
-    deleteBilan->setIcon(icon);
-    menu->addAction(pdfBilan);
-    menu->addAction(editBilan);
-    menu->addAction(deleteBilan);
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
-   menu->exec(ui->tblCustomers->mapToGlobal(buffPoint));
+    menu->exec(ui->tblCustomers->mapToGlobal(buffPoint));
 }
+void MainWindow::openContextualMenuTree(const QPoint point)
+{
+    QMenu* menu = new CustomerContextualMenu(this);
 
+    QPoint buffPoint = point;
+    buffPoint.setX(point.x()+35);
+    buffPoint.setY(point.y()+35);
+    menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
+}
 void MainWindow::updateTable()
 {
     ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable());
