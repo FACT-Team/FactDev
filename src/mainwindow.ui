@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1127</width>
-    <height>353</height>
+    <height>361</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,14 +30,18 @@
           <item row="1" column="1">
            <widget class="QPushButton" name="btnAddCustomer">
             <property name="text">
-             <string>+</string>
+             <string>Ajouter</string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
             </property>
            </widget>
           </item>
           <item row="1" column="2">
            <widget class="QPushButton" name="btnDelCustomer">
             <property name="text">
-             <string>-</string>
+             <string>Supprimer</string>
             </property>
            </widget>
           </item>
@@ -55,9 +59,13 @@
            </spacer>
           </item>
           <item row="1" column="3">
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="btnEdit">
             <property name="text">
-             <string>Edit</string>
+             <string>Modifier </string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
             </property>
            </widget>
           </item>
@@ -250,7 +258,9 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>btnAddCustomer</sender>
@@ -269,7 +279,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>btnEdit</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
    <slot>addCustomer()</slot>
@@ -288,7 +298,7 @@
    <sender>btnDelCustomer</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>deleteCustomer()</slot>
+   <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>677</x>
@@ -303,6 +313,8 @@
  </connections>
  <slots>
   <slot>addCustomer()</slot>
-  <slot>deleteCustomer()</slot>
+  <slot>editCustomer()</slot>
+  <slot>removeCustomer()</slot>
+  <slot>openCustomer()</slot>
  </slots>
 </ui>

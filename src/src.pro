@@ -21,12 +21,16 @@ SOURCES += mainwindow.cpp \
         exceptions/dbexception.cpp \
         parameters.cpp \
         database/customerdatabase.cpp \
+        database/userdatabase.cpp \
         dialogs/dialogaddcustomer.cpp \
         models/customer.cpp \
     models/project.cpp \
     models/billing.cpp \
     models/contributory.cpp \
-    userdialog.cpp
+    models/user.cpp \
+    dialogs/userdatadialog.cpp \
+    widgets/customercontextualmenu.cpp
+    dialogs/addprojectdialog.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -36,17 +40,23 @@ HEADERS  += mainwindow.h \
         exceptions/dbexception.h \
         parameters.h \
         database/customerdatabase.h \
+        database/userdatabase.h \
         models/customer.h \
         dialogs/dialogaddcustomer.h \
     models/project.h \
     models/idatabasemodel.h \
     models/billing.h \
     models/contributory.h \
-    userdialog.h
+    database/userdatabase.h \
+    models/user.h \
+    dialogs/userdatadialog.h \
+    widgets/customercontextualmenu.h
+    dialogs/addprojectdialog.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
-    userdialog.ui
+    dialogs/userdatadialog.ui \
+    dialogs/addprojectdialog.ui
 
 RESOURCES += \
     icons.qrc

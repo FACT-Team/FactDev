@@ -1,6 +1,61 @@
 <RCC>
     <qresource prefix="/icons">
+        <file>img/add_bill.png</file>
+        <file>img/add_contributory.png</file>
+        <file alias="addCustomer">img/add_customer.png</file>
+        <file>img/add_project_color.png</file>
+        <file>img/add_project.png</file>
+        <file>img/add_quote.png</file>
+        <file>img/bill.png</file>
         <file>img/cancel.png</file>
+        <file>img/company.png</file>
+        <file>img/contributory.png</file>
+        <file>img/convert_to_latex_black.png</file>
+        <file>img/convert_to_latex.png</file>
+        <file>img/convert_to_pdf.png</file>
+        <file>img/copy.png</file>
+        <file>img/customer.png</file>
+        <file>img/cut.png</file>
+        <file>img/date.png</file>
+        <file alias="edit">img/edit.png</file>
+        <file>img/email_address.png</file>
+        <file>img/email.png</file>
+        <file>img/fax.png</file>
+        <file>img/folder.png</file>
+        <file>img/help.png</file>
+        <file>img/home.png</file>
+        <file>img/information.png</file>
+        <file>img/localisation_blue.png</file>
+        <file>img/localisation_green.png</file>
+        <file>img/localisation_red.png</file>
+        <file>img/message_error.png</file>
+        <file>img/message_help.png</file>
+        <file>img/message_info.png</file>
+        <file>img/message_warning.png</file>
+        <file alias="minus">img/minus.png</file>
+        <file>img/no_light.png</file>
+        <file>img/no.png</file>
         <file>img/ok_valid.png</file>
+        <file alias="open">img/open.png</file>
+        <file>img/paste.png</file>
+        <file>img/phone_mobile.png</file>
+        <file>img/phone.png</file>
+        <file>img/plus.png</file>
+        <file>img/print.png</file>
+        <file>img/project_color.png</file>
+        <file>img/project.png</file>
+        <file>img/quote.png</file>
+        <file>img/rate.png</file>
+        <file>img/redo.png</file>
+        <file>img/refresh.png</file>
+        <file>img/save_all.png</file>
+        <file>img/save_as.png</file>
+        <file>img/save.png</file>
+        <file>img/search.png</file>
+        <file>img/settings.png</file>
+        <file>img/time.png</file>
+        <file>img/undo.png</file>
+        <file>img/yes_light.png</file>
+        <file>img/yes.png</file>
     </qresource>
 </RCC>
