@@ -17,6 +17,9 @@ public:
 
 public slots:
     void addCustomer();
+    void editCustomer();
+    void removeCustomer();
+    void openCustomer();
 private slots:
     void openContextualMenuTable(const QPoint point);
     void openContextualMenuTree(const QPoint point);

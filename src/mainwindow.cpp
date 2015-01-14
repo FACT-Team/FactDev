@@ -35,6 +35,24 @@ void MainWindow::addCustomer()
 
 }
 
+void MainWindow::editCustomer()
+{
+    // TODO Implement me
+    qDebug() << "MainWindow::editCustomer" << "TODO Implement me";
+}
+
+void MainWindow::removeCustomer()
+{
+    // TODO Implement me
+    qDebug() << "MainWindow::removeCustomer" << "TODO Implement me";
+}
+
+void MainWindow::openCustomer()
+{
+    // TODO Implement me
+    qDebug() << "MainWindow::openCustomer" << "TODO Implement me";
+}
+
 void MainWindow::openContextualMenuTable(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
