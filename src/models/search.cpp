@@ -21,7 +21,7 @@ QString Search::getFilter()
             filter += "OR company LIKE '%"+_text+"%' ";
         }
         if(_searchInReferentLastname || !_groupFilter) {
-            filter += " OR lastnameReferent LIKE '%"+_text+"%'";
+            filter += "OR lastnameReferent LIKE '%"+_text+"%'";
         }
 
         filter += ")";
