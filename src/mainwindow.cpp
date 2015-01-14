@@ -26,7 +26,6 @@ void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
     if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
-        qDebug() << "accept";
         updateTable();
         updateTree();
     } else {
@@ -53,6 +52,13 @@ void MainWindow::openCustomer()
     qDebug() << "MainWindow::openCustomer" << "TODO Implement me";
 }
 
+void MainWindow::search(QString text)
+{
+    QString filter = " AND (company LIKE '%"+text+"%' OR lastnameReferent LIKE '%"+text+"%')";
+    updateTable(filter);
+    updateTree(filter);
+}
+
 void MainWindow::openContextualMenuTable(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
@@ -71,9 +77,9 @@ void MainWindow::openContextualMenuTree(const QPoint point)
     buffPoint.setY(point.y()+35);
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
 }
-void MainWindow::updateTable()
+void MainWindow::updateTable(QString filter)
 {
-    ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable());
+    ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 100);
@@ -82,8 +88,8 @@ void MainWindow::updateTable()
     ui->tblCustomers->setColumnWidth(4, 200);
 }
 
-void MainWindow::updateTree()
+void MainWindow::updateTree(QString filter)
 {
-    ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree());
+    ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree(filter));
 }
 

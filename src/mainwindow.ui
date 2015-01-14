@@ -149,7 +149,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLineEdit" name="lineEdit"/>
+      <widget class="QLineEdit" name="leSearch"/>
      </item>
      <item row="3" column="0">
       <widget class="QTreeView" name="trCustomers">
@@ -269,7 +269,7 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>624</x>
+     <x>605</x>
      <y>315</y>
     </hint>
     <hint type="destinationlabel">
@@ -310,11 +310,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>leSearch</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>search(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-361</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
   <slot>editCustomer()</slot>
   <slot>removeCustomer()</slot>
   <slot>openCustomer()</slot>
+  <slot>search(QString)</slot>
  </slots>
 </ui>
