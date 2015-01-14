@@ -21,6 +21,7 @@ public slots:
     void removeCustomer();
     void openCustomer();
     void search(QString);
+    void search();
 private slots:
     void openContextualMenuTable(const QPoint point);
     void openContextualMenuTree(const QPoint point);

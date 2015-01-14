@@ -51,10 +51,24 @@ void MainWindow::openCustomer()
     // TODO Implement me
     qDebug() << "MainWindow::openCustomer" << "TODO Implement me";
 }
+void MainWindow::search() {
+    emit search(ui->leSearch->text());
+}
 
 void MainWindow::search(QString text)
 {
-    QString filter = " AND (company LIKE '%"+text+"%' OR lastnameReferent LIKE '%"+text+"%')";
+    QString filter = "AND (0 ";
+    if(ui->chkReferentName->isChecked() || ui->chkSearchCompany->isChecked()) {
+        if(ui->chkSearchCompany->isChecked()) {
+            filter += "OR company LIKE '%"+text+"%' ";
+        }
+        if(ui->chkReferentName->isChecked()) {
+            filter += " OR lastnameReferent LIKE '%"+text+"%'";
+        }
+
+
+    }
+    filter += ")";
     updateTable(filter);
     updateTree(filter);
 }
