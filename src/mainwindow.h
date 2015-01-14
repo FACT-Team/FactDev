@@ -16,19 +16,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-public slots:
+public slots:    
     void addCustomer();
     void editCustomer();
     void removeCustomer();
     void openCustomer();
+    void editUser();
     void search(QString);
     void search();
+    void updateUserData();
 private slots:
     void openContextualMenuTable(const QPoint point);
     void openContextualMenuTree(const QPoint point);
+    void addProject();
 private:
     void updateTable(QString filter="");
     void updateTree(QString filter="");
+
     Ui::MainWindow *ui;
 };
 

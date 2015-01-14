@@ -1,3 +1,4 @@
+#include "mainwindow.h"
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 
@@ -6,6 +7,7 @@ UserDataDialog::UserDataDialog(QWidget *parent) :
     ui(new Ui::UserDataDialog)
 {
     ui->setupUi(this);
+    _user.setId(1);
 }
 
 UserDataDialog::~UserDataDialog()
@@ -15,6 +17,7 @@ UserDataDialog::~UserDataDialog()
 
 void UserDataDialog::accept()
 {
+    MainWindow win;
     _user.setFirstname(ui->leFirstname->text());
     _user.setLastname(ui->leLastname->text());
     _user.setCompany(ui->leCompany->text());
@@ -27,6 +30,10 @@ void UserDataDialog::accept()
     _user.setMobilePhone(ui->leMobilePhone->text());
     _user.setFax(ui->leFax->text());
     _user.setNoSiret(ui->leNoSiret->text());
+
+    _user.commit();
+    win.updateUserData();
+    QDialog::accept();
 
 }
 

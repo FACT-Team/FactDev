@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dialogs/userdatadialog.h"
 #include "database/customerdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
@@ -24,6 +25,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::addProject()
+{
+
+}
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
@@ -62,6 +67,17 @@ void MainWindow::openCustomer()
 {
     // TODO Implement me
     Popup::toImplement("MainWindow::openCustomer", this);
+}
+
+void MainWindow::editUser()
+{
+    UserDataDialog userdialog;
+
+    if(userdialog.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+
+    } else {
+
+    }
 }
 void MainWindow::search() {
     emit search(ui->leSearch->text());
@@ -111,5 +127,19 @@ void MainWindow::updateTable(QString filter)
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree(filter));
+}
+
+void MainWindow::updateUserData()
+{
+
+    User user;
+    ui->lbName->setText(user.getFirstname()+" "+user.getLastname());
+    ui->lbCompany->setText(user.getCompany());
+    ui->lbAddress->setText(user.getAddress());
+    ui->lbPostalCodeCity->setText(user.getPostalCode()+", "+user.getCity());
+    ui->lbEmail->setText(user.getEmail());
+    ui->lbPhone->setText(user.getPhone());
+
+    user.commit();
 }
 

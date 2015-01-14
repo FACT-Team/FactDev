@@ -70,7 +70,11 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter) throw(DbE
               "FROM Customer WHERE 1 "+filter+" ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
-        throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getCustomersTree", lastError(q), 1.1);
+        throw new DbException(
+            "Impossible d'obtenir la liste des Customers",
+            "CustomerDatabase::getCustomersTree",
+            lastError(q),
+            1.1);
     }
 
     QStandardItem* item;
