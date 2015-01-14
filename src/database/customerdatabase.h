@@ -12,7 +12,8 @@ private:
 public:
     static CustomerDatabase* instance()throw(DbException*);
 
-    QStandardItemModel* getCustomersTable() throw(DbException*);
+    QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+    QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
 
     /**
      * @brief getCustomer
@@ -48,7 +49,7 @@ public:
      * @return number of customers
      */
     int getNbCustomers();
-    QStandardItemModel *getCustomersTree() throw(DbException*);
+
 };
 
 #endif // BDDPATIENT_H
