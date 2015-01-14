@@ -2,7 +2,7 @@
     <qresource prefix="/icons">
         <file>img/add_bill.png</file>
         <file>img/add_contributory.png</file>
-        <file>img/add_customer.png</file>
+        <file alias="addCustomer">img/add_customer.png</file>
         <file>img/add_project_color.png</file>
         <file>img/add_project.png</file>
         <file>img/add_quote.png</file>
