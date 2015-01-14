@@ -15,13 +15,15 @@ HEADERS += \
 database/customerdatabasetest.h \
     QTestRunner/testadder.h \
     QTestRunner/testrunner.h \
-    models/customermodeltest.h
+    models/customermodeltest.h \
+    models/searchtest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
 database/customerdatabasetest.cpp \
     QTestRunner/testrunner.cpp \
     QTestRunner/testadder.cpp \
-    models/customermodeltest.cpp
+    models/customermodeltest.cpp \
+    models/searchtest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp

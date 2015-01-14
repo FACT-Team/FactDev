@@ -63,7 +63,6 @@ void MainWindow::search(QString text)
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
     s.setText(text);
-    qDebug() << s.getFilter();
     updateTable(s.getFilter());
     updateTree(s.getFilter());
 }
