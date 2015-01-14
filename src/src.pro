@@ -28,7 +28,8 @@ SOURCES += mainwindow.cpp \
     models/billing.cpp \
     models/contributory.cpp \
     models/user.cpp \
-    dialogs/userdatadialog.cpp
+    dialogs/userdatadialog.cpp \
+    dialogs/addprojectdialog.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -47,11 +48,13 @@ HEADERS  += mainwindow.h \
     models/contributory.h \
     database/userdatabase.h \
     models/user.h \
-    dialogs/userdatadialog.h
+    dialogs/userdatadialog.h \
+    dialogs/addprojectdialog.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
-    dialogs/userdatadialog.ui
+    dialogs/userdatadialog.ui \
+    dialogs/addprojectdialog.ui
 
 RESOURCES += \
     icons.qrc

@@ -41,12 +41,20 @@
        <property name="text">
         <string>Valider</string>
        </property>
+       <property name="icon">
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/img/ok_valid.png</normaloff>:/icons/img/ok_valid.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnCancel">
        <property name="text">
-        <string>Cancel</string>
+        <string>Annuler</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
        </property>
       </widget>
      </item>
@@ -270,7 +278,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>btnValid</sender>
