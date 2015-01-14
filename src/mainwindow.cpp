@@ -57,18 +57,18 @@ void MainWindow::search() {
 
 void MainWindow::search(QString text)
 {
-    QString filter = "AND (0 ";
-    if(ui->chkReferentName->isChecked() || ui->chkSearchCompany->isChecked()) {
-        if(ui->chkSearchCompany->isChecked()) {
+    QString filter = "";
+    if(text != "") {
+        filter = "AND (0 ";
+        if(ui->chkSearchCompany->isChecked() || !ui->gpbxSearchFilter->isChecked()) {
             filter += "OR company LIKE '%"+text+"%' ";
         }
-        if(ui->chkReferentName->isChecked()) {
+        if(ui->chkReferentName->isChecked() || !ui->gpbxSearchFilter->isChecked()) {
             filter += " OR lastnameReferent LIKE '%"+text+"%'";
         }
 
-
+        filter += ")";
     }
-    filter += ")";
     updateTable(filter);
     updateTree(filter);
 }
