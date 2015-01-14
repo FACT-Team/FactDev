@@ -29,7 +29,8 @@ SOURCES += mainwindow.cpp \
     models/contributory.cpp \
     models/user.cpp \
     dialogs/userdatadialog.cpp \
-    widgets/customercontextualmenu.cpp
+    widgets/customercontextualmenu.cpp \
+    models/search.cpp
     dialogs/addprojectdialog.cpp
 
 HEADERS  += mainwindow.h \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     database/userdatabase.h \
     models/user.h \
     dialogs/userdatadialog.h \
-    widgets/customercontextualmenu.h
+    widgets/customercontextualmenu.h \
+    models/search.h
     dialogs/addprojectdialog.h
 
 FORMS    += mainwindow.ui \

@@ -3,6 +3,7 @@
 #include "database/customerdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
+#include "models/search.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -26,7 +27,6 @@ void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
     if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
-        qDebug() << "accept";
         updateTable();
         updateTree();
     } else {
@@ -62,6 +62,20 @@ void MainWindow::openCustomer()
     // TODO Implement me
     qDebug() << "MainWindow::openCustomer" << "TODO Implement me";
 }
+void MainWindow::search() {
+    emit search(ui->leSearch->text());
+}
+
+void MainWindow::search(QString text)
+{
+    Search s;
+    s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
+    s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
+    s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+    s.setText(text);
+    updateTable(s.getFilter());
+    updateTree(s.getFilter());
+}
 
 void MainWindow::openContextualMenuTable(const QPoint point)
 {
@@ -81,10 +95,9 @@ void MainWindow::openContextualMenuTree(const QPoint point)
     buffPoint.setY(point.y()+35);
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
 }
-
-void MainWindow::updateTable()
+void MainWindow::updateTable(QString filter)
 {
-    ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable());
+    ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 100);
@@ -94,8 +107,8 @@ void MainWindow::updateTable()
     ui->tblCustomers->setColumnWidth(5, 200);
 }
 
-void MainWindow::updateTree()
+void MainWindow::updateTree(QString filter)
 {
-    ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree());
+    ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree(filter));
 }
 

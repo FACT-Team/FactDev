@@ -21,12 +21,14 @@ public slots:
     void editCustomer();
     void removeCustomer();
     void openCustomer();
+    void search(QString);
+    void search();
 private slots:
     void openContextualMenuTable(const QPoint point);
     void openContextualMenuTree(const QPoint point);
 private:
-    void updateTable();
-    void updateTree();
+    void updateTable(QString filter="");
+    void updateTree(QString filter="");
     Ui::MainWindow *ui;
 };
 
