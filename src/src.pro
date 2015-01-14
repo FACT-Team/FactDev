@@ -30,6 +30,7 @@ SOURCES += mainwindow.cpp \
     models/user.cpp \
     dialogs/userdatadialog.cpp \
     widgets/customercontextualmenu.cpp
+    dialogs/addprojectdialog.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -50,10 +51,12 @@ HEADERS  += mainwindow.h \
     models/user.h \
     dialogs/userdatadialog.h \
     widgets/customercontextualmenu.h
+    dialogs/addprojectdialog.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
-    dialogs/userdatadialog.ui
+    dialogs/userdatadialog.ui \
+    dialogs/addprojectdialog.ui
 
 RESOURCES += \
     icons.qrc
