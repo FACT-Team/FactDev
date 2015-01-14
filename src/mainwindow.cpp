@@ -3,6 +3,7 @@
 #include "database/customerdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
+#include "models/search.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -57,20 +58,14 @@ void MainWindow::search() {
 
 void MainWindow::search(QString text)
 {
-    QString filter = "";
-    if(text != "") {
-        filter = "AND (0 ";
-        if(ui->chkSearchCompany->isChecked() || !ui->gpbxSearchFilter->isChecked()) {
-            filter += "OR company LIKE '%"+text+"%' ";
-        }
-        if(ui->chkReferentName->isChecked() || !ui->gpbxSearchFilter->isChecked()) {
-            filter += " OR lastnameReferent LIKE '%"+text+"%'";
-        }
-
-        filter += ")";
-    }
-    updateTable(filter);
-    updateTree(filter);
+    Search s;
+    s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
+    s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
+    s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+    s.setText(text);
+    qDebug() << s.getFilter();
+    updateTable(s.getFilter());
+    updateTree(s.getFilter());
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point)
