@@ -17,7 +17,7 @@
         <file>img/customer.png</file>
         <file>img/cut.png</file>
         <file>img/date.png</file>
-        <file>img/edit.png</file>
+        <file alias="edit">img/edit.png</file>
         <file>img/email_address.png</file>
         <file>img/email.png</file>
         <file>img/fax.png</file>
@@ -32,11 +32,11 @@
         <file>img/message_help.png</file>
         <file>img/message_info.png</file>
         <file>img/message_warning.png</file>
-        <file>img/minus.png</file>
+        <file alias="minus">img/minus.png</file>
         <file>img/no_light.png</file>
         <file>img/no.png</file>
         <file>img/ok_valid.png</file>
-        <file>img/open.png</file>
+        <file alias="open">img/open.png</file>
         <file>img/paste.png</file>
         <file>img/phone_mobile.png</file>
         <file>img/phone.png</file>
