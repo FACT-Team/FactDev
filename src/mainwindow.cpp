@@ -55,6 +55,8 @@ void MainWindow::removeCustomer()
             updateTree();
         }
     }
+    else
+        QMessageBox::information(this,"Suppression de client impossible","Aucun client sélectionné",1);
 }
 
 void MainWindow::openCustomer()
