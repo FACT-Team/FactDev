@@ -14,7 +14,7 @@
         <file>img/convert_to_latex.png</file>
         <file>img/convert_to_pdf.png</file>
         <file>img/copy.png</file>
-        <file>img/customer.png</file>
+        <file alias="customer">img/customer.png</file>
         <file>img/cut.png</file>
         <file>img/date.png</file>
         <file alias="edit">img/edit.png</file>

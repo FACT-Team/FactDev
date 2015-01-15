@@ -80,9 +80,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter) throw(DbE
     QStandardItem* item;
 
     item = new QStandardItem("Tous les clients");
-
+    item->setIcon(QIcon(":icons/customer"));
     retour->appendRow(item);
-
 
     while(q.next()) {
         QStandardItem* item;
@@ -92,6 +91,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter) throw(DbE
                                      Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
         else
             item = new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
+
+        item->setIcon(QIcon(":icons/customer"));
 
         retour->appendRow(item);
     }
