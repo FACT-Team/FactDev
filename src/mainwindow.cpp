@@ -29,6 +29,13 @@ void MainWindow::addProject()
 {
 
 }
+
+int MainWindow::getCurrentCustomerId() {
+    QModelIndex idCell = ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
+
+    return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
+}
+
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
@@ -44,8 +51,15 @@ void MainWindow::addCustomer()
 
 void MainWindow::editCustomer()
 {
-    // TODO Implement me
-    Popup::toImplement("MainWindow::editCustomer", this);
+    DialogAddCustomer win;
+    if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+        updateTable();
+        updateTree();
+    } else {
+
+    }
+
+    //Popup::toImplement("MainWindow::editCustomer", this);
 }
 
 void MainWindow::removeCustomer()

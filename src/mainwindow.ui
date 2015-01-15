@@ -240,7 +240,7 @@
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>295</height>
+     <height>308</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -461,11 +461,11 @@
    <sender>btnEdit</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>addCustomer()</slot>
+   <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>806</x>
-     <y>311</y>
+     <x>801</x>
+     <y>330</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -516,8 +516,8 @@
      <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>86</x>
-     <y>187</y>
+     <x>99</x>
+     <y>171</y>
     </hint>
    </hints>
   </connection>
@@ -532,8 +532,8 @@
      <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>79</x>
-     <y>214</y>
+     <x>92</x>
+     <y>192</y>
     </hint>
    </hints>
   </connection>
@@ -544,8 +544,8 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>138</x>
-     <y>187</y>
+     <x>151</x>
+     <y>171</y>
     </hint>
     <hint type="destinationlabel">
      <x>-218</x>
@@ -560,8 +560,8 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>209</x>
-     <y>214</y>
+     <x>222</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>-170</x>
@@ -598,6 +598,22 @@
     <hint type="destinationlabel">
      <x>825</x>
      <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAddCustomer</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>500</x>
+     <y>314</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>349</y>
     </hint>
    </hints>
   </connection>

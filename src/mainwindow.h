@@ -16,7 +16,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-public slots:    
+    int getCurrentCustomerId();
+public slots:
     void addCustomer();
     void editCustomer();
     void removeCustomer();
