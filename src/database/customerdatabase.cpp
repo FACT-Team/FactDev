@@ -1,6 +1,6 @@
 #include "database/customerdatabase.h"
 #include "log.h"
-
+#include "utils.h"
 
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
 _instances << this;
@@ -49,8 +49,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
 
         ligne << new QStandardItem(value(q, "idCustomer").toString());
         ligne << new QStandardItem(value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(value(q, "firstNameReferent").toString().toUpper());
-        ligne << new QStandardItem(value(q,"company").toString().toUpper());
+        ligne << new QStandardItem(Utils::firstLetterToUpper(value(q, "firstNameReferent").toString()));
+        ligne << new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
 
@@ -88,9 +88,10 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter) throw(DbE
         QStandardItem* item;
 
         if(value(q,"company").toString().isEmpty())
-            item = new QStandardItem(value(q, "lastnameReferent").toString()+" "+value(q,"firstnameReferent").toString());
+            item = new QStandardItem(value(q, "lastnameReferent").toString().toUpper()+" "+
+                                     Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
         else
-            item = new QStandardItem(value(q,"company").toString());
+            item = new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
 
         retour->appendRow(item);
     }
