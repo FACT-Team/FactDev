@@ -51,13 +51,15 @@ void MainWindow::addCustomer()
 
 void MainWindow::editCustomer()
 {
-    DialogAddCustomer win;
-    if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+    DialogAddCustomer winAddCustomer(getCurrentCustomerId());
+    if(winAddCustomer.exec()) {
+        //qDebug() << "id : " << id << "\n";
         updateTable();
         updateTree();
-    } else {
-
     }
+
+
+
 
     //Popup::toImplement("MainWindow::editCustomer", this);
 }
