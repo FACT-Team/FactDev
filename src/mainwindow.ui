@@ -97,7 +97,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -105,8 +105,31 @@
      <string>Fichier</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionParam_tres"/>
+    <addaction name="actionFemer"/>
+   </widget>
+   <widget class="QMenu" name="menuClient">
+    <property name="title">
+     <string>Client</string>
+    </property>
+    <addaction name="actionNouveau"/>
+    <addaction name="actionRechercher"/>
+    <addaction name="actionNouvelle_facture"/>
+    <addaction name="actionNouveau_devis"/>
+    <addaction name="actionAfficher"/>
+   </widget>
+   <widget class="QMenu" name="menuA_propos">
+    <property name="title">
+     <string>A propos</string>
+    </property>
+    <addaction name="actionQt"/>
+    <addaction name="actionFact"/>
+    <addaction name="actionFactDev"/>
+    <addaction name="actionIcons"/>
    </widget>
    <addaction name="menuFichier"/>
+   <addaction name="menuClient"/>
+   <addaction name="menuA_propos"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -116,6 +139,9 @@
     <bool>false</bool>
    </attribute>
    <addaction name="separator"/>
+   <addaction name="actionNouveau"/>
+   <addaction name="actionNouvelle_facture"/>
+   <addaction name="actionNouveau_devis"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QDockWidget" name="dockWidget">
@@ -337,6 +363,89 @@
    </property>
    <property name="text">
     <string>Nouveau projet</string>
+   </property>
+  </action>
+  <action name="actionParam_tres">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/settings.png</normaloff>:/icons/img/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paramètres</string>
+   </property>
+  </action>
+  <action name="actionFemer">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fermer</string>
+   </property>
+  </action>
+  <action name="actionNouveau">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau</string>
+   </property>
+  </action>
+  <action name="actionRechercher">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/search.png</normaloff>:/icons/img/search.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rechercher</string>
+   </property>
+  </action>
+  <action name="actionNouvelle_facture">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/add_bill.png</normaloff>:/icons/img/add_bill.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouvelle facture</string>
+   </property>
+  </action>
+  <action name="actionNouveau_devis">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau devis</string>
+   </property>
+  </action>
+  <action name="actionAfficher">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/customer.png</normaloff>:/icons/img/customer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Afficher</string>
+   </property>
+  </action>
+  <action name="actionQt">
+   <property name="text">
+    <string>Qt</string>
+   </property>
+  </action>
+  <action name="actionFact">
+   <property name="text">
+    <string>Fact</string>
+   </property>
+  </action>
+  <action name="actionFactDev">
+   <property name="text">
+    <string>FactDev</string>
+   </property>
+  </action>
+  <action name="actionIcons">
+   <property name="text">
+    <string>Icons</string>
    </property>
   </action>
  </widget>
