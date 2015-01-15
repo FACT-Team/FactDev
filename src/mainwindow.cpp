@@ -51,8 +51,15 @@ void MainWindow::addCustomer()
 
 void MainWindow::editCustomer()
 {
-    // TODO Implement me
-    Popup::toImplement("MainWindow::editCustomer", this);
+    DialogAddCustomer win;
+    if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+        updateTable();
+        updateTree();
+    } else {
+
+    }
+
+    //Popup::toImplement("MainWindow::editCustomer", this);
 }
 
 void MainWindow::removeCustomer()
