@@ -97,7 +97,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -464,8 +464,10 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
+
      <x>806</x>
      <y>364</y>
+
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -513,7 +515,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>22</x>
-     <y>156</y>
+     <y>251</y>
     </hint>
     <hint type="destinationlabel">
      <x>111</x>
@@ -529,7 +531,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>35</x>
-     <y>152</y>
+     <y>251</y>
     </hint>
     <hint type="destinationlabel">
      <x>104</x>
@@ -592,8 +594,8 @@
    <slot>editUser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1081</x>
-     <y>290</y>
+     <x>1114</x>
+     <y>367</y>
     </hint>
     <hint type="destinationlabel">
      <x>825</x>
@@ -710,6 +712,22 @@
     <hint type="destinationlabel">
      <x>563</x>
      <y>202</y>
+     </hint>
+     </hints>
+</connection>
+<connection>
+   <sender>tblCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeCustomerTable(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>386</y>
     </hint>
    </hints>
   </connection>
@@ -726,5 +744,8 @@
   <slot>aboutFact()</slot>
   <slot>aboutFactDev()</slot>
   <slot>aboutIcons()</slot>
+  <slot>changeCustomerTree(QModelIndex)</slot>
+  <slot>changeCustomer()</slot>
+  <slot>changeCustomerTable(QModelIndex)</slot>
  </slots>
 </ui>

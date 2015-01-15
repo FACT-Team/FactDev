@@ -9,48 +9,60 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     ui->setupUi(this);
 
     if (id != 0) {
-        _custom = Customer(id);
-        fillFields(_custom);
+        _custom = new Customer(id);
+        fillFields();
+    } else {
+        _custom = new Customer();
     }
-    _custom.setId(id);
+    _custom->setId(id);
 }
 
-void DialogAddCustomer::fillFields(Customer custom) {
-    ui->leLastNameReferent->setText(_custom.getLastnameReferent());
-    ui->leFirstNameReferent->setText(custom.getFirstnameReferent());
-    ui->leCompany->setText(custom.getCompany());
-    ui->leAddress->setText(custom.getAddress());
-    ui->leCity->setText(custom.getCity());
-    ui->lePostalCode->setText(custom.getPostalCode());
-    ui->leCountry->setText(custom.getCountry());
-    ui->leEmail->setText(custom.getEmail());
-    ui->lePhone->setText(custom.getPhone());
-    ui->leMobilePhone->setText(custom.getMobilePhone());
-    ui->leFax->setText(custom.getFax());
+void DialogAddCustomer::fillFields() {
+    ui->leLastNameReferent->setText(_custom->getLastnameReferent());
+    ui->leFirstNameReferent->setText(_custom->getFirstnameReferent());
+    ui->leCompany->setText(_custom->getCompany());
+    ui->leAddress->setText(_custom->getAddress());
+    ui->leCity->setText(_custom->getCity());
+    ui->lePostalCode->setText(_custom->getPostalCode());
+    ui->leCountry->setText(_custom->getCountry());
+    ui->leEmail->setText(_custom->getEmail());
+    ui->lePhone->setText(_custom->getPhone());
+    ui->leMobilePhone->setText(_custom->getMobilePhone());
+    ui->leFax->setText(_custom->getFax());
 }
 
 void DialogAddCustomer::accept() {
 
-    _custom.setLastnameReferent(ui->leLastNameReferent->text());
-    _custom.setFirstnameReferent(ui->leFirstNameReferent->text());
-    _custom.setCompany(ui->leCompany->text());
-    _custom.setAddress(ui->leAddress->text());
-    _custom.setCity(ui->leCity->text());
-    _custom.setPostalCode(ui->lePostalCode->text());
-    _custom.setCountry(ui->leCountry->text());
-    _custom.setEmail(ui->leEmail->text());
-    _custom.setPhone(ui->lePhone->text());
-    _custom.setMobilePhone(ui->leMobilePhone->text());
-    _custom.setFax(ui->leFax->text());
+    _custom->setLastnameReferent(ui->leLastNameReferent->text());
+    _custom->setFirstnameReferent(ui->leFirstNameReferent->text());
+    _custom->setCompany(ui->leCompany->text());
+    _custom->setAddress(ui->leAddress->text());
+    _custom->setCity(ui->leCity->text());
+    _custom->setPostalCode(ui->lePostalCode->text());
+    _custom->setCountry(ui->leCountry->text());
+    _custom->setEmail(ui->leEmail->text());
+    _custom->setPhone(ui->lePhone->text());
+    _custom->setMobilePhone(ui->leMobilePhone->text());
+    _custom->setFax(ui->leFax->text());
 
-    qDebug() << _custom.getId();
-    _custom.commit();
+    qDebug() << _custom->getId();
+    _custom->commit();
     QDialog::accept();
 }
 
 void DialogAddCustomer::reject() {
     QDialog::reject();
 }
+Customer *DialogAddCustomer::getCustom() const
+{
+    return _custom;
+}
+
+void DialogAddCustomer::setCustom(Customer *custom)
+{
+    _custom = custom;
+}
+
 
 DialogAddCustomer::~DialogAddCustomer()
 {
