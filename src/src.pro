@@ -34,7 +34,8 @@ SOURCES += mainwindow.cpp \
     widgets/popup.cpp \
     dialogs/addprojectdialog.cpp \
     widgets/ratewidget.cpp \
-    database/projectdatabase.cpp
+    database/projectdatabase.cpp \
+    utils.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -59,7 +60,8 @@ HEADERS  += mainwindow.h \
     widgets/popup.h \
     dialogs/addprojectdialog.h \
     widgets/ratewidget.h \
-    database/projectdatabase.h
+    database/projectdatabase.h \
+    utils.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
