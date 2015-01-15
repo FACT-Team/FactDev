@@ -27,17 +27,6 @@
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item row="1" column="1">
-           <widget class="QPushButton" name="btnAddCustomer">
-            <property name="text">
-             <string>Ajouter</string>
-            </property>
-            <property name="icon">
-             <iconset resource="icons.qrc">
-              <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="2">
            <widget class="QPushButton" name="btnDelCustomer">
             <property name="text">
@@ -58,6 +47,17 @@
             </property>
            </spacer>
           </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="btnAddCustomer">
+            <property name="text">
+             <string>Ajouter</string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="3">
            <widget class="QPushButton" name="btnEdit">
             <property name="text">
@@ -69,7 +69,14 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="0" colspan="4">
+          <item row="1" column="4">
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Nouveau projet</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="5">
            <widget class="QTableView" name="tblCustomers">
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
@@ -97,7 +104,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -352,7 +359,7 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>801</x>
+     <x>694</x>
      <y>330</y>
     </hint>
     <hint type="destinationlabel">
@@ -368,8 +375,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>677</x>
-     <y>301</y>
+     <x>612</x>
+     <y>333</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -404,8 +411,8 @@
      <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>99</x>
-     <y>171</y>
+     <x>111</x>
+     <y>165</y>
     </hint>
    </hints>
   </connection>
@@ -432,8 +439,8 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>151</x>
-     <y>171</y>
+     <x>163</x>
+     <y>165</y>
     </hint>
     <hint type="destinationlabel">
      <x>-218</x>
@@ -480,8 +487,8 @@
    <slot>editUser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1081</x>
-     <y>290</y>
+     <x>1116</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
      <x>825</x>
@@ -496,12 +503,28 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>500</x>
-     <y>314</y>
+     <x>526</x>
+     <y>334</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
      <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>724</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>720</x>
+     <y>408</y>
     </hint>
    </hints>
   </connection>
@@ -514,5 +537,6 @@
   <slot>search(QString)</slot>
   <slot>search()</slot>
   <slot>editUser()</slot>
+  <slot>newProject()</slot>
  </slots>
 </ui>

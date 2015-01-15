@@ -220,7 +220,7 @@ void CustomerDatabase::removeCustomer(const int pId)
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'éditer les informations du Customer",
-            "BddCustomer::updateCustomer",
+            "BddCustomer::removeCustomer",
             lastError(q),
             1.5);
     }
@@ -235,7 +235,7 @@ int CustomerDatabase::getNbCustomers() {
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'éditer les informations du Customer",
-            "BddCustomer::updateCustomer",
+            "BddCustomer::getNbCustomers",
             lastError(q),
             1.6);
     }

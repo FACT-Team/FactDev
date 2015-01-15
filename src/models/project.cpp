@@ -4,8 +4,12 @@ Project::Project()
 {
 }
 
-void Project::commit()
+Project::Project(int id)
 {
+    _id = id;
+}
+
+void Project::commit() {
     // TODO implement me !
 }
 
@@ -37,7 +41,7 @@ void Project::setDescription(const QString &description)
 {
     _description = description;
 }
-double Project::geDailyRate() const
+double Project::getDailyRate() const
 {
     return _dailyRate;
 }

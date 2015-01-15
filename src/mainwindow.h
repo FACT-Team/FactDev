@@ -26,6 +26,7 @@ public slots:
     void search(QString);
     void search();
     void updateUserData();
+    void newProject(void);
 private slots:
     void openContextualMenuTable(const QPoint point);
     void openContextualMenuTree(const QPoint point);

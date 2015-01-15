@@ -60,18 +60,8 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="1">
-    <widget class="QLineEdit" name="leDailyRate"/>
-   </item>
    <item row="0" column="1">
     <widget class="QComboBox" name="cbCustomer"/>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="lbNbDays">
-     <property name="text">
-      <string>Tarif journalier (€)</string>
-     </property>
-    </widget>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="lbProjectName">
@@ -93,8 +83,26 @@
      </property>
     </widget>
    </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="RateWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>45</height>
+      </size>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>RateWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/ratewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../icons.qrc"/>
  </resources>

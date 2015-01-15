@@ -6,6 +6,7 @@
 #include "widgets/customercontextualmenu.h"
 #include "models/search.h"
 #include "widgets/popup.h"
+#include "dialogs/addprojectdialog.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -155,5 +156,13 @@ void MainWindow::updateUserData()
     ui->lbPhone->setText(user.getPhone());
 
     user.commit();
+}
+
+void MainWindow::newProject()
+{
+    AddProjectDialog w;
+    if(w.exec()) {
+
+    }
 }
 

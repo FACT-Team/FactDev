@@ -8,6 +8,7 @@ class Project : public IDatabaseModel
 {
 public:
     Project();
+    Project(int id);
     void commit();
     void hydrat(int getId);
     void remove();
@@ -18,14 +19,14 @@ public:
     QString getDescription() const;
     void setDescription(const QString &getDescription);
 
-    double geDailyRate() const;
-    void setDailyRate(double geDailyRate);
+    double getDailyRate() const;
+    void setDailyRate(double getDailyRate);
 
     Customer getCustomer() const;
     void setCustomer(Customer getCustomer);
 
 private:
-    int _id;
+
     QString _name;
     QString _description;
     double _dailyRate;
