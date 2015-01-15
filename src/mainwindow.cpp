@@ -157,3 +157,23 @@ void MainWindow::updateUserData()
     user.commit();
 }
 
+void MainWindow::aboutQt()
+{
+    QMessageBox::aboutQt(this);
+}
+
+void MainWindow::aboutFact()
+{
+    QMessageBox::about(this, "TITRE", "TEXT EN HTML");
+}
+
+void MainWindow::aboutFactDev()
+{
+    Popup::toImplement("MainWindow::aboutFactDev",this);
+}
+
+void MainWindow::aboutIcons()
+{
+    Popup::toImplement("MainWindow::aboutIcons",this);
+}
+

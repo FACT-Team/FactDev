@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1127</width>
-    <height>376</height>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -464,8 +464,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>801</x>
-     <y>330</y>
+     <x>806</x>
+     <y>364</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -480,8 +480,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>677</x>
-     <y>301</y>
+     <x>719</x>
+     <y>363</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -497,10 +497,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>108</y>
+     <y>145</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-361</x>
+     <x>0</x>
      <y>129</y>
     </hint>
    </hints>
@@ -516,8 +516,8 @@
      <y>156</y>
     </hint>
     <hint type="destinationlabel">
-     <x>99</x>
-     <y>171</y>
+     <x>111</x>
+     <y>200</y>
     </hint>
    </hints>
   </connection>
@@ -532,8 +532,8 @@
      <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>92</x>
-     <y>192</y>
+     <x>104</x>
+     <y>226</y>
     </hint>
    </hints>
   </connection>
@@ -544,11 +544,11 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>151</x>
-     <y>171</y>
+     <x>163</x>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-218</x>
+     <x>0</x>
      <y>153</y>
     </hint>
    </hints>
@@ -560,11 +560,11 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>222</x>
-     <y>192</y>
+     <x>234</x>
+     <y>226</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-170</x>
+     <x>0</x>
      <y>218</y>
     </hint>
    </hints>
@@ -577,10 +577,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>74</x>
-     <y>148</y>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-86</x>
+     <x>0</x>
      <y>138</y>
     </hint>
    </hints>
@@ -608,12 +608,108 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>500</x>
-     <y>314</y>
+     <x>633</x>
+     <y>364</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
      <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actClose</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actNew</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actQt</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actFactDev</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutFactDev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actIcons</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutIcons()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actFact</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutFact()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
     </hint>
    </hints>
   </connection>
@@ -626,5 +722,9 @@
   <slot>search(QString)</slot>
   <slot>search()</slot>
   <slot>editUser()</slot>
+  <slot>aboutQt()</slot>
+  <slot>aboutFact()</slot>
+  <slot>aboutFactDev()</slot>
+  <slot>aboutIcons()</slot>
  </slots>
 </ui>
