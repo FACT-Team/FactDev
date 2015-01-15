@@ -31,8 +31,11 @@ SOURCES += mainwindow.cpp \
     dialogs/userdatadialog.cpp \
     widgets/customercontextualmenu.cpp \
     models/search.cpp \
-    widgets/popup.cpp
-    dialogs/addprojectdialog.cpp
+    widgets/popup.cpp \
+    dialogs/addprojectdialog.cpp \
+    widgets/ratewidget.cpp \
+    database/projectdatabase.cpp \
+    utils.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -54,13 +57,17 @@ HEADERS  += mainwindow.h \
     dialogs/userdatadialog.h \
     widgets/customercontextualmenu.h \
     models/search.h \
-    widgets/popup.h
-    dialogs/addprojectdialog.h
+    widgets/popup.h \
+    dialogs/addprojectdialog.h \
+    widgets/ratewidget.h \
+    database/projectdatabase.h \
+    utils.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
     dialogs/userdatadialog.ui \
-    dialogs/addprojectdialog.ui
+    dialogs/addprojectdialog.ui \
+    widgets/ratewidget.ui
 
 RESOURCES += \
     icons.qrc

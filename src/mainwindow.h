@@ -26,6 +26,7 @@ public slots:
     void search(QString);
     void search();
     void updateUserData();
+    void newProject(void);
     void aboutQt();
     void aboutFact();
     void aboutFactDev();
