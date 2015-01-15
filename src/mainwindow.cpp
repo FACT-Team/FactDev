@@ -107,6 +107,12 @@ void MainWindow::search() {
 
 void MainWindow::search(QString text)
 {
+    static QString style = ui->leSearch->styleSheet();
+    if(text != "") {
+        ui->leSearch->setStyleSheet("");
+    } else {
+        ui->leSearch->setStyleSheet(style);
+    }
     Search s;
     s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());

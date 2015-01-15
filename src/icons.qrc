@@ -57,5 +57,6 @@
         <file>img/undo.png</file>
         <file>img/yes_light.png</file>
         <file>img/yes.png</file>
+        <file alias="searchMini">img/searchMini.png</file>
     </qresource>
 </RCC>
