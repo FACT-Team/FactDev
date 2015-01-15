@@ -175,17 +175,26 @@ void MainWindow::aboutQt()
 
 void MainWindow::aboutFact()
 {
-    QMessageBox::about(this, "TITRE", "TEXT EN HTML");
+    QMessageBox::about(this, "About Fact", "Fact est une équipe de Développement créée "
+                                           "dans le cadre de projets pour l'Université Toulouse III - Paul Sabatier. <br />"
+                                      "Cette équipe est composée de : "
+                                      "<ul>"
+                                           "<li>Florent Berbie</li>"
+                                           "<li>Manantsoa Andriamihary Razanajatovo</li>"
+                                           "<li>Cédric Rohaut</li>"
+                                           "<li>Antoine de Roquemaurel</li>"
+                                      "</ul>");
 }
 
 void MainWindow::aboutFactDev()
 {
-    Popup::toImplement("MainWindow::aboutFactDev",this);
+    QMessageBox::about(this,"About FactDev","FactDev est un logiciel de Facture et Devis développé par l'équipe FACT "
+                                            "dans le cadre de l'UE Projet pour l'université Toulouse III - Paul Sabatier.");
 }
 
 void MainWindow::aboutIcons()
 {
-    Popup::toImplement("MainWindow::aboutIcons",this);
+     QMessageBox::about(this,"About Icons","Le pack d'icons à été développé par Florent Berbie pour l'usage du logiciel FactDev");
 }
 
 void MainWindow::changeCustomerTree(QModelIndex index)
