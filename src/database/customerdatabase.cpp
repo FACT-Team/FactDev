@@ -3,7 +3,7 @@
 
 
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
-_instances << this;
+    _instances << this;
 }
 
 // SINGLETON

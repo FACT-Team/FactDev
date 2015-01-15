@@ -1,7 +1,8 @@
 #ifndef ADDPROJECTDIALOG_H
 #define ADDPROJECTDIALOG_H
 #include "models/project.h"
-
+#include "models/customer.h"
+#include "database/customerdatabase.h"
 #include <QDialog>
 
 namespace Ui {
@@ -21,6 +22,7 @@ public:
     void fillCustomerComboBox();
 private:
     Project _project;
+    Customer customerData;
     Ui::AddProjectDialog *ui;
 };
 

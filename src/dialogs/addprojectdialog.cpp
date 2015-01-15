@@ -6,9 +6,11 @@ AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddProjectDialog)
 {
+
     _project = Project(id);
     ui->setupUi(this);
-
+    //ui->cbCustomer->setModel(customerData.instance()->getCustomersTable());
+    ui->cbCustomer->setModel(CustomerDatabase::instance()->getCustomersTable());
 
 
 }

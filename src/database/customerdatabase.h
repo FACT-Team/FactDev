@@ -8,7 +8,7 @@ class CustomerDatabase : public Database
 {
 private:
     static CustomerDatabase* _instance;
-    CustomerDatabase()throw(DbException*) ;
+    CustomerDatabase() throw(DbException*) ;
 public:
     static CustomerDatabase* instance()throw(DbException*);
 
