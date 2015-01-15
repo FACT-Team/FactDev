@@ -29,6 +29,13 @@ void MainWindow::addProject()
 {
 
 }
+
+int MainWindow::getCurrentCustomerId() {
+    QModelIndex idCell = ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
+
+    return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
+}
+
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
