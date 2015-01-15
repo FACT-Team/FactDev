@@ -105,33 +105,36 @@
      <string>Fichier</string>
     </property>
     <addaction name="separator"/>
-    <addaction name="actionParam_tres"/>
-    <addaction name="actionFemer"/>
+    <addaction name="actParametres"/>
+    <addaction name="actClose"/>
    </widget>
    <widget class="QMenu" name="menuClient">
     <property name="title">
      <string>Client</string>
     </property>
-    <addaction name="actionNouveau"/>
-    <addaction name="actionRechercher"/>
-    <addaction name="actionNouvelle_facture"/>
-    <addaction name="actionNouveau_devis"/>
-    <addaction name="actionAfficher"/>
+    <addaction name="actNew"/>
+    <addaction name="actResearch"/>
+    <addaction name="actionNewBill"/>
+    <addaction name="actionNewQuote"/>
+    <addaction name="actionPrint"/>
    </widget>
    <widget class="QMenu" name="menuA_propos">
     <property name="title">
      <string>A propos</string>
     </property>
-    <addaction name="actionQt"/>
-    <addaction name="actionFact"/>
-    <addaction name="actionFactDev"/>
-    <addaction name="actionIcons"/>
+    <addaction name="actQt"/>
+    <addaction name="actFact"/>
+    <addaction name="actFactDev"/>
+    <addaction name="actIcons"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuClient"/>
    <addaction name="menuA_propos"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -139,9 +142,9 @@
     <bool>false</bool>
    </attribute>
    <addaction name="separator"/>
-   <addaction name="actionNouveau"/>
-   <addaction name="actionNouvelle_facture"/>
-   <addaction name="actionNouveau_devis"/>
+   <addaction name="actNew"/>
+   <addaction name="actionNewBill"/>
+   <addaction name="actionNewQuote"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QDockWidget" name="dockWidget">
@@ -365,7 +368,7 @@
     <string>Nouveau projet</string>
    </property>
   </action>
-  <action name="actionParam_tres">
+  <action name="actParametres">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/settings.png</normaloff>:/icons/img/settings.png</iconset>
@@ -374,7 +377,7 @@
     <string>Paramètres</string>
    </property>
   </action>
-  <action name="actionFemer">
+  <action name="actClose">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
@@ -383,7 +386,7 @@
     <string>Fermer</string>
    </property>
   </action>
-  <action name="actionNouveau">
+  <action name="actNew">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
@@ -392,7 +395,7 @@
     <string>Nouveau</string>
    </property>
   </action>
-  <action name="actionRechercher">
+  <action name="actResearch">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/search.png</normaloff>:/icons/img/search.png</iconset>
@@ -401,7 +404,7 @@
     <string>Rechercher</string>
    </property>
   </action>
-  <action name="actionNouvelle_facture">
+  <action name="actionNewBill">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/add_bill.png</normaloff>:/icons/img/add_bill.png</iconset>
@@ -410,7 +413,7 @@
     <string>Nouvelle facture</string>
    </property>
   </action>
-  <action name="actionNouveau_devis">
+  <action name="actionNewQuote">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
@@ -419,7 +422,7 @@
     <string>Nouveau devis</string>
    </property>
   </action>
-  <action name="actionAfficher">
+  <action name="actionPrint">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/customer.png</normaloff>:/icons/img/customer.png</iconset>
@@ -428,22 +431,22 @@
     <string>Afficher</string>
    </property>
   </action>
-  <action name="actionQt">
+  <action name="actQt">
    <property name="text">
     <string>Qt</string>
    </property>
   </action>
-  <action name="actionFact">
+  <action name="actFact">
    <property name="text">
     <string>Fact</string>
    </property>
   </action>
-  <action name="actionFactDev">
+  <action name="actFactDev">
    <property name="text">
     <string>FactDev</string>
    </property>
   </action>
-  <action name="actionIcons">
+  <action name="actIcons">
    <property name="text">
     <string>Icons</string>
    </property>
