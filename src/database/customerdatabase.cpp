@@ -38,7 +38,7 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
     q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, company, phone, email "
               "FROM Customer "
               "WHERE 1 "+filter+" "
-              "ORDER BY UPPER(lastnameReferent), UPPER(firstnameReferent)");
+              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getCustomersTable", lastError(q), 1.1);

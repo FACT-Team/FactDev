@@ -31,9 +31,14 @@ void MainWindow::addProject()
 
 }
 
+void MainWindow::changeCustomer()
+{
+
+    //Popup::toImplement("MainWindow::changeCustomer", this);
+}
+
 int MainWindow::getCurrentCustomerId() {
     QModelIndex idCell = ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
-
     return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
 }
 
@@ -52,13 +57,15 @@ void MainWindow::addCustomer()
 
 void MainWindow::editCustomer()
 {
-    DialogAddCustomer win;
-    if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+    DialogAddCustomer winAddCustomer(getCurrentCustomerId());
+    if(winAddCustomer.exec()) {
+        //qDebug() << "id : " << id << "\n";
         updateTable();
         updateTree();
-    } else {
-
     }
+
+
+
 
     //Popup::toImplement("MainWindow::editCustomer", this);
 }
@@ -113,6 +120,7 @@ void MainWindow::openContextualMenuTable(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
 
+    emit changeCustomerTable();
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
@@ -122,10 +130,12 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
 
+    emit changeCustomerTree();
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
+
 }
 void MainWindow::updateTable(QString filter)
 {
@@ -164,5 +174,47 @@ void MainWindow::newProject()
     if(w.exec()) {
 
     }
+}
+
+void MainWindow::aboutQt()
+{
+    QMessageBox::aboutQt(this);
+}
+
+void MainWindow::aboutFact()
+{
+    QMessageBox::about(this, "TITRE", "TEXT EN HTML");
+}
+
+void MainWindow::aboutFactDev()
+{
+    Popup::toImplement("MainWindow::aboutFactDev",this);
+}
+
+void MainWindow::aboutIcons()
+{
+    Popup::toImplement("MainWindow::aboutIcons",this);
+}
+
+void MainWindow::changeCustomerTree(QModelIndex index)
+{
+    ui->tblCustomers->selectRow(index.row()-1);
+    emit changeCustomer();
+}
+
+void MainWindow::changeCustomerTree()
+{
+    emit changeCustomerTree(ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0));
+}
+
+void MainWindow::changeCustomerTable(QModelIndex index)
+{
+    //ui->trCustomers->set(index.row()+1);
+    emit changeCustomer();
+}
+
+void MainWindow::changeCustomerTable()
+{
+    emit changeCustomerTable(ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0));
 }
 
