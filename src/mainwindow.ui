@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1127</width>
-    <height>406</height>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -104,7 +104,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>20</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -247,7 +247,7 @@
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>308</height>
+     <height>330</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -471,8 +471,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>694</x>
-     <y>330</y>
+     <x>680</x>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -487,8 +487,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>612</x>
-     <y>333</y>
+     <x>571</x>
+     <y>396</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -504,7 +504,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>145</y>
+     <y>181</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -523,8 +523,8 @@
      <y>251</y>
     </hint>
     <hint type="destinationlabel">
-     <x>111</x>
-     <y>200</y>
+     <x>128</x>
+     <y>238</y>
     </hint>
    </hints>
   </connection>
@@ -539,8 +539,8 @@
      <y>251</y>
     </hint>
     <hint type="destinationlabel">
-     <x>104</x>
-     <y>226</y>
+     <x>121</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -551,8 +551,8 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>163</x>
-     <y>165</y>
+     <x>180</x>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -567,8 +567,8 @@
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>234</x>
-     <y>226</y>
+     <x>251</x>
+     <y>270</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -600,7 +600,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1116</x>
-     <y>280</y>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>825</x>
@@ -615,8 +615,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>526</x>
-     <y>334</y>
+     <x>479</x>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -631,16 +631,16 @@
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>724</x>
-     <y>332</y>
+     <x>806</x>
+     <y>396</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
      <y>408</y>
     </hint>
    </hints>
-   </connection>
-    <connection>
+  </connection>
+  <connection>
    <sender>actClose</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -733,10 +733,10 @@
     <hint type="destinationlabel">
      <x>563</x>
      <y>202</y>
-     </hint>
-     </hints>
-</connection>
-<connection>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>tblCustomers</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
@@ -749,6 +749,22 @@
     <hint type="destinationlabel">
      <x>302</x>
      <y>386</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>trCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeCustomerTree(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-206</x>
+     <y>364</y>
     </hint>
    </hints>
   </connection>
