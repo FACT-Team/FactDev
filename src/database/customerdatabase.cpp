@@ -29,8 +29,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
                     << ("Nom")
                     << ("Prénom")
                     << ("Société")
-                    << ("Telephone")
-                    << ("Mail")
+                    << ("Téléphone")
+                    << ("EMail")
                     );
     QSqlQuery q;
 

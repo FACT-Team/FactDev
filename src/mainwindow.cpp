@@ -148,16 +148,17 @@ void MainWindow::updateTable(QString filter)
     ui->tblCustomers->setModel(CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
-    ui->tblCustomers->setColumnWidth(1, 100);
-    ui->tblCustomers->setColumnWidth(2, 150);
+    ui->tblCustomers->setColumnWidth(1, 150);
+    ui->tblCustomers->setColumnWidth(2, 100);
     ui->tblCustomers->setColumnWidth(3, 150);
-    ui->tblCustomers->setColumnWidth(4, 100);
+    ui->tblCustomers->setColumnWidth(4, 150);
     ui->tblCustomers->setColumnWidth(5, 200);
 }
 
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(CustomerDatabase::instance()->getCustomersTree(filter));
+    ui->trCustomers->header()->close();
 }
 
 void MainWindow::updateUserData()
