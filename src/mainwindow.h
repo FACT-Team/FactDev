@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-
+#include <QModelIndex>
 namespace Ui {
 class MainWindow;
 }
@@ -26,10 +26,13 @@ public slots:
     void search(QString);
     void search();
     void updateUserData();
+    void addProject();
+    void changeCustomer();
 private slots:
     void openContextualMenuTable(const QPoint point);
     void openContextualMenuTree(const QPoint point);
-    void addProject();
+    void changeCustomerTree(QModelIndex index);
+    void changeCustomerTree();
 private:
     void updateTable(QString filter="");
     void updateTree(QString filter="");
