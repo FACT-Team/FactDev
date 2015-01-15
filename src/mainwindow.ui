@@ -621,7 +621,7 @@
    <sender>trCustomers</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>changeCustomer(QModelIndex)</slot>
+   <slot>changeCustomerTree(QModelIndex)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>66</x>
@@ -637,15 +637,15 @@
    <sender>tblCustomers</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>changeCustomer()</slot>
+   <slot>changeCustomerTable(QModelIndex)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>450</x>
-     <y>177</y>
+     <x>412</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-151</x>
-     <y>145</y>
+     <x>302</x>
+     <y>386</y>
     </hint>
    </hints>
   </connection>
@@ -660,5 +660,6 @@
   <slot>editUser()</slot>
   <slot>changeCustomerTree(QModelIndex)</slot>
   <slot>changeCustomer()</slot>
+  <slot>changeCustomerTable(QModelIndex)</slot>
  </slots>
 </ui>

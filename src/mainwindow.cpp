@@ -32,7 +32,8 @@ void MainWindow::addProject()
 
 void MainWindow::changeCustomer()
 {
-    Popup::toImplement("MainWindow::changeCustomer", this);
+
+    //Popup::toImplement("MainWindow::changeCustomer", this);
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -118,6 +119,7 @@ void MainWindow::openContextualMenuTable(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
 
+    emit changeCustomerTable();
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
@@ -127,7 +129,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
 
-    emit changeCustomer();
+    emit changeCustomerTree();
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
@@ -174,5 +176,16 @@ void MainWindow::changeCustomerTree(QModelIndex index)
 void MainWindow::changeCustomerTree()
 {
     emit changeCustomerTree(ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0));
+}
+
+void MainWindow::changeCustomerTable(QModelIndex index)
+{
+    //ui->trCustomers->set(index.row()+1);
+    emit changeCustomer();
+}
+
+void MainWindow::changeCustomerTable()
+{
+    emit changeCustomerTable(ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0));
 }
 

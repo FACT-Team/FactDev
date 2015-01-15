@@ -33,6 +33,8 @@ private slots:
     void openContextualMenuTree(const QPoint point);
     void changeCustomerTree(QModelIndex index);
     void changeCustomerTree();
+    void changeCustomerTable(QModelIndex index);
+    void changeCustomerTable();
 private:
     void updateTable(QString filter="");
     void updateTree(QString filter="");
