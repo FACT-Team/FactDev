@@ -36,7 +36,8 @@ SOURCES += mainwindow.cpp \
     widgets/ratewidget.cpp \
     database/projectdatabase.cpp \
     dialogs/addcontributorydialog.cpp \
-    widgets/comboboxmodelwidget.cpp
+    widgets/comboboxmodelwidget.cpp\
+    utils.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -63,7 +64,8 @@ HEADERS  += mainwindow.h \
     widgets/ratewidget.h \
     database/projectdatabase.h \
     dialogs/addcontributorydialog.h \
-    widgets/comboboxmodelwidget.h
+    widgets/comboboxmodelwidget.h \
+    utils.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
