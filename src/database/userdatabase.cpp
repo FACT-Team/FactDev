@@ -59,7 +59,7 @@ void UserDatabase::updateUser(const User& pUser) {
     QSqlQuery q;
     q.prepare(
         "UPDATE User SET "
-        "firstnameReferent= :firstname, lastnameReferent= :lastname,"
+        "firstname= :firstname, lastname= :lastname,"
         "company= :company, address= :address, postalCode= :postalCode,"
         "city= :city, country= :country, email= :email,"
         "mobilePhone= :mobilePhone, phone= :phone, fax= :fax, noSiret= :noSiret"
@@ -82,8 +82,8 @@ void UserDatabase::updateUser(const User& pUser) {
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'éditer les informations du Customer",
-            "BddCustomer::updateCustomer",
+            "Impossible d'éditer les informations du User",
+            "BddUser::updateuser",
             lastError(q),
             1.4);
     }
