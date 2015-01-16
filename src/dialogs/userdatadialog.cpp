@@ -3,7 +3,7 @@
 #include "ui_userdatadialog.h"
 
 // Commentaire de Cédric :
-// Je pense que le fichier doit être supprimé, sauf si dans la bar de menu on cré
+// Je pense que dans la bar de menu on peit créer
 // un bouton pour modifier les données de l'utilisateur ...
 UserDataDialog::UserDataDialog(QWidget *parent) :
     QDialog(parent),

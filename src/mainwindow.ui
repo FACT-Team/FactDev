@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1099</width>
+    <width>1237</width>
     <height>500</height>
    </rect>
   </property>
@@ -111,8 +111,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1099</width>
-     <height>19</height>
+     <width>1237</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -166,7 +166,7 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>200</height>
+     <height>285</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -276,7 +276,7 @@ background-position: right;
    <property name="minimumSize">
     <size>
      <width>332</width>
-     <height>200</height>
+     <height>356</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -284,87 +284,6 @@ background-position: right;
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QGridLayout" name="gridLayout_5">
-     <item row="0" column="0">
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="3" column="0">
-        <widget class="QLabel" name="lbMobilePhone">
-         <property name="text">
-          <string>Mobile Phone +33674801256</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="lbNbBill">
-         <property name="text">
-          <string>25 Factures</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="0">
-        <widget class="QLabel" name="lbNbDev">
-         <property name="text">
-          <string>12 Devis</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="lbAddress">
-         <property name="text">
-          <string>1 rue du trou du cul </string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="lbPostalCodeCityCountry">
-         <property name="text">
-          <string>12345 MACHINCHOSE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="lbEmail">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;a.A@truc.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="lbName">
-         <property name="text">
-          <string>Monsieur a A</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="lbNbProject">
-         <property name="text">
-          <string>42 projets</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="lbCompany">
-         <property name="text">
-          <string>&lt;b&gt;Organisation A&lt;/b&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="lbFax">
-         <property name="text">
-          <string>Fax +33674801256</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="lbPhone">
-         <property name="text">
-          <string>Phone +33674801256</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
      <item row="1" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
@@ -405,6 +324,16 @@ background-position: right;
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="0" column="0">
+      <widget class="CustomerDataWidget" name="wdgCustomerData" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>100</height>
+        </size>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -503,6 +432,14 @@ background-position: right;
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CustomerDataWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/customerdatawidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="icons.qrc"/>
  </resources>
