@@ -27,8 +27,8 @@ User *UserDatabase::getUser(const int pId)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le Customer",
-            "BddCustomer::getCustomer",
+            "Impossible d'ajouter le User",
+            "BddUser::getUser",
             lastError(q),
             1.2);
     }
@@ -39,14 +39,15 @@ User *UserDatabase::getUser(const int pId)
         user->setFirstname(value(q,"firstname").toString());
         user->setLastname(value(q,"lastname").toString());
         user->setCompany(value(q,"company").toString());
+        user->setTitle(value(q,"title").toString());
         user->setAddress(value(q,"address").toString());
         user->setPostalCode(value(q,"postalCode").toString());
         user->setCity(value(q,"city").toString());
-        user->setCountry(value(q,"country").toString());
+//        user->setCountry(value(q,"country").toString());
         user->setEmail(value(q,"email").toString());
         user->setMobilePhone(value(q,"mobilePhone").toString());
         user->setPhone(value(q,"phone").toString());
-        user->setFax(value(q,"fax").toString());
+//        user->setFax(value(q,"fax").toString());
         user->setNoSiret(value(q,"noSiret").toString());
     } else {
         user = NULL;
@@ -59,31 +60,32 @@ void UserDatabase::updateUser(const User& pUser) {
     QSqlQuery q;
     q.prepare(
         "UPDATE User SET "
-        "firstname= :firstname, lastname= :lastname,"
-        "company= :company, address= :address, postalCode= :postalCode,"
-        "city= :city, country= :country, email= :email,"
-        "mobilePhone= :mobilePhone, phone= :phone, fax= :fax, noSiret= :noSiret"
+        "firstname= :firstname, lastname= :lastname, company= :company, "
+        "title = :title, address= :address, postalCode= :postalCode, "
+        "city= :city, email= :email, mobilePhone= :mobilePhone, "
+        "phone= :phone, noSiret= :noSiret "
         "WHERE idUser=:idUser");
 
     q.bindValue(":idUser", pUser.getId());
     q.bindValue(":firstname", pUser.getFirstname());
     q.bindValue(":lastname", pUser.getLastname());
     q.bindValue(":company", pUser.getCompany());
+    q.bindValue(":title", pUser.getTitle());
     q.bindValue(":address", pUser.getAddress());
     q.bindValue(":phone", pUser.getPhone());
     q.bindValue(":postalCode", pUser.getPostalCode());
     q.bindValue(":city", pUser.getCity());
-    q.bindValue(":country", pUser.getCountry());
+//    q.bindValue(":country", pUser.getCountry());
     q.bindValue(":email", (pUser.getEmail()));
     q.bindValue(":mobilePhone", pUser.getMobilePhone());
     q.bindValue(":phone", pUser.getPhone());
-    q.bindValue(":fax", pUser.getFax());
+//    q.bindValue(":fax", pUser.getFax());
     q.bindValue("noSiret", pUser.getNoSiret());
 
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'éditer les informations du User",
-            "BddUser::updateuser",
+            "BddUser::updateUser",
             lastError(q),
             1.4);
     }

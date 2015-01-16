@@ -146,3 +146,13 @@ void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
 }
+QString User::getTitle() const
+{
+    return _title;
+}
+
+void User::setTitle(const QString &title)
+{
+    _title = title;
+}
+

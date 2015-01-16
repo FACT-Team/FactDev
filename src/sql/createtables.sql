@@ -68,3 +68,4 @@ CREATE TABLE User
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC);
+INSERT INTO User(idUser) VALUES(1);

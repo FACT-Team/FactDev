@@ -23,6 +23,9 @@ public:
     QString getCompany() const;
     void setCompany(const QString &getCompany);
 
+    QString getTitle() const;
+    void setTitle(const QString &getTitle);
+
     QString getAddress() const;
     void setAddress(const QString &getAddress);
 
@@ -50,11 +53,13 @@ public:
     QString getNoSiret() const;
     void setNoSiret(const QString &getNoSiret);
 
+
 private:
     int _id;
     QString _firstname;
     QString _lastname;
     QString _company;
+    QString _title;
     QString _address;
     QString _postalCode;
     QString _city;
