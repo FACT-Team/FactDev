@@ -32,6 +32,10 @@
             <property name="text">
              <string>Supprimer</string>
             </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/img/256/remove_user.png</normaloff>:/icons/img/256/remove_user.png</iconset>
+            </property>
            </widget>
           </item>
           <item row="1" column="0">
@@ -108,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>1127</width>
-     <height>27</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -456,7 +460,7 @@ background-position: right;
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset>
      <normaloff>:/icons/img/customer.png</normaloff>:/icons/img/customer.png</iconset>
    </property>
    <property name="text">
