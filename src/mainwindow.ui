@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1127</width>
+    <width>1185</width>
     <height>444</height>
    </rect>
   </property>
@@ -107,8 +107,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1127</width>
-     <height>27</height>
+     <width>1185</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -271,8 +271,8 @@ background-position: right;
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>300</width>
-     <height>330</height>
+     <width>332</width>
+     <height>660</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -282,50 +282,57 @@ background-position: right;
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="0" column="0">
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="4" column="0">
-        <widget class="QLabel" name="lbAddress">
+       <item row="3" column="0">
+        <widget class="QLabel" name="lbMobilePhone">
          <property name="text">
-          <string>1 rue du trou du cul </string>
+          <string>Mobile Phone +33674801256</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="lbPhone">
-         <property name="text">
-          <string>01.02.03.04.05</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_9">
+       <item row="9" column="0">
+        <widget class="QLabel" name="lbNbBill">
          <property name="text">
           <string>25 Factures</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="lbPostalCodeCity">
-         <property name="text">
-          <string>12345 MACHINCHOSE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lbEmail">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;a.A@truc.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_10">
+       <item row="10" column="0">
+        <widget class="QLabel" name="lbNbDev">
          <property name="text">
           <string>12 Devis</string>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="lbAddress">
+         <property name="text">
+          <string>1 rue du trou du cul </string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="lbPostalCodeCityCountry">
+         <property name="text">
+          <string>12345 MACHINCHOSE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lbEmail">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;a.A@truc.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lbName">
+         <property name="text">
+          <string>Monsieur a A</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lbNbProject">
          <property name="text">
           <string>42 projets</string>
          </property>
@@ -338,10 +345,17 @@ background-position: right;
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="lbName">
+       <item row="4" column="0">
+        <widget class="QLabel" name="lbFax">
          <property name="text">
-          <string>Monsieur a A</string>
+          <string>Fax +33674801256</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lbPhone">
+         <property name="text">
+          <string>Phone +33674801256</string>
          </property>
         </widget>
        </item>
@@ -456,7 +470,7 @@ background-position: right;
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset>
      <normaloff>:/icons/img/customer.png</normaloff>:/icons/img/customer.png</iconset>
    </property>
    <property name="text">
@@ -618,22 +632,6 @@ background-position: right;
    </hints>
   </connection>
   <connection>
-   <sender>btnEditUser</sender>
-   <signal>released()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>editUser()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1116</x>
-     <y>401</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>825</x>
-     <y>296</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>btnAddCustomer</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
@@ -790,6 +788,22 @@ background-position: right;
     <hint type="destinationlabel">
      <x>-206</x>
      <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnEditUser</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editUser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1116</x>
+     <y>401</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>825</x>
+     <y>296</y>
     </hint>
    </hints>
   </connection>

@@ -25,7 +25,6 @@ public slots:
     void editUser();
     void search(QString);
     void search();
-    void updateUserData();
     void newProject(void);
     void aboutQt();
     void aboutFact();
@@ -40,6 +39,7 @@ private slots:
     void changeCustomerTree();
     void changeCustomerTable(QModelIndex index);
     void changeCustomerTable();
+
 private:
     void updateTable(QString filter="");
     void updateTree(QString filter="");

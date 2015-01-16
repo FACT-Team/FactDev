@@ -2,6 +2,9 @@
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 
+// Commentaire de Cédric :
+// Je pense que le fichier doit être supprimé, sauf si dans la bar de menu on cré
+// un bouton pour modifier les données de l'utilisateur ...
 UserDataDialog::UserDataDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserDataDialog)
@@ -15,6 +18,7 @@ UserDataDialog::~UserDataDialog()
     delete ui;
 }
 
+// TO_DO : A supprimer
 void UserDataDialog::accept()
 {
     MainWindow win;
@@ -32,7 +36,7 @@ void UserDataDialog::accept()
     _user.setNoSiret(ui->leNoSiret->text());
 
     _user.commit();
-    win.updateUserData();
+    //win.updateUserData();     // Méthode supprimé car ré-écrite dans openCustomer
     QDialog::accept();
 
 }

@@ -31,12 +31,6 @@ void MainWindow::addProject()
 
 }
 
-void MainWindow::changeCustomer()
-{
-
-    //Popup::toImplement("MainWindow::changeCustomer", this);
-}
-
 int MainWindow::getCurrentCustomerId() {
     QModelIndex idCell = ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
     return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
@@ -87,8 +81,18 @@ void MainWindow::removeCustomer()
 
 void MainWindow::openCustomer()
 {
-    // TODO Implement me
-    Popup::toImplement("MainWindow::openCustomer", this);
+    int id = getCurrentCustomerId();
+    Customer *custom = new Customer(id);
+    ui->lbAddress->setText(custom->getAddress());
+    ui->lbCompany->setText(custom->getCompany());
+    ui->lbEmail->setText(custom->getEmail());
+    ui->lbName->setText(custom->getLastnameReferent() + " " + custom->getFirstnameReferent());
+    ui->lbPhone->setText("Fixe :\t" + custom->getPhone());
+    ui->lbMobilePhone->setText("Mobile :\t" + custom->getMobilePhone());
+    ui->lbFax->setText("Fax :\t" +custom->getFax());
+    ui->lbPostalCodeCityCountry->setText(custom->getPostalCode() + " " + custom->getCity() + ", " + custom->getCountry());
+
+    //Popup::toImplement("MainWindow::openCustomer", this);
 }
 
 void MainWindow::editUser()
@@ -179,20 +183,6 @@ void MainWindow::updateTree(QString filter)
     ui->trCustomers->header()->close();
 }
 
-void MainWindow::updateUserData()
-{
-
-    User user;
-    ui->lbName->setText(user.getFirstname()+" "+user.getLastname());
-    ui->lbCompany->setText(user.getCompany());
-    ui->lbAddress->setText(user.getAddress());
-    ui->lbPostalCodeCity->setText(user.getPostalCode()+", "+user.getCity());
-    ui->lbEmail->setText(user.getEmail());
-    ui->lbPhone->setText(user.getPhone());
-
-    user.commit();
-}
-
 void MainWindow::newProject()
 {
     AddProjectDialog w;
@@ -230,25 +220,34 @@ void MainWindow::aboutIcons()
      QMessageBox::about(this,"About Icons","Le pack d'icons à été développé par Florent Berbie pour l'usage du logiciel FactDev");
 }
 
+void MainWindow::changeCustomer()
+{
+    //showInformationCustomer(42);
+    //Popup::toImplement("MainWindow::changeCustomer", this);
+}
+
 void MainWindow::changeCustomerTree(QModelIndex index)
 {
     ui->tblCustomers->selectRow(index.row()-1);
     emit changeCustomer();
+    emit openCustomer();
 }
 
 void MainWindow::changeCustomerTree()
 {
-    emit changeCustomerTree(ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0));
+    QModelIndex index = ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
+
+    emit changeCustomerTree(index);
 }
 
 void MainWindow::changeCustomerTable(QModelIndex index)
 {
     //ui->trCustomers->set(index.row()+1);
     emit changeCustomer();
+    emit openCustomer();
 }
 
 void MainWindow::changeCustomerTable()
 {
     emit changeCustomerTable(ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0));
 }
-
