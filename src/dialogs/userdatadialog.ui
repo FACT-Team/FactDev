@@ -228,6 +228,22 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>leFirstname</tabstop>
+  <tabstop>leLastname</tabstop>
+  <tabstop>leCompany</tabstop>
+  <tabstop>leAddress</tabstop>
+  <tabstop>lePostalCode</tabstop>
+  <tabstop>leCity</tabstop>
+  <tabstop>leCountry</tabstop>
+  <tabstop>leEmail</tabstop>
+  <tabstop>lePhone</tabstop>
+  <tabstop>leMobilePhone</tabstop>
+  <tabstop>leFax</tabstop>
+  <tabstop>leNoSiret</tabstop>
+  <tabstop>btnValid</tabstop>
+  <tabstop>btnCancel</tabstop>
+ </tabstops>
  <resources>
   <include location="../icons.qrc"/>
  </resources>
@@ -240,7 +256,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>303</x>
-     <y>523</y>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
@@ -256,7 +272,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>389</x>
-     <y>523</y>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>474</x>
