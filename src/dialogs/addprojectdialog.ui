@@ -6,14 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>377</width>
-    <height>248</height>
+    <width>530</width>
+    <height>527</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Nouveau Projet</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="leNameProject"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="lbDescription">
+     <property name="text">
+      <string>Description</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="lbProjectName">
+     <property name="text">
+      <string>Projet</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QTextEdit" name="leDescription"/>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="RateWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>45</height>
+      </size>
+     </property>
+    </widget>
+   </item>
    <item row="7" column="0" rowspan="2" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
@@ -53,42 +83,12 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="lbCustomer">
-     <property name="text">
-      <string>Client</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QComboBox" name="cbCustomer"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="lbProjectName">
-     <property name="text">
-      <string>Projet</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="leNameProject"/>
-   </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QTextEdit" name="leDescription"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="lbDescription">
-     <property name="text">
-      <string>Description</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="RateWidget" name="widget" native="true">
+   <item row="0" column="0" colspan="2">
+    <widget class="searchWidget" name="wdgSearch" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>45</height>
+       <height>300</height>
       </size>
      </property>
     </widget>
@@ -100,6 +100,12 @@
    <class>RateWidget</class>
    <extends>QWidget</extends>
    <header>widgets/ratewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>searchWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/searchwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -114,8 +120,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>235</x>
-     <y>229</y>
+     <x>280</x>
+     <y>516</y>
     </hint>
     <hint type="destinationlabel">
      <x>150</x>
@@ -130,8 +136,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>310</x>
-     <y>230</y>
+     <x>366</x>
+     <y>516</y>
     </hint>
     <hint type="destinationlabel">
      <x>312</x>

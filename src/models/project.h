@@ -22,15 +22,15 @@ public:
     double getDailyRate() const;
     void setDailyRate(double getDailyRate);
 
-    Customer getCustomer() const;
-    void setCustomer(Customer getCustomer);
+    Customer* getCustomer() const;
+    void setCustomer(Customer *customer);
 
 private:
 
     QString _name;
     QString _description;
     double _dailyRate;
-    Customer _customer;
+    Customer* _customer;
 };
 
 #endif // PROJECT_H

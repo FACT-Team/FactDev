@@ -9,8 +9,7 @@ AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
 
     _project = Project(id);
     ui->setupUi(this);
-    //ui->cbCustomer->setModel(customerData.instance()->getCustomersTable());
-    ui->cbCustomer->setModel(CustomerDatabase::instance()->getCustomersTable());
+
 
 
 }
@@ -26,8 +25,7 @@ void AddProjectDialog::accept()
     _project.setName(ui->leNameProject->text());
     _project.setDescription(ui->leDescription->toPlainText());
     _project.setDailyRate(ui->widget->getDailyRate());
-    _project.setCustomer(
-        ui->cbCustomer->itemData(ui->cbCustomer->currentIndex()).toInt());
+    _project.setCustomer(CustomerDatabase::instance()->getCustomer(ui->wdgSearch->getCurrentCustomerId()));
 
     _project.commit();
     QDialog::accept();

@@ -38,7 +38,7 @@ Project *ProjectDatabase::getProject(const int pId)
         project->setName(value(q,"name").toString());
         project->setDescription(value(q,"description").toString());
         project->setDailyRate(value(q,"dailyRate").toDouble());
-        project->setCustomer(value(q,"idCustomer").toInt());
+        project->setCustomer(new Customer(value(q,"idCustomer").toInt()));
     } else {
         project = NULL;
     }
@@ -60,7 +60,7 @@ int ProjectDatabase::addProject(const Project &pProject)
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
     q.bindValue(":dailyRate", pProject.getDailyRate());
-    q.bindValue(":idCustomer", pProject.getCustomer().getId());
+    q.bindValue(":idCustomer", pProject.getCustomer()->getId());
 
 
     if(!q.exec()) {
@@ -89,7 +89,7 @@ void ProjectDatabase::updateProject(const Project &pProject)
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
     q.bindValue(":dailyRate", pProject.getDailyRate());
-    q.bindValue(":idProject", pProject.getCustomer().getId());
+    q.bindValue(":idProject", pProject.getCustomer()->getId());
 
 
     if(!q.exec()) {

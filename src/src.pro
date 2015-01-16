@@ -37,7 +37,8 @@ SOURCES += mainwindow.cpp \
     database/projectdatabase.cpp \
     dialogs/addcontributorydialog.cpp \
     widgets/comboboxmodelwidget.cpp\
-    utils.cpp
+    utils.cpp \
+    widgets/searchwidget.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -65,7 +66,8 @@ HEADERS  += mainwindow.h \
     database/projectdatabase.h \
     dialogs/addcontributorydialog.h \
     widgets/comboboxmodelwidget.h \
-    utils.h
+    utils.h \
+    widgets/searchwidget.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
@@ -73,7 +75,8 @@ FORMS    += mainwindow.ui \
     dialogs/addprojectdialog.ui \
     widgets/ratewidget.ui \
     dialogs/addcontributorydialog.ui \
-    widgets/comboboxmodelwidget.ui
+    widgets/comboboxmodelwidget.ui \
+    widgets/searchwidget.ui
 
 RESOURCES += \
     icons.qrc

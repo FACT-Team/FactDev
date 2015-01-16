@@ -58,6 +58,11 @@
         <file>img/yes_light.png</file>
         <file>img/yes.png</file>
         <file alias="searchMini">img/searchMini.png</file>
+        <file>img/remove_bill.png</file>
+        <file>img/remove_contributory.png</file>
+        <file>img/remove_project.png</file>
+        <file>img/remove_quote.png</file>
+        <file>img/remove_user.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>

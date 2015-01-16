@@ -1,5 +1,5 @@
 #include "project.h"
-
+#include "database/projectdatabase.h"
 Project::Project()
 {
 }
@@ -10,7 +10,11 @@ Project::Project(int id)
 }
 
 void Project::commit() {
-    // TODO implement me !
+    if(_id == 0) {
+        _id = ProjectDatabase::instance()->addProject(*this);
+    } else {
+        ProjectDatabase::instance()->updateProject(*this);
+    }
 }
 
 void Project::hydrat(int id)
@@ -50,12 +54,12 @@ void Project::setDailyRate(double dailyRate)
 {
     _dailyRate = dailyRate;
 }
-Customer Project::getCustomer() const
+Customer* Project::getCustomer() const
 {
     return _customer;
 }
 
-void Project::setCustomer(Customer customer)
+void Project::setCustomer(Customer* customer)
 {
     _customer = customer;
 }

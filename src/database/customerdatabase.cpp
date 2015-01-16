@@ -26,9 +26,9 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
         retour->setHorizontalHeaderLabels(
                     QStringList()
                     << ("Id")
-                    << ("Nom")
-                    << ("Prénom")
                     << ("Société")
+                    << ("Nom")
+                    << ("Prénom")                    
                     << ("Téléphone")
                     << ("EMail")
                     );
@@ -48,9 +48,9 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
         QList<QStandardItem*> ligne;
 
         ligne << new QStandardItem(value(q, "idCustomer").toString());
+        ligne << new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
         ligne << new QStandardItem(value(q, "lastnameReferent").toString().toUpper());
         ligne << new QStandardItem(Utils::firstLetterToUpper(value(q, "firstNameReferent").toString()));
-        ligne << new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
 
