@@ -59,4 +59,10 @@
         <file>img/yes.png</file>
         <file alias="searchMini">img/searchMini.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>../icons/img/256/remove_contributory.png</file>
+        <file>../icons/img/256/remove_project.png</file>
+        <file>../icons/img/256/remove_quote.png</file>
+        <file>../icons/img/256/remove_user.png</file>
+    </qresource>
 </RCC>
