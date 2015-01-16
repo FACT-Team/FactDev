@@ -32,6 +32,10 @@
             <property name="text">
              <string>Supprimer</string>
             </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/img/256/remove_user.png</normaloff>:/icons/img/256/remove_user.png</iconset>
+            </property>
            </widget>
           </item>
           <item row="1" column="0">
