@@ -112,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -120,7 +120,7 @@
      <string>Fichier</string>
     </property>
     <addaction name="separator"/>
-    <addaction name="actParametres"/>
+    <addaction name="actSettings"/>
     <addaction name="actClose"/>
    </widget>
    <widget class="QMenu" name="menuClient">
@@ -157,6 +157,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="separator"/>
+   <addaction name="actSettings"/>
    <addaction name="actNew"/>
    <addaction name="actionNewBill"/>
    <addaction name="actionNewQuote"/>
@@ -177,12 +178,12 @@
      <item row="1" column="0">
       <widget class="QLineEdit" name="leSearch">
        <property name="styleSheet">
-        <string notr="true">    padding-right: 20px;
-    padding-left: 5px;
-    background: url(:/icons/searchMini);
-    background-repeat: no-repeat;
+        <string notr="true">background: url(:/icons/searchMini);
 background-position: right;
-</string>
+background-repeat: no-repeat;     
+border-radius: 0px;
+height: 23px;
+border: 1px solid #bbb;</string>
        </property>
        <property name="inputMask">
         <string/>
@@ -285,34 +286,6 @@ background-position: right;
    <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="1" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnEditUser">
-         <property name="text">
-          <string>Modifier</string>
-         </property>
-         <property name="icon">
-          <iconset resource="icons.qrc">
-           <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="0">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -347,7 +320,7 @@ background-position: right;
     <string>Nouveau projet</string>
    </property>
   </action>
-  <action name="actParametres">
+  <action name="actSettings">
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/settings.png</normaloff>:/icons/img/settings.png</iconset>
@@ -364,6 +337,9 @@ background-position: right;
    <property name="text">
     <string>Fermer</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
   </action>
   <action name="actNew">
    <property name="icon">
@@ -373,6 +349,9 @@ background-position: right;
    <property name="text">
     <string>Nouveau</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actResearch">
    <property name="icon">
@@ -381,6 +360,9 @@ background-position: right;
    </property>
    <property name="text">
     <string>Rechercher</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
    </property>
   </action>
   <action name="actionNewBill">
@@ -733,18 +715,18 @@ background-position: right;
    </hints>
   </connection>
   <connection>
-   <sender>btnEditUser</sender>
-   <signal>released()</signal>
+   <sender>actSettings</sender>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>editUser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1116</x>
-     <y>401</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>825</x>
-     <y>296</y>
+     <x>618</x>
+     <y>249</y>
     </hint>
    </hints>
   </connection>
