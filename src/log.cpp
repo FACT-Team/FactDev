@@ -14,8 +14,9 @@ TypeLog Log::_type = INFO;
  * @brief Log::Log. Log is a singleton.
  */
 Log::Log() {
-    QSettings settings("BilanMDT", "Antoine de Roquemaurel");
-    _file = new QFile(settings.value("workspace").toString()+"/"+"/message.log");
+    QSettings settings("FactDev", "FACT");
+    _file = new QFile(
+                settings.value("workspace").toString()+"/"+"/message.log");
     bool exists = _file->exists();
     _file->open(QIODevice::Append | QIODevice::Text);
     if(!exists) {
@@ -73,5 +74,7 @@ void Log::write(const QString text) {
  * @return The head instruction : date Version logType
  */
 inline QString Log::head() {
-    return"["+QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss")+" V"+QString::number(Parameters::VERSION)+" "+typeLog2String(_type)+"] ";
+    return  "["+QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss")
+            +" V"+QString::number(Parameters::VERSION)
+            +" "+typeLog2String(_type)+"] ";
 }

@@ -16,8 +16,16 @@ MainWindow::MainWindow(QWidget *parent) :
     updateTree();
     ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->trCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(ui->tblCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenuTable(const QPoint &)));
-    connect(ui->trCustomers, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(openContextualMenuTree(const QPoint &)));
+    connect(
+        ui->tblCustomers,
+        SIGNAL(customContextMenuRequested(const QPoint &)),
+        this,
+        SLOT(openContextualMenuTable(const QPoint &)));
+    connect(
+        ui->trCustomers,
+        SIGNAL(customContextMenuRequested(const QPoint &)),
+        this,
+        SLOT(openContextualMenuTree(const QPoint &)));
 }
 
 
@@ -26,13 +34,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::addProject()
-{
-
-}
-
 int MainWindow::getCurrentCustomerId() {
-    QModelIndex idCell = ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
+    QModelIndex idCell =
+        ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
     return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
 }
 
@@ -67,7 +71,13 @@ void MainWindow::editCustomer()
 void MainWindow::removeCustomer()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
-        if(QMessageBox::warning(this, "Suppression d'un client", "Voulez vous supprimer le client sélectionné ? ", "Supprimer", "Annuler") == 0) {
+        if(QMessageBox::warning(
+                    this,
+                    "Suppression d'un client",
+                    "Voulez vous supprimer le client sélectionné ? ",
+                    "Supprimer",
+                    "Annuler") == 0)
+        {
 
             qDebug() << "Delete";
             QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
@@ -188,26 +198,37 @@ void MainWindow::aboutQt()
 
 void MainWindow::aboutFact()
 {
-    QMessageBox::about(this, "About Fact", "Fact est une équipe de Développement créée "
-                                           "dans le cadre de projets pour l'Université Toulouse III - Paul Sabatier. <br />"
-                                      "Cette équipe est composée de : "
-                                      "<ul>"
-                                           "<li>Florent Berbie</li>"
-                                           "<li>Manantsoa Andriamihary Razanajatovo</li>"
-                                           "<li>Cédric Rohaut</li>"
-                                           "<li>Antoine de Roquemaurel</li>"
-                                      "</ul>");
+    QMessageBox::about(
+                this,
+                "About Fact",
+                "Fact est une équipe de Développement créée dans le cadre de "
+                "projets pour l'Université Toulouse III - Paul Sabatier. <br />"
+                "Cette équipe est composée de : "
+                  "<ul>"
+                       "<li>Florent Berbie</li>"
+                       "<li>Manantsoa Andriamihary Razanajatovo</li>"
+                       "<li>Cédric Rohaut</li>"
+                       "<li>Antoine de Roquemaurel</li>"
+                  "</ul>");
 }
 
 void MainWindow::aboutFactDev()
 {
-    QMessageBox::about(this,"About FactDev","FactDev est un logiciel de Facture et Devis développé par l'équipe FACT "
-                                            "dans le cadre de l'UE Projet pour l'université Toulouse III - Paul Sabatier.");
+    QMessageBox::about(
+                this,
+                "About FactDev",
+                "FactDev est un logiciel de Facture et Devis développé par "
+                "l'équipe FACT dans le cadre de l'UE Projet pour l'université "
+                "Toulouse III - Paul Sabatier.");
 }
 
 void MainWindow::aboutIcons()
 {
-     QMessageBox::about(this,"About Icons","Le pack d'icons à été développé par Florent Berbie pour l'usage du logiciel FactDev");
+     QMessageBox::about(
+                 this,
+                 "About Icons",
+                 "Le pack d'icons à été développé par Florent Berbie pour "
+                 "l'usage du logiciel FactDev");
 }
 
 void MainWindow::changeCustomer()
@@ -225,7 +246,8 @@ void MainWindow::changeCustomerTree(QModelIndex index)
 
 void MainWindow::changeCustomerTree()
 {
-    QModelIndex index = ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
+    QModelIndex index =
+    ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
 
     emit changeCustomerTree(index);
 }

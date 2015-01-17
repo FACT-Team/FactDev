@@ -31,8 +31,26 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnCerateProject">
+       <property name="toolTip">
+        <string>Créer un nouveau projet</string>
+       </property>
        <property name="text">
-        <string>Céer Projet</string>
+        <string>Nouveau Projet</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnDeleteProject">
+       <property name="text">
+        <string>Supprimer Projet</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/img/256/remove_project.png</normaloff>:/icons/img/256/remove_project.png</iconset>
        </property>
       </widget>
      </item>
@@ -41,12 +59,9 @@
        <property name="text">
         <string>Modifier Projet</string>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnDeleteProject">
-       <property name="text">
-        <string>Supprimer Projet</string>
+       <property name="icon">
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
        </property>
       </widget>
      </item>
@@ -57,6 +72,62 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnCerateProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDeleteProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>removeSelectedProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnEditProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>editSelectedProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>405</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>newProject()</slot>
+  <slot>removeSelectedProject()</slot>
+  <slot>editSelectedProject()</slot>
+ </slots>
 </ui>

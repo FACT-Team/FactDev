@@ -9,7 +9,11 @@
 #include "models/project.h"
 #include "models/contributory.h"
 
-class Billing:public IDatabaseModel
+/**
+ * @brief The Billing class : Billing of a Customer
+ *
+ */
+class Billing : public IDatabaseModel
 {
 public:
     Billing();

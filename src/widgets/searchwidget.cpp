@@ -53,7 +53,8 @@ void searchWidget::search(QString text)
 
 void searchWidget::updateTable(QString filter)
 {
-    ui->tblSearch->setModel(CustomerDatabase::instance()->getCustomersTable(filter));
+    ui->tblSearch->setModel(
+                CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblSearch->hideColumn(0);
     ui->tblSearch->hideColumn(4);
     ui->tblSearch->hideColumn(5);

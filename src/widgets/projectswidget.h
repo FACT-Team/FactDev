@@ -14,7 +14,10 @@ class ProjectsWidget : public QWidget
 public:
     explicit ProjectsWidget(QWidget *parent = 0);
     ~ProjectsWidget();
-
+public slots:
+    void newProject();
+    void editSelectedProject();
+    void removeSelectedProject();
 private:
     Ui::ProjectsWidget *ui;
 };

@@ -15,17 +15,25 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
-    <widget class="QLineEdit" name="leSearch"/>
+    <widget class="QLineEdit" name="leSearch">
+     <property name="toolTip">
+      <string>Recherche du client associé au projet</string>
+     </property>
+    </widget>
    </item>
    <item row="0" column="0">
     <widget class="QLabel" name="lbSearch">
      <property name="text">
-      <string>Recherche</string>
+      <string>Client</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0" colspan="2">
-    <widget class="QTableView" name="tblSearch"/>
+    <widget class="QTableView" name="tblSearch">
+     <property name="toolTip">
+      <string>Sélectionner dans le tableau le client associé au projet</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

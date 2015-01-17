@@ -11,11 +11,15 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Client</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="1">
-    <widget class="QLineEdit" name="leCompany"/>
+    <widget class="QLineEdit" name="leCompany">
+     <property name="toolTip">
+      <string>Nom de la société du client</string>
+     </property>
+    </widget>
    </item>
    <item row="4" column="0">
     <widget class="QLabel" name="label_7">
@@ -25,7 +29,11 @@
     </widget>
    </item>
    <item row="6" column="1">
-    <widget class="QLineEdit" name="lePhone"/>
+    <widget class="QLineEdit" name="lePhone">
+     <property name="toolTip">
+      <string>Numéro de téléphone fixe du client</string>
+     </property>
+    </widget>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_3">
@@ -35,10 +43,18 @@
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QLineEdit" name="leEmail"/>
+    <widget class="QLineEdit" name="leEmail">
+     <property name="toolTip">
+      <string>email</string>
+     </property>
+    </widget>
    </item>
    <item row="5" column="1">
-    <widget class="QLineEdit" name="leMobilePhone"/>
+    <widget class="QLineEdit" name="leMobilePhone">
+     <property name="toolTip">
+      <string>Numéro de téléphone portable du client</string>
+     </property>
+    </widget>
    </item>
    <item row="5" column="0">
     <widget class="QLabel" name="label_8">
@@ -48,7 +64,11 @@
     </widget>
    </item>
    <item row="7" column="1">
-    <widget class="QLineEdit" name="leFax"/>
+    <widget class="QLineEdit" name="leFax">
+     <property name="toolTip">
+      <string>Numéro de fax du client</string>
+     </property>
+    </widget>
    </item>
    <item row="6" column="0">
     <widget class="QLabel" name="label_9">
@@ -65,7 +85,11 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QLineEdit" name="leLastNameReferent"/>
+    <widget class="QLineEdit" name="leLastNameReferent">
+     <property name="toolTip">
+      <string>Nom du client</string>
+     </property>
+    </widget>
    </item>
    <item row="3" column="0" colspan="2">
     <widget class="QGroupBox" name="groupBox">
@@ -88,10 +112,18 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QLineEdit" name="lePostalCode"/>
+       <widget class="QLineEdit" name="lePostalCode">
+        <property name="toolTip">
+         <string>Code Postal</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="leCity"/>
+       <widget class="QLineEdit" name="leCity">
+        <property name="toolTip">
+         <string>Ville</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_4">
@@ -101,7 +133,11 @@
        </widget>
       </item>
       <item row="0" column="1" colspan="3">
-       <widget class="QLineEdit" name="leAddress"/>
+       <widget class="QLineEdit" name="leAddress">
+        <property name="toolTip">
+         <string>Adresse du client</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_11">
@@ -110,8 +146,12 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="leCountry"/>
+      <item row="2" column="1" colspan="3">
+       <widget class="QLineEdit" name="leCountry">
+        <property name="toolTip">
+         <string>Pays</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -124,7 +164,11 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QLineEdit" name="leFirstNameReferent"/>
+    <widget class="QLineEdit" name="leFirstNameReferent">
+     <property name="toolTip">
+      <string>Prénom du client</string>
+     </property>
+    </widget>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
@@ -154,8 +198,8 @@
         <string>Sauvegarder</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/img/img/yes.png</normaloff>:/img/img/yes.png</iconset>
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/img/ok_valid.png</normaloff>:/icons/img/ok_valid.png</iconset>
        </property>
       </widget>
      </item>
@@ -165,8 +209,8 @@
         <string>Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/img/img/cancel.png</normaloff>:/img/img/cancel.png</iconset>
+        <iconset resource="../icons.qrc">
+         <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
        </property>
       </widget>
      </item>
@@ -189,7 +233,9 @@
   <tabstop>btnSave</tabstop>
   <tabstop>btnCancel</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>btnSave</sender>

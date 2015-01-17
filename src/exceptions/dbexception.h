@@ -1,5 +1,6 @@
 #ifndef DbException_H
 #define DbException_H
+
 #include <exception>
 #include <sstream>
 #include <iostream>
@@ -12,17 +13,40 @@
 class DbException : public std::exception
 {
 public:
-    DbException(const QString fct, const QString fctName, const QString logError, float errorCode );
+    /**
+     * @brief DbException::DbException. Construct an DbException.
+     * @param userError ClassName of error
+     * @param fctName Function name
+     * @param logError Message error
+     * @param errorCode Code of error
+     */
+    DbException(const QString fct, const QString fctName,
+        const QString logError, float errorCode );
 
 
+    /**
+     * @brief ~DbException
+     */
     virtual ~DbException() throw()
     {
 
     }
 
+    /**
+     * @brief DbException::popupMessage. Display a popup message with the
+     * message error.
+     * @param parent
+     */
     void popupMessage(QWidget *parent);
 private:
+    /**
+     * @brief _userError
+     */
     QString _userError;
+
+    /**
+     * @brief _errorCode Error code
+     */
     int _errorCode;
 };
 

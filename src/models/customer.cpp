@@ -42,11 +42,15 @@ void Customer::remove()
 bool Customer::operator==(const Customer &c)
 {
     // all fields are the same.
-    return getAddress() == c.getAddress() && getFirstnameReferent() == c.getFirstnameReferent() &&
-            getCity() == c.getCity() && getCompany() == c.getCompany() && getCountry() == c.getCountry() &&
-            getEmail() == c.getEmail() && getFax() == c.getFax() &&
-            getLastnameReferent() == c.getLastnameReferent() &&
-            getMobilePhone() == c.getMobilePhone() && getPhone() == c.getPhone() && getPostalCode() == c.getPostalCode();
+    return  getAddress() == c.getAddress()
+            && getFirstnameReferent() == c.getFirstnameReferent()
+            && getCity() == c.getCity() && getCompany() == c.getCompany()
+            && getCountry() == c.getCountry() && getEmail() == c.getEmail()
+            && getFax() == c.getFax()
+            && getLastnameReferent() == c.getLastnameReferent()
+            && getMobilePhone() == c.getMobilePhone()
+            && getPhone() == c.getPhone()
+            && getPostalCode() == c.getPostalCode();
 }
 
 bool Customer::operator!=(const Customer &c)

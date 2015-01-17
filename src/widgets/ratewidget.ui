@@ -22,7 +22,11 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QDoubleSpinBox" name="sbDaylyRate"/>
+    <widget class="QDoubleSpinBox" name="sbDaylyRate">
+     <property name="toolTip">
+      <string>Tarif en euros (€)</string>
+     </property>
+    </widget>
    </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
@@ -32,7 +36,11 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="QDoubleSpinBox" name="sbHourlyRate"/>
+    <widget class="QDoubleSpinBox" name="sbHourlyRate">
+     <property name="toolTip">
+      <string>Tarif en euros (€)</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

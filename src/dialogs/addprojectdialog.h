@@ -27,6 +27,7 @@ public:
 
     ~AddProjectDialog();
 
+
     /**
      * @brief accept Valid data inputed by user and add these data in Database
      */

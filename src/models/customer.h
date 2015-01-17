@@ -3,6 +3,9 @@
 #include <QString>
 #include "models/idatabasemodel.h"
 
+/**
+ * @brief The Customer class
+ */
 class Customer : public IDatabaseModel
 {
 public:
