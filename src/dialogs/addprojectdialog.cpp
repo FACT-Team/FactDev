@@ -25,7 +25,9 @@ void AddProjectDialog::accept()
     _project.setName(ui->leNameProject->text());
     _project.setDescription(ui->leDescription->toPlainText());
     _project.setDailyRate(ui->widget->getDailyRate());
-    _project.setCustomer(CustomerDatabase::instance()->getCustomer(ui->wdgSearch->getCurrentCustomerId()));
+    _project.setCustomer(
+                CustomerDatabase::instance()->getCustomer(
+                    ui->wdgSearch->getCurrentCustomerId()));
 
     _project.commit();
     QDialog::accept();
@@ -34,11 +36,4 @@ void AddProjectDialog::accept()
 void AddProjectDialog::reject()
 {
     QDialog::reject();
-}
-
-void AddProjectDialog::fillCustomerComboBox()
-{
-    //CustomerDatabase customerData;
-
-
 }

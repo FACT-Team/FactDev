@@ -19,7 +19,9 @@ CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 }
 
 
-QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(DbException*) {
+QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter)
+    throw(DbException*)
+{
     QStandardItemModel* retour = new QStandardItemModel();
 
         retour->setColumnCount(5);
@@ -35,22 +37,30 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
     QSqlQuery q;
 
 
-    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, company, phone, email "
+    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, company,"
+              " phone, email "
               "FROM Customer "
               "WHERE 1 "+filter+" "
               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
-        throw new DbException("Impossible d'obtenir la liste des Customers", "CustomerDatabase::getCustomersTable", lastError(q), 1.1);
+        throw new DbException(
+            "Impossible d'obtenir la liste des Customers",
+            "CustomerDatabase::getCustomersTable",
+            lastError(q),
+            1.1);
     }
 
     while(q.next()) {
         QList<QStandardItem*> ligne;
 
         ligne << new QStandardItem(value(q, "idCustomer").toString());
-        ligne << new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
-        ligne << new QStandardItem(value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(Utils::firstLetterToUpper(value(q, "firstNameReferent").toString()));
+        ligne << new QStandardItem(
+                     Utils::firstLetterToUpper(value(q,"company").toString()));
+        ligne << new QStandardItem(
+                    value(q, "lastnameReferent").toString().toUpper());
+        ligne << new QStandardItem(Utils::firstLetterToUpper(
+                    value(q, "firstNameReferent").toString()));
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
 
@@ -60,14 +70,17 @@ QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter) throw(Db
     return retour;
 }
 
-QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter) throw(DbException*) {
+QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
+    throw(DbException*)
+{
     QStandardItemModel* retour = new QStandardItemModel();
 
     QSqlQuery q;
 
 
     q.prepare("SELECT * "
-              "FROM Customer WHERE 1 "+filter+" ORDER BY UPPER(company), UPPER(lastnameReferent)");
+              "FROM Customer WHERE 1 "+filter+" "
+              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException(

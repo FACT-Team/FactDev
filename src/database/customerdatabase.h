@@ -1,18 +1,42 @@
 #ifndef BDDPATIENT_H
 #define BDDPATIENT_H
+
 #include "database/database.h"
 #include "exceptions/dbexception.h"
 #include "models/customer.h"
 
+/**
+ * @brief The CustomerDatabase class Customer table database
+ */
 class CustomerDatabase : public Database
 {
 private:
     static CustomerDatabase* _instance;
+
+    /**
+     * @brief CustomerDatabase is a singleton
+     */
     CustomerDatabase() throw(DbException*) ;
 public:
+    /**
+     * @brief CustomerDatabase::getInstance Return an instance of
+     * CustomerDatabase
+     * @return Instance of CustomerDatabase
+     */
     static CustomerDatabase* instance()throw(DbException*);
 
+    /**
+     * @brief getCustomersTable Return an item model of customers for QTableView
+     * @param filter Select only customers who are specified by 'filter'
+     * @return QStandardItemModel an item model for QTableView
+     */
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+
+    /**
+     * @brief getCustomersTree Return an item model of customers for QTree
+     * @param filter Select only customers who are specified by 'filter'
+     * @return QStandardItemModel an item model for QTableView
+     */
     QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
 
     /**

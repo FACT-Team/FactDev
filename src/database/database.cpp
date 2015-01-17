@@ -68,7 +68,6 @@ Database::~Database() {
     delete _instance;
 }
 
-
 /**
  * @brief Database::open Open database
  */
@@ -82,18 +81,27 @@ void Database::open() {
 //    if(_settings->value("dbPath").toString() == "") {
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
 //    }
-    if(!QFile::exists(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME)) {
+    if(!QFile::exists(
+       _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
+    {
         creerStructure = true;
         _settings->setValue("version", 0);
     }
-    Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+    Database::mDatabase.setDatabaseName(
+        _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
 
     if(!Database::mDatabase.open()) {
         mDatabase.close();
         mDatabase = QSqlDatabase::database();
-        Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+        Database::mDatabase.setDatabaseName(
+            _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+
         if(!Database::mDatabase.open()) {
-            throw new DbException("Impossible d'ouvrir la base de données", "Database::Database", "Impossible d'ouvrir la base de données", 22.1);
+            throw new DbException(
+                "Impossible d'ouvrir la base de données",
+                "Database::Database",
+                "Impossible d'ouvrir la base de données",
+                22.1);
             exit(22);
         }
     }
