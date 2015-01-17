@@ -27,7 +27,7 @@ User *UserDatabase::getUser(const int pId)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le User",
+            "Impossible de récupérer le User",
             "BddUser::getUser",
             lastError(q),
             1.2);
@@ -35,7 +35,7 @@ User *UserDatabase::getUser(const int pId)
 
     if(q.first()) {
         user = new User();
-        user->setId(value(q, "pId").toInt());
+        user->setId(value(q, "idUser").toInt());
         user->setFirstname(value(q,"firstname").toString());
         user->setLastname(value(q,"lastname").toString());
         user->setCompany(value(q,"company").toString());
@@ -43,12 +43,10 @@ User *UserDatabase::getUser(const int pId)
         user->setAddress(value(q,"address").toString());
         user->setPostalCode(value(q,"postalCode").toString());
         user->setCity(value(q,"city").toString());
-//        user->setCountry(value(q,"country").toString());
         user->setEmail(value(q,"email").toString());
         user->setMobilePhone(value(q,"mobilePhone").toString());
         user->setPhone(value(q,"phone").toString());
-//        user->setFax(value(q,"fax").toString());
-        user->setNoSiret(value(q,"noSiret").toString());
+        user->setNoSiret(value(q,"NoSiret").toInt());
     } else {
         user = NULL;
     }
@@ -60,11 +58,11 @@ void UserDatabase::updateUser(const User& pUser) {
     QSqlQuery q;
     q.prepare(
         "UPDATE User SET "
-        "firstname= :firstname, lastname= :lastname, company= :company, "
-        "title = :title, address= :address, postalCode= :postalCode, "
-        "city= :city, email= :email, mobilePhone= :mobilePhone, "
-        "phone= :phone, noSiret= :noSiret "
-        "WHERE idUser=:idUser");
+        "firstname = :firstname, lastname = :lastname, company = :company, "
+        "title = :title, address = :address, postalCode = :postalCode, "
+        "city = :city, email = :email, mobilePhone = :mobilePhone, "
+        "phone = :phone, NoSiret = :NoSiret "
+        "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
     q.bindValue(":firstname", pUser.getFirstname());
@@ -75,12 +73,10 @@ void UserDatabase::updateUser(const User& pUser) {
     q.bindValue(":phone", pUser.getPhone());
     q.bindValue(":postalCode", pUser.getPostalCode());
     q.bindValue(":city", pUser.getCity());
-//    q.bindValue(":country", pUser.getCountry());
-    q.bindValue(":email", (pUser.getEmail()));
+    q.bindValue(":email", pUser.getEmail());
     q.bindValue(":mobilePhone", pUser.getMobilePhone());
     q.bindValue(":phone", pUser.getPhone());
-//    q.bindValue(":fax", pUser.getFax());
-    q.bindValue("noSiret", pUser.getNoSiret());
+    q.bindValue(":NoSiret", pUser.getNoSiret());
 
     if(!q.exec()) {
         throw new DbException(

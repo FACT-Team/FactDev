@@ -3,16 +3,14 @@
 #include <QString>
 #include "models/idatabasemodel.h"
 
-class User
+class User : public IDatabaseModel
 {
 public:
+    User(int id);
     User();
-
     void commit();
-    void hydrat(int getId);
-
-    int getId() const;
-    void setId(int getId);
+    void hydrat(int id=1);
+    void remove();
 
     QString getFirstname() const;
     void setFirstname(const QString &getFirstname);
@@ -35,9 +33,6 @@ public:
     QString getCity() const;
     void setCity(const QString &getCity);
 
-    QString getCountry() const;
-    void setCountry(const QString &getCountry);
-
     QString getEmail() const;
     void setEmail(const QString &getEmail);
 
@@ -47,15 +42,10 @@ public:
     QString getPhone() const;
     void setPhone(const QString &getPhone);
 
-    QString getFax() const;
-    void setFax(const QString &getFax);
-
-    QString getNoSiret() const;
-    void setNoSiret(const QString &getNoSiret);
-
+    int getNoSiret() const;
+    void setNoSiret(int getNoSiret);
 
 private:
-    int _id;
     QString _firstname;
     QString _lastname;
     QString _company;
@@ -63,12 +53,10 @@ private:
     QString _address;
     QString _postalCode;
     QString _city;
-    QString _country;
     QString _email;
     QString _mobilePhone;
     QString _phone;
-    QString _fax;
-    QString _noSiret;
+    int _noSiret;
 };
 
 #endif // USER_H

@@ -15,10 +15,12 @@ class UserDataDialog : public QDialog
 public:
     explicit UserDataDialog(QWidget *parent = 0);
     ~UserDataDialog();
+
+    void fillFields();
     void accept();
     void reject();
 private:
-    User _user;
+    User* _user;
     Ui::UserDataDialog *ui;
 };
 

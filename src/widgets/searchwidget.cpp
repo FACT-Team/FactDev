@@ -57,7 +57,7 @@ void searchWidget::updateTable(QString filter)
     ui->tblSearch->hideColumn(0);
     ui->tblSearch->hideColumn(4);
     ui->tblSearch->hideColumn(5);
-    ui->tblSearch->setColumnWidth(1, 100);
-    ui->tblSearch->setColumnWidth(2, 100);
-    ui->tblSearch->setColumnWidth(3, 200);
+    ui->tblSearch->setColumnWidth(1, 200);
+    ui->tblSearch->setColumnWidth(2, 120);
+    ui->tblSearch->setColumnWidth(3, 120);
 }

@@ -7,14 +7,84 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>426</height>
+    <height>376</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Nouvel utilisateur</string>
+   <string>Utilisateur</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="12" column="1" colspan="2">
+   <item row="5" column="1">
+    <widget class="QLabel" name="lbEmail">
+     <property name="text">
+      <string>Email</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QLineEdit" name="leEmail">
+     <property name="toolTip">
+      <string>Saisir votre adresse email professionnelle</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="2">
+    <widget class="QLineEdit" name="leMobilePhone">
+     <property name="toolTip">
+      <string>Saisir votre numéro de téléphone mobile professionnel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="lbLastname">
+     <property name="text">
+      <string>Nom</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2">
+    <widget class="QLineEdit" name="leNoSiret">
+     <property name="toolTip">
+      <string>Saisir votre numéro de siret</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLineEdit" name="leFirstname">
+     <property name="toolTip">
+      <string>Saisir votre prénom</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QLabel" name="lbMobilePhone">
+     <property name="text">
+      <string>Tél. mobile</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="2">
+    <widget class="QLineEdit" name="lePhone">
+     <property name="toolTip">
+      <string>Saisir votre numéro de téléphone professionnel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="lbFirstname">
+     <property name="text">
+      <string>Prénom</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLabel" name="lbPhone">
+     <property name="text">
+      <string>Tél. fixe</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="1" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
@@ -53,17 +123,24 @@
      </item>
     </layout>
    </item>
-   <item row="7" column="1">
-    <widget class="QLabel" name="lbMobilePhone">
+   <item row="8" column="1">
+    <widget class="QLabel" name="lbNoSiret">
      <property name="text">
-      <string>Tél. mobile</string>
+      <string>N° Siret</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="2">
-    <widget class="QLineEdit" name="leLastname">
+   <item row="3" column="2">
+    <widget class="QLineEdit" name="leTitle">
      <property name="toolTip">
-      <string>Saisir votre nom</string>
+      <string>Saisir l'activité de la société</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLineEdit" name="leCompany">
+     <property name="toolTip">
+      <string>Saisir le nom de votre société</string>
      </property>
     </widget>
    </item>
@@ -74,38 +151,10 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
-    <widget class="QLabel" name="lbEmail">
-     <property name="text">
-      <string>Email</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <widget class="QLineEdit" name="leFirstname">
+   <item row="1" column="2">
+    <widget class="QLineEdit" name="leLastname">
      <property name="toolTip">
-      <string>Saisir votre prénom</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="2">
-    <widget class="QLineEdit" name="lePhone">
-     <property name="toolTip">
-      <string>Saisir votre numéro de téléphone professionnel</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="1">
-    <widget class="QLabel" name="lbFax">
-     <property name="text">
-      <string>Fax</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="2">
-    <widget class="QLineEdit" name="leFax">
-     <property name="toolTip">
-      <string>Saisir votre numéro de Fax</string>
+      <string>Saisir votre nom</string>
      </property>
     </widget>
    </item>
@@ -115,13 +164,6 @@
       <string>Adresse</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <widget class="QLabel" name="lbPostalCode">
-        <property name="text">
-         <string>Code Postal</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="3">
        <widget class="QLineEdit" name="leCity">
         <property name="toolTip">
@@ -129,17 +171,17 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="lbCity">
-        <property name="text">
-         <string>Ville</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="lbAddress">
         <property name="text">
          <string>N°, Rue</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="lbCity">
+        <property name="text">
+         <string>Ville</string>
         </property>
        </widget>
       </item>
@@ -157,73 +199,14 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lbCountry">
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbPostalCode">
         <property name="text">
-         <string>Pays</string>
+         <string>Code Postal</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1" colspan="3">
-       <widget class="QLineEdit" name="leCountry"/>
-      </item>
      </layout>
-    </widget>
-   </item>
-   <item row="6" column="1">
-    <widget class="QLabel" name="lbPhone">
-     <property name="text">
-      <string>Tél. fixe</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="1">
-    <widget class="QLabel" name="lbNoSiret">
-     <property name="text">
-      <string>N° Siret</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <widget class="QLineEdit" name="leCompany">
-     <property name="toolTip">
-      <string>Saisir le nom de votre société</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="2">
-    <widget class="QLineEdit" name="leMobilePhone">
-     <property name="toolTip">
-      <string>Saisir votre numéro de téléphone mobile professionnel</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="2">
-    <widget class="QLineEdit" name="leEmail">
-     <property name="toolTip">
-      <string>Saisir votre adresse email professionnelle</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="lbFirstname">
-     <property name="text">
-      <string>Prénom</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLabel" name="lbLastname">
-     <property name="text">
-      <string>Nom</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="2">
-    <widget class="QLineEdit" name="leNoSiret">
-     <property name="toolTip">
-      <string>Saisir votre numéro de siret</string>
-     </property>
     </widget>
    </item>
    <item row="3" column="1">
@@ -233,23 +216,19 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
-    <widget class="QLineEdit" name="leTitle"/>
-   </item>
   </layout>
  </widget>
  <tabstops>
   <tabstop>leFirstname</tabstop>
   <tabstop>leLastname</tabstop>
   <tabstop>leCompany</tabstop>
+  <tabstop>leTitle</tabstop>
   <tabstop>leAddress</tabstop>
   <tabstop>lePostalCode</tabstop>
   <tabstop>leCity</tabstop>
-  <tabstop>leCountry</tabstop>
   <tabstop>leEmail</tabstop>
   <tabstop>lePhone</tabstop>
   <tabstop>leMobilePhone</tabstop>
-  <tabstop>leFax</tabstop>
   <tabstop>leNoSiret</tabstop>
   <tabstop>btnValid</tabstop>
   <tabstop>btnCancel</tabstop>
@@ -266,7 +245,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>303</x>
-     <y>398</y>
+     <y>423</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
@@ -282,10 +261,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>389</x>
-     <y>398</y>
+     <y>423</y>
     </hint>
     <hint type="destinationlabel">
-     <x>474</x>
+     <x>399</x>
      <y>387</y>
     </hint>
    </hints>

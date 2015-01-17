@@ -1,40 +1,44 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
 
+
+User::User(int id)
+{
+    _id = id;
+    hydrat(id);
+}
+
 User::User()
 {
-    _id = 1;
+
 }
 
 void User::commit() {
     UserDatabase::instance()->updateUser(*this);
 }
 
+void User::remove()
+{
+    // Not use
+}
+
 void User::hydrat(int id)
 {
-    User* user = UserDatabase::instance()->getUser();
+    User* user = UserDatabase::instance()->getUser(id);
     _id = id;
     _firstname = user->getFirstname();
     _lastname = user->getLastname();
-    _address = user->getAddress();
-    _city = user->getCity();
     _company = user->getCompany();
-    _country = user->getCountry();
-    _email = user->getEmail();
-    _fax = user->getFax();    
-    _phone = user->getPhone();
-    _mobilePhone = user->getMobilePhone();
+    _title = user->getTitle();
+    _address = user->getAddress();
     _postalCode = user->getPostalCode();
+    _city = user->getCity();
+    _email = user->getEmail();
+    _mobilePhone = user->getMobilePhone();
+    _phone = user->getPhone();
     _noSiret = user->getNoSiret();
 }
 
-int User::getId() const {
-    return _id;
-}
-
-void User::setId(int id) {
-    _id = id;
-}
 
 QString User::getFirstname() const
 {
@@ -65,6 +69,17 @@ void User::setCompany(const QString &company)
 {
     _company = company;
 }
+
+QString User::getTitle() const
+{
+    return _title;
+}
+
+void User::setTitle(const QString &title)
+{
+    _title = title;
+}
+
 QString User::getAddress() const
 {
     return _address;
@@ -92,15 +107,7 @@ void User::setCity(const QString &city)
 {
     _city = city;
 }
-QString User::getCountry() const
-{
-    return _country;
-}
 
-void User::setCountry(const QString &country)
-{
-    _country = country;
-}
 QString User::getEmail() const
 {
     return _email;
@@ -128,31 +135,13 @@ void User::setPhone(const QString &phone)
 {
     _phone = phone;
 }
-QString User::getFax() const
-{
-    return _fax;
-}
-
-void User::setFax(const QString &fax)
-{
-    _fax = fax;
-}
-QString User::getNoSiret() const
+int User::getNoSiret() const
 {
     return _noSiret;
 }
 
-void User::setNoSiret(const QString &noSiret)
+void User::setNoSiret(int noSiret)
 {
     _noSiret = noSiret;
-}
-QString User::getTitle() const
-{
-    return _title;
-}
-
-void User::setTitle(const QString &title)
-{
-    _title = title;
 }
 
