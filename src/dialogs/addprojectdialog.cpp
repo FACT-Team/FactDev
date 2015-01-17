@@ -21,7 +21,6 @@ AddProjectDialog::~AddProjectDialog()
 
 void AddProjectDialog::accept()
 {
-    _project.setId();
     _project.setName(ui->leNameProject->text());
     _project.setDescription(ui->leDescription->toPlainText());
     _project.setDailyRate(ui->widget->getDailyRate());

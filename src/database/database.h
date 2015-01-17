@@ -10,7 +10,7 @@
 #include "exceptions/dbexception.h"
 
 /**
- * @brief The Database class Master class for all database access
+ * @brief The <b>Database</b> class Master class for all database access
  */
 class Database {
 public:
@@ -22,7 +22,7 @@ public:
 
     /**
      * @brief Database::lastError Return an error message on the last error
-     * occured during the SQL request 'i'
+     * occured during the SQL request <i>q</i>
      * @param q SQL request
      * @return an error message
      */
@@ -31,7 +31,7 @@ public:
     /**
      * @brief Database::jeuDEssai Create
      */
-    void jeuDEssai();
+    void testCases();
 
     /**
      * @brief Database::viderDatabase Clear database
@@ -39,10 +39,11 @@ public:
     void cleanDatabase();
 
     /**
-     * @brief Database::executerFichier Exeute a specified file
+     * @brief Database::executerFichier Exeute a specified file named
+     * <i>pName</i>
      * @param pNom File name
      */
-    void executeFile(QString pNom);
+    void executeFile(QString pName);
 
     /**
      * @brief Database::openTransaction Open new transaction

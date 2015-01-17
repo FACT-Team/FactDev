@@ -117,7 +117,7 @@ void Database::open() {
         createDatabase();
 
         #ifndef QT_NO_DEBUG
-            jeuDEssai();
+            testCases();
         #endif
     }
 }
@@ -125,7 +125,7 @@ void Database::open() {
 /**
  * @brief Database::jeuDEssai Create
  */
-inline void Database::jeuDEssai() {
+inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests.sql");
 }
 
@@ -147,15 +147,16 @@ inline void Database::createDatabase() {
  * @brief Database::executerFichier Exeute a specified file
  * @param pNom File name
  */
-void Database::executeFile(QString pNom) {
+void Database::executeFile(QString pName) {
     QSqlQuery q;
 
-    Log::instance() << "Execution de " + pNom;
+    Log::instance() << "Execution de " + pName;
 
-    QFile file(pNom);
+    QFile file(pName);
     file.open(QIODevice::ReadOnly);
 
-    QStringList querys = QString(file.readAll()).split(";", QString::SkipEmptyParts);
+    QStringList querys = QString(file.readAll()).split(";",
+                                                       QString::SkipEmptyParts);
     QStringListIterator i(querys);
     while(i.hasNext()) {
         QString query = i.next();

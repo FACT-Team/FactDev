@@ -63,6 +63,7 @@
         <file>img/remove_project.png</file>
         <file>img/remove_quote.png</file>
         <file>img/remove_user.png</file>
+        <file>img/customer24.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>

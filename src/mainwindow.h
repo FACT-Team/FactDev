@@ -29,8 +29,7 @@ public slots:
     void aboutQt();
     void aboutFact();
     void aboutFactDev();
-    void aboutIcons();
-    void addProject();
+    void aboutIcons();    
     void changeCustomer();
 private slots:
     void openContextualMenuTable(const QPoint point);

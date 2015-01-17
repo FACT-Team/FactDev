@@ -1,17 +1,35 @@
 #include "customerdatawidget.h"
 #include "ui_customerdatawidget.h"
 #include "models/customer.h"
+#include "models/user.h"
 
 CustomerDataWidget::CustomerDataWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CustomerDataWidget)
 {
     ui->setupUi(this);
+    printUserData();
 }
 
 CustomerDataWidget::~CustomerDataWidget()
 {
     delete ui;
+}
+
+void CustomerDataWidget::printUserData()
+{
+    User *user = new User(1);
+    ui->lbCompany->setText("<strong>" + user->getCompany() + "</strong>");
+    ui->lbName->setText(user->getLastname()+ " " + user->getFirstname());
+    ui->lbPhone->setText("Fixe\t" + user->getPhone());
+    ui->lbMobilePhone->setText("Mobile\t" + user->getMobilePhone());
+    ui->lbEmail->setText("<a href=\"mailto:" + user->getEmail() + "\">"
+                         + user->getEmail() + "</a>");
+    ui->lbAddress->setText(user->getAddress());
+    ui->lbPostalCodeCityCountry->setText(user->getPostalCode()
+                                         + " " + user->getCity());
+
+
 }
 
 void CustomerDataWidget::printInformations(int id)

@@ -25,39 +25,46 @@ public:
     static ProjectDatabase*  instance() throw (DbException*);
 
     /**
-     * @brief getProject
+     * @brief ProjectDatabasegetProject Get informations about the project
+     * identified by 'pId'
      * @param pId project
-     * get informations about the project identified by 'pId'
      * @return the project
      */
     Project *getProject(const int pId);
 
     /**
-     * @brief addProject
-     * add the project 'pProject' to the database
+     * @brief ProjectDatabase:addProject Add the project 'pProject' to the
+     * database
      * @return project id
      */
     int addProject(const Project&);
 
     /**
-     * @brief updateProject
-     * update informations about the project
+     * @brief ProjectDatabase:updateProject Update informations about the
+     * project
      */
     void updateProject(const Project&);
 
     /**
-     * @brief removeProject
+     * @brief removeProject Remove the project with the id 'pId'
      * @param pId project id
-     * remove the project with the id 'pId'
      */
     void removeProject(const int pId);
 
     /**
-     * @brief getNbProjects
-     * Return the number of projects existing
+     * @brief ProjectDatabase:getNbProjects Return the number of projects
+     * existing
      * @return number of projects
      */
     int getNbProjects();
+
+    /**
+     * @brief ProjectDatabase:getNbProjectsForACustomer Return the number of
+     * projects existing for an identify customer <i>pId</i>
+     * @param pId Project id
+     * @return number of projects
+     */
+    int getNbProjectsForACustomer(const int pId);
 };
 
 #endif // PROJECTDATABASE_H

@@ -30,7 +30,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCerateProject">
+      <widget class="QPushButton" name="btnCreateProject">
        <property name="toolTip">
         <string>Créer un nouveau projet</string>
        </property>
@@ -77,7 +77,7 @@
  </resources>
  <connections>
   <connection>
-   <sender>btnCerateProject</sender>
+   <sender>btnCreateProject</sender>
    <signal>released()</signal>
    <receiver>ProjectsWidget</receiver>
    <slot>newProject()</slot>

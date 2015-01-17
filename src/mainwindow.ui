@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1237</width>
-    <height>500</height>
+    <height>566</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>FacDev: Facture &amp; Devis</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
@@ -112,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">

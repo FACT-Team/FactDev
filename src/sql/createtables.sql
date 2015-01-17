@@ -16,35 +16,35 @@ CREATE TABLE Customer
 
 CREATE TABLE Project
 (
-    idProject INT PRIMARY KEY,
+    idProject INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(64),
     description TEXT,
     dailyRate DOUBLE,
-    idCustomer INT,
+    idCustomer INTEGER,
     FOREIGN KEY (idCustomer) REFERENCES Customer (idCustomer)
 );
 
 CREATE TABLE Billing
 (
-    idBilling INT PRIMARY KEY,
+    idBilling INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(64),
-    number INT,
+    number INTEGER,
     isBilling BOOLEAN,
     date DATETIME
 );
 
 CREATE TABLE Contributory
 (
-    idContributory INT PRIMARY KEY,
+    idContributory INTEGER PRIMARY KEY AUTOINCREMENT,
     description TEXT,
-    nbDays INT
+    nbDays INTEGER
 );
 
 CREATE TABLE BillingProject
 (
-    idProject INT,
-    idBilling INT,
-    idContributory INT,
+    idProject INTEGER,
+    idBilling INTEGER,
+    idContributory INTEGER,
     PRIMARY KEY (idProject, idBilling, idContributory),
     FOREIGN KEY (idProject) REFERENCES Project (idProject),
     FOREIGN KEY (idBilling) REFERENCES Billing (idBilling),
@@ -53,7 +53,7 @@ CREATE TABLE BillingProject
 
 CREATE TABLE User
 (
-    idUser INT PRIMARY KEY,
+    idUser INTEGER PRIMARY KEY AUTOINCREMENT,
     firstname VARCHAR(64),
     lastname VARCHAR(64),
     company VARCHAR(64),
@@ -64,7 +64,7 @@ CREATE TABLE User
     email VARCHAR(64),
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
-    NoSiret INT
+    noSiret INTEGER
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC);

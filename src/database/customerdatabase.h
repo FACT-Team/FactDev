@@ -6,7 +6,7 @@
 #include "models/customer.h"
 
 /**
- * @brief The CustomerDatabase class Customer table database
+ * @brief The <b>CustomerDatabase</b> class Customer table database
  */
 class CustomerDatabase : public Database
 {
@@ -14,62 +14,65 @@ private:
     static CustomerDatabase* _instance;
 
     /**
-     * @brief CustomerDatabase is a singleton
+     * @brief <b>CustomerDatabase</b> is a singleton
      */
     CustomerDatabase() throw(DbException*) ;
 public:
     /**
      * @brief CustomerDatabase::getInstance Return an instance of
-     * CustomerDatabase
+     * <b>CustomerDatabase</b>
      * @return Instance of CustomerDatabase
      */
     static CustomerDatabase* instance()throw(DbException*);
 
     /**
-     * @brief getCustomersTable Return an item model of customers for QTableView
-     * @param filter Select only customers who are specified by 'filter'
+     * @brief CustomerDatabase::getCustomersTable Return an item model of
+     * customers for QTableView
+     * @param filter Select only customers who are specified by <i>filter</i>
      * @return QStandardItemModel an item model for QTableView
      */
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
 
     /**
-     * @brief getCustomersTree Return an item model of customers for QTree
-     * @param filter Select only customers who are specified by 'filter'
+     * @brief CustomerDatabase::getCustomersTree Return an item model of
+     * customers for QTree
+     * @param filter Select only customers who are specified by <i>filter</i>
      * @return QStandardItemModel an item model for QTableView
      */
     QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
 
     /**
-     * @brief getCustomer
+     * @brief CustomerDatabase::getCustomer get informations about the customer
+     * identified by <i>pId</i>
      * @param pId customer id
-     * get informations about the customer identified by 'pId'
+
      * @return the Customer
      */
     Customer *getCustomer(const int pId);
 
     /**
-     * @brief addCustomer
-     * add the customer 'pCustomer' to the database
+     * @brief CustomerDatabase::addCustomer Add the customer <i>pCustomer</i> to
+     * the database
      * @return customer id
      */
     int addCustomer(const Customer&);
 
     /**
-     * @brief updateCustomer
-     * update informations about the customer 'pCustomer'
+     * @brief CustomerDatabase::updateCustomer Update informations about the
+     * customer <i>pCustomer</i>
      */
     void updateCustomer(const Customer&);
 
     /**
-     * @brief removeCustomer
+     * @brief CustomerDatabase::removeCustomer Remove the customer with the id
+     * <i>pId</i>
      * @param pId customer id
-     * remove the customer with the id 'pId'
      */
     void removeCustomer(const int pId);
 
     /**
-     * @brief getNbCustomers
-     * Return the number of customers existing
+     * @brief CustomerDatabase::getNbCustomers Return the number of customers
+     * existing
      * @return number of customers
      */
     int getNbCustomers();

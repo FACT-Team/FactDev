@@ -25,7 +25,7 @@ double RateWidget::getDailyRate() {
 }
 
 void RateWidget::setDailyRate(double dailyRate) {
-    ui->sbDaylyRate->setValue(dailyRate);
+    ui->sbDaylyRate->setValue(dailyRate);    
 }
 
 double RateWidget::getHourlyRate() {
@@ -34,6 +34,7 @@ double RateWidget::getHourlyRate() {
 
 void RateWidget::setHourlyRate(double hourlyRate) {
     ui->sbHourlyRate->setValue(hourlyRate);
+    ui->sbDaylyRate->setValue(hourlyRate*NB_DAILY_HOURS);
 }
 
 

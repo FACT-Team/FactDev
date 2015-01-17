@@ -15,6 +15,7 @@ public:
     explicit CustomerDataWidget(QWidget *parent = 0);
     ~CustomerDataWidget();
 
+    void printUserData();
     void printInformations(int id);
 private:
     Ui::CustomerDataWidget *ui;
