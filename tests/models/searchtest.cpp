@@ -12,7 +12,8 @@ void searchTest::searchAll()
     _search.setText("facilisis");
     QVERIFY(_search.getFilter() == "AND (0 OR company LIKE '%facilisis%' OR lastnameReferent LIKE '%facilisis%')");
     QStandardItemModel* model = CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 1)) == "LARSON");
+  //  qDebug() << _search.getFilter();
+    QVERIFY(model->data(model->index(0, 2)) == "LARSON");
 }
 
 void searchTest::searchCompanyName()
@@ -23,7 +24,18 @@ void searchTest::searchCompanyName()
     _search.setText("facilisis");
     QVERIFY(_search.getFilter() == "AND (0 OR company LIKE '%facilisis%' )");
     QStandardItemModel* model = CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 1)) == "LARSON");
+    QVERIFY(model->data(model->index(0, 2)) == "LARSON");
+}
+void searchTest::searchCompanyNameWithSimpleQuote()
+{
+    _search.setGroupFilter(true);
+    _search.setSearchInCompanies(true);
+    _search.setSearchInReferentLastname(false);
+    _search.setText("facil'isis'");
+    QVERIFY(_search.getFilter() == "AND (0 OR company LIKE '%facil''isis''%' )");
+
+    QStandardItemModel* model = CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
+    QVERIFY(model->data(model->index(0, 2)) == QVariant::Invalid);
 }
 
 void searchTest::searchReferentLastname()
@@ -34,7 +46,7 @@ void searchTest::searchReferentLastname()
     _search.setText("larson");
     QVERIFY(_search.getFilter() == "AND (0 OR lastnameReferent LIKE '%larson%')");
     QStandardItemModel* model = CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 1)) == "LARSON");
+    QVERIFY(model->data(model->index(0, 2)) == "LARSON");
 
 }
 
@@ -47,7 +59,7 @@ void searchTest::searchWithoutFilters()
 
     QVERIFY(_search.getFilter() == "AND (0 )");
     QStandardItemModel* model = CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 1)) == QVariant::Invalid);
+    QVERIFY(model->data(model->index(0, 2)) == QVariant::Invalid);
 
 }
 

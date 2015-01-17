@@ -15,6 +15,7 @@ private slots:
     void searchCompanyName();
     void searchReferentLastname();
     void searchWithoutFilters();
+    void searchCompanyNameWithSimpleQuote();
 
 private:
     Search _search;

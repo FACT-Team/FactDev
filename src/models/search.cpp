@@ -1,5 +1,5 @@
 #include "search.h"
-
+#include <QDebug>
 Search::Search()
 {
     _searchInCompanies = true;
@@ -64,6 +64,7 @@ QString Search::getText() const
 void Search::setText(const QString &text)
 {
     _text = text;
+    _text.replace("'", "''");
 }
 
 
