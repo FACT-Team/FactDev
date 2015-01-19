@@ -43,7 +43,7 @@ int MainWindow::getCurrentCustomerId() {
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
-    if(win.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+    if(win.exec()) {
         updateTable();
         updateTree();
     } else {
@@ -99,7 +99,7 @@ void MainWindow::editUser()
 {
     UserDataDialog userdialog;
 
-    if(userdialog.exec()) {        // Ouverture de la fenêtre pour ajouter/modifier un client
+    if(userdialog.exec()) {
 
     } else {
 
@@ -233,8 +233,10 @@ void MainWindow::aboutIcons()
                  "l'usage du logiciel FactDev");
 }
 
+// A refactoriser
 void MainWindow::changeCustomer()
 {
+    //WARNING : Not used
     //showInformationCustomer(42);
     //Popup::toImplement("MainWindow::changeCustomer", this);
 }
@@ -242,14 +244,14 @@ void MainWindow::changeCustomer()
 void MainWindow::changeCustomerTree(QModelIndex index)
 {
     ui->tblCustomers->selectRow(index.row()-1);
-    emit changeCustomer();
+    //emit changeCustomer();                    // A refactoriser !!!
     emit openCustomer();
 }
 
 void MainWindow::changeCustomerTree()
 {
     QModelIndex index =
-    ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
+            ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
 
     emit changeCustomerTree(index);
 }
@@ -257,11 +259,13 @@ void MainWindow::changeCustomerTree()
 void MainWindow::changeCustomerTable(QModelIndex index)
 {
     //ui->trCustomers->set(index.row()+1);
-    emit changeCustomer();
+    //emit changeCustomer();                    // A refactoriser !!!
     emit openCustomer();
 }
 
 void MainWindow::changeCustomerTable()
 {
-    emit changeCustomerTable(ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0));
+    QModelIndex index =
+            ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
+    emit changeCustomerTable(index);
 }

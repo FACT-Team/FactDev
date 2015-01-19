@@ -8,7 +8,7 @@ class DialogAddCustomer;
 }
 
 /**
- * @author Cedric Rohaut
+ * @author Cédric Rohaut
  * @brief The DialogAddCustomer class Window to add or modify a Customer
  */
 class DialogAddCustomer : public QDialog
