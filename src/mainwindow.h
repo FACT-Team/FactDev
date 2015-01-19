@@ -8,42 +8,133 @@ namespace Ui {
 class MainWindow;
 }
 
+/**
+ * @author
+ * @brief The MainWindow class Main Window of the software
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief MainWindow: Construct a window
+     * @param parent
+     */
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    /**
+     * @brief MainWindow::getCurrentCustomerId get the selected customer
+     * @return id of the selected customer
+     */
     int getCurrentCustomerId();
 public slots:
+    /**
+     * @brief MainWindow::addCustomer open window to add a new customer
+     */
     void addCustomer();
+    /**
+     * @brief MainWindow::editCustomer open window to modify a customer
+     */
     void editCustomer();
+    /**
+     * @brief MainWindow::removeCustomer open a popup to confirm the deletion
+     * of a customer, if ok remove the customer
+     */
     void removeCustomer();
+    /**
+     * @brief MainWindow::openCustomer open a customer and print his informations
+     * @see CustomerDataWidget
+     */
     void openCustomer();
+    /**
+     * @brief MainWindow::editUser modify the user
+     * @see UserDataDialog
+     */
     void editUser();
+    /**
+     * @brief MainWindow::search launch a new search
+     * @param QString text in field
+     */
     void search(QString);
+    /**
+     * @brief MainWindow:search call search(QString)
+     */
     void search();
+    /**
+     * @brief MainWindow::newProject Create a new project for a customer
+     * @see AddProjectDialog
+     */
     void newProject(void);
+    /**
+     * @brief MainWindow::aboutQt show Qt's details
+     */
     void aboutQt();
+    /**
+     * @brief MainWindow::aboutFact show FACT's details (FACT team)
+     */
     void aboutFact();
+    /**
+     * @brief MainWindow::aboutFactDev() show FactDev's details (FactDev Software)
+     */
     void aboutFactDev();
-    void aboutIcons();    
+    /**
+     * @brief MainWindow::aboutIcons() show icons's details
+     */
+    void aboutIcons();
+    /**
+     * @brief MainWindow::changeCustomer This method is not used, implements me !
+     */
     void changeCustomer();
+
 private slots:
+    /**
+     * @brief MainWindow::openContextualMenuTable open contextual menu
+     * on right click, on table
+     * @param QPoint
+     */
     void openContextualMenuTable(const QPoint point);
+    /**
+     * @brief MainWindow::openContextualMenuTree open contextual menu
+     * on right click, on tree
+     * @param QPoint
+     */
     void openContextualMenuTree(const QPoint point);
+    /**
+     * @brief MainWindow::changeCustomerTree when customer changed in tree
+     * update customer selected in table and his informations
+     * @param index index of selected customer
+     */
     void changeCustomerTree(QModelIndex index);
+    /**
+     * @brief MainWindow::changeCustomerTree call changeCustomerTree
+     */
     void changeCustomerTree();
+    /**
+     * @brief MainWindow::changeCustomerTable when customer changed in table
+     * update his informations
+     * @param index index of selected customer
+     */
     void changeCustomerTable(QModelIndex index);
+    /**
+     * @brief MainWindow::changeCustomerTable call changeCustomerTable
+     */
     void changeCustomerTable();
 
 private:
+    /**
+     * @brief MainWindow::updateTable Update the table view
+     * (just client in the first version)
+     */
     void updateTable(QString filter="");
+    /**
+     * @brief MainWindow::updateTree Update the tree view
+     * (just client in the first version)
+     */
     void updateTree(QString filter="");
 
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; //!< ui
 };
 
 #endif // MAINWINDOW_H
