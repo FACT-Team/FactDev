@@ -9,11 +9,13 @@
  * @author Florent Berbie
  * @brief The UserDatabase class Access to User data in the the table User of
  * the <b>Database</b>
+ * @see Database
+ * @see User
  */
 class UserDatabase : public Database
 {
 private:
-    static UserDatabase* _instance;
+    static UserDatabase* _instance; //!< Singleton instance of UserDatabase
     /**
      * @brief UserDatabase: is a singleton
      */
