@@ -6,7 +6,7 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = FactDev 
 PROJECT_NUMBER         = 0.1
-OUTPUT_DIRECTORY       = doc/ 
+OUTPUT_DIRECTORY       = fact-team.github.io/doc/ 
 CREATE_SUBDIRS         = YES 
 OUTPUT_LANGUAGE        = English
 BRIEF_MEMBER_DESC      = YES
@@ -25,7 +25,7 @@ ABBREVIATE_BRIEF       = "The $name class" \
 ALWAYS_DETAILED_SEC    = NO
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = YES
-STRIP_FROM_PATH        = /home/aroquemaurel/projets/qt/kine
+STRIP_FROM_PATH        = /home/aroquemaurel/projets/qt/Fact/FactDev
 STRIP_FROM_INC_PATH    = 
 SHORT_NAMES            = NO
 JAVADOC_AUTOBRIEF      = NO
