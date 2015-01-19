@@ -26,6 +26,7 @@ public:
     static CustomerDatabase* instance()throw(DbException*);
 
     /**
+     * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTable Return an item model of
      * customers for QTableView
      * @param filter Select only customers who are specified by <i>filter</i>
@@ -34,6 +35,7 @@ public:
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
 
     /**
+     * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTree Return an item model of
      * customers for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
