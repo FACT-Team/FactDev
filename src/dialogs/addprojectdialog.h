@@ -21,7 +21,7 @@ public:
     /**
      * @brief AddProjectDialog Construct a windows AddProjectDialog
      * @param id Project identity
-     * @param parent QWidwet of the current windows
+     * @param parent QWidget of the current windows
      */
     explicit AddProjectDialog(int id=0, QWidget *parent = 0);
 

@@ -14,7 +14,7 @@ class DbException : public std::exception
 {
 public:
     /**
-     * @brief DbException::DbException. Construct an DbException.
+     * @brief DbException::DbException. Construct a DbException.
      * @param userError ClassName of error
      * @param fctName Function name
      * @param logError Message error
