@@ -7,19 +7,48 @@
  * @author
  * @brief The Contributory class
  */
-class Contributory : IDatabaseModel
+class Contributory : public IDatabaseModel
 {
 public:
+    /**
+     * @brief Contributory::Contributory Contruct a Contributory
+     */
     Contributory();
+
+    /**
+     * @brief Contributory::commit Update or insert a contributory to the
+     * database
+     */
     void commit();
-    void hydrat(int getId);
+
+    /**
+     * @brief Contributory::hydrat Get data about the Contributory which is
+     *  specified by the identify <i>id</i>
+     * @param id Contributory identify
+     */
+    void hydrat(int id);
+
+    /**
+     * @brief Contributory::remove Remove the current Contributory
+     */
     void remove();
 
+    /**
+     * @brief Contributory::getProject Return the project linked to this
+     * Contributory
+     * @return Project linked to this Contributory
+     */
     Project getProject() const;
-    void setProject(const Project &value);
+
+    /**
+     * @brief Contributory::setProject Modify the identify <i>id</i> of the
+     *  Project linke to this Contributory
+     * @param id Project Identify
+     */
+    void setProject(const Project &id);
 
 private:
-    Project project;
+    Project project;    //!<
 };
 
 #endif // CONTRIBUTORY_H

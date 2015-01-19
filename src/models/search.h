@@ -26,10 +26,10 @@ public:
     void setText(const QString &getText);
 
 private:
-    bool _searchInCompanies;
-    bool _searchInReferentLastname;
-    bool _groupFilter;
-    QString _text;
+    bool _searchInCompanies;        //!<
+    bool _searchInReferentLastname; //!<
+    bool _groupFilter;              //!<
+    QString _text;                  //!<
 };
 
 #endif // SEARCH_H

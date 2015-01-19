@@ -13,6 +13,7 @@ class AddProjectDialog;
 /**
  * @author Florent Berbie
  * @brief The AddProjectDialog class Windows to add a new Project
+ * @see Project
  */
 class AddProjectDialog : public QDialog
 {
@@ -39,10 +40,8 @@ public:
      */
     void reject();
 private:
-    /**
-     * @brief _project The new project to add
-     */
-    Project _project;
+
+    Project _project; //!< The new project to add
 
     Ui::AddProjectDialog *ui;
 };

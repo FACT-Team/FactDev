@@ -8,8 +8,8 @@ class Parameters
 public:
     Parameters();
 
-    static const QString DB_FILENAME;
-    static const double VERSION;
+    static const QString DB_FILENAME;   //!< Database file name
+    static const double VERSION;        //!< Application version
 };
 
 #endif // SETTINGS_H

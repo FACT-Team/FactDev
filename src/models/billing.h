@@ -97,11 +97,11 @@ public:
     void setDate(const QDate &getDate);
 
 private:
-    QMap<Project,QList<Contributory> > _contributories;
-    QString _title;
-    int _number;
-    bool _isBilling;
-    QDate _date;
+    QMap<Project,QList<Contributory> > _contributories; //!<
+    QString _title;     //!<
+    int _number;        //!<
+    bool _isBilling;    //!<
+    QDate _date;        //!<
 
 
 };

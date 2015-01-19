@@ -10,9 +10,9 @@ public:
     ~CustomerContextualMenu();
 
 private:
-    QAction* _removeAction;
-    QAction* _editAction;
-    QAction* _openAction;
+    QAction* _removeAction; //!<
+    QAction* _editAction;   //!<
+    QAction* _openAction;   //!<
 };
 
 #endif // CUSTOMERCONTEXTUALMENU_H

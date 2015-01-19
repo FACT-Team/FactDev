@@ -25,7 +25,7 @@ public:
     void setHourlyRate(double hourlyRate);
 
 private:
-    Ui::RateWidget *ui;
+    Ui::RateWidget *ui; //!<
 };
 
 #endif // RATEWIDGET_H

@@ -6,7 +6,7 @@
 /**
  * @author Antoine de Roquemaurel
  * @author Florent Berbie
- * @brief The Customer class
+ * @brief The Customer class Customer
  */
 class Customer : public IDatabaseModel
 {
@@ -191,51 +191,18 @@ public:
      */
     bool operator !=(const Customer &c);
 private:
-    /**
-     * @brief _firstnameReferent Firstname of the referent customer
-     */
-    QString _firstnameReferent;
-    /**
-     * @brief _lastnameReferent Lastname of the referent customer
-     */
-    QString _lastnameReferent;
-    /**
-     * @brief _company Company name of the customer
-     */
-    QString _company;
-    /**
-     * @brief _address Company address (Name and number of street) of the
-     * customer
-     */
-    QString _address;
-    /**
-     * @brief _postalCode Postal code of the company
-     */
-    QString _postalCode;
-    /**
-     * @brief _city City of the company
-     */
-    QString _city;
-    /**
-     * @brief _country Country of the company
-     */
-    QString _country;
-    /**
-     * @brief _email Email of the customer
-     */
-    QString _email;
-    /**
-     * @brief _mobilePhone Mobile phone number of the customer
-     */
-    QString _mobilePhone;
-    /**
-     * @brief _phone Phone number of the customer
-     */
-    QString _phone;
-    /**
-     * @brief _fax Fax number of the customer
-     */
-    QString _fax;
+    QString _firstnameReferent; //!< Firstname of the referent customer
+    QString _lastnameReferent;  //!< Lastname of the referent customer
+    QString _company;           //!< Company name of the customer
+    QString _address;           //!< Company address (Name and number of street)
+                                //!< of the CUstomer
+    QString _postalCode;        //!< Postal code of the company
+    QString _city;              //!< City of the company
+    QString _country;           //!< Country of the company
+    QString _email;             //!< Email of the customer
+    QString _mobilePhone;       //!< Mobile phone number of the customer
+    QString _phone;             //!< Phone number of the customer
+    QString _fax;               //!< Fax number of the customer
 };
 
 #endif // CUSTOMER_H

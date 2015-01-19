@@ -167,50 +167,17 @@ public:
     void setNoSiret(int noSiret);
 
 private:
-    /**
-     * @brief _firstname User firstname
-     */
-    QString _firstname;
-    /**
-     * @brief _lastname User lastname
-     */
-    QString _lastname;
-    /**
-     * @brief _company Company name of the User
-     */
-    QString _company;
-    /**
-     * @brief _title Customer/Company description on it activity
-     */
-    QString _title;
-    /**
-     * @brief _address Name and number of street
-     */
-    QString _address;
-    /**
-     * @brief _postalCode Postal code
-     */
-    QString _postalCode;
-    /**
-     * @brief _city City
-     */
-    QString _city;
-    /**
-     * @brief _email Profesionnal email of the company
-     */
-    QString _email;
-    /**
-     * @brief _mobilePhone Profesionnal number of mobile phone
-     */
-    QString _mobilePhone;
-    /**
-     * @brief _phone Number of desktop phone
-     */
-    QString _phone;
-    /**
-     * @brief _noSiret SIRET number (company registration number)
-     */
-    int _noSiret;
+    QString _firstname;     //!< User firstname
+    QString _lastname;      //!< User lastname
+    QString _company;       //!< Company name of the User
+    QString _title;         //!< Customer/Company description on it activity
+    QString _address;       //!< Name and number of street
+    QString _postalCode;    //!< Postal code
+    QString _city;          //!< City
+    QString _email;         //!< Professionnal email of the company
+    QString _mobilePhone;   //!< Professionnal number of mobile phone
+    QString _phone;         //!< Number of desktop phone
+    int _noSiret;           //!<  SIRET number (company registration number)
 };
 
 #endif // USER_H

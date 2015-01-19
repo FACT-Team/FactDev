@@ -11,6 +11,7 @@ class UserDataDialog;
 /**
  * @author Florent Berbie
  * @brief The UserDataDialog class Window to fill user data
+ * @see Project
  */
 class UserDataDialog : public QDialog
 {
@@ -41,10 +42,7 @@ public:
     void reject();
 
 private:
-    /**
-     * @brief _user The user of this appication
-     */
-    User* _user;
+    User* _user; //!< The user of this appication
     Ui::UserDataDialog *ui;
 };
 

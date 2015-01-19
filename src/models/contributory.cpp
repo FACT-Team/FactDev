@@ -25,7 +25,7 @@ Project Contributory::getProject() const
     return project;
 }
 
-void Contributory::setProject(const Project &value)
+void Contributory::setProject(const Project &id)
 {
-    project = value;
+    project = id;
 }

@@ -8,6 +8,7 @@
 /**
  * @author Florent Berbie
  * @brief The Project class : Project linked to a Customer
+ * @see IDatabaseModel
  */
 class Project : public IDatabaseModel
 {
@@ -87,25 +88,10 @@ public:
     void setCustomer(Customer *customer);
 
 private:
-    /**
-     * @brief _name Project name
-     */
-    QString _name;
-
-    /**
-     * @brief _description Description on the targets of this project
-     */
-    QString _description;
-
-    /**
-     * @brief _dailyRate Daily rate linked to this project
-     */
-    double _dailyRate;
-
-    /**
-     * @brief _customer Customer linked to this project
-     */
-    Customer* _customer;
+    QString _name;          //!< Project name
+    QString _description;   //!< Description on the targets of this project
+    double _dailyRate;      //!< Daily rate linked to this project
+    Customer* _customer;    //!< Customer linked to this project
 };
 
 #endif // PROJECT_H

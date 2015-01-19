@@ -44,8 +44,8 @@ public:
         return logger;
     }
 private:
-    static Log* _instance;
-    static TypeLog _type;
+    static Log* _instance;  //!<
+    static TypeLog _type;   //!<
 
     QFile* _file;
 

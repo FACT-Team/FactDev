@@ -40,15 +40,10 @@ public:
      */
     void popupMessage(QWidget *parent);
 private:
-    /**
-     * @brief _userError
-     */
-    QString _userError;
 
-    /**
-     * @brief _errorCode Error code
-     */
-    int _errorCode;
+    QString _userError; //!<
+
+    int _errorCode; //!<  Error code
 };
 
 
