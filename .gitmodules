@@ -1,3 +1,6 @@
 [submodule "tests/QTestRunner"]
 	path = tests/QTestRunner
 	url = git@github.com:FACT-Team/QTestRunner.git
+[submodule "fact-team.github.io"]
+	path = fact-team.github.io
+	url = git@github.com:FACT-Team/fact-team.github.io.git
