@@ -17,11 +17,6 @@ Database* Database::_instance = 0;
 bool Database::_dbInstance = 0;
 bool Database::isOpen = false;
 
-
-/**
- * @brief Database::getInstance Return an instance of Database
- * @return Instance of Database
- */
 Database* Database::instance() throw(DbException*) {
     if (_instance==0) {
         _instance = new Database();
@@ -31,24 +26,14 @@ Database* Database::instance() throw(DbException*) {
     return _instance;
 }
 
-/**
- * @brief Database::setDatabase Set database
- * @param sql The new database
- */
 void Database::setDatabase(QSqlDatabase sql) {
     mDatabase = sql;
 }
 
-/**
- * @brief Database::close Close database access
- */
 void Database::close() {
     mDatabase.close();
 }
 
-/**
- * @brief Database::Database Database is a singleton
- */
 Database::Database() throw(DbException*) {
     if(!isOpen) {
         mDatabase = QSqlDatabase::addDatabase("QSQLITE");
@@ -57,9 +42,6 @@ Database::Database() throw(DbException*) {
     }
 }
 
-/**
- * @brief Database::~Database Suppression object, and close database access
- */
 Database::~Database() {
     mDatabase.close();
     _instance = 0;
@@ -68,9 +50,6 @@ Database::~Database() {
     delete _instance;
 }
 
-/**
- * @brief Database::open Open database
- */
 void Database::open() {
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
@@ -122,31 +101,18 @@ void Database::open() {
     }
 }
 
-/**
- * @brief Database::jeuDEssai Create
- */
 inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests.sql");
 }
 
-/**
- * @brief Database::viderDatabase Clear database
- */
 inline void Database::cleanDatabase() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/cleardatabase.sql");
 }
 
-/**
- * @brief Database::creerDatabase Create a new database
- */
 inline void Database::createDatabase() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/createtables.sql");
 }
 
-/**
- * @brief Database::executerFichier Exeute a specified file
- * @param pNom File name
- */
 void Database::executeFile(QString pName) {
     QSqlQuery q;
 
@@ -172,9 +138,6 @@ void Database::executeFile(QString pName) {
     file.close();
 }
 
-/**
- * @brief Database::openTransaction Open new transaction
- */
 void Database::openTransaction()
 {
     QSqlQuery q;
@@ -188,9 +151,6 @@ void Database::openTransaction()
     }
 }
 
-/**
- * @brief Database::closeTransaction Close current transaction
- */
 void Database::closeTransaction()
 {
     QSqlQuery q;
@@ -204,11 +164,6 @@ void Database::closeTransaction()
 
 }
 
-/**
- * @brief Database::derniereErreur Return text of last error
- * @param q Query
- * @return error message
- */
 inline QString Database::lastError(const QSqlQuery& q) {
     QString ret = "[ ERREUR  ] " + q.lastError().text()+"\n"
                 +"[ query ] " + q.lastQuery() +"\n";
@@ -216,12 +171,6 @@ inline QString Database::lastError(const QSqlQuery& q) {
     return ret;
 }
 
-/**
- * @brief Database::valeur Value of database field
- * @param q Query
- * @param champ Field
- * @return  The value
- */
 QVariant Database::value(const QSqlQuery& q, const QString& champ) {
     return q.value(champ);
 }

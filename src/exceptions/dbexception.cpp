@@ -2,13 +2,6 @@
 #include "dbexception.h"
 #include "log.h"
 
-/**
- * @brief DbException::DbException. Construct an DbException.
- * @param userError ClassName of error
- * @param fctName Function name
- * @param logError Message error
- * @param errorCode Code of error
- */
 DbException::DbException(const QString userError, const QString fctName,
     const QString logError, float errorCode)
 {
@@ -26,11 +19,6 @@ DbException::DbException(const QString userError, const QString fctName,
     _userError += "<b>Erreur n°"+QString::number(errorCode)+"</b></span>";
 }
 
-/**
- * @brief DbException::popupMessage. Display a popup message with the message
- * error.
- * @param parent
- */
 void DbException::popupMessage(QWidget* parent)
 {
     QMessageBox::critical(parent, "Erreur innatendue", _userError, "OK");
