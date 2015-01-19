@@ -8,6 +8,7 @@
 #include <QDebug>
 
 /**
+ * @author Antoine de Roquemaurel
  * @brief The DbException class for database exception : queries, db file, …
  */
 class DbException : public std::exception

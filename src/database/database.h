@@ -10,6 +10,7 @@
 #include "exceptions/dbexception.h"
 
 /**
+ * @author Antoine de Roquemaurel
  * @brief The <b>Database</b> class Master class for all database access
  */
 class Database {

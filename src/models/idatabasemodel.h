@@ -1,6 +1,10 @@
 #ifndef IDATABASEMODEL_H
 #define IDATABASEMODEL_H
 
+/**
+ * @author Antoine de Roquemaurel
+ * @brief The IDatabaseModel class
+ */
 class IDatabaseModel
 {
 public:

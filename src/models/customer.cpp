@@ -39,6 +39,7 @@ void Customer::remove()
 {
     CustomerDatabase::instance()->removeCustomer(_id);
 }
+
 bool Customer::operator==(const Customer &c)
 {
     // all fields are the same.

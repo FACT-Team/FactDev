@@ -3,6 +3,10 @@
 #include "models/project.h"
 #include "models/idatabasemodel.h"
 
+/**
+ * @author
+ * @brief The Contributory class
+ */
 class Contributory : IDatabaseModel
 {
 public:

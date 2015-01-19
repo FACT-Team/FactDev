@@ -6,6 +6,7 @@
 #include "models/customer.h"
 
 /** 
+ * @author Antoine de Roquemaurel
  * @brief The <b>CustomerDatabase</b> class Customer table database
  */
 class CustomerDatabase : public Database

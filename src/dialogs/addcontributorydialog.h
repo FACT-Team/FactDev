@@ -8,6 +8,7 @@ class AddContributoryDialog;
 }
 
 /**
+ * @author Florent Berbie
  * @brief The AddContributoryDialog class Windows to add a new Contributory
  */
 class AddContributoryDialog : public QDialog

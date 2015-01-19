@@ -6,6 +6,7 @@
 #include "models/project.h"
 
 /**
+ * @author Florent Berbie
  * @brief The ProjectDatabase class
  */
 class ProjectDatabase : public Database

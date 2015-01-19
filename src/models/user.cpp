@@ -2,16 +2,18 @@
 #include "database/userdatabase.h"
 
 
+User::User()
+{
+
+}
+
 User::User(int id)
 {
     _id = id;
     hydrat(id);
 }
 
-User::User()
-{
 
-}
 
 void User::commit() {
     UserDatabase::instance()->updateUser(*this);

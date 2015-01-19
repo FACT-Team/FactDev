@@ -9,6 +9,7 @@ class UserDataDialog;
 }
 
 /**
+ * @author Florent Berbie
  * @brief The UserDataDialog class Window to fill user data
  */
 class UserDataDialog : public QDialog

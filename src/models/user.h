@@ -10,10 +10,32 @@
 class User : public IDatabaseModel
 {
 public:
-    User(int id);
+    /**
+     * @brief User::User. Contruct an User
+     */
     User();
+
+    /**
+     * @brief User::User. Construct a User with the identify <i>id</i>
+     * @param id User id
+     */
+    User(int id);
+
+    /**
+     * @brief User::commit Update user data in User table on the database
+     */
     void commit();
+
+    /**
+     * @brief User::hydrat Get data of the user who is specified by <i>id</i>
+     * from the database
+     * @param id User identify
+     */
     void hydrat(int id=1);
+
+    /**
+     * @brief remove Remove the current User
+     */
     void remove();
 
     /**
@@ -149,52 +171,42 @@ private:
      * @brief _firstname User firstname
      */
     QString _firstname;
-
     /**
      * @brief _lastname User lastname
      */
     QString _lastname;
-
     /**
      * @brief _company Company name of the User
      */
     QString _company;
-
     /**
      * @brief _title Customer/Company description on it activity
      */
     QString _title;
-
     /**
      * @brief _address Name and number of street
      */
     QString _address;
-
     /**
      * @brief _postalCode Postal code
      */
     QString _postalCode;
-
     /**
      * @brief _city City
      */
     QString _city;
-
     /**
      * @brief _email Profesionnal email of the company
      */
     QString _email;
-
     /**
      * @brief _mobilePhone Profesionnal number of mobile phone
      */
     QString _mobilePhone;
-
     /**
      * @brief _phone Number of desktop phone
      */
     QString _phone;
-
     /**
      * @brief _noSiret SIRET number (company registration number)
      */

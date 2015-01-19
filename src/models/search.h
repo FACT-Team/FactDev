@@ -3,6 +3,10 @@
 
 #include <QString>
 
+/**
+ * @author Antoine de Roquemaurel
+ * @brief The Search class
+ */
 class Search
 {
 public:

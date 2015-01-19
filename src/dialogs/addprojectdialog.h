@@ -11,6 +11,7 @@ class AddProjectDialog;
 }
 
 /**
+ * @author Florent Berbie
  * @brief The AddProjectDialog class Windows to add a new Project
  */
 class AddProjectDialog : public QDialog
