@@ -14,6 +14,71 @@
    <string>Client</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="3" column="0" colspan="2">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Adresse</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1" colspan="4">
+       <widget class="QLineEdit" name="leAddress">
+        <property name="toolTip">
+         <string>Adresse du client</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Ville</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLineEdit" name="leCity">
+        <property name="toolTip">
+         <string>Ville</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Code Postal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lePostalCode">
+        <property name="toolTip">
+         <string>Code Postal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Pays</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>N°, Rue</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="4">
+       <widget class="QLineEdit" name="leCountry">
+        <property name="toolTip">
+         <string>Pays</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="2" column="1">
     <widget class="QLineEdit" name="leCompany">
      <property name="toolTip">
@@ -24,14 +89,7 @@
    <item row="4" column="0">
     <widget class="QLabel" name="label_7">
      <property name="text">
-      <string>Mail</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="1">
-    <widget class="QLineEdit" name="lePhone">
-     <property name="toolTip">
-      <string>Numéro de téléphone fixe du client</string>
+      <string>Email</string>
      </property>
     </widget>
    </item>
@@ -49,38 +107,38 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_8">
+     <property name="text">
+      <string>Tél. mobile</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
     <widget class="QLineEdit" name="leMobilePhone">
      <property name="toolTip">
       <string>Numéro de téléphone portable du client</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="label_8">
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_10">
      <property name="text">
-      <string>Tel portable</string>
+      <string>Fax</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="1">
+   <item row="8" column="1">
     <widget class="QLineEdit" name="leFax">
      <property name="toolTip">
       <string>Numéro de fax du client</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="label_9">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>Tel fixe</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0">
-    <widget class="QLabel" name="label_10">
-     <property name="text">
-      <string>Fax</string>
+      <string>Nom</string>
      </property>
     </widget>
    </item>
@@ -88,78 +146,6 @@
     <widget class="QLineEdit" name="leLastNameReferent">
      <property name="toolTip">
       <string>Nom du client</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string>Adresse</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Ville</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Code Postal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QLineEdit" name="lePostalCode">
-        <property name="toolTip">
-         <string>Code Postal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="leCity">
-        <property name="toolTip">
-         <string>Ville</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Rue</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1" colspan="3">
-       <widget class="QLineEdit" name="leAddress">
-        <property name="toolTip">
-         <string>Adresse du client</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_11">
-        <property name="text">
-         <string>Pays</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1" colspan="3">
-       <widget class="QLineEdit" name="leCountry">
-        <property name="toolTip">
-         <string>Pays</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Nom</string>
      </property>
     </widget>
    </item>
@@ -177,7 +163,7 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="0" colspan="2">
+   <item row="9" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
@@ -216,19 +202,28 @@
      </item>
     </layout>
    </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_9">
+     <property name="text">
+      <string>Tél. fixe</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="lePhone">
+     <property name="toolTip">
+      <string>Numéro de téléphone fixe du client</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <tabstops>
   <tabstop>leLastNameReferent</tabstop>
   <tabstop>leFirstNameReferent</tabstop>
   <tabstop>leCompany</tabstop>
-  <tabstop>leAddress</tabstop>
-  <tabstop>leCity</tabstop>
-  <tabstop>lePostalCode</tabstop>
-  <tabstop>leCountry</tabstop>
   <tabstop>leEmail</tabstop>
   <tabstop>leMobilePhone</tabstop>
-  <tabstop>lePhone</tabstop>
   <tabstop>leFax</tabstop>
   <tabstop>btnSave</tabstop>
   <tabstop>btnCancel</tabstop>
