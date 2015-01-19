@@ -7,12 +7,14 @@
 
 /**
  * @author Florent Berbie
- * @brief The ProjectDatabase class
+ * @brief The ProjectDatabase class Project table database
+ * @see Database
+ * @see Project
  */
 class ProjectDatabase : public Database
 {
 private:
-    static ProjectDatabase* _instance;
+    static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
 
     /**
      * @brief ProjectDatabase: is a singleton

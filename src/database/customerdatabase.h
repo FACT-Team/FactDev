@@ -1,5 +1,5 @@
-#ifndef BDDPATIENT_H
-#define BDDPATIENT_H
+#ifndef BDDCUSTOMER_H
+#define BDDCUSTOMER_H
 
 #include "database/database.h"
 #include "exceptions/dbexception.h"
@@ -8,11 +8,13 @@
 /** 
  * @author Antoine de Roquemaurel
  * @brief The <b>CustomerDatabase</b> class Customer table database
+ * @see Database
+ * @see Customer
  */
 class CustomerDatabase : public Database
 {
 private:
-    static CustomerDatabase* _instance;
+    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
 
     /**
      * @brief <b>CustomerDatabase</b> is a singleton
@@ -22,6 +24,7 @@ public:
     /**
      * @brief CustomerDatabase::getInstance Return an instance of
      * <b>CustomerDatabase</b>
+     * @see DbException
      * @return Instance of CustomerDatabase
      */
     static CustomerDatabase* instance()throw(DbException*);
@@ -31,6 +34,7 @@ public:
      * @brief CustomerDatabase::getCustomersTable Return an item model of
      * customers for QTableView
      * @param filter Select only customers who are specified by <i>filter</i>
+     * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
@@ -40,6 +44,7 @@ public:
      * @brief CustomerDatabase::getCustomersTree Return an item model of
      * customers for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
+     * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
     QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
@@ -48,7 +53,6 @@ public:
      * @brief CustomerDatabase::getCustomer get informations about the customer
      * identified by <i>pId</i>
      * @param pId customer id
-
      * @return the Customer
      */
     Customer *getCustomer(const int pId);
@@ -82,4 +86,4 @@ public:
 
 };
 
-#endif // BDDPATIENT_H
+#endif // BDDCUSTOMER_H
