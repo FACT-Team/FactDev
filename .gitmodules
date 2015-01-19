@@ -4,3 +4,6 @@
 [submodule "fact-team.github.io"]
 	path = fact-team.github.io
 	url = git@github.com:FACT-Team/fact-team.github.io.git
+[submodule "documents/LaTexTemplate"]
+	path = documents/LaTexTemplate
+	url = git@github.com:FACT-Team/LaTexTemplate.git

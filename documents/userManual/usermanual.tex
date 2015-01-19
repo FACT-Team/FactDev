@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage{lmodern}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\input{../LaTexTemplate/templates/couleurs.tex}
+
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} 
+\usepackage{marvosym}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=1.7cm, bottom=1.7cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{verbatim}
+\usepackage[urlbordercolor={1 1 1}, linkbordercolor={1 1 1}, linkcolor=vert1, urlcolor=bleu, colorlinks=true]{hyperref}
+\usepackage{tikz} %Vectoriel
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{multido}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[francais]{minitoc}
+\usepackage[final]{pdfpages} 
+\usepackage{graphicx} % Required for box manipulation
+\usepackage{makeidx}
+
+\newcommand{\titre}{FactDev -- V0.1}
+\newcommand{\subtitle}{Manuel Utilisateur}
+\newcommand{\auteur}{Équipe FACT}
+\newcommand{\semestre}{~}
+\newcommand{\annee}{2015}
+
+
+\newcommand{\pole}{}
+\newcommand{\sigle}{FACT}
+\makeindex
+\usepackage[totoc]{idxlayout}
+
+
+\input{../LaTexTemplate/templates/listings.tex}
+\input{../LaTexTemplate/templates/classroomsTemplates/l2/cours.tex}
+\input{../LaTexTemplate/templates/remarquesExempleAttention.tex}
+\input{../LaTexTemplate/templates/polices.tex}
+\input{../LaTexTemplate/templates/affichageChapitre.tex}
+
+\input{couverture.tex}
+\makeatother
+\includeonly {
+contents/intro,
+contents/1-1erLancement,
+contents/2-ihm,
+contents/3-donneesUtilisateur,
+contents/4-clients,
+}
+\begin{document}
+	\thispagestyle{empty} % Removes page numbers
+	\titleBC 
+	\dominitoc
+	\setcounter{tocdepth}{1}
+	\setcounter{secnumdepth}{3}
+	\setcounter{minitocdepth}{1}
+%	\maketitle
+
+	\include{contents/intro}
+
+	\include{contents/1-1erLancement}
+	\include{contents/2-ihm}
+	\include{contents/3-donneesUtilisateur}
+	\include{contents/4-clients}
+	\appendix
+	\listoffigures
+	\printindex
+
+\end{document}
