@@ -5,7 +5,7 @@
 #include "exceptions/dbexception.h"
 #include "models/customer.h"
 
-/**
+/** 
  * @brief The <b>CustomerDatabase</b> class Customer table database
  */
 class CustomerDatabase : public Database
