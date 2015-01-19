@@ -29,7 +29,7 @@ public:
     QString  lastError(const QSqlQuery& q);
 
     /**
-     * @brief Database::jeuDEssai Create
+     * @brief Database::testCases Realise a test cases
      */
     void testCases();
 

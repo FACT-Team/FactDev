@@ -46,6 +46,9 @@ public:
     void setNoSiret(int getNoSiret);
 
 private:
+    /**
+     * @brief _firstname User firstname
+     */
     QString _firstname;
     QString _lastname;
     QString _company;
