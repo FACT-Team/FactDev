@@ -11,7 +11,7 @@ FACT team is a team for Universitiy Project. Members of this team are :
 For more informations, you can go to http://fact-team.github.io.
 
 # Project
-![Screen of software](http://fact-team.github.io/img/factdev.png)
+![Screen of software](http://fact-team.github.io/img/factdev.png =400x474)
 
  FactDev is a software for quotes and billings developped by FACT team for university project in Toulouse III University – Paul Sabatier.
 
