@@ -87,15 +87,15 @@ protected:
      */
     Database()throw(DbException*);
 
-    static Database* _instance;
-    static bool _dbInstance;
+    static Database* _instance; //!< Instance
+    static bool _dbInstance; //!< an instance of db is open
 
-    QSettings* _settings;
+    QSettings* _settings; //!< settings
 
-    QSqlDatabase mDatabase;
-    QList<Database*> _instances;
+    QSqlDatabase mDatabase; //!< contains Database
+    QList<Database*> _instances; //!< List of instances
 
-    static bool isOpen;
+    static bool isOpen; //!< Database is open
 
     /**
      * @brief Database::valeur Value of database field

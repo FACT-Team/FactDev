@@ -7,12 +7,21 @@ namespace Ui {
 class searchWidget;
 }
 
+/**
+ * @brief Class for search in database
+ * @author Antoine de Roquemaurel
+ */
 class searchWidget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief searchWidget Construct a search widget
+     * @param parent The QWidget parent
+     */
     explicit searchWidget(QWidget *parent = 0);
+
     ~searchWidget();
 
     /**
@@ -23,7 +32,11 @@ public:
     int getCurrentCustomerId();
 
 public slots:
-    void search(QString);
+    /**
+     * @brief launch a search
+     * @param toSearch The value to search
+     */
+    void search(QString toSearch);
 private:
     Ui::searchWidget *ui;
     void updateTable(QString text="");

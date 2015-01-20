@@ -53,16 +53,6 @@ void DialogAddCustomer::accept() {
 void DialogAddCustomer::reject() {
     QDialog::reject();
 }
-Customer *DialogAddCustomer::getCustom() const
-{
-    return _custom;
-}
-
-void DialogAddCustomer::setCustom(Customer *custom)
-{
-    _custom = custom;
-}
-
 
 DialogAddCustomer::~DialogAddCustomer()
 {

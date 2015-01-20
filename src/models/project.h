@@ -30,7 +30,7 @@ public:
     void commit();
     /**
      * @brief Project::hydrat Insert project data which is specified by
-     * <i>id</id> in the database
+     * <i>id</i> in the database
      * @param id Project identify
      */
     void hydrat(int id);
