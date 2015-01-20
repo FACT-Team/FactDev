@@ -7,6 +7,10 @@ namespace Ui {
 class ProjectsWidget;
 }
 
+/**
+ * @brief The ProjectsWidget class
+ * @author Florent Berbie
+ */
 class ProjectsWidget : public QWidget
 {
     Q_OBJECT

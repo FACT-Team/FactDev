@@ -47,7 +47,6 @@ IDL_PROPERTY_SUPPORT   = YES
 DISTRIBUTE_GROUP_DOC   = NO
 SUBGROUPING            = YES
 TYPEDEF_HIDES_STRUCT   = NO
-SYMBOL_CACHE_SIZE      = 0
 #---------------------------------------------------------------------------
 # Build related configuration options
 #---------------------------------------------------------------------------
@@ -77,7 +76,6 @@ GENERATE_DEPRECATEDLIST= YES
 ENABLED_SECTIONS       = 
 MAX_INITIALIZER_LINES  = 30
 SHOW_USED_FILES        = YES
-SHOW_DIRECTORIES       = NO
 SHOW_FILES             = YES
 SHOW_NAMESPACES        = YES
 FILE_VERSION_FILTER    = 
@@ -95,9 +93,10 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = ./src
+INPUT                  = ./src ./tests
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
+						 *.md \
                          *.cc \
                          *.cxx \
                          *.cpp \
@@ -192,7 +191,6 @@ HTML_FILE_EXTENSION    = .html
 HTML_HEADER            = 
 HTML_FOOTER            = 
 HTML_STYLESHEET        = 
-HTML_ALIGN_MEMBERS     = YES
 HTML_DYNAMIC_SECTIONS  = NO
 GENERATE_DOCSET        = NO
 DOCSET_FEEDNAME        = "Doxygen generated docs"
@@ -208,7 +206,6 @@ GENERATE_QHP           = NO
 QCH_FILE               = 
 QHP_NAMESPACE          = 
 QHP_VIRTUAL_FOLDER     = doc
-QHP_CUSTOM_FILTER_NAME = 
 QHP_CUST_FILTER_ATTRS  = 
 QHP_SECT_FILTER_ATTRS  = 
 QHG_LOCATION           = 
@@ -253,8 +250,6 @@ MAN_LINKS              = NO
 #---------------------------------------------------------------------------
 GENERATE_XML           = NO 
 XML_OUTPUT             = xml
-XML_SCHEMA             = 
-XML_DTD                = 
 XML_PROGRAMLISTING     = YES
 #---------------------------------------------------------------------------
 # configuration options for the AutoGen Definitions output
