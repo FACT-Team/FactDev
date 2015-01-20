@@ -12,3 +12,4 @@
 \contentsline {section}{\numberline {2.2}Ajout d'un client}{8}{section.2.2}
 \contentsline {section}{\numberline {2.3}\IeC {\'E}dition d'un client}{8}{section.2.3}
 \contentsline {chapter}{\numberline {A}Table des figures}{9}{appendix.A}
+\contentsline {chapter}{Index}{10}{appendix*.2}
