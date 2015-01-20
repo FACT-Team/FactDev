@@ -40,11 +40,6 @@ public:
      */
     void reject();
 
-    // Warning : Not Use
-    Customer *getCustom() const;
-    // Warning : Not Use
-    void setCustom(Customer *getCustom);
-
 private:
     int mode;   // Warning : Not Use
     Customer* _custom;

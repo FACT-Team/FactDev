@@ -44,8 +44,14 @@ public:
      * for each <b>Project</b> of the <b>Billing</b>
      * @return QMap<Project, QList<Contributory>>
      */
-    QMap<Project, QList<Contributory> > getContributories() const;
-    void setContributories(const QMap<Project, QList<Contributory> > &getContributories);
+    QMap<Project *, QList<Contributory*>*> getContributories() const;
+
+    /**
+     * @brief addContributories Add a new contributory for project p
+     * @param p The Project who contain Contributory
+     * @param c The new Contributory
+     */
+    void addContributories(Project *p, Contributory *c);
 
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>
@@ -97,11 +103,11 @@ public:
     void setDate(const QDate &getDate);
 
 private:
-    QMap<Project,QList<Contributory> > _contributories; //!<
-    QString _title;     //!<
-    int _number;        //!<
-    bool _isBilling;    //!<
-    QDate _date;        //!<
+    QMap<Project*,QList<Contributory*>*> _contributories; //!< List of contributories
+    QString _title;     //!< Title of billing
+    int _number;        //!< Number of billing
+    bool _isBilling;    //!< Is a billing… Or si a quote
+    QDate _date;        //!< Date for billing
 
 
 };

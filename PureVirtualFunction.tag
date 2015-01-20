@@ -69,11 +69,18 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>QMap&lt; Project, QList&lt; Contributory &gt; &gt;</type>
+      <type>QMap&lt; Project *, QList&lt; Contributory * &gt; * &gt;</type>
       <name>getContributories</name>
       <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a08416c71eee43ec294e666ce45d43856</anchor>
+      <anchor>aba069eef9cf264d90c035e6f83a7cbe8</anchor>
       <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addContributories</name>
+      <anchorfile>df/d81/classBilling.html</anchorfile>
+      <anchor>a4482a931940eb98c600fa1c67b5e938e</anchor>
+      <arglist>(Project *p, Contributory *c)</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -156,10 +163,6 @@
   <compound kind="class">
     <name>ComboBoxModelWidget</name>
     <filename>d5/d79/classComboBoxModelWidget.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>connexiondialog</name>
-    <filename>dc/db6/classconnexiondialog.html</filename>
   </compound>
   <compound kind="class">
     <name>Contributory</name>
@@ -578,10 +581,66 @@
       <anchor>a88f0ccd102fc421fb10ddad0fd94e8c1</anchor>
       <arglist>(const QSqlQuery &amp;q, const QString &amp;champ)</arglist>
     </member>
+    <member kind="variable" protection="protected">
+      <type>QSettings *</type>
+      <name>_settings</name>
+      <anchorfile>de/d03/classDatabase.html</anchorfile>
+      <anchor>a6cde413cb6d644c835406c09ec37947e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>QSqlDatabase</type>
+      <name>mDatabase</name>
+      <anchorfile>de/d03/classDatabase.html</anchorfile>
+      <anchor>a64b9dbb3a5e6f42447a24caf726782e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>QList&lt; Database * &gt;</type>
+      <name>_instances</name>
+      <anchorfile>de/d03/classDatabase.html</anchorfile>
+      <anchor>a9202583fae82c7f4ecbda6cb11b978c8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static Database *</type>
+      <name>_instance</name>
+      <anchorfile>de/d03/classDatabase.html</anchorfile>
+      <anchor>a4f435119a26cf1b0b8cca652a74c70b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>_dbInstance</name>
+      <anchorfile>de/d03/classDatabase.html</anchorfile>
+      <anchor>a923366369d404e62e9e77111d7c21bab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>isOpen</name>
+      <anchorfile>de/d03/classDatabase.html</anchorfile>
+      <anchor>a8ed9b8afac7134aa48e40c48780b240f</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>CustomerDataWidget</name>
     <filename>df/df4/classCustomerDataWidget.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>printUserData</name>
+      <anchorfile>df/df4/classCustomerDataWidget.html</anchorfile>
+      <anchor>a9a56bd1d7faf76d083cfa97f2883bdf1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>printInformations</name>
+      <anchorfile>df/df4/classCustomerDataWidget.html</anchorfile>
+      <anchor>ab61052cc337e51d1e34149d67816c58f</anchor>
+      <arglist>(int id)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Database</name>
@@ -750,8 +809,8 @@
       <type>void</type>
       <name>search</name>
       <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>aa186e57f984c98ea0266536df32acebd</anchor>
-      <arglist>(QString)</arglist>
+      <anchor>a62fcad69e9d32b98f3ac40a5a1d0f398</anchor>
+      <arglist>(QString s)</arglist>
     </member>
     <member kind="slot">
       <type>void</type>
@@ -838,6 +897,13 @@
   <compound kind="class">
     <name>Popup</name>
     <filename>d7/d6b/classPopup.html</filename>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>toImplement</name>
+      <anchorfile>d7/d6b/classPopup.html</anchorfile>
+      <anchor>aa3173e0f473b42f08363c4ef17c93a07</anchor>
+      <arglist>(QString, QWidget *)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Project</name>
@@ -996,6 +1062,48 @@
   <compound kind="class">
     <name>RateWidget</name>
     <filename>dc/da5/classRateWidget.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>RateWidget</name>
+      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
+      <anchor>ad1cb6a97e47b408043e83708ff8af15e</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initRate</name>
+      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
+      <anchor>a4a3ec9a546055d6ecb3bd1a9ee8082a6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getDailyRate</name>
+      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
+      <anchor>a0a72cea5ff524b47e513dcb21aea2022</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDailyRate</name>
+      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
+      <anchor>a8a3bccabb5c33e9f617ed85a68398b5a</anchor>
+      <arglist>(double dailyRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getHourlyRate</name>
+      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
+      <anchor>a50285d4472979e004c706ff5640e8227</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setHourlyRate</name>
+      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
+      <anchor>a8135738c8a54389110de6751d9e2728e</anchor>
+      <arglist>(double hourlyRate)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Search</name>
@@ -1081,6 +1189,20 @@
   <compound kind="class">
     <name>searchWidget</name>
     <filename>d2/dfd/classsearchWidget.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>search</name>
+      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
+      <anchor>a15138eab0d8098a21c327bd34e328541</anchor>
+      <arglist>(QString toSearch)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>searchWidget</name>
+      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
+      <anchor>a0c712bf4f3c2105319645ce97e23eba9</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
     <member kind="function">
       <type>int</type>
       <name>getCurrentCustomerId</name>
@@ -1351,6 +1473,13 @@
   <compound kind="class">
     <name>Utils</name>
     <filename>dc/dc5/classUtils.html</filename>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>firstLetterToUpper</name>
+      <anchorfile>dc/dc5/classUtils.html</anchorfile>
+      <anchor>a009b2a8ef00831aff87d2e46ca209398</anchor>
+      <arglist>(QString s)</arglist>
+    </member>
   </compound>
   <compound kind="dir">
     <name>src/database</name>
@@ -1412,8 +1541,6 @@
     <dir>src/exceptions</dir>
     <dir>src/models</dir>
     <dir>src/widgets</dir>
-    <file>connexiondialog.cpp</file>
-    <file>connexiondialog.h</file>
     <file>log.cpp</file>
     <file>log.h</file>
     <file>mainwindow.cpp</file>
@@ -1441,5 +1568,10 @@
     <file>ratewidget.h</file>
     <file>searchwidget.cpp</file>
     <file>searchwidget.h</file>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title>FactDev documentation</title>
+    <filename>index</filename>
   </compound>
 </tagfile>

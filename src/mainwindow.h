@@ -55,9 +55,9 @@ public slots:
     void editUser();
     /**
      * @brief MainWindow::search launch a new search
-     * @param QString text in field
+     * @param s text in field
      */
-    void search(QString);
+    void search(QString s);
     /**
      * @brief MainWindow:search call search(QString)
      */

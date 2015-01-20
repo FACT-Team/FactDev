@@ -18,14 +18,14 @@ void Billing::remove()
 {
     // TODO implement me !
 }
-QMap<Project, QList<Contributory> > Billing::getContributories() const
+QMap<Project*, QList<Contributory*>*> Billing::getContributories() const
 {
     return _contributories;
 }
 
-void Billing::setContributories(const QMap<Project, QList<Contributory> > &contributories)
+void Billing::addContributories(Project* p, Contributory* c)
 {
-    _contributories = contributories;
+    _contributories.value(p)->push_back(c);
 }
 
 QString Billing::getTitle() const

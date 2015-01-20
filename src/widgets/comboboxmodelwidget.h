@@ -7,6 +7,10 @@ namespace Ui {
 class ComboBoxModelWidget;
 }
 
+/**
+ * @brief The ComboBoxModelWidget class
+ * TODO
+ */
 class ComboBoxModelWidget : public QWidget
 {
     Q_OBJECT
