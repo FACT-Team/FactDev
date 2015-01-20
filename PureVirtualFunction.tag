@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
+  <compound kind="page">
+    <name>md_tests_QTestRunner_README</name>
+    <title>QTestRunner</title>
+    <filename>dc/d04/md_tests_QTestRunner_README</filename>
+  </compound>
   <compound kind="class">
     <name>AddContributoryDialog</name>
     <filename>d9/dfa/classAddContributoryDialog.html</filename>
@@ -625,6 +630,10 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>CustomerDatabaseTest</name>
+    <filename>d2/d63/classCustomerDatabaseTest.html</filename>
+  </compound>
+  <compound kind="class">
     <name>CustomerDataWidget</name>
     <filename>df/df4/classCustomerDataWidget.html</filename>
     <member kind="function">
@@ -641,6 +650,10 @@
       <anchor>ab61052cc337e51d1e34149d67816c58f</anchor>
       <arglist>(int id)</arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>CustomerModelTest</name>
+    <filename>d5/dcd/classCustomerModelTest.html</filename>
   </compound>
   <compound kind="class">
     <name>Database</name>
@@ -1187,6 +1200,10 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>searchTest</name>
+    <filename>d7/d51/classsearchTest.html</filename>
+  </compound>
+  <compound kind="class">
     <name>searchWidget</name>
     <filename>d2/dfd/classsearchWidget.html</filename>
     <member kind="slot">
@@ -1210,6 +1227,19 @@
       <anchor>ac74ae97eb8c147c89edc3dec3decf174</anchor>
       <arglist>()</arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>testadder</name>
+    <filename>d7/d26/classtestadder.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>TestAdder</name>
+    <filename>d0/d9b/classTestAdder.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="class">
+    <name>TestRunner</name>
+    <filename>db/d70/classTestRunner.html</filename>
   </compound>
   <compound kind="class">
     <name>User</name>
@@ -1482,6 +1512,13 @@
     </member>
   </compound>
   <compound kind="dir">
+    <name>tests/database</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/database/</path>
+    <filename>dir_75d760846aa40227f00e44530a510c90.html</filename>
+    <file>customerdatabasetest.cpp</file>
+    <file>customerdatabasetest.h</file>
+  </compound>
+  <compound kind="dir">
     <name>src/database</name>
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/database/</path>
     <filename>dir_803ee67260c130b45d29089798491ab2.html</filename>
@@ -1515,6 +1552,15 @@
     <file>dbexception.h</file>
   </compound>
   <compound kind="dir">
+    <name>tests/models</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/models/</path>
+    <filename>dir_c7ec7d3a96f76aec1e8b71e782fe5cbb.html</filename>
+    <file>customermodeltest.cpp</file>
+    <file>customermodeltest.h</file>
+    <file>searchtest.cpp</file>
+    <file>searchtest.h</file>
+  </compound>
+  <compound kind="dir">
     <name>src/models</name>
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/models/</path>
     <filename>dir_bdeba5f06b852fec80257c0bf4c3c36e.html</filename>
@@ -1533,6 +1579,16 @@
     <file>user.h</file>
   </compound>
   <compound kind="dir">
+    <name>tests/QTestRunner</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/QTestRunner/</path>
+    <filename>dir_2c44b78b8b65d06e29d47a71b2001f3a.html</filename>
+    <file>main.cpp</file>
+    <file>testadder.cpp</file>
+    <file>testadder.h</file>
+    <file>testrunner.cpp</file>
+    <file>testrunner.h</file>
+  </compound>
+  <compound kind="dir">
     <name>src</name>
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/</path>
     <filename>dir_68267d1309a1af8e8297ef4c3efbcdba.html</filename>
@@ -1549,6 +1605,15 @@
     <file>parameters.h</file>
     <file>utils.cpp</file>
     <file>utils.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>tests</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/</path>
+    <filename>dir_59425e443f801f1f2fd8bbe4959a3ccf.html</filename>
+    <dir>tests/database</dir>
+    <dir>tests/models</dir>
+    <dir>tests/QTestRunner</dir>
+    <file>main.cpp</file>
   </compound>
   <compound kind="dir">
     <name>src/widgets</name>
