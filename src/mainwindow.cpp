@@ -68,7 +68,6 @@ void MainWindow::editCustomer()
 {
     DialogAddCustomer winAddCustomer(getCurrentCustomerId());
     if(winAddCustomer.exec()) {
-        //qDebug() << "id : " << id << "\n";
         updateTable();
         updateTree();
     }
@@ -89,8 +88,6 @@ void MainWindow::removeCustomer()
                     "Supprimer",
                     "Annuler") == 0)
         {
-
-            qDebug() << "Delete";
             QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
             int pid = ui->tblCustomers->model()->data(ls,Qt::DisplayRole).toInt();
             CustomerDatabase::instance()->removeCustomer(pid);
@@ -222,7 +219,9 @@ void MainWindow::aboutFact()
                        "<li>Manantsoa Andriamihary Razanajatovo</li>"
                        "<li>Cédric Rohaut</li>"
                        "<li>Antoine de Roquemaurel</li>"
-                  "</ul>");
+                  "</ul>"
+                "<br/><br/>"
+                "Plus d'informations sur <a href=\"http://fact-team.github.io/\">http://fact-team.github.io/</a>");
 }
 
 void MainWindow::aboutFactDev()
@@ -230,9 +229,11 @@ void MainWindow::aboutFactDev()
     QMessageBox::about(
                 this,
                 "About FactDev",
-                "FactDev est un logiciel de Facture et Devis développé par "
+                "<p>FactDev est un logiciel de Facture et Devis développé par "
                 "l'équipe FACT dans le cadre de l'UE Projet pour l'université "
-                "Toulouse III - Paul Sabatier.");
+                "Toulouse III - Paul Sabatier.<br/></p>"
+                "<p>Ce logiciel est libre et sous license *****. "
+                "<br/>Le code source est disponible sur Github : <br/><a href=\"https://github.com/FACT-Team/FactDev\">https://github.com/FACT-Team/FactDev</a>");
 }
 
 void MainWindow::aboutIcons()

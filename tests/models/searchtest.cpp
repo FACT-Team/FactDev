@@ -12,7 +12,6 @@ void searchTest::searchAll()
     _search.setText("facilisis");
     QVERIFY(_search.getFilter() == "AND (0 OR company LIKE '%facilisis%' OR lastnameReferent LIKE '%facilisis%')");
     QStandardItemModel* model = CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-  //  qDebug() << _search.getFilter();
     QVERIFY(model->data(model->index(0, 2)) == "LARSON");
 }
 
