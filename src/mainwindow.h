@@ -83,10 +83,6 @@ public slots:
      * @brief MainWindow::aboutIcons() show icons's details
      */
     void aboutIcons();
-    /**
-     * @brief MainWindow::changeCustomer This method is not used, implements me !
-     */
-    void changeCustomer();
 
 private slots:
     /**
