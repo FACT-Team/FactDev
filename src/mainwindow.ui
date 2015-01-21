@@ -276,7 +276,7 @@ border: 1px solid #bbb;</string>
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>250</width>
+     <width>73</width>
      <height>466</height>
     </size>
    </property>
@@ -285,7 +285,7 @@ border: 1px solid #bbb;</string>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
     <layout class="QGridLayout" name="gridLayout_5">
-     <item row="2" column="0">
+     <item row="1" column="0">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -304,16 +304,6 @@ border: 1px solid #bbb;</string>
         <size>
          <width>0</width>
          <height>300</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="ProjectsWidget" name="widget" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>100</height>
         </size>
        </property>
       </widget>
@@ -429,12 +419,6 @@ border: 1px solid #bbb;</string>
    <class>CustomerDataWidget</class>
    <extends>QWidget</extends>
    <header>widgets/customerdatawidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>ProjectsWidget</class>
-   <extends>QWidget</extends>
-   <header>widgets/projectswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

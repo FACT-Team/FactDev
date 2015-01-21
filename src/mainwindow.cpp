@@ -43,7 +43,6 @@ void MainWindow::demo() {
     ui->actResearch->setVisible(false);
     ui->btnNewProject->hide();
     ui->actionPrint->setVisible(false);
-    ui->widget->hide();
 }
 
 int MainWindow::getCurrentCustomerId() {

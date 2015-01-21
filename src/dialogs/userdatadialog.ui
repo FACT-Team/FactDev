@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>390</width>
-    <height>376</height>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -220,6 +220,7 @@
  </widget>
  <tabstops>
   <tabstop>leLastname</tabstop>
+  <tabstop>leFirstname</tabstop>
   <tabstop>leCompany</tabstop>
   <tabstop>leTitle</tabstop>
   <tabstop>leAddress</tabstop>
