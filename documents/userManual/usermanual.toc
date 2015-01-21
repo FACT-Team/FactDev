@@ -1,41 +1,15 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Premier lancement du logiciel}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Param\IeC {\'e}trage du logiciel}{5}{section.1.1}
-\contentsline {section}{\numberline {1.2}Renseignement de la cl\IeC {\'e}}{6}{section.1.2}
-\contentsline {chapter}{\numberline {2}Interface g\IeC {\'e}n\IeC {\'e}rale}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}Menus}{7}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Fichier}{7}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Patient}{8}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Prescripteur}{8}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Bilan}{8}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Barre d'outils}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Panneau du patient ou du {prescripteur}}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Panneau de {recherche} et {statistiques}}{9}{section.2.4}
-\contentsline {chapter}{\numberline {3}Les patients}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Liste des patients}{10}{section.3.1}
-\contentsline {section}{\numberline {3.2}Ajout d'un patient}{10}{section.3.2}
-\contentsline {section}{\numberline {3.3}\IeC {\'E}dition d'un patient}{11}{section.3.3}
-\contentsline {section}{\numberline {3.4}Archivage d'un patient}{12}{section.3.4}
-\contentsline {chapter}{\numberline {4}Les prescripteurs}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}La liste des prescripteurs}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Ajout d'un prescripteur}{14}{section.4.2}
-\contentsline {section}{\numberline {4.3}\IeC {\'E}dition d'un prescripteur}{14}{section.4.3}
-\contentsline {chapter}{\numberline {5}Les bilans}{15}{chapter.5}
-\contentsline {section}{\numberline {5.1}Ajout d'un nouveau bilan}{15}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Annotation du corps humain}{16}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Annotation sous forme de postit}{16}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Ouverture du bilan au format PDF}{17}{section.5.2}
-\contentsline {section}{\numberline {5.3}\IeC {\'E}dition d'un bilan}{17}{section.5.3}
-\contentsline {section}{\numberline {5.4}Clonage d'un bilan}{17}{section.5.4}
-\contentsline {section}{\numberline {5.5}Suppression d'un bilan}{18}{section.5.5}
-\contentsline {chapter}{\numberline {6}Les fiches de suivi}{19}{chapter.6}
-\contentsline {section}{\numberline {6.1}Ajout, suppression et modification d'une s\IeC {\'e}ance}{19}{section.6.1}
-\contentsline {section}{\numberline {6.2}Ouverture au format PDF de la fiche de suivi d'un bilan}{19}{section.6.2}
-\contentsline {chapter}{\numberline {7}Les synth\IeC {\`e}ses}{20}{chapter.7}
-\contentsline {section}{\numberline {7.1}Ajouter, \IeC {\'E}diter, Supprimer une synth\IeC {\`e}se}{20}{section.7.1}
-\contentsline {section}{\numberline {7.2}Visualiser le PDF d'une synth\IeC {\`e}se}{21}{section.7.2}
-\contentsline {chapter}{\numberline {8}Sauvegarde et restauration des donn\IeC {\'e}es}{22}{chapter.8}
-\contentsline {section}{\numberline {8.1}Sauvegarde des donn\IeC {\'e}es}{22}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Sauvegarde automatique}{22}{subsection.8.1.1}
-\contentsline {section}{\numberline {8.2}Restauration des donn\IeC {\'e}es}{22}{section.8.2}
-\contentsline {chapter}{\numberline {A}Table des figures}{23}{appendix.A}
+\contentsline {chapter}{\numberline {1}Interface g\IeC {\'e}n\IeC {\'e}rale}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}Menus}{4}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Fichier}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Client}{5}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}\IeC {\`A} propos}{5}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Barre d'outils}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Panneau du client ou du r\IeC {\'e}f\IeC {\'e}rent}{5}{section.1.3}
+\contentsline {section}{\numberline {1.4}Panneau de recherche et soci\IeC {\'e}t\IeC {\'e}s}{6}{section.1.4}
+\contentsline {chapter}{\numberline {2}Les clients}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Liste des clients}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Ajout d'un client}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}\IeC {\'E}dition d'un client}{8}{section.2.3}
+\contentsline {chapter}{\numberline {A}Table des figures}{9}{appendix.A}
+\contentsline {chapter}{Index}{10}{appendix*.2}

@@ -1,13 +1,12 @@
 #include "dialogs/dialogaddcustomer.h"
-#include <QDebug>
 #include "ui_dialogaddcustomer.h"
 
 DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogAddCustomer)
+    ui(new Ui::DialogAddCustomer),
+    _custom(0)
 {
     ui->setupUi(this);
-
     if (id != 0) {
         _custom = new Customer(id);
         fillFields();
@@ -45,7 +44,6 @@ void DialogAddCustomer::accept() {
     _custom->setMobilePhone(ui->leMobilePhone->text());
     _custom->setFax(ui->leFax->text());
 
-    qDebug() << _custom->getId();
     _custom->commit();
     QDialog::accept();
 }
@@ -56,7 +54,7 @@ void DialogAddCustomer::reject() {
 
 DialogAddCustomer::~DialogAddCustomer()
 {
-    // I change the information of customer id{
+    delete _custom;
     delete ui;
 }
 

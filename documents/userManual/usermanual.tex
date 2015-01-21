@@ -44,10 +44,10 @@
 \input{couverture.tex}
 \makeatother
 \includeonly {
-contents/intro,
+%contents/intro,
 %contents/1-1erLancement,
 contents/2-ihm,
-contents/3-donneesUtilisateur,
+%contents/3-donneesUtilisateur,
 contents/4-clients,
 }
 \begin{document}
@@ -58,12 +58,15 @@ contents/4-clients,
 	\setcounter{secnumdepth}{3}
 	\setcounter{minitocdepth}{1}
 %	\maketitle
-
+	
+	
+	\tableofcontents
+	
 	\include{contents/intro}
 
-	\include{contents/1-1erLancement}
+%	\include{contents/1-1erLancement}
 	\include{contents/2-ihm}
-	\include{contents/3-donneesUtilisateur}
+%	\include{contents/3-donneesUtilisateur}
 	\include{contents/4-clients}
 	\appendix
 	\listoffigures

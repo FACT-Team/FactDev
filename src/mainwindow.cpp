@@ -245,18 +245,9 @@ void MainWindow::aboutIcons()
                  "l'usage du logiciel FactDev");
 }
 
-// A refactoriser
-void MainWindow::changeCustomer()
-{
-    //WARNING : Not used
-    //showInformationCustomer(42);
-    //Popup::toImplement("MainWindow::changeCustomer", this);
-}
-
 void MainWindow::changeCustomerTree(QModelIndex index)
 {
-    ui->tblCustomers->selectRow(index.row()-1);
-    //emit changeCustomer();                    // A refactoriser !!!
+    ui->tblCustomers->selectRow(index.row()-1);     // Séléction de la ligne correspondante au client sélectionné
     emit openCustomer();
 }
 
@@ -264,14 +255,13 @@ void MainWindow::changeCustomerTree()
 {
     QModelIndex index =
             ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
-
     emit changeCustomerTree(index);
 }
 
 void MainWindow::changeCustomerTable(QModelIndex index)
 {
-    //ui->trCustomers->set(index.row()+1);
-    //emit changeCustomer();                    // A refactoriser !!!
+    // Gérer le rafraichissement des vues lors d'un changement d'état dans la séléction des clients
+    // ui->trCustomers->set(index.row()+1);
     emit openCustomer();
 }
 
