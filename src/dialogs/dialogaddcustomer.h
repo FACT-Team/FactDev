@@ -41,7 +41,6 @@ public:
     void reject();
 
 private:
-    int mode;   // Warning : Not Use
     Customer* _custom;
     Ui::DialogAddCustomer *ui;
 };
