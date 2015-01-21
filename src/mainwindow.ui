@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1237</width>
-    <height>566</height>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -112,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>20</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -276,7 +276,7 @@ border: 1px solid #bbb;</string>
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>332</width>
+     <width>250</width>
      <height>466</height>
     </size>
    </property>

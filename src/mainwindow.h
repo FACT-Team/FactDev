@@ -29,6 +29,7 @@ public:
      * @return id of the selected customer
      */
     int getCurrentCustomerId();
+    void demo();
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer

@@ -26,12 +26,24 @@ MainWindow::MainWindow(QWidget *parent) :
         SIGNAL(customContextMenuRequested(const QPoint &)),
         this,
         SLOT(openContextualMenuTree(const QPoint &)));
+
+    demo();
 }
 
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::demo() {
+    ui->btnAddProject->setVisible(false);
+    ui->actionNewBill->setVisible(false);
+    ui->actionNewQuote->setVisible(false);
+    ui->actResearch->setVisible(false);
+    ui->btnNewProject->hide();
+    ui->actionPrint->setVisible(false);
+    ui->widget->hide();
 }
 
 int MainWindow::getCurrentCustomerId() {
