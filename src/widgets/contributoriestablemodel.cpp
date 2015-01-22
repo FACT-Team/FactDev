@@ -46,3 +46,10 @@ void ContributoriesTableModel::append(const Contributory &vehicle) {
     endInsertRows();
 }
 
+void ContributoriesTableModel::remove(const int a)
+{
+    _contributories.removeAt(a);
+    beginRemoveRows(QModelIndex(), _contributories.count(), _contributories.count());
+    endRemoveRows();
+}
+

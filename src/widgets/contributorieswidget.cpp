@@ -33,3 +33,13 @@ void ContributoriesWidget::setContributories(const QList<Contributory *> &contri
     _contributories = contributories;
 }
 
+void ContributoriesWidget::add()
+{
+    _model->append(Contributory());
+}
+
+void ContributoriesWidget::remove()
+{
+    _model->remove(ui->tblContributories->currentIndex().row());
+}
+

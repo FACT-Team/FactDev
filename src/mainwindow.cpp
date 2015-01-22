@@ -271,3 +271,8 @@ void MainWindow::changeCustomerTable()
             ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
     emit changeCustomerTable(index);
 }
+
+void MainWindow::testContributories()
+{
+
+}

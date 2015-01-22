@@ -21,7 +21,9 @@ public:
 
     QList<Contributory *> getContributories() const;
     void setContributories(const QList<Contributory *> &getContributories);
-
+public slots:
+    void add(void);
+    void remove(void);
 private:
     Ui::ContributoriesWidget *ui;
     QList<Contributory*> _contributories;

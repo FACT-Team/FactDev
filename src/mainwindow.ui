@@ -18,7 +18,7 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -101,7 +101,13 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="ContributoriesWidget" name="widget" native="true"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -167,7 +173,7 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>290</height>
+     <height>319</height>
     </size>
    </property>
    <attribute name="dockWidgetArea">
@@ -175,27 +181,10 @@
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QLineEdit" name="leSearch">
-       <property name="styleSheet">
-        <string notr="true">background: url(:/icons/searchMini);
-background-position: right;
-background-repeat: no-repeat;     
-border-radius: 0px;
-height: 23px;
-border: 1px solid #bbb;</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Effectuer une recherche</string>
-       </property>
-       <property name="clearButtonEnabled">
-        <bool>true</bool>
+     <item row="4" column="0">
+      <widget class="QTreeView" name="trCustomers">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
        </property>
       </widget>
      </item>
@@ -203,13 +192,6 @@ border: 1px solid #bbb;</string>
       <widget class="QLabel" name="label">
        <property name="text">
         <string>Recherche</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QTreeView" name="trCustomers">
-       <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
        </property>
       </widget>
      </item>
@@ -269,6 +251,30 @@ border: 1px solid #bbb;</string>
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="leSearch">
+       <property name="styleSheet">
+        <string notr="true">background: url(:/icons/searchMini);
+background-position: right;
+background-repeat: no-repeat;     
+border-radius: 0px;
+height: 23px;
+border: 1px solid #bbb;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Effectuer une recherche</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -427,6 +433,12 @@ border: 1px solid #bbb;</string>
    <header>widgets/customerdatawidget.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>ContributoriesWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/contributorieswidget.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="icons.qrc"/>
@@ -439,8 +451,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>800</x>
-     <y>398</y>
+     <x>910</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -455,8 +467,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>691</x>
-     <y>396</y>
+     <x>801</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -472,7 +484,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>181</y>
+     <y>173</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -491,8 +503,8 @@ border: 1px solid #bbb;</string>
      <y>251</y>
     </hint>
     <hint type="destinationlabel">
-     <x>128</x>
-     <y>238</y>
+     <x>145</x>
+     <y>230</y>
     </hint>
    </hints>
   </connection>
@@ -507,8 +519,8 @@ border: 1px solid #bbb;</string>
      <y>251</y>
     </hint>
     <hint type="destinationlabel">
-     <x>121</x>
-     <y>270</y>
+     <x>138</x>
+     <y>262</y>
     </hint>
    </hints>
   </connection>
@@ -519,8 +531,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>180</x>
-     <y>238</y>
+     <x>197</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -535,8 +547,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>251</x>
-     <y>270</y>
+     <x>260</x>
+     <y>262</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -567,8 +579,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>422</x>
-     <y>398</y>
+     <x>527</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -583,8 +595,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>396</y>
+     <x>681</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
