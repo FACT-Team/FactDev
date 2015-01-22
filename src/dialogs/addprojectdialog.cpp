@@ -10,8 +10,9 @@ AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
     _project = Project(id);
     ui->setupUi(this);
 
-
-
+    if(id != 0) {
+        setWindowTitle("Modifier le projet "+_project.getName());
+    }
 }
 
 AddProjectDialog::~AddProjectDialog()
