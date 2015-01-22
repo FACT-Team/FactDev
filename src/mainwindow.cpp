@@ -76,11 +76,6 @@ void MainWindow::editCustomer()
         updateTable();
         updateTree();
     }
-
-
-
-
-    //Popup::toImplement("MainWindow::editCustomer", this);
 }
 
 void MainWindow::removeCustomer()
