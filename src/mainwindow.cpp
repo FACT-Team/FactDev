@@ -7,6 +7,8 @@
 #include "models/search.h"
 #include "widgets/popup.h"
 #include "dialogs/addprojectdialog.h"
+
+#include "widgets/contributorieswidget.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -14,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     updateTable();
     updateTree();
+    ui->widget =new ContributoriesWidget(new Customer(1), ui->page_2);
+    ui->gridLayout_4->addWidget(ui->widget, 0, 0, 1, 1);
+
     ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->trCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(
@@ -71,11 +76,6 @@ void MainWindow::editCustomer()
         updateTable();
         updateTree();
     }
-
-
-
-
-    //Popup::toImplement("MainWindow::editCustomer", this);
 }
 
 void MainWindow::removeCustomer()
@@ -270,4 +270,9 @@ void MainWindow::changeCustomerTable()
     QModelIndex index =
             ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
     emit changeCustomerTable(index);
+}
+
+void MainWindow::testContributories()
+{
+
 }
