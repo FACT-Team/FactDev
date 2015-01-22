@@ -19,7 +19,7 @@ public:
 
 
 private:
-  QList<Project> _projects;
+  QMap<int, Project> _projects;
 };
 
 #endif // PROJECTCOMBODELEGATE_H

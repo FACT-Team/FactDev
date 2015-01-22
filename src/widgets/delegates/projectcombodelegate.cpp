@@ -9,8 +9,9 @@ ProjectComboDelegate::ProjectComboDelegate(QObject *parent) : QItemDelegate(pare
     b.setId(1);
     Project c("machin");
     c.setId(2);
-
-    _projects  << a << b << c;
+    _projects.insert(0, a);
+    _projects.insert(1, b);
+    _projects.insert(2, c);
 }
 
 ProjectComboDelegate::~ProjectComboDelegate()
@@ -21,9 +22,9 @@ ProjectComboDelegate::~ProjectComboDelegate()
 QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */, const QModelIndex &/* index */) const
 {
   QComboBox* editor = new QComboBox(parent);
-  for(unsigned int i = 0; i < _projects.count(); ++i)
+  for(Project p : _projects.values())
     {
-    editor->addItem(_projects[i].getName(), QVariant(_projects[i].getId()));
+    editor->addItem(p.getName(), QVariant(p.getId()));
     }
   return editor;
 }
@@ -56,15 +57,7 @@ void ProjectComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 {
   QStyleOptionViewItemV4 myOption = option;
   int value = index.model()->data(index, Qt::EditRole).toInt();
-  QString text;
-  for(int i = 0 ; i < _projects.count() ; ++i) {
-      if(_projects[i].getId() == value) {
-         text = _projects[i].getName();
-          break;
-      }
-  }
-
-
+  QString text = _projects[value].getName();
   myOption.text = text;
 
   QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &myOption, painter);
