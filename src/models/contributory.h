@@ -47,8 +47,16 @@ public:
      */
     void setProject(const Project &id);
 
+    double getNbHours() const;
+    void setNbHours(double value);
+
+    QString getDescription() const;
+    void setDescription(const QString &getDescription);
+
 private:
     Project project;    //!<
+    double _nbHours;
+    QString _description;
 };
 
 #endif // CONTRIBUTORY_H
