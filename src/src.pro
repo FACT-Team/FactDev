@@ -44,7 +44,7 @@ SOURCES += mainwindow.cpp \
     widgets/customerdatawidget.cpp \
     widgets/projectswidget.cpp \
     widgets/contributorieswidget.cpp \
-    widgets/contributoriestablemodel.cpp
+    widgets/models/contributoriestablemodel.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -77,7 +77,7 @@ HEADERS  += mainwindow.h \
     widgets/customerdatawidget.h \
     widgets/projectswidget.h \
     widgets/contributorieswidget.h \
-    widgets/contributoriestablemodel.h
+    widgets/models/contributoriestablemodel.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
