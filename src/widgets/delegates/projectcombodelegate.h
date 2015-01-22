@@ -8,7 +8,7 @@ class ProjectComboDelegate : public QItemDelegate
 {
 Q_OBJECT
 public:
-    ProjectComboDelegate(QObject* parent=0);
+    ProjectComboDelegate(Customer *c, QObject* parent=0);
     ~ProjectComboDelegate();
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;

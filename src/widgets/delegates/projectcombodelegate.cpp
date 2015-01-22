@@ -1,17 +1,10 @@
 #include "projectcombodelegate.h"
 #include <QApplication>
 #include <QDebug>
-ProjectComboDelegate::ProjectComboDelegate(QObject *parent) : QItemDelegate(parent)
+#include "database/projectdatabase.h"
+ProjectComboDelegate::ProjectComboDelegate(Customer* c, QObject *parent) : QItemDelegate(parent)
 {
-    Project a("Coucou");
-    a.setId(0);
-    Project b("test");
-    b.setId(1);
-    Project c("machin");
-    c.setId(2);
-    _projects.insert(0, a);
-    _projects.insert(1, b);
-    _projects.insert(2, c);
+    _projects = ProjectDatabase::instance()->getProjectsOfCustomer(c);
 }
 
 ProjectComboDelegate::~ProjectComboDelegate()

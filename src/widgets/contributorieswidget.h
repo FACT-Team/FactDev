@@ -16,7 +16,7 @@ class ContributoriesWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ContributoriesWidget(QWidget *parent = 0);
+    explicit ContributoriesWidget(Customer *c, QWidget *parent = 0);
     ~ContributoriesWidget();
 
     QList<Contributory> getContributories() const;

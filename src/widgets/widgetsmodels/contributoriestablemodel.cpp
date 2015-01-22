@@ -20,11 +20,11 @@ int ContributoriesTableModel::columnCount(const QModelIndex &) const {
 
 QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) const {
     if (role != Qt::DisplayRole && role != Qt::EditRole) return QVariant();
-    const Contributory & vehicle = _contributories[index.row()];
+    const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
-    case 0: return vehicle.getProject().getId();
-    case 1: return vehicle.getDescription();
-    case 2: return vehicle.getNbHours();
+    case 0: return contributory.getProject().getId();
+    case 1: return contributory.getDescription();
+    case 2: return contributory.getNbHours();
     default: return QVariant();
     };
 }
@@ -61,9 +61,9 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
     return true;
 }
 
-void ContributoriesTableModel::append(const Contributory &vehicle) {
+void ContributoriesTableModel::append(const Contributory &contributory) {
     beginInsertRows(QModelIndex(), _contributories.count(), _contributories.count());
-    _contributories.append(vehicle);
+    _contributories.append(contributory);
     endInsertRows();
 }
 

@@ -68,6 +68,13 @@ public:
      * @return number of projects
      */
     int getNbProjectsForACustomer(const int pId);
+
+    /**
+     * @brief getProjectsOfCustomer Return all projects of a customer
+     * @param c The customer
+     * @return All projects of c with id in key
+     */
+    QMap<int, Project> getProjectsOfCustomer(Customer *c);
 };
 
 #endif // PROJECTDATABASE_H

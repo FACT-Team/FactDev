@@ -4,16 +4,15 @@
 #include "ui_contributorieswidget.h"
 
 
-ContributoriesWidget::ContributoriesWidget(QWidget *parent) :
+ContributoriesWidget::ContributoriesWidget(Customer*c, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ContributoriesWidget)
 {
     ui->setupUi(this);
     _model  = new ContributoriesTableModel();
-    ProjectComboDelegate* delegate = new ProjectComboDelegate;
+    ProjectComboDelegate* delegate = new ProjectComboDelegate(c);
     ui->tblContributories->setItemDelegateForColumn(0, delegate);
     ui->tblContributories->setModel(_model);
-    Contributory c;
 //    Project p;
   //  p.setDescription("coucou");
     //p.setName("test");
