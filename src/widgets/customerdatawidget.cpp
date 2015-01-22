@@ -20,15 +20,16 @@ void CustomerDataWidget::printUserData()
 {
     show();
     User *user = new User(1);
-    ui->lbCompany->setText("<strong>" + user->getCompany() + "</strong>");
+    ui->lbCompany->setText(user->getCompany());
     ui->lbName->setText(user->getLastname()+ " " + user->getFirstname());
-    ui->lbPhone->setText("Fixe\t" + user->getPhone());
-    ui->lbMobilePhone->setText("Mobile\t" + user->getMobilePhone());
+    ui->lbPhone->setText(user->getPhone());
+    ui->lbMobilePhone->setText(user->getMobilePhone());
     ui->lbEmail->setText("<a href=\"mailto:" + user->getEmail() + "\">"
                          + user->getEmail() + "</a>");
     ui->lbAddress->setText(user->getAddress());
     ui->lbPostalCodeCityCountry->setText(user->getPostalCode()
                                          + " " + user->getCity());
+    ui->lbFax->hide();
 }
 
 void CustomerDataWidget::printInformations(int id)
@@ -36,14 +37,14 @@ void CustomerDataWidget::printInformations(int id)
     show();
     Customer *custom = new Customer(id);
     ui->lbAddress->setText(custom->getAddress());
-    ui->lbCompany->setText("<strong>" + custom->getCompany() + "</strong>");
+    ui->lbCompany->setText(custom->getCompany());
     ui->lbEmail->setText("<a href=\"mailto:" + custom->getEmail() + "\">"
                          + custom->getEmail() + "</a>");
     ui->lbName->setText(custom->getLastnameReferent() + " "
                         + custom->getFirstnameReferent());
-    ui->lbPhone->setText("Fixe\t" + custom->getPhone());
-    ui->lbMobilePhone->setText("Mobile\t" + custom->getMobilePhone());
-    ui->lbFax->setText("Fax\t" +custom->getFax());
+    ui->lbPhone->setText(custom->getPhone());
+    ui->lbMobilePhone->setText(custom->getMobilePhone());
+    ui->lbFax->setText(custom->getFax());
     ui->lbPostalCodeCityCountry->setText(custom->getPostalCode()
                                          + " " + custom->getCity()
                                          + ", " + custom->getCountry());
