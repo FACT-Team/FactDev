@@ -130,6 +130,7 @@ private:
      * (just client in the first version)
      */
     void updateTree(QString filter="");
+    void updateUser();
 
     Ui::MainWindow *ui; //!< ui
 };

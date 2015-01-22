@@ -8,7 +8,7 @@ CustomerDataWidget::CustomerDataWidget(QWidget *parent) :
     ui(new Ui::CustomerDataWidget)
 {
     ui->setupUi(this);
-    printUserData();
+    hide();
 }
 
 CustomerDataWidget::~CustomerDataWidget()
@@ -18,6 +18,7 @@ CustomerDataWidget::~CustomerDataWidget()
 
 void CustomerDataWidget::printUserData()
 {
+    show();
     User *user = new User(1);
     ui->lbCompany->setText("<strong>" + user->getCompany() + "</strong>");
     ui->lbName->setText(user->getLastname()+ " " + user->getFirstname());
@@ -28,12 +29,11 @@ void CustomerDataWidget::printUserData()
     ui->lbAddress->setText(user->getAddress());
     ui->lbPostalCodeCityCountry->setText(user->getPostalCode()
                                          + " " + user->getCity());
-
-
 }
 
 void CustomerDataWidget::printInformations(int id)
 {
+    show();
     Customer *custom = new Customer(id);
     ui->lbAddress->setText(custom->getAddress());
     ui->lbCompany->setText("<strong>" + custom->getCompany() + "</strong>");
