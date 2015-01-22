@@ -18,7 +18,7 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -73,6 +73,17 @@
             </property>
            </widget>
           </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="btnNewProject">
+            <property name="text">
+             <string>Nouveau projet</string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="0" colspan="6">
            <widget class="QTableView" name="tblCustomers">
             <property name="editTriggers">
@@ -86,27 +97,12 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QPushButton" name="btnNewProject">
-            <property name="text">
-             <string>Nouveau projet</string>
-            </property>
-            <property name="icon">
-             <iconset resource="icons.qrc">
-              <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <widget class="QWidget" name="widget" native="true"/>
-        </item>
-       </layout>
+       <layout class="QGridLayout" name="gridLayout_4"/>
       </widget>
      </widget>
     </item>
@@ -695,22 +691,6 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>tblCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>changeCustomerTable(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>412</x>
-     <y>230</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>386</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>trCustomers</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
@@ -739,6 +719,22 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>618</x>
      <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeCustomerTable(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>302</x>
+     <y>386</y>
     </hint>
    </hints>
   </connection>
