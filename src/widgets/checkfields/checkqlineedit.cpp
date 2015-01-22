@@ -11,18 +11,17 @@ void CheckQLineEdit::fieldTextChanged(const QString &text) {
         displayCheckValidFieldIcon();
     } else {
         displayCheckNoValidFieldIcon();
-        qDebug() << "X";
     }
 }
 
 void CheckQLineEdit::displayCheckValidFieldIcon()
 {
     QString styleValid =
-            "background: url(:/icons/yes);"
+            "background: url(:/icons/img/img20/yes_light20.png);"
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"
-            "height: 23px;"
+            "height: 24px;"
             "border: 1px solid #bbb;";
 
     this->setStyleSheet(styleValid);
@@ -31,11 +30,11 @@ void CheckQLineEdit::displayCheckValidFieldIcon()
 void CheckQLineEdit::displayCheckNoValidFieldIcon()
 {
     QString styleNoValid =
-            "background: url(:/icons/no);"
+            "background: url(:/icons/img/img20/no_light20.png);"
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"
-            "height: 23px;"
+            "height: 24px;"
             "border: 1px solid #bbb;";
 
     this->setStyleSheet(styleNoValid);

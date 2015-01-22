@@ -3,7 +3,7 @@
 #include "checkqlineedit.h"
 
 /**
- * @brief The CheckEmail class
+ * @brief The CheckEmail class Line Edit of email with a check icon
  */
 class CheckEmail : public CheckQLineEdit
 {
@@ -25,7 +25,7 @@ public:
      *     - 1 character [A-Z] or [a-z]  minimum afer the character <i>.</i>
      * Return TRUE if email address is valid, else FALSE
      * @param text
-     * @return
+     * @return boolean
      */
     bool check(QString text);
 };

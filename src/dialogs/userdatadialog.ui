@@ -22,7 +22,7 @@
     </widget>
    </item>
    <item row="8" column="2">
-    <widget class="QLineEdit" name="leMobilePhone">
+    <widget class="CheckPhone" name="leMobilePhone">
      <property name="toolTip">
       <string>Saisir votre numéro de téléphone mobile professionnel</string>
      </property>
@@ -36,7 +36,7 @@
     </widget>
    </item>
    <item row="9" column="2">
-    <widget class="QLineEdit" name="leNoSiret">
+    <widget class="CheckSiretNumber" name="leNoSiret">
      <property name="toolTip">
       <string>Saisir votre numéro de siret</string>
      </property>
@@ -57,7 +57,7 @@
     </widget>
    </item>
    <item row="7" column="2">
-    <widget class="QLineEdit" name="lePhone">
+    <widget class="CheckPhone" name="lePhone">
      <property name="toolTip">
       <string>Saisir votre numéro de téléphone professionnel</string>
      </property>
@@ -131,7 +131,7 @@
     </widget>
    </item>
    <item row="1" column="2">
-    <widget class="QLineEdit" name="leLastname">
+    <widget class="CheckName" name="leLastname">
      <property name="toolTip">
       <string>Saisir votre nom</string>
      </property>
@@ -151,7 +151,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="3">
-       <widget class="QLineEdit" name="leCity">
+       <widget class="CheckCity" name="leCity">
         <property name="toolTip">
          <string>Saisir votre ville</string>
         </property>
@@ -172,7 +172,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lePostalCode">
+       <widget class="CheckPostalCode" name="lePostalCode">
         <property name="toolTip">
          <string>Saisir votre code postal</string>
         </property>
@@ -203,7 +203,7 @@
     </widget>
    </item>
    <item row="2" column="2">
-    <widget class="QLineEdit" name="leFirstname">
+    <widget class="CheckName" name="leFirstname">
      <property name="toolTip">
       <string>Saisir votre prénom</string>
      </property>
@@ -219,6 +219,46 @@
    <class>CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>widgets/checkfields/checkemail.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckPhone</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckPostalCode</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkpostalcode.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckCity</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkcity.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckName</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkname.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckSiretNumber</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checksiretnumber.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
@@ -287,6 +327,118 @@
     <hint type="destinationlabel">
      <x>247</x>
      <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePhone</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>268</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leMobilePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leMobilePhone</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>304</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>132</x>
+     <y>293</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePostalCode</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePostalCode</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>190</x>
+     <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leCity</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leCity</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>359</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLastname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leLastname</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>19</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leFirstname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leFirstname</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>52</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leNoSiret</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leNoSiret</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>316</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>322</y>
     </hint>
    </hints>
   </connection>
