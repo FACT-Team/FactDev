@@ -75,6 +75,11 @@ void ContributoriesTableModel::remove(const int a)
 
 Qt::ItemFlags ContributoriesTableModel::flags(const QModelIndex &index) const
 {
-         return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
+    return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
+}
+
+QList<Contributory> ContributoriesTableModel::getContributories()
+{
+    return _contributories;
 }
 

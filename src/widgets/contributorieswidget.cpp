@@ -23,14 +23,9 @@ ContributoriesWidget::~ContributoriesWidget()
 {
     delete ui;
 }
-QList<Contributory *> ContributoriesWidget::getContributories() const
+QList<Contributory> ContributoriesWidget::getContributories() const
 {
-    return _contributories;
-}
-
-void ContributoriesWidget::setContributories(const QList<Contributory *> &contributories)
-{
-    _contributories = contributories;
+    return _model->getContributories();
 }
 
 void ContributoriesWidget::add()

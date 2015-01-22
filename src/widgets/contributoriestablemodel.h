@@ -17,7 +17,9 @@ public:
      bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole);
     void append(const Contributory & vehicle);
     void remove(const int a);
-         Qt::ItemFlags flags(const QModelIndex & index) const ;
+    Qt::ItemFlags flags(const QModelIndex & index) const ;
+
+   QList<Contributory> getContributories();
 private:
     QList<Contributory> _contributories;
 };
