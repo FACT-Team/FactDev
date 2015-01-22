@@ -43,7 +43,8 @@ SOURCES += mainwindow.cpp \
     widgets/searchwidget.cpp \
     widgets/customerdatawidget.cpp \
     widgets/projectswidget.cpp \
-    widgets/checkfields/checkqlineedit.cpp
+    widgets/checkfields/checkqlineedit.cpp \
+    widgets/checkfields/checkemail.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -76,7 +77,8 @@ HEADERS  += mainwindow.h \
     widgets/customerdatawidget.h \
     widgets/projectswidget.h \
     widgets/checkfields/ICheckField.h \
-    widgets/checkfields/checkqlineedit.h
+    widgets/checkfields/checkqlineedit.h \
+    widgets/checkfields/checkemail.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

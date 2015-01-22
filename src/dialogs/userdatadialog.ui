@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>390</width>
-    <height>480</height>
+    <height>376</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,13 +18,6 @@
     <widget class="QLabel" name="lbEmail">
      <property name="text">
       <string>Email</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="2">
-    <widget class="QLineEdit" name="leEmail">
-     <property name="toolTip">
-      <string>Saisir votre adresse email professionnelle</string>
      </property>
     </widget>
    </item>
@@ -216,8 +209,21 @@
      </property>
     </widget>
    </item>
+   <item row="6" column="2">
+    <widget class="CheckEmail" name="leEmail"/>
+   </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CheckEmail</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkemail.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>leLastname</tabstop>
   <tabstop>leFirstname</tabstop>
@@ -226,7 +232,6 @@
   <tabstop>leAddress</tabstop>
   <tabstop>lePostalCode</tabstop>
   <tabstop>leCity</tabstop>
-  <tabstop>leEmail</tabstop>
   <tabstop>lePhone</tabstop>
   <tabstop>leMobilePhone</tabstop>
   <tabstop>leNoSiret</tabstop>
@@ -244,12 +249,12 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>303</x>
+     <x>293</x>
      <y>365</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
-     <y>388</y>
+     <y>375</y>
     </hint>
    </hints>
   </connection>
@@ -260,14 +265,33 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>389</x>
+     <x>379</x>
      <y>365</y>
     </hint>
     <hint type="destinationlabel">
-     <x>399</x>
-     <y>387</y>
+     <x>389</x>
+     <y>375</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leEmail</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leEmail</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>233</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>247</x>
+     <y>236</y>
     </hint>
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>fieldTextChanged(QString)</slot>
+ </slots>
 </ui>
