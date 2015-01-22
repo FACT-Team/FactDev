@@ -2,6 +2,8 @@
 #define PROJECTCOMBODELEGATE_H
 #include <QItemDelegate>
 #include <QComboBox>
+
+#include "models/project.h"
 class ProjectComboDelegate : public QItemDelegate
 {
 Q_OBJECT
@@ -17,7 +19,7 @@ public:
 
 
 private:
-  QList<QString> _projects;
+  QList<Project> _projects;
 };
 
 #endif // PROJECTCOMBODELEGATE_H

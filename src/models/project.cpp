@@ -4,6 +4,11 @@ Project::Project()
 {
 }
 
+Project::Project(QString name)
+{
+    _name = name;
+}
+
 Project::Project(int id)
 {
     _id = id;

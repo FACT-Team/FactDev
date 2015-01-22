@@ -14,11 +14,11 @@ ContributoriesWidget::ContributoriesWidget(QWidget *parent) :
     ui->tblContributories->setItemDelegateForColumn(0, delegate);
     ui->tblContributories->setModel(_model);
     Contributory c;
-    Project p;
-    p.setDescription("coucou");
-    p.setName("test");
-    c.setProject(p);
-    _model->append(c);
+//    Project p;
+  //  p.setDescription("coucou");
+    //p.setName("test");
+   // c.setProject(p);
+   // _model->append(c);
     ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);
 
 
