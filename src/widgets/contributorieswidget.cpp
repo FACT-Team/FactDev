@@ -15,7 +15,7 @@ ContributoriesWidget::ContributoriesWidget(QWidget *parent) :
     p.setName("test");
     c.setProject(p);
     _model->append(c);
-
+    ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);
 
 }
 
