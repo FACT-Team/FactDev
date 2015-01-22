@@ -1,4 +1,6 @@
 #include "contributorieswidget.h"
+#include "models/contributory.h"
+#include "widgets/delegates/projectcombodelegate.h"
 #include "ui_contributorieswidget.h"
 
 
@@ -8,6 +10,8 @@ ContributoriesWidget::ContributoriesWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     _model  = new ContributoriesTableModel();
+    ProjectComboDelegate* delegate = new ProjectComboDelegate;
+    ui->tblContributories->setItemDelegateForColumn(0, delegate);
     ui->tblContributories->setModel(_model);
     Contributory c;
     Project p;
@@ -16,6 +20,7 @@ ContributoriesWidget::ContributoriesWidget(QWidget *parent) :
     c.setProject(p);
     _model->append(c);
     ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);
+
 
 }
 

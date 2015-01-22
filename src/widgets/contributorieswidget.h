@@ -5,7 +5,7 @@
 #include <QStandardItem>
 
 #include "models/contributory.h"
-#include "widgets/contributoriestablemodel.h"
+#include "widgets/widgetsmodels/contributoriestablemodel.h"
 
 namespace Ui {
 class ContributoriesWidget;
@@ -19,7 +19,7 @@ public:
     explicit ContributoriesWidget(QWidget *parent = 0);
     ~ContributoriesWidget();
 
-    QList<Contributory *> getContributories() const;
+    QList<Contributory> getContributories() const;
 public slots:
     void add(void);
     void remove(void);
