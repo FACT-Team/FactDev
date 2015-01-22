@@ -10,7 +10,7 @@ void CheckQLineEdit::fieldTextChanged(const QString &text) {
     if (check(text)) {
         displayCheckValidFieldIcon();
     } else {
-        isplayCheckNoValidFieldIcon();
+        displayCheckNoValidFieldIcon();
         qDebug() << "X";
     }
 }
