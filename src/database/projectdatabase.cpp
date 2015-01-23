@@ -53,13 +53,14 @@ int ProjectDatabase::addProject(const Project &pProject)
 
     q.prepare(
         "INSERT INTO Project "
-        "(name, description, dailyRate, idCustomer)"
+        "(name, description, beginDate, dailyRate, idCustomer)"
         " VALUES "
-        "(:name, :description, :dailyRate, :idCustomer)"
+        "(:name, :description, :beginDate, :dailyRate, :idCustomer)"
     );
 
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
+    q.bindValue(":beginDate",pProject.getBeginDate().toString());
     q.bindValue(":dailyRate", pProject.getDailyRate());
     q.bindValue(":idCustomer", pProject.getCustomer()->getId());
 
@@ -175,7 +176,7 @@ QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
 
     q.prepare("SELECT idProject ,name, description,beginDate,endDate "
               "FROM Project "
-              "WHERE idProject= :pId "
+              "WHERE idCustomer= :pId "
               "ORDER BY UPPER(name), UPPER(description)");
 
     q.bindValue(":pId",pId);

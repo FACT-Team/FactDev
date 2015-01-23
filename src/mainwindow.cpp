@@ -292,3 +292,8 @@ void MainWindow::changeProjectsTable()
     ui->tblProjects->setColumnWidth(3, 150);
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+void MainWindow::backToCustomersTable()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}

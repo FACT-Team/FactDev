@@ -118,12 +118,15 @@ private slots:
      * @brief MainWindow::changeCustomerTable calls changeCustomerTable
      */
     void changeCustomerTable();
-
     /**
      * @brief MainWindow::changeProjectsTable changes projects with the <i>index</i>
      * of the customer in table of customers
      */
     void changeProjectsTable();
+    /**
+     * @brief MainWindow::backToCustomersTable display the customers table
+     */
+    void backToCustomersTable();
 
 private:
     /**

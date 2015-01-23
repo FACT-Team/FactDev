@@ -53,7 +53,7 @@ void Project::setDescription(const QString &description)
     _description = description;
 }
 
-QDate Project::getBeginDate()
+QDate Project::getBeginDate() const
 {
     return _beginDate;
 }

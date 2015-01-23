@@ -64,7 +64,7 @@ public:
      * of the <b>Project</b>
      * @return the begin date of the Project
      */
-    QDate getBeginDate();
+    QDate getBeginDate() const;
 
     /**
      * @brief Project::setBeginDate Modify <i>beginDate</i> of a <b>Project</b>
