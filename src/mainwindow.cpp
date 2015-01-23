@@ -41,12 +41,12 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::demo() {
-    ui->btnAddProject->setVisible(false);
+    /*ui->btnAddProject->setVisible(false);
     ui->actionNewBill->setVisible(false);
     ui->actionNewQuote->setVisible(false);
     ui->actResearch->setVisible(false);
     ui->btnNewProject->hide();
-    ui->actionPrint->setVisible(false);
+    ui->actionPrint->setVisible(false);*/
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -61,25 +61,19 @@ void MainWindow::addCustomer()
     if(win.exec()) {
         updateTable();
         updateTree();
-    } else {
-
     }
-
 }
 
 
 void MainWindow::editCustomer()
 {
-    DialogAddCustomer winAddCustomer(getCurrentCustomerId());
-    if(winAddCustomer.exec()) {
-        updateTable();
-        updateTree();
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        DialogAddCustomer winAddCustomer(getCurrentCustomerId());
+        if(winAddCustomer.exec()) {
+            updateTable();
+            updateTree();
+        }
     }
-
-
-
-
-    //Popup::toImplement("MainWindow::editCustomer", this);
 }
 
 void MainWindow::removeCustomer()
