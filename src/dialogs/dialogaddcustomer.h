@@ -39,6 +39,11 @@ public:
      * @brief reject Cancel the operation and close the windows
      */
     void reject();
+public slots:
+    /**
+     * @brief setFieldsComponents
+     */
+    void checkFields();
 
 private:
     Customer* _custom;

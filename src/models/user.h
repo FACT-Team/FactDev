@@ -158,13 +158,13 @@ public:
      *  number)
      * @return SIRET number
      */
-    int getNoSiret() const;
+    QString getNoSiret() const;
     /**
      * @brief User::setNoSiret Modify the SIRET number (company registration
      *  number) <i>noSiret</i>
      * @param noSiret SIRET number
      */
-    void setNoSiret(int noSiret);
+    void setNoSiret(const QString &noSiret);
 
 private:
     QString _firstname;     //!< User firstname
@@ -177,7 +177,7 @@ private:
     QString _email;         //!< Professionnal email of the company
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _phone;         //!< Number of desktop phone
-    int _noSiret;           //!<  SIRET number (company registration number)
+    QString _noSiret;       //!<  SIRET number (company registration number)
 };
 
 #endif // USER_H

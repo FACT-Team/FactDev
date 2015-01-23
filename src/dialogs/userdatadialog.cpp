@@ -13,6 +13,7 @@ UserDataDialog::UserDataDialog(QWidget *parent) :
     ui->setupUi(this);
     _user = new User(1);
     fillFields();
+    emit checkFields();
 }
 
 UserDataDialog::~UserDataDialog()
@@ -31,7 +32,7 @@ void UserDataDialog::fillFields() {
     ui->leEmail->setText(_user->getEmail());
     ui->lePhone->setText(_user->getPhone());
     ui->leMobilePhone->setText(_user->getMobilePhone());
-    ui->leNoSiret->setText(QString::number(_user->getNoSiret()));
+    ui->leNoSiret->setText(_user->getNoSiret());
 }
 
 void UserDataDialog::accept() {
@@ -45,7 +46,7 @@ void UserDataDialog::accept() {
     _user->setEmail(ui->leEmail->text());
     _user->setPhone(ui->lePhone->text());
     _user->setMobilePhone(ui->leMobilePhone->text());
-    _user->setNoSiret(ui->leNoSiret->text().toInt());
+    _user->setNoSiret(ui->leNoSiret->text());
 
     _user->commit();
     QDialog::accept();
@@ -54,4 +55,17 @@ void UserDataDialog::accept() {
 void UserDataDialog::reject()
 {
     QDialog::reject();
+}
+
+void UserDataDialog::checkFields() {
+
+    ui->btnValid->setEnabled(
+        ui->leFirstname->isValid() && ui->leLastname->isValid()
+        && ui->leCompany->isValid() && ui->leTitle->isValid()
+        && ui->leAddress->isValid() && ui->leCity->isValid()
+        && ui->lePostalCode->isValid() && ui->leEmail->isValid()
+        && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
+            || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
+            || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
+        && ui->leNoSiret->isValid());
 }

@@ -137,12 +137,12 @@ void User::setPhone(const QString &phone)
 {
     _phone = phone;
 }
-int User::getNoSiret() const
+QString User::getNoSiret() const
 {
     return _noSiret;
 }
 
-void User::setNoSiret(int noSiret)
+void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
 }

@@ -64,6 +64,15 @@
         <file>img/remove_quote.png</file>
         <file>img/remove_user.png</file>
         <file>img/customer24.png</file>
+        <file>img/img20/add_bill20.png</file>
+        <file>img/img20/add_contributory20.png</file>
+        <file>img/img20/add_customer20.png</file>
+        <file>img/img20/add_project20.png</file>
+        <file>img/img20/cancel20.png</file>
+        <file>img/img20/no_light20.png</file>
+        <file>img/img20/no20.png</file>
+        <file>img/img20/yes_light20.png</file>
+        <file>img/img20/yes20.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>

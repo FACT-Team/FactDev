@@ -64,7 +64,7 @@ CREATE TABLE User
     email VARCHAR(64),
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
-    noSiret INTEGER
+    noSiret VARCHAR(16)
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC);

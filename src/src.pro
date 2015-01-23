@@ -42,7 +42,18 @@ SOURCES += mainwindow.cpp \
     utils.cpp \
     widgets/searchwidget.cpp \
     widgets/customerdatawidget.cpp \
-    widgets/projectswidget.cpp
+    widgets/projectswidget.cpp \
+    widgets/checkfields/checkqlineedit.cpp \
+    widgets/checkfields/checkemail.cpp \
+    widgets/checkfields/checkphone.cpp \
+    widgets/checkfields/checkpostalcode.cpp \
+    widgets/checkfields/checkcity.cpp \
+    widgets/checkfields/checkcountry.cpp \
+    widgets/checkfields/checkname.cpp \
+    widgets/checkfields/checksiretnumber.cpp \
+    widgets/checkfields/checkuntilfield.cpp \
+    widgets/checkfields/checkvalidfield.cpp \
+    widgets/checkfields/checkfieldsletters.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -73,7 +84,19 @@ HEADERS  += mainwindow.h \
     utils.h \
     widgets/searchwidget.h \
     widgets/customerdatawidget.h \
-    widgets/projectswidget.h
+    widgets/projectswidget.h \
+    widgets/checkfields/ICheckField.h \
+    widgets/checkfields/checkqlineedit.h \
+    widgets/checkfields/checkemail.h \
+    widgets/checkfields/checkphone.h \
+    widgets/checkfields/checkpostalcode.h \
+    widgets/checkfields/checkcity.h \
+    widgets/checkfields/checkcountry.h \
+    widgets/checkfields/checkname.h \
+    widgets/checkfields/checksiretnumber.h \
+    widgets/checkfields/checkuntilfield.h \
+    widgets/checkfields/checkvalidfield.h \
+    widgets/checkfields/checkfieldsletters.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
