@@ -12,7 +12,7 @@ public:
      * @brief CheckPostalCode::CheckPostalCode Construct a CheckPostalCode
      * @param w QWidget linked to <b>CheckPostalCode</b>
      */
-    CheckPostalCode(QWidget *w);
+    CheckPostalCode (QWidget* w = 0, QPushButton* btn = 0);
 
     /**
      * @brief CheckPostalCode::check Check if the field postal code is valid.

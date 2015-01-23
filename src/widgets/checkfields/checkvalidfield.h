@@ -11,7 +11,7 @@ public:
      * @brief CheckValidField::CheckValidField
      * @param w QWidget linked to <b>CheckValidField</b>
      */
-    CheckValidField(QWidget* w);
+    CheckValidField(QWidget* w = 0, QPushButton* btn = 0) ;
 
     /**
      * @brief CheckValidField::check Return TRUE : the field is not required

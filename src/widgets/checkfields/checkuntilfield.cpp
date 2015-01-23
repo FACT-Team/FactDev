@@ -1,6 +1,6 @@
 #include "checkuntilfield.h"
 
-CheckUntilField::CheckUntilField(QWidget *w) : CheckQLineEdit(w) {
+CheckUntilField::CheckUntilField(QWidget* w, QPushButton* btn) : CheckQLineEdit(w, btn) {
 
 }
 

@@ -14,6 +14,7 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
         _custom = new Customer();
     }
     _custom->setId(id);
+    emit checkFields();
 }
 
 void DialogAddCustomer::fillFields() {
@@ -56,5 +57,19 @@ DialogAddCustomer::~DialogAddCustomer()
 {
     delete _custom;
     delete ui;
+}
+
+void DialogAddCustomer::checkFields() {
+    ui->btnSave->setEnabled(
+        ui->leFirstNameReferent->isValid() && ui->leLastNameReferent->isValid()
+        && ui->leCompany->isValid()
+        && ui->leAddress->isValid() && ui->leCity->isValid()
+        && ui->lePostalCode->isValid() && ui->leCountry->isValid()
+        && ui->leEmail->isValid()
+        && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
+            || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
+            || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
+//        && ui->leFax->isValid()
+        );
 }
 

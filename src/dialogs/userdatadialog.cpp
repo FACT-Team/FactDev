@@ -13,6 +13,7 @@ UserDataDialog::UserDataDialog(QWidget *parent) :
     ui->setupUi(this);
     _user = new User(1);
     fillFields();
+    emit checkFields();
 }
 
 UserDataDialog::~UserDataDialog()
@@ -54,4 +55,17 @@ void UserDataDialog::accept() {
 void UserDataDialog::reject()
 {
     QDialog::reject();
+}
+
+void UserDataDialog::checkFields() {
+
+    ui->btnValid->setEnabled(
+        ui->leFirstname->isValid() && ui->leLastname->isValid()
+        && ui->leCompany->isValid() && ui->leTitle->isValid()
+        && ui->leAddress->isValid() && ui->leCity->isValid()
+        && ui->lePostalCode->isValid() && ui->leEmail->isValid()
+        && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
+            || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
+            || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
+        && ui->leNoSiret->isValid());
 }

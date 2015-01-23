@@ -12,7 +12,7 @@ public:
      * @brief CheckUntilField::CheckUntilField Construct a CheckUntilField
      * @param w QWidget linked to <b>CheckUntilField</b>
      */
-    CheckUntilField(QWidget* w);
+    CheckUntilField(QWidget* w = 0, QPushButton* btn = 0);
 
     /**
      * @brief CheckUntilField::check Check if the field  is valid.

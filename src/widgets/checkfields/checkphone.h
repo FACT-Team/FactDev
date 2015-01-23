@@ -12,7 +12,7 @@ public:
      * @brief CheckPhone::CheckPhone Construct a CheckPhone
      * @param w QWidget linked to <b>CheckPhone</b>
      */
-    CheckPhone(QWidget* w = 0);
+    CheckPhone(QWidget* w = 0, QPushButton* btn=0);
 
 
     /**

@@ -52,7 +52,8 @@ SOURCES += mainwindow.cpp \
     widgets/checkfields/checkname.cpp \
     widgets/checkfields/checksiretnumber.cpp \
     widgets/checkfields/checkuntilfield.cpp \
-    widgets/checkfields/checkvalidfield.cpp
+    widgets/checkfields/checkvalidfield.cpp \
+    widgets/checkfields/checkfieldsletters.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -94,7 +95,8 @@ HEADERS  += mainwindow.h \
     widgets/checkfields/checkname.h \
     widgets/checkfields/checksiretnumber.h \
     widgets/checkfields/checkuntilfield.h \
-    widgets/checkfields/checkvalidfield.h
+    widgets/checkfields/checkvalidfield.h \
+    widgets/checkfields/checkfieldsletters.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

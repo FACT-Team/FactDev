@@ -12,7 +12,7 @@ public:
      * @brief CheckSiretNumber::CheckSiretNumber Construct a CheckSiretNumber
      * @param w QWidget linked to <b>CheckSiretNumber</b>
      */
-    CheckSiretNumber(QWidget* w = 0 );
+    CheckSiretNumber(QWidget* w = 0, QPushButton* btn = 0);
 
     /**
      * @brief CheckSiretNumber::check Check if the field noSiret is valid.

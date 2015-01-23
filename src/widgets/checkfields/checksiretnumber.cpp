@@ -1,6 +1,6 @@
 #include "checksiretnumber.h"
 
-CheckSiretNumber::CheckSiretNumber(QWidget* w) : CheckQLineEdit(w) {
+CheckSiretNumber::CheckSiretNumber(QWidget* w, QPushButton *btn) : CheckQLineEdit(w, btn) {
 
 }
 

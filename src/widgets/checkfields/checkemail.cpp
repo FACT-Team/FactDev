@@ -2,7 +2,7 @@
 #include "checkemail.h"
 
 
-CheckEmail::CheckEmail(QWidget *w) : CheckQLineEdit(w)
+CheckEmail::CheckEmail(QWidget* w, QPushButton* btn ) : CheckQLineEdit(w, btn)
 {
 
 }

@@ -12,7 +12,7 @@ public:
      * @brief CheckEmail::CheckEmail Construct a CheckMail
      * @param w QWidget linked to <b>CheckEmail</b>
      */
-    CheckEmail(QWidget* w = 0);
+    CheckEmail(QWidget* w = 0, QPushButton* btn=0);
 
     /**
      * @brief CheckEmail::check Check if the field email is valid.

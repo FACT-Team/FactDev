@@ -2,6 +2,7 @@
 #define CHECKQLINEEDIT_H
 
 #include <QLineEdit>
+#include <QPushButton>
 #include "ICheckField.h"
 
 /**
@@ -15,7 +16,7 @@ public:
      * @brief CheckQLineEdit::CheckQLineEdit Construct a CheckQLineEdit
      * @param parent
      */
-    explicit CheckQLineEdit(QWidget *parent = 0);
+    explicit CheckQLineEdit(QWidget *parent = 0, QPushButton* btn=0);
 
     /**
      * @brief CheckQLineEdit::displayCheckValidFieldIcon Display a valid icon
@@ -29,6 +30,22 @@ public:
      */
     void displayCheckNoValidFieldIcon();
 
+    /**
+     * @brief CheckQLineEdit::getBtnValid
+     * @return a
+     */
+    QPushButton *getBtnValid() const;
+    /**
+     * @brief CheckQLineEdit::setBtnValid
+     * @param getBtnValid
+     */
+    void setBtnValid(QPushButton *getBtnValid);
+
+    /**
+     * @brief isValid Return true if the current field if valid
+     * @return boolean
+     */
+    bool isValid();
 signals:
 
 public slots:
@@ -38,7 +55,8 @@ public slots:
      */
     void fieldTextChanged(const QString &);
 
-
+private:
+    QPushButton* _btnValid;
 
 
 };

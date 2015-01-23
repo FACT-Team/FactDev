@@ -1,19 +1,21 @@
 #include "checkcountry.h"
 
 
-CheckCountry::CheckCountry(QWidget *w) : CheckUntilField (w) {
+CheckCountry::CheckCountry(QWidget* w, QPushButton* btn )
+    : CheckFieldsLetters (w, btn)
+{
 
 }
 
-bool CheckCountry::check(QString text) {
-    if ( text.length() == 0 ) {
-        return false;
-    }
+//bool CheckCountry::check(QString text) {
+//    if ( text.length() == 0 ) {
+//        return false;
+//    }
 
-    QRegExp countrylRgx("[a-zA-Z]{2,64}");
-    countrylRgx.setCaseSensitivity(Qt::CaseInsensitive);
-    countrylRgx.setPatternSyntax(QRegExp::RegExp);
+//    QRegExp countrylRgx("[a-zA-Zéèêà\-]{2,64}");
+//    countrylRgx.setCaseSensitivity(Qt::CaseInsensitive);
+//    countrylRgx.setPatternSyntax(QRegExp::RegExp);
 
-    return countrylRgx.exactMatch(text);
-}
+//    return countrylRgx.exactMatch(text);
+//}
 

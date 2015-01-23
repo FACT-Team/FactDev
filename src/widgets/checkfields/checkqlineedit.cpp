@@ -1,18 +1,26 @@
 #include "checkqlineedit.h"
 #include <QDebug>
-CheckQLineEdit::CheckQLineEdit(QWidget *parent) : QLineEdit(parent)
+CheckQLineEdit::CheckQLineEdit(QWidget *parent, QPushButton* btn) : QLineEdit(parent)
 {
-
+    _btnValid = btn;
 }
 
 void CheckQLineEdit::fieldTextChanged(const QString &text) {
 
     if (check(text)) {
         displayCheckValidFieldIcon();
+        if (_btnValid != NULL) {
+            _btnValid->setEnabled(true);
+        }
     } else {
         displayCheckNoValidFieldIcon();
+        if (_btnValid != NULL) {
+            _btnValid->setEnabled(false);
+        }
     }
 }
+
+
 
 void CheckQLineEdit::displayCheckValidFieldIcon()
 {
@@ -38,4 +46,20 @@ void CheckQLineEdit::displayCheckNoValidFieldIcon()
             "border: 1px solid #bbb;";
 
     this->setStyleSheet(styleNoValid);
+}
+
+
+QPushButton *CheckQLineEdit::getBtnValid() const
+{
+    return _btnValid;
+}
+
+void CheckQLineEdit::setBtnValid(QPushButton *btnValid)
+{
+    _btnValid = btnValid;
+}
+
+bool CheckQLineEdit::isValid()
+{
+    return check(text());
 }

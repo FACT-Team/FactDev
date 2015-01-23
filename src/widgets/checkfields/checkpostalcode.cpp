@@ -1,6 +1,6 @@
 #include "checkpostalcode.h"
 
-CheckPostalCode::CheckPostalCode(QWidget *w) : CheckQLineEdit (w) {
+CheckPostalCode::CheckPostalCode(QWidget* w, QPushButton* btn ) : CheckQLineEdit (w, btn) {
 
 }
 

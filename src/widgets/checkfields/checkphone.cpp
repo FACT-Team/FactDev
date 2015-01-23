@@ -1,7 +1,7 @@
 #include "checkqlineedit.h"
 #include "checkphone.h"
 
-CheckPhone::CheckPhone(QWidget *w) : CheckQLineEdit(w) {
+CheckPhone::CheckPhone(QWidget *w, QPushButton* btn) : CheckQLineEdit(w, btn) {
 
 }
 
