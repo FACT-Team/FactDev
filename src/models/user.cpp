@@ -1,6 +1,6 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
-
+#include "log.h"
 
 User::User()
 {
@@ -13,15 +13,18 @@ User::User(int id)
     hydrat(id);
 }
 
-
-
 void User::commit() {
-    UserDatabase::instance()->updateUser(*this);
+    if(!_toRemoved) {
+        UserDatabase::instance()->updateUser(*this);
+    } else {
+        remove();
+    }
 }
 
 void User::remove()
 {
     // Not use
+    Log::instance(WARNING) << "User::remove is not implemented";
 }
 
 void User::hydrat(int id)
