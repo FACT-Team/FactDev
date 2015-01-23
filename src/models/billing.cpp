@@ -25,6 +25,10 @@ void Billing::hydrat(int id)
 {
     _id = id;
     Billing *quote = BillingDatabase::instance()->getBilling(id);
+    _title = quote->getTitle();
+    _number = quote->getNumber();
+    _date = quote ->getDate();
+    _contributories = quote->getContributories();
 
 }
 
