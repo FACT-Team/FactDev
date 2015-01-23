@@ -4,6 +4,11 @@ Project::Project()
 {
 }
 
+Project::Project(QString name)
+{
+    _name = name;
+}
+
 Project::Project(int id)
 {
     _id = id;
@@ -12,6 +17,8 @@ Project::Project(int id)
 void Project::commit() {
     if(_id == 0) {
         _id = ProjectDatabase::instance()->addProject(*this);
+    } else if(_toRemoved) {
+        remove();
     } else {
         ProjectDatabase::instance()->updateProject(*this);
     }

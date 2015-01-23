@@ -41,9 +41,16 @@ public:
      */
     void reject();
 
+public slots:
+    /**
+     * @brief UserDataDialog::checkFields Check all fields of dialog
+     * components
+     */
+    void checkFields();
 private:
     User* _user; //!< The user of this appication
     Ui::UserDataDialog *ui;
+
 };
 
 #endif // USERDATADIALOG_H

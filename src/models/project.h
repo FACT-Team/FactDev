@@ -17,6 +17,14 @@ public:
      * @brief Project::Project Construct a Project
      */
     Project();
+
+
+    /**
+     * @brief Project::project Construct a project with a name
+     */
+    Project(QString name);
+
+
     /**
      * @brief Project::Project Construct a Project which is specified by an
      * <i>id</i>

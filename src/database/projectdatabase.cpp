@@ -154,3 +154,30 @@ int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
 
     return value(q, "nb_p").toInt();
 }
+
+QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(Customer* c) {
+    QSqlQuery q;
+    QMap<int, Project> ret;
+    Project project;
+    q.prepare("SELECT * FROM PROJECT WHERE idCustomer = :pId");
+    q.bindValue(":pId", c->getId());
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir les informations du projet",
+            "BddProject::getProjectsOfCustomer",
+            lastError(q),
+            1.7);
+    }
+    while(q.next()) {
+        project = Project();
+        project.setId(value(q, "idProject").toInt());
+        project.setName(value(q,"name").toString());
+        project.setDescription(value(q,"description").toString());
+        project.setDailyRate(value(q,"dailyRate").toDouble());
+        project.setCustomer(c);
+
+        ret.insert(project.getId(), project);
+    }
+
+    return ret;
+}

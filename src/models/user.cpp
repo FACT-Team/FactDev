@@ -1,6 +1,6 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
-
+#include "log.h"
 
 User::User()
 {
@@ -12,15 +12,18 @@ User::User(int id)
     hydrat(id);
 }
 
-
-
 void User::commit() {
-    UserDatabase::instance()->updateUser(*this);
+    if(!_toRemoved) {
+        UserDatabase::instance()->updateUser(*this);
+    } else {
+        remove();
+    }
 }
 
 void User::remove()
 {
     // Not use
+    Log::instance(WARNING) << "User::remove is not implemented";
 }
 
 void User::hydrat(int id)
@@ -136,12 +139,12 @@ void User::setPhone(const QString &phone)
 {
     _phone = phone;
 }
-int User::getNoSiret() const
+QString User::getNoSiret() const
 {
     return _noSiret;
 }
 
-void User::setNoSiret(int noSiret)
+void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
 }

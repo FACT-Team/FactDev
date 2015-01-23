@@ -13,6 +13,8 @@ Customer::Customer(int id) {
 void Customer::commit() {
     if(_id == 0) {
         _id = CustomerDatabase::instance()->addCustomer(*this);
+    } else if(_toRemoved){
+        remove();
     } else {
         CustomerDatabase::instance()->updateCustomer(*this);
     }

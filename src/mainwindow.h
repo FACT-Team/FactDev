@@ -126,6 +126,8 @@ private slots:
      */
     void changeCustomerTable();
 
+    void testContributories();
+
 private:
     /**
      * @brief MainWindow::updateTable Update the table view

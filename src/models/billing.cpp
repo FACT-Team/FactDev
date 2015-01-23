@@ -12,6 +12,14 @@ Billing::Billing(int id)
 void Billing::commit()
 {
     // TODO implement me !
+
+    if(_id == 0) {
+        // TODO insert
+    } else if(_toRemoved) {
+        remove();
+    } else {
+        //  TODO update
+    }
 }
 
 void Billing::hydrat(int id)
