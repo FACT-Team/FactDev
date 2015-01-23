@@ -2,7 +2,7 @@
 #define CUSTOMERDATAWIDGET_H
 
 #include <QWidget>
-
+#include <QLabel>
 namespace Ui {
 class CustomerDataWidget;
 }
@@ -30,6 +30,7 @@ public:
      */
     void printInformations(int id);
 private:
+    inline void setLabel(QLabel *lbValue, QString s, QLabel* lbLabel=0);
     Ui::CustomerDataWidget *ui;
 };
 

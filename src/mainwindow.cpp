@@ -7,6 +7,8 @@
 #include "models/search.h"
 #include "widgets/popup.h"
 #include "dialogs/addprojectdialog.h"
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -27,7 +29,9 @@ MainWindow::MainWindow(QWidget *parent) :
         this,
         SLOT(openContextualMenuTree(const QPoint &)));
 
+    updateUser();
     demo();
+
 }
 
 
@@ -97,6 +101,11 @@ void MainWindow::removeCustomer()
     }
 }
 
+void MainWindow::updateUser()
+{
+    ui->wdgUserData->printUserData();
+}
+
 void MainWindow::openCustomer()
 {
     int id = getCurrentCustomerId();
@@ -106,12 +115,8 @@ void MainWindow::openCustomer()
 void MainWindow::editUser()
 {
     UserDataDialog userdialog;
-
-    if(userdialog.exec()) {
-
-    } else {
-
-    }
+    userdialog.exec();
+    updateUser();
 }
 void MainWindow::search() {
     emit search(ui->leSearch->text());

@@ -6,15 +6,88 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>398</width>
-    <height>311</height>
+    <width>231</width>
+    <height>228</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+   <item row="3" column="1">
+    <widget class="QLabel" name="lbPhone">
+     <property name="text">
+      <string>Phone +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLabel" name="lbFax">
+     <property name="text">
+      <string>Fax +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLabel" name="lbMobilePhone">
+     <property name="text">
+      <string>Mobile Phone +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="lbTitlePhone">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Fixe</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="lbTitleMobile">
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Mobile</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="lbTitleFax">
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Fax</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="lbName">
+     <property name="text">
+      <string>Monsieur a A</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="lbCompany">
      <property name="minimumSize">
       <size>
@@ -24,59 +97,32 @@
      </property>
      <property name="styleSheet">
       <string notr="true">background: url(:/icons/customer24) 100% 100% no-repeat;
-background-position:left;</string>
+background-position:left;
+font-weight: bold;</string>
      </property>
      <property name="text">
       <string>&lt;b&gt;Organisation A&lt;/b&gt;</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
+   <item row="6" column="0" colspan="2">
     <widget class="QLabel" name="lbEmail">
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;a.A@truc.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="lbFax">
-     <property name="text">
-      <string>Fax +33674801256</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0">
+   <item row="7" column="0" colspan="2">
     <widget class="QLabel" name="lbAddress">
      <property name="text">
       <string>1 rue du trou du cul </string>
      </property>
     </widget>
    </item>
-   <item row="8" column="0">
+   <item row="8" column="0" colspan="2">
     <widget class="QLabel" name="lbPostalCodeCityCountry">
      <property name="text">
       <string>12345 MACHINCHOSE</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="lbPhone">
-     <property name="text">
-      <string>Phone +33674801256</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="lbName">
-     <property name="text">
-      <string>Monsieur a A</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="lbMobilePhone">
-     <property name="text">
-      <string>Mobile Phone +33674801256</string>
      </property>
     </widget>
    </item>

@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>530</width>
-    <height>527</height>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Nouveau Projet</string>
+   <string>Ajouter un projet</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="1">

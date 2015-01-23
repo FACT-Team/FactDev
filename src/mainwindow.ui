@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>FacDev: Facture &amp; Devis</string>
+   <string>FactDev: Facture &amp; Devis</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
@@ -167,15 +167,24 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>290</height>
+     <height>0</height>
     </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>180</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Recherche</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
+     <item row="0" column="0">
       <widget class="QLineEdit" name="leSearch">
        <property name="styleSheet">
         <string notr="true">background: url(:/icons/searchMini);
@@ -199,21 +208,7 @@ border: 1px solid #bbb;</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" alignment="Qt::AlignLeft">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Recherche</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QTreeView" name="trCustomers">
-       <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
+     <item row="1" column="0">
       <widget class="QGroupBox" name="gpbxSearchFilter">
        <property name="enabled">
         <bool>true</bool>
@@ -257,7 +252,41 @@ border: 1px solid #bbb;</string>
        </layout>
       </widget>
      </item>
-     <item row="3" column="0">
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>59</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Données du client</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <property name="minimumSize">
+     <size>
+      <width>300</width>
+      <height>0</height>
+     </size>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="CustomerDataWidget" name="wdgCustomerData" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
       <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -273,24 +302,56 @@ border: 1px solid #bbb;</string>
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidget_2">
+  <widget class="QDockWidget" name="dockWidget_3">
    <property name="minimumSize">
     <size>
-     <width>300</width>
-     <height>466</height>
+     <width>250</width>
+     <height>150</height>
     </size>
+   </property>
+   <property name="windowTitle">
+    <string>Liste des clients</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QTreeView" name="trCustomers">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_4">
+   <property name="minimumSize">
+    <size>
+     <width>73</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Mes données</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2">
-    <property name="minimumSize">
-     <size>
-      <width>300</width>
-      <height>0</height>
-     </size>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_5">
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <widget class="CustomerDataWidget" name="wdgUserData" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
@@ -303,16 +364,6 @@ border: 1px solid #bbb;</string>
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="0" column="0">
-      <widget class="CustomerDataWidget" name="wdgCustomerData" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>300</height>
-        </size>
-       </property>
-      </widget>
      </item>
     </layout>
    </widget>

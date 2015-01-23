@@ -10,6 +10,7 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     if (id != 0) {
         _custom = new Customer(id);
         fillFields();
+        setWindowTitle("Modifier le client "+_custom->getCompany());
     } else {
         _custom = new Customer();
     }
