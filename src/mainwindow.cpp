@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialogs/userdatadialog.h"
 #include "database/customerdatabase.h"
+#include "database/projectdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
 #include "models/search.h"
@@ -31,7 +32,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     updateUser();
     demo();
-
 }
 
 
@@ -42,6 +42,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::demo() {
     /*ui->btnAddProject->setVisible(false);
+=======
+/*void MainWindow::demo() {
+    ui->btnAddProject->setVisible(false);
+>>>>>>> a937ef62efe4f960af33cadff1d77df583a75f87
     ui->actionNewBill->setVisible(false);
     ui->actionNewQuote->setVisible(false);
     ui->actResearch->setVisible(false);
@@ -185,6 +189,12 @@ void MainWindow::updateTable(QString filter)
     ui->tblCustomers->setColumnWidth(5, 250);
 }
 
+void MainWindow::updateTableProjects(const int pId)
+{
+    ui->tblProjects->setModel(
+                ProjectDatabase::instance()->getProjectsTable(pId));
+}
+
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
@@ -272,7 +282,19 @@ void MainWindow::changeCustomerTable()
     emit changeCustomerTable(index);
 }
 
-void MainWindow::testContributories()
+void MainWindow::changeProjectsTable()
 {
+    int id = getCurrentCustomerId();
+    updateTableProjects(id);
+    ui->tblProjects->hideColumn(0);
+    ui->tblProjects->setColumnWidth(0, 100);
+    ui->tblProjects->setColumnWidth(1, 200);
+    ui->tblProjects->setColumnWidth(2, 100);
+    ui->tblProjects->setColumnWidth(3, 100);
+    ui->stackedWidget->setCurrentIndex(1);
+}
 
+void MainWindow::backToCustomersTable()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }

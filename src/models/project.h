@@ -2,6 +2,7 @@
 #define PROJECT_H
 
 #include <QString>
+#include <QDate>
 #include "models/idatabasemodel.h"
 #include "models/customer.h"
 
@@ -46,7 +47,6 @@ public:
      * @brief Project::remove Remove the current project
      */
     void remove();
-
     /**
      * @brief Project::getName Return the project name
      * @return project name
@@ -57,7 +57,6 @@ public:
      * @param name Project name
      */
     void setName(const QString &name);
-
     /**
      * @brief Project::getDescription Return a project description
      * @return project description
@@ -68,6 +67,30 @@ public:
      * @param description New project description
      */
     void setDescription(const QString &description);
+    /**
+     * @brief Project::getBeginDate return the date of creation
+     * of the <b>Project</b>
+     * @return the begin date of the Project
+     */
+    QDate getBeginDate() const;
+
+    /**
+     * @brief Project::setBeginDate Modify <i>beginDate</i> of a <b>Project</b>
+     * @param beginDate the new date of creation of the project
+     */
+    void setBeginDate(QDate beginDate);
+
+    /**
+     * @brief Project::getEndDate Return the <i>endDate</i> of the <b>Project</b>
+     * @return the end date of the project
+     */
+    QDate getEndDate();
+
+    /**
+     * @brief Project::setEndDate Modify <i>endDate</i> of <b>Project</b>
+     * @param endDate the new end date of the project
+     */
+    void setEndDate(QDate endDate);
 
     /**
      * @brief Project::getDailyRate Return the daily rate estimated for this
@@ -88,6 +111,7 @@ public:
      * @return customer linked to this project
      */
     Customer* getCustomer() const;
+
     /**
      * @brief Project::setCustomer Modify the <i>customer</i> linked to this
      * project
@@ -98,6 +122,8 @@ public:
 private:
     QString _name;          //!< Project name
     QString _description;   //!< Description on the targets of this project
+    QDate _beginDate;       //!< Date of creation of the project
+    QDate _endDate;         //!< End date of the project
     double _dailyRate;      //!< Daily rate linked to this project
     Customer* _customer;    //!< Customer linked to this project
 };

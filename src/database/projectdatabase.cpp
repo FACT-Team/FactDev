@@ -1,4 +1,5 @@
-#include "projectdatabase.h"
+#include "database/projectdatabase.h"
+#include "utils.h"
 
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
@@ -52,13 +53,14 @@ int ProjectDatabase::addProject(const Project &pProject)
 
     q.prepare(
         "INSERT INTO Project "
-        "(name, description, dailyRate, idCustomer)"
+        "(name, description, beginDate, dailyRate, idCustomer)"
         " VALUES "
-        "(:name, :description, :dailyRate, :idCustomer)"
+        "(:name, :description, :beginDate, :dailyRate, :idCustomer)"
     );
 
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
+    q.bindValue(":beginDate",pProject.getBeginDate().toString());
     q.bindValue(":dailyRate", pProject.getDailyRate());
     q.bindValue(":idCustomer", pProject.getCustomer()->getId());
 
@@ -180,4 +182,53 @@ QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(Customer* c) {
     }
 
     return ret;
+}
+QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
+    throw(DbException*)
+{
+    QStandardItemModel* retour = new QStandardItemModel();
+
+        retour->setColumnCount(3);
+        retour->setHorizontalHeaderLabels(
+                    QStringList()
+                    << ("Id")
+                    << ("Nom")
+                    << ("Description")
+                    << ("Date de création")
+                    << ("Date de fin")
+                    );
+    QSqlQuery q;
+
+
+    q.prepare("SELECT idProject ,name, description,beginDate,endDate "
+              "FROM Project "
+              "WHERE idCustomer= :pId "
+              "ORDER BY UPPER(name), UPPER(description)");
+
+    q.bindValue(":pId",pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir la liste des Projects",
+            "ProjectDatabase::getProjectsTable",
+            lastError(q),
+            1.1);
+    }
+
+    while(q.next()) {
+        QList<QStandardItem*> ligne;
+
+        ligne << new QStandardItem(value(q, "idProject").toString());
+        ligne << new QStandardItem(
+                     Utils::firstLetterToUpper(value(q,"name").toString()));
+        ligne << new QStandardItem(
+                    value(q, "description").toString());
+        ligne << new QStandardItem(
+                     value(q,"beginDate").toString());
+        ligne << new QStandardItem(
+                     value(q,"endDate").toString());
+        retour->appendRow(ligne);
+    }
+
+    return retour;
 }

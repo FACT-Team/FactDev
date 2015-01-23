@@ -75,6 +75,13 @@ public:
      * @return All projects of c with id in key
      */
     QMap<int, Project> getProjectsOfCustomer(Customer *c);
+
+     /**
+	  * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
+      * @param filter Select only projects who are specified by <i>filter</i>
+      * @return QStandardItemModel an item model for QTableView
+      */
+    QStandardItemModel* getProjectsTable(const int pId) throw(DbException*);
 };
 
 #endif // PROJECTDATABASE_H

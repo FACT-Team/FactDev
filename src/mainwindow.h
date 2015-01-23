@@ -115,11 +115,18 @@ private slots:
      */
     void changeCustomerTable(QModelIndex index);
     /**
-     * @brief MainWindow::changeCustomerTable call changeCustomerTable
+     * @brief MainWindow::changeCustomerTable calls changeCustomerTable
      */
     void changeCustomerTable();
-
-    void testContributories();
+    /**
+     * @brief MainWindow::changeProjectsTable changes projects with the <i>index</i>
+     * of the customer in table of customers
+     */
+    void changeProjectsTable();
+    /**
+     * @brief MainWindow::backToCustomersTable display the customers table
+     */
+    void backToCustomersTable();
 
 private:
     /**
@@ -127,6 +134,11 @@ private:
      * (just client in the first version)
      */
     void updateTable(QString filter="");
+    /**
+     * @brief updateTableProjects Update the table of projects view
+     * @param filter Only projects corresponding with the filter are selected
+     */
+    void updateTableProjects(const int pId);
     /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)

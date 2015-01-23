@@ -26,12 +26,19 @@ void Project::commit() {
 
 void Project::hydrat(int id)
 {
-    // TODO implement me !
+    Project* p = ProjectDatabase::instance()->getProject(id);
+    _id = id;
+    _name = p->getName();
+    _description = p->getDescription();
+    _beginDate = p->getBeginDate();
+    _endDate = p->getEndDate();
+    _dailyRate = p->getDailyRate();
+    _customer = p->getCustomer();
 }
 
 void Project::remove()
 {
-    // TODO implement me !
+    ProjectDatabase::instance()->removeProject(_id);
 }
 
 QString Project::getName() const
@@ -52,6 +59,27 @@ void Project::setDescription(const QString &description)
 {
     _description = description;
 }
+
+QDate Project::getBeginDate() const
+{
+    return _beginDate;
+}
+
+void Project::setBeginDate(QDate beginDate)
+{
+    _beginDate = beginDate;
+}
+
+QDate Project::getEndDate()
+{
+    return _endDate;
+}
+
+void Project::setEndDate(QDate endDate)
+{
+    _endDate = endDate;
+}
+
 double Project::getDailyRate() const
 {
     return _dailyRate;
