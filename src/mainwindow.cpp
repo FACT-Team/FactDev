@@ -88,7 +88,7 @@ void MainWindow::removeCustomer()
         {
             QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
             int pid = ui->tblCustomers->model()->data(ls,Qt::DisplayRole).toInt();
-            CustomerDatabase::instance()->removeCustomer(pid);
+            Customer(pid).remove();
             updateTable();
             updateTree();
         }
