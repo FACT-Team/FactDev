@@ -13,7 +13,7 @@ TypeLog Log::_type = INFO;
 Log::Log() {
     QSettings settings("FactDev", "FACT");
     _file = new QFile(
-                settings.value("workspace").toString()+"/"+"/message.log");
+                QCoreApplication::applicationDirPath()+"/"+"/message.log");
     bool exists = _file->exists();
     _file->open(QIODevice::Append | QIODevice::Text);
     if(!exists) {

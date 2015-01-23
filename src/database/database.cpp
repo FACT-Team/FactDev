@@ -102,7 +102,12 @@ void Database::open() {
 }
 
 inline void Database::testCases() {
-    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/customers.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/projects.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/user.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billings.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/contributories.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billingsprojects.sql");
 }
 
 inline void Database::cleanDatabase() {

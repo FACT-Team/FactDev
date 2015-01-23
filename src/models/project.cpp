@@ -19,12 +19,19 @@ void Project::commit() {
 
 void Project::hydrat(int id)
 {
-    // TODO implement me !
+    Project* p = ProjectDatabase::instance()->getProject(id);
+    _id = id;
+    _name = p->getName();
+    _description = p->getDescription();
+    _beginDate = p->getBeginDate();
+    _endDate = p->getEndDate();
+    _dailyRate = p->getDailyRate();
+    _customer = p->getCustomer();
 }
 
 void Project::remove()
 {
-    // TODO implement me !
+    ProjectDatabase::instance()->removeProject(_id);
 }
 
 QString Project::getName() const

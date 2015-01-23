@@ -106,6 +106,7 @@ public:
      * @return customer linked to this project
      */
     Customer* getCustomer() const;
+
     /**
      * @brief Project::setCustomer Modify the <i>customer</i> linked to this
      * project

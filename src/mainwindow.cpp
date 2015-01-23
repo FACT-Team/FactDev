@@ -232,7 +232,8 @@ void MainWindow::aboutFactDev()
                 "<p>FactDev est un logiciel de Facture et Devis développé par "
                 "l'équipe FACT dans le cadre de l'UE Projet pour l'université "
                 "Toulouse III - Paul Sabatier.<br/></p>"
-                "<p>Ce logiciel est libre et sous license *****. "
+                "<p>"
+               // "Ce logiciel est libre et sous license *****. "
                 "<br/>Le code source est disponible sur Github : <br/><a href=\"https://github.com/FACT-Team/FactDev\">https://github.com/FACT-Team/FactDev</a>");
 }
 
