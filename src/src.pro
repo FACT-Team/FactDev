@@ -94,5 +94,8 @@ OTHER_FILES += \
         sql/createtables.sql\
         sql/tests/customers.sql \
     sql/tests/user.sql \
-    sql/tests/project.sql
+    sql/tests/billings.sql \
+    sql/tests/billingsprojects.sql \
+    sql/tests/contributories.sql \
+    sql/tests/projects.sql
 
