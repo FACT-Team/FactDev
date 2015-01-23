@@ -1,0 +1,1 @@
+update User set firstname="Jean", lastname="Bonneau", company="FleuryMigeon", title="Artisan Développeur", address="42 Route de bayonne", phone="0836656565", postalCode="31000", city="Toulouse", email="jean.bonneau@fleury-migeon.com", mobilePhone="0616641337", noSiret="1234567891234" where idUser=1;

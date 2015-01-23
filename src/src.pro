@@ -92,5 +92,7 @@ RESOURCES += \
 OTHER_FILES += \
         sql/removetable.sql \
         sql/createtables.sql\
-        sql/tests.sql
+        sql/tests/customers.sql \
+    sql/tests/user.sql \
+    sql/tests/project.sql
 
