@@ -112,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -167,7 +167,7 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>0</height>
+     <height>161</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -259,7 +259,7 @@ border: 1px solid #bbb;</string>
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>59</height>
+     <height>66</height>
     </size>
    </property>
    <property name="windowTitle">
@@ -490,8 +490,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>800</x>
-     <y>398</y>
+     <x>902</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -506,8 +506,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>691</x>
-     <y>396</y>
+     <x>784</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -523,7 +523,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>181</y>
+     <y>140</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -539,11 +539,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>22</x>
-     <y>251</y>
+     <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>128</x>
-     <y>238</y>
+     <x>141</x>
+     <y>204</y>
     </hint>
    </hints>
   </connection>
@@ -555,11 +555,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>35</x>
-     <y>251</y>
+     <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>121</x>
-     <y>270</y>
+     <x>134</x>
+     <y>231</y>
     </hint>
    </hints>
   </connection>
@@ -570,8 +570,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>180</x>
-     <y>238</y>
+     <x>193</x>
+     <y>204</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -586,8 +586,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>251</x>
-     <y>270</y>
+     <x>261</x>
+     <y>231</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -618,8 +618,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>422</x>
-     <y>398</y>
+     <x>498</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -634,8 +634,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>396</y>
+     <x>656</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -787,6 +787,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionNewQuote</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addQuote()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -804,5 +820,6 @@ border: 1px solid #bbb;</string>
   <slot>changeCustomerTree(QModelIndex)</slot>
   <slot>changeCustomer()</slot>
   <slot>changeCustomerTable(QModelIndex)</slot>
+  <slot>addQuote()</slot>
  </slots>
 </ui>

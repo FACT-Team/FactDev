@@ -10,8 +10,8 @@
 #include "models/contributory.h"
 
 /**
- * @brief The Billing class : Billing of a Customer
- *
+ * @brief The Billing class : Billing or Quote of a Customer
+ * @author Cédric Rohaut for the quote part
  */
 class Billing : public IDatabaseModel
 {
@@ -20,6 +20,12 @@ public:
      * @brief Billing::Billing. Construct a Billing.
      */
     Billing();
+
+    /**
+     * @brief Billing::Billing. Construct a Billing or quote.
+     * @param int id
+     */
+    Billing(int id);
 
     /**
      * @brief Billing::commit. Insert a modification
@@ -106,7 +112,7 @@ private:
     QMap<Project*,QList<Contributory*>*> _contributories; //!< List of contributories
     QString _title;     //!< Title of billing
     int _number;        //!< Number of billing
-    bool _isBilling;    //!< Is a billing… Or si a quote
+    bool _isBilling;    //!< Is a billing… Or if a quote
     QDate _date;        //!< Date for billing
 
 

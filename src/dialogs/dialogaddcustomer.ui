@@ -231,7 +231,6 @@
   <tabstop>leMobilePhone</tabstop>
   <tabstop>leFax</tabstop>
   <tabstop>btnSave</tabstop>
-  <tabstop>btnCancel</tabstop>
  </tabstops>
  <resources>
   <include location="../icons.qrc"/>

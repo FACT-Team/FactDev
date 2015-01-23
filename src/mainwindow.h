@@ -53,6 +53,13 @@ public slots:
      * @brief MainWindow::editUser modify the user
      * @see UserDataDialog
      */
+
+    /**
+     * @brief MainWindow::addQuote open window to add a new quote
+     * @see AddQuoteDialog
+     */
+    void addQuote();
+
     void editUser();
     /**
      * @brief MainWindow::search launch a new search

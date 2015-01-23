@@ -7,6 +7,7 @@
 #include "models/search.h"
 #include "widgets/popup.h"
 #include "dialogs/addprojectdialog.h"
+#include "dialogs/addquotedialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -105,6 +106,17 @@ void MainWindow::openCustomer()
     int id = getCurrentCustomerId();
     ui->wdgCustomerData->printInformations(id);
 }
+
+
+void MainWindow::addQuote()
+{
+    AddQuoteDialog win;
+    if(win.exec()) {
+
+    }
+}
+
+
 
 void MainWindow::editUser()
 {

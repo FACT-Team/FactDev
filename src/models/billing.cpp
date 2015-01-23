@@ -4,6 +4,11 @@ Billing::Billing()
 {
 }
 
+Billing::Billing(int id)
+{
+    hydrat(id);
+}
+
 void Billing::commit()
 {
     // TODO implement me !
@@ -11,7 +16,9 @@ void Billing::commit()
 
 void Billing::hydrat(int id)
 {
-    // TODO implement me !
+    _id = id;
+    //Billing *quote = BillingDatabase::instance()->getBilling(id);
+
 }
 
 void Billing::remove()

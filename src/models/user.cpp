@@ -9,7 +9,6 @@ User::User()
 
 User::User(int id)
 {
-    _id = id;
     hydrat(id);
 }
 
