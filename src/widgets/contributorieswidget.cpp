@@ -13,20 +13,14 @@ ContributoriesWidget::ContributoriesWidget(Customer*c, QWidget *parent) :
     ProjectComboDelegate* delegate = new ProjectComboDelegate(c);
     ui->tblContributories->setItemDelegateForColumn(0, delegate);
     ui->tblContributories->setModel(_model);
-//    Project p;
-  //  p.setDescription("coucou");
-    //p.setName("test");
-   // c.setProject(p);
-   // _model->append(c);
     ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);
-
-
 }
 
 ContributoriesWidget::~ContributoriesWidget()
 {
     delete ui;
 }
+
 QList<Contributory> ContributoriesWidget::getContributories() const
 {
     return _model->getContributories();

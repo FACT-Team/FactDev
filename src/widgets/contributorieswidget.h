@@ -19,9 +19,20 @@ public:
     explicit ContributoriesWidget(Customer *c, QWidget *parent = 0);
     ~ContributoriesWidget();
 
+    /**
+     * @brief getContributories Get contributories List
+     * @return
+     */
     QList<Contributory> getContributories() const;
 public slots:
+    /**
+     * @brief add Add a new empty contributory
+     */
     void add(void);
+
+    /**
+     * @brief remove Remove the current contributory
+     */
     void remove(void);
 private:
     Ui::ContributoriesWidget *ui;
