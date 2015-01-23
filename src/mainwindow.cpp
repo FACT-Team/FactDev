@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
         this,
         SLOT(openContextualMenuTree(const QPoint &)));
 
-    demo();
+
 }
 
 
@@ -36,14 +36,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::demo() {
+/*void MainWindow::demo() {
     ui->btnAddProject->setVisible(false);
     ui->actionNewBill->setVisible(false);
     ui->actionNewQuote->setVisible(false);
     ui->actResearch->setVisible(false);
     ui->btnNewProject->hide();
     ui->actionPrint->setVisible(false);
-}
+}*/
 
 int MainWindow::getCurrentCustomerId() {
     QModelIndex idCell =
