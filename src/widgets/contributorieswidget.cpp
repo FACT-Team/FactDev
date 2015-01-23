@@ -39,6 +39,8 @@ void ContributoriesWidget::add()
 
 void ContributoriesWidget::remove()
 {
-    _model->remove(ui->tblContributories->currentIndex().row());
+    if (ui->tblContributories->selectionModel()->hasSelection()) {
+        _model->remove(ui->tblContributories->currentIndex().row());
+    }
 }
 

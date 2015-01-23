@@ -1,13 +1,17 @@
 #include "addquotedialog.h"
 #include "ui_addquotedialog.h"
+#include "widgets/contributorieswidget.h"
 
 AddQuoteDialog::AddQuoteDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddQuoteDialog),
-    _quote(0)
+    _quote(0),
+    ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
     _quote = new Billing(false);
+    ui->wdgContributories = new ContributoriesWidget(new Customer(1), this);
+    ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
+
 
 }
 

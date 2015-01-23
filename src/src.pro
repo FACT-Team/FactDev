@@ -57,7 +57,8 @@ SOURCES += mainwindow.cpp \
     widgets/checkfields/checkfieldsletters.cpp \
     widgets/contributorieswidget.cpp \
     widgets/widgetsmodels/contributoriestablemodel.cpp \
-    widgets/delegates/projectcombodelegate.cpp
+    widgets/delegates/projectcombodelegate.cpp \
+    database/billingdatabase.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -104,7 +105,8 @@ HEADERS  += mainwindow.h \
     widgets/checkfields/checkfieldsletters.h \
     widgets/contributorieswidget.h \
     widgets/widgetsmodels/contributoriestablemodel.h \
-    widgets/delegates/projectcombodelegate.h
+    widgets/delegates/projectcombodelegate.h \
+    database/billingdatabase.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

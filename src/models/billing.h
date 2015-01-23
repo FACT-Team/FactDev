@@ -10,8 +10,8 @@
 #include "models/contributory.h"
 
 /**
+ * @author Cédric Rohaut @Oxynos for the quote part
  * @brief The Billing class : Billing or Quote of a Customer
- * @author Cédric Rohaut for the quote part
  */
 class Billing : public IDatabaseModel
 {

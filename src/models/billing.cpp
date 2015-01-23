@@ -1,4 +1,5 @@
 #include "billing.h"
+#include "database/billingdatabase.h"
 
 Billing::Billing()
 {
@@ -11,28 +12,27 @@ Billing::Billing(int id)
 
 void Billing::commit()
 {
-    // TODO implement me !
-
     if(_id == 0) {
-        // TODO insert
-    } else if(_toRemoved) {
+        _id = BillingDatabase::instance()->addBilling(*this);
+    } else if(_toRemoved){
         remove();
     } else {
-        //  TODO update
+        BillingDatabase::instance()->updateBilling(*this);
     }
 }
 
 void Billing::hydrat(int id)
 {
     _id = id;
-    //Billing *quote = BillingDatabase::instance()->getBilling(id);
+    Billing *quote = BillingDatabase::instance()->getBilling(id);
 
 }
 
 void Billing::remove()
 {
-    // TODO implement me !
+    BillingDatabase::instance()->removeBilling(_id);
 }
+
 QMap<Project*, QList<Contributory*>*> Billing::getContributories() const
 {
     return _contributories;
@@ -70,6 +70,7 @@ void Billing::setIsBilling(bool isBilling)
 {
     _isBilling = isBilling;
 }
+
 QDate Billing::getDate() const
 {
     return _date;
