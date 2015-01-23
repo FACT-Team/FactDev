@@ -222,7 +222,12 @@
   <tabstop>leLastNameReferent</tabstop>
   <tabstop>leFirstNameReferent</tabstop>
   <tabstop>leCompany</tabstop>
+  <tabstop>leAddress</tabstop>
+  <tabstop>lePostalCode</tabstop>
+  <tabstop>leCity</tabstop>
+  <tabstop>leCountry</tabstop>
   <tabstop>leEmail</tabstop>
+  <tabstop>lePhone</tabstop>
   <tabstop>leMobilePhone</tabstop>
   <tabstop>leFax</tabstop>
   <tabstop>btnSave</tabstop>

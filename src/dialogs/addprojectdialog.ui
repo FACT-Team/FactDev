@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>530</width>
-    <height>558</height>
+    <height>567</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -117,6 +117,12 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>leNameProject</tabstop>
+  <tabstop>leDescription</tabstop>
+  <tabstop>btnValid</tabstop>
+  <tabstop>btnCancel</tabstop>
+ </tabstops>
  <resources>
   <include location="../icons.qrc"/>
  </resources>
