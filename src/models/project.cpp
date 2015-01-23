@@ -45,6 +45,27 @@ void Project::setDescription(const QString &description)
 {
     _description = description;
 }
+
+QDate Project::getBeginDate()
+{
+    return _beginDate;
+}
+
+void Project::setBeginDate(QDate beginDate)
+{
+    _beginDate = beginDate;
+}
+
+QDate Project::getEndDate()
+{
+    return _endDate;
+}
+
+void Project::setEndDate(QDate endDate)
+{
+    _endDate = endDate;
+}
+
 double Project::getDailyRate() const
 {
     return _dailyRate;

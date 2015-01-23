@@ -19,6 +19,8 @@ CREATE TABLE Project
     idProject INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(64),
     description TEXT,
+    beginDate DATETIME,
+    endDate DATETIME,
     dailyRate DOUBLE,
     idCustomer INTEGER,
     FOREIGN KEY (idCustomer) REFERENCES Customer (idCustomer)

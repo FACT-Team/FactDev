@@ -68,6 +68,13 @@ public:
      * @return number of projects
      */
     int getNbProjectsForACustomer(const int pId);
+
+    /**
+     * @brief getProjectsTable
+     * @param filter Select only projects who are specified by <i>filter</i>
+     * @return QStandardItemModel an item model for QTableView
+     */
+    QStandardItemModel* getProjectsTable(QString filter="") throw(DbException*);
 };
 
 #endif // PROJECTDATABASE_H

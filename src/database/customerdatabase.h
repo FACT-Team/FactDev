@@ -45,7 +45,7 @@ public:
      * customers for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
      * @throw DbException
-     * @return QStandardItemModel an item model for QTableView
+     * @return QStandardItemModel an item model for QTreeView
      */
     QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
 

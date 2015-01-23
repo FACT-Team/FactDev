@@ -1,4 +1,5 @@
-#include "projectdatabase.h"
+#include "database/projectdatabase.h"
+#include "utils.h"
 
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
@@ -153,4 +154,46 @@ int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     q.next();
 
     return value(q, "nb_p").toInt();
+}
+
+QStandardItemModel *ProjectDatabase::getProjectsTable(QString filter)
+    throw(DbException*)
+{
+    QStandardItemModel* retour = new QStandardItemModel();
+
+        retour->setColumnCount(3);
+        retour->setHorizontalHeaderLabels(
+                    QStringList()
+                    << ("Id")
+                    << ("Nom")
+                    << ("Description")
+                    );
+    QSqlQuery q;
+
+
+    q.prepare("SELECT idProject ,name, description,"
+              "FROM Project "
+              "WHERE 1 "+filter+" "
+              "ORDER BY UPPER(name), UPPER(description)");
+
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir la liste des Projects",
+            "ProjectDatabase::getProjectsTable",
+            lastError(q),
+            1.1);
+    }
+
+    while(q.next()) {
+        QList<QStandardItem*> ligne;
+
+        ligne << new QStandardItem(value(q, "idProject").toString());
+        ligne << new QStandardItem(
+                     Utils::firstLetterToUpper(value(q,"name").toString()));
+        ligne << new QStandardItem(
+                    value(q, "description").toString());
+        retour->appendRow(ligne);
+    }
+
+    return retour;
 }
