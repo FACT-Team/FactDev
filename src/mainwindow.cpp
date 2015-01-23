@@ -283,13 +283,13 @@ void MainWindow::changeCustomerTable()
 void MainWindow::changeProjectsTable()
 {
     int id = getCurrentCustomerId();
-    qDebug() << id;
+    //qDebug() << id;
     updateTableProjects(id);
     ui->tblProjects->hideColumn(0);
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 200);
     ui->tblProjects->setColumnWidth(2, 100);
-    ui->tblProjects->setColumnWidth(3, 150);
+    ui->tblProjects->setColumnWidth(3, 100);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
