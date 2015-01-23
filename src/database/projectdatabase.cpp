@@ -173,7 +173,7 @@ QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
     QSqlQuery q;
 
 
-    q.prepare("SELECT idProject ,name, description,"
+    q.prepare("SELECT idProject ,name, description,beginDate,endDate "
               "FROM Project "
               "WHERE idProject= :pId "
               "ORDER BY UPPER(name), UPPER(description)");

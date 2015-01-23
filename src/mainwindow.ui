@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1237</width>
-    <height>580</height>
+    <height>604</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -107,16 +107,45 @@
          <rect>
           <x>9</x>
           <y>9</y>
-          <width>631</width>
-          <height>451</height>
+          <width>611</width>
+          <height>583</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="0">
+         <item row="1" column="0">
           <widget class="QTableView" name="tblProjects"/>
+         </item>
+         <item row="0" column="0">
+          <layout class="QGridLayout" name="gridLayout_7">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="btnBackToCustomers">
+             <property name="text">
+              <string>Retour aux clients</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
+       <zorder>gridLayoutWidget</zorder>
+       <zorder>pushButton</zorder>
       </widget>
      </widget>
     </item>
@@ -455,8 +484,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>800</x>
-     <y>398</y>
+     <x>910</x>
+     <y>538</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -471,8 +500,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>691</x>
-     <y>396</y>
+     <x>823</x>
+     <y>538</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -488,7 +517,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>181</y>
+     <y>148</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -504,11 +533,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>22</x>
-     <y>251</y>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
-     <x>128</x>
-     <y>238</y>
+     <x>140</x>
+     <y>203</y>
     </hint>
    </hints>
   </connection>
@@ -520,11 +549,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>35</x>
-     <y>251</y>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
-     <x>121</x>
-     <y>270</y>
+     <x>133</x>
+     <y>229</y>
     </hint>
    </hints>
   </connection>
@@ -535,8 +564,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>180</x>
-     <y>238</y>
+     <x>192</x>
+     <y>203</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -551,8 +580,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>251</x>
-     <y>270</y>
+     <x>257</x>
+     <y>229</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -583,8 +612,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>422</x>
-     <y>398</y>
+     <x>595</x>
+     <y>538</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -599,8 +628,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>396</y>
+     <x>725</x>
+     <y>538</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -752,6 +781,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tblCustomers</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeProjectsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>790</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1026</x>
+     <y>634</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -769,5 +814,7 @@ border: 1px solid #bbb;</string>
   <slot>changeCustomerTree(QModelIndex)</slot>
   <slot>changeCustomer()</slot>
   <slot>changeCustomerTable(QModelIndex)</slot>
+  <slot>openProjects()</slot>
+  <slot>changeProjectsTable()</slot>
  </slots>
 </ui>

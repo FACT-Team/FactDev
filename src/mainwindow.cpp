@@ -187,10 +187,10 @@ void MainWindow::updateTable(QString filter)
     ui->tblCustomers->setColumnWidth(5, 250);
 }
 
-void MainWindow::updateTableProjects(QString filter)
+void MainWindow::updateTableProjects(const int pId)
 {
     ui->tblProjects->setModel(
-                ProjectDatabase::instance()->getProjectsTable(filter));
+                ProjectDatabase::instance()->getProjectsTable(pId));
 }
 
 void MainWindow::updateTree(QString filter)
@@ -278,4 +278,17 @@ void MainWindow::changeCustomerTable()
     QModelIndex index =
             ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
     emit changeCustomerTable(index);
+}
+
+void MainWindow::changeProjectsTable()
+{
+    int id = getCurrentCustomerId();
+    qDebug() << id;
+    updateTableProjects(id);
+    ui->tblProjects->hideColumn(0);
+    ui->tblProjects->setColumnWidth(0, 100);
+    ui->tblProjects->setColumnWidth(1, 200);
+    ui->tblProjects->setColumnWidth(2, 100);
+    ui->tblProjects->setColumnWidth(3, 150);
+    ui->stackedWidget->setCurrentIndex(1);
 }
