@@ -53,7 +53,10 @@ SOURCES += mainwindow.cpp \
     widgets/checkfields/checksiretnumber.cpp \
     widgets/checkfields/checkuntilfield.cpp \
     widgets/checkfields/checkvalidfield.cpp \
-    widgets/checkfields/checkfieldsletters.cpp
+    widgets/checkfields/checkfieldsletters.cpp \
+    widgets/contributorieswidget.cpp \
+    widgets/widgetsmodels/contributoriestablemodel.cpp \
+    widgets/delegates/projectcombodelegate.cpp \
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -96,7 +99,10 @@ HEADERS  += mainwindow.h \
     widgets/checkfields/checksiretnumber.h \
     widgets/checkfields/checkuntilfield.h \
     widgets/checkfields/checkvalidfield.h \
-    widgets/checkfields/checkfieldsletters.h
+    widgets/checkfields/checkfieldsletters.h \
+    widgets/contributorieswidget.h \
+    widgets/widgetsmodels/contributoriestablemodel.h \
+    widgets/delegates/projectcombodelegate.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
@@ -107,7 +113,8 @@ FORMS    += mainwindow.ui \
     widgets/comboboxmodelwidget.ui \
     widgets/searchwidget.ui \
     widgets/customerdatawidget.ui \
-    widgets/projectswidget.ui
+    widgets/projectswidget.ui \
+    widgets/contributorieswidget.ui
 
 RESOURCES += \
     icons.qrc
