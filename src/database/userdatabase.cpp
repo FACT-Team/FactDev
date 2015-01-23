@@ -46,7 +46,7 @@ User *UserDatabase::getUser(const int pId)
         user->setEmail(value(q,"email").toString());
         user->setMobilePhone(value(q,"mobilePhone").toString());
         user->setPhone(value(q,"phone").toString());
-        user->setNoSiret(value(q,"NoSiret").toInt());
+        user->setNoSiret(value(q,"noSiret").toString());
     } else {
         user = NULL;
     }
@@ -61,7 +61,7 @@ void UserDatabase::updateUser(const User& pUser) {
         "firstname = :firstname, lastname = :lastname, company = :company, "
         "title = :title, address = :address, postalCode = :postalCode, "
         "city = :city, email = :email, mobilePhone = :mobilePhone, "
-        "phone = :phone, NoSiret = :NoSiret "
+        "phone = :phone, noSiret = :noSiret "
         "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
@@ -76,7 +76,7 @@ void UserDatabase::updateUser(const User& pUser) {
     q.bindValue(":email", pUser.getEmail());
     q.bindValue(":mobilePhone", pUser.getMobilePhone());
     q.bindValue(":phone", pUser.getPhone());
-    q.bindValue(":NoSiret", pUser.getNoSiret());
+    q.bindValue(":noSiret", pUser.getNoSiret());
 
     if(!q.exec()) {
         throw new DbException(

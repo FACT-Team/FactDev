@@ -1,11 +1,11 @@
 #ifndef CHECKNAME_H
 #define CHECKNAME_H
-#include "checkqlineedit.h"
+#include "checkuntilfield.h"
 
 /**
  * @brief The CheckName class Line edit of name with a check icon
  */
-class CheckName : public CheckQLineEdit
+class CheckName : public CheckUntilField
 {
 public:
     /**

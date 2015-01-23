@@ -50,7 +50,9 @@ SOURCES += mainwindow.cpp \
     widgets/checkfields/checkcity.cpp \
     widgets/checkfields/checkcountry.cpp \
     widgets/checkfields/checkname.cpp \
-    widgets/checkfields/checksiretnumber.cpp
+    widgets/checkfields/checksiretnumber.cpp \
+    widgets/checkfields/checkuntilfield.cpp \
+    widgets/checkfields/checkvalidfield.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -90,7 +92,9 @@ HEADERS  += mainwindow.h \
     widgets/checkfields/checkcity.h \
     widgets/checkfields/checkcountry.h \
     widgets/checkfields/checkname.h \
-    widgets/checkfields/checksiretnumber.h
+    widgets/checkfields/checksiretnumber.h \
+    widgets/checkfields/checkuntilfield.h \
+    widgets/checkfields/checkvalidfield.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

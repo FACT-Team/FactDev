@@ -17,15 +17,6 @@ public:
      */
     explicit CheckQLineEdit(QWidget *parent = 0);
 
-signals:
-
-public slots:
-    /**
-     * @brief CheckQLineEdit::fieldTextChanged For each new characater inputed
-     * or removed, displays an icon to show if the field is valid or not
-     */
-    void fieldTextChanged(const QString &);
-
     /**
      * @brief CheckQLineEdit::displayCheckValidFieldIcon Display a valid icon
      * into the field
@@ -37,6 +28,17 @@ public slots:
      * icon into the field
      */
     void displayCheckNoValidFieldIcon();
+
+signals:
+
+public slots:
+    /**
+     * @brief CheckQLineEdit::fieldTextChanged For each new characater inputed
+     * or removed, displays an icon to show if the field is valid or not
+     */
+    void fieldTextChanged(const QString &);
+
+
 
 
 };

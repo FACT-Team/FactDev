@@ -1,7 +1,7 @@
 #include "checkcountry.h"
 
 
-CheckCountry::CheckCountry(QWidget *w) : CheckQLineEdit (w) {
+CheckCountry::CheckCountry(QWidget *w) : CheckUntilField (w) {
 
 }
 

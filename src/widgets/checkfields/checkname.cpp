@@ -1,6 +1,6 @@
 #include "checkname.h"
 
-CheckName::CheckName(QWidget *w) : CheckQLineEdit (w) {
+CheckName::CheckName(QWidget *w) : CheckUntilField (w) {
 
 }
 

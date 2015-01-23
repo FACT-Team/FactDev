@@ -1,10 +1,10 @@
 #ifndef CHECKCOUNTRY_H
 #define CHECKCOUNTRY_H
-#include "checkqlineedit.h"
+#include "checkuntilfield.h"
 /**
  * @brief CheckCountry::CheckCountry Line Edit of country with a check icon
  */
-class CheckCountry : public CheckQLineEdit
+class CheckCountry : public CheckUntilField
 {
 public:
     /**

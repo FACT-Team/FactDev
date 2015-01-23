@@ -1,6 +1,6 @@
 #include "checkcity.h"
 
-CheckCity::CheckCity(QWidget *w) : CheckQLineEdit (w) {
+CheckCity::CheckCity(QWidget *w) : CheckUntilField (w) {
 
 }
 

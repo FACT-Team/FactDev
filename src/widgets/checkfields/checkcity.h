@@ -1,11 +1,11 @@
 #ifndef CHECKCITY_H
 #define CHECKCITY_H
-#include "checkqlineedit.h"
+#include "checkuntilfield.h"
 
 /**
  * @brief The CheckCity class Line Edit of City with a check icon
  */
-class CheckCity : public CheckQLineEdit
+class CheckCity : public CheckUntilField
 {
 public:
     /**

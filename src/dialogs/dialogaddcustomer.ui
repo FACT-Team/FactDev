@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>427</height>
+    <height>376</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -222,7 +222,12 @@
   <tabstop>leLastNameReferent</tabstop>
   <tabstop>leFirstNameReferent</tabstop>
   <tabstop>leCompany</tabstop>
+  <tabstop>leAddress</tabstop>
+  <tabstop>lePostalCode</tabstop>
+  <tabstop>leCity</tabstop>
+  <tabstop>leCountry</tabstop>
   <tabstop>leEmail</tabstop>
+  <tabstop>lePhone</tabstop>
   <tabstop>leMobilePhone</tabstop>
   <tabstop>leFax</tabstop>
   <tabstop>btnSave</tabstop>

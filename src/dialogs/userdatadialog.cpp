@@ -31,7 +31,7 @@ void UserDataDialog::fillFields() {
     ui->leEmail->setText(_user->getEmail());
     ui->lePhone->setText(_user->getPhone());
     ui->leMobilePhone->setText(_user->getMobilePhone());
-    ui->leNoSiret->setText(QString::number(_user->getNoSiret()));
+    ui->leNoSiret->setText(_user->getNoSiret());
 }
 
 void UserDataDialog::accept() {
@@ -45,7 +45,7 @@ void UserDataDialog::accept() {
     _user->setEmail(ui->leEmail->text());
     _user->setPhone(ui->lePhone->text());
     _user->setMobilePhone(ui->leMobilePhone->text());
-    _user->setNoSiret(ui->leNoSiret->text().toInt());
+    _user->setNoSiret(ui->leNoSiret->text());
 
     _user->commit();
     QDialog::accept();
