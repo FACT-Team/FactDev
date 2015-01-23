@@ -126,6 +126,11 @@ private:
      */
     void updateTable(QString filter="");
     /**
+     * @brief updateTableProjects Update the table of projects view
+     * @param filter Only projects corresponding with the filter are selected
+     */
+    void updateTableProjects(QString filter="");
+    /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)
      */

@@ -156,7 +156,7 @@ int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     return value(q, "nb_p").toInt();
 }
 
-QStandardItemModel *ProjectDatabase::getProjectsTable(QString filter)
+QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
     throw(DbException*)
 {
     QStandardItemModel* retour = new QStandardItemModel();
@@ -167,14 +167,18 @@ QStandardItemModel *ProjectDatabase::getProjectsTable(QString filter)
                     << ("Id")
                     << ("Nom")
                     << ("Description")
+                    << ("Date de création")
+                    << ("Date de fin")
                     );
     QSqlQuery q;
 
 
     q.prepare("SELECT idProject ,name, description,"
               "FROM Project "
-              "WHERE 1 "+filter+" "
+              "WHERE idProject= :pId "
               "ORDER BY UPPER(name), UPPER(description)");
+
+    q.bindValue(":pId",pId);
 
     if(!q.exec()) {
         throw new DbException(
@@ -192,6 +196,10 @@ QStandardItemModel *ProjectDatabase::getProjectsTable(QString filter)
                      Utils::firstLetterToUpper(value(q,"name").toString()));
         ligne << new QStandardItem(
                     value(q, "description").toString());
+        ligne << new QStandardItem(
+                     value(q,"beginDate").toString());
+        ligne << new QStandardItem(
+                     value(q,"endDate").toString());
         retour->appendRow(ligne);
     }
 

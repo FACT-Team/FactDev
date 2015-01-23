@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialogs/userdatadialog.h"
 #include "database/customerdatabase.h"
+#include "database/projectdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
 #include "models/search.h"
@@ -184,6 +185,12 @@ void MainWindow::updateTable(QString filter)
     ui->tblCustomers->setColumnWidth(3, 150);
     ui->tblCustomers->setColumnWidth(4, 150);
     ui->tblCustomers->setColumnWidth(5, 250);
+}
+
+void MainWindow::updateTableProjects(QString filter)
+{
+    ui->tblProjects->setModel(
+                ProjectDatabase::instance()->getProjectsTable(filter));
 }
 
 void MainWindow::updateTree(QString filter)

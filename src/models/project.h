@@ -39,7 +39,6 @@ public:
      * @brief Project::remove Remove the current project
      */
     void remove();
-
     /**
      * @brief Project::getName Return the project name
      * @return project name
@@ -50,7 +49,6 @@ public:
      * @param name Project name
      */
     void setName(const QString &name);
-
     /**
      * @brief Project::getDescription Return a project description
      * @return project description
@@ -61,7 +59,6 @@ public:
      * @param description New project description
      */
     void setDescription(const QString &description);
-
     /**
      * @brief Project::getBeginDate return the date of creation
      * of the <b>Project</b>

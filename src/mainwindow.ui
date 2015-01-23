@@ -113,7 +113,7 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_4">
          <item row="0" column="0">
-          <widget class="QTableView" name="tableView"/>
+          <widget class="QTableView" name="tblProjects"/>
          </item>
         </layout>
        </widget>
