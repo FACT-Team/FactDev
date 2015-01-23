@@ -22,6 +22,7 @@ public:
    QList<Contributory> getContributories();
 private:
     QList<Contributory> _contributories;
+    QList<Contributory> _contributoriesToRemoved;
 };
 
 #endif // CONTRIBUTORIESTABLEMODEL_H

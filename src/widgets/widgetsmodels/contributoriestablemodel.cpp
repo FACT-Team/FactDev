@@ -69,6 +69,8 @@ void ContributoriesTableModel::append(const Contributory &contributory) {
 
 void ContributoriesTableModel::remove(const int a)
 {
+    _contributoriesToRemoved << _contributories[a];
+    _contributoriesToRemoved.last().setToRemoved(true);
     _contributories.removeAt(a);
     beginRemoveRows(QModelIndex(), _contributories.count(), _contributories.count());
     endRemoveRows();
@@ -81,6 +83,6 @@ Qt::ItemFlags ContributoriesTableModel::flags(const QModelIndex &index) const
 
 QList<Contributory> ContributoriesTableModel::getContributories()
 {
-    return _contributories;
+    return _contributories + _contributoriesToRemoved;
 }
 
