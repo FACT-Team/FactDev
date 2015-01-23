@@ -9,11 +9,19 @@ Contributory::Contributory()
 void Contributory::commit()
 {
     // TODO implement me !
+
+    if(_id == 0) {
+        // TODO insert
+    } else if(_toRemoved) {
+        remove();
+    } else {
+        //  TODO update
+    }
 }
 
 void Contributory::hydrat(int id)
 {
-    // TODO implement me !
+
 }
 
 void Contributory::remove()

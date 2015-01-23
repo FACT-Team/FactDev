@@ -35,9 +35,32 @@ public:
      */
     void setId(int id) { _id = id; }
 
+    /**
+     * @brief toRemoved return if object must be removed.
+     * @return
+     */
+    bool isToRemoved() const
+    {
+        return _toRemoved;
+    }
+
+    /**
+     * @brief setToRemoved Change the flag for removed object
+     * @param toRemoved The new flag
+     */
+    void setToRemoved(bool toRemoved)
+    {
+        _toRemoved = toRemoved;
+    }
+
 protected:
     int _id;    //!< Element identify
+    bool _toRemoved; //!< Flag to know if the object must be removed
 };
 
 #endif // IDATABASEMODEL_H
+
+
+
+
 

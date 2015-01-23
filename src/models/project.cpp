@@ -17,6 +17,8 @@ Project::Project(int id)
 void Project::commit() {
     if(_id == 0) {
         _id = ProjectDatabase::instance()->addProject(*this);
+    } else if(_toRemoved) {
+        remove();
     } else {
         ProjectDatabase::instance()->updateProject(*this);
     }
