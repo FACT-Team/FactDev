@@ -4,6 +4,7 @@ Contributory::Contributory()
 {
     _description = "";
     _nbHours = 0.;
+    project = new Project();
 }
 
 void Contributory::commit()
@@ -29,12 +30,12 @@ void Contributory::remove()
     // TODO implement me !
 }
 
-Project Contributory::getProject() const
+Project* Contributory::getProject() const
 {
     return project;
 }
 
-void Contributory::setProject(const Project &id)
+void Contributory::setProject(Project* id)
 {
     project = id;
 }

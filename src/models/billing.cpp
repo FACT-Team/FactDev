@@ -12,6 +12,17 @@ Billing::Billing(int id)
 
 void Billing::commit()
 {
+
+    // Commits contributories and projects
+    // it's dirty… But it's work… but it's dirty… but it's work… TODO, clean it ?
+    auto end = _contributories.cend();
+    for (auto it = _contributories.cbegin(); it != end; ++it) {
+        ((Project*)(it.key()))->commit();
+        for(Contributory* c : *((QList<Contributory*>*)(it.value()))) {
+            c->commit();
+        }
+    }
+
     if(_id == 0) {
         _id = BillingDatabase::instance()->addBilling(*this);
     } else if(_toRemoved){
@@ -48,9 +59,12 @@ void Billing::setContributories(QMap<Project*, QList<Contributory*>*> contributo
     _contributories = contributories;
 }
 
-void Billing::addContributories(Project* p, Contributory* c)
+void Billing::addContributory(Contributory c)
 {
-    _contributories.value(p)->push_back(c);
+    if(_contributories.value(c.getProject()) == NULL) {
+        _contributories.insert(c.getProject(), new QList<Contributory*>);
+    }
+    _contributories.value(c.getProject())->push_back(&c);
 }
 
 QString Billing::getTitle() const
