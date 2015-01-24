@@ -17,6 +17,7 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
         //setWindowTitle("Modifier le client "+_custom->getCompany());
     } else {
         _quote = new Billing();
+        ui->dateEditQuote->setDate(QDate::currentDate());
     }
     _quote->setId(id);
     _quote->setIsBilling(false);
@@ -40,7 +41,7 @@ void AddQuoteDialog::accept() {
     _quote->setTitle(ui->leQuoteTitle->text());
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
-    //_quote->setContributories( ui->);
+    //_quote->setContributories(->getContributories());
     _quote->commit();
     QDialog::accept();
 }
