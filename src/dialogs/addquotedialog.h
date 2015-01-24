@@ -21,7 +21,7 @@ public:
      * @brief AddQuoteDialog Construct a windows AddQuoteDialog
      * @param parent QWidget of the current windows
      */
-    explicit AddQuoteDialog(QWidget *parent = 0);
+    explicit AddQuoteDialog(int idCustomer = 0, int id = 0, QWidget *parent = 0);
     ~AddQuoteDialog();
 
     /**

@@ -1,18 +1,28 @@
+#include "QDebug"
 #include "addquotedialog.h"
 #include "ui_addquotedialog.h"
 #include "widgets/contributorieswidget.h"
 
-AddQuoteDialog::AddQuoteDialog(QWidget *parent) :
+AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     QDialog(parent),
     _quote(0),
     ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
-    _quote = new Billing(false);
-    ui->wdgContributories = new ContributoriesWidget(new Customer(1), this);
+    id = 1;     // WARNING
+    if (id != 0) {
+        _quote = new Billing(id);
+        qDebug() << _quote->getTitle();
+        fillFields();
+        //setWindowTitle("Modifier le client "+_custom->getCompany());
+    } else {
+        _quote = new Billing();
+    }
+    _quote->setId(id);
+    _quote->setIsBilling(false);
+
+    ui->wdgContributories = new ContributoriesWidget(new Customer(idCustomer), this);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
-
-
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -22,34 +32,16 @@ AddQuoteDialog::~AddQuoteDialog()
 }
 
 void AddQuoteDialog::fillFields() {
-    /*ui->leLastNameReferent->setText(_custom->getLastnameReferent());
-    ui->leFirstNameReferent->setText(_custom->getFirstnameReferent());
-    ui->leCompany->setText(_custom->getCompany());
-    ui->leAddress->setText(_custom->getAddress());
-    ui->leCity->setText(_custom->getCity());
-    ui->lePostalCode->setText(_custom->getPostalCode());
-    ui->leCountry->setText(_custom->getCountry());
-    ui->leEmail->setText(_custom->getEmail());
-    ui->lePhone->setText(_custom->getPhone());
-    ui->leMobilePhone->setText(_custom->getMobilePhone());
-    ui->leFax->setText(_custom->getFax());*/
+    ui->leQuoteTitle->setText(_quote->getTitle());
 }
 
 void AddQuoteDialog::accept() {
+    _quote->setTitle(ui->leQuoteTitle->text());
+    _quote->setTitle(ui->leDescription->toPlainText());
 
-    /*_custom->setLastnameReferent(ui->leLastNameReferent->text());
-    _custom->setFirstnameReferent(ui->leFirstNameReferent->text());
-    _custom->setCompany(ui->leCompany->text());
-    _custom->setAddress(ui->leAddress->text());
-    _custom->setCity(ui->leCity->text());
-    _custom->setPostalCode(ui->lePostalCode->text());
-    _custom->setCountry(ui->leCountry->text());
-    _custom->setEmail(ui->leEmail->text());
-    _custom->setPhone(ui->lePhone->text());
-    _custom->setMobilePhone(ui->leMobilePhone->text());
-    _custom->setFax(ui->leFax->text());
+    // TODO Implements me !
 
-    _custom->commit();*/
+    _quote->commit();
     QDialog::accept();
 }
 

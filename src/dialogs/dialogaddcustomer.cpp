@@ -3,8 +3,8 @@
 
 DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DialogAddCustomer),
-    _custom(0)
+    _custom(0),
+    ui(new Ui::DialogAddCustomer)
 {
     ui->setupUi(this);
     if (id != 0) {

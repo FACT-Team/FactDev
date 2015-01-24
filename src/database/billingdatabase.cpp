@@ -21,24 +21,25 @@ BillingDatabase* BillingDatabase::instance()throw(DbException*)
 Billing* BillingDatabase::getBilling(const int pId) {
     QSqlQuery q;
     Billing* billing;
-
-    /*q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
+    qDebug() << "test" << pId;
+    q.prepare("SELECT * FROM Billing WHERE idBilling = :pId");
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le Customer",
-            "BddCustomer::getCustomer",
+            "Impossible d'ajouter le/la devis/facture",
+            "BddBilling::getBilling",
             lastError(q),
             1.2);
     }
 
     if(q.first()) {
-        customer = new Customer();
-        customer->setId(value(q, "idCustomer").toInt());
+        billing = new Billing();
+        billing->setId(value(q, "idBilling").toInt());
+        billing->setTitle(value(q, "title").toString());
     } else {
-        customer = NULL;
-    }*/
+        billing = NULL;
+    }
 
     return billing;
 }
@@ -46,17 +47,17 @@ Billing* BillingDatabase::getBilling(const int pId) {
 
 int BillingDatabase::addBilling(const Billing& pBilling) {
     QSqlQuery q;
-
-    /*q.prepare(
-        "INSERT INTO Customer "
-        "(firstnameReferent, lastnameReferent, company, address, "
-        "postalCode, city, country, email, mobilePhone, phone, fax)"
+    q.prepare(
+        "INSERT INTO Billing "
+        "(title, number, isBilling, date)"
         " VALUES "
-        "(:firstnameReferent, :lastnameReferent, :company, :address, "
-        ":postalCode, :city, :country, :email, :mobilePhone, :phone, :fax)"
+        "(:title, :number, :isBilling, :date)"
     );
 
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":title", pBilling.getTitle());
+    q.bindValue(":number", pBilling.getNumber());
+    q.bindValue(":isBilling", pBilling.isBilling());
+    q.bindValue(":date", pBilling.getDate());
 
     if(!q.exec()) {
         throw new DbException(
@@ -66,8 +67,7 @@ int BillingDatabase::addBilling(const Billing& pBilling) {
             1.3);
     }
 
-    return q.lastInsertId().toInt();*/
-    return 0;
+    return q.lastInsertId().toInt();
 }
 
 void BillingDatabase::updateBilling(const Billing& pBilling) {

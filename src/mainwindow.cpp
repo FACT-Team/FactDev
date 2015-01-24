@@ -110,9 +110,11 @@ void MainWindow::openCustomer()
 
 void MainWindow::addQuote()
 {
-    AddQuoteDialog win;
-    if(win.exec()) {
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        AddQuoteDialog winAddQuote(getCurrentCustomerId());
+        if(winAddQuote.exec()) {
 
+        }
     }
 }
 
