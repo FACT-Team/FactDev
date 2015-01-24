@@ -49,6 +49,7 @@ public:
      */
     void removeBilling(const int pId);
 
+    void addBillingProject(const int idProject, const int idBilling, const int idContributory);
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase
 

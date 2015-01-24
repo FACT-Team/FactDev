@@ -59,7 +59,7 @@ public:
      * @param p The Project who contain Contributory
      * @param c The new Contributory
      */
-    void addContributory(Contributory c);
+    void addContributory(Contributory &c);
 
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>

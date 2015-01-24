@@ -12,6 +12,15 @@ Billing::Billing(int id)
 
 void Billing::commit()
 {
+    Database::instance()->openTransaction();
+    bool insert = _id == 0;
+    if(insert) {
+        _id = BillingDatabase::instance()->addBilling(*this);
+    } else if(_toRemoved){
+        remove();
+    } else {
+        BillingDatabase::instance()->updateBilling(*this);
+    }
 
     // Commits contributories and projects
     // it's dirty… But it's work… but it's dirty… but it's work… TODO, clean it ?
@@ -20,16 +29,17 @@ void Billing::commit()
         ((Project*)(it.key()))->commit();
         for(Contributory* c : *((QList<Contributory*>*)(it.value()))) {
             c->commit();
+
+
+            // Fill trinary legs… :)
+            if(insert) {
+                BillingDatabase::instance()->addBillingProject(((Project*)it.key())->getId(),
+                                                                _id,
+                                                               c->getId());
+            }
         }
     }
-
-//    if(_id == 0) {
-//        _id = BillingDatabase::instance()->addBilling(*this);
-//    } else if(_toRemoved){
-//        remove();
-//    } else {
-//        BillingDatabase::instance()->updateBilling(*this);
-//    }
+    Database::instance()->closeTransaction();
 }
 
 void Billing::hydrat(int id)
@@ -59,7 +69,7 @@ void Billing::setContributories(QMap<Project*, QList<Contributory*>*> contributo
     _contributories = contributories;
 }
 
-void Billing::addContributory(Contributory c)
+void Billing::addContributory(Contributory& c)
 {
     if(_contributories.value(c.getProject()) == NULL) {
         _contributories.insert(c.getProject(), new QList<Contributory*>);

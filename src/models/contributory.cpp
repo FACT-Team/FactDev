@@ -13,7 +13,7 @@ void Contributory::commit()
 {
     // TODO implement me !
     if(_id == 0) {
-        ContributoryDatabase::instance()->addContributory(*this);
+        _id = ContributoryDatabase::instance()->addContributory(*this);
     } else if(_toRemoved) {
         remove();
     } else {

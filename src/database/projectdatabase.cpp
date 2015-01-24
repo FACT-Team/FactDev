@@ -76,12 +76,13 @@ int ProjectDatabase::addProject(const Project &pProject)
 
 void ProjectDatabase::updateProject(const Project &pProject)
 {
-
     QSqlQuery q;
+
+    // N.B: We can't change the customer of a project.
+    // Function transfer maybe later.
     q.prepare(
         "UPDATE Project SET "
-        "name = :name, description = :description, dailyRate = :dailyRate, "
-        "idCustomer = :idCustomer "
+        "name = :name, description = :description, dailyRate = :dailyRate "
         "WHERE idProject= :idProject");
 
     q.bindValue(":idProject", pProject.getId());
@@ -89,7 +90,6 @@ void ProjectDatabase::updateProject(const Project &pProject)
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
     q.bindValue(":dailyRate", pProject.getDailyRate());
-//    q.bindValue(":idProject", pProject.getCustomer()->getId());
 
 
     if(!q.exec()) {

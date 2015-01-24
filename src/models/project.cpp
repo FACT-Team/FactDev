@@ -17,6 +17,7 @@ Project::Project(int id)
 {
     _id = id;
     _toRemoved = false;
+    hydrat(id);
 }
 
 void Project::commit() {
@@ -31,7 +32,11 @@ void Project::commit() {
 
 void Project::hydrat(int id)
 {
-    // TODO implement me !
+    Project* p = ProjectDatabase::instance()->getProject(id);
+    _name = p->getName();
+    _description = p->getDescription();
+    _dailyRate = p->getDailyRate();
+    _customer = p->getCustomer();
 }
 
 void Project::remove()

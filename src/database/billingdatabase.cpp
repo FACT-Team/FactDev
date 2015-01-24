@@ -70,6 +70,26 @@ int BillingDatabase::addBilling(const Billing& pBilling) {
     return q.lastInsertId().toInt();
 }
 
+void BillingDatabase::addBillingProject(const int idProject, const int idBilling, const int idContributory) {
+    QSqlQuery q;
+    q.prepare(
+        "INSERT INTO BillingProject "
+        "(idProject, idBilling, idContributory) VALUES "
+        "(:idProject, :idBilling, :idContributory)"
+    );
+    q.bindValue(":idProject", idProject);
+    q.bindValue(":idBilling", idBilling);
+    q.bindValue(":idContributory", idContributory);
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'ajouter le Customer",
+            "BddCustomer::addCustomer",
+            lastError(q),
+            1.3);
+    }
+
+}
+
 void BillingDatabase::updateBilling(const Billing& pBilling) {
 
     QSqlQuery q;
