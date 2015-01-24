@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>AddQuoteDialog</class>
  <widget class="QDialog" name="AddQuoteDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>488</width>
+    <height>371</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Devis n°XX</string>
   </property>
@@ -77,10 +85,23 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>80</height>
+      </size>
+     </property>
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QDateEdit" name="dateEditQuote"/>
+    <widget class="QDateEdit" name="dateEditQuote">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="calendarPopup">
+      <bool>false</bool>
+     </property>
+    </widget>
    </item>
    <item row="5" column="0" colspan="2">
     <widget class="QWidget" name="wdgContributories" native="true"/>
