@@ -20,7 +20,9 @@ ContributoriesWidget::ContributoriesWidget(Customer*c, QWidget *parent) :
    // _model->append(c);
     ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);
 
-
+    ui->tblContributories->setColumnWidth(0, 150);
+    ui->tblContributories->setColumnWidth(1, 350);
+    ui->tblContributories->setColumnWidth(2, 150);
 }
 
 ContributoriesWidget::~ContributoriesWidget()

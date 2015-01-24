@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>590</width>
     <height>300</height>
    </rect>
   </property>
@@ -17,14 +17,22 @@
    <item row="1" column="1">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string>+</string>
+      <string>Ajouter une prestation</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons.qrc">
+       <normaloff>:/icons/img/add_contributory.png</normaloff>:/icons/img/add_contributory.png</iconset>
      </property>
     </widget>
    </item>
    <item row="1" column="2">
     <widget class="QPushButton" name="pushButton_2">
      <property name="text">
-      <string>-</string>
+      <string>Supprimer la prestation</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../icons.qrc">
+       <normaloff>:/icons/img/remove_contributory.png</normaloff>:/icons/img/remove_contributory.png</iconset>
      </property>
     </widget>
    </item>
@@ -46,7 +54,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton</sender>
