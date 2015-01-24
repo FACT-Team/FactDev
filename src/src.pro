@@ -58,7 +58,8 @@ SOURCES += mainwindow.cpp \
     widgets/contributorieswidget.cpp \
     widgets/widgetsmodels/contributoriestablemodel.cpp \
     widgets/delegates/projectcombodelegate.cpp \
-    database/billingdatabase.cpp
+    database/billingdatabase.cpp \
+    database/contributorydatabase.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -106,7 +107,8 @@ HEADERS  += mainwindow.h \
     widgets/contributorieswidget.h \
     widgets/widgetsmodels/contributoriestablemodel.h \
     widgets/delegates/projectcombodelegate.h \
-    database/billingdatabase.h
+    database/billingdatabase.h \
+    database/contributorydatabase.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

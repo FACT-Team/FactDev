@@ -89,7 +89,7 @@ void ProjectDatabase::updateProject(const Project &pProject)
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
     q.bindValue(":dailyRate", pProject.getDailyRate());
-    q.bindValue(":idProject", pProject.getCustomer()->getId());
+//    q.bindValue(":idProject", pProject.getCustomer()->getId());
 
 
     if(!q.exec()) {
