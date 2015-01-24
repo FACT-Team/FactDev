@@ -41,6 +41,10 @@ void AddQuoteDialog::accept() {
     _quote->setTitle(ui->leQuoteTitle->text());
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
+
+    for(Contributory c : ((ContributoriesWidget*)ui->wdgContributories)->getContributories()) {
+        _quote->addContributory(c);
+    }
     //_quote->setContributories(->getContributories());
     _quote->commit();
     QDialog::accept();

@@ -23,13 +23,13 @@ void Billing::commit()
         }
     }
 
-    if(_id == 0) {
-        _id = BillingDatabase::instance()->addBilling(*this);
-    } else if(_toRemoved){
-        remove();
-    } else {
-        BillingDatabase::instance()->updateBilling(*this);
-    }
+//    if(_id == 0) {
+//        _id = BillingDatabase::instance()->addBilling(*this);
+//    } else if(_toRemoved){
+//        remove();
+//    } else {
+//        BillingDatabase::instance()->updateBilling(*this);
+//    }
 }
 
 void Billing::hydrat(int id)

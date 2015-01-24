@@ -1,22 +1,23 @@
 #include "contributory.h"
-
+#include "database/contributorydatabase.h"
 Contributory::Contributory()
 {
     _description = "";
     _nbHours = 0.;
+    _id = 0;
+    _toRemoved = false;
     project = new Project();
 }
 
 void Contributory::commit()
 {
     // TODO implement me !
-
     if(_id == 0) {
-        // TODO insert
+        ContributoryDatabase::instance()->addContributory(*this);
     } else if(_toRemoved) {
         remove();
     } else {
-        //  TODO update
+        ContributoryDatabase::instance()->updateContributory(*this);
     }
 }
 
@@ -27,7 +28,7 @@ void Contributory::hydrat(int id)
 
 void Contributory::remove()
 {
-    // TODO implement me !
+    ContributoryDatabase::instance()->removeContributory(_id);
 }
 
 Project* Contributory::getProject() const

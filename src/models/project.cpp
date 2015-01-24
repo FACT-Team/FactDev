@@ -2,16 +2,21 @@
 #include "database/projectdatabase.h"
 Project::Project()
 {
+    _id = 0;
+    _toRemoved = false;
 }
 
 Project::Project(QString name)
 {
+    _id = 0;
+    _toRemoved = false;
     _name = name;
 }
 
 Project::Project(int id)
 {
     _id = id;
+    _toRemoved = false;
 }
 
 void Project::commit() {
