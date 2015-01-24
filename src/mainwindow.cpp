@@ -115,6 +115,9 @@ void MainWindow::addQuote()
         if(winAddQuote.exec()) {
 
         }
+    } else {
+        Popup *p = new Popup();
+        p->toImplement("\nVeuillez sélectionner un client", this);
     }
 }
 

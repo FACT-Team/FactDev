@@ -9,11 +9,11 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
-    id = 1;     // WARNING
     if (id != 0) {
-        _quote = new Billing(id);
-        qDebug() << _quote->getTitle();
-        fillFields();
+        // WARNING : Possibility to update a quote ?
+
+        //_quote = new Billing(id);
+        //fillFields();
         //setWindowTitle("Modifier le client "+_custom->getCompany());
     } else {
         _quote = new Billing();
@@ -32,15 +32,15 @@ AddQuoteDialog::~AddQuoteDialog()
 }
 
 void AddQuoteDialog::fillFields() {
+    // WARNING : Possibility to update a quote ?
     ui->leQuoteTitle->setText(_quote->getTitle());
 }
 
 void AddQuoteDialog::accept() {
     _quote->setTitle(ui->leQuoteTitle->text());
-    _quote->setTitle(ui->leDescription->toPlainText());
-
-    // TODO Implements me !
-
+    _quote->setDescription(ui->leDescription->toPlainText());
+    _quote->setDate(ui->dateEditQuote->date());
+    //_quote->setContributories( ui->);
     _quote->commit();
     QDialog::accept();
 }

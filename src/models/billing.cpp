@@ -26,6 +26,7 @@ void Billing::hydrat(int id)
     _id = id;
     Billing *quote = BillingDatabase::instance()->getBilling(id);
     _title = quote->getTitle();
+    _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();
     _contributories = quote->getContributories();
@@ -42,6 +43,11 @@ QMap<Project*, QList<Contributory*>*> Billing::getContributories() const
     return _contributories;
 }
 
+void Billing::setContributories(QMap<Project*, QList<Contributory*>*> contributories)
+{
+    _contributories = contributories;
+}
+
 void Billing::addContributories(Project* p, Contributory* c)
 {
     _contributories.value(p)->push_back(c);
@@ -56,6 +62,17 @@ void Billing::setTitle(const QString &title)
 {
     _title = title;
 }
+
+QString Billing::getDescription() const
+{
+    return _description;
+}
+
+void Billing::setDescription(const QString &description)
+{
+    _description = description;
+}
+
 int Billing::getNumber() const
 {
     return _number;

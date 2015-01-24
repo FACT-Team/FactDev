@@ -52,6 +52,8 @@ public:
      */
     QMap<Project *, QList<Contributory*>*> getContributories() const;
 
+    void setContributories(QMap<Project*, QList<Contributory*>*> contributories);
+
     /**
      * @brief addContributories Add a new contributory for project p
      * @param p The Project who contain Contributory
@@ -70,6 +72,18 @@ public:
      * @param getTitle Modify the title with <i>getTitle</i>
      */
     void setTitle(const QString &getTitle);
+
+    /**
+     * @brief Billing::getDescription. return description of <b>Billing</b>
+     * @return description of Billing
+     */
+    QString getDescription() const;
+
+    /**
+     * @brief Billing::setDescription. Modify the description of <b>Billing</b>
+     * @param getDescription Modify the description with <i>getDescription</i>
+     */
+    void setDescription(const QString &getDescription);
 
     /**
      * @brief Billing::getNumber. Return number of the <b>Billing</b>.
@@ -109,11 +123,12 @@ public:
     void setDate(const QDate &getDate);
 
 private:
-    QMap<Project*,QList<Contributory*>*> _contributories; //!< List of contributories
-    QString _title;     //!< Title of billing
-    int _number;        //!< Number of billing
-    bool _isBilling;    //!< Is a billing… Or if a quote
-    QDate _date;        //!< Date for billing
+    QMap<Project*,QList<Contributory*>*> _contributories;   //!< List of contributories
+    QString _title;                                         //!< Title of billing
+    QString _description;
+    int _number;                                            //!< Number of billing
+    bool _isBilling;                                        //!< Is a billing… Or if a quote
+    QDate _date;                                            //!< Date for billing
 
 
 };
