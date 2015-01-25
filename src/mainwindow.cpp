@@ -313,6 +313,8 @@ void MainWindow::projectsCustomersTableTree()
     else if(index.model()->hasChildren()) { //si client
         ui->stackedWidget->setCurrentIndex(1);
         changeProjectsTable();
+        ui->trCustomers->collapseAll();
+        ui->trCustomers->expand(index);
     }
 
     //TO DO: traiter lorqu'on clique sur un projet

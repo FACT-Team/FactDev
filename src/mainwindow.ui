@@ -890,7 +890,7 @@ border: 1px solid #bbb;</string>
   </connection>
   <connection>
    <sender>trCustomers</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
+   <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
    <slot>projectsCustomersTableTree()</slot>
    <hints>
