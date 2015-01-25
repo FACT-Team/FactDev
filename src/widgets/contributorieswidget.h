@@ -24,6 +24,7 @@ public:
      * @return
      */
     QList<Contributory> getContributories() const;
+    int count();
 public slots:
     /**
      * @brief add Add a new empty contributory
@@ -34,6 +35,9 @@ public slots:
      * @brief remove Remove the current contributory
      */
     void remove(void);
+
+signals:
+    void contributoryChanged();
 private:
     Ui::ContributoriesWidget *ui;
     ContributoriesTableModel* _model;

@@ -8,6 +8,7 @@
 #include "models/search.h"
 #include "widgets/popup.h"
 #include "dialogs/addprojectdialog.h"
+#include "dialogs/addquotedialog.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -109,6 +110,22 @@ void MainWindow::openCustomer()
     int id = getCurrentCustomerId();
     ui->wdgCustomerData->printInformations(id);
 }
+
+
+void MainWindow::addQuote()
+{
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        AddQuoteDialog winAddQuote(getCurrentCustomerId());
+        if(winAddQuote.exec()) {
+
+        }
+    } else {
+        Popup *p = new Popup();
+        p->toImplement("\nVeuillez sélectionner un client", this);
+    }
+}
+
+
 
 void MainWindow::editUser()
 {

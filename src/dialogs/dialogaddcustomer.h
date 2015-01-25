@@ -21,7 +21,7 @@ public:
      * @param id Customer id
      * @param parent QWidget parent
      */
-    explicit DialogAddCustomer(int id=0, QWidget *parent = 0);
+    explicit DialogAddCustomer(int id = 0, QWidget *parent = 0);
     ~DialogAddCustomer();
 
     /**

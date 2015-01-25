@@ -38,14 +38,14 @@ public:
      * Contributory
      * @return Project linked to this Contributory
      */
-    Project getProject() const;
+    Project* getProject() const;
 
     /**
      * @brief Contributory::setProject Modify the identify <i>id</i> of the
      *  Project linke to this Contributory
      * @param id Project Identify
      */
-    void setProject(const Project &id);
+    void setProject(Project *id);
 
     double getNbHours() const;
     void setNbHours(double value);
@@ -54,7 +54,7 @@ public:
     void setDescription(const QString &getDescription);
 
 private:
-    Project project;    //!<
+    Project* project;    //!<
     double _nbHours;
     QString _description;
 };

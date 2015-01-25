@@ -114,7 +114,6 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
 }
 
 Customer* CustomerDatabase::getCustomer(const int pId) {
-    // TODO implement me !
     QSqlQuery q;
     Customer* customer;
 

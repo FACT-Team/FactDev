@@ -1,39 +1,78 @@
 #include "billing.h"
+#include "database/billingdatabase.h"
 
 Billing::Billing()
 {
 }
 
+Billing::Billing(int id)
+{
+    hydrat(id);
+}
+
 void Billing::commit()
 {
-    // TODO implement me !
-
-    if(_id == 0) {
-        // TODO insert
-    } else if(_toRemoved) {
+    Database::instance()->openTransaction();
+    bool insert = _id == 0;
+    if(insert) {
+        _id = BillingDatabase::instance()->addBilling(*this);
+    } else if(_toRemoved){
         remove();
     } else {
-        //  TODO update
+        BillingDatabase::instance()->updateBilling(*this);
     }
+
+    // Commits contributories and projects
+    auto end = _contributories.cend();
+    for (auto it = _contributories.cbegin(); it != end; ++it) {
+        ((Project*)(it.key()))->commit();
+        for(Contributory c : *(it.value())) {
+            c.commit();
+
+            // Fill trinary legs… :)
+            if(insert) {
+                BillingDatabase::instance()->addBillingProject(((Project*)it.key())->getId(),
+                                                                _id,
+                                                               c.getId());
+            }
+        }
+    }
+    Database::instance()->closeTransaction();
 }
 
 void Billing::hydrat(int id)
 {
-    // TODO implement me !
+    _id = id;
+    Billing *quote = BillingDatabase::instance()->getBilling(id);
+    _title = quote->getTitle();
+    _description = quote->getDescription();
+    _number = quote->getNumber();
+    _date = quote ->getDate();
+    _contributories = quote->getContributories();
+
 }
 
 void Billing::remove()
 {
-    // TODO implement me !
+    BillingDatabase::instance()->removeBilling(_id);
 }
-QMap<Project*, QList<Contributory*>*> Billing::getContributories() const
+
+QMap<Project*, QList<Contributory>*> Billing::getContributories() const
 {
     return _contributories;
 }
 
-void Billing::addContributories(Project* p, Contributory* c)
+void Billing::setContributories(QMap<Project*, QList<Contributory>*> contributories)
 {
-    _contributories.value(p)->push_back(c);
+    _contributories = contributories;
+}
+
+void Billing::addContributory(Contributory& c)
+{
+    if(_contributories.value(c.getProject()) == NULL) {
+        _contributories.insert(c.getProject(), new QList<Contributory>);
+    }
+    _contributories.value(c.getProject())->push_back(c);
 }
 
 QString Billing::getTitle() const
@@ -45,6 +84,17 @@ void Billing::setTitle(const QString &title)
 {
     _title = title;
 }
+
+QString Billing::getDescription() const
+{
+    return _description;
+}
+
+void Billing::setDescription(const QString &description)
+{
+    _description = description;
+}
+
 int Billing::getNumber() const
 {
     return _number;
@@ -63,6 +113,7 @@ void Billing::setIsBilling(bool isBilling)
 {
     _isBilling = isBilling;
 }
+
 QDate Billing::getDate() const
 {
     return _date;

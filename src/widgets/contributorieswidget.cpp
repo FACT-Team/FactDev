@@ -14,6 +14,10 @@ ContributoriesWidget::ContributoriesWidget(Customer*c, QWidget *parent) :
     ui->tblContributories->setItemDelegateForColumn(0, delegate);
     ui->tblContributories->setModel(_model);
     ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);
+    ui->tblContributories->setColumnWidth(0, 150);
+    ui->tblContributories->setColumnWidth(1, 350);
+    ui->tblContributories->setColumnWidth(2, 150);
+    emit contributoryChanged();
 }
 
 ContributoriesWidget::~ContributoriesWidget()
@@ -29,10 +33,17 @@ QList<Contributory> ContributoriesWidget::getContributories() const
 void ContributoriesWidget::add()
 {
     _model->append(Contributory());
+    emit contributoryChanged();
 }
 
 void ContributoriesWidget::remove()
 {
-    _model->remove(ui->tblContributories->currentIndex().row());
+    if (ui->tblContributories->selectionModel()->hasSelection()) {
+        _model->remove(ui->tblContributories->currentIndex().row());
+    }
+    emit contributoryChanged();
 }
 
+int ContributoriesWidget::count() {
+    return _model->count();
+}
