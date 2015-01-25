@@ -193,6 +193,7 @@ void MainWindow::updateTableProjects(const int pId)
 {
     ui->tblProjects->setModel(
                 ProjectDatabase::instance()->getProjectsTable(pId));
+    ui->tblProjects->hideColumn(0);
 }
 
 void MainWindow::updateTree(QString filter)
@@ -308,6 +309,10 @@ void MainWindow::projectsCustomersTableTree()
 
     if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
         ui->stackedWidget->setCurrentIndex(0);
+    else if(index.model()->hasChildren()) { //si client
+        ui->stackedWidget->setCurrentIndex(1);
+        changeProjectsTable();
+    }
 
-    //TO DO: traiter lorqu'on clique sur un projet ou sur un client
+    //TO DO: traiter lorqu'on clique sur un projet
 }
