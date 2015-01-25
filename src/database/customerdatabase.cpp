@@ -120,10 +120,11 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
             item = new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
 
 
-         while(q2.next())
-             //qDebug() << q2.isNull("name"); //value(q2,"idCustomer").toString();
-            item->appendRow(new QStandardItem(value(q2,"name").toString()));
-
+         while(q2.next()) {
+            QStandardItem *child = new QStandardItem(value(q2,"name").toString());
+            child->setIcon(QIcon(":icons/img/project"));
+            item->appendRow(child);
+         }
 
         item->setIcon(QIcon(":icons/customer"));
 
