@@ -38,7 +38,8 @@ public:
      * @brief reject Cancel the operation and close the windows
      */
     void reject();
-
+public slots:
+    void updateBtn(void);
 private:
     Billing *_quote; //!< The quote
     Ui::AddQuoteDialog *ui;

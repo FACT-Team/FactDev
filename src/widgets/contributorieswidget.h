@@ -20,9 +20,13 @@ public:
     ~ContributoriesWidget();
 
     QList<Contributory> getContributories() const;
+    int count();
 public slots:
     void add(void);
     void remove(void);
+
+signals:
+    void contributoryChanged();
 private:
     Ui::ContributoriesWidget *ui;
     ContributoriesTableModel* _model;
