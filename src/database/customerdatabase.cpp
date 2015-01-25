@@ -98,12 +98,32 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
 
     while(q.next()) {
         QStandardItem* item;
+        QSqlQuery q2;
+
+        q2.prepare("SELECT *"
+                   "FROM Project WHERE idCustomer = :idCustom");
+        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
+
+        if(!q2.exec()) {
+            throw new DbException(
+                "Impossible d'obtenir la liste des Projects",
+                "CustomerDatabase::getCustomersTree",
+                lastError(q),
+                1.1);
+        }
 
         if(value(q,"company").toString().isEmpty())
             item = new QStandardItem(value(q, "lastnameReferent").toString().toUpper()+" "+
                                      Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
         else
             item = new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
+
+
+         while(q2.next()) {
+            QStandardItem *child = new QStandardItem(value(q2,"name").toString());
+            child->setIcon(QIcon(":icons/img/project"));
+            item->appendRow(child);
+         }
 
         item->setIcon(QIcon(":icons/customer"));
 

@@ -178,7 +178,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -388,6 +388,9 @@ border: 1px solid #bbb;</string>
        <property name="editTriggers">
         <set>QAbstractItemView::NoEditTriggers</set>
        </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
     </layout>
@@ -589,7 +592,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>140</y>
+     <y>128</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -608,8 +611,8 @@ border: 1px solid #bbb;</string>
      <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>158</x>
-     <y>204</y>
+     <x>157</x>
+     <y>191</y>
     </hint>
    </hints>
   </connection>
@@ -624,8 +627,8 @@ border: 1px solid #bbb;</string>
      <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>151</x>
-     <y>231</y>
+     <x>150</x>
+     <y>225</y>
     </hint>
    </hints>
   </connection>
@@ -652,8 +655,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>261</x>
-     <y>231</y>
+     <x>209</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -829,7 +832,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>122</x>
-     <y>572</y>
+     <y>559</y>
     </hint>
     <hint type="destinationlabel">
      <x>-206</x>
@@ -917,6 +920,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>trCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>projectsCustomersTableTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>161</x>
+     <y>499</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>637</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -938,5 +957,6 @@ border: 1px solid #bbb;</string>
   <slot>changeProjectsTable()</slot>
   <slot>backToCustomersTable()</slot>
   <slot>addQuote()</slot>
+  <slot>projectsCustomersTableTree()</slot>
  </slots>
 </ui>

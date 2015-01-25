@@ -210,6 +210,7 @@ void MainWindow::updateTableProjects(const int pId)
 {
     ui->tblProjects->setModel(
                 ProjectDatabase::instance()->getProjectsTable(pId));
+    ui->tblProjects->hideColumn(0);
 }
 
 void MainWindow::updateTree(QString filter)
@@ -305,13 +306,31 @@ void MainWindow::changeProjectsTable()
     updateTableProjects(id);
     ui->tblProjects->hideColumn(0);
     ui->tblProjects->setColumnWidth(0, 100);
-    ui->tblProjects->setColumnWidth(1, 200);
-    ui->tblProjects->setColumnWidth(2, 100);
-    ui->tblProjects->setColumnWidth(3, 100);
+    ui->tblProjects->setColumnWidth(1, 150);
+    ui->tblProjects->setColumnWidth(2, 200);
+    ui->tblProjects->setColumnWidth(3, 125);
+    ui->tblProjects->setColumnWidth(4, 125);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::projectsCustomersTableTree()
+{
+
+    QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
+
+    if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
+        ui->stackedWidget->setCurrentIndex(0);
+    else if(index.model()->hasChildren()) { //si client
+        ui->stackedWidget->setCurrentIndex(1);
+        changeProjectsTable();
+        ui->trCustomers->collapseAll();
+        ui->trCustomers->expand(index);
+    }
+
+    //TO DO: traiter lorqu'on clique sur un projet
 }
