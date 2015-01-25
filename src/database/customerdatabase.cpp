@@ -102,7 +102,6 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
 
         q2.prepare("SELECT *"
                    "FROM Project WHERE idCustomer = :idCustom");
-        //qDebug() << value(q, "idCustomer").toInt();
         q2.bindValue(":idCustom",value(q, "idCustomer").toString());
 
         if(!q2.exec()) {

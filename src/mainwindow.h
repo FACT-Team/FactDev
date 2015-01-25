@@ -124,9 +124,14 @@ private slots:
      */
     void changeProjectsTable();
     /**
-     * @brief MainWindow::backToCustomersTable display the customers table
+     * @brief MainWindow::backToCustomersTable displays the customers table
      */
     void backToCustomersTable();
+    /**
+     * @brief MainWindow::projectsCustomersTableTree displays projects of a customer
+     * or all customers
+     */
+    void projectsCustomersTableTree();
 
 private:
     /**

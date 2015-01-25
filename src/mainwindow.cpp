@@ -298,3 +298,16 @@ void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+void MainWindow::projectsCustomersTableTree()
+{
+
+    QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
+
+    qDebug() << index.data(Qt::DisplayRole).toString();
+
+    if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
+        ui->stackedWidget->setCurrentIndex(0);
+
+    //TO DO: traiter lorqu'on clique sur un projet ou sur un client
+}
