@@ -178,7 +178,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -233,7 +233,7 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>168</height>
+     <height>161</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -325,7 +325,7 @@ border: 1px solid #bbb;</string>
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>59</height>
+     <height>66</height>
     </size>
    </property>
    <property name="windowTitle">
@@ -572,7 +572,7 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>801</x>
+     <x>784</x>
      <y>534</y>
     </hint>
     <hint type="destinationlabel">
@@ -589,7 +589,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>156</x>
-     <y>173</y>
+     <y>140</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -608,8 +608,8 @@ border: 1px solid #bbb;</string>
      <y>241</y>
     </hint>
     <hint type="destinationlabel">
-     <x>145</x>
-     <y>230</y>
+     <x>158</x>
+     <y>204</y>
     </hint>
    </hints>
   </connection>
@@ -624,8 +624,8 @@ border: 1px solid #bbb;</string>
      <y>241</y>
     </hint>
     <hint type="destinationlabel">
-     <x>138</x>
-     <y>262</y>
+     <x>151</x>
+     <y>231</y>
     </hint>
    </hints>
   </connection>
@@ -636,8 +636,24 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>197</x>
-     <y>230</y>
+     <x>210</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkReferentName</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>search()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>261</x>
+     <y>231</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -670,6 +686,8 @@ border: 1px solid #bbb;</string>
     <hint type="sourcelabel">
      <x>486</x>
      <y>540</y>
+     <x>498</x>
+     <y>534</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -905,5 +923,6 @@ border: 1px solid #bbb;</string>
   <slot>openProjects()</slot>
   <slot>changeProjectsTable()</slot>
   <slot>backToCustomersTable()</slot>
+  <slot>addQuote()</slot>
  </slots>
 </ui>

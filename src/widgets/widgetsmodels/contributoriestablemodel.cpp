@@ -20,7 +20,7 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
     if (role != Qt::DisplayRole && role != Qt::EditRole) return QVariant();
     const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
-    case 0: return contributory.getProject().getId();
+    case 0: return contributory.getProject()->getId();
     case 1: return contributory.getDescription();
     case 2: return contributory.getNbHours();
     default: return QVariant();
@@ -44,7 +44,8 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
-            _contributories[index.row()].setProject(Project(value.toInt()));
+            //_contributories[index.row()].setProject(value.toString());
+            _contributories[index.row()].setProject(new Project(value.toInt()));
             break;
         case 1:
             _contributories[index.row()].setDescription(value.toString());

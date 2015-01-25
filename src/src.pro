@@ -43,6 +43,7 @@ SOURCES += mainwindow.cpp \
     widgets/searchwidget.cpp \
     widgets/customerdatawidget.cpp \
     widgets/projectswidget.cpp \
+    dialogs/addquotedialog.cpp \
     widgets/checkfields/checkqlineedit.cpp \
     widgets/checkfields/checkemail.cpp \
     widgets/checkfields/checkphone.cpp \
@@ -57,6 +58,8 @@ SOURCES += mainwindow.cpp \
     widgets/contributorieswidget.cpp \
     widgets/widgetsmodels/contributoriestablemodel.cpp \
     widgets/delegates/projectcombodelegate.cpp \
+    database/billingdatabase.cpp \
+    database/contributorydatabase.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -88,6 +91,7 @@ HEADERS  += mainwindow.h \
     widgets/searchwidget.h \
     widgets/customerdatawidget.h \
     widgets/projectswidget.h \
+    dialogs/addquotedialog.h \
     widgets/checkfields/ICheckField.h \
     widgets/checkfields/checkqlineedit.h \
     widgets/checkfields/checkemail.h \
@@ -102,7 +106,9 @@ HEADERS  += mainwindow.h \
     widgets/checkfields/checkfieldsletters.h \
     widgets/contributorieswidget.h \
     widgets/widgetsmodels/contributoriestablemodel.h \
-    widgets/delegates/projectcombodelegate.h
+    widgets/delegates/projectcombodelegate.h \
+    database/billingdatabase.h \
+    database/contributorydatabase.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
@@ -114,6 +120,7 @@ FORMS    += mainwindow.ui \
     widgets/searchwidget.ui \
     widgets/customerdatawidget.ui \
     widgets/projectswidget.ui \
+    dialogs/addquotedialog.ui \
     widgets/contributorieswidget.ui
 
 RESOURCES += \
