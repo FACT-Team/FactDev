@@ -289,9 +289,10 @@ void MainWindow::changeProjectsTable()
     updateTableProjects(id);
     ui->tblProjects->hideColumn(0);
     ui->tblProjects->setColumnWidth(0, 100);
-    ui->tblProjects->setColumnWidth(1, 200);
-    ui->tblProjects->setColumnWidth(2, 100);
-    ui->tblProjects->setColumnWidth(3, 100);
+    ui->tblProjects->setColumnWidth(1, 150);
+    ui->tblProjects->setColumnWidth(2, 200);
+    ui->tblProjects->setColumnWidth(3, 125);
+    ui->tblProjects->setColumnWidth(4, 125);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
