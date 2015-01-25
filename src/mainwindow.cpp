@@ -306,8 +306,6 @@ void MainWindow::projectsCustomersTableTree()
 
     QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
 
-    qDebug() << index.data(Qt::DisplayRole).toString();
-
     if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
         ui->stackedWidget->setCurrentIndex(0);
     else if(index.model()->hasChildren()) { //si client
