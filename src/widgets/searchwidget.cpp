@@ -58,7 +58,7 @@ void searchWidget::getCustomerData() {
 
     ui->leCustomer->setText( customer.getFirstnameReferent() + " "
                             + customer.getLastnameReferent());
-    emit clicked();
+    emit selectCustomer();
 }
 
 void searchWidget::updateTable(QString filter) {

@@ -53,8 +53,9 @@ public slots:
      *  in the QTableView and display this data (Firstname, Lastname, Company)
      */
     void getCustomerData();
+
 signals:
-    void clicked();
+    void selectCustomer();
 private:
     Ui::searchWidget *ui;
     void updateTable(QString text="");
