@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QModelIndex>
+#include <QTableView>
+
 namespace Ui {
 class MainWindow;
 }
@@ -24,11 +26,18 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+
     /**
      * @brief MainWindow::getCurrentCustomerId get the selected customer
      * @return id of the selected customer
      */
     int getCurrentCustomerId();
+
+    /**
+     * @brief getCurrentProjectId
+     * @return
+     */
+    int getCurrentProjectId();
     void demo();
 public slots:
     /**
@@ -156,7 +165,10 @@ private:
      * (just client in the first version)
      */
     void updateTree(QString filter="");
+
     void updateUser();
+
+    int getCurrentTableId(QTableView *);
 
     Ui::MainWindow *ui; //!< ui
 };

@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentIndex(0);
     updateTable();
     updateTree();
     ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -42,22 +43,20 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::demo() {
-    /*ui->btnAddProject->setVisible(false);
-=======
-/*void MainWindow::demo() {
-    ui->btnAddProject->setVisible(false);
->>>>>>> a937ef62efe4f960af33cadff1d77df583a75f87
-    ui->actionNewBill->setVisible(false);
-    ui->actionNewQuote->setVisible(false);
-    ui->actResearch->setVisible(false);
-    ui->btnNewProject->hide();
-    ui->actionPrint->setVisible(false);*/
+
+}
+
+int MainWindow::getCurrentTableId(QTableView *tbl) {
+    QModelIndex idCell = tbl>model()->index(tbl->currentIndex().row(), 0);
+    return tbl->model()->itemData(idCell).value(0).toInt();
 }
 
 int MainWindow::getCurrentCustomerId() {
-    QModelIndex idCell =
-        ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
-    return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
+   return getCurrentTableId(ui->tblCustomers);
+}
+
+int MainWindow::getCurrentProjectId() {
+    return getCurrentTableId(ui->tblProjects);
 }
 
 void MainWindow::addCustomer()

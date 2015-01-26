@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1237</width>
-    <height>591</height>
+    <width>1305</width>
+    <height>419</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -107,7 +107,7 @@
          <rect>
           <x>9</x>
           <y>9</y>
-          <width>601</width>
+          <width>1011</width>
           <height>583</height>
          </rect>
         </property>
@@ -154,14 +154,42 @@
             </spacer>
            </item>
            <item row="1" column="0" colspan="2">
-            <widget class="QTableView" name="tblProjects">
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-             <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
-             </property>
-            </widget>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="1" column="1">
+              <widget class="ProjectsWidget" name="wgtProjects" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>24</height>
+                </size>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_9"/>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>615</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QTableView" name="tblProjects">
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
@@ -177,7 +205,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1237</width>
+     <width>1305</width>
      <height>20</height>
     </rect>
    </property>
@@ -556,6 +584,12 @@ border: 1px solid #bbb;</string>
    <class>CustomerDataWidget</class>
    <extends>QWidget</extends>
    <header>widgets/customerdatawidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ProjectsWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/projectswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
