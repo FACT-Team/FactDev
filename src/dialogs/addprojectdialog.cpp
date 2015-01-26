@@ -1,6 +1,7 @@
 #include "dialogs/addprojectdialog.h"
 #include "ui_addprojectdialog.h"
 #include "database/customerdatabase.h"
+#include "mainwindow.h"
 
 AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
     QDialog(parent),
@@ -33,6 +34,7 @@ void AddProjectDialog::accept() {
                     ui->wdgSearch->getCurrentCustomerId()));
 
     _project.commit();
+
     QDialog::accept();
 }
 
