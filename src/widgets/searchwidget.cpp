@@ -7,6 +7,7 @@ searchWidget::searchWidget(QWidget *parent) :
     ui(new Ui::searchWidget)
 {
     ui->setupUi(this);
+    _isCustomerSelected = false;
     updateTable();
 }
 
@@ -51,8 +52,17 @@ void searchWidget::search(QString text)
     }
 }
 
-void searchWidget::updateTable(QString filter)
-{
+void searchWidget::getCustomerData() {
+    _isCustomerSelected = true;
+    Customer customer = Customer(getCurrentCustomerId());
+
+    ui->leCustomer->setText( customer.getFirstnameReferent() + " "
+                            + customer.getLastnameReferent());
+    emit clicked();
+}
+
+void searchWidget::updateTable(QString filter) {
+
     ui->tblSearch->setModel(
                 CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblSearch->hideColumn(0);
@@ -61,4 +71,9 @@ void searchWidget::updateTable(QString filter)
     ui->tblSearch->setColumnWidth(1, 200);
     ui->tblSearch->setColumnWidth(2, 120);
     ui->tblSearch->setColumnWidth(3, 120);
+
+}
+bool searchWidget::isCustomerSelected() const
+{
+    return _isCustomerSelected;
 }

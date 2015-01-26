@@ -7,20 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>530</width>
-    <height>567</height>
+    <height>527</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Ajouter un projet</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="leNameProject">
-     <property name="toolTip">
-      <string>Nom du projet</string>
-     </property>
-    </widget>
-   </item>
    <item row="2" column="0">
     <widget class="QLabel" name="lbDescription">
      <property name="text">
@@ -39,6 +32,9 @@
     <widget class="QTextEdit" name="leDescription">
      <property name="toolTip">
       <string>Description du contenu du projet</string>
+     </property>
+     <property name="placeholderText">
+      <string>Une courte description du projet</string>
      </property>
     </widget>
    </item>
@@ -101,6 +97,16 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="1">
+    <widget class="CheckUntilField" name="leNameProject">
+     <property name="toolTip">
+      <string>Nom du projet</string>
+     </property>
+     <property name="placeholderText">
+      <string>Nom du projet</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -115,6 +121,17 @@
    <extends>QWidget</extends>
    <header>widgets/searchwidget.h</header>
    <container>1</container>
+   <slots>
+    <signal>clicked()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -134,7 +151,7 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>280</x>
+     <x>433</x>
      <y>516</y>
     </hint>
     <hint type="destinationlabel">
@@ -150,7 +167,7 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>366</x>
+     <x>519</x>
      <y>516</y>
     </hint>
     <hint type="destinationlabel">
@@ -159,5 +176,56 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>leNameProject</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leNameProject</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>493</x>
+     <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leNameProject</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AddProjectDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>205</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>627</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgSearch</sender>
+   <signal>clicked()</signal>
+   <receiver>AddProjectDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>310</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>743</x>
+     <y>190</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>checkFields()</slot>
+ </slots>
 </ui>
