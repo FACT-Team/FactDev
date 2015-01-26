@@ -19,6 +19,15 @@
      <property name="toolTip">
       <string>Tarif en euros (€)</string>
      </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="minimum">
+      <double>9.609999999999999</double>
+     </property>
+     <property name="maximum">
+      <double>999.000000000000000</double>
+     </property>
     </widget>
    </item>
    <item row="0" column="2">
@@ -40,6 +49,12 @@
      <property name="toolTip">
       <string>Tarif en euros (€)</string>
      </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
     </widget>
    </item>
   </layout>
@@ -48,7 +63,7 @@
  <connections>
   <connection>
    <sender>sbDailyRate</sender>
-   <signal>valueChanged(double)</signal>
+   <signal>editingFinished()</signal>
    <receiver>RateWidget</receiver>
    <slot>setDailyRate()</slot>
    <hints>
@@ -64,7 +79,7 @@
   </connection>
   <connection>
    <sender>sbHourlyRate</sender>
-   <signal>valueChanged(double)</signal>
+   <signal>editingFinished()</signal>
    <receiver>RateWidget</receiver>
    <slot>setHourlyRate()</slot>
    <hints>
