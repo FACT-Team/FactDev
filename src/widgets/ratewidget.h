@@ -36,25 +36,33 @@ public:
     double getDailyRate();
 
     /**
-     * @brief setDailyRate Set a new value for the daily rate
-     * @param dailyRate The new daily rate
-     */
-    void setDailyRate(double dailyRate);
-
-    /**
      * @brief getHourlyRate
      * @return The hourly rate
      */
     double getHourlyRate();
 
     /**
+     * @brief updateConversionRate Update daily rate or hourly rate
+     */
+    void updateConversionRate();
+public slots:
+    /**
+     * @brief setDailyRate Set a new value for the daily rate
+     * @param dailyRate The new daily rate
+     */
+    void setDailyRate();
+
+    /**
      * @brief setHourlyRate Set a new value for the hourly rate
      * @param hourlyRate The new hourly rate
      */
-    void setHourlyRate(double hourlyRate);
+    void setHourlyRate();
+
+
 
 private:
     Ui::RateWidget *ui; //!<
+    bool _isDailyRateModified;
 };
 
 #endif // RATEWIDGET_H

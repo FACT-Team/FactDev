@@ -14,6 +14,13 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QLabel" name="lbCustomer">
+     <property name="text">
+      <string>Client</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="1">
     <widget class="QLineEdit" name="leSearch">
      <property name="toolTip">
@@ -24,7 +31,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="lbSearch">
      <property name="text">
-      <string>Client</string>
+      <string>Recherche</string>
      </property>
     </widget>
    </item>
@@ -33,10 +40,33 @@
      <property name="toolTip">
       <string>Sélectionner dans le tableau le client associé au projet</string>
      </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="CheckName" name="leCustomer">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CheckName</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkname.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -55,8 +85,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tblSearch</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>searchWidget</receiver>
+   <slot>getCustomerData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblSearch</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>searchWidget</receiver>
+   <slot>getCustomerData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>search(QString)</slot>
+  <slot>getCustomerData()</slot>
  </slots>
 </ui>

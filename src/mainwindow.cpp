@@ -226,6 +226,7 @@ void MainWindow::newProject()
     if(w.exec()) {
 
     }
+    updateTree("");
 }
 
 void MainWindow::aboutQt()

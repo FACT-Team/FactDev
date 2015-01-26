@@ -38,6 +38,9 @@ public:
      * @brief reject Cancel the operation and close the windows
      */
     void reject();
+public slots:
+    void checkFields();
+
 private:
 
     Project _project; //!< The new project to add
