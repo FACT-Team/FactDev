@@ -29,6 +29,11 @@ public:
      * @return id of the selected customer
      */
     int getCurrentCustomerId();
+    /**
+     * @brief MainWindow::getCurrentProjectId get the selected project id
+     * @return id of the selected project
+     */
+    int getCurrentProjectId();
     void demo();
 public slots:
     /**
@@ -157,6 +162,12 @@ private:
      */
     void updateTree(QString filter="");
     void updateUser();
+    /**
+     * @brief MainWindow::updateTableBillings Update the table of
+     * billings view
+     * @param idProject Only billings corresponding to the idProject
+     */
+    void updateTableBillings(const int idProject);
 
     Ui::MainWindow *ui; //!< ui
 };

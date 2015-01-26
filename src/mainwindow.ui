@@ -168,6 +168,23 @@
         </layout>
        </widget>
       </widget>
+      <widget class="QWidget" name="page_3">
+       <widget class="QWidget" name="gridLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>59</x>
+          <y>19</y>
+          <width>571</width>
+          <height>431</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <widget class="QTableView" name="tblQuotes"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -901,10 +918,10 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>326</x>
      <y>664</y>
-	 </hint>
- </hints>
- </connection>
- <connection>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>actionNewQuote</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>

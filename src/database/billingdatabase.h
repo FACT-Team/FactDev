@@ -30,6 +30,15 @@ public:
     Billing *getBilling(const int pId);
 
     /**
+     * @brief BillingDatabase::getBillingsTable Return an item model of billings
+     * for QTableView
+     * @param pId the project id of the billings returned
+     * @throw DbException
+     * @return QStandardItemModel an item model for QTableView
+     */
+    QStandardItemModel* getBillingsTable(const int idProject) throw(DbException*);
+
+    /**
      * @brief BillingDatabase::addBilling Add the billing <i>pBilling</i> to
      * the database
      * @return billing id

@@ -3,6 +3,7 @@
 #include "dialogs/userdatadialog.h"
 #include "database/customerdatabase.h"
 #include "database/projectdatabase.h"
+#include "database/billingdatabase.h"
 #include "dialogs/dialogaddcustomer.h"
 #include "widgets/customercontextualmenu.h"
 #include "models/search.h"
@@ -60,6 +61,13 @@ int MainWindow::getCurrentCustomerId() {
     return ui->tblCustomers->model()->itemData(idCell).value(0).toInt();
 }
 
+int MainWindow::getCurrentProjectId()
+{
+    QModelIndex idCell =
+        ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(), 0);
+    return ui->tblProjects->model()->itemData(idCell).value(0).toInt();
+}
+
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
@@ -103,6 +111,18 @@ void MainWindow::removeCustomer()
 void MainWindow::updateUser()
 {
     ui->wdgUserData->printUserData();
+}
+
+void MainWindow::updateTableBillings(const int idProject)
+{
+    qDebug() << "Update";
+    ui->tblProjects->setModel(
+                BillingDatabase::instance()->getBillingsTable(idProject));
+    ui->tblProjects->hideColumn(0);
+    ui->tblProjects->hideColumn(3);
+    ui->tblProjects->setColumnWidth(1, 200);
+    ui->tblProjects->setColumnWidth(2, 100);
+    ui->tblProjects->setColumnWidth(4, 150);
 }
 
 void MainWindow::openCustomer()
@@ -325,11 +345,17 @@ void MainWindow::projectsCustomersTableTree()
 
     if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
         ui->stackedWidget->setCurrentIndex(0);
-    else if(index.model()->hasChildren()) { //si client
+    else if(index.model()->hasChildren(index)) { //si client
+        qDebug() << "Client";
         ui->stackedWidget->setCurrentIndex(1);
         changeProjectsTable();
         ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
+    }
+    else { //si projet
+        qDebug() << "Projet";
+        ui->stackedWidget->setCurrentIndex(2);
+        updateTableBillings(getCurrentProjectId());
     }
 
     //TO DO: traiter lorqu'on clique sur un projet
