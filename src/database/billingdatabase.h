@@ -48,7 +48,13 @@ public:
      * @param pId billing id
      */
     void removeBilling(const int pId);
-
+    /**
+     * @brief BillingDatabase::addBillingProject Link a project, a billing and
+     * a contributory in the table BillingProject
+     * @param idProject Project id
+     * @param idBilling Billing id
+     * @param idContributory Contributory id
+     */
     void addBillingProject(const int idProject, const int idBilling, const int idContributory);
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase

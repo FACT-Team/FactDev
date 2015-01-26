@@ -136,3 +136,6 @@ OTHER_FILES += \
     sql/tests/contributories.sql \
     sql/tests/projects.sql
 
+DISTFILES += \
+    sql/tests/removeuselessdata.sql
+
