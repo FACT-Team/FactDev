@@ -9,7 +9,7 @@
 #include "widgets/popup.h"
 #include "dialogs/addprojectdialog.h"
 #include "dialogs/addquotedialog.h"
-
+#include "log.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
-    updateTable();
+    updateTableCustomers();
     updateTree();
     ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->trCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -47,7 +47,7 @@ void MainWindow::demo() {
 }
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
-    QModelIndex idCell = tbl>model()->index(tbl->currentIndex().row(), 0);
+    QModelIndex idCell = tbl->model()->index(tbl->currentIndex().row(), 0);
     return tbl->model()->itemData(idCell).value(0).toInt();
 }
 
@@ -63,45 +63,52 @@ void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
     if(win.exec()) {
-        updateTable();
+        updateTableCustomers();
         updateTree();
     }
 }
 
 
-void MainWindow::editCustomer()
-{
+void MainWindow::editCustomer() {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         DialogAddCustomer winAddCustomer(getCurrentCustomerId());
         if(winAddCustomer.exec()) {
-            updateTable();
+            updateTableCustomers();
             updateTree();
         }
     }
 }
 
-void MainWindow::removeCustomer()
-{
-    if (ui->tblCustomers->selectionModel()->hasSelection()) {
-        if(QMessageBox::warning(
-                    this,
-                    "Suppression d'un client",
-                    "Voulez vous supprimer le client sélectionné ? ",
-                    "Supprimer",
-                    "Annuler") == 0)
-        {
-            QModelIndex ls = ui->tblCustomers->selectionModel()->selectedRows().first();
-            int pid = ui->tblCustomers->model()->data(ls,Qt::DisplayRole).toInt();
-            Customer(pid).remove();
-            updateTable();
-            updateTree();
-        }
-    }
+void MainWindow::removeCustomer() {
+    removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
 }
 
 void MainWindow::updateUser()
 {
     ui->wdgUserData->printUserData();
+}
+
+void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
+{
+    if (tbl->selectionModel()->hasSelection()) {
+        if(QMessageBox::warning(
+                    this,
+                    "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
+                    "Voulez vous supprimer " +
+                    (itemType.getType() == ItemType::BILLING ?
+                            "la " +itemType.getName()+" séléctionnée" :
+                            "le "+itemType.getName()+" sélectionné") + " ?",
+                    "Supprimer",
+                    "Annuler") == 0)
+        {
+            QModelIndex ls = tbl->selectionModel()->selectedRows().first();
+            int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
+            itemType.getModel(pid)->remove();
+            updateTableCustomers();
+            updateTree();
+            updateTableProjects();
+        }
+    }
 }
 
 void MainWindow::openCustomer()
@@ -143,7 +150,7 @@ void MainWindow::search(QString text)
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
     s.setText(text);
-    updateTable(s.getFilter());
+    updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
 
     QString styleSearchBackground =
@@ -167,7 +174,7 @@ void MainWindow::search(QString text)
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
     s.setText(text);
-    updateTable(s.getFilter());
+    updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
 }
 
@@ -192,7 +199,8 @@ void MainWindow::openContextualMenuTree(const QPoint point)
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
 
 }
-void MainWindow::updateTable(QString filter)
+
+void MainWindow::updateTableCustomers(QString filter)
 {
     ui->tblCustomers->setModel(
                 CustomerDatabase::instance()->getCustomersTable(filter));
@@ -207,8 +215,12 @@ void MainWindow::updateTable(QString filter)
 
 void MainWindow::updateTableProjects(const int pId)
 {
+    static int lastId = pId;
+    if(pId != 0) {
+        lastId = pId;
+    }
     ui->tblProjects->setModel(
-                ProjectDatabase::instance()->getProjectsTable(pId));
+                ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
 }
 
@@ -226,6 +238,15 @@ void MainWindow::newProject()
 
     }
     updateTree("");
+}
+
+
+void MainWindow::removeProject() {
+    removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
+}
+
+void MainWindow::editProject() {
+
 }
 
 void MainWindow::aboutQt()

@@ -6,12 +6,15 @@
 #include <QModelIndex>
 #include <QTableView>
 
+#include "itemtype.h"
+
 namespace Ui {
 class MainWindow;
 }
 
+
 /**
- * @author
+ * @author Everybody
  * @brief The MainWindow class Main Window of the software
  */
 class MainWindow : public QMainWindow
@@ -84,6 +87,17 @@ public slots:
      * @see AddProjectDialog
      */
     void newProject(void);
+
+    /**
+     * @brief MainWindow::removeProject Remove a project for a customer
+     */
+    void removeProject(void);
+
+    /**
+     * @brief MainWindow::editProject Modify the customer project
+     */
+    void editProject(void);
+
     /**
      * @brief MainWindow::aboutQt show Qt's details
      */
@@ -154,12 +168,12 @@ private:
      * @brief MainWindow::updateTable Update the table view
      * (just client in the first version)
      */
-    void updateTable(QString filter="");
+    void updateTableCustomers(QString filter="");
     /**
      * @brief updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
      */
-    void updateTableProjects(const int pId);
+    void updateTableProjects(const int pId = 0);
     /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)
@@ -167,6 +181,8 @@ private:
     void updateTree(QString filter="");
 
     void updateUser();
+
+    void removeItem(QTableView* tbl, ItemType item);
 
     int getCurrentTableId(QTableView *);
 
