@@ -18,6 +18,22 @@ AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
     emit checkFields();
 }
 
+AddProjectDialog::AddProjectDialog(int idCustomer, int id, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::AddProjectDialog)
+{
+    ui->setupUi(this);
+    ui->wdgSearch->selectCustomer(idCustomer);
+    ui->leNameProject->setFocus();
+    if(id != 0) {
+        _project = Project(id);
+        setWindowTitle("Modifier le projet "+_project.getName());
+    } else {
+        _project = Project();
+    }
+    emit checkFields();
+}
+
 AddProjectDialog::~AddProjectDialog()
 {
     delete ui;

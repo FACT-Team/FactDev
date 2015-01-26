@@ -42,16 +42,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::demo() {
-    /*ui->btnAddProject->setVisible(false);
-=======
-/*void MainWindow::demo() {
-    ui->btnAddProject->setVisible(false);
->>>>>>> a937ef62efe4f960af33cadff1d77df583a75f87
-    ui->actionNewBill->setVisible(false);
-    ui->actionNewQuote->setVisible(false);
-    ui->actResearch->setVisible(false);
-    ui->btnNewProject->hide();
-    ui->actionPrint->setVisible(false);*/
+
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -222,8 +213,13 @@ void MainWindow::updateTree(QString filter)
 
 void MainWindow::newProject()
 {
-    AddProjectDialog w;
-    if(w.exec()) {
+    QModelIndex index = ui->tblCustomers->currentIndex();
+    AddProjectDialog *w = new AddProjectDialog();
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        w = new AddProjectDialog(index.row(), 0, 0);
+    }
+
+    if(w->exec()) {
 
     }
     updateTree("");

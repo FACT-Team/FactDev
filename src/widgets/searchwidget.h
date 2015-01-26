@@ -40,6 +40,8 @@ public:
      */
     bool isCustomerSelected() const;
 
+    void selectCustomer(int id);
+
 
 public slots:
     /**

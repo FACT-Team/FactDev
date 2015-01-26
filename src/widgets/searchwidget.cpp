@@ -77,3 +77,7 @@ bool searchWidget::isCustomerSelected() const
 {
     return _isCustomerSelected;
 }
+void searchWidget::selectCustomer(int id) {
+    ui->tblSearch->selectRow(id);
+    getCustomerData();
+}
