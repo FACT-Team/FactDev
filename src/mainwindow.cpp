@@ -65,6 +65,7 @@ int MainWindow::getCurrentProjectId()
 {
     QModelIndex idCell =
         ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(), 0);
+    //qDebug() << "current" << ui->tblProjects->model()->itemData(idCell).value(0).toInt();
     return ui->tblProjects->model()->itemData(idCell).value(0).toInt();
 }
 
@@ -115,14 +116,13 @@ void MainWindow::updateUser()
 
 void MainWindow::updateTableBillings(const int idProject)
 {
-    qDebug() << "Update";
-    ui->tblProjects->setModel(
+    ui->tblQuotes->setModel(
                 BillingDatabase::instance()->getBillingsTable(idProject));
-    ui->tblProjects->hideColumn(0);
-    ui->tblProjects->hideColumn(3);
-    ui->tblProjects->setColumnWidth(1, 200);
-    ui->tblProjects->setColumnWidth(2, 100);
-    ui->tblProjects->setColumnWidth(4, 150);
+    ui->tblQuotes->hideColumn(0);
+    ui->tblQuotes->hideColumn(3);
+    ui->tblQuotes->setColumnWidth(1, 200);
+    ui->tblQuotes->setColumnWidth(2, 100);
+    ui->tblQuotes->setColumnWidth(4, 150);
 }
 
 void MainWindow::openCustomer()
@@ -359,4 +359,10 @@ void MainWindow::projectsCustomersTableTree()
     }
 
     //TO DO: traiter lorqu'on clique sur un projet
+}
+
+void MainWindow::quotesProject()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    updateTableBillings(getCurrentProjectId());
 }

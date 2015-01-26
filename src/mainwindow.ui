@@ -18,7 +18,7 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -180,7 +180,17 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_8">
          <item row="0" column="0">
-          <widget class="QTableView" name="tblQuotes"/>
+          <widget class="QTableView" name="tblQuotes">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::SingleSelection</enum>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -625,7 +635,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>22</x>
-     <y>250</y>
+     <y>246</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -641,7 +651,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>35</x>
-     <y>250</y>
+     <y>246</y>
     </hint>
     <hint type="destinationlabel">
      <x>150</x>
@@ -656,8 +666,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>210</x>
-     <y>204</y>
+     <x>222</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -672,8 +682,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>209</x>
-     <y>191</y>
+     <x>221</x>
+     <y>225</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -953,6 +963,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>quotesProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>814</x>
+     <y>330</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>920</x>
+     <y>651</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -975,5 +1001,6 @@ border: 1px solid #bbb;</string>
   <slot>backToCustomersTable()</slot>
   <slot>addQuote()</slot>
   <slot>projectsCustomersTableTree()</slot>
+  <slot>quotesProject()</slot>
  </slots>
 </ui>

@@ -50,6 +50,17 @@ throw(DbException*)
     QSqlQuery q;
     QStandardItemModel* retour = new QStandardItemModel();
 
+    retour->setColumnCount(5);
+    retour->setHorizontalHeaderLabels(
+                QStringList()
+                << ("Id")
+                << ("Titre")
+                << ("Numéro")
+                << ("Facture/Devis")
+                << ("Date")
+                );
+
+
     q.prepare(
              "SELECT b.idBilling,title,number,isBilling,date "
              "FROM Billing b, BillingProject bp "
@@ -69,6 +80,7 @@ throw(DbException*)
     while(q.next()) {
         QList<QStandardItem*> ligne;
 
+        qDebug() << value(q,"title");
         ligne << new QStandardItem(value(q,"idBilling").toString());
         ligne << new QStandardItem(value(q,"title").toString());
         ligne << new QStandardItem(value(q,"number").toString());
