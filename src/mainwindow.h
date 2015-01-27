@@ -37,10 +37,28 @@ public:
     int getCurrentCustomerId();
 
     /**
-     * @brief getCurrentProjectId
-     * @return
+     * @brief MainWindow::getCurrentProjectId get the selected project id
+     * @return id of the selected project
      */
     int getCurrentProjectId();
+    /**
+     * @brief MainWindow::getCurrentCustomerName get the selected customer name
+     * in the customers' table
+     * @return name of the selected customer
+     */
+    QString getCurrentCustomerName();
+    /**
+     * @brief MainWindow::getCurrentProjectName get the selected project name in
+     * the table of projects
+     * @return name of the selected project
+     */
+    QString getCurrentProjectName();
+    /**
+     * @brief MainWindow::isProject return if the node selected in the
+     * tree is a customer or a project
+     * @return true if it's a customer, false if it's a project
+     */
+    bool isCustomer();
     void demo();
 public slots:
     /**
@@ -158,10 +176,19 @@ private slots:
      */
     void backToCustomersTable();
     /**
+     * @brief MainWindow::backToProjectsTable displays the projects table
+     */
+    void backToProjectsTable();
+    /**
      * @brief MainWindow::projectsCustomersTableTree displays projects of a customer
      * or all customers
      */
     void projectsCustomersTableTree();
+    /**
+     * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
+     * of the project in the table of projects
+     */
+    void quotesProject();
 
 private:
     /**
@@ -184,6 +211,12 @@ private:
      * @brief MainWindow::updateUser Update user data panel
      */
     void updateUser();
+    /**
+     * @brief MainWindow::updateTableBillings Update the table of
+     * billings view
+     * @param idProject Only billings corresponding to the idProject
+     */
+    void updateTableBillings(const int idProject);
 
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
