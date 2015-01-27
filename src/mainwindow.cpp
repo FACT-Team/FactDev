@@ -69,6 +69,12 @@ int MainWindow::getCurrentProjectId()
     return ui->tblProjects->model()->itemData(idCell).value(0).toInt();
 }
 
+bool MainWindow::isCustomer()
+{
+    QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
+    return index.model()->hasChildren(index);
+}
+
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
@@ -230,7 +236,6 @@ void MainWindow::updateTableProjects(const int pId)
 {
     ui->tblProjects->setModel(
                 ProjectDatabase::instance()->getProjectsTable(pId));
-    ui->tblProjects->hideColumn(0);
 }
 
 void MainWindow::updateTree(QString filter)
@@ -345,20 +350,17 @@ void MainWindow::projectsCustomersTableTree()
 
     if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
         ui->stackedWidget->setCurrentIndex(0);
-    else if(index.model()->hasChildren(index)) { //si client
-        qDebug() << "Client";
+    else if(isCustomer()) { //si client
         ui->stackedWidget->setCurrentIndex(1);
         changeProjectsTable();
         ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
     }
     else { //si projet
-        qDebug() << "Projet";
+        ui->tblProjects->selectRow(index.row());
         ui->stackedWidget->setCurrentIndex(2);
         updateTableBillings(getCurrentProjectId());
     }
-
-    //TO DO: traiter lorqu'on clique sur un projet
 }
 
 void MainWindow::quotesProject()

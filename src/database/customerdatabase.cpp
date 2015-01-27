@@ -101,7 +101,8 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
         QSqlQuery q2;
 
         q2.prepare("SELECT *"
-                   "FROM Project WHERE idCustomer = :idCustom");
+                   "FROM Project WHERE idCustomer = :idCustom "
+                   "ORDER BY UPPER(name), UPPER(description)");
         q2.bindValue(":idCustom",value(q, "idCustomer").toString());
 
         if(!q2.exec()) {

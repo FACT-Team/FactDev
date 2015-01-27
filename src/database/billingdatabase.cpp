@@ -80,7 +80,6 @@ throw(DbException*)
     while(q.next()) {
         QList<QStandardItem*> ligne;
 
-        qDebug() << value(q,"title");
         ligne << new QStandardItem(value(q,"idBilling").toString());
         ligne << new QStandardItem(value(q,"title").toString());
         ligne << new QStandardItem(value(q,"number").toString());
@@ -88,7 +87,6 @@ throw(DbException*)
         ligne << new QStandardItem(value(q,"date").toString());
 
         retour->appendRow(ligne);
-
     }
 
     return retour;

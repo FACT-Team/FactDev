@@ -34,6 +34,12 @@ public:
      * @return id of the selected project
      */
     int getCurrentProjectId();
+    /**
+     * @brief MainWindow::isProject return if the node selected in the
+     * tree is a customer or a project
+     * @return true if it's a customer, false if it's a project
+     */
+    bool isCustomer();
     void demo();
 public slots:
     /**
