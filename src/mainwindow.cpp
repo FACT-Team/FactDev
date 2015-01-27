@@ -65,8 +65,21 @@ int MainWindow::getCurrentProjectId()
 {
     QModelIndex idCell =
         ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(), 0);
-    //qDebug() << "current" << ui->tblProjects->model()->itemData(idCell).value(0).toInt();
     return ui->tblProjects->model()->itemData(idCell).value(0).toInt();
+}
+
+QString MainWindow::getCurrentCustomerName()
+{
+    QModelIndex index =
+            ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(),1);
+    return index.model()->itemData(index).value(0).toString();
+}
+
+QString MainWindow::getCurrentProjectName()
+{
+    QModelIndex index =
+            ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(),1);
+    return index.model()->itemData(index).value(0).toString();
 }
 
 bool MainWindow::isCustomer()
@@ -124,6 +137,7 @@ void MainWindow::updateTableBillings(const int idProject)
 {
     ui->tblQuotes->setModel(
                 BillingDatabase::instance()->getBillingsTable(idProject));
+    ui->lblQuotes->setText("<b>Devis du projet: "+getCurrentProjectName()+"</b>");
     ui->tblQuotes->hideColumn(0);
     ui->tblQuotes->hideColumn(3);
     ui->tblQuotes->setColumnWidth(1, 200);
@@ -329,6 +343,7 @@ void MainWindow::changeProjectsTable()
 {
     int id = getCurrentCustomerId();
     updateTableProjects(id);
+    ui->lblProjects->setText("<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");
     ui->tblProjects->hideColumn(0);
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 150);
@@ -341,6 +356,11 @@ void MainWindow::changeProjectsTable()
 void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::backToProjectsTable()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::projectsCustomersTableTree()

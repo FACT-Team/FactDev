@@ -35,6 +35,18 @@ public:
      */
     int getCurrentProjectId();
     /**
+     * @brief MainWindow::getCurrentCustomerName get the selected customer name
+     * in the customers' table
+     * @return name of the selected customer
+     */
+    QString getCurrentCustomerName();
+    /**
+     * @brief MainWindow::getCurrentProjectName get the selected project name in
+     * the table of projects
+     * @return name of the selected project
+     */
+    QString getCurrentProjectName();
+    /**
      * @brief MainWindow::isProject return if the node selected in the
      * tree is a customer or a project
      * @return true if it's a customer, false if it's a project
@@ -145,6 +157,10 @@ private slots:
      * @brief MainWindow::backToCustomersTable displays the customers table
      */
     void backToCustomersTable();
+    /**
+     * @brief MainWindow::backToProjectsTable displays the projects table
+     */
+    void backToProjectsTable();
     /**
      * @brief MainWindow::projectsCustomersTableTree displays projects of a customer
      * or all customers
