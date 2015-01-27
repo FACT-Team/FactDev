@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1237</width>
-    <height>591</height>
+    <width>1061</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item row="1" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -102,71 +102,75 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
-       <widget class="QWidget" name="gridLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>9</x>
-          <y>9</y>
-          <width>601</width>
-          <height>583</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item row="0" column="0">
-          <layout class="QGridLayout" name="gridLayout_7">
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="btnBackToCustomers">
-             <property name="text">
-              <string>Retour aux clients</string>
-             </property>
-             <property name="icon">
-              <iconset resource="icons.qrc">
-               <normaloff>:/icons/img/customer24.png</normaloff>:/icons/img/customer24.png</iconset>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QTableView" name="tblProjects">
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-             <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_8">
+        <item row="2" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="ProjectsWidget" name="widget" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Retour vers client</string>
+          </property>
+          <property name="icon">
+           <iconset resource="icons.qrc">
+            <normaloff>:/icons/customer</normaloff>:/icons/customer</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QTableView" name="tblProjects">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="showDropIndicator" stdset="0">
+           <bool>false</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -177,7 +181,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1237</width>
+     <width>1061</width>
      <height>20</height>
     </rect>
    </property>
@@ -558,6 +562,17 @@ border: 1px solid #bbb;</string>
    <header>widgets/customerdatawidget.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>ProjectsWidget</class>
+   <extends>QWidget</extends>
+   <header>widgets/projectswidget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>editProject()</signal>
+    <signal>removeProject()</signal>
+    <signal>addProject()</signal>
+   </slots>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="icons.qrc"/>
@@ -570,8 +585,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>902</x>
-     <y>534</y>
+     <x>734</x>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -586,8 +601,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>784</x>
-     <y>534</y>
+     <x>647</x>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -619,11 +634,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>22</x>
-     <y>248</y>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
-     <x>157</x>
-     <y>191</y>
+     <x>169</x>
+     <y>190</y>
     </hint>
    </hints>
   </connection>
@@ -635,11 +650,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>35</x>
-     <y>248</y>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
-     <x>150</x>
-     <y>225</y>
+     <x>162</x>
+     <y>220</y>
     </hint>
    </hints>
   </connection>
@@ -650,8 +665,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>222</x>
-     <y>194</y>
+     <x>234</x>
+     <y>190</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -666,8 +681,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>228</y>
+     <x>233</x>
+     <y>220</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -683,7 +698,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>74</x>
-     <y>238</y>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -698,8 +713,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>498</x>
-     <y>534</y>
+     <x>423</x>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -714,8 +729,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>656</x>
-     <y>534</y>
+     <x>550</x>
+     <y>588</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -846,7 +861,7 @@ border: 1px solid #bbb;</string>
      <y>559</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-206</x>
+     <x>0</x>
      <y>364</y>
     </hint>
    </hints>
@@ -895,23 +910,7 @@ border: 1px solid #bbb;</string>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
-     <y>634</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnBackToCustomers</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>backToCustomersTable()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>380</x>
-     <y>104</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>326</x>
-     <y>664</y>
+     <y>629</y>
     </hint>
    </hints>
   </connection>
@@ -943,7 +942,7 @@ border: 1px solid #bbb;</string>
     </hint>
     <hint type="destinationlabel">
      <x>300</x>
-     <y>637</y>
+     <y>629</y>
     </hint>
    </hints>
   </connection>
@@ -960,6 +959,70 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>618</x>
      <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>addProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>585</x>
+     <y>585</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>566</x>
+     <y>788</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>editProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>619</x>
+     <y>584</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>570</x>
+     <y>729</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>removeProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>680</x>
+     <y>587</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>587</x>
+     <y>995</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToCustomersTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>383</x>
+     <y>105</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>-84</y>
     </hint>
    </hints>
   </connection>
@@ -985,5 +1048,7 @@ border: 1px solid #bbb;</string>
   <slot>backToCustomersTable()</slot>
   <slot>addQuote()</slot>
   <slot>projectsCustomersTableTree()</slot>
+  <slot>editProject()</slot>
+  <slot>removeProject()</slot>
  </slots>
 </ui>

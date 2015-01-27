@@ -82,6 +82,8 @@ public:
       * @return QStandardItemModel an item model for QTableView
       */
     QStandardItemModel* getProjectsTable(const int pId) throw(DbException*);
+
+
 };
 
 #endif // PROJECTDATABASE_H

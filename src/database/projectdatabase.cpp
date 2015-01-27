@@ -1,6 +1,6 @@
 #include "database/projectdatabase.h"
 #include "utils.h"
-
+#include "log.h"
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
 }
@@ -42,6 +42,7 @@ Project *ProjectDatabase::getProject(const int pId)
         project->setCustomer(new Customer(value(q,"idCustomer").toInt()));
     } else {
         project = NULL;
+        Log::instance(WARNING) << "Project is null…";
     }
 
     return project;

@@ -16,6 +16,7 @@ ProjectsWidget::~ProjectsWidget()
 
 void ProjectsWidget::newProject()
 {
+    // TODO emit newProject() and send current customer
     AddProjectDialog win;
     if (win.exec()) {
 
@@ -23,12 +24,10 @@ void ProjectsWidget::newProject()
 
 }
 
-void ProjectsWidget::editSelectedProject()
-{
-
+void ProjectsWidget::editSelectedProject() {
+    emit editProject();
 }
 
-void ProjectsWidget::removeSelectedProject()
-{
-
+void ProjectsWidget::removeSelectedProject() {
+    emit removeProject();
 }
