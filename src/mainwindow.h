@@ -180,11 +180,25 @@ private:
      */
     void updateTree(QString filter="");
 
+    /**
+     * @brief MainWindow::updateUser Update user data panel
+     */
     void updateUser();
 
+    /**
+     * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
+     * table <i>tbl</i>
+     * @param tbl a table
+     * @param item an item in the table <i>tbl</i>
+     */
     void removeItem(QTableView* tbl, ItemType item);
 
-    int getCurrentTableId(QTableView *);
+    /**
+     * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
+     * the  tableview <i>tbl</i>
+     * @return id of the item selected
+     */
+    int getCurrentTableId(QTableView *tbl);
 
     Ui::MainWindow *ui; //!< ui
 };
