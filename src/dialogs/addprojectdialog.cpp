@@ -27,6 +27,7 @@ AddProjectDialog::AddProjectDialog(int idCustomer, int id, QWidget *parent) :
     ui->leNameProject->setFocus();
     if(id != 0) {
         _project = Project(id);
+        fillFields();
         setWindowTitle("Modifier le projet "+_project.getName());
     } else {
         _project = Project();
@@ -43,7 +44,7 @@ void AddProjectDialog::accept() {
 
     _project.setName(ui->leNameProject->text());
     _project.setDescription(ui->leDescription->toPlainText());
-    _project.setDailyRate(ui->widget->getDailyRate());
+    _project.setDailyRate(ui->wdgRate->getDailyRate());
     _project.setBeginDate(QDate::currentDate());
     _project.setCustomer(
                 CustomerDatabase::instance()->getCustomer(
@@ -57,6 +58,16 @@ void AddProjectDialog::accept() {
 void AddProjectDialog::reject()
 {
     QDialog::reject();
+}
+
+void AddProjectDialog::fillFields() {
+    ui->leNameProject->setText(_project.getName());
+    ui->leDescription->setText(_project.getDescription());
+    //ui->wdgRate->setDailyRate(_project.getDailyRate());
+
+    ui->wdgSearch->setEnabled(false);
+    qDebug() << _project.getName() + " " + _project.getDescription();
+//    _project.commit();
 }
 
 void AddProjectDialog::checkFields()

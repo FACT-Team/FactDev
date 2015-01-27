@@ -68,7 +68,6 @@ void MainWindow::addCustomer()
     }
 }
 
-
 void MainWindow::editCustomer() {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         DialogAddCustomer winAddCustomer(getCurrentCustomerId());
@@ -178,8 +177,7 @@ void MainWindow::search(QString text)
     updateTree(s.getFilter());
 }
 
-void MainWindow::openContextualMenuTable(const QPoint point)
-{
+void MainWindow::openContextualMenuTable(const QPoint point) {
     QMenu* menu = new CustomerContextualMenu(this);
 
     emit changeCustomerTable();
@@ -188,8 +186,8 @@ void MainWindow::openContextualMenuTable(const QPoint point)
     buffPoint.setY(point.y()+35);
     menu->exec(ui->tblCustomers->mapToGlobal(buffPoint));
 }
-void MainWindow::openContextualMenuTree(const QPoint point)
-{
+
+void MainWindow::openContextualMenuTree(const QPoint point) {
     QMenu* menu = new CustomerContextualMenu(this);
 
     emit changeCustomerTree();
@@ -200,8 +198,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 }
 
-void MainWindow::updateTableCustomers(QString filter)
-{
+void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
                 CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
@@ -251,6 +248,20 @@ void MainWindow::removeProject() {
 }
 
 void MainWindow::editProject() {
+
+    QModelIndex index = ui->tblCustomers->currentIndex();
+    AddProjectDialog *w; //= new AddProjectDialog();
+    if (ui->tblProjects->selectionModel()->hasSelection()) {
+        w = new AddProjectDialog(
+                    index.row(),
+                    getCurrentTableId(ui->tblProjects),
+                    0);
+
+    }
+
+    if(w->exec()) {
+
+    }
 
 }
 

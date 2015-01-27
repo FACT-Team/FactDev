@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item row="4" column="0" colspan="2">
-    <widget class="RateWidget" name="widget" native="true">
+    <widget class="RateWidget" name="wdgRate" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>

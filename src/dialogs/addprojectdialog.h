@@ -39,6 +39,8 @@ public:
      * @brief reject Cancel the operation and close the windows
      */
     void reject();
+
+    void fillFields();
 public slots:
     void checkFields();
 
