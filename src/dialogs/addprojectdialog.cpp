@@ -18,15 +18,14 @@ AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
     emit checkFields();
 }
 
-AddProjectDialog::AddProjectDialog(int idCustomer, int id, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::AddProjectDialog)
+AddProjectDialog::AddProjectDialog(int idCustomer, int idProject,
+    QWidget *parent) : QDialog(parent), ui(new Ui::AddProjectDialog)
 {
     ui->setupUi(this);
     ui->wdgSearch->selectCustomer(idCustomer);
     ui->leNameProject->setFocus();
-    if(id != 0) {
-        _project = Project(id);
+    if(idProject != 0) {
+        _project = Project(idProject);
         fillFields();
         setWindowTitle("Modifier le projet "+_project.getName());
     } else {
@@ -63,11 +62,8 @@ void AddProjectDialog::reject()
 void AddProjectDialog::fillFields() {
     ui->leNameProject->setText(_project.getName());
     ui->leDescription->setText(_project.getDescription());
-    //ui->wdgRate->setDailyRate(_project.getDailyRate());
     ui->wdgRate->setWidgetDailyRateValue(_project.getDailyRate());
-    ui->wdgSearch->setEnabled(false);
-    qDebug() << _project.getName() + " " + _project.getDescription();
-//    _project.commit();
+    ui->wdgSearch->setEnabled(false);    
 }
 
 void AddProjectDialog::checkFields()
