@@ -68,12 +68,12 @@
    <slot>setDailyRate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>129</x>
-     <y>26</y>
+     <x>137</x>
+     <y>20</y>
     </hint>
     <hint type="destinationlabel">
-     <x>130</x>
-     <y>188</y>
+     <x>141</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>
@@ -84,12 +84,12 @@
    <slot>setHourlyRate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>330</x>
-     <y>27</y>
+     <x>346</x>
+     <y>24</y>
     </hint>
     <hint type="destinationlabel">
-     <x>339</x>
-     <y>136</y>
+     <x>346</x>
+     <y>216</y>
     </hint>
    </hints>
   </connection>
@@ -97,5 +97,7 @@
  <slots>
   <slot>setDailyRate()</slot>
   <slot>setHourlyRate()</slot>
+  <slot>setDailyRate(double)</slot>
+  <slot>setHourlyRate(double)</slot>
  </slots>
 </ui>

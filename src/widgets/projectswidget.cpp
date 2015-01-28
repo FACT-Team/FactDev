@@ -16,12 +16,7 @@ ProjectsWidget::~ProjectsWidget()
 
 void ProjectsWidget::newProject()
 {
-    // TODO emit newProject() and send current customer
-    AddProjectDialog win;
-    if (win.exec()) {
-
-    }
-
+   emit addProject();
 }
 
 void ProjectsWidget::editSelectedProject() {

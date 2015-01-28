@@ -90,7 +90,6 @@ void MainWindow::addCustomer()
     }
 }
 
-
 void MainWindow::editCustomer() {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         DialogAddCustomer winAddCustomer(getCurrentCustomerId());
@@ -214,8 +213,7 @@ void MainWindow::search(QString text)
     updateTree(s.getFilter());
 }
 
-void MainWindow::openContextualMenuTable(const QPoint point)
-{
+void MainWindow::openContextualMenuTable(const QPoint point) {
     QMenu* menu = new CustomerContextualMenu(this);
 
     emit changeCustomerTable();
@@ -224,8 +222,8 @@ void MainWindow::openContextualMenuTable(const QPoint point)
     buffPoint.setY(point.y()+35);
     menu->exec(ui->tblCustomers->mapToGlobal(buffPoint));
 }
-void MainWindow::openContextualMenuTree(const QPoint point)
-{
+
+void MainWindow::openContextualMenuTree(const QPoint point) {
     QMenu* menu = new CustomerContextualMenu(this);
 
     emit changeCustomerTree();
@@ -236,8 +234,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 }
 
-void MainWindow::updateTableCustomers(QString filter)
-{
+void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
                 CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
@@ -270,14 +267,20 @@ void MainWindow::updateTree(QString filter)
 void MainWindow::newProject()
 {
     QModelIndex index = ui->tblCustomers->currentIndex();
-    AddProjectDialog *w = new AddProjectDialog();
-    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+
+    AddProjectDialog *w;
+    switch(ui->stackedWidget->currentIndex()) {
+    case 0:
+        w = new AddProjectDialog(0, 0, 0);
+        break;
+    case 1:
         w = new AddProjectDialog(index.row(), 0, 0);
+        w->fillFields();
+        break;
+    default:
+        w = new AddProjectDialog(0, 0, 0);
     }
-
-    if(w->exec()) {
-
-    }
+    w->exec();
     updateTree("");
 }
 
@@ -288,6 +291,14 @@ void MainWindow::removeProject() {
 
 void MainWindow::editProject() {
 
+    QModelIndex index = ui->tblCustomers->currentIndex();
+
+    if (ui->tblProjects->selectionModel()->hasSelection()) {
+        AddProjectDialog w(
+                    index.row(),
+                    getCurrentProjectId());
+        w.exec();
+    }
 }
 
 void MainWindow::aboutQt()
