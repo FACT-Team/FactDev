@@ -31,11 +31,11 @@ public:
     /**
      * @brief AddProjectDialogAddProjectDialog  Construct a windows according an
      *  <i>idCustomer</i> and, optionnaly, an <i>idProject</i>
-     * @param idCustomer Customer identify
+     * @param noRowCustomer Row number of the Customer
      * @param idProject Project identify
      * @param parent QWidget of the current windows
      */
-    explicit AddProjectDialog(int idCustomer, int idProject = 0,
+    explicit AddProjectDialog(int noRowCustomer, int idProject = 0,
         QWidget *parent = 0);
     ~AddProjectDialog();
 

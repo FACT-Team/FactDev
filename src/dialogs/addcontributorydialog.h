@@ -18,14 +18,15 @@ class AddContributoryDialog : public QDialog
 
 public:
     /**
-     * @brief AddContributoryDialog Construct a new windows AddContributory
+     * @brief AddContributoryDialog::AddContributoryDialog Construct a new
+     * windows AddContributory
      * @param parent QWidget
      */
     explicit AddContributoryDialog(QWidget *parent = 0);
     ~AddContributoryDialog();
 
 private:
-    Ui::AddContributoryDialog *ui;
+    Ui::AddContributoryDialog *ui;  //!< User interface of <b>AddContributoryDialog</b>
 };
 
 #endif // ADDCONTRIBUTORYDIALOG_H

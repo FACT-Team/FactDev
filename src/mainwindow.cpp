@@ -231,14 +231,20 @@ void MainWindow::updateTree(QString filter)
 void MainWindow::newProject()
 {
     QModelIndex index = ui->tblCustomers->currentIndex();
-    AddProjectDialog *w = new AddProjectDialog();
-    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+
+    AddProjectDialog *w;
+    switch(ui->stackedWidget->currentIndex()) {
+    case 0:
+        w = new AddProjectDialog(0, 0, 0);
+        break;
+    case 1:
         w = new AddProjectDialog(index.row(), 0, 0);
+        w->fillFields();
+        break;
+    default:
+        w = new AddProjectDialog(0, 0, 0);
     }
-
-    if(w->exec()) {
-
-    }
+    w->exec();
     updateTree("");
 }
 
