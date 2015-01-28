@@ -250,19 +250,13 @@ void MainWindow::removeProject() {
 void MainWindow::editProject() {
 
     QModelIndex index = ui->tblCustomers->currentIndex();
-    AddProjectDialog *w;
+
     if (ui->tblProjects->selectionModel()->hasSelection()) {
-        w = new AddProjectDialog(
+        AddProjectDialog w(
                     index.row(),
-                    getCurrentTableId(ui->tblProjects),
-                    0);
-
+                    getCurrentProjectId());
+        w.exec();
     }
-
-    if(w->exec()) {
-
-    }
-
 }
 
 void MainWindow::aboutQt()
