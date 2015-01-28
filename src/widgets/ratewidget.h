@@ -29,6 +29,8 @@ public:
      */
     void initRate();
 
+    void setWidgetDailyRateValue(double value);
+
     /**
      * @brief getDailyRate
      * @return The daily rate
@@ -41,6 +43,7 @@ public:
      */
     double getHourlyRate();
 
+    void setWidgetHourlyRateValue(double value);
     /**
      * @brief updateConversionRate Update daily rate or hourly rate
      */
@@ -51,6 +54,8 @@ public slots:
      * @param dailyRate The new daily rate
      */
     void setDailyRate();
+
+
 
     /**
      * @brief setHourlyRate Set a new value for the hourly rate

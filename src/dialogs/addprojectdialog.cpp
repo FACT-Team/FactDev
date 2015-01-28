@@ -64,7 +64,7 @@ void AddProjectDialog::fillFields() {
     ui->leNameProject->setText(_project.getName());
     ui->leDescription->setText(_project.getDescription());
     //ui->wdgRate->setDailyRate(_project.getDailyRate());
-
+    ui->wdgRate->setWidgetDailyRateValue(_project.getDailyRate());
     ui->wdgSearch->setEnabled(false);
     qDebug() << _project.getName() + " " + _project.getDescription();
 //    _project.commit();
