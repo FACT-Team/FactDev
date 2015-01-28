@@ -38,8 +38,6 @@ void Project::hydrat(int id)
     _description = p->getDescription();
     _beginDate = p->getBeginDate();
     _endDate = p->getEndDate();
-    _name = p->getName();
-    _description = p->getDescription();
     _dailyRate = p->getDailyRate();
     _customer = p->getCustomer();
 }

@@ -19,7 +19,8 @@ public:
     void remove(const int a);
     Qt::ItemFlags flags(const QModelIndex & index) const ;
 
-   QList<Contributory> getContributories();
+    QList<Contributory> getContributories();
+    int count();
 private:
     QList<Contributory> _contributories;
     QList<Contributory> _contributoriesToRemoved;

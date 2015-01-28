@@ -31,6 +31,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnSave">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Sauvegarder</string>
        </property>
@@ -129,8 +132,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>181</x>
-     <y>199</y>
+     <x>622</x>
+     <y>348</y>
     </hint>
     <hint type="destinationlabel">
      <x>114</x>
@@ -145,8 +148,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>347</x>
-     <y>199</y>
+     <x>725</x>
+     <y>348</y>
     </hint>
     <hint type="destinationlabel">
      <x>393</x>
@@ -155,4 +158,8 @@
    </hints>
   </connection>
  </connections>
+ <slots>
+  <signal>contributoriesChanged()</signal>
+  <slot>updateBtn()</slot>
+ </slots>
 </ui>

@@ -4,12 +4,17 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QModelIndex>
+#include <QTableView>
+
+#include "itemtype.h"
+
 namespace Ui {
 class MainWindow;
 }
 
+
 /**
- * @author
+ * @author Everybody
  * @brief The MainWindow class Main Window of the software
  */
 class MainWindow : public QMainWindow
@@ -24,11 +29,36 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+
     /**
      * @brief MainWindow::getCurrentCustomerId get the selected customer
      * @return id of the selected customer
      */
     int getCurrentCustomerId();
+
+    /**
+     * @brief MainWindow::getCurrentProjectId get the selected project id
+     * @return id of the selected project
+     */
+    int getCurrentProjectId();
+    /**
+     * @brief MainWindow::getCurrentCustomerName get the selected customer name
+     * in the customers' table
+     * @return name of the selected customer
+     */
+    QString getCurrentCustomerName();
+    /**
+     * @brief MainWindow::getCurrentProjectName get the selected project name in
+     * the table of projects
+     * @return name of the selected project
+     */
+    QString getCurrentProjectName();
+    /**
+     * @brief MainWindow::isProject return if the node selected in the
+     * tree is a customer or a project
+     * @return true if it's a customer, false if it's a project
+     */
+    bool isCustomer();
     void demo();
 public slots:
     /**
@@ -75,6 +105,17 @@ public slots:
      * @see AddProjectDialog
      */
     void newProject(void);
+
+    /**
+     * @brief MainWindow::removeProject Remove a project for a customer
+     */
+    void removeProject(void);
+
+    /**
+     * @brief MainWindow::editProject Modify the customer project
+     */
+    void editProject(void);
+
     /**
      * @brief MainWindow::aboutQt show Qt's details
      */
@@ -131,27 +172,66 @@ private slots:
      */
     void changeProjectsTable();
     /**
-     * @brief MainWindow::backToCustomersTable display the customers table
+     * @brief MainWindow::backToCustomersTable displays the customers table
      */
     void backToCustomersTable();
+    /**
+     * @brief MainWindow::backToProjectsTable displays the projects table
+     */
+    void backToProjectsTable();
+    /**
+     * @brief MainWindow::projectsCustomersTableTree displays projects of a customer
+     * or all customers
+     */
+    void projectsCustomersTableTree();
+    /**
+     * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
+     * of the project in the table of projects
+     */
+    void quotesProject();
 
 private:
     /**
      * @brief MainWindow::updateTable Update the table view
      * (just client in the first version)
      */
-    void updateTable(QString filter="");
+    void updateTableCustomers(QString filter="");
     /**
      * @brief updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
      */
-    void updateTableProjects(const int pId);
+    void updateTableProjects(const int pId = 0);
     /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)
      */
     void updateTree(QString filter="");
+
+    /**
+     * @brief MainWindow::updateUser Update user data panel
+     */
     void updateUser();
+    /**
+     * @brief MainWindow::updateTableBillings Update the table of
+     * billings view
+     * @param idProject Only billings corresponding to the idProject
+     */
+    void updateTableBillings(const int idProject);
+
+    /**
+     * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
+     * table <i>tbl</i>
+     * @param tbl a table
+     * @param item an item in the table <i>tbl</i>
+     */
+    void removeItem(QTableView* tbl, ItemType item);
+
+    /**
+     * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
+     * the  tableview <i>tbl</i>
+     * @return id of the item selected
+     */
+    int getCurrentTableId(QTableView *tbl);
 
     Ui::MainWindow *ui; //!< ui
 };

@@ -22,6 +22,11 @@ public slots:
     void newProject();
     void editSelectedProject();
     void removeSelectedProject();
+signals:
+    void addProject();
+    void editProject();
+    void removeProject();
+
 private:
     Ui::ProjectsWidget *ui;
 };

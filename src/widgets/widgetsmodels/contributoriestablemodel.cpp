@@ -84,3 +84,7 @@ QList<Contributory> ContributoriesTableModel::getContributories()
     return _contributories + _contributoriesToRemoved;
 }
 
+int ContributoriesTableModel::count() {
+    return _contributories.count();
+}
+

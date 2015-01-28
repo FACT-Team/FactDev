@@ -59,7 +59,8 @@ SOURCES += mainwindow.cpp \
     widgets/widgetsmodels/contributoriestablemodel.cpp \
     widgets/delegates/projectcombodelegate.cpp \
     database/billingdatabase.cpp \
-    database/contributorydatabase.cpp
+    database/contributorydatabase.cpp \
+    itemtype.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -108,7 +109,8 @@ HEADERS  += mainwindow.h \
     widgets/widgetsmodels/contributoriestablemodel.h \
     widgets/delegates/projectcombodelegate.h \
     database/billingdatabase.h \
-    database/contributorydatabase.h
+    database/contributorydatabase.h \
+    itemtype.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
@@ -135,4 +137,7 @@ OTHER_FILES += \
     sql/tests/billingsprojects.sql \
     sql/tests/contributories.sql \
     sql/tests/projects.sql
+
+DISTFILES += \
+    sql/tests/removeuselessdata.sql
 

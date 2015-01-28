@@ -26,6 +26,7 @@ public:
      * @param parent QWidget of the current windows
      */
     explicit AddProjectDialog(int id = 0, QWidget *parent = 0);
+    explicit AddProjectDialog(int idCustomer, int id = 0, QWidget *parent = 0);
     ~AddProjectDialog();
 
 
@@ -38,6 +39,9 @@ public:
      * @brief reject Cancel the operation and close the windows
      */
     void reject();
+public slots:
+    void checkFields();
+
 private:
 
     Project _project; //!< The new project to add

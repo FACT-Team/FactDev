@@ -23,19 +23,17 @@ void Billing::commit()
     }
 
     // Commits contributories and projects
-    // it's dirty… But it's work… but it's dirty… but it's work… TODO, clean it ?
     auto end = _contributories.cend();
     for (auto it = _contributories.cbegin(); it != end; ++it) {
         ((Project*)(it.key()))->commit();
-        for(Contributory* c : *((QList<Contributory*>*)(it.value()))) {
-            c->commit();
-
+        for(Contributory c : *(it.value())) {
+            c.commit();
 
             // Fill trinary legs… :)
             if(insert) {
                 BillingDatabase::instance()->addBillingProject(((Project*)it.key())->getId(),
                                                                 _id,
-                                                               c->getId());
+                                                               c.getId());
             }
         }
     }
@@ -59,12 +57,12 @@ void Billing::remove()
     BillingDatabase::instance()->removeBilling(_id);
 }
 
-QMap<Project*, QList<Contributory*>*> Billing::getContributories() const
+QMap<Project*, QList<Contributory>*> Billing::getContributories() const
 {
     return _contributories;
 }
 
-void Billing::setContributories(QMap<Project*, QList<Contributory*>*> contributories)
+void Billing::setContributories(QMap<Project*, QList<Contributory>*> contributories)
 {
     _contributories = contributories;
 }
@@ -72,9 +70,9 @@ void Billing::setContributories(QMap<Project*, QList<Contributory*>*> contributo
 void Billing::addContributory(Contributory& c)
 {
     if(_contributories.value(c.getProject()) == NULL) {
-        _contributories.insert(c.getProject(), new QList<Contributory*>);
+        _contributories.insert(c.getProject(), new QList<Contributory>);
     }
-    _contributories.value(c.getProject())->push_back(&c);
+    _contributories.value(c.getProject())->push_back(c);
 }
 
 QString Billing::getTitle() const

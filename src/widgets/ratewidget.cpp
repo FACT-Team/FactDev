@@ -6,6 +6,7 @@ RateWidget::RateWidget(QWidget *parent) :
     ui(new Ui::RateWidget)
 {
     ui->setupUi(this);
+    _isDailyRateModified = false;
     initRate();
 }
 
@@ -14,27 +15,45 @@ RateWidget::~RateWidget()
     delete ui;
 }
 
-void RateWidget::initRate()
-{
-    ui->sbDaylyRate->setValue(NB_DAILY_HOURS * LEGAL_RATE);
+void RateWidget::initRate() {
+    ui->sbDailyRate->setValue(NB_DAILY_HOURS * LEGAL_RATE);
     ui->sbHourlyRate->setValue(LEGAL_RATE);
 }
 
 double RateWidget::getDailyRate() {
-    return ui->sbDaylyRate->value();
+    return ui->sbDailyRate->value();
 }
 
-void RateWidget::setDailyRate(double dailyRate) {
-    ui->sbDaylyRate->setValue(dailyRate);    
+void RateWidget::setDailyRate() {
+
+    if (ui->sbDailyRate->value() > NB_DAILY_HOURS * LEGAL_RATE) {
+        _isDailyRateModified = true;
+        updateConversionRate();
+    } else {
+       initRate();
+    }
+
 }
 
 double RateWidget::getHourlyRate() {
     return ui->sbHourlyRate->value();
 }
 
-void RateWidget::setHourlyRate(double hourlyRate) {
-    ui->sbHourlyRate->setValue(hourlyRate);
-    ui->sbDaylyRate->setValue(hourlyRate*NB_DAILY_HOURS);
+void RateWidget::setHourlyRate() {
+    if (ui->sbHourlyRate->value() > LEGAL_RATE) {
+        _isDailyRateModified = false;
+        updateConversionRate();
+    } else {
+        initRate();
+    }
+}
+
+void RateWidget::updateConversionRate() {
+    if (_isDailyRateModified) {
+        ui->sbHourlyRate->setValue(getDailyRate()/NB_DAILY_HOURS);
+    } else {
+        ui->sbDailyRate->setValue(getHourlyRate()*NB_DAILY_HOURS);
+    }
 }
 
 

@@ -14,17 +14,26 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="3">
+    <widget class="QDoubleSpinBox" name="sbHourlyRate">
+     <property name="toolTip">
+      <string>Tarif en euros (€)</string>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="minimum">
+      <double>9.609999999999999</double>
+     </property>
+     <property name="maximum">
+      <double>999.000000000000000</double>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="2">
     <widget class="QLabel" name="label_2">
      <property name="text">
       <string>Tarif horaire</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QDoubleSpinBox" name="sbDaylyRate">
-     <property name="toolTip">
-      <string>Tarif en euros (€)</string>
      </property>
     </widget>
    </item>
@@ -35,15 +44,58 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <widget class="QDoubleSpinBox" name="sbHourlyRate">
+   <item row="0" column="1">
+    <widget class="QDoubleSpinBox" name="sbDailyRate">
      <property name="toolTip">
       <string>Tarif en euros (€)</string>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::PlusMinus</enum>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>sbDailyRate</sender>
+   <signal>editingFinished()</signal>
+   <receiver>RateWidget</receiver>
+   <slot>setDailyRate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>130</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sbHourlyRate</sender>
+   <signal>editingFinished()</signal>
+   <receiver>RateWidget</receiver>
+   <slot>setHourlyRate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>136</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>setDailyRate()</slot>
+  <slot>setHourlyRate()</slot>
+ </slots>
 </ui>
