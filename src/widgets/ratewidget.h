@@ -18,33 +18,48 @@ class RateWidget : public QWidget
 
 public:
     /**
-     * @brief RateWidget Construct a rate widget
+     * @brief RateWidget::RateWidget Construct a rate widget
      * @param parent The QWidget parent
      */
     explicit RateWidget(QWidget *parent = 0);
     ~RateWidget();
 
     /**
-     * @brief initRate Initialize the rate
+     * @brief RateWidget::initRate Initialize the rate
      */
     void initRate();
 
     /**
-     * @brief getDailyRate
+     * @brief RateWidget::setWidgetDailyRateValue Modify the <i>value</i> of the
+     *  daily rate spin box component
+     * @param value New Value
+     */
+    void setWidgetDailyRateValue(double value);
+
+    /**
+     * @brief RateWidget::getDailyRate Get the daily rate
      * @return The daily rate
      */
     double getDailyRate();
 
     /**
-     * @brief getHourlyRate
+     * @brief RateWidget::getHourlyRate Get the hourly rate
      * @return The hourly rate
      */
     double getHourlyRate();
 
     /**
+     * @brief RateWidget::setWidgetHourlyRateValue Modify the <i>value</i> of the
+     *  hourly rate spin box component
+     * @param value New value
+     */
+    void setWidgetHourlyRateValue(double value);
+
+    /**
      * @brief updateConversionRate Update daily rate or hourly rate
      */
     void updateConversionRate();
+
 public slots:
     /**
      * @brief setDailyRate Set a new value for the daily rate
@@ -61,8 +76,9 @@ public slots:
 
 
 private:
-    Ui::RateWidget *ui; //!<
-    bool _isDailyRateModified;
+    Ui::RateWidget *ui;         //!< User interface of <b>RateWidget</b>
+    bool _isDailyRateModified;  /** boolean value to signal if the daily rate
+                                 has been modified */
 };
 
 #endif // RATEWIDGET_H

@@ -18,31 +18,31 @@ class AddQuoteDialog : public QDialog
 
 public:
     /**
-     * @brief AddQuoteDialog Construct a windows AddQuoteDialog
+     * @brief AddQuoteDialog::AddQuoteDialog Construct a windows AddQuoteDialog
      * @param parent QWidget of the current windows
      */
     explicit AddQuoteDialog(int idCustomer = 0, int id = 0, QWidget *parent = 0);
     ~AddQuoteDialog();
 
     /**
-     * @brief Fill line edits with the data of the quote
+     * @brief AddQuoteDialog::Fill line edits with the data of the quote
      */
     void fillFields();
 
     /**
-     * @brief accept Valid data inputed by user and add these data in Database
+     * @brief AddQuoteDialog::accept Valid data inputed by user and add these data in Database
      */
     void accept();
 
     /**
-     * @brief reject Cancel the operation and close the windows
+     * @brief AddQuoteDialog::reject Cancel the operation and close the windows
      */
     void reject();
 public slots:
     void updateBtn(void);
 private:
-    Billing *_quote; //!< The quote
-    Ui::AddQuoteDialog *ui;
+    Billing *_quote;        //!< The quote
+    Ui::AddQuoteDialog *ui; //!< User interface of <b>AddQuoteDialog</b>
 };
 
 #endif // ADDQUOTEDIALOG_H
