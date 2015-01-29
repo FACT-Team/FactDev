@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -259,7 +259,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -651,8 +651,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>312</y>
+     <x>799</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -667,8 +667,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>801</x>
-     <y>312</y>
+     <x>671</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -779,8 +779,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>527</x>
-     <y>312</y>
+     <x>357</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -795,8 +795,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
-     <y>312</y>
+     <x>513</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -901,38 +901,6 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>tblCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>changeCustomerTable(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>668</x>
-     <y>194</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>386</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>trCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>changeCustomerTree(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>122</x>
-     <y>555</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-206</x>
-     <y>364</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>actSettings</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -950,29 +918,13 @@ border: 1px solid #bbb;</string>
   </connection>
   <connection>
    <sender>tblCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>changeCustomerTable(QModelIndex)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>397</x>
-     <y>123</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>302</x>
-     <y>386</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tblCustomers</sender>
    <signal>doubleClicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>668</x>
-     <y>194</y>
+     <x>379</x>
+     <y>107</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -987,8 +939,8 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>463</x>
-     <y>139</y>
+     <x>472</x>
+     <y>133</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -1051,8 +1003,8 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>379</x>
-     <y>116</y>
+     <x>330</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
      <x>369</x>
@@ -1067,7 +1019,7 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>500</x>
+     <x>505</x>
      <y>111</y>
     </hint>
     <hint type="destinationlabel">
@@ -1124,12 +1076,43 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>trCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeCustomerTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>532</x>
+     <y>226</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>415</x>
+     <y>91</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
   <slot>editCustomer()</slot>
   <slot>removeCustomer()</slot>
-  <slot>openCustomer()</slot>
   <slot>search(QString)</slot>
   <slot>search()</slot>
   <slot>editUser()</slot>
@@ -1138,9 +1121,7 @@ border: 1px solid #bbb;</string>
   <slot>aboutFact()</slot>
   <slot>aboutFactDev()</slot>
   <slot>aboutIcons()</slot>
-  <slot>changeCustomerTree(QModelIndex)</slot>
   <slot>changeCustomer()</slot>
-  <slot>changeCustomerTable(QModelIndex)</slot>
   <slot>openProjects()</slot>
   <slot>changeProjectsTable()</slot>
   <slot>backToCustomersTable()</slot>
@@ -1150,5 +1131,7 @@ border: 1px solid #bbb;</string>
   <slot>backToProjectsTable()</slot>
   <slot>editProject()</slot>
   <slot>removeProject()</slot>
+  <slot>changeCustomerTable()</slot>
+  <slot>changeTree()</slot>
  </slots>
 </ui>

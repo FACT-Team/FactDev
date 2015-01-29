@@ -147,12 +147,6 @@ void MainWindow::updateTableBillings(const int idProject)
     ui->tblQuotes->setColumnWidth(4, 150);
 }
 
-void MainWindow::openCustomer()
-{
-    int id = getCurrentCustomerId();
-    ui->wdgCustomerData->printInformations(id);
-}
-
 
 void MainWindow::addQuote()
 {
@@ -228,7 +222,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 {
     QMenu* menu = new CustomerContextualMenu(this);
 
-    emit changeCustomerTree();
+    emit changeTree();
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
@@ -335,31 +329,21 @@ void MainWindow::aboutIcons()
                  "l'usage du logiciel FactDev");
 }
 
-void MainWindow::changeCustomerTree(QModelIndex index)
-{
-    ui->tblCustomers->selectRow(index.row()-1);     // Séléction de la ligne correspondante au client sélectionné
-    emit openCustomer();
-}
-
-void MainWindow::changeCustomerTree()
+void MainWindow::changeTree()
 {
     QModelIndex index =
             ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
-    emit changeCustomerTree(index);
-}
-
-void MainWindow::changeCustomerTable(QModelIndex index)
-{
-    // Gérer le rafraichissement des vues lors d'un changement d'état dans la séléction des clients
-    // ui->trCustomers->set(index.row()+1);
-    emit openCustomer();
+    //emit changeCustomerTree(index);
+    ui->tblCustomers->selectRow(index.row()-1);
+    int id = getCurrentCustomerId();
+    ui->wdgCustomerData->printInformations(id);
 }
 
 void MainWindow::changeCustomerTable()
 {
-    QModelIndex index =
-            ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
-    emit changeCustomerTable(index);
+    //QModelIndex index = ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
+    int id = getCurrentCustomerId();
+    ui->wdgCustomerData->printInformations(id);
 }
 
 void MainWindow::changeProjectsTable()
@@ -389,7 +373,7 @@ void MainWindow::backToProjectsTable()
 void MainWindow::projectsCustomersTableTree()
 {
 
-    QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
+    /*QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
 
     if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
         ui->stackedWidget->setCurrentIndex(0);
@@ -403,7 +387,7 @@ void MainWindow::projectsCustomersTableTree()
         ui->tblProjects->selectRow(index.row());
         ui->stackedWidget->setCurrentIndex(2);
         updateTableBillings(getCurrentProjectId());
-    }
+    }*/
 }
 
 void MainWindow::quotesProject()

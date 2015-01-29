@@ -75,11 +75,6 @@ public slots:
      */
     void removeCustomer();
     /**
-     * @brief MainWindow::openCustomer open a customer and print his informations
-     * @see CustomerDataWidget
-     */
-    void openCustomer();
-    /**
      * @brief MainWindow::editUser modify the user
      * @see UserDataDialog
      */
@@ -147,21 +142,9 @@ private slots:
      */
     void openContextualMenuTree(const QPoint point);
     /**
-     * @brief MainWindow::changeCustomerTree when customer changed in tree
-     * update customer selected in table and his informations
-     * @param index index of selected customer
-     */
-    void changeCustomerTree(QModelIndex index);
-    /**
      * @brief MainWindow::changeCustomerTree call changeCustomerTree
      */
-    void changeCustomerTree();
-    /**
-     * @brief MainWindow::changeCustomerTable when customer changed in table
-     * update his informations
-     * @param index index of selected customer
-     */
-    void changeCustomerTable(QModelIndex index);
+    void changeTree();
     /**
      * @brief MainWindow::changeCustomerTable calls changeCustomerTable
      */
