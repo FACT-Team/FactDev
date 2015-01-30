@@ -124,6 +124,15 @@ void Billing::setDate(const QDate &date)
     _date = date;
 }
 
+bool Billing::operator ==(const Billing &b)
+{
+    return (getId() == b.getId() &&
+            getDate() == b.getDate() &&
+            getDescription() == b.getDescription() &&
+            getNumber() == b.getNumber() &&
+            getTitle() == b.getTitle());
+}
+
 
 
 

@@ -121,6 +121,13 @@ public:
      * @param getDate the new date of the Billing
      */
     void setDate(const QDate &getDate);
+    /**
+     * @brief Billing::operator == define the operator "==" to compare two
+     * billings and to see if they are the same
+     * @param b the billing to compare with the current <b>Billing</b>
+     * @return true if they are the same billings else false
+     */
+    bool operator ==(const Billing &b);
 
 private:
     QMap<Project*,QList<Contributory>*> _contributories;   //!< List of contributories
