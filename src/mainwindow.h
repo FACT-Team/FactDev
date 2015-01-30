@@ -29,7 +29,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-
     /**
      * @brief MainWindow::getCurrentCustomerId get the selected customer
      * @return id of the selected customer
@@ -54,17 +53,26 @@ public:
      */
     QString getCurrentProjectName();
     /**
-     * @brief MainWindow::isProject return if the node selected in the
-     * tree is a customer or a project
-     * @return true if it's a customer, false if it's a project
+     * @brief MainWindow::isTreeRoot return if the node selected in the
+     * tree is the root
+     * @return boolean
      */
-    bool isCustomer();
-
     bool isTreeRoot();
-    bool isProjectItemTree();
+    /**
+     * @brief MainWindow::isCustomerItemTree return if the node selected in the
+     * tree is a customer
+     * @return boolean
+     */
     bool isCustomerItemTree();
-    bool isQuoteItemTree();
+    /**
+     * @brief MainWindow::isProjectItemTree return if the node selected in the
+     * tree is a project
+     * @return boolean
+     */
+    bool isProjectItemTree();
 
+    //TODO
+    bool isQuoteItemTree();
     void demo();
 public slots:
     /**
@@ -81,16 +89,14 @@ public slots:
      */
     void removeCustomer();
     /**
-     * @brief MainWindow::editUser modify the user
-     * @see UserDataDialog
-     */
-
-    /**
      * @brief MainWindow::addQuote open window to add a new quote
      * @see AddQuoteDialog
      */
     void addQuote();
-
+    /**
+     * @brief MainWindow::editUser modify the user
+     * @see UserDataDialog
+     */
     void editUser();
     /**
      * @brief MainWindow::search launch a new search
@@ -105,18 +111,15 @@ public slots:
      * @brief MainWindow::newProject Create a new project for a customer
      * @see AddProjectDialog
      */
-    void newProject(void);
-
+    void newProject();
     /**
      * @brief MainWindow::removeProject Remove a project for a customer
      */
     void removeProject(void);
-
     /**
      * @brief MainWindow::editProject Modify the customer project
      */
     void editProject(void);
-
     /**
      * @brief MainWindow::aboutQt show Qt's details
      */
@@ -195,7 +198,6 @@ private:
      * (just client in the first version)
      */
     void updateTree(QString filter="");
-
     /**
      * @brief MainWindow::updateUser Update user data panel
      */
@@ -206,7 +208,6 @@ private:
      * @param idProject Only billings corresponding to the idProject
      */
     void updateTableBillings(const int idProject);
-
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
      * table <i>tbl</i>
@@ -214,7 +215,6 @@ private:
      * @param item an item in the table <i>tbl</i>
      */
     void removeItem(QTableView* tbl, ItemType item);
-
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
      * the  tableview <i>tbl</i>
