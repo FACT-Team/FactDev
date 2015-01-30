@@ -11,7 +11,7 @@
 #include "dialogs/addprojectdialog.h"
 #include "dialogs/addquotedialog.h"
 #include "log.h"
-
+#include "dialogs/messagebox/messagebox.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -308,7 +308,10 @@ void MainWindow::aboutQt()
 
 void MainWindow::aboutFact()
 {
-    QMessageBox::about(
+    MessageBox m;
+    m.aboutFact();
+
+    /* QMessageBox::about(
                 this,
                 "About Fact",
                 "Fact est une équipe de Développement créée dans le cadre de "
@@ -316,12 +319,14 @@ void MainWindow::aboutFact()
                 "Cette équipe est composée de : "
                   "<ul>"
                        "<li>Florent Berbie</li>"
-                       "<li>Manantsoa Andriamihary Razanajatovo</li>"
+                       "<li>Manantsoa Andriamihary Razanbajatovo</li>"
                        "<li>Cédric Rohaut</li>"
                        "<li>Antoine de Roquemaurel</li>"
                   "</ul>"
                 "<br/><br/>"
                 "Plus d'informations sur <a href=\"http://fact-team.github.io/\">http://fact-team.github.io/</a>");
+
+*/
 }
 
 void MainWindow::aboutFactDev()

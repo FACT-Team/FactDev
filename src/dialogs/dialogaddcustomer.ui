@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Ajouter un client</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../icons.qrc">
+    <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="3" column="0" colspan="2">
     <widget class="QGroupBox" name="groupBox">
@@ -253,6 +257,14 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>widgets/checkfields/checkemail.h</header>
@@ -288,14 +300,6 @@
    <class>CheckName</class>
    <extends>QLineEdit</extends>
    <header>widgets/checkfields/checkname.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>CheckUntilField</class>
-   <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkuntilfield.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>

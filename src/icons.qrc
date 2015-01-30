@@ -73,8 +73,9 @@
         <file>img/img20/no20.png</file>
         <file>img/img20/yes_light20.png</file>
         <file>img/img20/yes20.png</file>
-        <file alias="Fact">img/FACT_official.png</file>
+        <file alias="Fact_square">img/FACT_official.png</file>
         <file alias="FactDev">img/FACTDev.png</file>
+        <file>img/FACT_official_square.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>

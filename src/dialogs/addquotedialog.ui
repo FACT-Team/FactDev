@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Devis n°XX</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../icons.qrc">
+    <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+  </property>
   <layout class="QGridLayout" name="_2">
    <item row="9" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
