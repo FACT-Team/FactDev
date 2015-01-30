@@ -253,8 +253,8 @@ void MainWindow::updateTree(QString filter)
 
 void MainWindow::newProject()
 {
-    qDebug() << "ok";
     QModelIndex index = ui->tblCustomers->currentIndex();
+
     AddProjectDialog *w = new AddProjectDialog();
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         w = new AddProjectDialog(index.row(), 0, 0);
@@ -387,6 +387,7 @@ void MainWindow::changeProjectsTable()
     ui->tblProjects->setColumnWidth(2, 200);
     ui->tblProjects->setColumnWidth(3, 122);
     ui->tblProjects->setColumnWidth(4, 122);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::backToCustomersTable()
