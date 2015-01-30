@@ -95,22 +95,24 @@ throw(DbException*)
 
 int BillingDatabase::addBilling(const Billing& pBilling) {
     QSqlQuery q;
+
     q.prepare(
         "INSERT INTO Billing "
-        "(title, number, isBilling, date)"
+        "(title, description, number, isBilling, date)"
         " VALUES "
-        "(:title, :number, :isBilling, :date)"
+        "(:title, :description, :number, :isBilling, :date)"
     );
 
     q.bindValue(":title", pBilling.getTitle());
+    q.bindValue(":description", pBilling.getDescription());
     q.bindValue(":number", pBilling.getNumber());
     q.bindValue(":isBilling", pBilling.isBilling());
     q.bindValue(":date", pBilling.getDate());
-
+    qDebug() << pBilling.getDescription();
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le Customer",
-            "BddCustomer::addCustomer",
+            "Impossible d'ajouter le Billing",
+            "BddBilling::addBilling",
             lastError(q),
             1.3);
     }
