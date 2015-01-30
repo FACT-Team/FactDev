@@ -59,6 +59,12 @@ public:
      * @return true if it's a customer, false if it's a project
      */
     bool isCustomer();
+
+    bool isTreeRoot();
+    bool isProjectItemTree();
+    bool isCustomerItemTree();
+    bool isQuoteItemTree();
+
     void demo();
 public slots:
     /**

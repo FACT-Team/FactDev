@@ -81,6 +81,19 @@ bool MainWindow::isCustomer()
     return index.model()->hasChildren(index);
 }
 
+bool MainWindow::isTreeRoot() {
+    return ui->trCustomers->currentIndex().data() == "Tous les clients";
+}
+bool MainWindow::isProjectItemTree() {
+    return false;
+}
+bool MainWindow::isCustomerItemTree() {
+    return !isTreeRoot() && !ui->trCustomers->currentIndex().parent().isValid();
+}
+bool MainWindow::isQuoteItemTree() {
+    return false;
+}
+
 void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
@@ -331,12 +344,27 @@ void MainWindow::aboutIcons()
 
 void MainWindow::changeTree()
 {
-    QModelIndex index =
-            ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
-    //emit changeCustomerTree(index);
-    ui->tblCustomers->selectRow(index.row()-1);
+    QModelIndex index = ui->trCustomers->currentIndex();
+    int idRow = ui->trCustomers->currentIndex().row();
     int id = getCurrentCustomerId();
-    ui->wdgCustomerData->printInformations(id);
+    //QModelIndex a = ui->trCustomers->model()->index(1,0, QModelIndex);
+    //Customer custom(index.data());
+
+
+    qDebug() << "Row : " << idRow << "\tCustomer id : " << id << " " << index.data().toString() << " " << isTreeRoot();
+
+    //qDebug() << "";
+    if (isTreeRoot()) {
+        qDebug() << "Clear";
+        ui->tblCustomers->clearSelection();
+        ui->wdgCustomerData->hide();
+    }
+
+    if (isCustomerItemTree()) {
+        qDebug() << "Customer" << id << " " << idRow;
+        ui->tblCustomers->selectRow(idRow-1);
+        ui->wdgCustomerData->printInformations(id);
+    }
 }
 
 void MainWindow::changeCustomerTable()
@@ -387,7 +415,7 @@ void MainWindow::projectsCustomersTableTree()
         ui->tblProjects->selectRow(index.row());
         ui->stackedWidget->setCurrentIndex(2);
         updateTableBillings(getCurrentProjectId());
-    }*/
+    */
 }
 
 void MainWindow::quotesProject()

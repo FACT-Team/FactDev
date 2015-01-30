@@ -77,7 +77,6 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
 
     QSqlQuery q;
 
-
     q.prepare("SELECT * "
               "FROM Customer WHERE 1 "+filter+" "
               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
@@ -90,14 +89,22 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
             1.1);
     }
 
-    QStandardItem* item;
-
-    item = new QStandardItem("Tous les clients");
+    QStandardItem* item = new QStandardItem("Tous les clients");
     item->setIcon(QIcon(":icons/customer"));
     retour->appendRow(item);
 
     while(q.next()) {
         QStandardItem* item;
+
+        if(value(q,"company").toString().isEmpty())
+            item = new QStandardItem(value(q, "lastnameReferent").toString().toUpper()+" "+
+                                     Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
+        else
+            item = new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
+
+        item->setIcon(QIcon(":icons/customer"));
+
+        // Project for a customer
         QSqlQuery q2;
 
         q2.prepare("SELECT *"
@@ -113,20 +120,11 @@ QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
                 1.1);
         }
 
-        if(value(q,"company").toString().isEmpty())
-            item = new QStandardItem(value(q, "lastnameReferent").toString().toUpper()+" "+
-                                     Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
-        else
-            item = new QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
-
-
-         while(q2.next()) {
+        while(q2.next()) {
             QStandardItem *child = new QStandardItem(value(q2,"name").toString());
             child->setIcon(QIcon(":icons/img/project"));
             item->appendRow(child);
-         }
-
-        item->setIcon(QIcon(":icons/customer"));
+        }
 
         retour->appendRow(item);
     }
