@@ -347,13 +347,9 @@ void MainWindow::changeTree()
     QModelIndex index = ui->trCustomers->currentIndex();
     int idRow = ui->trCustomers->currentIndex().row();
     int id = getCurrentCustomerId();
-    //QModelIndex a = ui->trCustomers->model()->index(1,0, QModelIndex);
-    //Customer custom(index.data());
 
+    //qDebug() << "Row : " << idRow << "\tCustomer id : " << id << " " << index.data().toString() << " " << isTreeRoot();
 
-    qDebug() << "Row : " << idRow << "\tCustomer id : " << id << " " << index.data().toString() << " " << isTreeRoot();
-
-    //qDebug() << "";
     if (isTreeRoot()) {
         qDebug() << "Clear";
         ui->tblCustomers->clearSelection();
