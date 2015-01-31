@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>132</height>
+    <height>102</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QLineEdit" name="leContributoryu"/>
+    <widget class="CheckUntilField" name="leContributoryu"/>
    </item>
    <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -75,10 +75,20 @@
     </layout>
    </item>
    <item row="1" column="1">
-    <widget class="QLineEdit" name="leNbDays"/>
+    <widget class="CheckUntilField" name="leNbDays"/>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../icons.qrc"/>
  </resources>
@@ -111,7 +121,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>362</x>
-     <y>155</y>
+     <y>101</y>
     </hint>
    </hints>
   </connection>

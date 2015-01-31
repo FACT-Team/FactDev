@@ -609,16 +609,28 @@ border: 1px solid #bbb;</string>
    </property>
   </action>
   <action name="actFact">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Fact_square</normaloff>:/icons/Fact_square</iconset>
+   </property>
    <property name="text">
     <string>Fact</string>
    </property>
   </action>
   <action name="actFactDev">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+   </property>
    <property name="text">
     <string>FactDev</string>
    </property>
   </action>
   <action name="actIcons">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/information.png</normaloff>:/icons/img/information.png</iconset>
+   </property>
    <property name="text">
     <string>Icons</string>
    </property>

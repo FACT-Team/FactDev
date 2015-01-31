@@ -7,51 +7,65 @@ namespace Ui {
 class MessageBox;
 }
 
+/**
+ * @author Florent Berbie
+ * @brief The MessageBox class Information window with message
+ */
 class MessageBox : public QDialog
 {
     Q_OBJECT
 
 public:
-    static const int ERROR = 0;     //!< constant value assigned to Customer
-    static const int HELP = 1;      //!< constant value assigned to Project
-    static const int INFO = 2;      //!< constant value assigned to Billing
-    static const int WARNING = 3;   //!< constant value assigned to Quote
+    /**
+     * @brief MessageBox::MessageBox Construt a <b>MessageBox</b>
+     * @param parent
+     */
     explicit MessageBox(QWidget *parent = 0);
     ~MessageBox();
 
+    /**
+     * @brief MessageBox::showAboutFact Shows window about FACT team
+     */
     void static showAboutFact();
 
+    /**
+     * @brief MessageBox::showAboutFactDev Shows window about FactDev software
+     */
     void static showAboutFactDev();
 
+    /**
+     * @brief MessageBox::showAboutIcons Shows about icons theme of FactDev
+     * software
+     */
     void static showAboutIcons();
 
-    void static showErrorMessage(QString title, QString message);
-
-    void static showHelpMessage(QString title, QString message);
-
-    void static showInformationMessage(QString title, QString message);
-
-    void static showWarningMessage(QString title, QString message);
-
+    /**
+     * @brief MessageBox::aboutFact Defines FACT team information
+     */
     void aboutFact();
 
+    /**
+     * @brief MessageBox::aboutFactDev Defines FactDev software information
+     */
     void aboutFactDev();
 
+    /**
+     * @brief MessageBox::aboutIcons Defines icons theme information
+     */
     void aboutIcons();
 
-    void showMessage(QString title, QString message, int type);
-    /*
-    void errorMessage(QString title = "Message d'erreur", QString message);
-
-    void helpMessage(QString title = "Aide", QString message);
-
-    void informationMessage(QString title = "Message d'information",
-                            QString message);
-
-    void warningMessage(QString title = "Attention", QString message);
-    */
+    /**
+     * @brief MessageBox::setImage Add the icon <i>img</i> to the current window
+     * @param img Icon
+     * @param width Icon width (default: 128)
+     * @param height Icon height (default: 128)
+     */
     void setImage(QString img, int width = 128, int height = 128);
 
+    /**
+     * @brief MessageBox::setText Add the text <i>txt</i> to the current window
+     * @param txt Text inside the current window
+     */
     void setText(QString txt);
 private:
     Ui::MessageBox *ui;

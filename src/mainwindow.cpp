@@ -112,7 +112,8 @@ void MainWindow::updateUser()
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 {
     if (tbl->selectionModel()->hasSelection()) {
-        if(QMessageBox::warning(
+
+        if (QMessageBox::warning(
                     this,
                     "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
                     "Voulez vous supprimer " +

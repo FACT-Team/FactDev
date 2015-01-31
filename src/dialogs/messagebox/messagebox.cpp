@@ -33,34 +33,6 @@ void MessageBox::showAboutIcons() {
 
 }
 
-void MessageBox::showErrorMessage(QString title, QString message) {
-    MessageBox m;
-//    m.errorMessage(title, message);
-    m.showMessage(title, message, ERROR);
-    m.exec();
-}
-
-void MessageBox::showHelpMessage(QString title, QString message) {
-    MessageBox m;
-//    m.helpMessage(title, message);
-    m.showMessage(title, message, HELP);
-    m.exec();
-}
-
-void MessageBox::showInformationMessage(QString title, QString message) {
-    MessageBox m;
-//    m.informationMessage(title, message);
-    m.showMessage(title, message, INFO);
-    m.exec();
-}
-
-void MessageBox::showWarningMessage(QString title, QString message) {
-    MessageBox m;
-//    m.warningMessage(title, message);
-    m.showMessage(title, message, WARNING);
-    m.exec();
-}
-
 void MessageBox::aboutFact() {
     setWindowTitle("À propos de l'équipe FACT");
     setImage(":/icons/img/FACT_official_square.png");
@@ -103,67 +75,6 @@ void MessageBox::aboutIcons()
         "du logiciel FactDev.");
 }
 
-void MessageBox::showMessage(QString title, QString message, int type) {
-    setWindowTitle(title);
-    switch (type) {
-    case 0:
-        if (title.isEmpty()) {
-            setWindowTitle("Message d'erreur");
-        }
-        setImage(":/icons/img/message_error.png",64,64);
-        break;
-    case 1:
-        if (title.isEmpty()) {
-            setWindowTitle("Aide");
-        }
-        setImage(":/icons/img/message_help.png",64,64);
-        break;
-    case 2:
-        if (title.isEmpty()) {
-            setWindowTitle("Message d'information");
-        }
-        setImage(":/icons/img/message_info.png",64,64);
-        break;
-    case 3:
-        if (title.isEmpty()) {
-            setWindowTitle("Avertissement");
-        }
-        setImage(":/icons/img/message_warning.png",64,64);
-        break;
-    default:
-        if (title.isEmpty()) {
-            setWindowTitle("Message d'information");
-        }
-        setImage(":/icons/img/message_info.png",64,64);
-    }
-
-    setText(message);
-}
-/*
-void MessageBox::errorMessage(QString title, QString message) {
-    setWindowTitle(title);
-    setImage(":/icons/img/message_error.png");
-    setText(message);
-}
-
-void MessageBox::helpMessage(QString title, QString message) {
-    setWindowTitle(title);
-    setImage(":/icons/img/message_error.png");
-    setText(message);
-}
-
-void MessageBox::informationMessage(QString title, QString message) {
-    setWindowTitle(title);
-    setImage(":/icons/img/message_error.png");
-    setText(message);
-}
-
-void MessageBox::warningMessage(QString title, QString message) {
-    setWindowTitle(title);
-    setImage(":/icons/img/message_error.png");
-    setText(message);
-}
-*/
 void MessageBox::setImage(QString img, int width, int height) {
     QPixmap icon(img);
     icon.scaled(QSize(width,height), Qt::KeepAspectRatio);
