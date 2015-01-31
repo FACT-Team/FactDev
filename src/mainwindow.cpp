@@ -308,47 +308,15 @@ void MainWindow::aboutQt()
 
 void MainWindow::aboutFact()
 {
-    MessageBox m;
-    m.aboutFact();
-
-    /* QMessageBox::about(
-                this,
-                "About Fact",
-                "Fact est une équipe de Développement créée dans le cadre de "
-                "projets pour l'Université Toulouse III - Paul Sabatier. <br />"
-                "Cette équipe est composée de : "
-                  "<ul>"
-                       "<li>Florent Berbie</li>"
-                       "<li>Manantsoa Andriamihary Razanbajatovo</li>"
-                       "<li>Cédric Rohaut</li>"
-                       "<li>Antoine de Roquemaurel</li>"
-                  "</ul>"
-                "<br/><br/>"
-                "Plus d'informations sur <a href=\"http://fact-team.github.io/\">http://fact-team.github.io/</a>");
-
-*/
+    MessageBox::showAboutFact();
 }
 
-void MainWindow::aboutFactDev()
-{
-    QMessageBox::about(
-                this,
-                "About FactDev",
-                "<p>FactDev est un logiciel de Facture et Devis développé par "
-                "l'équipe FACT dans le cadre de l'UE Projet pour l'université "
-                "Toulouse III - Paul Sabatier.<br/></p>"
-                "<p>"
-               // "Ce logiciel est libre et sous license *****. "
-                "<br/>Le code source est disponible sur Github : <br/><a href=\"https://github.com/FACT-Team/FactDev\">https://github.com/FACT-Team/FactDev</a>");
+void MainWindow::aboutFactDev() {
+    MessageBox::showAboutFactDev();
 }
 
-void MainWindow::aboutIcons()
-{
-     QMessageBox::about(
-                 this,
-                 "About Icons",
-                 "Le pack d'icons à été développé par Florent Berbie pour "
-                 "l'usage du logiciel FactDev");
+void MainWindow::aboutIcons() {
+    MessageBox::showAboutIcons();
 }
 
 void MainWindow::changeCustomerTree(QModelIndex index)
