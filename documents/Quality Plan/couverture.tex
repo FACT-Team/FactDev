@@ -1,0 +1,64 @@
+
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}} % Generic publisher logo
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\rotrt}[1]{\rotatebox{90}{#1}} % Command to rotate right 90 degrees
+\newcommand*{\rotlft}[1]{\rotatebox{-90}{#1}} % Command to rotate left 90 degrees
+
+\newcommand*{\titleBC}{\begingroup % Create the command for including the title page in the document
+\newlength{\drop} % Command for generating a specific amount of whitespace
+\drop=0.1\textheight % Define the command as 10% of the total text height
+
+\vspace*{-50px}
+\rule{\textwidth}{0.4pt}\par % Thick horizontal line
+\begin{tabular}{p{8cm}p{5cm}p{6cm}}
+	\begin{minipage}{8cm}
+		Équipe FACT\\
+		\textit{Conception et développement d'applications}\\~\\
+		\small
+%		\Mobilefone~06~84~33~52~93\\
+%		\Letter~\texttt{antoine.roquemaurel@gmail.com}\\
+		\Mundus~\url{http://fact-team.github.io}
+	\end{minipage} &
+	& 
+
+	\begin{minipage}{5cm}
+		\begin{center}
+			\includegraphics[width=5cm]{logo.jpg}\\
+			\tiny{Rédigé avec \LaTeX{}\\Version du \today}
+		\end{center}
+	\end{minipage}
+\end{tabular}
+
+
+\vspace{\drop} % Whitespace between the top lines and title
+\centering % Center all text
+
+\vspace{100px}
+\def\CP{\textit{\Huge \titre}} % Title
+
+\settowidth{\unitlength}{\CP} % Set the width of the curly brackets to the width of the title
+{\color{LightGoldenrod}\resizebox*{\unitlength}{\baselineskip}{\rotrt{$\}$}}} \\[\baselineskip] % Print top curly bracket
+\textcolor{Sienna}{\CP} \\[\baselineskip] % Print title
+{\color{RosyBrown}\Large \subtitle} \\ % Tagline or further description
+{\color{LightGoldenrod}\resizebox*{\unitlength}{\baselineskip}{\rotlft{$\}$}}} % Print bottom curly bracket
+
+\vfill % Whitespace between the title and the author name
+
+
+{
+\normalsize \LARGE Université Toulouse III -- Paul Sabatier}\\ % Author name
+
+\vfill % Whitespace between the author name and the publisher logo
+\Large \today % Year published
+
+\rule{\textwidth}{0.4pt}\par % Thick horizontal line
+
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%	BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
