@@ -126,8 +126,7 @@ void Billing::setDate(const QDate &date)
 
 bool Billing::operator ==(const Billing &b)
 {
-    return (getId() == b.getId() &&
-            getDate() == b.getDate() &&
+    return (getDate() == b.getDate() &&
             getDescription() == b.getDescription() &&
             getNumber() == b.getNumber() &&
             getTitle() == b.getTitle());
@@ -135,11 +134,7 @@ bool Billing::operator ==(const Billing &b)
 
 bool Billing::operator !=(const Billing &b)
 {
-    return !(getId() == b.getId() &&
-            getDate() == b.getDate() &&
-            getDescription() == b.getDescription() &&
-            getNumber() == b.getNumber() &&
-            getTitle() == b.getTitle());
+    return !(*this == b);
 }
 
 

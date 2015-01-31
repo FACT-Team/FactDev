@@ -37,6 +37,11 @@ Billing* BillingDatabase::getBilling(const int pId) {
         billing = new Billing();
         billing->setId(value(q, "idBilling").toInt());
         billing->setTitle(value(q, "title").toString());
+        billing->setDescription(value(q,"description").toString());
+        billing->setNumber(value(q,"number").toInt());
+        billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+        billing->setIsBilling(value(q,"isBilling").toBool());
+        billing->setToRemoved(false);
     } else {
         billing = NULL;
     }
@@ -116,7 +121,6 @@ int BillingDatabase::addBilling(const Billing& pBilling) {
             lastError(q),
             1.3);
     }
-
     return q.lastInsertId().toInt();
 }
 
