@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>480</height>
+    <height>376</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -92,7 +92,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="CheckUntilField" name="leCompany">
+    <widget class="CheckValidField" name="leCompany">
      <property name="toolTip">
       <string>Nom de la société du client</string>
      </property>
@@ -133,7 +133,7 @@
     </widget>
    </item>
    <item row="6" column="1">
-    <widget class="CheckPhone" name="leMobilePhone">
+    <widget class="CheckUntilField" name="leMobilePhone">
      <property name="toolTip">
       <string>Numéro de téléphone portable du client</string>
      </property>
@@ -240,7 +240,7 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="CheckPhone" name="lePhone">
+    <widget class="CheckUntilField" name="lePhone">
      <property name="toolTip">
       <string>Numéro de téléphone fixe du client</string>
      </property>
@@ -252,6 +252,14 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
   <customwidget>
    <class>CheckEmail</class>
    <extends>QLineEdit</extends>
@@ -293,9 +301,9 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckUntilField</class>
+   <class>CheckValidField</class>
    <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkuntilfield.h</header>
+   <header>widgets/checkfields/checkvalidfield.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>

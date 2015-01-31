@@ -13,13 +13,7 @@ public:
      */
     CheckCountry (QWidget* w = 0, QPushButton* btn = 0);
 
-    /**
-     * @brief CheckCountry::check Check if the field email is valid.
-     * To be valid, a country is composed of letters
-     * @param text
-     * @return boolean
-     */
-//    bool check(QString text);
+
 };
 
 #endif // CHECKCOUNTRY_H
