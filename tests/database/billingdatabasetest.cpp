@@ -14,9 +14,9 @@ BillingDatabaseTest::BillingDatabaseTest()
 
 void BillingDatabaseTest::insert()
 {
-    /*_lastInsert = BillingDatabase::instance()->addBilling(b1);
+    _lastInsert = BillingDatabase::instance()->addBilling(b1);
     Billing * b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b1 == *b2);*/
+    QVERIFY(b1 == *b2);
 }
 
 void BillingDatabaseTest::remove()
@@ -28,14 +28,13 @@ void BillingDatabaseTest::remove()
 
 void BillingDatabaseTest::update()
 {
-    //TO DO: Ajouter des jeux de tests avec tous les champs remplis
-   /* _lastInsert = BillingDatabase::instance()->addBilling(b1);
+    _lastInsert = BillingDatabase::instance()->addBilling(b1);
     b1.setId(_lastInsert);
     b1.setTitle("Paladin donut");
     b1.setDescription("Création des donuts platines");
     BillingDatabase::instance()->updateBilling(b1);
     Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b1 == *b2);*/
+    QVERIFY(b1 == *b2);
 }
 
 void BillingDatabaseTest::selectBillingNotFound()
@@ -45,14 +44,13 @@ void BillingDatabaseTest::selectBillingNotFound()
 
 void BillingDatabaseTest::selectBillingFound()
 {
-    //TO DO: Ajouter des jeux de tests avec tous les champs remplis
-    /*Billing *b2 = BillingDatabase::instance()->getBilling(1);
+    Billing *b2 = BillingDatabase::instance()->getBilling(1);
     b1.setId(1);
-    b1.setTitle("faucibus");
-    b1.setDescription("");
-    //TO DO: des jeux de tests insérant des vraies descriptions
-    b1.setNumber(1);//A changer
+    b1.setTitle("Integer");
+    b1.setDescription("id ante dictum cursus. "
+                      "Nunc mauris elit, dictum eu, eleifend");
+    b1.setNumber(1);
     b1.setIsBilling(0);
-    b1.setDate(QDate(2011,7,29));
-    QVERIFY(b1 == *b2);*/
+    b1.setDate(QDate(15,6,22));
+    QVERIFY(b1 == *b2);
 }

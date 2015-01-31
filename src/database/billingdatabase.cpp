@@ -108,7 +108,7 @@ int BillingDatabase::addBilling(const Billing& pBilling) {
     q.bindValue(":number", pBilling.getNumber());
     q.bindValue(":isBilling", pBilling.isBilling());
     q.bindValue(":date", pBilling.getDate());
-    qDebug() << pBilling.getDescription();
+
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'ajouter le Billing",
