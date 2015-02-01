@@ -30,6 +30,7 @@ CREATE TABLE Billing
 (
     idBilling INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(64),
+    description TEXT,
     number INTEGER,
     isBilling BOOLEAN,
     date DATETIME

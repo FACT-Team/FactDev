@@ -5,7 +5,6 @@
 #include <QMessageBox>
 #include <QModelIndex>
 #include <QTableView>
-
 #include "itemtype.h"
 
 namespace Ui {

@@ -20,6 +20,12 @@ void RateWidget::initRate() {
     ui->sbHourlyRate->setValue(LEGAL_RATE);
 }
 
+void RateWidget::setWidgetDailyRateValue(double value)
+{
+    ui->sbDailyRate->setValue(value);
+    emit setDailyRate();
+}
+
 double RateWidget::getDailyRate() {
     return ui->sbDailyRate->value();
 }
@@ -27,7 +33,7 @@ double RateWidget::getDailyRate() {
 void RateWidget::setDailyRate() {
 
     if (ui->sbDailyRate->value() > NB_DAILY_HOURS * LEGAL_RATE) {
-        _isDailyRateModified = true;
+        _isDailyRateModified = true;        
         updateConversionRate();
     } else {
        initRate();

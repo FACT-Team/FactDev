@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>FactDev: Facture &amp; Devis</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
@@ -605,16 +609,28 @@ border: 1px solid #bbb;</string>
    </property>
   </action>
   <action name="actFact">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Fact_square</normaloff>:/icons/Fact_square</iconset>
+   </property>
    <property name="text">
     <string>Fact</string>
    </property>
   </action>
   <action name="actFactDev">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+   </property>
    <property name="text">
     <string>FactDev</string>
    </property>
   </action>
   <action name="actIcons">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/information.png</normaloff>:/icons/img/information.png</iconset>
+   </property>
    <property name="text">
     <string>Icons</string>
    </property>
@@ -939,8 +955,8 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>472</x>
-     <y>133</y>
+     <x>336</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -971,8 +987,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>399</x>
-     <y>155</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1003,7 +1019,7 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>505</x>
+     <x>356</x>
      <y>111</y>
     </hint>
     <hint type="destinationlabel">
@@ -1019,8 +1035,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>805</x>
-     <y>534</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1035,8 +1051,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>752</x>
-     <y>536</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1051,8 +1067,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>743</x>
-     <y>541</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>

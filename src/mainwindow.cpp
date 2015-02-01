@@ -11,7 +11,7 @@
 #include "dialogs/addprojectdialog.h"
 #include "dialogs/addquotedialog.h"
 #include "log.h"
-
+#include "dialogs/messagebox/messagebox.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -107,7 +107,8 @@ void MainWindow::updateUser()
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 {
     if (tbl->selectionModel()->hasSelection()) {
-        if(QMessageBox::warning(
+
+        if (QMessageBox::warning(
                     this,
                     "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
                     "Voulez vous supprimer " +
@@ -198,8 +199,7 @@ void MainWindow::search(QString text)
     updateTree(s.getFilter());
 }
 
-void MainWindow::openContextualMenuTable(const QPoint point)
-{
+void MainWindow::openContextualMenuTable(const QPoint point) {
     QMenu* menu = new CustomerContextualMenu(this);
 
     emit changeCustomerTable();
@@ -221,8 +221,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 }
 
-void MainWindow::updateTableCustomers(QString filter)
-{
+void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
                 CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
@@ -254,15 +253,19 @@ void MainWindow::updateTree(QString filter)
 void MainWindow::newProject()
 {
     QModelIndex index = ui->tblCustomers->currentIndex();
-
-    AddProjectDialog *w = new AddProjectDialog();
-    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+    AddProjectDialog *w;
+    switch(ui->stackedWidget->currentIndex()) {
+    case 0:
+        w = new AddProjectDialog(0, 0, 0);
+        break;
+    case 1:
         w = new AddProjectDialog(index.row(), 0, 0);
+        w->fillFields();
+        break;
+    default:
+        w = new AddProjectDialog(0, 0, 0);
     }
-
-    if(w->exec()) {
-
-    }
+    w->exec();
     updateTree("");
 }
 
@@ -272,6 +275,14 @@ void MainWindow::removeProject() {
 
 void MainWindow::editProject() {
 
+    QModelIndex index = ui->tblCustomers->currentIndex();
+
+    if (ui->tblProjects->selectionModel()->hasSelection()) {
+        AddProjectDialog w(
+                    index.row(),
+                    getCurrentProjectId());
+        w.exec();
+    }
 }
 
 void MainWindow::aboutQt()
@@ -281,42 +292,15 @@ void MainWindow::aboutQt()
 
 void MainWindow::aboutFact()
 {
-    QMessageBox::about(
-                this,
-                "About Fact",
-                "Fact est une équipe de Développement créée dans le cadre de "
-                "projets pour l'Université Toulouse III - Paul Sabatier. <br />"
-                "Cette équipe est composée de : "
-                  "<ul>"
-                       "<li>Florent Berbie</li>"
-                       "<li>Manantsoa Andriamihary Razanajatovo</li>"
-                       "<li>Cédric Rohaut</li>"
-                       "<li>Antoine de Roquemaurel</li>"
-                  "</ul>"
-                "<br/><br/>"
-                "Plus d'informations sur <a href=\"http://fact-team.github.io/\">http://fact-team.github.io/</a>");
+    MessageBox::showAboutFact();
 }
 
-void MainWindow::aboutFactDev()
-{
-    QMessageBox::about(
-                this,
-                "About FactDev",
-                "<p>FactDev est un logiciel de Facture et Devis développé par "
-                "l'équipe FACT dans le cadre de l'UE Projet pour l'université "
-                "Toulouse III - Paul Sabatier.<br/></p>"
-                "<p>"
-               // "Ce logiciel est libre et sous license *****. "
-                "<br/>Le code source est disponible sur Github : <br/><a href=\"https://github.com/FACT-Team/FactDev\">https://github.com/FACT-Team/FactDev</a>");
+void MainWindow::aboutFactDev() {
+    MessageBox::showAboutFactDev();
 }
 
-void MainWindow::aboutIcons()
-{
-     QMessageBox::about(
-                 this,
-                 "About Icons",
-                 "Le pack d'icons à été développé par Florent Berbie pour "
-                 "l'usage du logiciel FactDev");
+void MainWindow::aboutIcons() {
+    MessageBox::showAboutIcons();
 }
 
 bool MainWindow::isTreeRoot() {
