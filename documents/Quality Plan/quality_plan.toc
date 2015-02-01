@@ -1,0 +1,11 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Description du Projet}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Objet du projet}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Pr\IeC {\'e}sentation des Parties Prenantes}{3}{section.1.2}
+\contentsline {chapter}{\numberline {2}Production}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}M\IeC {\'e}thode de d\IeC {\'e}veloppement et espace de travail}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}M\IeC {\'e}thode Scrum}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Organisation et r\IeC {\^o}les dans l'\IeC {\'e}quipe de d\IeC {\'e}veloppement}{5}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Outils pour la gestion de projet Agile}{6}{subsection.2.1.3}
+\contentsline {chapter}{\numberline {A}Table des figures}{7}{appendix.A}
+\contentsline {chapter}{Index}{8}{appendix*.3}

@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage{lmodern}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\input{../LaTexTemplate/templates/couleurs.tex}
+
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} 
+\usepackage{marvosym}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=1.7cm, bottom=1.7cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{verbatim}
+\usepackage[urlbordercolor={1 1 1}, linkbordercolor={1 1 1}, linkcolor=vert1, urlcolor=bleu, colorlinks=true]{hyperref}
+\usepackage{tikz} %Vectoriel
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{multido}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[francais]{minitoc}
+\usepackage[final]{pdfpages} 
+\usepackage{graphicx} % Required for box manipulation
+\usepackage{makeidx}
+
+\newcommand{\titre}{Plan d'Assurance Qualité Logicielle}
+\newcommand{\subtitle}{Équipe FACT : Florent Berbie, Antoine de Roquemaurel, Cédric Rohaut, Andriamihary Manantsoa Razanajatovo
+M1 Informatique (Semestre 8) | UE Projet
+Université Toulouse III Paul Sabatier}
+\newcommand{\auteur}{Équipe FACT : Florent Berbie, Antoine de Roquemaurel, Cédric Rohaut, Andriamihary Manantsoa Razanajatovo}
+\newcommand{\semestre}{8}
+\newcommand{\annee}{2015}
+
+
+\newcommand{\pole}{}
+\newcommand{\sigle}{FACT}
+\makeindex
+\usepackage[totoc]{idxlayout}
+
+
+\input{../LaTexTemplate/templates/listings.tex}
+\input{../LaTexTemplate/templates/classroomsTemplates/l2/cours.tex}
+\input{../LaTexTemplate/templates/remarquesExempleAttention.tex}
+\input{../LaTexTemplate/templates/polices.tex}
+\input{../LaTexTemplate/templates/affichageChapitre.tex}
+
+\input{couverture.tex}
+\makeatother
+\includeonly {
+contents/0-preambule,
+contents/1-specification_du_projet,
+contents/2-production,
+}
+\begin{document}
+	\thispagestyle{empty} % Removes page numbers
+%	\titleBC 
+	\dominitoc
+	\setcounter{tocdepth}{1}
+	\setcounter{secnumdepth}{3}
+	\setcounter{minitocdepth}{1}
+%	\maketitle
+	
+	
+	
+	\tableofcontents
+	
+	\include{contents/0-preambule}
+	\include{contents/1-specification_du_projet}
+	\include{contents/2-production}
+	\appendix
+	\listoffigures
+	\printindex
+
+\end{document}
