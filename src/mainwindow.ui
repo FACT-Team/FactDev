@@ -965,22 +965,6 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>trCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>projectsCustomersTableTree()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>161</x>
-     <y>499</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>300</x>
-     <y>637</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>tblProjects</sender>
    <signal>doubleClicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>

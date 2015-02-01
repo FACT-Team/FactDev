@@ -49,7 +49,7 @@ void MainWindow::demo() {
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
     QModelIndex idCell = tbl->model()->index(tbl->currentIndex().row(), 0);
-    return tbl->model()->itemData(idCell).value(0).toInt();
+        return tbl->model()->itemData(idCell).value(0).toInt();
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -363,6 +363,10 @@ void MainWindow::changeTree()
     }
 
     if (isProjectItemTree()) {
+        // Need to verify if the current customer is the father
+        // Then update TableProjects
+        ui->tblCustomers->selectRow(index.parent().row()-1);
+        updateTableProjects(getCurrentCustomerId());
         ui->tblProjects->selectRow(idRow);
         updateTableBillings(getCurrentProjectId());
         ui->stackedWidget->setCurrentIndex(2);
@@ -398,26 +402,6 @@ void MainWindow::backToCustomersTable()
 void MainWindow::backToProjectsTable()
 {
     ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::projectsCustomersTableTree()
-{
-
-    /*QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
-
-    if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
-        ui->stackedWidget->setCurrentIndex(0);
-    else if(isCustomer()) { //si client
-        ui->stackedWidget->setCurrentIndex(1);
-        changeProjectsTable();
-        ui->trCustomers->collapseAll();
-        ui->trCustomers->expand(index);
-    }
-    else { //si projet
-        ui->tblProjects->selectRow(index.row());
-        ui->stackedWidget->setCurrentIndex(2);
-        updateTableBillings(getCurrentProjectId());
-    */
 }
 
 void MainWindow::quotesProject()

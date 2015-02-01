@@ -172,11 +172,6 @@ private slots:
      */
     void backToProjectsTable();
     /**
-     * @brief MainWindow::projectsCustomersTableTree displays projects of a customer
-     * or all customers
-     */
-    void projectsCustomersTableTree();
-    /**
      * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
      * of the project in the table of projects
      */
