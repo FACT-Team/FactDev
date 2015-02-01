@@ -12,6 +12,7 @@ Contributory::Contributory()
 Contributory::Contributory(int id)
 {
     hydrat(id);
+    _id = id;
 }
 
 void Contributory::commit()

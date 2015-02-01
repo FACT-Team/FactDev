@@ -37,7 +37,7 @@ Contributory* ContributoryDatabase::getContributory(const int idContributory) {
         contributory = new Contributory();
         contributory->setId(value(q, "idContributory").toInt());
         contributory->setNbHours(value(q, "nbDays").toDouble());
-        contributory->setDescription(value(q, "descriptino").toString());
+        contributory->setDescription(value(q, "description").toString());
         // contributory->setProject(); TODO join ?
     } else {
         contributory = NULL;
@@ -48,11 +48,13 @@ Contributory* ContributoryDatabase::getContributory(const int idContributory) {
 
 QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
 {
+    openTransaction();
     QSqlQuery q;
     QMap<Project *, QList<Contributory> *> contributories;
     QMap<int, Project*> projects; // link between id and Project*
-    q.prepare("SELECT * FROM ContributoryProject "
+    q.prepare("SELECT * FROM BillingProject "
               " WHERE idBilling = :idBilling ORDER BY idProject ");
+    q.bindValue(":idBilling", idBilling);
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'obtenir la préstation",
@@ -63,13 +65,14 @@ QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesBy
 
     while(q.next()) {
         if(!projects.contains(value(q, "idProject").toInt())) { // It's a new project !
+
             Project* p = new Project(value(q, "idProject").toInt());
             projects.insert(value(q, "idProject").toInt(), p);
             contributories.insert(p, new QList<Contributory>());
         }
         contributories.value(projects.last())->append(Contributory(value(q, "idContributory").toInt()));
     }
-
+    closeTransaction();
     return contributories;
 }
 

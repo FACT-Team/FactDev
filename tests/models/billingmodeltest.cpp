@@ -38,6 +38,7 @@ void BillingModelTest::notEquals()
 
 void BillingModelTest::commitUpdate()
 {
+
     /*int id = BillingDatabase::instance()->addBilling(b1);
     b1.setId(id);
     b1.setDescription("Découpe de poulet");

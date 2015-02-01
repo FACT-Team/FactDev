@@ -57,3 +57,4 @@ void BillingDatabaseTest::selectBillingFound()
     b1.setDate(QDate(2015,04,24));
     QVERIFY(b1 == *b2);
 }
+
