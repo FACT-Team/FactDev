@@ -49,7 +49,7 @@ void MainWindow::demo() {
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
     QModelIndex idCell = tbl->model()->index(tbl->currentIndex().row(), 0);
-    return tbl->model()->itemData(idCell).value(0).toInt();
+        return tbl->model()->itemData(idCell).value(0).toInt();
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -70,15 +70,8 @@ QString MainWindow::getCurrentCustomerName()
 
 QString MainWindow::getCurrentProjectName()
 {
-    QModelIndex index =
-            ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(),1);
-    return index.model()->itemData(index).value(0).toString();
-}
-
-bool MainWindow::isCustomer()
-{
-    QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
-    return index.model()->hasChildren(index);
+    QModelIndex index = ui->tblProjects->currentIndex();
+    return index.data().toString();
 }
 
 void MainWindow::addCustomer()
@@ -102,6 +95,8 @@ void MainWindow::editCustomer() {
 
 void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
+    ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
+    changeTree();
 }
 
 void MainWindow::updateUser()
@@ -127,13 +122,11 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
             int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
             itemType.getModel(pid)->remove();
             updateTableCustomers();
-            updateTree();
             updateTableProjects();
+            updateTree();
         }
     }
 }
-
-
 
 void MainWindow::updateTableBillings(const int idProject)
 {
@@ -146,13 +139,6 @@ void MainWindow::updateTableBillings(const int idProject)
     ui->tblQuotes->setColumnWidth(2, 100);
     ui->tblQuotes->setColumnWidth(4, 150);
 }
-
-void MainWindow::openCustomer()
-{
-    int id = getCurrentCustomerId();
-    ui->wdgCustomerData->printInformations(id);
-}
-
 
 void MainWindow::addQuote()
 {
@@ -167,14 +153,13 @@ void MainWindow::addQuote()
     }
 }
 
-
-
 void MainWindow::editUser()
 {
     UserDataDialog userdialog;
     userdialog.exec();
     updateUser();
 }
+
 void MainWindow::search() {
     emit search(ui->leSearch->text());
 }
@@ -224,10 +209,11 @@ void MainWindow::openContextualMenuTable(const QPoint point) {
     menu->exec(ui->tblCustomers->mapToGlobal(buffPoint));
 }
 
-void MainWindow::openContextualMenuTree(const QPoint point) {
+void MainWindow::openContextualMenuTree(const QPoint point)
+{
     QMenu* menu = new CustomerContextualMenu(this);
 
-    emit changeCustomerTree();
+    emit changeTree();
     QPoint buffPoint = point;
     buffPoint.setX(point.x()+35);
     buffPoint.setY(point.y()+35);
@@ -253,7 +239,6 @@ void MainWindow::updateTableProjects(const int pId)
     if(pId != 0) {
         lastId = pId;
     }
-    qDebug() << lastId;
     ui->tblProjects->setModel(ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
 }
@@ -268,7 +253,6 @@ void MainWindow::updateTree(QString filter)
 void MainWindow::newProject()
 {
     QModelIndex index = ui->tblCustomers->currentIndex();
-
     AddProjectDialog *w;
     switch(ui->stackedWidget->currentIndex()) {
     case 0:
@@ -284,7 +268,6 @@ void MainWindow::newProject()
     w->exec();
     updateTree("");
 }
-
 
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
@@ -320,44 +303,78 @@ void MainWindow::aboutIcons() {
     MessageBox::showAboutIcons();
 }
 
-void MainWindow::changeCustomerTree(QModelIndex index)
-{
-    ui->tblCustomers->selectRow(index.row()-1);     // Séléction de la ligne correspondante au client sélectionné
-    emit openCustomer();
+bool MainWindow::isTreeRoot() {
+    return ui->trCustomers->currentIndex().data() == "Tous les clients";
 }
 
-void MainWindow::changeCustomerTree()
-{
-    QModelIndex index =
-            ui->trCustomers->model()->index(ui->trCustomers->currentIndex().row(), 0);
-    emit changeCustomerTree(index);
+bool MainWindow::isProjectItemTree() {
+    int i = 0;
+    QModelIndex currentIndex = ui->trCustomers->currentIndex();
+    while (currentIndex.parent().isValid()) {
+        currentIndex = currentIndex.parent();
+        i++;
+    }
+    return i == 1;
 }
 
-void MainWindow::changeCustomerTable(QModelIndex index)
+bool MainWindow::isCustomerItemTree() {
+    return !isTreeRoot() && !ui->trCustomers->currentIndex().parent().isValid();
+}
+
+bool MainWindow::isQuoteItemTree() {
+    return false;
+}
+
+void MainWindow::changeTree()
 {
-    // Gérer le rafraichissement des vues lors d'un changement d'état dans la séléction des clients
-    // ui->trCustomers->set(index.row()+1);
-    emit openCustomer();
+    QModelIndex index = ui->trCustomers->currentIndex();
+    int idRow = index.row();
+
+    if (isTreeRoot()) {
+        ui->stackedWidget->setCurrentIndex(0);
+        ui->tblCustomers->clearSelection();
+        ui->wdgCustomerData->hide();
+        ui->trCustomers->collapseAll();
+    }
+
+    if (isCustomerItemTree()) {
+        ui->tblCustomers->selectRow(idRow-1);
+        ui->wdgCustomerData->printInformations(getCurrentCustomerId());
+        ui->trCustomers->collapseAll();
+        ui->trCustomers->expand(index);
+        changeProjectsTable();
+        ui->stackedWidget->setCurrentIndex(1);
+    }
+
+    if (isProjectItemTree()) {
+        // Need to verify if the current customer is the father
+        // Then update TableProjects
+        ui->tblCustomers->selectRow(index.parent().row()-1);
+        updateTableProjects(getCurrentCustomerId());
+        ui->tblProjects->selectRow(idRow);
+        updateTableBillings(getCurrentProjectId());
+        ui->stackedWidget->setCurrentIndex(2);
+    }
+
+    if (isQuoteItemTree()) { // Quote or billing, to define
+        //TODO
+    }
 }
 
 void MainWindow::changeCustomerTable()
 {
-    QModelIndex index =
-            ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(), 0);
-    emit changeCustomerTable(index);
+    ui->wdgCustomerData->printInformations(getCurrentCustomerId());
 }
 
 void MainWindow::changeProjectsTable()
 {
-    int id = getCurrentCustomerId();
-    updateTableProjects(id);
+    updateTableProjects(getCurrentCustomerId());
     ui->lblProjects->setText("<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");
-    ui->tblProjects->hideColumn(0);
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 150);
     ui->tblProjects->setColumnWidth(2, 200);
-    ui->tblProjects->setColumnWidth(3, 125);
-    ui->tblProjects->setColumnWidth(4, 125);
+    ui->tblProjects->setColumnWidth(3, 122);
+    ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -369,26 +386,6 @@ void MainWindow::backToCustomersTable()
 void MainWindow::backToProjectsTable()
 {
     ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::projectsCustomersTableTree()
-{
-
-    QModelIndex index = ui->trCustomers->selectionModel()->currentIndex();
-
-    if (index.data(Qt::DisplayRole).toString() == "Tous les clients")
-        ui->stackedWidget->setCurrentIndex(0);
-    else if(isCustomer()) { //si client
-        ui->stackedWidget->setCurrentIndex(1);
-        changeProjectsTable();
-        ui->trCustomers->collapseAll();
-        ui->trCustomers->expand(index);
-    }
-    else { //si projet
-        ui->tblProjects->selectRow(index.row());
-        ui->stackedWidget->setCurrentIndex(2);
-        updateTableBillings(getCurrentProjectId());
-    }
 }
 
 void MainWindow::quotesProject()
