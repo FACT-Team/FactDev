@@ -18,12 +18,12 @@ ContributoryDatabase* ContributoryDatabase::instance()throw(DbException*)
     return _instance;
 }
 
-Contributory* ContributoryDatabase::getContributory(const int pId) {
+Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     QSqlQuery q;
     Contributory* contributory;
 
     q.prepare("SELECT * FROM Contributory WHERE idContributory = :pId");
-    q.bindValue(":pId", pId);
+    q.bindValue(":pId", idContributory);
 
     if(!q.exec()) {
         throw new DbException(
@@ -38,12 +38,39 @@ Contributory* ContributoryDatabase::getContributory(const int pId) {
         contributory->setId(value(q, "idContributory").toInt());
         contributory->setNbHours(value(q, "nbDays").toDouble());
         contributory->setDescription(value(q, "descriptino").toString());
-        // contributory->setProject(); TODO jointure ?
+        // contributory->setProject(); TODO join ?
     } else {
         contributory = NULL;
     }
 
     return contributory;
+}
+
+QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+{
+    QSqlQuery q;
+    QMap<Project *, QList<Contributory> *> contributories;
+    QMap<int, Project*> projects; // link between id and Project*
+    q.prepare("SELECT * FROM ContributoryProject "
+              " WHERE idBilling = :idBilling ORDER BY idProject ");
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir la préstation",
+            "BddCustomer::getContributoriesByBilling",
+            lastError(q),
+            1.8);
+    }
+
+    while(q.next()) {
+        if(!projects.contains(value(q, "idProject").toInt())) { // It's a new project !
+            Project* p = new Project(value(q, "idProject").toInt());
+            projects.insert(value(q, "idProject").toInt(), p);
+            contributories.insert(p, new QList<Contributory>());
+        }
+        contributories.value(projects.last())->append(Contributory(value(q, "idContributory").toInt()));
+    }
+
+    return contributories;
 }
 
 

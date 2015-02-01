@@ -24,10 +24,12 @@ public:
     /**
      * @brief ContributoryDatabase::getCustomer get informations about the Contributory
      * identified by <i>pId</i>
-     * @param pId Contributory id
+     * @param idContributory Contributory id
      * @return the Contributory
      */
-    Contributory *getContributory(const int pId);
+    Contributory *getContributory(const int idContributory);
+
+    QMap<Project*,QList<Contributory>*> getContributoriesByBilling(const int idBilling);
 
     /**
      * @brief ContributoryDatabase::addContributory Add the Contributory <i>pContributory</i> to
