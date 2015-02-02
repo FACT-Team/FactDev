@@ -12,7 +12,7 @@ bool CheckPostalCode::check(QString text)
         isChecked = false;
     }
 
-    if (this->getCountry() == "FRANCE") {
+    if (getCountry() == "FRANCE") {
         text = text.replace(" ", "");
         text = text.replace(".", "");
         QRegExp postalCodeRgx("[0-9]{5,5}");
