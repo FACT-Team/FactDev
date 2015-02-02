@@ -55,7 +55,6 @@ Contributory* ContributoryDatabase::getContributory(const int idContributory) {
 
 QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
 {
-    openTransaction();
     QSqlQuery q;
     QMap<Project *, QList<Contributory> *> contributories;
     QMap<int, Project*> projects; // link between id and Project*
@@ -84,7 +83,6 @@ QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesBy
         }
         contributories.value(projects.last())->append(*getContributory(q));
     }
-    closeTransaction();
     return contributories;
 }
 
