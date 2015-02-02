@@ -1,5 +1,4 @@
 #include "search.h"
-#include <QDebug>
 Search::Search()
 {
     _searchInCompanies = true;

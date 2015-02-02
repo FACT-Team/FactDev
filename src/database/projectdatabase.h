@@ -84,6 +84,7 @@ public:
     QStandardItemModel* getProjectsTable(const int pId) throw(DbException*);
 
 
+    Project *getProject(QSqlQuery &q);
 };
 
 #endif // PROJECTDATABASE_H

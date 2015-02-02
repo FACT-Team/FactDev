@@ -16,6 +16,12 @@ public:
     Contributory();
 
     /**
+     * @brief Contributory::Contributory Contruct a Contributory and get data in database
+     * @param id Contributory's id
+     */
+    Contributory(int id);
+
+    /**
      * @brief Contributory::commit Update or insert a contributory to the
      * database
      */
@@ -54,7 +60,7 @@ public:
     void setDescription(const QString &getDescription);
 
 private:
-    Project* project;    //!<
+    Project* _project;    //!<
     double _nbHours;
     QString _description;
 };

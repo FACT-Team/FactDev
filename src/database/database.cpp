@@ -3,7 +3,6 @@
 
 #include <QStandardItem>
 #include <QDate>
-#include <QDebug>
 #include <QCoreApplication>
 #include <QFile>
 

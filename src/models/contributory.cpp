@@ -6,7 +6,13 @@ Contributory::Contributory()
     _nbHours = 0.;
     _id = 0;
     _toRemoved = false;
-    project = new Project();
+    _project = new Project();
+}
+
+Contributory::Contributory(int id)
+{
+    hydrat(id);
+    _id = id;
 }
 
 void Contributory::commit()
@@ -23,7 +29,11 @@ void Contributory::commit()
 
 void Contributory::hydrat(int id)
 {
-
+    Contributory* c = ContributoryDatabase::instance()->getContributory(id);
+    _description = c->getDescription();
+    _nbHours = c->getNbHours();
+    _project = c->getProject();
+    delete c;
 }
 
 void Contributory::remove()
@@ -33,12 +43,12 @@ void Contributory::remove()
 
 Project* Contributory::getProject() const
 {
-    return project;
+    return _project;
 }
 
 void Contributory::setProject(Project* id)
 {
-    project = id;
+    _project = id;
 }
 double Contributory::getNbHours() const
 {

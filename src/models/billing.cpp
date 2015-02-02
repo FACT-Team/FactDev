@@ -1,6 +1,6 @@
 #include "billing.h"
 #include "database/billingdatabase.h"
-
+#include "database/contributorydatabase.h"
 Billing::Billing()
 {
 }
@@ -48,8 +48,7 @@ void Billing::hydrat(int id)
     _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();
-    _contributories = quote->getContributories();
-
+    _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
 }
 
 void Billing::remove()

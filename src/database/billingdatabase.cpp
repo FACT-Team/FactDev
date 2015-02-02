@@ -21,7 +21,6 @@ BillingDatabase* BillingDatabase::instance()throw(DbException*)
 Billing* BillingDatabase::getBilling(const int pId) {
     QSqlQuery q;
     Billing* billing;
-    qDebug() << "test" << pId;
     q.prepare("SELECT * FROM Billing WHERE idBilling = :pId");
     q.bindValue(":pId", pId);
 

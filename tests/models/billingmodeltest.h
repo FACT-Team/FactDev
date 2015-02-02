@@ -21,6 +21,6 @@ private:
     Billing b1;
     Billing b2;
 };
-DECLARE_TEST(BillingModelTest)
+//DECLARE_TEST(BillingModelTest)
 
 #endif // BILLINGMODELTEST_H

@@ -17,6 +17,17 @@ ProjectDatabase *ProjectDatabase::instance() throw(DbException*)
     return _instance;
 }
 
+Project* ProjectDatabase::getProject(QSqlQuery& q) {
+    Project* project = new Project();
+    project->setId(value(q, "idProject").toInt());
+    project->setName(value(q,"name").toString());
+    project->setDescription(value(q,"description").toString());
+    project->setDailyRate(value(q,"dailyRate").toDouble());
+    project->setCustomer(new Customer(value(q,"idCustomer").toInt()));
+
+    return project;
+}
+
 Project *ProjectDatabase::getProject(const int pId)
 {
     QSqlQuery q;
@@ -34,12 +45,7 @@ Project *ProjectDatabase::getProject(const int pId)
     }
 
     if(q.first()) {
-        project = new Project();
-        project->setId(value(q, "idProject").toInt());
-        project->setName(value(q,"name").toString());
-        project->setDescription(value(q,"description").toString());
-        project->setDailyRate(value(q,"dailyRate").toDouble());
-        project->setCustomer(new Customer(value(q,"idCustomer").toInt()));
+        project = getProject(q);
     } else {
         project = NULL;
         Log::instance(WARNING) << "Project is null…";
