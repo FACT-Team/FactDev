@@ -69,8 +69,8 @@ QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesBy
     q.bindValue(":idBilling", idBilling);
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'obtenir la préstation",
-            "BddCustomer::getContributoriesByBilling",
+            "Impossible d'obtenir la prestation",
+            "BddContributory::getContributoriesByBilling",
             lastError(q),
             1.8);
     }
@@ -102,7 +102,7 @@ int ContributoryDatabase::addContributory(const Contributory& pContributory) {
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'ajouter le Customer",
-            "BddCustomer::addCustomer",
+            "BddContributory::addCustomer",
             lastError(q),
             1.3);
     }
@@ -126,7 +126,7 @@ void ContributoryDatabase::updateContributory(const Contributory& pContributory)
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'éditer les informations du Customer",
-            "BddCustomer::updateCustomer",
+            "BddContributory::updateCustomer",
             lastError(q),
             1.4);
     }*/
