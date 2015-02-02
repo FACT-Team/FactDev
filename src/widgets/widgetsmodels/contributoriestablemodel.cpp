@@ -1,5 +1,4 @@
 #include "contributoriestablemodel.h"
-#include <QDebug>
 ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
 }

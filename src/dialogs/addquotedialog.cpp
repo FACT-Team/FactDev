@@ -1,4 +1,3 @@
-#include "QDebug"
 #include "addquotedialog.h"
 #include "ui_addquotedialog.h"
 #include "widgets/contributorieswidget.h"

@@ -25,7 +25,6 @@ void BillingDatabaseTest::remove()
     /*qDebug() << _lastInsert;
     BillingDatabase::instance()->removeBilling(_lastInsert);
     Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    qDebug() << b2->getTitle();
     QVERIFY(b2 == 0);*/
 }
 
