@@ -27,11 +27,8 @@
    </item>
    <item row="8" column="2">
     <widget class="CheckPhone" name="leMobilePhone">
-     <property name="toolTip">
-      <string>Saisir votre numéro de téléphone mobile professionnel</string>
-     </property>
      <property name="placeholderText">
-      <string>0601020304</string>
+      <string>06 01 02 03 04</string>
      </property>
     </widget>
    </item>
@@ -44,11 +41,8 @@
    </item>
    <item row="9" column="2">
     <widget class="CheckSiretNumber" name="leNoSiret">
-     <property name="toolTip">
-      <string>Saisir votre numéro de siret</string>
-     </property>
      <property name="placeholderText">
-      <string>1231231231234</string>
+      <string>123 123 123 1234</string>
      </property>
     </widget>
    </item>
@@ -68,11 +62,8 @@
    </item>
    <item row="7" column="2">
     <widget class="CheckPhone" name="lePhone">
-     <property name="toolTip">
-      <string>Saisir votre numéro de téléphone professionnel</string>
-     </property>
      <property name="placeholderText">
-      <string>0102030405</string>
+      <string>01 02 03 04 05</string>
      </property>
     </widget>
    </item>
@@ -124,9 +115,6 @@
    </item>
    <item row="4" column="2">
     <widget class="CheckValidField" name="leTitle">
-     <property name="toolTip">
-      <string>Description de l'activité de la société</string>
-     </property>
      <property name="placeholderText">
       <string>Expertise comptable</string>
      </property>
@@ -141,9 +129,6 @@
    </item>
    <item row="3" column="2">
     <widget class="CheckValidField" name="leCompany">
-     <property name="toolTip">
-      <string>Saisir le nom de votre société</string>
-     </property>
      <property name="placeholderText">
       <string>Fiducal8</string>
      </property>
@@ -152,7 +137,7 @@
    <item row="1" column="2">
     <widget class="CheckName" name="leLastname">
      <property name="toolTip">
-      <string>Saisir votre nom</string>
+      <string/>
      </property>
      <property name="placeholderText">
       <string>ADELIN</string>
@@ -174,9 +159,6 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="3">
        <widget class="CheckCity" name="leCity">
-        <property name="toolTip">
-         <string>Saisir votre ville</string>
-        </property>
         <property name="placeholderText">
          <string>Paris</string>
         </property>
@@ -198,9 +180,6 @@
       </item>
       <item row="1" column="1">
        <widget class="CheckPostalCode" name="lePostalCode">
-        <property name="toolTip">
-         <string>Saisir votre code postal</string>
-        </property>
         <property name="placeholderText">
          <string>75000</string>
         </property>
@@ -208,9 +187,6 @@
       </item>
       <item row="0" column="1" colspan="3">
        <widget class="CheckUntilField" name="leAddress">
-        <property name="toolTip">
-         <string>Saisir votre adresse</string>
-        </property>
         <property name="placeholderText">
          <string>42 Avenue de Toulouse</string>
         </property>
@@ -235,9 +211,6 @@
    </item>
    <item row="2" column="2">
     <widget class="CheckName" name="leFirstname">
-     <property name="toolTip">
-      <string>Saisir votre prénom</string>
-     </property>
      <property name="placeholderText">
       <string>Rémi</string>
      </property>

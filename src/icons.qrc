@@ -68,14 +68,15 @@
         <file>img/img20/add_contributory20.png</file>
         <file>img/img20/add_customer20.png</file>
         <file>img/img20/add_project20.png</file>
-        <file>img/img20/cancel20.png</file>
-        <file>img/img20/no_light20.png</file>
-        <file>img/img20/no20.png</file>
-        <file>img/img20/yes_light20.png</file>
-        <file>img/img20/yes20.png</file>
         <file alias="Fact_square">img/FACT_official.png</file>
         <file alias="FactDev">img/FACTDev.png</file>
         <file>img/FACT_official_square.png</file>
+        <file>img/img20/cancel20.png</file>
+        <file>img/img20/no_light20.png</file>
+        <file>img/img20/no20.png</file>
+        <file>img/img20/ok_valid20.png</file>
+        <file>img/img20/yes_light20.png</file>
+        <file>img/img20/yes20.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>
