@@ -67,3 +67,49 @@ void BillingModelTest::hydrat()
     b1.setDate(QDate(2015,04,24));
     QVERIFY(b1 == b2);
 }
+
+void BillingModelTest::hydratWithContributories() {
+    // TODO
+    // projects 40, 32, 29, 22, 30 and 34
+    // contributories 74, 89, 220, 239, 17, 24 and 276
+    QMap<Project *, QList<Contributory> *> contributories = Billing(1).getContributories();
+    QVERIFY(contributories.count() == 7);
+
+    // we only check id… Remaining are already tested (getProject, getContributory)
+    for(auto i = contributories.begin(); i != contributories.end() ; ++i) {
+        switch(i.key()->getId()) {
+        case 22:
+            QVERIFY(i.value()->count() == 2);
+            QVERIFY(i.value()->at(0).getId() == 17);
+            QVERIFY(i.value()->at(1).getId() == 108);
+            break;
+        case 29:
+            QVERIFY(i.value()->count() == 2);
+            QVERIFY(i.value()->at(0).getId() == 220);
+            QVERIFY(i.value()->at(1).getId() == 239);
+            break;
+        case 30:
+            QVERIFY(i.value()->count() == 1);
+            QVERIFY(i.value()->at(0).getId() == 24);
+            break;
+        case 32:
+            QVERIFY(i.value()->count() == 1);
+            QVERIFY(i.value()->at(0).getId() == 89);
+            break;
+        case 33:
+            QVERIFY(i.value()->count() == 1);
+            QVERIFY(i.value()->at(0).getId() == 50);
+            break;
+        case 34:
+            QVERIFY(i.value()->count() == 1);
+            QVERIFY(i.value()->at(0).getId() == 276);
+            break;
+        case 40:
+            QVERIFY(i.value()->count() == 1);
+            QVERIFY(i.value()->at(0).getId() == 74);
+            break;
+        default:
+            QVERIFY(false);
+        }
+    }
+}

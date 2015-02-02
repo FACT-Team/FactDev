@@ -16,6 +16,7 @@ private slots:
     void commitUpdate();
     void commitInsert();
     void hydrat();
+    void hydratWithContributories();
 private:
     Billing b1;
     Billing b2;
