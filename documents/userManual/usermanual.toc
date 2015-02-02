@@ -16,5 +16,8 @@
 \contentsline {section}{\numberline {3.2}Ajout d'un client}{10}{section.3.2}
 \contentsline {section}{\numberline {3.3}\IeC {\'E}dition d'un client}{10}{section.3.3}
 \contentsline {chapter}{\numberline {4}Les projets}{11}{chapter.4}
-\contentsline {chapter}{\numberline {A}Table des figures}{12}{appendix.A}
-\contentsline {chapter}{Index}{13}{appendix*.2}
+\contentsline {section}{\numberline {4.1}Liste des projets}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}Ajout d'un client}{11}{section.4.2}
+\contentsline {section}{\numberline {4.3}\IeC {\'E}dition d'un client}{12}{section.4.3}
+\contentsline {chapter}{\numberline {A}Table des figures}{13}{appendix.A}
+\contentsline {chapter}{Index}{14}{appendix*.2}
