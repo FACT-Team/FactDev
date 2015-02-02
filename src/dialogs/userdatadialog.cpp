@@ -57,7 +57,9 @@ void UserDataDialog::reject()
 }
 
 void UserDataDialog::checkFields() {
-
+    ui->lePostalCode->setCountry("FRANCE");
+    ui->lePhone->setCountry("FRANCE");
+    ui->leMobilePhone->setCountry("FRANCE");
     ui->btnValid->setEnabled(
         ui->leFirstname->isValid() && ui->leLastname->isValid()
         && ui->leCompany->isValid() && ui->leTitle->isValid()

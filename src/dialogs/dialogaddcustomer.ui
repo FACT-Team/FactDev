@@ -26,9 +26,6 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1" colspan="4">
        <widget class="CheckUntilField" name="leAddress">
-        <property name="toolTip">
-         <string>Adresse du client</string>
-        </property>
         <property name="placeholderText">
          <string>51 Avenue du Général de Gaulle</string>
         </property>
@@ -43,9 +40,6 @@
       </item>
       <item row="1" column="4">
        <widget class="CheckCity" name="leCity">
-        <property name="toolTip">
-         <string>Ville</string>
-        </property>
         <property name="placeholderText">
          <string>TOULOUSE</string>
         </property>
@@ -60,9 +54,6 @@
       </item>
       <item row="1" column="1">
        <widget class="CheckPostalCode" name="lePostalCode">
-        <property name="toolTip">
-         <string>Code Postal</string>
-        </property>
         <property name="placeholderText">
          <string>31400</string>
         </property>
@@ -84,9 +75,6 @@
       </item>
       <item row="2" column="1" colspan="4">
        <widget class="CheckCountry" name="leCountry">
-        <property name="toolTip">
-         <string>Pays</string>
-        </property>
         <property name="placeholderText">
          <string>FRANCE</string>
         </property>
@@ -96,7 +84,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="CheckUntilField" name="leCompany">
+    <widget class="CheckValidField" name="leCompany">
      <property name="toolTip">
       <string>Nom de la société du client</string>
      </property>
@@ -121,9 +109,6 @@
    </item>
    <item row="4" column="1">
     <widget class="CheckEmail" name="leEmail">
-     <property name="toolTip">
-      <string>email</string>
-     </property>
      <property name="placeholderText">
       <string>roger.waters@ag42plus.com</string>
      </property>
@@ -138,11 +123,8 @@
    </item>
    <item row="6" column="1">
     <widget class="CheckPhone" name="leMobilePhone">
-     <property name="toolTip">
-      <string>Numéro de téléphone portable du client</string>
-     </property>
      <property name="placeholderText">
-      <string>0601020304</string>
+      <string>06 01 02 03 04</string>
      </property>
     </widget>
    </item>
@@ -155,11 +137,8 @@
    </item>
    <item row="8" column="1">
     <widget class="CheckPhone" name="leFax">
-     <property name="toolTip">
-      <string>Numéro de fax du client</string>
-     </property>
      <property name="placeholderText">
-      <string>0501020309</string>
+      <string>05 01 02 03 09</string>
      </property>
     </widget>
    </item>
@@ -172,19 +151,13 @@
    </item>
    <item row="0" column="1">
     <widget class="CheckName" name="leLastNameReferent">
-     <property name="toolTip">
-      <string>Nom du client</string>
-     </property>
      <property name="placeholderText">
-      <string>WATERS</string>
+      <string>BALAKA</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
     <widget class="CheckName" name="leFirstNameReferent">
-     <property name="toolTip">
-      <string>Prénom du client</string>
-     </property>
      <property name="placeholderText">
       <string>Roger</string>
      </property>
@@ -245,11 +218,8 @@
    </item>
    <item row="5" column="1">
     <widget class="CheckPhone" name="lePhone">
-     <property name="toolTip">
-      <string>Numéro de téléphone fixe du client</string>
-     </property>
      <property name="placeholderText">
-      <string>0501020304</string>
+      <string>05 01 02 03 04</string>
      </property>
     </widget>
    </item>
@@ -273,22 +243,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckPhone</class>
-   <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkphone.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>CheckPostalCode</class>
-   <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkpostalcode.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>CheckCity</class>
    <extends>QLineEdit</extends>
    <header>widgets/checkfields/checkcity.h</header>
@@ -300,6 +254,30 @@
    <class>CheckName</class>
    <extends>QLineEdit</extends>
    <header>widgets/checkfields/checkname.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckValidField</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkvalidfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckPhone</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckPostalCode</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkpostalcode.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
@@ -472,22 +450,6 @@
     <hint type="destinationlabel">
      <x>227</x>
      <y>239</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lePhone</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>lePhone</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>251</x>
-     <y>266</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>298</x>
-     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -668,22 +630,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>lePhone</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>DialogAddCustomer</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>439</x>
-     <y>273</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>467</x>
-     <y>273</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>leMobilePhone</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DialogAddCustomer</receiver>
@@ -712,6 +658,38 @@
     <hint type="destinationlabel">
      <x>467</x>
      <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DialogAddCustomer</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>333</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>710</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePhone</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>269</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>265</y>
     </hint>
    </hints>
   </connection>

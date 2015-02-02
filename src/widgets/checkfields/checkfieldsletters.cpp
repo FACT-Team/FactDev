@@ -10,9 +10,9 @@ bool CheckFieldsLetters::check(QString text) {
         return false;
     }
 
-    QRegExp cityRgx("[a-zA-ZÉÈÀÊËœŒæÆîïôÔëéèêà\-]{2,64}");
-    cityRgx.setCaseSensitivity(Qt::CaseInsensitive);
-    cityRgx.setPatternSyntax(QRegExp::RegExp);
+    QRegExp txtRgx("[a-zA-ZÉÈÀÊËœŒæÆîïôÔëéèêà\\-\\s\\'\\,\\;\\(\\)\\.\\/\\\\]{2,64}");
+    txtRgx.setCaseSensitivity(Qt::CaseInsensitive);
+    txtRgx.setPatternSyntax(QRegExp::RegExp);
 
-    return cityRgx.exactMatch(text);
+    return txtRgx.exactMatch(text);
 }

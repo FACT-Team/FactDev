@@ -24,7 +24,7 @@ void CheckQLineEdit::fieldTextChanged(const QString &text) {
 void CheckQLineEdit::displayCheckValidFieldIcon()
 {
     QString styleValid =
-            "background: url(:/icons/img/img20/yes_light20.png);"
+            "background: url(:/icons/img/img20/yes20.png);"
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"
@@ -37,7 +37,7 @@ void CheckQLineEdit::displayCheckValidFieldIcon()
 void CheckQLineEdit::displayCheckNoValidFieldIcon()
 {
     QString styleNoValid =
-            "background: url(:/icons/img/img20/no_light20.png);"
+            "background: url(:/icons/img/img20/no20.png);"
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"

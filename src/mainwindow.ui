@@ -318,7 +318,7 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>168</height>
+     <height>161</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -667,8 +667,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>799</x>
-     <y>519</y>
+     <y>540</y>
+     <x>910</x>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -716,7 +716,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>22</x>
-     <y>246</y>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -732,7 +732,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>35</x>
-     <y>246</y>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
      <x>150</x>
@@ -811,8 +811,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>513</x>
-     <y>519</y>
+     <x>614</x>
+     <y>540</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>

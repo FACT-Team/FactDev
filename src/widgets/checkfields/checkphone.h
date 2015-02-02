@@ -1,11 +1,11 @@
 #ifndef CHECKPHONE_H
 #define CHECKPHONE_H
-#include "checkqlineedit.h"
+#include "checkuntilfield.h"
 
 /**
  * @brief The CheckPhone class Line Edit of Phone number with a check icon
  */
-class CheckPhone : public CheckQLineEdit
+class CheckPhone : public CheckUntilField
 {
 public:
     /**
@@ -14,14 +14,27 @@ public:
      */
     CheckPhone(QWidget* w = 0, QPushButton* btn=0);
 
-
     /**
-     * @brief CheckPhone::check Check if the field phone is valid.
-     * To be valid, a phone should be composed only with numbers
+     * @brief CheckPhone::check Check if the field  is valid.
+     * To be valid, a name should be composed of a character
      * @param text
      * @return boolean
      */
     bool check(QString text);
+
+    /**
+     * @brief CheckPhone::getCountry Return the country linked to current field
+     * @return
+     */
+    QString getCountry() const;
+    /**
+     * @brief CheckPhone::setCountry Modify the <i>country</i> linked to field
+     * @param country New country
+     */
+    void setCountry(const QString &country);
+
+private :
+    QString _country;
 };
 
 #endif // CHECKPHONE_H
