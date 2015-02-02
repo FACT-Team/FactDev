@@ -69,9 +69,6 @@ void BillingModelTest::hydrat()
 }
 
 void BillingModelTest::hydratWithContributories() {
-    // TODO
-    // projects 40, 32, 29, 22, 30 and 34
-    // contributories 74, 89, 220, 239, 17, 24 and 276
     QMap<Project *, QList<Contributory> *> contributories = Billing(1).getContributories();
     QVERIFY(contributories.count() == 7);
 
