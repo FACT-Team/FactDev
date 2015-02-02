@@ -4,9 +4,17 @@
 \contentsline {xchapter}{Interface g\IeC {\'e}n\IeC {\'e}rale}{4}{chapter.1}
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Interface g\IeC {\'e}n\IeC {\'e}rale d\IeC {\'e}coup\IeC {\'e}e en diff\IeC {\'e}rentes parties}}{4}{figure.1.1}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Panneau du client ou du r\IeC {\'e}f\IeC {\'e}rent}}{5}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Panneau de l'Utilisateur}}{6}{figure.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Panneau Hi\IeC {\'e}rarchique}}{7}{figure.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Panneau de Recherche}}{7}{figure.1.5}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Les clients}{7}{chapter.2}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Gestion des clients}}{7}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Ajouter un client}}{8}{figure.2.2}
+\contentsline {xchapter}{Les donn\IeC {\'e}es utilisateur}{8}{chapter.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Fen\IeC {\^e}tre de saisie des informations de l'utilisateur}}{8}{figure.2.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Table des figures}{9}{appendix.A}
+\contentsline {xchapter}{Les clients}{9}{chapter.3}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Gestion des clients}}{9}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Ajouter un client}}{10}{figure.3.2}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Les projets}{11}{chapter.4}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Table des figures}{12}{appendix.A}
