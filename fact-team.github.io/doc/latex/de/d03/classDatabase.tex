@@ -1,0 +1,192 @@
+\hypertarget{classDatabase}{\section{Database Class Reference}
+\label{classDatabase}\index{Database@{Database}}
+}
+
+
+The {\bfseries \hyperlink{classDatabase}{Database}} class Master class for all database access.  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+Inheritance diagram for Database\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d03/classDatabase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{classDatabase_a17465cc3fe0a8b853f96599e0584cc84}{last\+Error} (const Q\+Sql\+Query \&q)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a17465cc3fe0a8b853f96599e0584cc84}{Database\+::last\+Error} Return an error message on the last error occured during the S\+Q\+L request {\itshape q} \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a702ce00658c10518d2ddbbd234a0c67d}{void \hyperlink{classDatabase_a702ce00658c10518d2ddbbd234a0c67d}{test\+Cases} ()}\label{classDatabase_a702ce00658c10518d2ddbbd234a0c67d}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a702ce00658c10518d2ddbbd234a0c67d}{Database\+::test\+Cases} Realise a test cases. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a6c7ca19f0107fdad000c268fc2b14ac0}{void \hyperlink{classDatabase_a6c7ca19f0107fdad000c268fc2b14ac0}{clean\+Database} ()}\label{classDatabase_a6c7ca19f0107fdad000c268fc2b14ac0}
+
+\begin{DoxyCompactList}\small\item\em Database\+::vider\+Database Clear database. \end{DoxyCompactList}\item 
+void \hyperlink{classDatabase_a06216acb010c0ea93ac2a53aa46256c2}{execute\+File} (Q\+String p\+Name)
+\begin{DoxyCompactList}\small\item\em Database\+::executer\+Fichier Exeute a specified file named {\itshape p\+Name} \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_ace56e75784477e79197485e9b5980804}{void \hyperlink{classDatabase_ace56e75784477e79197485e9b5980804}{open\+Transaction} ()}\label{classDatabase_ace56e75784477e79197485e9b5980804}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_ace56e75784477e79197485e9b5980804}{Database\+::open\+Transaction} Open new transaction. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a8322990bcba006d0d82ac069ad6e0307}{void \hyperlink{classDatabase_a8322990bcba006d0d82ac069ad6e0307}{close\+Transaction} ()}\label{classDatabase_a8322990bcba006d0d82ac069ad6e0307}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a8322990bcba006d0d82ac069ad6e0307}{Database\+::close\+Transaction} Close current transaction. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_ab89cb07242f0ab1d4058974bf3e7cf19}{void \hyperlink{classDatabase_ab89cb07242f0ab1d4058974bf3e7cf19}{close} ()}\label{classDatabase_ab89cb07242f0ab1d4058974bf3e7cf19}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_ab89cb07242f0ab1d4058974bf3e7cf19}{Database\+::close} Close database access. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a0d0134e05c8f2dc4fcbbb2f36c02a779}{void \hyperlink{classDatabase_a0d0134e05c8f2dc4fcbbb2f36c02a779}{open} ()}\label{classDatabase_a0d0134e05c8f2dc4fcbbb2f36c02a779}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a0d0134e05c8f2dc4fcbbb2f36c02a779}{Database\+::open} Open database. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a84d399a2ad58d69daab9b05330e1316d}{\hyperlink{classDatabase_a84d399a2ad58d69daab9b05330e1316d}{$\sim$\+Database} ()}\label{classDatabase_a84d399a2ad58d69daab9b05330e1316d}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a84d399a2ad58d69daab9b05330e1316d}{Database\+::$\sim$\+Database} Suppression object, and close database access. \end{DoxyCompactList}\item 
+void \hyperlink{classDatabase_a8b03d7f4a92325b9e519fd3f8a2e245c}{set\+Database} (Q\+Sql\+Database sql)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a8b03d7f4a92325b9e519fd3f8a2e245c}{Database\+::set\+Database} Set database. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a2dc260583a49889bed8097e21953594e}{void \hyperlink{classDatabase_a2dc260583a49889bed8097e21953594e}{create\+Database} ()}\label{classDatabase_a2dc260583a49889bed8097e21953594e}
+
+\begin{DoxyCompactList}\small\item\em Database\+::creer\+Database Create a new database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classDatabase}{Database} $\ast$ \hyperlink{classDatabase_aa334760d1e18f82a344fb696547bfa5c}{instance} ()  throw (\+Db\+Exception$\ast$)
+\begin{DoxyCompactList}\small\item\em Database\+::get\+Instance Return an instance of \hyperlink{classDatabase}{Database}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDatabase_a4703c80e6969d33565ea340f768fdadf}{\hyperlink{classDatabase_a4703c80e6969d33565ea340f768fdadf}{Database} ()  throw (\+Db\+Exception$\ast$)}\label{classDatabase_a4703c80e6969d33565ea340f768fdadf}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_a4703c80e6969d33565ea340f768fdadf}{Database\+::\+Database} \hyperlink{classDatabase}{Database} is a singleton. \end{DoxyCompactList}\item 
+Q\+Variant \hyperlink{classDatabase_a88f0ccd102fc421fb10ddad0fd94e8c1}{value} (const Q\+Sql\+Query \&q, const Q\+String \&champ)
+\begin{DoxyCompactList}\small\item\em Database\+::valeur Value of database field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDatabase_a6cde413cb6d644c835406c09ec37947e}{Q\+Settings $\ast$ \hyperlink{classDatabase_a6cde413cb6d644c835406c09ec37947e}{\+\_\+settings}}\label{classDatabase_a6cde413cb6d644c835406c09ec37947e}
+
+\begin{DoxyCompactList}\small\item\em settings \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a64b9dbb3a5e6f42447a24caf726782e1}{Q\+Sql\+Database \hyperlink{classDatabase_a64b9dbb3a5e6f42447a24caf726782e1}{m\+Database}}\label{classDatabase_a64b9dbb3a5e6f42447a24caf726782e1}
+
+\begin{DoxyCompactList}\small\item\em contains \hyperlink{classDatabase}{Database} \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a9202583fae82c7f4ecbda6cb11b978c8}{Q\+List$<$ \hyperlink{classDatabase}{Database} $\ast$ $>$ \hyperlink{classDatabase_a9202583fae82c7f4ecbda6cb11b978c8}{\+\_\+instances}}\label{classDatabase_a9202583fae82c7f4ecbda6cb11b978c8}
+
+\begin{DoxyCompactList}\small\item\em List of instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDatabase_a4f435119a26cf1b0b8cca652a74c70b7}{static \hyperlink{classDatabase}{Database} $\ast$ \hyperlink{classDatabase_a4f435119a26cf1b0b8cca652a74c70b7}{\+\_\+instance} = 0}\label{classDatabase_a4f435119a26cf1b0b8cca652a74c70b7}
+
+\begin{DoxyCompactList}\small\item\em Instance. \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a923366369d404e62e9e77111d7c21bab}{static bool \hyperlink{classDatabase_a923366369d404e62e9e77111d7c21bab}{\+\_\+db\+Instance} = 0}\label{classDatabase_a923366369d404e62e9e77111d7c21bab}
+
+\begin{DoxyCompactList}\small\item\em an instance of db is open \end{DoxyCompactList}\item 
+\hypertarget{classDatabase_a8ed9b8afac7134aa48e40c48780b240f}{static bool \hyperlink{classDatabase_a8ed9b8afac7134aa48e40c48780b240f}{is\+Open} = false}\label{classDatabase_a8ed9b8afac7134aa48e40c48780b240f}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase}{Database} is open. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The {\bfseries \hyperlink{classDatabase}{Database}} class Master class for all database access. 
+
+\begin{DoxyAuthor}{Author}
+Antoine de Roquemaurel 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDatabase_a06216acb010c0ea93ac2a53aa46256c2}{\index{Database@{Database}!execute\+File@{execute\+File}}
+\index{execute\+File@{execute\+File}!Database@{Database}}
+\subsubsection[{execute\+File}]{\setlength{\rightskip}{0pt plus 5cm}void Database\+::execute\+File (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{p\+Name}
+\end{DoxyParamCaption}
+)}}\label{classDatabase_a06216acb010c0ea93ac2a53aa46256c2}
+
+
+Database\+::executer\+Fichier Exeute a specified file named {\itshape p\+Name} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Nom} & File name \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDatabase_aa334760d1e18f82a344fb696547bfa5c}{\index{Database@{Database}!instance@{instance}}
+\index{instance@{instance}!Database@{Database}}
+\subsubsection[{instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Database} $\ast$ Database\+::instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Db\+Exception} $\ast$) \hspace{0.3cm}{\ttfamily [static]}}}\label{classDatabase_aa334760d1e18f82a344fb696547bfa5c}
+
+
+Database\+::get\+Instance Return an instance of \hyperlink{classDatabase}{Database}. 
+
+\begin{DoxyReturn}{Returns}
+Instance of \hyperlink{classDatabase}{Database} 
+\end{DoxyReturn}
+\hypertarget{classDatabase_a17465cc3fe0a8b853f96599e0584cc84}{\index{Database@{Database}!last\+Error@{last\+Error}}
+\index{last\+Error@{last\+Error}!Database@{Database}}
+\subsubsection[{last\+Error}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Database\+::last\+Error (
+\begin{DoxyParamCaption}
+\item[{const Q\+Sql\+Query \&}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classDatabase_a17465cc3fe0a8b853f96599e0584cc84}
+
+
+\hyperlink{classDatabase_a17465cc3fe0a8b853f96599e0584cc84}{Database\+::last\+Error} Return an error message on the last error occured during the S\+Q\+L request {\itshape q} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & S\+Q\+L request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an error message 
+\end{DoxyReturn}
+\hypertarget{classDatabase_a8b03d7f4a92325b9e519fd3f8a2e245c}{\index{Database@{Database}!set\+Database@{set\+Database}}
+\index{set\+Database@{set\+Database}!Database@{Database}}
+\subsubsection[{set\+Database}]{\setlength{\rightskip}{0pt plus 5cm}void Database\+::set\+Database (
+\begin{DoxyParamCaption}
+\item[{Q\+Sql\+Database}]{sql}
+\end{DoxyParamCaption}
+)}}\label{classDatabase_a8b03d7f4a92325b9e519fd3f8a2e245c}
+
+
+\hyperlink{classDatabase_a8b03d7f4a92325b9e519fd3f8a2e245c}{Database\+::set\+Database} Set database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sql} & The new database \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDatabase_a88f0ccd102fc421fb10ddad0fd94e8c1}{\index{Database@{Database}!value@{value}}
+\index{value@{value}!Database@{Database}}
+\subsubsection[{value}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Variant Database\+::value (
+\begin{DoxyParamCaption}
+\item[{const Q\+Sql\+Query \&}]{q, }
+\item[{const Q\+String \&}]{champ}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classDatabase_a88f0ccd102fc421fb10ddad0fd94e8c1}
+
+
+Database\+::valeur Value of database field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Query \\
+\hline
+{\em champ} & Field \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/database/database.\+h\item 
+src/database/database.\+cpp\end{DoxyCompactItemize}
