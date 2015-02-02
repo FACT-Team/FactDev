@@ -75,10 +75,9 @@ void CustomerModelTest::hydrat()
     c1.setCity("Miraj");
     c1.setCountry("Greece");
     c1.setEmail("pede.ultrices@atnisiCum.org");
-    c1.setMobilePhone("(831) 972-1407");
-    c1.setPhone("02 03 04 05 06");
+    c1.setPhone("01 02 03 04 05");
+    c1.setMobilePhone("02 03 04 05 06");
     c1.setFax("05 35 11 79 67");
-
 
     QVERIFY(c1 == c2);
 }
