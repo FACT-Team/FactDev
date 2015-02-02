@@ -50,8 +50,8 @@ void CustomerDatabaseTest::selectCustomerNotFound()
 
 void CustomerDatabaseTest::selectCustomerFound()
 {
-    // Is assumed the id 0 contains tests :
-    // INSERT INTO `Customer` VALUES ("Jonah","Boyle","Sit Amet Ornare Consulting","P.O. Box 592, 3094 Vel Rd.","9924BN","Miraj","Greece","pede.ultrices@atnisiCum.org","(672) 742-3297","(831) 972-1407","(535) 117-9670");
+    // Is assumed the id 1 contains tests :
+    // INSERT INTO `Customer` (`firstnameReferent`,`lastnameReferent`,`company`,`address`,`postalCode`,`city`,`country`,`email`,`phone`,`mobilePhone`,`fax`) VALUES ("Jonah","Boyle","Sit Amet Ornare Consulting","P.O. Box 592, 3094 Vel Rd.","9924BN","Miraj","Greece","pede.ultrices@atnisiCum.org","01 02 03 04 05","02 03 04 05 06","05 35 11 79 67");
     Customer* c2 = CustomerDatabase::instance()->getCustomer(1);
     c1.setFirstnameReferent("Jonah");
     c1.setLastnameReferent("Boyle");
@@ -61,9 +61,9 @@ void CustomerDatabaseTest::selectCustomerFound()
     c1.setCity("Miraj");
     c1.setCountry("Greece");
     c1.setEmail("pede.ultrices@atnisiCum.org");
-    c1.setMobilePhone("(831) 972-1407");
-    c1.setPhone("(672) 742-3297");
-    c1.setFax("(535) 117-9670");
+    c1.setMobilePhone("01 02 03 04 05");
+    c1.setPhone("02 03 04 05 06");
+    c1.setFax("05 35 11 79 67");
 
     QVERIFY(c1 == *c2);
 }
