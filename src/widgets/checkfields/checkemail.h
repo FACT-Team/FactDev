@@ -27,7 +27,7 @@ public:
      * @param text
      * @return boolean
      */
-    bool check(QString text);
+    bool check(const QString text);
 };
 
 #endif // CHECKEMAIL_H

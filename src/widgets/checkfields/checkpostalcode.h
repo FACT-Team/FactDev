@@ -1,11 +1,11 @@
 #ifndef CHECKPOSTALCODE_H
 #define CHECKPOSTALCODE_H
-#include "checkqlineedit.h"
+#include "checkuntilfield.h"
 
 /**
  * @brief The CheckPostalCode class Line Edit of postal code with a check icon
  */
-class CheckPostalCode : public CheckQLineEdit
+class CheckPostalCode : public CheckUntilField
 {
 public:
     /**
@@ -15,12 +15,28 @@ public:
     CheckPostalCode (QWidget* w = 0, QPushButton* btn = 0);
 
     /**
-     * @brief CheckPostalCode::check Check if the field postal code is valid.
-     * To be valid, a postal code is composed of five numbers
+     * @brief CheckPostalCode::check Check if the field  is valid.
+     * To be valid, a name should be composed of a character
      * @param text
      * @return boolean
      */
     bool check(QString text);
+
+    /**
+     * @brief CheckPostalCode::getCountry Return the country linked to current
+     * field
+     * @return country
+     */
+    QString getCountry() const;
+    /**
+     * @brief CheckPostalCode::setCountry Modify the <i>country</i> linked to
+     * field
+     * @param country New country
+     */
+    void setCountry(const QString &country);
+
+private :
+    QString _country;
 };
 
 #endif // CHECKPOSTALCODE_H

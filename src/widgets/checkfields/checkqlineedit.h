@@ -53,7 +53,7 @@ public slots:
      * @brief CheckQLineEdit::fieldTextChanged For each new characater inputed
      * or removed, displays an icon to show if the field is valid or not
      */
-    void fieldTextChanged(const QString &);
+    void fieldTextChanged(const QString &text);
 
 private:
     QPushButton* _btnValid;

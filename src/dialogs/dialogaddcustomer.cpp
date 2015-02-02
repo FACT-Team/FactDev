@@ -61,6 +61,16 @@ DialogAddCustomer::~DialogAddCustomer()
 }
 
 void DialogAddCustomer::checkFields() {
+    ui->lePostalCode->setCountry(ui->leCountry->text());
+    ui->lePhone->setCountry(ui->leCountry->text());
+    ui->leMobilePhone->setCountry(ui->leCountry->text());
+    ui->leFax->setCountry(ui->leCountry->text());
+
+    ui->leMobilePhone->fieldTextChanged(ui->leMobilePhone->text());
+    ui->lePhone->fieldTextChanged(ui->lePhone->text());
+    ui->lePostalCode->fieldTextChanged(ui->lePostalCode->text());
+    ui->leFax->fieldTextChanged(ui->leFax->text());
+
     ui->btnSave->setEnabled(
         ui->leFirstNameReferent->isValid() && ui->leLastNameReferent->isValid()
         && ui->leCompany->isValid()
@@ -70,7 +80,6 @@ void DialogAddCustomer::checkFields() {
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
             || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
             || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
-//        && ui->leFax->isValid()
         );
 }
 

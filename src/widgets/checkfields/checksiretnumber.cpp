@@ -10,9 +10,11 @@ bool CheckSiretNumber::check(QString text) {
         return false;
     }
 
-    QRegExp cityRgx("[0-9]{14}");
-    cityRgx.setCaseSensitivity(Qt::CaseInsensitive);
-    cityRgx.setPatternSyntax(QRegExp::RegExp);
+    text.replace(" ","");
+    text.replace("-","");
+    QRegExp siretRgx("[0-9]{14}");
+    siretRgx.setCaseSensitivity(Qt::CaseInsensitive);
+    siretRgx.setPatternSyntax(QRegExp::RegExp);
 
-    return cityRgx.exactMatch(text);
+    return siretRgx.exactMatch(text);
 }

@@ -1,21 +1,47 @@
 #include "checkqlineedit.h"
 #include "checkphone.h"
-
-CheckPhone::CheckPhone(QWidget *w, QPushButton* btn) : CheckQLineEdit(w, btn) {
-
+#include <QDebug>
+#include <QStringRef>
+CheckPhone::CheckPhone(QWidget *w, QPushButton* btn) : CheckUntilField(w, btn) {
+    _country = "";
 }
 
+bool CheckPhone::check(QString text)
+{
+    bool isChecked = true;
 
-bool CheckPhone::check(QString text) {
     if ( text.length() == 0 ) {
-        return false;
+        isChecked = false;
     }
 
-    //QRegExp phonelRgx("^\\+\\d{1,2}\\([089]\\)\\d{2,5}\\-\\d+$");
+    if (getCountry() == "FRANCE") {
+        text = text.replace(" ", "");
+        text = text.replace(".", "");
+        text = text.replace("+33","0");
+        text = text.replace("(","");
+        text = text.replace(")","");
 
-    QRegExp phonelRgx("[0-9]{10,14}");
-    phonelRgx.setCaseSensitivity(Qt::CaseInsensitive);
-    phonelRgx.setPatternSyntax(QRegExp::RegExp);
+        if (text.mid(0,4) == "0033") {
+            text = "0" + text.right(9);
+        }
 
-    return phonelRgx.exactMatch(text);
+        QRegExp phoneRgx("[0-9\\(\\)\\+\\s\\-\\.]{10,10}");
+        phoneRgx.setCaseSensitivity(Qt::CaseInsensitive);
+        phoneRgx.setPatternSyntax(QRegExp::RegExp);
+        isChecked = phoneRgx.exactMatch(text);
+    }
+
+    return isChecked;
 }
+
+QString CheckPhone::getCountry() const
+{
+    return _country;
+}
+
+void CheckPhone::setCountry(const QString &country)
+{
+    _country = country.toUpper();
+}
+
+
