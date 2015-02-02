@@ -14,6 +14,27 @@ public:
      */
     CheckPhone(QWidget* w = 0, QPushButton* btn=0);
 
+    /**
+     * @brief CheckPhone::check Check if the field  is valid.
+     * To be valid, a name should be composed of a character
+     * @param text
+     * @return boolean
+     */
+    bool check(QString text);
+
+    /**
+     * @brief CheckPhone::getCountry Return the country linked to current field
+     * @return
+     */
+    QString getCountry() const;
+    /**
+     * @brief CheckPhone::setCountry Modify the <i>country</i> linked to field
+     * @param country New country
+     */
+    void setCountry(const QString &country);
+
+private :
+    QString _country;
 };
 
 #endif // CHECKPHONE_H

@@ -26,7 +26,7 @@
     </widget>
    </item>
    <item row="8" column="2">
-    <widget class="CheckUntilField" name="leMobilePhone">
+    <widget class="CheckPhone" name="leMobilePhone">
      <property name="toolTip">
       <string>Saisir votre numéro de téléphone mobile professionnel</string>
      </property>
@@ -67,7 +67,7 @@
     </widget>
    </item>
    <item row="7" column="2">
-    <widget class="CheckUntilField" name="lePhone">
+    <widget class="CheckPhone" name="lePhone">
      <property name="toolTip">
       <string>Saisir votre numéro de téléphone professionnel</string>
      </property>
@@ -197,7 +197,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="CheckUntilField" name="lePostalCode">
+       <widget class="CheckPostalCode" name="lePostalCode">
         <property name="toolTip">
          <string>Saisir votre code postal</string>
         </property>
@@ -270,14 +270,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckEmail</class>
-   <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkemail.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>CheckCity</class>
    <extends>QLineEdit</extends>
    <header>widgets/checkfields/checkcity.h</header>
@@ -294,17 +286,33 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckSiretNumber</class>
+   <class>CheckValidField</class>
    <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checksiretnumber.h</header>
+   <header>widgets/checkfields/checkvalidfield.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckValidField</class>
+   <class>CheckPhone</class>
    <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkvalidfield.h</header>
+   <header>widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckPostalCode</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkpostalcode.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>CheckSiretNumber</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checksiretnumber.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
