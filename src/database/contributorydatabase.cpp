@@ -1,4 +1,6 @@
 #include "database/contributorydatabase.h"
+#include "database/projectdatabase.h"
+
 #include "log.h"
 #include "utils.h"
 
@@ -17,6 +19,15 @@ ContributoryDatabase* ContributoryDatabase::instance()throw(DbException*)
 
     return _instance;
 }
+Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
+    Contributory* contributory = new Contributory();
+    contributory->setId(value(q, "idContributory").toInt());
+    contributory->setNbHours(value(q, "nbDays").toDouble());
+    contributory->setDescription(value(q, "description").toString());
+    // contributory->setProject(); TODO join ?
+
+    return contributory;
+}
 
 Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     QSqlQuery q;
@@ -34,11 +45,7 @@ Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     }
 
     if(q.first()) {
-        contributory = new Contributory();
-        contributory->setId(value(q, "idContributory").toInt());
-        contributory->setNbHours(value(q, "nbDays").toDouble());
-        contributory->setDescription(value(q, "description").toString());
-        // contributory->setProject(); TODO join ?
+        contributory = getContributory(q);
     } else {
         contributory = NULL;
     }
@@ -52,8 +59,14 @@ QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesBy
     QSqlQuery q;
     QMap<Project *, QList<Contributory> *> contributories;
     QMap<int, Project*> projects; // link between id and Project*
-    q.prepare("SELECT * FROM BillingProject "
-              " WHERE idBilling = :idBilling ORDER BY idProject ");
+    q.prepare("SELECT DISTINCT project.idProject as idProject, project.name as name, project.description as description, "
+              " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, billing.idBilling, nbDays "
+              " FROM BillingProject, project, billing, contributory "
+              " WHERE billingProject.idBilling = :idBilling "
+              " AND project.idProject = billingProject.idProject "
+              " AND billing.idBilling = billingProject.idBilling "
+              " AND contributory.idContributory = billingProject.idContributory "
+              "ORDER BY project.idProject ");
     q.bindValue(":idBilling", idBilling);
     if(!q.exec()) {
         throw new DbException(
@@ -65,12 +78,11 @@ QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesBy
 
     while(q.next()) {
         if(!projects.contains(value(q, "idProject").toInt())) { // It's a new project !
-
-            Project* p = new Project(value(q, "idProject").toInt());
+            Project* p = ProjectDatabase::instance()->getProject(q);
             projects.insert(value(q, "idProject").toInt(), p);
             contributories.insert(p, new QList<Contributory>());
         }
-        contributories.value(projects.last())->append(Contributory(value(q, "idContributory").toInt()));
+        contributories.value(projects.last())->append(*getContributory(q));
     }
     closeTransaction();
     return contributories;

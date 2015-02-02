@@ -51,6 +51,7 @@ public:
      */
     void removeContributory(const int pId);
 
+    Contributory *getContributory(QSqlQuery &q);
 private:
     static ContributoryDatabase* _instance;  //!< Singleton instance of ContributoryDatabase
 
