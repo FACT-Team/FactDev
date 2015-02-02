@@ -5,7 +5,6 @@
 #include <sstream>
 #include <iostream>
 #include <stdexcept>
-#include <QDebug>
 
 /**
  * @author Antoine de Roquemaurel

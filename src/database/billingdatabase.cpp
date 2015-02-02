@@ -21,7 +21,6 @@ BillingDatabase* BillingDatabase::instance()throw(DbException*)
 Billing* BillingDatabase::getBilling(const int pId) {
     QSqlQuery q;
     Billing* billing;
-    qDebug() << "test" << pId;
     q.prepare("SELECT * FROM Billing WHERE idBilling = :pId");
     q.bindValue(":pId", pId);
 
@@ -37,6 +36,11 @@ Billing* BillingDatabase::getBilling(const int pId) {
         billing = new Billing();
         billing->setId(value(q, "idBilling").toInt());
         billing->setTitle(value(q, "title").toString());
+        billing->setDescription(value(q,"description").toString());
+        billing->setNumber(value(q,"number").toInt());
+        billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+        billing->setIsBilling(value(q,"isBilling").toBool());
+        billing->setToRemoved(false);
     } else {
         billing = NULL;
     }
@@ -95,26 +99,27 @@ throw(DbException*)
 
 int BillingDatabase::addBilling(const Billing& pBilling) {
     QSqlQuery q;
+
     q.prepare(
         "INSERT INTO Billing "
-        "(title, number, isBilling, date)"
+        "(title, description, number, isBilling, date)"
         " VALUES "
-        "(:title, :number, :isBilling, :date)"
+        "(:title, :description, :number, :isBilling, :date)"
     );
 
     q.bindValue(":title", pBilling.getTitle());
+    q.bindValue(":description", pBilling.getDescription());
     q.bindValue(":number", pBilling.getNumber());
     q.bindValue(":isBilling", pBilling.isBilling());
     q.bindValue(":date", pBilling.getDate());
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le Customer",
-            "BddCustomer::addCustomer",
+            "Impossible d'ajouter le Billing",
+            "BddBilling::addBilling",
             lastError(q),
             1.3);
     }
-
     return q.lastInsertId().toInt();
 }
 

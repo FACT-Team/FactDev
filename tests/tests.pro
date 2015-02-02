@@ -16,7 +16,10 @@ database/customerdatabasetest.h \
     QTestRunner/testadder.h \
     QTestRunner/testrunner.h \
     models/customermodeltest.h \
-    models/searchtest.h
+    models/searchtest.h \
+    database/billingdatabasetest.h \
+    models/billingmodeltest.h \
+    database/contributoriesdatabasetest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -24,6 +27,9 @@ database/customerdatabasetest.cpp \
     QTestRunner/testrunner.cpp \
     QTestRunner/testadder.cpp \
     models/customermodeltest.cpp \
-    models/searchtest.cpp
+    models/searchtest.cpp \
+    database/billingdatabasetest.cpp \
+    models/billingmodeltest.cpp \
+    database/contributoriesdatabasetest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp

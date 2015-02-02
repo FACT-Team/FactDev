@@ -1,5 +1,4 @@
 #include "checkqlineedit.h"
-#include <QDebug>
 CheckQLineEdit::CheckQLineEdit(QWidget *parent, QPushButton* btn) : QLineEdit(parent)
 {
     _btnValid = btn;

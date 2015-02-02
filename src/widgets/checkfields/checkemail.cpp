@@ -1,4 +1,3 @@
-#include <QDebug>
 #include "checkemail.h"
 
 

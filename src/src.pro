@@ -60,7 +60,8 @@ SOURCES += mainwindow.cpp \
     widgets/delegates/projectcombodelegate.cpp \
     database/billingdatabase.cpp \
     database/contributorydatabase.cpp \
-    itemtype.cpp
+    itemtype.cpp \
+    dialogs/messagebox/messagebox.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -110,7 +111,8 @@ HEADERS  += mainwindow.h \
     widgets/delegates/projectcombodelegate.h \
     database/billingdatabase.h \
     database/contributorydatabase.h \
-    itemtype.h
+    itemtype.h \
+    dialogs/messagebox/messagebox.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \
@@ -123,7 +125,8 @@ FORMS    += mainwindow.ui \
     widgets/customerdatawidget.ui \
     widgets/projectswidget.ui \
     dialogs/addquotedialog.ui \
-    widgets/contributorieswidget.ui
+    widgets/contributorieswidget.ui \
+    dialogs/messagebox/messagebox.ui
 
 RESOURCES += \
     icons.qrc

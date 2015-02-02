@@ -1,6 +1,5 @@
 #include "projectcombodelegate.h"
 #include <QApplication>
-#include <QDebug>
 #include "database/projectdatabase.h"
 ProjectComboDelegate::ProjectComboDelegate(Customer* c, QObject *parent) : QItemDelegate(parent)
 {

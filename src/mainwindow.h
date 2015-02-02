@@ -5,7 +5,6 @@
 #include <QMessageBox>
 #include <QModelIndex>
 #include <QTableView>
-
 #include "itemtype.h"
 
 namespace Ui {
@@ -28,7 +27,6 @@ public:
      */
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
 
     /**
      * @brief MainWindow::getCurrentCustomerId get the selected customer
@@ -54,11 +52,26 @@ public:
      */
     QString getCurrentProjectName();
     /**
-     * @brief MainWindow::isProject return if the node selected in the
-     * tree is a customer or a project
-     * @return true if it's a customer, false if it's a project
+     * @brief MainWindow::isTreeRoot return if the node selected in the
+     * tree is the root
+     * @return boolean
      */
-    bool isCustomer();
+    bool isTreeRoot();
+    /**
+     * @brief MainWindow::isCustomerItemTree return if the node selected in the
+     * tree is a customer
+     * @return boolean
+     */
+    bool isCustomerItemTree();
+    /**
+     * @brief MainWindow::isProjectItemTree return if the node selected in the
+     * tree is a project
+     * @return boolean
+     */
+    bool isProjectItemTree();
+
+    //TODO
+    bool isQuoteItemTree();
     void demo();
 public slots:
     /**
@@ -75,21 +88,14 @@ public slots:
      */
     void removeCustomer();
     /**
-     * @brief MainWindow::openCustomer open a customer and print his informations
-     * @see CustomerDataWidget
-     */
-    void openCustomer();
-    /**
-     * @brief MainWindow::editUser modify the user
-     * @see UserDataDialog
-     */
-
-    /**
      * @brief MainWindow::addQuote open window to add a new quote
      * @see AddQuoteDialog
      */
     void addQuote();
-
+    /**
+     * @brief MainWindow::editUser modify the user
+     * @see UserDataDialog
+     */
     void editUser();
     /**
      * @brief MainWindow::search launch a new search
@@ -104,18 +110,15 @@ public slots:
      * @brief MainWindow::newProject Create a new project for a customer
      * @see AddProjectDialog
      */
-    void newProject(void);
-
+    void newProject();
     /**
      * @brief MainWindow::removeProject Remove a project for a customer
      */
     void removeProject(void);
-
     /**
      * @brief MainWindow::editProject Modify the customer project
      */
     void editProject(void);
-
     /**
      * @brief MainWindow::aboutQt show Qt's details
      */
@@ -147,21 +150,9 @@ private slots:
      */
     void openContextualMenuTree(const QPoint point);
     /**
-     * @brief MainWindow::changeCustomerTree when customer changed in tree
-     * update customer selected in table and his informations
-     * @param index index of selected customer
-     */
-    void changeCustomerTree(QModelIndex index);
-    /**
      * @brief MainWindow::changeCustomerTree call changeCustomerTree
      */
-    void changeCustomerTree();
-    /**
-     * @brief MainWindow::changeCustomerTable when customer changed in table
-     * update his informations
-     * @param index index of selected customer
-     */
-    void changeCustomerTable(QModelIndex index);
+    void changeTree();
     /**
      * @brief MainWindow::changeCustomerTable calls changeCustomerTable
      */
@@ -179,11 +170,6 @@ private slots:
      * @brief MainWindow::backToProjectsTable displays the projects table
      */
     void backToProjectsTable();
-    /**
-     * @brief MainWindow::projectsCustomersTableTree displays projects of a customer
-     * or all customers
-     */
-    void projectsCustomersTableTree();
     /**
      * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
      * of the project in the table of projects
@@ -206,7 +192,6 @@ private:
      * (just client in the first version)
      */
     void updateTree(QString filter="");
-
     /**
      * @brief MainWindow::updateUser Update user data panel
      */
@@ -217,7 +202,6 @@ private:
      * @param idProject Only billings corresponding to the idProject
      */
     void updateTableBillings(const int idProject);
-
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
      * table <i>tbl</i>
@@ -225,7 +209,6 @@ private:
      * @param item an item in the table <i>tbl</i>
      */
     void removeItem(QTableView* tbl, ItemType item);
-
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
      * the  tableview <i>tbl</i>

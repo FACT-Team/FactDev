@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Ajouter un client</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../icons.qrc">
+    <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="3" column="0" colspan="2">
     <widget class="QGroupBox" name="groupBox">
@@ -554,7 +558,7 @@
      <y>16</y>
     </hint>
     <hint type="destinationlabel">
-     <x>631</x>
+     <x>467</x>
      <y>64</y>
     </hint>
    </hints>
@@ -570,7 +574,7 @@
      <y>47</y>
     </hint>
     <hint type="destinationlabel">
-     <x>721</x>
+     <x>467</x>
      <y>47</y>
     </hint>
    </hints>
@@ -586,7 +590,7 @@
      <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>659</x>
+     <x>467</x>
      <y>113</y>
     </hint>
    </hints>
@@ -602,7 +606,7 @@
      <y>144</y>
     </hint>
     <hint type="destinationlabel">
-     <x>609</x>
+     <x>467</x>
      <y>158</y>
     </hint>
    </hints>
@@ -618,7 +622,7 @@
      <y>166</y>
     </hint>
     <hint type="destinationlabel">
-     <x>831</x>
+     <x>467</x>
      <y>230</y>
     </hint>
    </hints>
@@ -634,7 +638,7 @@
      <y>164</y>
     </hint>
     <hint type="destinationlabel">
-     <x>599</x>
+     <x>467</x>
      <y>191</y>
     </hint>
    </hints>
@@ -650,7 +654,7 @@
      <y>201</y>
     </hint>
     <hint type="destinationlabel">
-     <x>654</x>
+     <x>467</x>
      <y>234</y>
     </hint>
    </hints>
@@ -666,7 +670,7 @@
      <y>243</y>
     </hint>
     <hint type="destinationlabel">
-     <x>601</x>
+     <x>467</x>
      <y>223</y>
     </hint>
    </hints>
@@ -682,7 +686,7 @@
      <y>273</y>
     </hint>
     <hint type="destinationlabel">
-     <x>628</x>
+     <x>467</x>
      <y>273</y>
     </hint>
    </hints>
@@ -698,7 +702,7 @@
      <y>303</y>
     </hint>
     <hint type="destinationlabel">
-     <x>614</x>
+     <x>467</x>
      <y>266</y>
     </hint>
    </hints>
@@ -714,7 +718,7 @@
      <y>333</y>
     </hint>
     <hint type="destinationlabel">
-     <x>693</x>
+     <x>467</x>
      <y>328</y>
     </hint>
    </hints>
