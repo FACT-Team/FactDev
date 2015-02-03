@@ -52,6 +52,9 @@ public:
     void removeContributory(const int pId);
 
     Contributory *getContributory(QSqlQuery &q);
+
+    int getMaxBillingNumber();
+    int getMaxQuoteNuber();
 private:
     static ContributoryDatabase* _instance;  //!< Singleton instance of ContributoryDatabase
 
