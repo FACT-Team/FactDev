@@ -1,6 +1,5 @@
 #ifndef PROJECTDATABASE_H
 #define PROJECTDATABASE_H
-
 #include "database/database.h"
 #include "exceptions/dbexception.h"
 #include "models/project.h"
@@ -76,8 +75,8 @@ public:
      */
     QMap<int, Project> getProjectsOfCustomer(Customer *c);
 
-     /**
-	  * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
+    /**
+      * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
       * @param filter Select only projects who are specified by <i>filter</i>
       * @return QStandardItemModel an item model for QTableView
       */

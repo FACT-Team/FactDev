@@ -27,10 +27,10 @@ User *UserDatabase::getUser(const int pId)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible de récupérer le User",
-            "BddUser::getUser",
-            lastError(q),
-            1.2);
+                    "Impossible de récupérer le User",
+                    "BddUser::getUser",
+                    lastError(q),
+                    1.2);
     }
 
     if(q.first()) {
@@ -57,12 +57,12 @@ User *UserDatabase::getUser(const int pId)
 void UserDatabase::updateUser(const User& pUser) {
     QSqlQuery q;
     q.prepare(
-        "UPDATE User SET "
-        "firstname = :firstname, lastname = :lastname, company = :company, "
-        "title = :title, address = :address, postalCode = :postalCode, "
-        "city = :city, email = :email, mobilePhone = :mobilePhone, "
-        "phone = :phone, noSiret = :noSiret "
-        "WHERE idUser = :idUser");
+                "UPDATE User SET "
+                "firstname = :firstname, lastname = :lastname, company = :company, "
+                "title = :title, address = :address, postalCode = :postalCode, "
+                "city = :city, email = :email, mobilePhone = :mobilePhone, "
+                "phone = :phone, noSiret = :noSiret "
+                "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
     q.bindValue(":firstname", pUser.getFirstname());
@@ -80,9 +80,9 @@ void UserDatabase::updateUser(const User& pUser) {
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'éditer les informations du User",
-            "BddUser::updateUser",
-            lastError(q),
-            1.4);
+                    "Impossible d'éditer les informations du User",
+                    "BddUser::updateUser",
+                    lastError(q),
+                    1.4);
     }
 }

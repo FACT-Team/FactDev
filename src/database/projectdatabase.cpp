@@ -38,10 +38,10 @@ Project *ProjectDatabase::getProject(const int pId)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le Project",
-            "BddProject::getProject",
-            lastError(q),
-            1.2);
+                    "Impossible d'ajouter le Project",
+                    "BddProject::getProject",
+                    lastError(q),
+                    1.2);
     }
 
     if(q.first()) {
@@ -59,11 +59,11 @@ int ProjectDatabase::addProject(const Project &pProject)
     QSqlQuery q;
 
     q.prepare(
-        "INSERT INTO Project "
-        "(name, description, beginDate, dailyRate, idCustomer)"
-        " VALUES "
-        "(:name, :description, :beginDate, :dailyRate, :idCustomer)"
-    );
+                "INSERT INTO Project "
+                "(name, description, beginDate, dailyRate, idCustomer)"
+                " VALUES "
+                "(:name, :description, :beginDate, :dailyRate, :idCustomer)"
+                );
 
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
@@ -74,10 +74,10 @@ int ProjectDatabase::addProject(const Project &pProject)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'ajouter le Project",
-            "BddProject::addProject",
-            lastError(q),
-            1.3);
+                    "Impossible d'ajouter le Project",
+                    "BddProject::addProject",
+                    lastError(q),
+                    1.3);
     }
 
     return q.lastInsertId().toInt();
@@ -90,9 +90,9 @@ void ProjectDatabase::updateProject(const Project &pProject)
     // N.B: We can't change the customer of a project.
     // Function transfer maybe later.
     q.prepare(
-        "UPDATE Project SET "
-        "name = :name, description = :description, dailyRate = :dailyRate "
-        "WHERE idProject= :idProject");
+                "UPDATE Project SET "
+                "name = :name, description = :description, dailyRate = :dailyRate "
+                "WHERE idProject= :idProject");
 
     q.bindValue(":idProject", pProject.getId());
 
@@ -103,10 +103,10 @@ void ProjectDatabase::updateProject(const Project &pProject)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'éditer les informations du Project",
-            "BddProject::updateProject",
-            lastError(q),
-            1.4);
+                    "Impossible d'éditer les informations du Project",
+                    "BddProject::updateProject",
+                    lastError(q),
+                    1.4);
     }
 }
 
@@ -114,18 +114,18 @@ void ProjectDatabase::removeProject(const int pId)
 {
     QSqlQuery q;
     q.prepare(
-        "DELETE FROM Project "
-        "WHERE idProject = :pId"
-        );
+                "DELETE FROM Project "
+                "WHERE idProject = :pId"
+                );
 
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'éditer les informations du Project",
-            "BddProject::removeProject",
-            lastError(q),
-            1.5);
+                    "Impossible d'éditer les informations du Project",
+                    "BddProject::removeProject",
+                    lastError(q),
+                    1.5);
     }
 }
 
@@ -137,10 +137,10 @@ int ProjectDatabase::getNbProjects()
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'éditer les informations du Project",
-            "BddProject::getNbProject",
-            lastError(q),
-            1.6);
+                    "Impossible d'éditer les informations du Project",
+                    "BddProject::getNbProject",
+                    lastError(q),
+                    1.6);
     }
     q.next();
 
@@ -154,10 +154,10 @@ int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     q.bindValue(":pId", pId);
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'éditer les informations du Project",
-            "BddProject::getNbProjectForACustomer",
-            lastError(q),
-            1.6);
+                    "Impossible d'éditer les informations du Project",
+                    "BddProject::getNbProjectForACustomer",
+                    lastError(q),
+                    1.6);
     }
     q.next();
 
@@ -172,10 +172,10 @@ QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(Customer* c) {
     q.bindValue(":pId", c->getId());
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'obtenir les informations du projet",
-            "BddProject::getProjectsOfCustomer",
-            lastError(q),
-            1.7);
+                    "Impossible d'obtenir les informations du projet",
+                    "BddProject::getProjectsOfCustomer",
+                    lastError(q),
+                    1.7);
     }
     while(q.next()) {
         project = Project();
@@ -191,19 +191,19 @@ QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(Customer* c) {
     return ret;
 }
 QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
-    throw(DbException*)
+throw(DbException*)
 {
     QStandardItemModel* retour = new QStandardItemModel();
 
-        retour->setColumnCount(3);
-        retour->setHorizontalHeaderLabels(
-                    QStringList()
-                    << ("Id")
-                    << ("Nom")
-                    << ("Description")
-                    << ("Date de création")
-                    << ("Date de fin")
-                    );
+    retour->setColumnCount(3);
+    retour->setHorizontalHeaderLabels(
+                QStringList()
+                << ("Id")
+                << ("Nom")
+                << ("Description")
+                << ("Date de création")
+                << ("Date de fin")
+                );
     QSqlQuery q;
 
 
@@ -216,10 +216,10 @@ QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
 
     if(!q.exec()) {
         throw new DbException(
-            "Impossible d'obtenir la liste des Projects",
-            "ProjectDatabase::getProjectsTable",
-            lastError(q),
-            1.1);
+                    "Impossible d'obtenir la liste des Projects",
+                    "ProjectDatabase::getProjectsTable",
+                    lastError(q),
+                    1.1);
     }
 
     while(q.next()) {
@@ -229,7 +229,7 @@ QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
         ligne << new QStandardItem(
                      Utils::firstLetterToUpper(value(q,"name").toString()));
         ligne << new QStandardItem(
-                    value(q, "description").toString());
+                     value(q, "description").toString());
         ligne << new QStandardItem(
                      value(q,"beginDate").toString());
         ligne << new QStandardItem(

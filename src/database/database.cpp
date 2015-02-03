@@ -57,26 +57,26 @@ void Database::open() {
     _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
 
     if(!QFile::exists(
-       _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
+                _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
     {
         creerStructure = true;
         _settings->setValue("version", 0);
     }
     Database::mDatabase.setDatabaseName(
-        _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+                _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
 
     if(!Database::mDatabase.open()) {
         mDatabase.close();
         mDatabase = QSqlDatabase::database();
         Database::mDatabase.setDatabaseName(
-            _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+                    _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
 
         if(!Database::mDatabase.open()) {
             throw new DbException(
-                "Impossible d'ouvrir la base de données",
-                "Database::Database",
-                "Impossible d'ouvrir la base de données",
-                22.1);
+                        "Impossible d'ouvrir la base de données",
+                        "Database::Database",
+                        "Impossible d'ouvrir la base de données",
+                        22.1);
             exit(22);
         }
     }
@@ -90,9 +90,9 @@ void Database::open() {
     if(creerStructure) {
         createDatabase();
 
-        #ifndef QT_NO_DEBUG
-            testCases();
-        #endif
+#ifndef QT_NO_DEBUG
+        testCases();
+#endif
     }
 }
 
@@ -167,7 +167,7 @@ void Database::closeTransaction()
 
 inline QString Database::lastError(const QSqlQuery& q) {
     QString ret = "[ ERREUR  ] " + q.lastError().text()+"\n"
-                +"[ query ] " + q.lastQuery() +"\n";
+            +"[ query ] " + q.lastQuery() +"\n";
 
     return ret;
 }

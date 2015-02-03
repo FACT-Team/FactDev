@@ -16,7 +16,9 @@ int ContributoriesTableModel::columnCount(const QModelIndex &) const {
 }
 
 QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) const {
-    if (role != Qt::DisplayRole && role != Qt::EditRole) return QVariant();
+    if (role != Qt::DisplayRole && role != Qt::EditRole) {
+        return QVariant();
+    }
     const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
     case 0: return contributory.getProject()->getId();
@@ -28,8 +30,14 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
 
 
 QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orientation, int role) const {
-    if (orientation != Qt::Horizontal) return QVariant();
-    if (role != Qt::DisplayRole) return QVariant();
+    if (orientation != Qt::Horizontal) {
+        return QVariant();
+    }
+
+    if (role != Qt::DisplayRole) {
+        return QVariant();
+    }
+
     switch (section) {
     case 0: return "Projet";
     case 1: return "Description";
