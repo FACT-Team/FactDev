@@ -22,7 +22,7 @@
 \usepackage{graphicx} % Required for box manipulation
 \usepackage{makeidx}
 
-\newcommand{\titre}{FactDev -- V0.1}
+\newcommand{\titre}{FactDev -- V0.2}
 \newcommand{\subtitle}{Manuel Utilisateur}
 \newcommand{\auteur}{Équipe FACT}
 \newcommand{\semestre}{~}
@@ -36,19 +36,21 @@
 
 
 \input{../LaTexTemplate/templates/listings.tex}
-\input{../LaTexTemplate/templates/classroomsTemplates/l2/cours.tex}
+\input{../LaTexTemplate/templates/classroomsTemplates/l3/cours.tex}
 \input{../LaTexTemplate/templates/remarquesExempleAttention.tex}
 \input{../LaTexTemplate/templates/polices.tex}
 \input{../LaTexTemplate/templates/affichageChapitre.tex}
 
-\input{couverture.tex}
+\input{../LaTexTemplate/templates/cover/couverture.tex}
 \makeatother
 \includeonly {
-%contents/intro,
+contents/intro,
 %contents/1-1erLancement,
 contents/2-ihm,
-%contents/3-donneesUtilisateur,
+contents/3-donneesUtilisateur,
 contents/4-clients,
+contents/5-projets,
+contents/6-devis
 }
 \begin{document}
 	\thispagestyle{empty} % Removes page numbers
@@ -66,8 +68,10 @@ contents/4-clients,
 
 %	\include{contents/1-1erLancement}
 	\include{contents/2-ihm}
-%	\include{contents/3-donneesUtilisateur}
+	\include{contents/3-donneesUtilisateur}
 	\include{contents/4-clients}
+	\include{contents/5-projets}
+	\include{contents/6-devis}
 	\appendix
 	\listoffigures
 	\printindex

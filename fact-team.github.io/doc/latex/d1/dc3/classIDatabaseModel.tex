@@ -1,0 +1,105 @@
+\hypertarget{classIDatabaseModel}{\section{I\+Database\+Model Class Reference}
+\label{classIDatabaseModel}\index{I\+Database\+Model@{I\+Database\+Model}}
+}
+
+
+The \hyperlink{classIDatabaseModel}{I\+Database\+Model} class.  
+
+
+
+
+{\ttfamily \#include $<$idatabasemodel.\+h$>$}
+
+Inheritance diagram for I\+Database\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/dc3/classIDatabaseModel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classIDatabaseModel_a2d4fd70557c1815d100df17ba0751cbd}{virtual void \hyperlink{classIDatabaseModel_a2d4fd70557c1815d100df17ba0751cbd}{commit} ()=0}\label{classIDatabaseModel_a2d4fd70557c1815d100df17ba0751cbd}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classIDatabaseModel_a2d4fd70557c1815d100df17ba0751cbd}{I\+Database\+Model\+::commit} Update or insert data into the database. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classIDatabaseModel_a25e44ed10a75976f86e14d34aea02c37}{hydrat} (int id)=0
+\begin{DoxyCompactList}\small\item\em \hyperlink{classIDatabaseModel_a25e44ed10a75976f86e14d34aea02c37}{I\+Database\+Model\+::hydrat} Get data of the element which is specified by the identify {\itshape id} from the database. \end{DoxyCompactList}\item 
+\hypertarget{classIDatabaseModel_a11d94697daf0af2b44fbe37ef831ea94}{virtual void \hyperlink{classIDatabaseModel_a11d94697daf0af2b44fbe37ef831ea94}{remove} ()=0}\label{classIDatabaseModel_a11d94697daf0af2b44fbe37ef831ea94}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classIDatabaseModel_a11d94697daf0af2b44fbe37ef831ea94}{I\+Database\+Model\+::remove} Remove the current element in the database. \end{DoxyCompactList}\item 
+int \hyperlink{classIDatabaseModel_a61523b015ec148d4e68ee8054c2ad3e3}{get\+Id} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classIDatabaseModel_a61523b015ec148d4e68ee8054c2ad3e3}{I\+Database\+Model\+::get\+Id} Return the identify of the element of the database. \end{DoxyCompactList}\item 
+void \hyperlink{classIDatabaseModel_ad4f47f3e25302c506ce98103e616ca57}{set\+Id} (int id)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classIDatabaseModel_ad4f47f3e25302c506ce98103e616ca57}{I\+Database\+Model\+::set\+Id} Replace the current identify by {\itshape id} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classIDatabaseModel_a49f0ca7727c7d12eb78f670c882a3028}{int \hyperlink{classIDatabaseModel_a49f0ca7727c7d12eb78f670c882a3028}{\+\_\+id}}\label{classIDatabaseModel_a49f0ca7727c7d12eb78f670c882a3028}
+
+\begin{DoxyCompactList}\small\item\em Element identify. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classIDatabaseModel}{I\+Database\+Model} class. 
+
+\begin{DoxyAuthor}{Author}
+Antoine de Roquemaurel 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classIDatabaseModel_a61523b015ec148d4e68ee8054c2ad3e3}{\index{I\+Database\+Model@{I\+Database\+Model}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!I\+Database\+Model@{I\+Database\+Model}}
+\subsubsection[{get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int I\+Database\+Model\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classIDatabaseModel_a61523b015ec148d4e68ee8054c2ad3e3}
+
+
+\hyperlink{classIDatabaseModel_a61523b015ec148d4e68ee8054c2ad3e3}{I\+Database\+Model\+::get\+Id} Return the identify of the element of the database. 
+
+\begin{DoxyReturn}{Returns}
+identity 
+\end{DoxyReturn}
+\hypertarget{classIDatabaseModel_a25e44ed10a75976f86e14d34aea02c37}{\index{I\+Database\+Model@{I\+Database\+Model}!hydrat@{hydrat}}
+\index{hydrat@{hydrat}!I\+Database\+Model@{I\+Database\+Model}}
+\subsubsection[{hydrat}]{\setlength{\rightskip}{0pt plus 5cm}virtual void I\+Database\+Model\+::hydrat (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classIDatabaseModel_a25e44ed10a75976f86e14d34aea02c37}
+
+
+\hyperlink{classIDatabaseModel_a25e44ed10a75976f86e14d34aea02c37}{I\+Database\+Model\+::hydrat} Get data of the element which is specified by the identify {\itshape id} from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classProject_aa966f15c9c8a277844a75c3530701525}{Project}, \hyperlink{classBilling_a8beb72061cd53a964cf0ba3f04686613}{Billing}, \hyperlink{classCustomer_ac77f54786ea2bd4c1696c0a76301c639}{Customer}, \hyperlink{classUser_a2e4160755d2189979b758929e832b12c}{User}, and \hyperlink{classContributory_a2b834e0288c93ba9ed70acf7a0b8c32d}{Contributory}.
+
+\hypertarget{classIDatabaseModel_ad4f47f3e25302c506ce98103e616ca57}{\index{I\+Database\+Model@{I\+Database\+Model}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!I\+Database\+Model@{I\+Database\+Model}}
+\subsubsection[{set\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void I\+Database\+Model\+::set\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classIDatabaseModel_ad4f47f3e25302c506ce98103e616ca57}
+
+
+\hyperlink{classIDatabaseModel_ad4f47f3e25302c506ce98103e616ca57}{I\+Database\+Model\+::set\+Id} Replace the current identify by {\itshape id} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & New identify \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/models/idatabasemodel.\+h\end{DoxyCompactItemize}
