@@ -4,3 +4,13 @@ build-*
 *.user
 app/*.user
 tests/*.user
+**/*.aux
+**/*.lof
+**/*.log
+**/*.mtc*
+**/*.idx
+**/*.maf
+**/*.toc
+**/*.synctex.gz
+**/*.out
+

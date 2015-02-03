@@ -1,0 +1,105 @@
+\hypertarget{classLog}{\section{Log Class Reference}
+\label{classLog}\index{Log@{Log}}
+}
+
+
+The \hyperlink{classLog}{Log} class for Simple management of log.  
+
+
+
+
+{\ttfamily \#include $<$log.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLog_a0fbfda88fbee5027c89f6eb121059360}{\hyperlink{classLog_a0fbfda88fbee5027c89f6eb121059360}{$\sim$\+Log} ()}\label{classLog_a0fbfda88fbee5027c89f6eb121059360}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLog_a0fbfda88fbee5027c89f6eb121059360}{Log\+::$\sim$\+Log}. \end{DoxyCompactList}\item 
+void \hyperlink{classLog_acef079f691840d7afd2ed9482d5d66ea}{write} (const Q\+String text)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLog_acef079f691840d7afd2ed9482d5d66ea}{Log\+::write}. Write log message in file. \end{DoxyCompactList}\item 
+\hypertarget{classLog_af6071a60aa52b6c1b511f99b4bc1b8fe}{\hyperlink{classLog_af6071a60aa52b6c1b511f99b4bc1b8fe}{Log} ()}\label{classLog_af6071a60aa52b6c1b511f99b4bc1b8fe}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLog_af6071a60aa52b6c1b511f99b4bc1b8fe}{Log\+::\+Log}. \hyperlink{classLog}{Log} is a singleton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classLog}{Log} \& \hyperlink{classLog_ad8ef93302c147f832ed8202a6b039eb5}{instance} (Type\+Log type=I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLog_ad8ef93302c147f832ed8202a6b039eb5}{Log\+::instance}. Return the instance of logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLog}{Log} \& \hyperlink{classLog_a1ecba3328cadecbbd7d65ae2852171fc}{operator$<$$<$} (\hyperlink{classLog}{Log} \&logger, const Q\+String \&text)
+\begin{DoxyCompactList}\small\item\em operator $<$$<$ for log writing \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classLog}{Log} class for Simple management of log. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classLog_ad8ef93302c147f832ed8202a6b039eb5}{\index{Log@{Log}!instance@{instance}}
+\index{instance@{instance}!Log@{Log}}
+\subsubsection[{instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Log} \& Log\+::instance (
+\begin{DoxyParamCaption}
+\item[{Type\+Log}]{type = {\ttfamily INFO}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classLog_ad8ef93302c147f832ed8202a6b039eb5}
+
+
+\hyperlink{classLog_ad8ef93302c147f832ed8202a6b039eb5}{Log\+::instance}. Return the instance of logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of log \+: W\+A\+R\+N\+I\+N\+G, I\+N\+F\+O, E\+R\+R\+O\+R \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Instance of logger. 
+\end{DoxyReturn}
+\hypertarget{classLog_acef079f691840d7afd2ed9482d5d66ea}{\index{Log@{Log}!write@{write}}
+\index{write@{write}!Log@{Log}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+::write (
+\begin{DoxyParamCaption}
+\item[{const Q\+String}]{text}
+\end{DoxyParamCaption}
+)}}\label{classLog_acef079f691840d7afd2ed9482d5d66ea}
+
+
+\hyperlink{classLog_acef079f691840d7afd2ed9482d5d66ea}{Log\+::write}. Write log message in file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classLog_a1ecba3328cadecbbd7d65ae2852171fc}{\index{Log@{Log}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Log@{Log}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Log}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Log} \&}]{logger, }
+\item[{const Q\+String \&}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classLog_a1ecba3328cadecbbd7d65ae2852171fc}
+
+
+operator $<$$<$ for log writing 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & Instance of Logger \\
+\hline
+{\em text} & Text to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New logger. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/log.\+h\item 
+src/log.\+cpp\end{DoxyCompactItemize}
