@@ -45,7 +45,6 @@ void AddQuoteDialog::accept() {
     for(Contributory c : ((ContributoriesWidget*)ui->wdgContributories)->getContributories()) {
         _quote->addContributory(c);
     }
-    //_quote->setContributories(->getContributories());
     _quote->commit();
     QDialog::accept();
 }
@@ -54,7 +53,8 @@ void AddQuoteDialog::reject() {
     QDialog::reject();
 }
 
-void AddQuoteDialog::updateBtn()
-{
-    ui->btnSave->setEnabled(((ContributoriesWidget*)ui->wdgContributories)->count() > 0 && ui->leQuoteTitle->isValid());
+void AddQuoteDialog::updateBtn() {
+    ui->btnSave->setEnabled(
+                ((ContributoriesWidget*)ui->wdgContributories)->count() > 0
+                && ui->leQuoteTitle->isValid());
 }

@@ -144,9 +144,9 @@ void MainWindow::addQuote()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         AddQuoteDialog winAddQuote(getCurrentCustomerId());
-        if(winAddQuote.exec()) {
+        winAddQuote.exec();
+        updateTableBillings(getCurrentProjectId());
 
-        }
     } else {
         Popup *p = new Popup();
         p->toImplement("\nVeuillez sélectionner un client", this);

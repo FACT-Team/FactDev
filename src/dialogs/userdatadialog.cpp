@@ -63,7 +63,7 @@ void UserDataDialog::checkFields() {
         && ui->leAddress->isValid() && ui->leCity->isValid()
         && ui->lePostalCode->isValid() && ui->leEmail->isValid()
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
-            || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
-            || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
+            || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
+            || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
         && ui->leNoSiret->isValid());
 }
