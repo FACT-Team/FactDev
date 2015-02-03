@@ -1,4 +1,5 @@
 #include "models/customer.h"
+
 #include "database/customerdatabase.h"
 
 Customer::Customer()

@@ -1,5 +1,6 @@
 #ifndef CHECKSIRETNUMBER_H
 #define CHECKSIRETNUMBER_H
+
 #include "checkqlineedit.h"
 
 /**

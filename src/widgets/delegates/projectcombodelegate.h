@@ -2,6 +2,7 @@
 #define PROJECTCOMBODELEGATE_H
 #include <QItemDelegate>
 #include <QComboBox>
+#include <QApplication>
 
 #include "models/project.h"
 class ProjectComboDelegate : public QItemDelegate

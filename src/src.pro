@@ -94,7 +94,6 @@ HEADERS  += mainwindow.h \
     widgets/customerdatawidget.h \
     widgets/projectswidget.h \
     dialogs/addquotedialog.h \
-    widgets/checkfields/ICheckField.h \
     widgets/checkfields/checkqlineedit.h \
     widgets/checkfields/checkemail.h \
     widgets/checkfields/checkphone.h \
@@ -112,7 +111,8 @@ HEADERS  += mainwindow.h \
     database/billingdatabase.h \
     database/contributorydatabase.h \
     itemtype.h \
-    dialogs/messagebox/messagebox.h
+    dialogs/messagebox/messagebox.h \
+    widgets/checkfields/icheckfield.h
 
 FORMS    += mainwindow.ui \
         dialogs/dialogaddcustomer.ui \

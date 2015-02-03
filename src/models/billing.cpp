@@ -1,6 +1,7 @@
 #include "billing.h"
+
 #include "database/billingdatabase.h"
-#include "database/contributorydatabase.h"
+
 Billing::Billing()
 {
 }
@@ -63,6 +64,19 @@ void Billing::hydrat(int id)
 void Billing::remove()
 {
     BillingDatabase::instance()->removeBilling(_id);
+}
+
+bool Billing::operator ==(const Billing &b)
+{
+    return (getDate() == b.getDate() &&
+            getDescription() == b.getDescription() &&
+            getNumber() == b.getNumber() &&
+            getTitle() == b.getTitle());
+}
+
+bool Billing::operator !=(const Billing &b)
+{
+    return !(*this == b);
 }
 
 QMap<Project*, QList<Contributory>*> Billing::getContributories() const
@@ -131,21 +145,4 @@ void Billing::setDate(const QDate &date)
 {
     _date = date;
 }
-
-bool Billing::operator ==(const Billing &b)
-{
-    return (getDate() == b.getDate() &&
-            getDescription() == b.getDescription() &&
-            getNumber() == b.getNumber() &&
-            getTitle() == b.getTitle());
-}
-
-bool Billing::operator !=(const Billing &b)
-{
-    return !(*this == b);
-}
-
-
-
-
 

@@ -1,6 +1,6 @@
 #include "projectcombodelegate.h"
-#include <QApplication>
 #include "database/projectdatabase.h"
+
 ProjectComboDelegate::ProjectComboDelegate(Customer* c, QObject *parent) : QItemDelegate(parent)
 {
     _projects = ProjectDatabase::instance()->getProjectsOfCustomer(c);

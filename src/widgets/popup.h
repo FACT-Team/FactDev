@@ -3,6 +3,9 @@
 
 #include <QString>
 #include <QWidget>
+#include <QMessageBox>
+
+#include "log.h"
 
 /**
  * @brief Class for display popup quickly

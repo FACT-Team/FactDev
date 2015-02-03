@@ -1,5 +1,6 @@
 #ifndef CHECKPOSTALCODE_H
 #define CHECKPOSTALCODE_H
+
 #include "checkuntilfield.h"
 
 /**

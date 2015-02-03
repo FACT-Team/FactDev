@@ -1,5 +1,6 @@
 #ifndef CHECKCUNTILFIELD_H
 #define CHECKCUNTILFIELD_H
+
 #include "checkqlineedit.h"
 
 /**

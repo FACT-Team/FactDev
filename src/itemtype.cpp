@@ -1,9 +1,4 @@
 #include "itemtype.h"
-#include "log.h"
-#include "models/billing.h"
-#include "models/customer.h"
-#include "models/project.h"
-
 ItemType::ItemType(int type, QString name)
 {
     _type = type;

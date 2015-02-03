@@ -1,7 +1,10 @@
 #ifndef USER_H
 #define USER_H
 #include <QString>
+
 #include "models/idatabasemodel.h"
+
+#include "log.h"
 
 /**
  * @author Florent Berbie

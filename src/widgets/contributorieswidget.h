@@ -5,6 +5,7 @@
 #include <QStandardItem>
 
 #include "models/contributory.h"
+
 #include "widgets/widgetsmodels/contributoriestablemodel.h"
 
 namespace Ui {

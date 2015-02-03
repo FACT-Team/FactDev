@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "dialogs/addprojectdialog.h"
+
 namespace Ui {
 class ProjectsWidget;
 }

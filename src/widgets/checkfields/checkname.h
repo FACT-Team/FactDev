@@ -1,5 +1,6 @@
 #ifndef CHECKNAME_H
 #define CHECKNAME_H
+
 #include "checkfieldsletters.h"
 
 /**

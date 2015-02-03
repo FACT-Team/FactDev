@@ -2,6 +2,12 @@
 #define ITEMTYPE_H
 #include <QString>
 #include "models/idatabasemodel.h"
+#include "models/billing.h"
+#include "models/customer.h"
+#include "models/project.h"
+
+#include "log.h"
+
 /**
  * @brief The ItemType class Item type model
  */

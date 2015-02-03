@@ -1,5 +1,6 @@
 #ifndef CHECKVALIDFIELD_H
 #define CHECKVALIDFIELD_H
+
 #include "checkqlineedit.h"
 
 /**

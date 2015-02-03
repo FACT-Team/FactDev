@@ -1,5 +1,4 @@
 #include "projectswidget.h"
-#include "dialogs/addprojectdialog.h"
 #include "ui_projectswidget.h"
 
 ProjectsWidget::ProjectsWidget(QWidget *parent) :

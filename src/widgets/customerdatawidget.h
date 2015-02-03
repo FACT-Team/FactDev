@@ -3,6 +3,10 @@
 
 #include <QWidget>
 #include <QLabel>
+
+#include "models/customer.h"
+#include "models/user.h"
+
 namespace Ui {
 class CustomerDataWidget;
 }

@@ -1,7 +1,5 @@
 #include "customerdatawidget.h"
 #include "ui_customerdatawidget.h"
-#include "models/customer.h"
-#include "models/user.h"
 
 CustomerDataWidget::CustomerDataWidget(QWidget *parent) :
     QWidget(parent),

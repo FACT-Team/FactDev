@@ -3,8 +3,11 @@
 
 #include <QDialog>
 #include "database/customerdatabase.h"
+
 #include "models/project.h"
 #include "models/customer.h"
+
+#include "mainwindow.h"
 
 namespace Ui {
 class AddProjectDialog;

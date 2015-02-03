@@ -1,4 +1,5 @@
 #include "search.h"
+
 Search::Search()
 {
     _searchInCompanies = true;

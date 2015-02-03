@@ -1,7 +1,9 @@
 #ifndef COMBOBOXMODELWIDGET_H
 #define COMBOBOXMODELWIDGET_H
-#include "database/customerdatabase.h"
+
 #include <QWidget>
+
+#include "database/customerdatabase.h"
 
 namespace Ui {
 class ComboBoxModelWidget;

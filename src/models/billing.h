@@ -9,6 +9,8 @@
 #include "models/project.h"
 #include "models/contributory.h"
 
+#include "database/contributorydatabase.h"
+
 /**
  * @author Cédric Rohaut @Oxynos for the quote part
  * @brief The Billing class : Billing or Quote of a Customer

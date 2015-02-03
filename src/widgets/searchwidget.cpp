@@ -1,7 +1,5 @@
 #include "searchwidget.h"
 #include "ui_searchwidget.h"
-#include "models/search.h"
-#include "database/customerdatabase.h"
 searchWidget::searchWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::searchWidget)

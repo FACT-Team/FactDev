@@ -1,5 +1,6 @@
 #ifndef ICHECKFIELD_H
 #define ICHECKFIELD_H
+
 #include <QString>
 
 /**

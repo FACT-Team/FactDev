@@ -1,6 +1,5 @@
 #include "addquotedialog.h"
 #include "ui_addquotedialog.h"
-#include "widgets/contributorieswidget.h"
 
 AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     QDialog(parent),

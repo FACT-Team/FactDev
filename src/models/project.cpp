@@ -1,5 +1,7 @@
 #include "project.h"
+
 #include "database/projectdatabase.h"
+
 Project::Project()
 {
     _id = 0;

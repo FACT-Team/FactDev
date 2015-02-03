@@ -1,7 +1,5 @@
 #include "popup.h"
 
-#include <QMessageBox>
-#include "log.h"
 void Popup::toImplement(QString str, QWidget* w)
 {
     QMessageBox::critical

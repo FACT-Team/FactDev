@@ -4,6 +4,7 @@
 #include <QAbstractTableModel>
 
 #include "models/contributory.h"
+
 class ContributoriesTableModel : public QAbstractTableModel
 {
 public:
