@@ -7,24 +7,37 @@ La gestion des clients associe à chacun d'eux un ou plusieurs projets : il est 
 \end{figure}
 
 \section{Liste des projets\index{Projet!Liste}}
-%La liste des clients, cf. figure 3.1, est accessible dès l’ouverture du logiciel. Celle-ci se trouve au centre du logiciel. 
+La liste des projets d'un client se trouvent soit dans l'arborescence de la vue hiérarchique\index{Panneau!Hiérarchie} en déroulant la liste des projets d'un projet soit en faisant un double clic sur l'un des client de la liste du panneau centrale. Dans les deux cas, cela modifie le panneau principal qui contient maintenant la liste des projets pour le client comme le montre la figure ci-dessous.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm]{screens/projets.png}
+	\caption{Liste des projets}
+\end{figure}
+La liste des projets contient les informations de chacun des projets c'est-à-dire un nom de projet, une description, les dates de début et de fin de projet. 
 
-%La liste des clients contient uniquement les informations permettant de facilement les identifier à savoir, le nom de la société, le nom, prénom, le numéro de téléphone et l’adresse e-mail. La sélection dans le tableau de l’un des clients permet, via le panneau du client, d’obtenir les informations détaillées sur celui-ci. 
-
-\section{Ajout d'un client\index{Projet!Ajouter}}
-%L'ajout d’un patient peut se faire via le menu <<Client $\rightarrow$ Nouveau Client>>, via la barre d'outils ou encore via le bouton situé sous la
-liste. 
+\section{Ajout d'un projet\index{Projet!Ajouter}}
+L'ajout d’un projet peut se faire via le bouton <<Nouveau projet>> en bas du panneau principal.
+Cependant, selon que le panneau central soit la liste des clients ou celle des projets l'interface diffère. En effet, dans le premier cas il faut associer un projet à un client. 
+C'est pour cela que la fenêtre propose un tableau avec la liste des clients afin de sélectionner celui auquel on veut associer un projet. 
+Une barre de recherche permettant de retrouver facilement un client dans la liste est présente dans l'interface. Pour qu'un projet puissent être ajouter il devra obligatoirement être associé à un client et avoir un nom. 
+Il est également possible d'ajouter une courte description et de mentionner le coût horaire ou journalier du projet. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=7cm]{screens/ajouterProjet.png}
-	\caption{Ajouter un client}
+	\caption{Ajouter un projet}
+\end{figure}
+Dans le cas où le panneau central contient la liste des projets, cela signifie que ces projets sont ceux d'un client. C'est pourquoi, lorsqu'on clic sur le bouton <<Nouveau projet>>, celui-ci est automatiquement affecté au client courant. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{screens/ajouterProjetClient.png}
+	\caption{Ajouter un nouveau projet à un client}
 \end{figure}
 
-\section{Édition d'un client\index{Projet!Éditer}}
- %L’édition d’un client a pour but de corriger d’éventuelles erreurs sur les informations d’un client. Pour ce faire, il suffit de sélectionner un client dans le tableau et de cliquer sur le bouton <<Modifier>> situé sous la liste des clients. Il est aussi possible de faire un clic droit sur le client dans le tableau puis, via le menu contextuel, d'"Éditer le client". 
-% La fenêtre est similaire à celle lors d’un ajout de client, seul diffère les champs qui sont pré-remplis. 
+\section{Édition d'un projet\index{Projet!Éditer}}
+L’édition d’un projet a pour but de corriger d’éventuelles erreurs sur les informations d’un projet. Pour ce faire, il suffit de sélectionner un projet dans le tableau et de cliquer sur le bouton <<Modifier>> situé sous la liste des projets. 
+La fenêtre est similaire à celle lors de l'ajout d'un projet à un client, seul diffère les champs qui sont pré-remplis. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=7cm]{screens/editerProjet.png}
-	\caption{Ajouter un client}
+	\caption{Éditer un projet}
 \end{figure}
