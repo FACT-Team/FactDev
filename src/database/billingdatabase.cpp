@@ -185,4 +185,33 @@ void BillingDatabase::removeBilling(const int pId)
     }*/
 
 }
+int BillingDatabase::getMaxBillingNumber()
+{
+    QSqlQuery q;
+    q.prepare("SELECT MAX(number) as max  from Billing where isBilling=1");
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir le numéro max de la facture",
+            "BddContributory::getContributory",
+            lastError(q),
+            1.5);
+    }
+
+    return value(q, "max").toInt();
+}
+
+int BillingDatabase::getMaxQuoteNuber()
+{
+    QSqlQuery q;
+    q.prepare("SELECT MAX(number) as max from Billing where isBilling=0");
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir le numéro max du devis",
+            "BddContributory::getContributory",
+            lastError(q),
+            1.6);
+    }
+    q.first();
+    return value(q, "max").toInt();
+}
 
