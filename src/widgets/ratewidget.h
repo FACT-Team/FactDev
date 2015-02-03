@@ -3,9 +3,7 @@
 
 #include <QWidget>
 
-#define LEGAL_RATE 9.61
-#define NB_DAILY_HOURS 7
-
+#include "models/project.h"
 namespace Ui {
 class RateWidget;
 }

@@ -16,8 +16,8 @@ RateWidget::~RateWidget()
 }
 
 void RateWidget::initRate() {
-    ui->sbDailyRate->setValue(NB_DAILY_HOURS * LEGAL_RATE);
-    ui->sbHourlyRate->setValue(LEGAL_RATE);
+    ui->sbDailyRate->setValue(Project::NB_DAILY_HOURS * Project::LEGAL_RATE);
+    ui->sbHourlyRate->setValue(Project::LEGAL_RATE);
 }
 
 void RateWidget::setWidgetDailyRateValue(double value)
@@ -32,7 +32,7 @@ double RateWidget::getDailyRate() {
 
 void RateWidget::setDailyRate() {
 
-    if (ui->sbDailyRate->value() > NB_DAILY_HOURS * LEGAL_RATE) {
+    if (ui->sbDailyRate->value() > Project::NB_DAILY_HOURS * Project::LEGAL_RATE) {
         _isDailyRateModified = true;        
         updateConversionRate();
     } else {
@@ -46,7 +46,7 @@ double RateWidget::getHourlyRate() {
 }
 
 void RateWidget::setHourlyRate() {
-    if (ui->sbHourlyRate->value() > LEGAL_RATE) {
+    if (ui->sbHourlyRate->value() > Project::LEGAL_RATE) {
         _isDailyRateModified = false;
         updateConversionRate();
     } else {
@@ -56,9 +56,9 @@ void RateWidget::setHourlyRate() {
 
 void RateWidget::updateConversionRate() {
     if (_isDailyRateModified) {
-        ui->sbHourlyRate->setValue(getDailyRate()/NB_DAILY_HOURS);
+        ui->sbHourlyRate->setValue(getDailyRate()/Project::NB_DAILY_HOURS);
     } else {
-        ui->sbDailyRate->setValue(getHourlyRate()*NB_DAILY_HOURS);
+        ui->sbDailyRate->setValue(getHourlyRate()*Project::NB_DAILY_HOURS);
     }
 }
 

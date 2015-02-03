@@ -2,6 +2,9 @@
 
 #include "database/projectdatabase.h"
 
+const double Project::LEGAL_RATE = 9.61;
+const int Project::NB_DAILY_HOURS = 7;
+
 Project::Project()
 {
     _id = 0;

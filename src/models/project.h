@@ -15,6 +15,9 @@
 class Project : public IDatabaseModel
 {
 public:
+    static const double LEGAL_RATE;
+    static const int NB_DAILY_HOURS;
+
     /**
      * @brief Project::Project Construct a Project
      */
