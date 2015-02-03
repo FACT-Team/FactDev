@@ -3,6 +3,8 @@
 
 #include <QString>
 #include <QDate>
+#include <QSharedPointer>
+
 #include "models/idatabasemodel.h"
 #include "models/customer.h"
 
@@ -14,6 +16,9 @@
 class Project : public IDatabaseModel
 {
 public:
+    static const double LEGAL_RATE;
+    static const int NB_DAILY_HOURS;
+
     /**
      * @brief Project::Project Construct a Project
      */
@@ -32,6 +37,8 @@ public:
      * @param id
      */
     Project(int id);
+
+    virtual ~Project();
 
     /**
      * @brief Project::commit Update project data in the database
@@ -110,14 +117,14 @@ public:
      * to this project
      * @return customer linked to this project
      */
-    Customer* getCustomer() const;
+    QSharedPointer<Customer> getCustomer() const;
 
     /**
      * @brief Project::setCustomer Modify the <i>customer</i> linked to this
      * project
      * @param customer New customer associated to this project
      */
-    void setCustomer(Customer *customer);
+    void setCustomer(QSharedPointer<Customer> customer);
 
 private:
     QString _name;          //!< Project name
@@ -125,7 +132,7 @@ private:
     QDate _beginDate;       //!< Date of creation of the project
     QDate _endDate;         //!< End date of the project
     double _dailyRate;      //!< Daily rate linked to this project
-    Customer* _customer;    //!< Customer linked to this project
+    QSharedPointer<Customer> _customer;    //!< Customer linked to this project
 };
 
 #endif // PROJECT_H

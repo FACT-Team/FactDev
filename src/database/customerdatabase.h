@@ -2,8 +2,13 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
+
 #include "exceptions/dbexception.h"
+
 #include "models/customer.h"
+
+#include "log.h"
+#include "utils.h"
 
 /** 
  * @author Antoine de Roquemaurel
@@ -55,7 +60,7 @@ public:
      * @param pId customer id
      * @return the Customer
      */
-    Customer *getCustomer(const int pId);
+    QSharedPointer<Customer> getCustomer(const int pId);
 
     /**
      * @brief CustomerDatabase::addCustomer Add the customer <i>pCustomer</i> to

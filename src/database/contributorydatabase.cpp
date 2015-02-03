@@ -1,8 +1,4 @@
 #include "database/contributorydatabase.h"
-#include "database/projectdatabase.h"
-
-#include "log.h"
-#include "utils.h"
 
 ContributoryDatabase::ContributoryDatabase() throw(DbException*)  : Database() {
     _instances << this;
@@ -54,10 +50,10 @@ Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     return contributory;
 }
 
-QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+QMap<Project *, QList<Contributory>> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
 {
     QSqlQuery q;
-    QMap<Project *, QList<Contributory> *> contributories;
+    QMap<Project *, QList<Contributory>> contributories;
     QMap<int, Project*> projects; // link between id and Project*
     q.prepare(
                 "SELECT DISTINCT project.idProject as idProject,"
@@ -82,9 +78,9 @@ QMap<Project *, QList<Contributory> *> ContributoryDatabase::getContributoriesBy
         if(!projects.contains(value(q, "idProject").toInt())) { // It's a new project !
             Project* p = ProjectDatabase::instance()->getProject(q);
             projects.insert(value(q, "idProject").toInt(), p);
-            contributories.insert(p, new QList<Contributory>());
+            contributories.insert(p, QList<Contributory>());
         }
-        contributories.value(projects.last())->append(*getContributory(q));
+        contributories[projects.last()].append(*getContributory(q));
     }
     return contributories;
 }
@@ -113,16 +109,13 @@ int ContributoryDatabase::addContributory(const Contributory& pContributory) {
     return q.lastInsertId().toInt();
 }
 
-void ContributoryDatabase::updateContributory(const Contributory& pContributory) {
-
-    QSqlQuery q;
-
-
+void ContributoryDatabase::updateContributory(const Contributory& pContributory)
+{
+    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pContributory.getId());
 }
 
 void ContributoryDatabase::removeContributory(const int pId)
 {
     QSqlQuery q;
-
-
+    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pId);
 }

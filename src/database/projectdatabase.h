@@ -1,8 +1,13 @@
 #ifndef PROJECTDATABASE_H
 #define PROJECTDATABASE_H
 #include "database/database.h"
+
 #include "exceptions/dbexception.h"
+
 #include "models/project.h"
+
+#include "utils.h"
+#include "log.h"
 
 /**
  * @author Florent Berbie
@@ -73,7 +78,7 @@ public:
      * @param c The customer
      * @return All projects of c with id in key
      */
-    QMap<int, Project> getProjectsOfCustomer(Customer *c);
+    QMap<int, Project> getProjectsOfCustomer(QSharedPointer<Customer> c);
 
     /**
       * @brief getProjectsTable Return all projects of a customer in QStandardItemModel

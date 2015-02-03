@@ -1,4 +1,5 @@
 #include "checkqlineedit.h"
+
 CheckQLineEdit::CheckQLineEdit(QWidget *parent, QPushButton* btn) : QLineEdit(parent)
 {
     _btnValid = btn;
@@ -18,8 +19,6 @@ void CheckQLineEdit::fieldTextChanged(const QString &text) {
         }
     }
 }
-
-
 
 void CheckQLineEdit::displayCheckValidFieldIcon()
 {

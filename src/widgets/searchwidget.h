@@ -2,7 +2,10 @@
 #define SEARCHWIDGET_H
 
 #include <QWidget>
+
 #include "database/customerdatabase.h"
+
+#include "models/search.h"
 
 namespace Ui {
 class searchWidget;

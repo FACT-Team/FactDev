@@ -1,5 +1,7 @@
 #include "contributory.h"
+
 #include "database/contributorydatabase.h"
+
 Contributory::Contributory()
 {
     _description = "";
@@ -15,9 +17,13 @@ Contributory::Contributory(int id)
     _id = id;
 }
 
+Contributory::~Contributory()
+{
+    delete _project;
+}
+
 void Contributory::commit()
 {
-    // TODO implement me !
     if(_id == 0) {
         _id = ContributoryDatabase::instance()->addContributory(*this);
     } else if(_toRemoved) {

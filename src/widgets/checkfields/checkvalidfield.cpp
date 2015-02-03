@@ -5,6 +5,6 @@ CheckValidField::CheckValidField(QWidget* w, QPushButton *btn) : CheckQLineEdit(
 }
 
 
-bool CheckValidField::check(QString text) {
+bool CheckValidField::check(QString) {
     return true;
 }

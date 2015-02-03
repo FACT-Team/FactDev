@@ -1,4 +1,3 @@
-#include "mainwindow.h"
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 

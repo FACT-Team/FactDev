@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "models/billing.h"
 
+#include "widgets/contributorieswidget.h"
+
 namespace Ui {
 class AddQuoteDialog;
 }

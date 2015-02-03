@@ -2,13 +2,14 @@
 #define PROJECTCOMBODELEGATE_H
 #include <QItemDelegate>
 #include <QComboBox>
+#include <QApplication>
 
 #include "models/project.h"
 class ProjectComboDelegate : public QItemDelegate
 {
 Q_OBJECT
 public:
-    ProjectComboDelegate(Customer *c, QObject* parent=0);
+    ProjectComboDelegate(QSharedPointer<Customer> c, QObject* parent=0);
     ~ProjectComboDelegate();
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;

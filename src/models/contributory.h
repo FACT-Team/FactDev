@@ -21,6 +21,8 @@ public:
      */
     Contributory(int id);
 
+    ~Contributory();
+
     /**
      * @brief Contributory::commit Update or insert a contributory to the
      * database

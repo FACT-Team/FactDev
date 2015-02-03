@@ -1,6 +1,7 @@
 #include "billing.h"
+
 #include "database/billingdatabase.h"
-#include "database/contributorydatabase.h"
+
 Billing::Billing()
 {
 
@@ -13,6 +14,14 @@ Billing::Billing()
 Billing::Billing(int id)
 {
     hydrat(id);
+}
+
+Billing::~Billing()
+{
+//    auto end = _contributories.cend();
+//    for (auto it = _contributories.cbegin(); it != end; ++it) {
+//        it.value().reset;
+//    }
 }
 
 void Billing::commit()
@@ -31,7 +40,7 @@ void Billing::commit()
     auto end = _contributories.cend();
     for (auto it = _contributories.cbegin(); it != end; ++it) {
         ((Project*)(it.key()))->commit();
-        for(Contributory c : *(it.value())) {
+        for(Contributory c : it.value()) {
             c.commit();
 
             // Fill trinary legs… :)
@@ -61,22 +70,35 @@ void Billing::remove()
     BillingDatabase::instance()->removeBilling(_id);
 }
 
-QMap<Project*, QList<Contributory>*> Billing::getContributories() const
+bool Billing::operator ==(const Billing &b)
+{
+    return (getDate() == b.getDate() &&
+            getDescription() == b.getDescription() &&
+            getNumber() == b.getNumber() &&
+            getTitle() == b.getTitle());
+}
+
+bool Billing::operator !=(const Billing &b)
+{
+    return !(*this == b);
+}
+
+QMap<Project*, QList<Contributory>> Billing::getContributories() const
 {
     return _contributories;
 }
 
-void Billing::setContributories(QMap<Project*, QList<Contributory>*> contributories)
+void Billing::setContributories(QMap<Project*, QList<Contributory>> contributories)
 {
     _contributories = contributories;
 }
 
 void Billing::addContributory(Contributory& c)
 {
-    if(_contributories.value(c.getProject()) == NULL) {
-        _contributories.insert(c.getProject(), new QList<Contributory>);
+    if(_contributories.contains(c.getProject())) {
+        _contributories.insert(c.getProject(), QList<Contributory>());
     }
-    _contributories.value(c.getProject())->push_back(c);
+    _contributories[c.getProject()].push_back(c);
 }
 
 QString Billing::getTitle() const
@@ -127,21 +149,4 @@ void Billing::setDate(const QDate &date)
 {
     _date = date;
 }
-
-bool Billing::operator ==(const Billing &b)
-{
-    return (getDate() == b.getDate() &&
-            getDescription() == b.getDescription() &&
-            getNumber() == b.getNumber() &&
-            getTitle() == b.getTitle());
-}
-
-bool Billing::operator !=(const Billing &b)
-{
-    return !(*this == b);
-}
-
-
-
-
 

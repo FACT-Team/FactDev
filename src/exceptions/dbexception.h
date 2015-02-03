@@ -6,6 +6,10 @@
 #include <iostream>
 #include <stdexcept>
 
+#include <QMessageBox>
+
+#include "log.h"
+
 /**
  * @author Antoine de Roquemaurel
  * @brief The DbException class for database exception : queries, db file, …

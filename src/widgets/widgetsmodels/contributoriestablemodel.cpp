@@ -1,4 +1,5 @@
 #include "contributoriestablemodel.h"
+
 ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
 }
@@ -59,6 +60,8 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
         case 2:
             _contributories[index.row()].setNbHours(value.toDouble());
             break;
+        default:
+            Log::instance(WARNING) << "Error, in default case of ContributoriesTableModel::setData";
         }
     }
 
@@ -80,7 +83,7 @@ void ContributoriesTableModel::remove(const int a)
     endRemoveRows();
 }
 
-Qt::ItemFlags ContributoriesTableModel::flags(const QModelIndex &index) const
+Qt::ItemFlags ContributoriesTableModel::flags(const QModelIndex &) const
 {
     return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
 }

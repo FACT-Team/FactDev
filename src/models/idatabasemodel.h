@@ -8,6 +8,8 @@
 class IDatabaseModel
 {
 public:
+    virtual ~IDatabaseModel() {}
+
     /**
      * @brief IDatabaseModel::commit Update or insert data into the database
      */

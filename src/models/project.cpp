@@ -1,5 +1,10 @@
 #include "project.h"
+
 #include "database/projectdatabase.h"
+
+const double Project::LEGAL_RATE = 9.61;
+const int Project::NB_DAILY_HOURS = 7;
+
 Project::Project()
 {
     _id = 0;
@@ -18,6 +23,11 @@ Project::Project(int id)
     _id = id;
     _toRemoved = false;
     hydrat(id);
+}
+
+Project::~Project()
+{
+    _customer.reset();
 }
 
 void Project::commit() {
@@ -95,12 +105,12 @@ void Project::setDailyRate(double dailyRate)
 {
     _dailyRate = dailyRate;
 }
-Customer* Project::getCustomer() const
+QSharedPointer<Customer> Project::getCustomer() const
 {
     return _customer;
 }
 
-void Project::setCustomer(Customer* customer)
+void Project::setCustomer(QSharedPointer<Customer> customer)
 {
     _customer = customer;
 }

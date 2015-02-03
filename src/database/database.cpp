@@ -1,15 +1,5 @@
 #include "database/database.h"
-#include "log.h"
 
-#include <QStandardItem>
-#include <QDate>
-#include <QCoreApplication>
-#include <QFile>
-
-#include <QtSql/QSqlError>
-#include <QtSql/QSqlRecord>
-
-#include "parameters.h"
 
 // SINGLETON
 Database* Database::_instance = 0;

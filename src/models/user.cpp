@@ -1,6 +1,5 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
-#include "log.h"
 
 User::User()
 {

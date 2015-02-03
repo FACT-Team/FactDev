@@ -21,14 +21,14 @@ CustomerDatabaseTest::CustomerDatabaseTest()
 void CustomerDatabaseTest::insert()
 {
     _lastInsert = CustomerDatabase::instance()->addCustomer(c1);
-    Customer* c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
+    QSharedPointer<Customer> c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
     QVERIFY(c1 == *c2);
 }
 
 void CustomerDatabaseTest::remove()
 {
     CustomerDatabase::instance()->removeCustomer(_lastInsert);
-    Customer* c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
+    QSharedPointer<Customer> c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
     QVERIFY(c2 == 0);
 }
 
@@ -39,7 +39,7 @@ void CustomerDatabaseTest::update()
     c1.setAddress("New address");
     c1.setFirstnameReferent("New name !");
     CustomerDatabase::instance()->updateCustomer(c1);
-    Customer* c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
+    QSharedPointer<Customer> c2 = CustomerDatabase::instance()->getCustomer(_lastInsert);
     QVERIFY(*c2 == c1);
 }
 
@@ -52,7 +52,7 @@ void CustomerDatabaseTest::selectCustomerFound()
 {
     // Is assumed the id 1 contains tests :
     // INSERT INTO `Customer` (`firstnameReferent`,`lastnameReferent`,`company`,`address`,`postalCode`,`city`,`country`,`email`,`phone`,`mobilePhone`,`fax`) VALUES ("Jonah","Boyle","Sit Amet Ornare Consulting","P.O. Box 592, 3094 Vel Rd.","9924BN","Miraj","Greece","pede.ultrices@atnisiCum.org","01 02 03 04 05","02 03 04 05 06","05 35 11 79 67");
-    Customer* c2 = CustomerDatabase::instance()->getCustomer(1);
+    QSharedPointer<Customer> c2 = CustomerDatabase::instance()->getCustomer(1);
     c1.setFirstnameReferent("Jonah");
     c1.setLastnameReferent("Boyle");
     c1.setCompany("Sit Amet Ornare Consulting");

@@ -3,7 +3,8 @@
 
 #include <QLineEdit>
 #include <QPushButton>
-#include "ICheckField.h"
+
+#include "icheckfield.h"
 
 /**
  * @brief The CheckQLineEdit class LineEdit custom with a check of text inputed

@@ -1,6 +1,4 @@
 #include "database/projectdatabase.h"
-#include "utils.h"
-#include "log.h"
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
 }
@@ -23,7 +21,7 @@ Project* ProjectDatabase::getProject(QSqlQuery& q) {
     project->setName(value(q,"name").toString());
     project->setDescription(value(q,"description").toString());
     project->setDailyRate(value(q,"dailyRate").toDouble());
-    project->setCustomer(new Customer(value(q,"idCustomer").toInt()));
+    project->setCustomer(QSharedPointer<Customer>(new Customer(value(q,"idCustomer").toInt())));
 
     return project;
 }
@@ -164,7 +162,7 @@ int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     return value(q, "nb_p").toInt();
 }
 
-QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(Customer* c) {
+QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Customer> c) {
     QSqlQuery q;
     QMap<int, Project> ret;
     Project project;

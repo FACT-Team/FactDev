@@ -1,5 +1,6 @@
 #ifndef CHECKFIELDSLETTERS_H
 #define CHECKFIELDSLETTERS_H
+
 #include "checkuntilfield.h"
 
 /**

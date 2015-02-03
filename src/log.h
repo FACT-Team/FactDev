@@ -1,7 +1,16 @@
 #ifndef LOG_H
 #define LOG_H
 #include <QFile>
-typedef enum {INFO, ERREUR, WARNING }TypeLog;
+#include <QDate>
+#include <QCoreApplication>
+#include <QTextStream>
+#include <QDebug>
+#include <QSettings>
+#include <QString>
+
+#include "parameters.h"
+
+typedef enum {INFO, ERREUR, WARNING } TypeLog;
 
 /**
  * @brief The Log class for Simple management of log.

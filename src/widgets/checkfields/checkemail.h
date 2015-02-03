@@ -1,5 +1,6 @@
 #ifndef CHECKEMAIL_H
 #define CHECKEMAIL_H
+
 #include "checkqlineedit.h"
 
 /**

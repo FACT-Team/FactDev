@@ -1,4 +1,5 @@
 #include "models/customer.h"
+
 #include "database/customerdatabase.h"
 
 Customer::Customer()
@@ -22,7 +23,7 @@ void Customer::commit() {
 
 void Customer::hydrat(int id)
 {
-    Customer* c = CustomerDatabase::instance()->getCustomer(id);
+    QSharedPointer<Customer> c = CustomerDatabase::instance()->getCustomer(id);
     _id = id;
     _address = c->getAddress();
     _city = c->getCity();

@@ -1,6 +1,4 @@
-#include <QMessageBox>
 #include "dbexception.h"
-#include "log.h"
 
 DbException::DbException(const QString userError, const QString fctName,
     const QString logError, float errorCode)

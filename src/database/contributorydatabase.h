@@ -1,8 +1,13 @@
 #ifndef CONTRIBUTORYDATABASE_H
 #define CONTRIBUTORYDATABASE_H
 
-#include "models/contributory.h"
 #include "database.h"
+#include "database/projectdatabase.h"
+
+#include "models/contributory.h"
+
+#include "log.h"
+#include "utils.h"
 
 /**
  * @author Cédric Rohaut @Oxynos
@@ -29,7 +34,7 @@ public:
      */
     Contributory *getContributory(const int idContributory);
 
-    QMap<Project*,QList<Contributory>*> getContributoriesByBilling(const int idBilling);
+    QMap<Project *, QList<Contributory> > getContributoriesByBilling(const int idBilling);
 
     /**
      * @brief ContributoryDatabase::addContributory Add the Contributory <i>pContributory</i> to

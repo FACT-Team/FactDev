@@ -2,8 +2,8 @@
 #define RATEWIDGET_H
 
 #include <QWidget>
-#define LEGAL_RATE 9.61
-#define NB_DAILY_HOURS 7
+
+#include "models/project.h"
 namespace Ui {
 class RateWidget;
 }
@@ -72,8 +72,6 @@ public slots:
      * @param hourlyRate The new hourly rate
      */
     void setHourlyRate();
-
-
 
 private:
     Ui::RateWidget *ui;         //!< User interface of <b>RateWidget</b>

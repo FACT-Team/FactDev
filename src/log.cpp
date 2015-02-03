@@ -1,12 +1,5 @@
-#include <QDate>
-#include <QCoreApplication>
-#include <QTextStream>
-#include <QDebug>
-#include <QSettings>
-#include <QString>
-
 #include "log.h"
-#include "parameters.h"
+
 Log* Log::_instance = 0;
 TypeLog Log::_type = INFO;
 

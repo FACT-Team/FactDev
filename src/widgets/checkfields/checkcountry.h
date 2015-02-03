@@ -1,6 +1,8 @@
 #ifndef CHECKCOUNTRY_H
 #define CHECKCOUNTRY_H
+
 #include "checkfieldsletters.h"
+
 /**
  * @brief CheckCountry::CheckCountry Line Edit of country with a check icon
  */
