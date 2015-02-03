@@ -100,6 +100,20 @@ void Database::open() {
     }
 }
 
+void Database::updateBillingNumber()
+{
+    QSqlQuery q;
+    q.prepare("UPDATE billing set number=:number, isBilling=:isBilling where idBilling=:id");
+    for(int i = 1 ; i < 60 ; ++i) {
+        q.bindValue(":id", i);
+        q.bindValue(":number", i%(60/2));
+        q.bindValue(":isBilling", i%2);
+        if(!q.exec()) {
+            Log::instance(WARNING) << "Update billing Number problems" << lastError(q);
+        }
+    }
+}
+
 inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/customers.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/projects.sql");
@@ -108,6 +122,8 @@ inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/contributories.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billingsprojects.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/removeuselessdata.sql");
+
+    updateBillingNumber();
 }
 
 inline void Database::cleanDatabase() {

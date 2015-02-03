@@ -254,19 +254,15 @@ void MainWindow::newProject()
 {
     QModelIndex index = ui->tblCustomers->currentIndex();
     AddProjectDialog *w;
-    switch(ui->stackedWidget->currentIndex()) {
-    case 0:
-        w = new AddProjectDialog(0, 0, 0);
-        break;
-    case 1:
+    if(ui->stackedWidget->currentIndex() == 1) {
         w = new AddProjectDialog(index.row(), 0, 0);
         w->fillFields();
-        break;
-    default:
+    } else {
         w = new AddProjectDialog(0, 0, 0);
     }
     w->exec();
-    updateTree("");
+    updateTree();
+    updateTableProjects(getCurrentCustomerId());
 }
 
 void MainWindow::removeProject() {

@@ -66,10 +66,10 @@ throw(DbException*)
 
 
     q.prepare(
-             "SELECT b.idBilling,title,number,isBilling,date "
+             "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
              "FROM Billing b, BillingProject bp "
              "WHERE idProject = :idproject "
-             "AND b.idBilling = bp.idBilling");
+             "AND b.idBilling = bp.idBilling ORDER BY date DESC");
 
     q.bindValue(":idproject",idProject);
 
@@ -184,5 +184,34 @@ void BillingDatabase::removeBilling(const int pId)
             1.5);
     }*/
 
+}
+int BillingDatabase::getMaxBillingNumber()
+{
+    QSqlQuery q;
+    q.prepare("SELECT MAX(number) as max  from Billing where isBilling=1");
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir le numéro max de la facture",
+            "BddContributory::getContributory",
+            lastError(q),
+            1.5);
+    }
+
+    return value(q, "max").toInt();
+}
+
+int BillingDatabase::getMaxQuoteNuber()
+{
+    QSqlQuery q;
+    q.prepare("SELECT MAX(number) as max from Billing where isBilling=0");
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir le numéro max du devis",
+            "BddContributory::getContributory",
+            lastError(q),
+            1.6);
+    }
+    q.first();
+    return value(q, "max").toInt();
 }
 

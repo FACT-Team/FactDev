@@ -2,9 +2,6 @@
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 
-// Commentaire de Cédric :
-// Je pense que dans la bar de menu on peit créer
-// un bouton pour modifier les données de l'utilisateur ...
 UserDataDialog::UserDataDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserDataDialog)

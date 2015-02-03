@@ -168,7 +168,7 @@ QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(Customer* c) {
     QSqlQuery q;
     QMap<int, Project> ret;
     Project project;
-    q.prepare("SELECT * FROM PROJECT WHERE idCustomer = :pId");
+    q.prepare("SELECT * FROM PROJECT WHERE idCustomer = :pId ORDER BY UPPER(name)");
     q.bindValue(":pId", c->getId());
     if(!q.exec()) {
         throw new DbException(
