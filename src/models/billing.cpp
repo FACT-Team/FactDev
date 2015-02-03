@@ -3,6 +3,11 @@
 #include "database/contributorydatabase.h"
 Billing::Billing()
 {
+
+    // TODO :
+    // add enum for quote or billing, passed in constructor
+    // If quote, line behind, else getMaxBillingNumber.
+    _number = BillingDatabase::instance()->getMaxQuoteNuber()+1;
 }
 
 Billing::Billing(int id)

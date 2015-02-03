@@ -65,6 +65,11 @@ public:
      * @param idContributory Contributory id
      */
     void addBillingProject(const int idProject, const int idBilling, const int idContributory);
+
+
+    int getMaxBillingNumber();
+    int getMaxQuoteNuber();
+
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase
 
