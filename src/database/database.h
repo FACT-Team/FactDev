@@ -81,6 +81,7 @@ public:
      * @brief Database::creerDatabase Create a new database
      */
     void createDatabase();
+    void updateBillingNumber();
 protected:
     /**
      * @brief Database::Database Database is a singleton

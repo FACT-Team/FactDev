@@ -2,9 +2,6 @@
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 
-// Commentaire de Cédric :
-// Je pense que dans la bar de menu on peit créer
-// un bouton pour modifier les données de l'utilisateur ...
 UserDataDialog::UserDataDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserDataDialog)
@@ -66,7 +63,7 @@ void UserDataDialog::checkFields() {
         && ui->leAddress->isValid() && ui->leCity->isValid()
         && ui->lePostalCode->isValid() && ui->leEmail->isValid()
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
-            || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
-            || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
+            || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
+            || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
         && ui->leNoSiret->isValid());
 }

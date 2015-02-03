@@ -82,7 +82,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QLineEdit" name="leQuoteTitle"/>
+    <widget class="CheckUntilField" name="leQuoteTitle"/>
    </item>
    <item row="3" column="1">
     <widget class="QTextEdit" name="leDescription">
@@ -125,6 +125,16 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../icons.qrc"/>
  </resources>
@@ -136,8 +146,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>622</x>
-     <y>348</y>
+     <x>639</x>
+     <y>340</y>
     </hint>
     <hint type="destinationlabel">
      <x>114</x>
@@ -153,11 +163,43 @@
    <hints>
     <hint type="sourcelabel">
      <x>725</x>
-     <y>348</y>
+     <y>340</y>
     </hint>
     <hint type="destinationlabel">
      <x>393</x>
      <y>198</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leQuoteTitle</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>AddQuoteDialog</receiver>
+   <slot>updateBtn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-67</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leQuoteTitle</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leQuoteTitle</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>19</y>
     </hint>
    </hints>
   </connection>

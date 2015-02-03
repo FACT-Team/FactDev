@@ -29,6 +29,7 @@ Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     return contributory;
 }
 
+
 Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     QSqlQuery q;
     Contributory* contributory;
@@ -125,4 +126,3 @@ void ContributoryDatabase::removeContributory(const int pId)
 
 
 }
-

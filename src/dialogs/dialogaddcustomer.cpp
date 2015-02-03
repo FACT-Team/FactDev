@@ -66,10 +66,18 @@ void DialogAddCustomer::checkFields() {
     ui->leMobilePhone->setCountry(ui->leCountry->text());
     ui->leFax->setCountry(ui->leCountry->text());
 
-    ui->leMobilePhone->fieldTextChanged(ui->leMobilePhone->text());
-    ui->lePhone->fieldTextChanged(ui->lePhone->text());
-    ui->lePostalCode->fieldTextChanged(ui->lePostalCode->text());
-    ui->leFax->fieldTextChanged(ui->leFax->text());
+    if (!ui->leMobilePhone->text().isEmpty()) {
+        ui->leMobilePhone->fieldTextChanged(ui->leMobilePhone->text());
+    }
+    if (!ui->lePhone->text().isEmpty()) {
+        ui->lePhone->fieldTextChanged(ui->lePhone->text());
+    }
+    if (!ui->leFax->text().isEmpty()) {
+        ui->leFax->fieldTextChanged(ui->leFax->text());
+    }
+    if (!ui->lePostalCode->text().isEmpty()) {
+        ui->lePostalCode->fieldTextChanged(ui->lePostalCode->text());
+    }
 
     ui->btnSave->setEnabled(
         ui->leFirstNameReferent->isValid() && ui->leLastNameReferent->isValid()
@@ -78,8 +86,9 @@ void DialogAddCustomer::checkFields() {
         && ui->lePostalCode->isValid() && ui->leCountry->isValid()
         && ui->leEmail->isValid()
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
-            || (ui->lePhone->text() == "" && ui->leMobilePhone->isValid())
-            || (ui->lePhone->isValid() && ui->leMobilePhone->text() == "" ))
+            || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
+            || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
+        && (ui->leFax->text().isEmpty() || ui->leFax->isValid())
         );
 }
 
