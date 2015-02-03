@@ -29,6 +29,9 @@ public:
      */
     Billing(int id);
 
+    /**
+      * @brief destruct a billing object
+    */
     ~Billing();
 
     /**
@@ -55,8 +58,6 @@ public:
      * @return QMap<Project, QList<Contributory>>
      */
     QMap<Project *, QList<Contributory> > getContributories() const;
-
-    void setContributories(QMap<Project *, QList<Contributory> > contributories);
 
     /**
      * @brief addContributories Add a new contributory for project p
@@ -143,7 +144,7 @@ public:
 private:
     QMap<Project*,QList<Contributory> > _contributories;   //!< List of contributories
     QString _title;                                         //!< Title of billing
-    QString _description;
+    QString _description;                                   //!< Description of a billing
     int _number;                                            //!< Number of billing
     bool _isBilling;                                        //!< Is a billing… Or if a quote
     QDate _date;                                            //!< Date for billing

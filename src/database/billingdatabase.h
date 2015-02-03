@@ -68,8 +68,16 @@ public:
      */
     void addBillingProject(const int idProject, const int idBilling, const int idContributory);
 
-
+    /**
+     * @brief getMaxBillingNumber Get the last number of a billing
+     * @return  The max number
+     */
     int getMaxBillingNumber();
+
+    /**
+     * @brief getMaxQuoteNuber Get the last number of a quote
+     * @return  The last number
+     */
     int getMaxQuoteNuber();
 
 private:

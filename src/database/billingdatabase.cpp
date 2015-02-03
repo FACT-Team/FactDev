@@ -143,12 +143,12 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
 
 void BillingDatabase::updateBilling(const Billing& pBilling)
 {
-    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::updateBilling. Parameter: " << QString::number(pBilling.getId());
+    Log::instance(ERROR) << "TODO implement ContributoryDatabase::updateBilling. Parameter: " << QString::number(pBilling.getId());
 }
 
 void BillingDatabase::removeBilling(const int pId)
 {
-    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeBilling. Parameter: " << QString::number(pId);
+    Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeBilling. Parameter: " << QString::number(pId);
 }
 int BillingDatabase::getMaxBillingNumber()
 {

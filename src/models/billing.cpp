@@ -88,11 +88,6 @@ QMap<Project*, QList<Contributory>> Billing::getContributories() const
     return _contributories;
 }
 
-void Billing::setContributories(QMap<Project*, QList<Contributory>> contributories)
-{
-    _contributories = contributories;
-}
-
 void Billing::addContributory(Contributory& c)
 {
     if(_contributories.contains(c.getProject())) {

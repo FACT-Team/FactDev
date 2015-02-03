@@ -4,10 +4,6 @@ ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractT
 {
 }
 
-ContributoriesTableModel::~ContributoriesTableModel()
-{
-}
-
 int ContributoriesTableModel::rowCount(const QModelIndex &) const {
     return _contributories.count();
 }
