@@ -60,7 +60,7 @@ public:
      * @param pId customer id
      * @return the Customer
      */
-    Customer *getCustomer(const int pId);
+    QSharedPointer<Customer> getCustomer(const int pId);
 
     /**
      * @brief CustomerDatabase::addCustomer Add the customer <i>pCustomer</i> to

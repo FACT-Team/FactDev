@@ -17,7 +17,7 @@ class ContributoriesWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit ContributoriesWidget(Customer *c, QWidget *parent = 0);
+    explicit ContributoriesWidget(QSharedPointer<Customer> c, QWidget *parent = 0);
     ~ContributoriesWidget();
 
     /**

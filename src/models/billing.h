@@ -54,9 +54,9 @@ public:
      * for each <b>Project</b> of the <b>Billing</b>
      * @return QMap<Project, QList<Contributory>>
      */
-    QMap<Project *, QList<Contributory> *> getContributories() const;
+    QMap<Project *, QList<Contributory> > getContributories() const;
 
-    void setContributories(QMap<Project *, QList<Contributory> *> contributories);
+    void setContributories(QMap<Project *, QList<Contributory> > contributories);
 
     /**
      * @brief addContributories Add a new contributory for project p
@@ -141,7 +141,7 @@ public:
     bool operator !=(const Billing &b);
 
 private:
-    QMap<Project*,QList<Contributory>*> _contributories;   //!< List of contributories
+    QMap<Project*,QList<Contributory> > _contributories;   //!< List of contributories
     QString _title;                                         //!< Title of billing
     QString _description;
     int _number;                                            //!< Number of billing

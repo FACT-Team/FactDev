@@ -27,7 +27,7 @@ Project::Project(int id)
 
 Project::~Project()
 {
-    delete _customer;
+    _customer.reset();
 }
 
 void Project::commit() {
@@ -105,12 +105,12 @@ void Project::setDailyRate(double dailyRate)
 {
     _dailyRate = dailyRate;
 }
-Customer* Project::getCustomer() const
+QSharedPointer<Customer> Project::getCustomer() const
 {
     return _customer;
 }
 
-void Project::setCustomer(Customer* customer)
+void Project::setCustomer(QSharedPointer<Customer> customer)
 {
     _customer = customer;
 }

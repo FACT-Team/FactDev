@@ -1,7 +1,10 @@
 #ifndef BILLINGMODELTEST_H
 #define BILLINGMODELTEST_H
 #include "QTestRunner/testrunner.h"
-#include <models/billing.h>
+
+#include "models/billing.h"
+
+#include "database/billingdatabase.h"
 
 class BillingModelTest : public QObject
 {

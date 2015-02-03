@@ -134,9 +134,9 @@ throw(DbException*)
     return retour;
 }
 
-Customer* CustomerDatabase::getCustomer(const int pId) {
+QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
-    Customer* customer;
+    QSharedPointer<Customer> customer;
 
     q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -150,7 +150,7 @@ Customer* CustomerDatabase::getCustomer(const int pId) {
     }
 
     if(q.first()) {
-        customer = new Customer();
+        customer = QSharedPointer<Customer>(new Customer());
         customer->setId(value(q, "idCustomer").toInt());
         customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
         customer->setLastnameReferent(value(q,"lastnameReferent").toString());
@@ -163,8 +163,6 @@ Customer* CustomerDatabase::getCustomer(const int pId) {
         customer->setMobilePhone(value(q,"mobilePhone").toString());
         customer->setPhone(value(q,"phone").toString());
         customer->setFax(value(q,"fax").toString());
-    } else {
-        customer = NULL;
     }
 
     return customer;

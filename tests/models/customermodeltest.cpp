@@ -49,7 +49,7 @@ void CustomerModelTest::commitInsert()
 {
     c1.setId(0);
     c1.commit();
-    Customer* c2 = CustomerDatabase::instance()->getCustomer(c1.getId());
+    QSharedPointer<Customer> c2 = CustomerDatabase::instance()->getCustomer(c1.getId());
     QVERIFY(*c2 == c1);
 }
 
@@ -59,7 +59,7 @@ void CustomerModelTest::commitUpdate()
     c1.setAddress("NEW ADDRESS");
     c1.setId(id);
     c1.commit();
-    Customer* c2 = CustomerDatabase::instance()->getCustomer(id);
+    QSharedPointer<Customer> c2 = CustomerDatabase::instance()->getCustomer(id);
     QVERIFY(*c2 == c1);
 }
 

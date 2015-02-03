@@ -4,7 +4,7 @@
 #include "ui_contributorieswidget.h"
 
 
-ContributoriesWidget::ContributoriesWidget(Customer*c, QWidget *parent) :
+ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ContributoriesWidget)
 {

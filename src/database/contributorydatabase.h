@@ -34,7 +34,7 @@ public:
      */
     Contributory *getContributory(const int idContributory);
 
-    QMap<Project*,QList<Contributory>*> getContributoriesByBilling(const int idBilling);
+    QMap<Project *, QList<Contributory> > getContributoriesByBilling(const int idBilling);
 
     /**
      * @brief ContributoryDatabase::addContributory Add the Contributory <i>pContributory</i> to

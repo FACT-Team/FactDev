@@ -78,7 +78,7 @@ public:
      * @param c The customer
      * @return All projects of c with id in key
      */
-    QMap<int, Project> getProjectsOfCustomer(Customer *c);
+    QMap<int, Project> getProjectsOfCustomer(QSharedPointer<Customer> c);
 
     /**
       * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
