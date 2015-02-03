@@ -69,7 +69,7 @@ throw(DbException*)
              "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
              "FROM Billing b, BillingProject bp "
              "WHERE idProject = :idproject "
-             "AND b.idBilling = bp.idBilling");
+             "AND b.idBilling = bp.idBilling ORDER BY date DESC");
 
     q.bindValue(":idproject",idProject);
 
