@@ -20,6 +20,11 @@ Project::Project(int id)
     hydrat(id);
 }
 
+Project::~Project()
+{
+    delete _customer;
+}
+
 void Project::commit() {
     if(_id == 0) {
         _id = ProjectDatabase::instance()->addProject(*this);

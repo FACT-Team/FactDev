@@ -1,8 +1,4 @@
 #include "database/contributorydatabase.h"
-#include "database/projectdatabase.h"
-
-#include "log.h"
-#include "utils.h"
 
 ContributoryDatabase::ContributoryDatabase() throw(DbException*)  : Database() {
     _instances << this;
@@ -112,17 +108,14 @@ int ContributoryDatabase::addContributory(const Contributory& pContributory) {
     return q.lastInsertId().toInt();
 }
 
-void ContributoryDatabase::updateContributory(const Contributory& pContributory) {
-
-    QSqlQuery q;
-
-
+void ContributoryDatabase::updateContributory(const Contributory& pContributory)
+{
+    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pContributory.getId());
 }
 
 void ContributoryDatabase::removeContributory(const int pId)
 {
     QSqlQuery q;
-
-
+    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pId);
 }
 

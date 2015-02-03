@@ -3,6 +3,8 @@
 
 #include "models/billing.h"
 #include "database.h"
+#include "log.h"
+#include "utils.h"
 
 /**
  * @author Cédric Rohaut @Oxynos

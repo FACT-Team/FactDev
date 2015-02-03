@@ -1,6 +1,4 @@
 #include "database/customerdatabase.h"
-#include "log.h"
-#include "utils.h"
 
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
     _instances << this;

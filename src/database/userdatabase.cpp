@@ -1,6 +1,4 @@
 #include "database/userdatabase.h"
-#include "models/user.h"
-
 
 UserDatabase::UserDatabase() throw(DbException*)  : Database() {
     _instances << this;

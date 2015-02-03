@@ -1,17 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dialogs/userdatadialog.h"
-#include "database/customerdatabase.h"
-#include "database/projectdatabase.h"
-#include "database/billingdatabase.h"
-#include "dialogs/dialogaddcustomer.h"
-#include "widgets/customercontextualmenu.h"
-#include "models/search.h"
-#include "widgets/popup.h"
-#include "dialogs/addprojectdialog.h"
-#include "dialogs/addquotedialog.h"
+
 #include "log.h"
-#include "dialogs/messagebox/messagebox.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)

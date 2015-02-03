@@ -1,6 +1,4 @@
 #include "database/projectdatabase.h"
-#include "utils.h"
-#include "log.h"
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
 }

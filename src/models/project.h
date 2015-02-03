@@ -33,6 +33,8 @@ public:
      */
     Project(int id);
 
+    virtual ~Project();
+
     /**
      * @brief Project::commit Update project data in the database
      */

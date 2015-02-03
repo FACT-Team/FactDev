@@ -27,6 +27,8 @@ public:
      */
     Billing(int id);
 
+    ~Billing();
+
     /**
      * @brief Billing::commit. Insert a modification
      * in Billing table on the database.

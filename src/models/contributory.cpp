@@ -15,6 +15,11 @@ Contributory::Contributory(int id)
     _id = id;
 }
 
+Contributory::~Contributory()
+{
+    delete _project;
+}
+
 void Contributory::commit()
 {
     // TODO implement me !

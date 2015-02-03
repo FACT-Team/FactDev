@@ -10,6 +10,15 @@ Billing::Billing(int id)
     hydrat(id);
 }
 
+Billing::~Billing()
+{
+    auto end = _contributories.cend();
+    for (auto it = _contributories.cbegin(); it != end; ++it) {
+        delete it.value();
+        delete it.key();
+    }
+}
+
 void Billing::commit()
 {
     Database::instance()->openTransaction();

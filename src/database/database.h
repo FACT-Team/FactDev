@@ -1,13 +1,23 @@
 #ifndef Database_H
 #define Database_H
 
-#include <exception>
 #include <QtSql/QSql>
 #include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
+#include <QtSql/QSqlRecord>
+
 #include <QStandardItemModel>
 #include <QSettings>
+#include <QStandardItem>
+#include <QDate>
+#include <QCoreApplication>
+#include <QFile>
+
+#include <exception>
 
 #include "exceptions/dbexception.h"
+#include "log.h"
+#include "parameters.h"
 
 /**
  * @author Antoine de Roquemaurel

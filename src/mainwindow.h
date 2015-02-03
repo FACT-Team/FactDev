@@ -5,7 +5,22 @@
 #include <QMessageBox>
 #include <QModelIndex>
 #include <QTableView>
+
 #include "itemtype.h"
+
+#include "database/projectdatabase.h"
+#include "database/billingdatabase.h"
+
+#include "widgets/popup.h"
+#include "widgets/customercontextualmenu.h"
+
+#include "dialogs/messagebox/messagebox.h"
+#include "dialogs/userdatadialog.h"
+#include "dialogs/dialogaddcustomer.h"
+#include "dialogs/addprojectdialog.h"
+#include "dialogs/addquotedialog.h"
+
+#include "models/search.h"
 
 namespace Ui {
 class MainWindow;

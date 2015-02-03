@@ -2,8 +2,13 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
+
 #include "exceptions/dbexception.h"
+
 #include "models/customer.h"
+
+#include "log.h"
+#include "utils.h"
 
 /** 
  * @author Antoine de Roquemaurel

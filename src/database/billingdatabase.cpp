@@ -1,6 +1,4 @@
 #include "database/billingdatabase.h"
-#include "log.h"
-#include "utils.h"
 
 BillingDatabase::BillingDatabase() throw(DbException*)  : Database() {
     _instances << this;

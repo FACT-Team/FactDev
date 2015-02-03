@@ -1,8 +1,13 @@
 #ifndef PROJECTDATABASE_H
 #define PROJECTDATABASE_H
 #include "database/database.h"
+
 #include "exceptions/dbexception.h"
+
 #include "models/project.h"
+
+#include "utils.h"
+#include "log.h"
 
 /**
  * @author Florent Berbie

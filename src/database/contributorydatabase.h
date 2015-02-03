@@ -1,8 +1,13 @@
 #ifndef CONTRIBUTORYDATABASE_H
 #define CONTRIBUTORYDATABASE_H
 
-#include "models/contributory.h"
 #include "database.h"
+#include "database/projectdatabase.h"
+
+#include "models/contributory.h"
+
+#include "log.h"
+#include "utils.h"
 
 /**
  * @author Cédric Rohaut @Oxynos
