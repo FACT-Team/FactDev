@@ -87,7 +87,11 @@ public:
       */
     QStandardItemModel* getProjectsTable(const int pId) throw(DbException*);
 
-
+    /**
+     * @brief getProject Obtain a project without new query
+     * @param q The query to use
+     * @return The project linked to q
+     */
     Project *getProject(QSqlQuery &q);
 };
 

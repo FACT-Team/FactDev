@@ -16,8 +16,8 @@
 class Project : public IDatabaseModel
 {
 public:
-    static const double LEGAL_RATE;
-    static const int NB_DAILY_HOURS;
+    static const double LEGAL_RATE; //!< The Legal hourly Rate
+    static const int NB_DAILY_HOURS; //!< The number of daily hours in a day
 
     /**
      * @brief Project::Project Construct a Project
@@ -30,7 +30,6 @@ public:
      */
     Project(QString name);
 
-
     /**
      * @brief Project::Project Construct a Project which is specified by an
      * <i>id</i>
@@ -38,6 +37,9 @@ public:
      */
     Project(int id);
 
+    /**
+     * @brief ~Project Desctruct project object
+     */
     virtual ~Project();
 
     /**

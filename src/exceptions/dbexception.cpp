@@ -3,9 +3,9 @@
 DbException::DbException(const QString userError, const QString fctName,
     const QString logError, float errorCode)
 {
-    Log::instance(ERREUR) <<
+    Log::instance(ERROR) <<
         "["+QString::number(errorCode)+"] Erreur dans la fonction " + fctName;
-    Log::instance(ERREUR) << logError;
+    Log::instance(ERROR) << logError;
 
     _userError = "<span style=\"font-size:10pt\">"+userError+"</span>";
     _userError +=   "<br/><br/><span style=\"font-size:7.3pt\">"

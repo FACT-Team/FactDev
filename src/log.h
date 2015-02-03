@@ -10,7 +10,10 @@
 
 #include "parameters.h"
 
-typedef enum {INFO, ERREUR, WARNING } TypeLog;
+/**
+ * @brief Enum for log : INFO, ERREUR, WARNING
+*/
+typedef enum {INFO, ERROR, WARNING } TypeLog;
 
 /**
  * @brief The Log class for Simple management of log.
@@ -53,8 +56,8 @@ public:
         return logger;
     }
 private:
-    static Log* _instance;  //!<
-    static TypeLog _type;   //!<
+    static Log* _instance;  //!< Log instance
+    static TypeLog _type;   //!< Type of log, WARNING, ERROR, INFO
 
     QFile* _file;
 

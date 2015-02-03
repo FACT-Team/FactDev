@@ -56,6 +56,11 @@ public:
      */
     void removeContributory(const int pId);
 
+    /**
+     * @brief getContributory Obtain a contributory without new query
+     * @param q The query to use
+     * @return The contributory linked to q
+     */
     Contributory *getContributory(QSqlQuery &q);
 
 private:

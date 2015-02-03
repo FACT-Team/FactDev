@@ -55,16 +55,34 @@ public:
      */
     void setProject(Project *id);
 
+    /**
+     * @brief getNbHours Number of work hour of a contributory
+     * @return Then number of hours
+     */
     double getNbHours() const;
+
+    /**
+     * @brief setNbHours Change nbHours
+     * @param value The new value of nbHours
+     */
     void setNbHours(double value);
 
+    /**
+     * @brief getDescription Description of a contributory
+     * @return The description
+     */
     QString getDescription() const;
+
+    /**
+     * @brief setDescription Change the contributory description
+     * @param getDescription The new description
+     */
     void setDescription(const QString &getDescription);
 
 private:
-    Project* _project;    //!<
-    double _nbHours;
-    QString _description;
+    Project* _project;    //!< Contributory project
+    double _nbHours; //!< Nb of work hours of this contribution
+    QString _description; //!< Description
 };
 
 #endif // CONTRIBUTORY_H

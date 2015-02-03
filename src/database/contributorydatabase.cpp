@@ -111,11 +111,11 @@ int ContributoryDatabase::addContributory(const Contributory& pContributory) {
 
 void ContributoryDatabase::updateContributory(const Contributory& pContributory)
 {
-    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pContributory.getId());
+    Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pContributory.getId());
 }
 
 void ContributoryDatabase::removeContributory(const int pId)
 {
     QSqlQuery q;
-    Log::instance(ERREUR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pId);
+    Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pId);
 }

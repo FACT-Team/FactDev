@@ -8,6 +8,9 @@
 class IDatabaseModel
 {
 public:
+    /**
+     * @brief ~IDatabaseModel Remove an instance of IDatabaseModel
+     */
     virtual ~IDatabaseModel() {}
 
     /**
