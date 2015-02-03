@@ -33,7 +33,7 @@ QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orien
     switch (section) {
     case 0: return "Projet";
     case 1: return "Description";
-    case 2: return "Nombre d'heure";
+    case 2: return "Nombre d'heures";
     default: return QVariant();
     }
 }
