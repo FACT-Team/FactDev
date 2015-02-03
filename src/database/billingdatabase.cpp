@@ -66,7 +66,7 @@ throw(DbException*)
 
 
     q.prepare(
-             "SELECT b.idBilling,title,number,isBilling,date "
+             "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
              "FROM Billing b, BillingProject bp "
              "WHERE idProject = :idproject "
              "AND b.idBilling = bp.idBilling");

@@ -1,4 +1,4 @@
- INSERT INTO Billing (title,description,number,isBilling,date) VALUES ("fringilla,","tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi",9,1,"2015-04-24");
+INSERT INTO Billing (title,description,number,isBilling,date) VALUES ("fringilla,","tempus risus. Donec egestas. Duis ac arcu. Nunc mauris. Morbi",9,1,"2015-04-24");
 INSERT INTO Billing (title,description,number,isBilling,date) VALUES ("Vivamus","est, vitae sodales nisi magna sed dui. Fusce aliquam, enim",10,1,"2014-08-01");
 INSERT INTO Billing (title,description,number,isBilling,date) VALUES ("Sed","diam vel arcu. Curabitur ut odio vel est tempor bibendum.",4,1,"2015-03-05");
 INSERT INTO Billing (title,description,number,isBilling,date) VALUES ("a,","mauris a nunc. In at pede. Cras vulputate velit eu",9,1,"2014-06-08");
