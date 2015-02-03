@@ -20,8 +20,8 @@
 \contentsline {section}{\numberline {4.2}Ajout d'un projet}{13}{section.4.2}
 \contentsline {section}{\numberline {4.3}\IeC {\'E}dition d'un projet}{14}{section.4.3}
 \contentsline {chapter}{\numberline {5}Les devis}{15}{chapter.5}
-\contentsline {section}{\numberline {5.1}Les des devis}{15}{section.5.1}
+\contentsline {section}{\numberline {5.1}Liste des devis}{15}{section.5.1}
 \contentsline {section}{\numberline {5.2}Ajouter un devis}{15}{section.5.2}
-\contentsline {section}{\numberline {5.3}Les Prestations}{15}{section.5.3}
-\contentsline {chapter}{\numberline {A}Table des figures}{16}{appendix.A}
-\contentsline {chapter}{Index}{17}{appendix*.3}
+\contentsline {section}{\numberline {5.3}Les Prestations}{16}{section.5.3}
+\contentsline {chapter}{\numberline {A}Table des figures}{17}{appendix.A}
+\contentsline {chapter}{Index}{18}{appendix*.3}
