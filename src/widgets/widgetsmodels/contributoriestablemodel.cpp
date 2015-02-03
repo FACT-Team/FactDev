@@ -80,7 +80,7 @@ void ContributoriesTableModel::remove(const int a)
     endRemoveRows();
 }
 
-Qt::ItemFlags ContributoriesTableModel::flags(const QModelIndex &index) const
+Qt::ItemFlags ContributoriesTableModel::flags(const QModelIndex &) const
 {
     return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
 }
