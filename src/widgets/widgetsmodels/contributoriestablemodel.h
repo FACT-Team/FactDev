@@ -5,6 +5,7 @@
 
 #include "models/contributory.h"
 
+#include "log.h"
 class ContributoriesTableModel : public QAbstractTableModel
 {
 public:

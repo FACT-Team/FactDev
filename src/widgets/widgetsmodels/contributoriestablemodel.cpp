@@ -60,6 +60,8 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
         case 2:
             _contributories[index.row()].setNbHours(value.toDouble());
             break;
+        default:
+            Log::instance(WARNING) << "Error, in default case of ContributoriesTableModel::setData";
         }
     }
 
