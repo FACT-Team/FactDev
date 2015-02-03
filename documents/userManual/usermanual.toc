@@ -1,27 +1,20 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Interface g\IeC {\'e}n\IeC {\'e}rale}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Menus}{5}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Fichier}{5}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Client}{6}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}\IeC {\`A} propos}{6}{subsection.1.1.3}
-\contentsline {section}{\numberline {1.2}Barre d'outils}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}Panneau du client ou du r\IeC {\'e}f\IeC {\'e}rent}{6}{section.1.3}
-\contentsline {section}{\numberline {1.4}Panneau de l'utilisateur}{7}{section.1.4}
-\contentsline {section}{\numberline {1.5}Panneau hi\IeC {\'e}rarchique}{7}{section.1.5}
-\contentsline {section}{\numberline {1.6}Panneau de recherche}{8}{section.1.6}
-\contentsline {chapter}{\numberline {2}Les donn\IeC {\'e}es utilisateur}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Initialisation et modification des donn\IeC {\'e}es de l'utilisateur}{9}{section.2.1}
-\contentsline {chapter}{\numberline {3}Les clients}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Liste des clients}{10}{section.3.1}
-\contentsline {section}{\numberline {3.2}Ajout d'un client}{11}{section.3.2}
-\contentsline {section}{\numberline {3.3}\IeC {\'E}dition d'un client}{11}{section.3.3}
-\contentsline {chapter}{\numberline {4}Les projets}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Liste des projets}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Ajout d'un projet}{13}{section.4.2}
-\contentsline {section}{\numberline {4.3}\IeC {\'E}dition d'un projet}{14}{section.4.3}
-\contentsline {chapter}{\numberline {5}Les devis}{15}{chapter.5}
-\contentsline {section}{\numberline {5.1}Les des devis}{15}{section.5.1}
-\contentsline {section}{\numberline {5.2}Ajouter un devis}{15}{section.5.2}
-\contentsline {section}{\numberline {5.3}Les Prestations}{15}{section.5.3}
-\contentsline {chapter}{\numberline {A}Table des figures}{16}{appendix.A}
-\contentsline {chapter}{Index}{17}{appendix*.3}
+\contentsline {chapter}{\numberline {1}Interface g\IeC {\'e}n\IeC {\'e}rale}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}Menus}{4}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Fichier}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Client}{5}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}\IeC {\`A} propos}{5}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Barre d'outils}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Panneau du client ou du r\IeC {\'e}f\IeC {\'e}rent}{5}{section.1.3}
+\contentsline {section}{\numberline {1.4}Panneau de l'utilisateur}{6}{section.1.4}
+\contentsline {section}{\numberline {1.5}Panneau hi\IeC {\'e}rarchique}{6}{section.1.5}
+\contentsline {section}{\numberline {1.6}Panneau de recherche}{6}{section.1.6}
+\contentsline {chapter}{\numberline {2}Les clients}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Liste des clients}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Ajout d'un client}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}\IeC {\'E}dition d'un client}{9}{section.2.3}
+\contentsline {chapter}{\numberline {3}Les devis}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Liste des devis}{10}{section.3.1}
+\contentsline {section}{\numberline {3.2}Ajouter un devis}{10}{section.3.2}
+\contentsline {section}{\numberline {3.3}Les Prestations}{11}{section.3.3}
+\contentsline {chapter}{\numberline {A}Table des figures}{12}{appendix.A}
