@@ -28,7 +28,6 @@ CustomerContextualMenu::CustomerContextualMenu(QWidget* widget)  :QMenu(widget)
     addAction(_openAction);
     addAction(_editAction);
     addAction(_removeAction);
-    //connect(_openAction, SIGNAL(triggered()), widget, SLOT(openCustomer()));
     connect(_editAction, SIGNAL(triggered()), widget, SLOT(editCustomer()));
     connect(_removeAction, SIGNAL(triggered()), widget, SLOT(removeCustomer()));
 }

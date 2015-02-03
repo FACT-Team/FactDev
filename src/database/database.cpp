@@ -54,11 +54,8 @@ void Database::open() {
     bool creerStructure = false;
 
     _settings = new QSettings("FACT", "FactDev");
-//    qDebug() << _settings->value("dbPath").toString();
+    _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
 
-//    if(_settings->value("dbPath").toString() == "") {
-        _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
-//    }
     if(!QFile::exists(
        _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
     {
@@ -85,7 +82,6 @@ void Database::open() {
     }
 
     QSqlQuery query;
-   // query.exec("PRAGMA foreign_keys = ON;");
     query.exec("PRAGMA auto_vacuum=FULL");
     query.exec("PRAGMA synchronous=OFF");
     query.exec("PRAGMA journal_mode=MEMORY");

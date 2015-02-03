@@ -146,43 +146,11 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
 void BillingDatabase::updateBilling(const Billing& pBilling) {
 
     QSqlQuery q;
-    /*q.prepare(
-        "UPDATE Customer SET "
-        "firstnameReferent=:firstname, lastnameReferent=:lastname,"
-        "company=:company, address=:address, postalCode=:postalCode, city=:city,"
-        "country=:country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
-        "fax=:fax "
-        "WHERE idCustomer=:idCustomer");
-
-    q.bindValue(":idCustomer", pCustomer.getId());
-
-    if(!q.exec()) {
-        throw new DbException(
-            "Impossible d'éditer les informations du Customer",
-            "BddCustomer::updateCustomer",
-            lastError(q),
-            1.4);
-    }*/
 
 }
 
 void BillingDatabase::removeBilling(const int pId)
 {
     QSqlQuery q;
-    /*q.prepare(
-        "DELETE FROM Customer "
-        "WHERE idCustomer=:pId"
-        );
-
-    q.bindValue(":pId", pId);
-
-    if(!q.exec()) {
-        throw new DbException(
-            "Impossible d'éditer les informations du Customer",
-            "BddCustomer::removeCustomer",
-            lastError(q),
-            1.5);
-    }*/
-
 }
 

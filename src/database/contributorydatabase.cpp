@@ -113,43 +113,14 @@ int ContributoryDatabase::addContributory(const Contributory& pContributory) {
 void ContributoryDatabase::updateContributory(const Contributory& pContributory) {
 
     QSqlQuery q;
-    /*q.prepare(
-        "UPDATE Customer SET "
-        "firstnameReferent=:firstname, lastnameReferent=:lastname,"
-        "company=:company, address=:address, postalCode=:postalCode, city=:city,"
-        "country=:country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
-        "fax=:fax "
-        "WHERE idCustomer=:idCustomer");
 
-    q.bindValue(":idCustomer", pCustomer.getId());
-
-    if(!q.exec()) {
-        throw new DbException(
-            "Impossible d'éditer les informations du Customer",
-            "BddContributory::updateCustomer",
-            lastError(q),
-            1.4);
-    }*/
 
 }
 
 void ContributoryDatabase::removeContributory(const int pId)
 {
     QSqlQuery q;
-    /*q.prepare(
-        "DELETE FROM Customer "
-        "WHERE idCustomer=:pId"
-        );
 
-    q.bindValue(":pId", pId);
-
-    if(!q.exec()) {
-        throw new DbException(
-            "Impossible d'éditer les informations du Customer",
-            "BddCustomer::removeCustomer",
-            lastError(q),
-            1.5);
-    }*/
 
 }
 

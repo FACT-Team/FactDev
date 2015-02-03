@@ -43,7 +43,6 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
-            //_contributories[index.row()].setProject(value.toString());
             _contributories[index.row()].setProject(new Project(value.toInt()));
             break;
         case 1:
