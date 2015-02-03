@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {1.3}Panneau du client ou du r\IeC {\'e}f\IeC {\'e}rent}{6}{section.1.3}
 \contentsline {section}{\numberline {1.4}Panneau de l'utilisateur}{7}{section.1.4}
 \contentsline {section}{\numberline {1.5}Panneau hi\IeC {\'e}rarchique}{7}{section.1.5}
-\contentsline {section}{\numberline {1.6}Panneau de recherche}{8}{section.1.6}
+\contentsline {section}{\numberline {1.6}Panneau de recherche}{7}{section.1.6}
 \contentsline {chapter}{\numberline {2}Les donn\IeC {\'e}es utilisateur}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Initialisation et modification des donn\IeC {\'e}es de l'utilisateur}{9}{section.2.1}
 \contentsline {chapter}{\numberline {3}Les clients}{10}{chapter.3}
