@@ -23,6 +23,7 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     ui->wdgContributories = new ContributoriesWidget(new Customer(idCustomer), this);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
+    emit ui->leQuoteTitle->textChanged("");
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -55,5 +56,5 @@ void AddQuoteDialog::reject() {
 
 void AddQuoteDialog::updateBtn()
 {
-    ui->btnSave->setEnabled(((ContributoriesWidget*)ui->wdgContributories)->count() > 0);
+    ui->btnSave->setEnabled(((ContributoriesWidget*)ui->wdgContributories)->count() > 0 && ui->leQuoteTitle->isValid());
 }
