@@ -3,6 +3,10 @@
 
 #include <QString>
 
+/**
+ * @author Antoine de Roquemaurel
+ * @brief The Parameters class Class for simple user parameters
+ */
 class Parameters
 {
 public:

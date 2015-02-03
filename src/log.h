@@ -59,7 +59,7 @@ private:
     static Log* _instance;  //!< Log instance
     static TypeLog _type;   //!< Type of log, WARNING, ERROR, INFO
 
-    QFile* _file;
+    QFile* _file; //!< The file for writing
 
     /**
      * @brief Log::head. Head of log instruction

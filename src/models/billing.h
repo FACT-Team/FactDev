@@ -59,8 +59,6 @@ public:
      */
     QMap<Project *, QList<Contributory> > getContributories() const;
 
-    void setContributories(QMap<Project *, QList<Contributory> > contributories);
-
     /**
      * @brief addContributories Add a new contributory for project p
      * @param p The Project who contain Contributory

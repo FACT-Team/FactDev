@@ -21,6 +21,9 @@ public:
      */
     Contributory(int id);
 
+    /**
+      @brief Destroy an contributory object
+      */
     ~Contributory();
 
     /**
