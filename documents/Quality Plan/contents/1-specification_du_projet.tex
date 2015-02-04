@@ -1,43 +1,165 @@
 \chapter{Description du Projet}
 \section{Objet du projet}
-Le logiciel a pour but de faciliter la création de devis\index{Devis} de toutes natures et sa conversion en factures\index{Facture}. Pour cela il sera possible d’enregistrer des clients dans une base de données et d’offrir une gestion de ces derniers. Un client peut avoir un ou plusieurs projets avec, pour chacun, un à plusieurs devis ou factures. 
+Le logiciel a pour but de faciliter la création de devis et la conversion de ces devis en factures. 
 
-Les devis et factures pourront être généré au format LaTeX ou PDF. 
+Pour cela il sera possible d’enregistrer des
+clients dans une base de données et d’offrir une gestion de ces derniers. Un client peut avoir un ou plusieurs projets avec, pour chacun, un ou
+plusieurs devis ou factures.
 
 \section{Présentation des Parties Prenantes\index{Parties prenantes}}
+	\subsection{Client: Antoine de Roquemaurel}
+	\textit{Développeur Freelance, et membre de l'équipe de développement. }
 
-\begin{description}
-\item [Client :] Frédéric MIGEON \\
-		\href{mailto:Frederic.Migeon@irit.fr}{Frederic.Migeon@irit.fr} \\
-		05 61 55 (62 46) \\
-		IRIT2 / Niveau 3, Pièce: 361 \\
-		
-\item [Client:] Antoine de ROQUEMAUREL \\
-		06 54 33 52 93
-		https://antoinederoquemaurel.github.io 
-		\href{mailto:antoine.roquemaurel@gmail.com}{antoine.roquemaurel@gmail.com \\		
+		\Telefon~06 54 33 52 93\\
+		\Mundus~\url{https://antoinederoquemaurel.github.io}\\
+		\Letter~\href{mailto:antoine.roquemaurel@gmail.com}{antoine.roquemaurel@gmail.com} \\		
+	\subsection{Encadrant: Fédéric Migeon}
+	\textit{Maître de conférence à l'Université Toulouse III -- Paul Sabatier}
 
-\item [Encadrant :] Frédéric MIGEON \\
-		\href{mailto:Frederic.Migeon@irit.fr}{Frederic.Migeon@irit.fr} \\
-		05 61 55 (62 46) \\
-		IRIT2 / Niveau 3, Pièce: 361 \\
+		\Telefon~05 61 55 (62 46) \\
+		\Letter~\href{mailto:Frederic.Migeon@irit.fr}{Frederic.Migeon@irit.fr} \\
+		IRIT1 / Niveau 3, Pièce: 361 \\
 
-\item [Titulaire :] Équipe FACT \\
-	Florent Berbie \\
-	06 85 31 92 90 \href{mailto:florent.berbie@gmail.com}{florent.berbie@gmail.com} \\
-	
-	Antoine de Roquemaurel \\
-	06 54 33 52 93 \href{mailto:antoine.roquemaurel@gmail.com}{antoine.roquemaurel@gmail.com} \\
-	
-	Cédric Rohaut \\
-	06 74 80 12 67
-	\href{mailto:rohaut@icloud.com}{rohaut@icloud.com} \\
-	
-	Manantsoa Andriamihary Razanajatovo \\
-	06 01 71 53 02
-	\href{mailto:manantsoa.razana@gmail.com}{manantsoa.razana@gmail.com} \\
-	
-\item [Utilisateurs :] Le logiciel FactDev est destiné à ses utilisateurs. \\
-	 
+		\subsection{Responsable de l'UE Projet : Bernard Cherbonneau}
+		\Telefon~05 61 55 (63 52)\\
+		\Letter~\href{mailto:Bernard.Cherbonneau@irit.fr}{Bernard.Cherbonneau@irit.fr}\\
+		IRIT1 / Niveau 4, Pièce: 413
 
+	\subsection{Titulaire : Équipe FACT}
+	\textit{Étudiant en M1 Informatique Développement Logiciel à l'université Toulouse III -- Paul Sabatier}
+	\begin{description}
+		\item[Florent Berbie]~ \\
+	\Telefon~06 85 31 92 90 \\
+	\Letter~\href{mailto:florent.berbie@gmail.com}{florent.berbie@gmail.com} \\
+	
+\item[Antoine de Roquemaurel] ~\\
+	\Telefon~06 54 33 52 93\\
+	\Letter~\href{mailto:antoine.roquemaurel@gmail.com}{antoine.roquemaurel@gmail.com} \\
+	
+\item[Cédric Rohaut]~\\ 
+	\Telefon~06 74 80 12 67\\
+	\Letter~\href{mailto:rohaut@icloud.com}{rohaut@icloud.com} \\
+	
+\item[Manantsoa Andriamihary Razanajatovo] ~\\
+	\Telefon~06 01 71 53 02\\
+	\Letter~\href{mailto:manantsoa.razana@gmail.com}{manantsoa.razana@gmail.com}
 \end{description}
+
+\section{Production}
+\subsection{Méthode de développement}
+\subsubsection{Définition et pertinence de la méthode \scrum}
+Le développement du projet se fera selon la méthode Agile \scrum{}, comme cela a été convenu avec notre encadrant.
+
+Cette méthode, basée sur les stratégies itératives et incrémentale, permet de produire à la fin de chaque \sprint{} (incrément/itération) une
+version stable et testable du logiciel. Les différents événements associés à \scrum{} accroissent la communication grâce à des réunions quotidiennes
+aussi appelées « \textit{mélées} ». Ceci permet une meilleure cohésion, une meilleure coopération et une meilleure homogénéité du travail fourni par les
+membres de l'équipe. A cela s'ajoute la présence d'artefacts, c'est-à-dire des éléments à réaliser avec des ordres de priorité et qui contribuent à
+améliorer la productivité.
+                    
+Dans le cadre de ce projet, la méthode \scrum{} s’avère être pertinente pour plusieurs raisons : 
+Premièrement, dans la mesure où nous avons proposé un sujet et spécifié les fonctionnalités de celui-ci, la méthode \scrum{} se veut adaptée. En effet,
+les fonctionnalités que nous avons proposé permettent de définir les limites de notre première version \release{} livrable. 
+
+L'ajout de fonctionnalités en fonction des attentes du client pourront être implémentées au fur et à mesure des différents sprints.  Cela a pour
+avantage de fournir un travail continu, d’assurer un suivi avec le client pour répondre au mieux à ses besoins. De plus, la durée du projet étant
+relativement courte, il serait difficile de revenir sur notre conception préalable alors qu'ici chaque sprint permet de s’assurer que le projet
+avance dans la bonne direction.
+
+%%% TODO Scheme
+
+Outre les avantages qu'apporte la méthode \scrum{} à ce projet, l'équipe avait la volonté d’évoluer vers une méthode qui diffère de celles qui ont pu
+être abordées en cours. Cette volonté est d’ailleurs confortée par le désir de découvrir  de nouvelles technologies (C++ et Qt jusque-là peu connus
+par la majorité du groupe). 
+
+
+\subsubsection{Application de la méthode \scrum{} et critères de qualité}
+Dans le cadre de notre projet, la durée d'un \sprint{} a été défini à deux semaines. Un \sprint{} est constitué de \user{} \stories{} et de 
+\technicals{} \stories{} qui sont préalablement définies lors de réunions quotidiennes aussi appelées \textit{mêlées}. Ces \textit{mêlées} sont quotidiennes, nous
+profitons de notre temps libre dans l’emploi du temps pour les organiser. Pour les jours où ce n’est pas possible, nous avons mis en place un salon
+de discussion IRC.  
+
+La définition des \technical{} \story{} indique brièvement la fonction que l'on doit réaliser. Les \user{} \story{} sont quant à elles toujours posées
+sous cette forme :
+
+\begin{exemple}
+	\textbf{En tant que} \texttt{[Personne(s) utilisant le logiciel]}\\
+	\textbf{Je souhaite} \texttt{[La fonctionnalité que je désire avoir]}\\
+	\textbf{Afin de} \texttt{[Objectif de la fonctionnalité]}
+\end{exemple}
+
+Chaque \story{} possède un poids, c'est-à-dire une valeur indiquant sa complexité et/ou le temps nécessaire afin de la mettre en œuvre. Le poids de
+chacune des \story{} est déterminé durant les « mêlées » au moyen d’un « Planning poker ». Ceci permet à chacun d’exprimer la complexité d’une
+\story{} à réaliser. Chacun justifie le choix du poids qu'il a affecté et après un éventuel débat, on affecte cette valeur à la \story{}. Celle-ci ne
+peut être affectée qu'une fois que l'ensemble des membres de l'équipe se sont mis d’accord. Elle possède également une priorité précisant
+l'importance d’intégrer cette \story{} ans le sprint. Cette priorité se fait au moyen de quatre niveaux d’importance : 
+
+\begin{itemize}
+	\item \textit{Must} : La \story{} doit obligatoirement être réalisée lors du sprint
+	\item \textit{Should} : La \story{} devra être réalisée (dans la mesure du possible)
+	\item \textit{Could} : La \story{} pourra être réalisée car elle n’a aucun impact sur les autres tâches
+	\item \textit{Would} : La \story{} ne sera pas nécessairement faite et sera alors reportée au prochain \sprint{}
+\end{itemize}
+
+Une  \story{} est considérée comme finie lorsqu'elle est fonctionnelle d’un point de vue utilisateur c'est-à-dire :
+\begin{itemize}
+	\item Les tests unitaires (pour la base de données ou pour les modèles) sont validés
+	\item Les tests d’intégrations sont validés
+	\item Lorsque chaque méthode est documentée
+\end{itemize}
+
+À la fin du \sprint{}, on présente à notre client, Monsieur Frédéric MIGEON, afin qu'il le valide. Un \sprint{} fournit toujours :
+\begin{itemize}
+	\item une démonstration des nouvelles fonctionnalités logicielles
+	\item des tests unitaires
+	\item une documentation du code (au format HTML et PDF)
+	\item un manuel d’utilisateur à jour des nouvelles fonctionnalités
+\end{itemize}
+
+Notre projet sera réalisé en deux \releases{}, c'est-à-dire qu'il y aura deux versions livrables. Chacune de ces versions est composée de trois 
+\sprints{}  ayant chacun un poids moyen de 50 pour environ 10 \stories{}.
+
+Les versions livrables du logiciel sont définies dans un carnet de sprint (\textit{Sprint Backlog}) qui référence l'ensemble des \stories{} des
+différents \sprints{}. Ce carnet est susceptible d’évoluer en fonction des besoins du client, de nouveaux choix de conception ou encore d’éléments
+n’ayant pas été prévu. 
+
+\subsection{Organisation et rôles dans l'équipe de développement}
+La méthode \scrum{} possède des rôles qui lui sont propres: le \textit{Scrum Master}, le \textit{Product Owner} et l'équipe de développement. 
+
+\subsubsection{Scrum Master : Florent Berbie}
+Le Scrum Master aura pour mission principale de guider les développeurs dans l'application de la méthode Scrum. Il veillera à ce que la méthode soit
+comprise de tous et appliquée de façon correcte. Il aura le rôle de meneur lors de phases importantes d’application de la méthode telles que le
+planning poker ou encore les mêlées quotidiennes.
+\subsubsection{Product owner : Antoine de Roquemaurel}
+Le Product owner est la seule personne responsable du carnet de produit et de sa gestion. Ce dernier comprend l’expression de tous les items associés
+à une priorité (l’importance pour le client). La compréhension de ceux-ci ainsi que la vérification du travail fourni est sous la responsabilité du
+Product owner.
+\subsubsection{Équipe de développement : Florent Berbie, Antoine de Roquemaurel, Cédric Rohaut, Andriamihary Razanajatovo}
+Afin d’assurer une plus grande cohésion entre les membres de l’équipe, un même niveau d’implication et un travail de plus grande qualité nous avons
+définis des rôles spécifiques : 
+\subsubsection{Directeur qualité : Cédric Rohaut}
+Le responsable qualité sera garant de la transposition des exigences du client sous forme de solutions techniques au sein du logiciel final. En
+d’autres termes, il veillera à ce que le logiciel apporte une solution technique optimale pour le client. De plus il devra vérifier et valider la
+qualité du logiciel au travers de tests, du respect des conventions et de l’aspect général du logiciel.
+
+\subsubsection{Directeur documentation : Andriamihary Razanajatovo}
+Le responsable documentation sera chargé de la révision de l’ensemble des documents avant leur remise ou leur soumission aux parties prenantes
+concernées. Il veillera à la qualité des aspects fondamentaux, à savoir le fond et la forme, des documentations à fournir.
+
+\subsubsection{Directeur technique Qt, C++ : Antoine de Roquemaurel}
+Le responsable technique Qt, C++ sert de support à l’équipe en cas de problèmes techniques liés au développement sur la plate-forme Qt. De par ses
+connaissances acquises dans ce domaine, il sera le plus à même à aider les membres de l’équipe projet ayant des difficultés avec cette technologie.
+De plus, dans le but de minimiser les couplages lors de la conception, il veillera à ce que le patron MVC soit correctement utilisé. Ainsi, le code
+sera clairement découpé en trois parties : modèle, vue et contrôleur ce qui permettra de s’assurer des contrôles d'interactions entre nos composants
+logiciels.
+
+\subsubsection{Autres rôles et responsabilités de chaque développeur et organisation/fonctionnement général}
+Dans un souci d’assurance qualité, chaque responsable est en mesure de présenter les difficultés qu’il a eu à gérer, de présenter les différents
+solutions possibles à ce problème et de justifier le choix de la technique adoptée.
+
+Lors de la réalisation d’un cas d’utilisation (« issue » sur GitHub), celui-ci est assigné à un développeur. Une fois que ce dernier considère sa
+tâche comme finie, il indique (via une « Pull Request ») aux autres membres de l’équipe que la tâche est soumise à la validation et à l’intégration.
+Un des autres membres vérifie que la fonction est conforme à sa description, que le code est facilement compréhensible et correctement commenté. Dans
+le cas ou la revue de code ne donne pleine satisfaction, le membre effectuant cette revue et les autres membres de l’équipe pourront ajouter des
+commentaires pour débattre de la fonctionnalité, de l’implémentation de la fonction ou des technologies employées pour y résoudre. Chacun pourra
+alors soumettre sa vision du problème et la manière avec laquelle il aurait résolu le problème. 
+

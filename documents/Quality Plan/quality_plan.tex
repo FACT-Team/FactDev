@@ -23,27 +23,36 @@
 \usepackage{makeidx}
 
 \newcommand{\titre}{Plan d'Assurance Qualité Logicielle}
-\newcommand{\subtitle}{Équipe FACT : Florent Berbie, Antoine de Roquemaurel, Cédric Rohaut, Andriamihary Manantsoa Razanajatovo
-M1 Informatique (Semestre 8) | UE Projet
-Université Toulouse III Paul Sabatier}
-\newcommand{\auteur}{Équipe FACT : Florent Berbie, Antoine de Roquemaurel, Cédric Rohaut, Andriamihary Manantsoa Razanajatovo}
+\newcommand{\subtitle}{FactDev} 
+\newcommand{\auteur}{}
 \newcommand{\semestre}{8}
 \newcommand{\annee}{2015}
 
 
 \newcommand{\pole}{}
 \newcommand{\sigle}{FACT}
+\newcommand{\FactDev}{\textit{FactDev}}
+\newcommand{\story}{\textit{Story}}
+\newcommand{\stories}{\textit{Stories}}
+\newcommand{\user}{\textit{User}}
+\newcommand{\technical}{\textit{Technical}}
+\newcommand{\sprint}{\textit{Sprint}}
+\newcommand{\sprints}{\textit{Sprint}}
+\newcommand{\scrum}{\textit{Scrum}}
+\newcommand{\technicals}{\textit{Technicals}}
+\newcommand{\release}{\textit{Release}}
+\newcommand{\releases}{\textit{Releases}}
 \makeindex
 \usepackage[totoc]{idxlayout}
 
 
 \input{../LaTexTemplate/templates/listings.tex}
-\input{../LaTexTemplate/templates/classroomsTemplates/l2/cours.tex}
+\input{../LaTexTemplate/templates/classroomsTemplates/l3/cours.tex}
 \input{../LaTexTemplate/templates/remarquesExempleAttention.tex}
 \input{../LaTexTemplate/templates/polices.tex}
 \input{../LaTexTemplate/templates/affichageChapitre.tex}
 
-\input{couverture.tex}
+\input{../LaTexTemplate/templates/cover/couverture.tex}
 \makeatother
 \includeonly {
 contents/0-preambule,
@@ -52,20 +61,17 @@ contents/2-production,
 }
 \begin{document}
 	\thispagestyle{empty} % Removes page numbers
-%	\titleBC 
+	\titleBC 
 	\dominitoc
 	\setcounter{tocdepth}{1}
 	\setcounter{secnumdepth}{3}
 	\setcounter{minitocdepth}{1}
-%	\maketitle
-	
-	
 	
 	\tableofcontents
 	
 	\include{contents/0-preambule}
 	\include{contents/1-specification_du_projet}
-	\include{contents/2-production}
+%	\include{contents/2-production}
 	\appendix
 	\listoffigures
 	\printindex
