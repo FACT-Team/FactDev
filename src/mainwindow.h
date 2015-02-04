@@ -151,6 +151,11 @@ public slots:
      */
     void aboutIcons();
 
+    /**
+     * @brief updateBtn Update all button to disable or enabled its
+     */
+    void updateBtn(void);
+
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu

@@ -33,6 +33,9 @@
           </property>
           <item row="1" column="3">
            <widget class="QPushButton" name="btnDelCustomer">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Supprimer</string>
             </property>
@@ -68,6 +71,9 @@
           </item>
           <item row="1" column="4">
            <widget class="QPushButton" name="btnEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Modifier </string>
             </property>
@@ -206,7 +212,7 @@
              <number>10</number>
             </property>
             <item row="0" column="0">
-             <widget class="QPushButton" name="btnBackCustomersQ">
+             <widget class="QPushButton" name="btnBackCustomersProject">
               <property name="text">
                <string>Retour aux clients</string>
               </property>
@@ -589,6 +595,9 @@ border: 1px solid #bbb;</string>
    </property>
   </action>
   <action name="actionNewBill">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/add_bill.png</normaloff>:/icons/img/add_bill.png</iconset>
@@ -598,6 +607,9 @@ border: 1px solid #bbb;</string>
    </property>
   </action>
   <action name="actionNewQuote">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
@@ -695,8 +707,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>671</x>
-     <y>519</y>
+     <x>823</x>
+     <y>549</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -807,8 +819,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>357</x>
-     <y>519</y>
+     <x>595</x>
+     <y>549</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -999,28 +1011,12 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>380</x>
-     <y>112</y>
+     <x>678</x>
+     <y>236</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
      <y>651</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnBackCustomersQ</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>backToCustomersTable()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>330</x>
-     <y>111</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>369</x>
-     <y>657</y>
     </hint>
    </hints>
   </connection>
@@ -1031,8 +1027,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
-     <y>111</y>
+     <x>359</x>
+     <y>95</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1047,8 +1043,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>492</x>
-     <y>123</y>
+     <x>916</x>
+     <y>549</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1063,8 +1059,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>492</x>
-     <y>123</y>
+     <x>916</x>
+     <y>549</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1079,8 +1075,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>492</x>
-     <y>123</y>
+     <x>916</x>
+     <y>549</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>
@@ -1120,6 +1116,38 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateBtn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>471</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-131</x>
+     <y>151</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackCustomersProject</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToCustomersTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>369</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1145,5 +1173,6 @@ border: 1px solid #bbb;</string>
   <slot>removeProject()</slot>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
+  <slot>updateBtn()</slot>
  </slots>
 </ui>

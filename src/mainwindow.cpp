@@ -34,7 +34,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::demo() {
-
+    ui->actionNewBill->setVisible(false);
 }
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
@@ -87,6 +87,7 @@ void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
     ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
     changeTree();
+    updateBtn();
 }
 
 void MainWindow::updateUser()
@@ -111,8 +112,17 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
             QModelIndex ls = tbl->selectionModel()->selectedRows().first();
             int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
             itemType.getModel(pid)->remove();
-            updateTableCustomers();
-            updateTableProjects();
+            switch(itemType.getType()) {
+            case ItemType::CUSTOMER:
+                updateTableCustomers();
+                break;
+            case ItemType::PROJECT:
+                updateTableProjects();
+                break;
+            case ItemType::BILLING:
+                break;
+            }
+
             updateTree();
         }
     }
@@ -187,6 +197,7 @@ void MainWindow::search(QString text)
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
+    updateBtn();
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point) {
@@ -350,6 +361,7 @@ void MainWindow::changeTree()
 void MainWindow::changeCustomerTable()
 {
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
+    updateBtn();
 }
 
 void MainWindow::changeProjectsTable()
@@ -362,11 +374,14 @@ void MainWindow::changeProjectsTable()
     ui->tblProjects->setColumnWidth(3, 122);
     ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
+    updateBtn();
 }
 
 void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    ui->actionNewQuote->setEnabled(false);
+    ui->actionNewBill->setEnabled(false);
 }
 
 void MainWindow::backToProjectsTable()
@@ -378,4 +393,12 @@ void MainWindow::quotesProject()
 {
     ui->stackedWidget->setCurrentIndex(2);
     updateTableBillings(getCurrentProjectId());
+    updateBtn();
+}
+
+void MainWindow::updateBtn()
+{
+    ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() != -1);
+    ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
+    ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
 }

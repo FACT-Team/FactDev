@@ -19,7 +19,8 @@ Contributory::Contributory(int id)
 
 Contributory::~Contributory()
 {
-    delete _project;
+    // TODO… seg fault :-/
+//    delete _project;
 }
 
 void Contributory::commit()
