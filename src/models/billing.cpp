@@ -2,6 +2,8 @@
 
 #include "database/billingdatabase.h"
 
+using namespace Database;
+
 namespace Models {
 Billing::Billing()
 {
@@ -27,7 +29,7 @@ Billing::~Billing()
 
 void Billing::commit()
 {
-    Database::instance()->openTransaction();
+    Database::Database::instance()->openTransaction();
     bool insert = _id == 0;
     if(insert) {
         _id = BillingDatabase::instance()->addBilling(*this);
@@ -52,7 +54,7 @@ void Billing::commit()
             }
         }
     }
-    Database::instance()->closeTransaction();
+    Database::Database::instance()->closeTransaction();
 }
 
 void Billing::hydrat(int id)

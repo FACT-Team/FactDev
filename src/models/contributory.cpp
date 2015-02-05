@@ -1,6 +1,7 @@
 #include "contributory.h"
 
 #include "database/contributorydatabase.h"
+using namespace Database;
 
 namespace Models {
 Contributory::Contributory()

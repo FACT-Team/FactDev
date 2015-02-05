@@ -8,11 +8,11 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
 {
     ui->setupUi(this);
     if (id != 0) {
-        _custom = new Customer(id);
+        _custom = QSharedPointer<Models::Customer>(new Customer(id));
         fillFields();
         setWindowTitle("Modifier le client "+_custom->getCompany());
     } else {
-        _custom = new Customer();
+        _custom = QSharedPointer<Models::Customer>(new Customer());
     }
     _custom->setId(id);
     emit checkFields();
@@ -56,7 +56,7 @@ void DialogAddCustomer::reject() {
 
 DialogAddCustomer::~DialogAddCustomer()
 {
-    delete _custom;
+    _custom.reset();
     delete ui;
 }
 

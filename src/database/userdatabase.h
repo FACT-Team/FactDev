@@ -5,7 +5,7 @@
 #include "exceptions/dbexception.h"
 #include "models/user.h"
 
-using namespace Models;
+namespace Database {
 
 /**
  * @author Florent Berbie
@@ -41,13 +41,13 @@ public:
      * @param pId user id (1 default)     * 
      * @return the user
      */
-    User *getUser(const int pId=1);
+    Models::User *getUser(const int pId=1);
 
     /**
      * @brief updateUser Update informations about the user
      */
-    void updateUser(const User&);
+    void updateUser(const Models::User&);
 
 };
-
+}
 #endif // USERDATABASE_H

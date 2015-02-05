@@ -1,5 +1,6 @@
 #include "database/contributorydatabase.h"
 
+namespace Database {
 ContributoryDatabase::ContributoryDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }
@@ -15,8 +16,8 @@ ContributoryDatabase* ContributoryDatabase::instance()throw(DbException*)
 
     return _instance;
 }
-Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
-    Contributory* contributory = new Contributory();
+Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
+    Models::Contributory* contributory = new Models::Contributory();
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbDays").toDouble());
     contributory->setDescription(value(q, "description").toString());
@@ -26,9 +27,9 @@ Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
 }
 
 
-Contributory* ContributoryDatabase::getContributory(const int idContributory) {
+Models::Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     QSqlQuery q;
-    Contributory* contributory;
+    Models::Contributory* contributory;
 
     q.prepare("SELECT * FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
@@ -50,11 +51,11 @@ Contributory* ContributoryDatabase::getContributory(const int idContributory) {
     return contributory;
 }
 
-QMap<Project *, QList<Contributory>> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
 {
     QSqlQuery q;
-    QMap<Project *, QList<Contributory>> contributories;
-    QMap<int, Project*> projects; // link between id and Project*
+    QMap<Models::Project *, QList<Models::Contributory>> contributories;
+    QMap<int, Models::Project*> projects; // link between id and Project*
     q.prepare(
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as description, "
@@ -76,9 +77,9 @@ QMap<Project *, QList<Contributory>> ContributoryDatabase::getContributoriesByBi
 
     while(q.next()) {
         if(!projects.contains(value(q, "idProject").toInt())) { // It's a new project !
-            Project* p = ProjectDatabase::instance()->getProject(q);
+            Models::Project* p = ProjectDatabase::instance()->getProject(q);
             projects.insert(value(q, "idProject").toInt(), p);
-            contributories.insert(p, QList<Contributory>());
+            contributories.insert(p, QList<Models::Contributory>());
         }
         contributories[projects.last()].append(*getContributory(q));
     }
@@ -86,7 +87,7 @@ QMap<Project *, QList<Contributory>> ContributoryDatabase::getContributoriesByBi
 }
 
 
-int ContributoryDatabase::addContributory(const Contributory& pContributory) {
+int ContributoryDatabase::addContributory(const Models::Contributory& pContributory) {
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO Contributory "
@@ -109,7 +110,7 @@ int ContributoryDatabase::addContributory(const Contributory& pContributory) {
     return q.lastInsertId().toInt();
 }
 
-void ContributoryDatabase::updateContributory(const Contributory& pContributory)
+void ContributoryDatabase::updateContributory(const Models::Contributory& pContributory)
 {
     Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pContributory.getId());
 }
@@ -118,4 +119,5 @@ void ContributoryDatabase::removeContributory(const int pId)
 {
     QSqlQuery q;
     Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pId);
+}
 }

@@ -38,7 +38,7 @@ public:
      * @param id Item type identity
      * @return database model
      */
-    IDatabaseModel* getModel(int id);
+    Models::IDatabaseModel* getModel(int id);
 
     /**
      * @brief ItemType::setName Modify the item name

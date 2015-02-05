@@ -24,7 +24,7 @@ int searchWidget::getCurrentCustomerId()
 
 void searchWidget::search(QString text)
 {
-    Search s;
+    Models::Search s;
     s.setGroupFilter(false);
     s.setSearchInCompanies(true);
     s.setSearchInReferentLastname(true);
@@ -52,7 +52,7 @@ void searchWidget::search(QString text)
 
 void searchWidget::getCustomerData() {
     _isCustomerSelected = true;
-    Customer customer = Customer(getCurrentCustomerId());
+    Models::Customer customer = Models::Customer(getCurrentCustomerId());
 
     ui->leCustomer->setText( customer.getFirstnameReferent() + " "
                             + customer.getLastnameReferent());
@@ -62,7 +62,7 @@ void searchWidget::getCustomerData() {
 void searchWidget::updateTable(QString filter) {
 
     ui->tblSearch->setModel(
-                CustomerDatabase::instance()->getCustomersTable(filter));
+                Database::CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblSearch->hideColumn(0);
     ui->tblSearch->hideColumn(4);
     ui->tblSearch->hideColumn(5);

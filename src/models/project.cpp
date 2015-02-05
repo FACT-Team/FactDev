@@ -1,6 +1,7 @@
 #include "project.h"
 
 #include "database/projectdatabase.h"
+using namespace Database;
 
 namespace Models {
 const double Project::LEGAL_RATE = 9.61;

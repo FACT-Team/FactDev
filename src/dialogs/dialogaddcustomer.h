@@ -49,7 +49,7 @@ public slots:
     void checkFields();
 
 private:
-    Customer* _custom;
+    QSharedPointer<Models::Customer> _custom;
     Ui::DialogAddCustomer *ui;
 };
 

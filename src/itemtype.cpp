@@ -14,8 +14,8 @@ void ItemType::setName(const QString &name)
     _name = name;
 }
 
-IDatabaseModel* ItemType::getModel(int id) {
-    IDatabaseModel* ret;
+Models::IDatabaseModel* ItemType::getModel(int id) {
+    Models::IDatabaseModel* ret;
 
     switch(_type) {
     case ItemType::BILLING:
@@ -23,10 +23,10 @@ IDatabaseModel* ItemType::getModel(int id) {
         ret = new Models::Billing(id);
         break;
     case ItemType::CUSTOMER:
-        ret = new Customer(id);
+        ret = new Models::Customer(id);
         break;
     case ItemType::PROJECT:
-        ret = new Project(id);
+        ret = new Models::Project(id);
         break;
     default:
         Log::instance(WARNING) << "MainWindow::removeItem bad item type";

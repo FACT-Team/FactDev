@@ -20,6 +20,10 @@
 #include "parameters.h"
 
 /**
+ * @brief Class for Database, contains queries
+ */
+namespace Database {
+/**
  * @author Antoine de Roquemaurel
  * @brief The <b>Database</b> class Master class for all database access
  */
@@ -118,5 +122,5 @@ protected:
 
 
 };
-
+}
 #endif // Database_H

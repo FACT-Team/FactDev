@@ -3,7 +3,7 @@
 
 ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : QItemDelegate(parent)
 {
-    _projects = ProjectDatabase::instance()->getProjectsOfCustomer(c);
+    _projects = Database::ProjectDatabase::instance()->getProjectsOfCustomer(c);
 }
 
 ProjectComboDelegate::~ProjectComboDelegate()

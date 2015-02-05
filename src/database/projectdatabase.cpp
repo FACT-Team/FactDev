@@ -1,4 +1,6 @@
 #include "database/projectdatabase.h"
+namespace Database {
+
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
 }
@@ -15,21 +17,21 @@ ProjectDatabase *ProjectDatabase::instance() throw(DbException*)
     return _instance;
 }
 
-Project* ProjectDatabase::getProject(QSqlQuery& q) {
-    Project* project = new Project();
+Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
+    Models::Project* project = new Models::Project();
     project->setId(value(q, "idProject").toInt());
     project->setName(value(q,"name").toString());
     project->setDescription(value(q,"description").toString());
     project->setDailyRate(value(q,"dailyRate").toDouble());
-    project->setCustomer(QSharedPointer<Customer>(new Customer(value(q,"idCustomer").toInt())));
+    project->setCustomer(QSharedPointer<Models::Customer>(new Models::Customer(value(q,"idCustomer").toInt())));
 
     return project;
 }
 
-Project *ProjectDatabase::getProject(const int pId)
+Models::Project *ProjectDatabase::getProject(const int pId)
 {
     QSqlQuery q;
-    Project* project;
+    Models::Project* project;
 
     q.prepare("SELECT * FROM Project WHERE idProject = :pId");
     q.bindValue(":pId", pId);
@@ -52,7 +54,7 @@ Project *ProjectDatabase::getProject(const int pId)
     return project;
 }
 
-int ProjectDatabase::addProject(const Project &pProject)
+int ProjectDatabase::addProject(const Models::Project &pProject)
 {
     QSqlQuery q;
 
@@ -81,7 +83,7 @@ int ProjectDatabase::addProject(const Project &pProject)
     return q.lastInsertId().toInt();
 }
 
-void ProjectDatabase::updateProject(const Project &pProject)
+void ProjectDatabase::updateProject(const Models::Project &pProject)
 {
     QSqlQuery q;
 
@@ -162,10 +164,10 @@ int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     return value(q, "nb_p").toInt();
 }
 
-QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Customer> c) {
+QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Models::Customer> c) {
     QSqlQuery q;
-    QMap<int, Project> ret;
-    Project project;
+    QMap<int, Models::Project> ret;
+    Models::Project project;
     q.prepare("SELECT * FROM PROJECT WHERE idCustomer = :pId ORDER BY UPPER(name)");
     q.bindValue(":pId", c->getId());
     if(!q.exec()) {
@@ -176,7 +178,7 @@ QMap<int, Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Custome
                     1.7);
     }
     while(q.next()) {
-        project = Project();
+        project = Models::Project();
         project.setId(value(q, "idProject").toInt());
         project.setName(value(q,"name").toString());
         project.setDescription(value(q,"description").toString());
@@ -236,4 +238,5 @@ throw(DbException*)
     }
 
     return retour;
+}
 }

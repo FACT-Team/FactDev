@@ -1,5 +1,6 @@
 #include "database/customerdatabase.h"
 
+namespace Database {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }
@@ -134,9 +135,9 @@ throw(DbException*)
     return retour;
 }
 
-QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
+QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
-    QSharedPointer<Customer> customer;
+    QSharedPointer<Models::Customer> customer;
 
     q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -150,7 +151,7 @@ QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
     }
 
     if(q.first()) {
-        customer = QSharedPointer<Customer>(new Customer());
+        customer = QSharedPointer<Models::Customer>(new Models::Customer());
         customer->setId(value(q, "idCustomer").toInt());
         customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
         customer->setLastnameReferent(value(q,"lastnameReferent").toString());
@@ -169,7 +170,7 @@ QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
 }
 
 
-int CustomerDatabase::addCustomer(const Customer& pCustomer) {
+int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
     QSqlQuery q;
 
     q.prepare(
@@ -204,8 +205,7 @@ int CustomerDatabase::addCustomer(const Customer& pCustomer) {
     return q.lastInsertId().toInt();
 }
 
-void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
-
+void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
     QSqlQuery q;
     q.prepare(
                 "UPDATE Customer SET "
@@ -276,4 +276,4 @@ int CustomerDatabase::getNbCustomers() {
 
     return value(q, "nb_p").toInt();
 }
-
+}

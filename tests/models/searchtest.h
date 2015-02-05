@@ -3,6 +3,7 @@
 #include "QTestRunner/testrunner.h"
 #include "models/search.h"
 
+using namespace Models;
 class searchTest : public QObject
 {
     Q_OBJECT

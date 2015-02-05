@@ -43,9 +43,7 @@ void AddProjectDialog::accept() {
     _project.setDescription(ui->leDescription->toPlainText());
     _project.setDailyRate(ui->wdgRate->getDailyRate());
     _project.setBeginDate(QDate::currentDate());
-    _project.setCustomer(
-                CustomerDatabase::instance()->getCustomer(
-                    ui->wdgSearch->getCurrentCustomerId()));
+    _project.setCustomer(QSharedPointer<Customer>(new Customer(ui->wdgSearch->getCurrentCustomerId())));
 
     _project.commit();
 

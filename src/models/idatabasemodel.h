@@ -1,6 +1,9 @@
 #ifndef IDATABASEMODEL_H
 #define IDATABASEMODEL_H
 
+/**
+ * @brief Models classes
+ */
 namespace Models {
 /**
  * @author Antoine de Roquemaurel

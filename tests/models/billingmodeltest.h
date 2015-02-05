@@ -6,6 +6,7 @@
 
 #include "database/billingdatabase.h"
 
+using namespace Models;
 class BillingModelTest : public QObject
 {
     Q_OBJECT
@@ -21,8 +22,9 @@ private slots:
     void hydrat();
     void hydratWithContributories();
 private:
-    Billing b1;
-    Billing b2;
+    Billing* b1;
+    Billing* b2;
+    void setup();
 };
 DECLARE_TEST(BillingModelTest)
 

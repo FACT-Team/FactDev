@@ -3,6 +3,7 @@
 #include "QTestRunner/testrunner.h"
 #include "models/customer.h"
 
+using namespace Models;
 class CustomerModelTest : public QObject
 {
     Q_OBJECT

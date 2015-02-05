@@ -3,6 +3,7 @@
 #include <QString>
 #include "models/idatabasemodel.h"
 
+
 namespace Models {
 /**
  * @author Antoine de Roquemaurel

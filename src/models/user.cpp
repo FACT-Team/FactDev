@@ -1,5 +1,8 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
+
+using namespace Database;
+
 namespace Models {
 User::User()
 {

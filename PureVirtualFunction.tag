@@ -95,208 +95,14 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Billing</name>
-    <filename>df/d81/classBilling.html</filename>
-    <base>IDatabaseModel</base>
-    <member kind="function">
-      <type></type>
-      <name>Billing</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a8e7a38f9ef550c20ce1bf6b46153defa</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Billing</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a245bc864001fd8fc852697301075381d</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Billing</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a93b0a1aca44baf088a424a1691d14e15</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>commit</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a3d96a6baed6ca2d2e1096496f0fd3270</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>hydrat</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a8beb72061cd53a964cf0ba3f04686613</anchor>
-      <arglist>(int getId)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>ab5efe0286d292707073b9f1cecd98d6f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QMap&lt; Project *, QList&lt; Contributory &gt; &gt;</type>
-      <name>getContributories</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a04bc7e7fc1e678171892f96ae84f220c</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addContributory</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>ad5605f69c9b8ba633e904532cb7335f8</anchor>
-      <arglist>(Contributory &amp;c)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getTitle</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>ad817d4a1dfa011d20b4358a896662f0e</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setTitle</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a3e5e98325bd0e9fb4c253ddf07bf66c8</anchor>
-      <arglist>(const QString &amp;getTitle)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getDescription</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a80bc37920ce2ea1664514f4ade917083</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDescription</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>aa1c99e5e1831053172cea90699cb50cc</anchor>
-      <arglist>(const QString &amp;getDescription)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumber</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a23a9446aef6af58bcfa698b76cc24731</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNumber</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a1178eab66407b0761c35a13d8da84cdb</anchor>
-      <arglist>(int getNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isBilling</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>ad616bbb5664e0ba2bac6982f06a7c723</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setIsBilling</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a81a3b85e0e051239521b4e3d93f297c2</anchor>
-      <arglist>(bool isBilling)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDate</type>
-      <name>getDate</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>ad3657e1cdf05613cfca4b22b62976213</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDate</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>ad1cb89772dc12335543ff7d422d18bd4</anchor>
-      <arglist>(const QDate &amp;getDate)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a2c045c4fa6064aa1b8dfeff6ddcc03a9</anchor>
-      <arglist>(const Billing &amp;b)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator!=</name>
-      <anchorfile>df/d81/classBilling.html</anchorfile>
-      <anchor>a775ea0a2294fa3600ce703926b9b2953</anchor>
-      <arglist>(const Billing &amp;b)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~IDatabaseModel</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a85b66486922fe56a18c897cf93ed33a2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getId</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a61523b015ec148d4e68ee8054c2ad3e3</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setId</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>ad4f47f3e25302c506ce98103e616ca57</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isToRemoved</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a095166b2e37a0d07c4151a25ddbd89f9</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setToRemoved</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a6c7d03b37e11a287dfe97a2e7bc12522</anchor>
-      <arglist>(bool toRemoved)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>int</type>
-      <name>_id</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a49f0ca7727c7d12eb78f670c882a3028</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>bool</type>
-      <name>_toRemoved</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a3353a9530b1b9e4af91c02a944b050ae</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>BillingDatabase</name>
     <filename>d0/dad/classBillingDatabase.html</filename>
     <base>Database</base>
     <member kind="function">
-      <type>Billing *</type>
+      <type>Models::Billing *</type>
       <name>getBilling</name>
       <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a05b293f49756884e59d1509b76cc827a</anchor>
+      <anchor>a5c1d5b79e690df9b63a053e60626cf36</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
@@ -310,15 +116,15 @@
       <type>int</type>
       <name>addBilling</name>
       <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>aff1663dc16fd98f373e7ecc8e2033114</anchor>
-      <arglist>(const Billing &amp;)</arglist>
+      <anchor>a2b99c012790171e9ea025fc2b60cc42c</anchor>
+      <arglist>(const Models::Billing &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateBilling</name>
       <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a052aea6be4d10a372281f61f2583556a</anchor>
-      <arglist>(const Billing &amp;)</arglist>
+      <anchor>a6d69e6294120f618c3d20b5dd1e1b8a1</anchor>
+      <arglist>(const Models::Billing &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -333,6 +139,20 @@
       <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
       <anchor>ac8a618d0c2420f8db417c65fcdbc85c6</anchor>
       <arglist>(const int idProject, const int idBilling, const int idContributory)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMaxBillingNumber</name>
+      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
+      <anchor>a342ccaed3192fadc91a15468a7d3d565</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMaxQuoteNuber</name>
+      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
+      <anchor>adc3351f464ec63e15ba663ba4fb24f8f</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
@@ -863,111 +683,29 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Contributory</name>
-    <filename>d5/d09/classContributory.html</filename>
-    <base>IDatabaseModel</base>
-    <member kind="function">
-      <type></type>
-      <name>Contributory</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a5991c01efd2dedcbbddde252c48d7af8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Contributory</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a5c72cf02d2c6d25ee736af711edd76ec</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>commit</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a5c09902237bba780b594129dc2fa60d6</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>hydrat</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a2b834e0288c93ba9ed70acf7a0b8c32d</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a59641dbc35947c31eb841b46fed6130f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Project *</type>
-      <name>getProject</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>ab36c08e9844bc327e196a472733ac417</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setProject</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a72088580dc62d1d7a1a7674f8ab9a492</anchor>
-      <arglist>(Project *id)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getNbHours</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a01eccd2a6cea09c295bd808a08d27efe</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNbHours</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a32d589c7cb5269aad6c70ad6703c4d58</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getDescription</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>ae960d1562ede18bbddd2d8bccea762b7</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDescription</name>
-      <anchorfile>d5/d09/classContributory.html</anchorfile>
-      <anchor>a76af91dd9dfb28cc59fcc9685db8d3e5</anchor>
-      <arglist>(const QString &amp;getDescription)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ContributoryDatabase</name>
     <filename>d6/d06/classContributoryDatabase.html</filename>
     <base>Database</base>
     <member kind="function">
-      <type>Contributory *</type>
+      <type>Models::Contributory *</type>
       <name>getContributory</name>
       <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>aaf643ec778cd00b78a26b30c1a280f17</anchor>
+      <anchor>a43d608f537112b55a920456f7b9e4a3b</anchor>
       <arglist>(const int idContributory)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addContributory</name>
       <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>a73b0f14afd67a50203b843e68486b900</anchor>
-      <arglist>(const Contributory &amp;)</arglist>
+      <anchor>a9110546efa166d4d6c4703033328c368</anchor>
+      <arglist>(const Models::Contributory &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateContributory</name>
       <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>aba607055e86a809096714f1a28a60dce</anchor>
-      <arglist>(const Contributory &amp;)</arglist>
+      <anchor>a5a202aded20ab3e90a89548203fddbb2</anchor>
+      <arglist>(const Models::Contributory &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -977,10 +715,10 @@
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
-      <type>Contributory *</type>
+      <type>Models::Contributory *</type>
       <name>getContributory</name>
       <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>ac7d3802f3b5d6598226be3348fc02130</anchor>
+      <anchor>a1c270940416109dca85ba246f5215142</anchor>
       <arglist>(QSqlQuery &amp;q)</arglist>
     </member>
     <member kind="function" static="yes">
@@ -989,214 +727,6 @@
       <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
       <anchor>ac58610f75d4f51fa12c3e08cab1e4404</anchor>
       <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Customer</name>
-    <filename>d9/d12/classCustomer.html</filename>
-    <base>IDatabaseModel</base>
-    <member kind="function">
-      <type></type>
-      <name>Customer</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>abcc8fae9701e5ba9d7d6fe44498b34e3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Customer</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>aaea8b3d534c411de73c4fadc26ae114c</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>commit</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>adcc34b0b12a4d6bf4570f082fef63448</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>hydrat</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>ac77f54786ea2bd4c1696c0a76301c639</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a8a091ee90fdd7f89a45b28d23c7b834f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getFirstnameReferent</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>afda5111886086587dea8b8101bf02fea</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFirstnameReferent</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>acffda49d2eaf0b0389daa74720887fae</anchor>
-      <arglist>(const QString &amp;firstnameReferent)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getLastnameReferent</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a9232155d920aa83e90fcdae0f4b0f47c</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setLastnameReferent</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a77d5f5d1c7e6ebc5c1a67adf937f82c0</anchor>
-      <arglist>(const QString &amp;lastnameReferent)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCompany</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>ae58412194bbc03439aa1bcd387afbe79</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCompany</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a9d13cc3ad8464df4211da10213821fcc</anchor>
-      <arglist>(const QString &amp;company)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getAddress</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>af3e348865143342ad9c67981eb61e0c8</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAddress</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>addd0675e408a13f6ab95ec5bd5a3a13b</anchor>
-      <arglist>(const QString &amp;address)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getPostalCode</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a39073588f2d7669b12a8ecc33b3c4224</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPostalCode</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a3973123c0e94d876124cfdd0444acfd1</anchor>
-      <arglist>(const QString &amp;postalCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCity</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a1eaf38d67a4ac9c8fcc675ff81f724ba</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCity</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a1fb29f507135a9f21b29e7799aec14f0</anchor>
-      <arglist>(const QString &amp;city)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCountry</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a426126096db853802249e10506dc138c</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCountry</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a81545977d1de88b4ffd6f6b1356ea118</anchor>
-      <arglist>(const QString &amp;country)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getEmail</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a6ab797361537bf4c8b35cce5f1562299</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setEmail</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a64b383efde5855bde7ef385c6f73e45d</anchor>
-      <arglist>(const QString &amp;email)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getMobilePhone</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a08546759b1b1f046389bc6ab6b467149</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setMobilePhone</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>aec562d504cd6c6e3db153544b102e028</anchor>
-      <arglist>(const QString &amp;mobilePhone)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getPhone</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a20b37c158f138def2014f24f291f2aa0</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPhone</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a850d6e8e1a061362928de94553cb12a6</anchor>
-      <arglist>(const QString &amp;phone)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getFax</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>ab982339f461136ce230740d776a98ae9</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFax</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a29049b62abb6aa0733c5def198ed62e5</anchor>
-      <arglist>(const QString &amp;fax)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>ae55c14b91c08ba15c9593a47931d1949</anchor>
-      <arglist>(const Customer &amp;c)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator!=</name>
-      <anchorfile>d9/d12/classCustomer.html</anchorfile>
-      <anchor>a95057d943f370a75c0bfa3d9805b611c</anchor>
-      <arglist>(const Customer &amp;c)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -1236,25 +766,25 @@
       <arglist>(QString filter=&quot;&quot;)</arglist>
     </member>
     <member kind="function">
-      <type>QSharedPointer&lt; Customer &gt;</type>
+      <type>QSharedPointer&lt; Models::Customer &gt;</type>
       <name>getCustomer</name>
       <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>aeb91691412f371795a0473555e31614c</anchor>
+      <anchor>ab6efaeabb32599dcccee6a94ee710402</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addCustomer</name>
       <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a522337809fe7588ddc8b5eb27b0cb640</anchor>
-      <arglist>(const Customer &amp;)</arglist>
+      <anchor>aa46198ba7cf2ebb51161572e171e7e9c</anchor>
+      <arglist>(const Models::Customer &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateCustomer</name>
       <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a2ae17af9bcbf889dec21b4acae3161e1</anchor>
-      <arglist>(const Customer &amp;)</arglist>
+      <anchor>a2e73d222f11beae089db0427a7c65f8e</anchor>
+      <arglist>(const Models::Customer &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1377,31 +907,6 @@
     <filename>d5/d75/classICheckField.html</filename>
   </compound>
   <compound kind="class">
-    <name>IDatabaseModel</name>
-    <filename>d1/dc3/classIDatabaseModel.html</filename>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>commit</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a2d4fd70557c1815d100df17ba0751cbd</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>hydrat</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a25e44ed10a75976f86e14d34aea02c37</anchor>
-      <arglist>(int id)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>remove</name>
-      <anchorfile>d1/dc3/classIDatabaseModel.html</anchorfile>
-      <anchor>a11d94697daf0af2b44fbe37ef831ea94</anchor>
-      <arglist>()=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ItemType</name>
     <filename>d2/de9/classItemType.html</filename>
     <member kind="function">
@@ -1419,10 +924,10 @@
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>IDatabaseModel *</type>
+      <type>Models::IDatabaseModel *</type>
       <name>getModel</name>
       <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>a4b2846df0342282952741331808c703d</anchor>
+      <anchor>adf62a71c0e6766b8e93e809ec22876ce</anchor>
       <arglist>(int id)</arglist>
     </member>
     <member kind="function">
@@ -1615,6 +1120,13 @@
       <anchor>ae6a7598b9931ca8901a62bb95c490e0e</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>updateBtn</name>
+      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
+      <anchor>ac81b82b3eb71d75fcd72bd93da18112d</anchor>
+      <arglist>(void)</arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>MainWindow</name>
@@ -1776,158 +1288,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Project</name>
-    <filename>db/d91/classProject.html</filename>
-    <base>IDatabaseModel</base>
-    <member kind="function">
-      <type></type>
-      <name>Project</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>aa007ecd17d5bc800e7a956cf666eea21</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Project</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>ad2504e184dc6f1da142934cf1eaedcd6</anchor>
-      <arglist>(QString name)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Project</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a8f608fdf1f0687598294f9534d702dd5</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Project</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>ad165d61b76ee86ee9c27fd987a2a7b9e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>commit</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>ab471d9354fb128c801f455e9a6bef675</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>hydrat</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>aa966f15c9c8a277844a75c3530701525</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a7bd735a59c2fdf2718db14c3073245fc</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getName</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>af547be6d3433bbf4ccf0f905788a9fee</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setName</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>ab330ed5176b1eb93b558676fff8c47e1</anchor>
-      <arglist>(const QString &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getDescription</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>ae7cc47cfca8038bf63b67f0d255e92dd</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDescription</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a08632a8a8905245559c844c863fc796b</anchor>
-      <arglist>(const QString &amp;description)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDate</type>
-      <name>getBeginDate</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a8cf94b4360d6f9d41ea503c6f06bcb0d</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setBeginDate</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>afd187147978c58351d686b987d37306e</anchor>
-      <arglist>(QDate beginDate)</arglist>
-    </member>
-    <member kind="function">
-      <type>QDate</type>
-      <name>getEndDate</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a16fcc3fd33b63ef7cb53e1e766926393</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setEndDate</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a1f78db4ad8a366aa772d496a4735bc71</anchor>
-      <arglist>(QDate endDate)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getDailyRate</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a1f34916428682e0134675d45f93a2173</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDailyRate</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>aa3c6dc9722ed16fd69a6034b2398a7c9</anchor>
-      <arglist>(double dailyRate)</arglist>
-    </member>
-    <member kind="function">
-      <type>QSharedPointer&lt; Customer &gt;</type>
-      <name>getCustomer</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>acdaa432748b195795867363acd7b378b</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCustomer</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>a578a5dac01297c5dd517147915346d85</anchor>
-      <arglist>(QSharedPointer&lt; Customer &gt; customer)</arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const double</type>
-      <name>LEGAL_RATE</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>abf30a8b4156d40fc7d59eb97ec40eb8a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const int</type>
-      <name>NB_DAILY_HOURS</name>
-      <anchorfile>db/d91/classProject.html</anchorfile>
-      <anchor>aac9d92123deda6d2e2f61ed0cda98604</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ProjectComboDelegate</name>
     <filename>d4/db0/classProjectComboDelegate.html</filename>
   </compound>
@@ -1936,25 +1296,25 @@
     <filename>d4/d8d/classProjectDatabase.html</filename>
     <base>Database</base>
     <member kind="function">
-      <type>Project *</type>
+      <type>Models::Project *</type>
       <name>getProject</name>
       <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a895c03003dc4deea0bc429776337795f</anchor>
+      <anchor>a1200663abcfc669e5eb68c4355d73405</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addProject</name>
       <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a3e2c3d198f7f5724ae0388fd49f4e8cb</anchor>
-      <arglist>(const Project &amp;)</arglist>
+      <anchor>a0b35629c67cc0eb5d76823fd1ce9beaa</anchor>
+      <arglist>(const Models::Project &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateProject</name>
       <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a959b2f9617969277a8c92a8239c613f1</anchor>
-      <arglist>(const Project &amp;)</arglist>
+      <anchor>ad57ce108679352e48b7138d6ee946326</anchor>
+      <arglist>(const Models::Project &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1978,11 +1338,11 @@
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
-      <type>QMap&lt; int, Project &gt;</type>
+      <type>QMap&lt; int, Models::Project &gt;</type>
       <name>getProjectsOfCustomer</name>
       <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a674675237e10929f6096e271a93692ee</anchor>
-      <arglist>(QSharedPointer&lt; Customer &gt; c)</arglist>
+      <anchor>a5aaef2623cdab7bbad9a5dbd98f97566</anchor>
+      <arglist>(QSharedPointer&lt; Models::Customer &gt; c)</arglist>
     </member>
     <member kind="function">
       <type>QStandardItemModel *</type>
@@ -1992,10 +1352,10 @@
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
-      <type>Project *</type>
+      <type>Models::Project *</type>
       <name>getProject</name>
       <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a3d4d47a7c391eaf1e959d5ac13ef574f</anchor>
+      <anchor>a8d3977e9b828772e4f2798598f94f984</anchor>
       <arglist>(QSqlQuery &amp;q)</arglist>
     </member>
     <member kind="function" static="yes">
@@ -2127,87 +1487,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Search</name>
-    <filename>de/dd3/classSearch.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Search</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>af629e7254d367d2b2cacfb0699c9de31</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Search</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>afd7e16f7369d7a44189e530292b5faa0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getFilter</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>ad4cbed03998957eb80a2d1b536407f01</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getSearchInCompanies</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a683100feb68358d1eedda781f700cd46</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSearchInCompanies</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a1c2abc83b8995d5b1d908905a7212042</anchor>
-      <arglist>(bool getSearchInCompanies)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getSearchInReferentLastname</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>afb76798798f03d34f8d2363d7062ec0f</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setSearchInReferentLastname</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a18603321d8e2039b181dbfe082689a08</anchor>
-      <arglist>(bool getSearchInReferentLastname)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getGroupFilter</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a19db0f8c76c414514b9df09e07b4d962</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGroupFilter</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a8a944b2ece0cafe967afb4334d92b62a</anchor>
-      <arglist>(bool getGroupFilter)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getText</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a10a8f699332477cab0d512027bdaaa44</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setText</name>
-      <anchorfile>de/dd3/classSearch.html</anchorfile>
-      <anchor>a92f09448baccf5cddbc433835b716b36</anchor>
-      <arglist>(const QString &amp;getText)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>searchTest</name>
     <filename>d7/d51/classsearchTest.html</filename>
   </compound>
@@ -2264,200 +1543,6 @@
     <filename>db/d70/classTestRunner.html</filename>
   </compound>
   <compound kind="class">
-    <name>User</name>
-    <filename>d9/dc0/classUser.html</filename>
-    <base>IDatabaseModel</base>
-    <member kind="function">
-      <type></type>
-      <name>User</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a4a0137053e591fbb79d9057dd7d2283d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>User</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a6e84637389bc36a13300df82a7387bb0</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>commit</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>aee39916633f5bf89100a4a917b2db4a2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>hydrat</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a2e4160755d2189979b758929e832b12c</anchor>
-      <arglist>(int id=1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>aba787de7188a5c7bc4b99734b1b093cf</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getFirstname</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>acad034d3a093164f056d06d9a3ee33a2</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFirstname</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>ad9f69006800232eb19146d2354910412</anchor>
-      <arglist>(const QString &amp;firstname)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getLastname</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>aabbb05d0c6e6be5ed078ba3c730b24b3</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setLastname</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a90d5bae75aa56253642386ad42da171d</anchor>
-      <arglist>(const QString &amp;lastname)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCompany</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>ace35ae55a1681e5df796ebee79fa5b07</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCompany</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a3a92e61c3e31dddeff27bc8c2307f2db</anchor>
-      <arglist>(const QString &amp;company)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getTitle</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a44af1366445fb0284411f92d37231f2d</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setTitle</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>ae51847b13715ba1fed59a2778397691a</anchor>
-      <arglist>(const QString &amp;title)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getAddress</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>af5cebeb07ba0ebffb916f1f6fd7c002d</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAddress</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a14a70021648f51900cc54f6535d3a603</anchor>
-      <arglist>(const QString &amp;address)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getPostalCode</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a6a3ecafe2c72860cbc2cfc031d6112c9</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPostalCode</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>af53e170c1701dd1f275589d115f88076</anchor>
-      <arglist>(const QString &amp;postalCode)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCity</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a78a95519c1fb5ac91152ad231aac1484</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCity</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a3e350353440e6a22e91c3f78a9a32a4f</anchor>
-      <arglist>(const QString &amp;city)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getEmail</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>ae398ada63774cb0c91544637fdd415d1</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setEmail</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a13c5e816e990508b469096580884ce98</anchor>
-      <arglist>(const QString &amp;email)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getMobilePhone</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a858eff50cbc71969bc5dd5e80045d342</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setMobilePhone</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a8d7afdfc9bcf32b00c20d1d70ae9cbb7</anchor>
-      <arglist>(const QString &amp;mobilePhone)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getPhone</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a5408061a1ba87e3d56a51490464d1149</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPhone</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a271e4179b9da5b409f98656b04431689</anchor>
-      <arglist>(const QString &amp;phone)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getNoSiret</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>aa7585bc78c11961280fe2bef25ef2347</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNoSiret</name>
-      <anchorfile>d9/dc0/classUser.html</anchorfile>
-      <anchor>a379258b1d6f8427f44c4e9fc7600919d</anchor>
-      <arglist>(const QString &amp;noSiret)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>UserDatabase</name>
     <filename>de/d47/classUserDatabase.html</filename>
     <base>Database</base>
@@ -2469,18 +1554,18 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>User *</type>
+      <type>Models::User *</type>
       <name>getUser</name>
       <anchorfile>de/d47/classUserDatabase.html</anchorfile>
-      <anchor>ab95ed012ce83d09e57ad902cc304585c</anchor>
+      <anchor>aa88164bd2cda084c86d77d73a3d820e1</anchor>
       <arglist>(const int pId=1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateUser</name>
       <anchorfile>de/d47/classUserDatabase.html</anchorfile>
-      <anchor>a5d7ecaa321c764615ed3cff211ccd84f</anchor>
-      <arglist>(const User &amp;)</arglist>
+      <anchor>a2d4981508ea96e6deb70d6bfd1360203</anchor>
+      <arglist>(const Models::User &amp;)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static UserDatabase *</type>
@@ -2538,6 +1623,960 @@
       <anchorfile>dc/dc5/classUtils.html</anchorfile>
       <anchor>a009b2a8ef00831aff87d2e46ca209398</anchor>
       <arglist>(QString s)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Models</name>
+    <filename>dd/d20/namespaceModels.html</filename>
+    <class kind="class">Models::Billing</class>
+    <class kind="class">Models::Contributory</class>
+    <class kind="class">Models::Customer</class>
+    <class kind="class">Models::IDatabaseModel</class>
+    <class kind="class">Models::Project</class>
+    <class kind="class">Models::Search</class>
+    <class kind="class">Models::User</class>
+  </compound>
+  <compound kind="class">
+    <name>Models::Billing</name>
+    <filename>d4/d5c/classModels_1_1Billing.html</filename>
+    <base>Models::IDatabaseModel</base>
+    <member kind="function">
+      <type></type>
+      <name>Billing</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ab6b6e4b21617bacb1e8124b5e1218723</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Billing</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a2fba091975b0c62f7e65771e335e038b</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Billing</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a36da0cd70a8f9db9be57bf32f7610e59</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>commit</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ad2280a0d8dde4c36e88c344b01044caf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hydrat</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a689643008955fdcd5833631a6202c0dc</anchor>
+      <arglist>(int getId)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ada8a7c127a80fa7349fbd6a7d30ca4a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QMap&lt; Project *, QList&lt; Contributory &gt; &gt;</type>
+      <name>getContributories</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a9c5e944c560fcecb356a9293b26f1ec6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addContributory</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a3636d785d2cb77d83d21a795e1f91a60</anchor>
+      <arglist>(Contributory &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getTitle</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a15cd358ce3cab05668c62c0771afdb85</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTitle</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ae20cea169abdffa5daaa368547425928</anchor>
+      <arglist>(const QString &amp;getTitle)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getDescription</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a5802215da8f4407457b8aeb7be525c65</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDescription</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>adb5cf4382150387f10bb6b774ace6bc8</anchor>
+      <arglist>(const QString &amp;getDescription)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumber</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a48c6e28a4aec13f8ed6b3ebbab837f0b</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNumber</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a2b43e0c657a9e717c9d2c091d222369e</anchor>
+      <arglist>(int getNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isBilling</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ab03dd29a9812a995355a1d93318f348f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setIsBilling</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>aff8b71426c02bc97f0a724ef762cd42e</anchor>
+      <arglist>(bool isBilling)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDate</type>
+      <name>getDate</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>af0d1f0132d0902fb96456d0a9018b701</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDate</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ae8db0fe5fe273fad31e2f846b5b891cb</anchor>
+      <arglist>(const QDate &amp;getDate)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>af3d8818a1e00eaa707058567fccf045b</anchor>
+      <arglist>(const Billing &amp;b)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>ae6ff88e05384718d57be1be38f250a52</anchor>
+      <arglist>(const Billing &amp;b)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~IDatabaseModel</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a7dd56f574720919d1703651f5896141f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getId</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a6a4d1d3c0912c97c61a9d4de7471afee</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setId</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a6bf2ec005b5d931e58ee8125e92d9722</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isToRemoved</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a058e5b85d95e9424245dc37eb122350c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setToRemoved</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>ac399b44ba1178ef6f54da31203e11d9f</anchor>
+      <arglist>(bool toRemoved)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>_id</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a85fbc8298dee2e84f310a21ed935665f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>_toRemoved</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>acfa9af965e01f44d6ff75226e23e4640</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Models::Contributory</name>
+    <filename>d5/dd1/classModels_1_1Contributory.html</filename>
+    <base>Models::IDatabaseModel</base>
+    <member kind="function">
+      <type></type>
+      <name>Contributory</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a82c2a30e60a256099f25c424337d5aa0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Contributory</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>acbece77d876ca9d49d9fec868a74be5f</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Contributory</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a27d9ade910eab64b0e1135bb25ce0308</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>commit</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a2d89036a02bd2828ff76d047338f61ba</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hydrat</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a40248b5853045eb46412396513f36b06</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>ab9971d7867516b488095e63e1179eac8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Project *</type>
+      <name>getProject</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a49379aeb4de2376d5a2aaf10f54daf05</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProject</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a4478894daf317068856b707491d03555</anchor>
+      <arglist>(Project *id)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getNbHours</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>ae85caa255441140fc1a3a0e91531bfc0</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNbHours</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a1c7d65ee311232d3fd00cf8e4777f1c7</anchor>
+      <arglist>(double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getDescription</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>ae2b936f2fb1ccad2009eae9b5d12fc02</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDescription</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a12d4199fa7175c0b43f62eddf7c3d69e</anchor>
+      <arglist>(const QString &amp;getDescription)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Models::Customer</name>
+    <filename>db/dd7/classModels_1_1Customer.html</filename>
+    <base>Models::IDatabaseModel</base>
+    <member kind="function">
+      <type></type>
+      <name>Customer</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a28e8ade7d9ccc39707f823ba8d45f7d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Customer</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a02a1aee507d4ff4f60019070793fe604</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>commit</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>af5c0f2b6d80ad9e6bcbfe39b697d65c4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hydrat</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>afe3ed7fb893d61ea6f4d14e73779382c</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a0f5dba0d90af0adf5d0aca26195d21b1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getFirstnameReferent</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a30934fb39c552863e588c40d01725a18</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFirstnameReferent</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a40cbc71c349a0d022b21543bbc7a120a</anchor>
+      <arglist>(const QString &amp;firstnameReferent)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getLastnameReferent</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a73b93f9ad0718980bbfa2b283b3285ba</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLastnameReferent</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a64ff31bbe0c7aba0b9976d8d253b7b33</anchor>
+      <arglist>(const QString &amp;lastnameReferent)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCompany</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a23fb516872c6aebf9b1eb6a7ec86cb7f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCompany</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ab4faf3a76242bc4c3ac44bafd628a4c6</anchor>
+      <arglist>(const QString &amp;company)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getAddress</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a594e1458ca9f3a449f2628c861bc3a40</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAddress</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ae2d41b145d9c468f7e3c40a38882873d</anchor>
+      <arglist>(const QString &amp;address)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getPostalCode</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ad544bdcd4d021f92bd77e5aa24f31f21</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPostalCode</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a2bd4ac52294de78236e159caaa29412b</anchor>
+      <arglist>(const QString &amp;postalCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCity</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ace3f86c1e5108ede84a1a09516b37e50</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCity</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a069b40292e037762ec5e5836682c50b0</anchor>
+      <arglist>(const QString &amp;city)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCountry</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a70ecabd20451f2b7c24d22a931c94cc3</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCountry</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>afd430475dc1bf7f9b1548767265aa821</anchor>
+      <arglist>(const QString &amp;country)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getEmail</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ac8d55fcc6f53b2269a01efbe43e75133</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setEmail</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ab8f728a2e05c5c9c7a6f6522b85a59a1</anchor>
+      <arglist>(const QString &amp;email)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getMobilePhone</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a97211324b1f890b5f7a3fffc447289d7</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMobilePhone</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>abefe9de1e3c46501916e461ba6609450</anchor>
+      <arglist>(const QString &amp;mobilePhone)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getPhone</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a0438cd11dfe13bb89c0233ffe288cc73</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPhone</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>abbc25028b09ae36da632cefbfbbbcce6</anchor>
+      <arglist>(const QString &amp;phone)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getFax</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a08ce4fbbd62f3e3f407faea2bf351f69</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFax</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a4a6ba86c58db9bca2737bbeb723a0db3</anchor>
+      <arglist>(const QString &amp;fax)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ab379700fa93f5b9eb0f8546b03aff70f</anchor>
+      <arglist>(const Customer &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>a07e61dd9ad79b6be765ea1dabccf1e18</anchor>
+      <arglist>(const Customer &amp;c)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Models::IDatabaseModel</name>
+    <filename>df/ddd/classModels_1_1IDatabaseModel.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>commit</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a8fcb1587824753cd121a7d961b60a98a</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>hydrat</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>af0814d81fc76a881bc64d9062adf1f6c</anchor>
+      <arglist>(int id)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>remove</name>
+      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
+      <anchor>a6d8eca5b493b57c21feafae75c783b14</anchor>
+      <arglist>()=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Models::Project</name>
+    <filename>dd/d3f/classModels_1_1Project.html</filename>
+    <base>Models::IDatabaseModel</base>
+    <member kind="function">
+      <type></type>
+      <name>Project</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>acd757cadcbeda1f4f83a2b0cd3c1cec1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Project</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a408d5fb64bb72b9492778b2ae26331f2</anchor>
+      <arglist>(QString name)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Project</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>ac6c56b6ff24598135bc54d3b3edd3a47</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Project</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a938f33016740cf7b33984d92ed932991</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>commit</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>afc167f2b5bf9c354826117c5057628ae</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hydrat</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>aa293709eeb68e4271cac8d4cce418ffa</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>ab55c71c009ae796e7dbe03017fed67ee</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getName</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a11d3b85bdc38daba928bfbfd962a0e32</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setName</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>ac5ffa6ff6d31647fd880881257f47889</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getDescription</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a065b9cd68962c78302a84c686e10ae13</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDescription</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a2cccaca77bff95f13b3320f3f03dc9e7</anchor>
+      <arglist>(const QString &amp;description)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDate</type>
+      <name>getBeginDate</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a31b8e46aabb1327499f7e36f170900e3</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBeginDate</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a07dfb00cbec7442197a91bc0795ab14d</anchor>
+      <arglist>(QDate beginDate)</arglist>
+    </member>
+    <member kind="function">
+      <type>QDate</type>
+      <name>getEndDate</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>ae925d3750ebce7b1b30c9dc7c08302b0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setEndDate</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a89e9603b862d0a282e4eb03e122e8c05</anchor>
+      <arglist>(QDate endDate)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getDailyRate</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a46d74a7452e712d223f1ca444a4cc180</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDailyRate</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a9bc03d9632334a550bd25f6286d2c7a2</anchor>
+      <arglist>(double dailyRate)</arglist>
+    </member>
+    <member kind="function">
+      <type>QSharedPointer&lt; Customer &gt;</type>
+      <name>getCustomer</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>ad15f442a24c9d42144b73f27a7afaa35</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCustomer</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a9d305edf054735b911e144516d3eccba</anchor>
+      <arglist>(QSharedPointer&lt; Customer &gt; customer)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const double</type>
+      <name>LEGAL_RATE</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>ad3dc764849815160de77877b1e261c86</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>NB_DAILY_HOURS</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a2cde659bf6be8b4919d7b4b7a53c336f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Models::Search</name>
+    <filename>d6/d44/classModels_1_1Search.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Search</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a05ea0037161dce5dde6876afa384d71f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Search</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a6b51a9a47bfc35addb8204ff89afefe3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getFilter</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ab3ec88b48f6b404f8027dcbfce1495c6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getSearchInCompanies</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ad38428f4aa81ba5951f82e0fcb92779c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSearchInCompanies</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ac32bf6038d77b99a097faee3efa04cc7</anchor>
+      <arglist>(bool getSearchInCompanies)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getSearchInReferentLastname</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>aa415bcd966fef7bcd1cd5bd3373d57f6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSearchInReferentLastname</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>adf5e7ebfc61b309db1b110de5167b6d5</anchor>
+      <arglist>(bool getSearchInReferentLastname)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getGroupFilter</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a2f5ee925709a654cedef85732e448438</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGroupFilter</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a5feb06679973719e31007e659c08cc06</anchor>
+      <arglist>(bool getGroupFilter)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getText</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a30d4355f72278e6e466dc64208947f8b</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setText</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a1bd00e3da5d5e10b4bec6579fb1c8bfa</anchor>
+      <arglist>(const QString &amp;getText)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Models::User</name>
+    <filename>df/d68/classModels_1_1User.html</filename>
+    <base>Models::IDatabaseModel</base>
+    <member kind="function">
+      <type></type>
+      <name>User</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ab106b51be814f7d3a055874781f1f2ee</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>User</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a8eb50ce05c34b28cf39ff980066f3113</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>commit</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ada0daaa6886be3716af6e15d28c01915</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>hydrat</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ab46c7e1841dca66bc01cd95328b97877</anchor>
+      <arglist>(int id=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ae0870269116b5bda3b5f1c8527e300be</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getFirstname</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a409a0a6becdd16b9a34120511526ab4d</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFirstname</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a9fdff0463dc3653dd3c3bb7b60bf6c98</anchor>
+      <arglist>(const QString &amp;firstname)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getLastname</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>acd71c39455f4289dac70fe3688b956a6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setLastname</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a3537478a5fe9e2bcb74cd7e267ca1a5f</anchor>
+      <arglist>(const QString &amp;lastname)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCompany</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a5c2a1436bfaaf39df26d1ff45196ff43</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCompany</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ab51a6e7ea016ad3c7d18c754582edd53</anchor>
+      <arglist>(const QString &amp;company)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getTitle</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a56a37a1b1125c28e8e72c9a3551b7da5</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTitle</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a0fe65ebdee17c2986c874e480e1cb0bd</anchor>
+      <arglist>(const QString &amp;title)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getAddress</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>afef76dde9b2e3fdb3c2fef33c2dc0d4d</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAddress</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a2a6098ed13472398a972944b88905ebd</anchor>
+      <arglist>(const QString &amp;address)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getPostalCode</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a4d6dae7e681b0acc7bbd1c4cc7b84062</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPostalCode</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a5a75307bb95eae0970efd282519ec5ba</anchor>
+      <arglist>(const QString &amp;postalCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCity</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a6ee95d68097373de6273bd0386f2dff1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCity</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a98c035e4275b8170bec888bea05b24d9</anchor>
+      <arglist>(const QString &amp;city)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getEmail</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a90b1f27762a58bbe2e903d8299678b74</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setEmail</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a69fc70b244bccf493df300af812a18c3</anchor>
+      <arglist>(const QString &amp;email)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getMobilePhone</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>aba9d318cad6935104eff02f6b5659d5c</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMobilePhone</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>abed6684c24a3ba695a90a69a3a6d7572</anchor>
+      <arglist>(const QString &amp;mobilePhone)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getPhone</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>adc8fbd6d75a41d9ac9ee9473d781d1c1</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setPhone</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>adb132ecafc7cc0afd42fc260f8a2e7b9</anchor>
+      <arglist>(const QString &amp;phone)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getNoSiret</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>a617ee9ede3791842fbf8593f08660d37</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setNoSiret</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ae751ee06859dffce0cad08005c42c933</anchor>
+      <arglist>(const QString &amp;noSiret)</arglist>
     </member>
   </compound>
   <compound kind="dir">

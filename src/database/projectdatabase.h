@@ -9,7 +9,7 @@
 #include "utils.h"
 #include "log.h"
 
-using namespace Models;
+namespace Database {
 
 /**
  * @author Florent Berbie
@@ -39,20 +39,20 @@ public:
      * @param pId project
      * @return the project
      */
-    Project *getProject(const int pId);
+    Models::Project *getProject(const int pId);
 
     /**
      * @brief ProjectDatabase:addProject Add the project 'pProject' to the
      * database
      * @return project id
      */
-    int addProject(const Project&);
+    int addProject(const Models::Project&);
 
     /**
      * @brief ProjectDatabase:updateProject Update informations about the
      * project
      */
-    void updateProject(const Project&);
+    void updateProject(const Models::Project&);
 
     /**
      * @brief removeProject Remove the project with the id 'pId'
@@ -80,7 +80,7 @@ public:
      * @param c The customer
      * @return All projects of c with id in key
      */
-    QMap<int, Project> getProjectsOfCustomer(QSharedPointer<Customer> c);
+    QMap<int, Models::Project> getProjectsOfCustomer(QSharedPointer<Models::Customer> c);
 
     /**
       * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
@@ -94,7 +94,7 @@ public:
      * @param q The query to use
      * @return The project linked to q
      */
-    Project *getProject(QSqlQuery &q);
+    Models::Project *getProject(QSqlQuery &q);
 };
-
+}
 #endif // PROJECTDATABASE_H

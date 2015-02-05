@@ -10,8 +10,7 @@
 #include "log.h"
 #include "utils.h"
 
-using namespace Models;
-
+namespace Database {
 /** 
  * @author Antoine de Roquemaurel
  * @brief The <b>CustomerDatabase</b> class Customer table database
@@ -62,20 +61,20 @@ public:
      * @param pId customer id
      * @return the Customer
      */
-    QSharedPointer<Customer> getCustomer(const int pId);
+    QSharedPointer<Models::Customer> getCustomer(const int pId);
 
     /**
      * @brief CustomerDatabase::addCustomer Add the customer <i>pCustomer</i> to
      * the database
      * @return customer id
      */
-    int addCustomer(const Customer&);
+    int addCustomer(const Models::Customer&);
 
     /**
      * @brief CustomerDatabase::updateCustomer Update informations about the
      * customer <i>pCustomer</i>
      */
-    void updateCustomer(const Customer&);
+    void updateCustomer(const Models::Customer&);
 
     /**
      * @brief CustomerDatabase::removeCustomer Remove the customer with the id
@@ -92,5 +91,5 @@ public:
     int getNbCustomers();
 
 };
-
+}
 #endif // BDDCUSTOMER_H
