@@ -139,7 +139,8 @@ OTHER_FILES += \
     sql/tests/billings.sql \
     sql/tests/billingsprojects.sql \
     sql/tests/contributories.sql \
-    sql/tests/projects.sql
+    sql/tests/projects.sql \
+    main.dox
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql
