@@ -3,7 +3,8 @@
 #include "gui/widgets/delegates/projectcombodelegate.h"
 #include "ui_contributorieswidget.h"
 
-
+namespace Gui {
+namespace Widgets {
 ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ContributoriesWidget)
@@ -47,4 +48,6 @@ void ContributoriesWidget::remove()
 
 int ContributoriesWidget::count() {
     return _model->count();
+}
+}
 }

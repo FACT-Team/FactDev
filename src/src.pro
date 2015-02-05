@@ -61,7 +61,7 @@ SOURCES += mainwindow.cpp \
     database/billingdatabase.cpp \
     database/contributorydatabase.cpp \
     itemtype.cpp \
-    gui/dialogs/messagebox/messagebox.cpp
+    gui/dialogs/messagebox.cpp
 
 HEADERS  += mainwindow.h \
         log.h\
@@ -111,7 +111,7 @@ HEADERS  += mainwindow.h \
     database/billingdatabase.h \
     database/contributorydatabase.h \
     itemtype.h \
-    gui/dialogs/messagebox/messagebox.h \
+    gui/dialogs/messagebox.h \
     gui/widgets/checkfields/icheckfield.h
 
 FORMS    += mainwindow.ui \
@@ -126,7 +126,7 @@ FORMS    += mainwindow.ui \
     gui/widgets/projectswidget.ui \
     gui/dialogs/addquotedialog.ui \
     gui/widgets/contributorieswidget.ui \
-    gui/dialogs/messagebox/messagebox.ui
+    gui/dialogs/messagebox.ui
 
 RESOURCES += \
     icons.qrc

@@ -227,7 +227,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CheckUntilField</class>
+   <class>Gui::Widgets::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>
@@ -235,7 +235,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckEmail</class>
+  <class>Gui::Widgets::CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkemail.h</header>
    <slots>
@@ -243,7 +243,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckCity</class>
+  <class>Gui::Widgets::CheckCity</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcity.h</header>
    <slots>
@@ -251,7 +251,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckName</class>
+   <class>Gui::Widgets::CheckName</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkname.h</header>
    <slots>
@@ -259,7 +259,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckValidField</class>
+   <class>Gui::Widgets::CheckValidField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkvalidfield.h</header>
    <slots>
@@ -267,7 +267,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckPhone</class>
+   <class>Gui::Widgets::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
    <slots>
@@ -275,7 +275,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckPostalCode</class>
+   <class>Gui::Widgets::CheckPostalCode</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkpostalcode.h</header>
    <slots>
@@ -283,7 +283,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>CheckCountry</class>
+   <class>Gui::Widgets::CheckCountry</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcountry.h</header>
    <slots>

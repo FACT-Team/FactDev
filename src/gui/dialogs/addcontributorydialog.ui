@@ -81,7 +81,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CheckUntilField</class>
+  <class>Gui::Widgets::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>

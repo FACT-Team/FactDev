@@ -3,6 +3,8 @@
 
 #include <QMenu>
 
+namespace Gui {
+namespace Widgets {
 /**
  * @brief Display contextual menu on a customer
  * @author Antoine de Roquemaurel
@@ -26,5 +28,6 @@ private:
     QAction* _editAction;   //!< Edit a customer
     QAction* _openAction;   //!< Open a customer
 };
-
+}
+}
 #endif // CUSTOMERCONTEXTUALMENU_H

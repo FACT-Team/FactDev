@@ -1,7 +1,8 @@
 #include "ratewidget.h"
 #include "ui_ratewidget.h"
 
-
+namespace Gui {
+namespace Widgets {
 RateWidget::RateWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RateWidget)
@@ -62,5 +63,6 @@ void RateWidget::updateConversionRate() {
         ui->sbDailyRate->setValue(getHourlyRate()*Project::NB_DAILY_HOURS);
     }
 }
-
+}
+}
 

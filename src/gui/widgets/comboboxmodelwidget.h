@@ -9,9 +9,13 @@ namespace Ui {
 class ComboBoxModelWidget;
 }
 
+namespace Gui {
+/**
+ * @brief Contains Widgets classes
+ */
+namespace Widgets {
 /**
  * @brief The ComboBoxModelWidget class
- * TODO
  */
 class ComboBoxModelWidget : public QWidget
 {
@@ -25,5 +29,6 @@ private:
     //CustomerDatabase customerData;
     Ui::ComboBoxModelWidget *ui;
 };
-
+}
+}
 #endif // COMBOBOXMODELWIDGET_H

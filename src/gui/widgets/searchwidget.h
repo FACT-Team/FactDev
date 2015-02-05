@@ -11,6 +11,9 @@ namespace Ui {
 class searchWidget;
 }
 
+namespace Gui {
+namespace Widgets {
+
 /**
  * @brief Class for search in database
  * @author Antoine de Roquemaurel
@@ -66,5 +69,6 @@ private:
     void updateTable(QString text="");
     bool _isCustomerSelected;
 };
-
+}
+}
 #endif // SEARCHWIDGET_H

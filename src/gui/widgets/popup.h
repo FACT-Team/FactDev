@@ -7,6 +7,8 @@
 
 #include "log.h"
 
+namespace Gui {
+namespace Widgets {
 /**
  * @brief Class for display popup quickly
  * @author Antoine de Roquemaurel
@@ -19,5 +21,6 @@ public:
      */
     static void toImplement(QString, QWidget*);
 };
-
+}
+}
 #endif // POPUP_H

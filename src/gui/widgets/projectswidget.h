@@ -9,6 +9,8 @@ namespace Ui {
 class ProjectsWidget;
 }
 
+namespace Gui {
+namespace Widgets {
 /**
  * @author Florent Berbie
  * @brief The ProjectsWidget class Actions on Project
@@ -63,5 +65,6 @@ signals:
 private:
     Ui::ProjectsWidget *ui; //!< User interface of <b>ProjectsWidget</b>
 };
-
+}
+}
 #endif // PROJECTSWIDGET_H

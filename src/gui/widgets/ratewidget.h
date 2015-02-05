@@ -11,6 +11,8 @@ namespace Ui {
 class RateWidget;
 }
 
+namespace Gui {
+namespace Widgets {
 /**
  * @brief Class for display Rate
  * @author Florent Berbie
@@ -81,5 +83,6 @@ private:
     bool _isDailyRateModified;  /** boolean value to signal if the daily rate
                                  has been modified */
 };
-
+}
+}
 #endif // RATEWIDGET_H

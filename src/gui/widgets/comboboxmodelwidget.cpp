@@ -1,6 +1,8 @@
 #include "comboboxmodelwidget.h"
 #include "ui_comboboxmodelwidget.h"
 
+namespace Gui {
+namespace Widgets {
 ComboBoxModelWidget::ComboBoxModelWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ComboBoxModelWidget)
@@ -11,4 +13,6 @@ ComboBoxModelWidget::ComboBoxModelWidget(QWidget *parent) :
 ComboBoxModelWidget::~ComboBoxModelWidget()
 {
     delete ui;
+}
+}
 }

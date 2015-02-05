@@ -150,7 +150,7 @@ void MainWindow::addQuote()
         updateTableBillings(getCurrentProjectId());
 
     } else {
-        Popup *p = new Popup();
+        Gui::Widgets::Popup *p = new Gui::Widgets::Popup();
         p->toImplement("\nVeuillez sélectionner un client", this);
     }
 }
@@ -203,7 +203,7 @@ void MainWindow::search(QString text)
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point) {
-    QMenu* menu = new CustomerContextualMenu(this);
+    QMenu* menu = new Gui::Widgets::CustomerContextualMenu(this);
 
     emit changeCustomerTable();
     QPoint buffPoint = point;
@@ -214,7 +214,7 @@ void MainWindow::openContextualMenuTable(const QPoint point) {
 
 void MainWindow::openContextualMenuTree(const QPoint point)
 {
-    QMenu* menu = new CustomerContextualMenu(this);
+    QMenu* menu = new Gui::Widgets::CustomerContextualMenu(this);
 
     emit changeTree();
     QPoint buffPoint = point;

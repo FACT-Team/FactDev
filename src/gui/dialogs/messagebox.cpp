@@ -1,6 +1,8 @@
 #include "messagebox.h"
 #include "ui_messagebox.h"
 
+namespace Gui {
+namespace Dialogs {
 MessageBox::MessageBox(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MessageBox)
@@ -87,3 +89,5 @@ void MessageBox::setText(QString txt) {
     ui->lbText->setText(txt);
 }
 
+}
+}

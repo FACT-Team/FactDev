@@ -23,7 +23,7 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     _quote->setId(id);
     _quote->setIsBilling(false);
 
-    ui->wdgContributories = new ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
+    ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
     emit ui->leQuoteTitle->textChanged("");
@@ -45,7 +45,7 @@ void AddQuoteDialog::accept() {
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
 
-    for(Contributory c : ((ContributoriesWidget*)ui->wdgContributories)->getContributories()) {
+    for(Contributory c : ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()) {
         _quote->addContributory(c);
     }
     _quote->commit();
@@ -58,7 +58,7 @@ void AddQuoteDialog::reject() {
 
 void AddQuoteDialog::updateBtn() {
     ui->btnSave->setEnabled(
-                ((ContributoriesWidget*)ui->wdgContributories)->count() > 0
+                ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->count() > 0
                 && ui->leQuoteTitle->isValid());
 }
 }

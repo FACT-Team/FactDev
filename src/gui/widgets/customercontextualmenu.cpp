@@ -1,5 +1,7 @@
 #include "customercontextualmenu.h"
 
+namespace Gui {
+namespace Widgets {
 CustomerContextualMenu::CustomerContextualMenu(QWidget* widget)  :QMenu(widget)
 {
     QIcon icon;
@@ -38,4 +40,5 @@ CustomerContextualMenu::~CustomerContextualMenu()
     delete _editAction;
     delete _removeAction;
 }
-
+}
+}

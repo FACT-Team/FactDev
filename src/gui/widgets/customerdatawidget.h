@@ -13,6 +13,8 @@ namespace Ui {
 class CustomerDataWidget;
 }
 
+namespace Gui {
+namespace Widgets {
 /**
  * @brief Class for display info of a customer
  * @author Cédric Rohaut
@@ -39,5 +41,6 @@ private:
     inline void setLabel(QLabel *lbValue, QString s, QLabel* lbLabel=0);
     Ui::CustomerDataWidget *ui;
 };
-
+}
+}
 #endif // CUSTOMERDATAWIDGET_H

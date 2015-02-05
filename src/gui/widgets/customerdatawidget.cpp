@@ -1,6 +1,8 @@
 #include "customerdatawidget.h"
 #include "ui_customerdatawidget.h"
 
+namespace Gui {
+namespace Widgets {
 CustomerDataWidget::CustomerDataWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CustomerDataWidget)
@@ -64,4 +66,6 @@ void CustomerDataWidget::setLabel(QLabel* lbValue, QString s, QLabel* lbLabel)
         }
         lbValue->hide();
     }
+}
+}
 }

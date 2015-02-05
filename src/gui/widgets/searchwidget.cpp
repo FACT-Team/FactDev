@@ -1,5 +1,8 @@
 #include "searchwidget.h"
 #include "ui_searchwidget.h"
+
+namespace Gui {
+namespace Widgets {
 searchWidget::searchWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::searchWidget)
@@ -78,4 +81,6 @@ bool searchWidget::isCustomerSelected() const
 void searchWidget::selectCustomer(int id) {
     ui->tblSearch->selectRow(id);
     getCustomerData();
+}
+}
 }

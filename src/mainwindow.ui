@@ -150,7 +150,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="ProjectsWidget" name="widget" native="true">
+           <widget class="Gui::Widgets::ProjectsWidget" name="widget" native="true">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -446,7 +446,7 @@ border: 1px solid #bbb;</string>
     </property>
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="0" column="0">
-      <widget class="CustomerDataWidget" name="wdgCustomerData" native="true">
+      <widget class="Gui::Widgets::CustomerDataWidget" name="wdgCustomerData" native="true">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -515,7 +515,7 @@ border: 1px solid #bbb;</string>
    <widget class="QWidget" name="dockWidgetContents_4">
     <layout class="QGridLayout" name="gridLayout_7">
      <item row="0" column="0">
-      <widget class="CustomerDataWidget" name="wdgUserData" native="true">
+      <widget class="Gui::Widgets::CustomerDataWidget" name="wdgUserData" native="true">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -663,13 +663,13 @@ border: 1px solid #bbb;</string>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>CustomerDataWidget</class>
+   <class>Gui::Widgets::CustomerDataWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/customerdatawidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>ProjectsWidget</class>
+  <class>Gui::Widgets::ProjectsWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/projectswidget.h</header>
    <container>1</container>

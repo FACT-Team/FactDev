@@ -6,7 +6,8 @@
 namespace Ui {
 class MessageBox;
 }
-
+namespace Gui {
+namespace Dialogs {
 /**
  * @author Florent Berbie
  * @brief The MessageBox class Information window with message
@@ -70,5 +71,6 @@ public:
 private:
     Ui::MessageBox *ui;
 };
-
+}
+}
 #endif // MESSAGEBOX_H

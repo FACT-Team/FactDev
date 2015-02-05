@@ -12,6 +12,8 @@ namespace Ui {
 class ContributoriesWidget;
 }
 
+namespace Gui {
+namespace Widgets {
 class ContributoriesWidget : public QWidget
 {
     Q_OBJECT
@@ -43,5 +45,6 @@ private:
     Ui::ContributoriesWidget *ui;
     ContributoriesTableModel* _model;
 };
-
+}
+}
 #endif // CONTRIBUTORIESWIDGET_H

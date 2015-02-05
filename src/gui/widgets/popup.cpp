@@ -1,5 +1,6 @@
 #include "popup.h"
-
+namespace Gui {
+namespace Widgets {
 void Popup::toImplement(QString str, QWidget* w)
 {
     QMessageBox::critical
@@ -10,4 +11,6 @@ void Popup::toImplement(QString str, QWidget* w)
              "OK");
     Log::instance(WARNING) << "TODO Implement me" << str;
 
+}
+}
 }

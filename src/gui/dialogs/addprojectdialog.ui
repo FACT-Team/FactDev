@@ -43,7 +43,7 @@
     </widget>
    </item>
    <item row="4" column="0" colspan="2">
-    <widget class="RateWidget" name="wdgRate" native="true">
+    <widget class="Gui::Widgets::RateWidget" name="wdgRate" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -92,7 +92,7 @@
     </layout>
    </item>
    <item row="0" column="0" colspan="2">
-    <widget class="searchWidget" name="wdgSearch" native="true">
+    <widget class="Gui::Widgets::searchWidget" name="wdgSearch" native="true">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -115,7 +115,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CheckUntilField</class>
+   <class>Gui::Widgets::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>
@@ -123,13 +123,13 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>RateWidget</class>
+   <class>Gui::Widgets::RateWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/ratewidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>searchWidget</class>
+   <class>Gui::Widgets::searchWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/searchwidget.h</header>
    <container>1</container>

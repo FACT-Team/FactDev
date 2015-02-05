@@ -1,6 +1,8 @@
 #include "projectswidget.h"
 #include "ui_projectswidget.h"
 
+namespace Gui {
+namespace Widgets {
 ProjectsWidget::ProjectsWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ProjectsWidget)
@@ -24,4 +26,6 @@ void ProjectsWidget::editSelectedProject() {
 
 void ProjectsWidget::removeSelectedProject() {
     emit removeProject();
+}
+}
 }

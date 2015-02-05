@@ -14,7 +14,7 @@
 #include "gui/widgets/popup.h"
 #include "gui/widgets/customercontextualmenu.h"
 
-#include "gui/dialogs/messagebox/messagebox.h"
+#include "gui/dialogs/messagebox.h"
 #include "gui/dialogs/userdatadialog.h"
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "gui/dialogs/addprojectdialog.h"
