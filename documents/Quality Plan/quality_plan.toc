@@ -1,0 +1,22 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Description du Projet}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}Objet du projet}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Pr\IeC {\'e}sentation des Parties Prenantes}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Client: Antoine de Roquemaurel}{4}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Encadrant: F\IeC {\'e}d\IeC {\'e}ric Migeon}{4}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Responsable de l'UE Projet : Bernard Cherbonneau}{4}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Titulaire : \IeC {\'E}quipe FACT}{5}{subsection.1.2.4}
+\contentsline {section}{\numberline {1.3}Production}{5}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}M\IeC {\'e}thode de d\IeC {\'e}veloppement}{5}{subsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.1.1}D\IeC {\'e}finition et pertinence de la m\IeC {\'e}thode \textit {Scrum}}{5}{subsubsection.1.3.1.1}
+\contentsline {subsubsection}{\numberline {1.3.1.2}Application de la m\IeC {\'e}thode \textit {Scrum}{} et crit\IeC {\`e}res de qualit\IeC {\'e}}{6}{subsubsection.1.3.1.2}
+\contentsline {subsection}{\numberline {1.3.2}Organisation et r\IeC {\^o}les dans l'\IeC {\'e}quipe de d\IeC {\'e}veloppement}{7}{subsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.2.1}Scrum Master : Florent Berbie}{7}{subsubsection.1.3.2.1}
+\contentsline {subsubsection}{\numberline {1.3.2.2}Product owner : Antoine de Roquemaurel}{7}{subsubsection.1.3.2.2}
+\contentsline {subsubsection}{\numberline {1.3.2.3}\IeC {\'E}quipe de d\IeC {\'e}veloppement : Florent Berbie, Antoine de Roquemaurel, C\IeC {\'e}dric Rohaut, Andriamihary Razanajatovo}{7}{subsubsection.1.3.2.3}
+\contentsline {subsubsection}{\numberline {1.3.2.4}Directeur qualit\IeC {\'e} : C\IeC {\'e}dric Rohaut}{7}{subsubsection.1.3.2.4}
+\contentsline {subsubsection}{\numberline {1.3.2.5}Directeur documentation : Andriamihary Razanajatovo}{7}{subsubsection.1.3.2.5}
+\contentsline {subsubsection}{\numberline {1.3.2.6}Directeur technique Qt, C++ : Antoine de Roquemaurel}{8}{subsubsection.1.3.2.6}
+\contentsline {subsubsection}{\numberline {1.3.2.7}Autres r\IeC {\^o}les et responsabilit\IeC {\'e}s de chaque d\IeC {\'e}veloppeur et organisation/fonctionnement g\IeC {\'e}n\IeC {\'e}ral}{8}{subsubsection.1.3.2.7}
+\contentsline {chapter}{\numberline {A}Table des figures}{9}{appendix.A}
+\contentsline {chapter}{Index}{10}{appendix*.3}
