@@ -8,8 +8,9 @@
 
 #include <QMessageBox>
 
-#include "log.h"
+#include "utils/log.h"
 
+namespace Exceptions {
 /**
  * @author Antoine de Roquemaurel
  * @brief The DbException class for database exception : queries, db file, …
@@ -48,6 +49,6 @@ private:
 
     int _errorCode; //!<  Error code
 };
-
+}
 
 #endif // DbException_H

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProjectsWidget</class>
+ <widget class="QWidget" name="ProjectsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>52</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="2">
+    <widget class="QPushButton" name="btnEditProject">
+     <property name="text">
+      <string>Modifier Projet</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../icons.qrc">
+       <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QPushButton" name="btnCreateProject">
+     <property name="toolTip">
+      <string>Créer un nouveau projet</string>
+     </property>
+     <property name="text">
+      <string>Nouveau Projet</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../icons.qrc">
+       <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="btnDeleteProject">
+     <property name="text">
+      <string>Supprimer Projet</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../icons.qrc">
+       <normaloff>:/icons/img/256/remove_project.png</normaloff>:/icons/img/256/remove_project.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnCreateProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>252</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>321</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDeleteProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>removeSelectedProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>309</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnEditProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>editSelectedProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>347</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>405</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>newProject()</slot>
+  <slot>removeSelectedProject()</slot>
+  <slot>editSelectedProject()</slot>
+ </slots>
+</ui>

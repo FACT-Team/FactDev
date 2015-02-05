@@ -8,6 +8,7 @@
 #include "models/idatabasemodel.h"
 #include "models/customer.h"
 
+namespace Models {
 /**
  * @author Florent Berbie
  * @brief The Project class : Project linked to a Customer
@@ -136,5 +137,5 @@ private:
     double _dailyRate;      //!< Daily rate linked to this project
     QSharedPointer<Customer> _customer;    //!< Customer linked to this project
 };
-
+}
 #endif // PROJECT_H

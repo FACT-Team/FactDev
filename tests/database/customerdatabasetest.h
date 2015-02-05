@@ -5,6 +5,7 @@
 
 #include "models/customer.h"
 
+using namespace Models;
 class CustomerDatabaseTest : public QObject
 {
     Q_OBJECT

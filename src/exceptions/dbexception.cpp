@@ -1,11 +1,12 @@
 #include "dbexception.h"
 
+namespace Exceptions {
 DbException::DbException(const QString userError, const QString fctName,
     const QString logError, float errorCode)
 {
-    Log::instance(ERROR) <<
+    Utils::Log::instance(Utils::ERROR) <<
         "["+QString::number(errorCode)+"] Erreur dans la fonction " + fctName;
-    Log::instance(ERROR) << logError;
+    Utils::Log::instance(Utils::ERROR) << logError;
 
     _userError = "<span style=\"font-size:10pt\">"+userError+"</span>";
     _userError +=   "<br/><br/><span style=\"font-size:7.3pt\">"
@@ -20,4 +21,5 @@ DbException::DbException(const QString userError, const QString fctName,
 void DbException::popupMessage(QWidget* parent)
 {
     QMessageBox::critical(parent, "Erreur innatendue", _userError, "OK");
+}
 }

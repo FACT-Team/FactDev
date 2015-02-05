@@ -1,5 +1,7 @@
 #include "database/userdatabase.h"
 
+namespace Database {
+
 UserDatabase::UserDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }
@@ -15,10 +17,10 @@ UserDatabase* UserDatabase::instance()throw(DbException*) {
     return _instance;
 }
 
-User *UserDatabase::getUser(const int pId)
+Models::User *UserDatabase::getUser(const int pId)
 {
     QSqlQuery q;
-    User* user;
+    Models::User* user;
 
     q.prepare("SELECT * FROM User WHERE idUser = :pId");
     q.bindValue(":pId", pId);
@@ -32,7 +34,7 @@ User *UserDatabase::getUser(const int pId)
     }
 
     if(q.first()) {
-        user = new User();
+        user = new Models::User();
         user->setId(value(q, "idUser").toInt());
         user->setFirstname(value(q,"firstname").toString());
         user->setLastname(value(q,"lastname").toString());
@@ -52,7 +54,7 @@ User *UserDatabase::getUser(const int pId)
     return user;
 }
 
-void UserDatabase::updateUser(const User& pUser) {
+void UserDatabase::updateUser(const Models::User& pUser) {
     QSqlQuery q;
     q.prepare(
                 "UPDATE User SET "
@@ -83,4 +85,5 @@ void UserDatabase::updateUser(const User& pUser) {
                     lastError(q),
                     1.4);
     }
+}
 }

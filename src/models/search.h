@@ -3,6 +3,7 @@
 
 #include <QString>
 
+namespace Models {
 /**
  * @author Antoine de Roquemaurel
  * @brief The Search class
@@ -75,5 +76,5 @@ private:
     bool _groupFilter;              //!< filter of serach actived
     QString _text;                  //!< Text involved in the sql query
 };
-
+}
 #endif // SEARCH_H

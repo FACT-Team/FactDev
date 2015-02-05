@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "log.h"
+using namespace Utils;
+
+namespace Gui {
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -131,7 +133,7 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 void MainWindow::updateTableBillings(const int idProject)
 {
     ui->tblQuotes->setModel(
-                BillingDatabase::instance()->getBillingsTable(idProject));
+                Database::BillingDatabase::instance()->getBillingsTable(idProject));
     ui->lblQuotes->setText("<b>Devis du projet: "+getCurrentProjectName()+"</b>");
     ui->tblQuotes->hideColumn(0);
     ui->tblQuotes->hideColumn(3);
@@ -148,7 +150,7 @@ void MainWindow::addQuote()
         updateTableBillings(getCurrentProjectId());
 
     } else {
-        Popup *p = new Popup();
+        Gui::Widgets::Popup *p = new Gui::Widgets::Popup();
         p->toImplement("\nVeuillez sélectionner un client", this);
     }
 }
@@ -201,7 +203,7 @@ void MainWindow::search(QString text)
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point) {
-    QMenu* menu = new CustomerContextualMenu(this);
+    QMenu* menu = new Gui::Widgets::CustomerContextualMenu(this);
 
     emit changeCustomerTable();
     QPoint buffPoint = point;
@@ -212,7 +214,7 @@ void MainWindow::openContextualMenuTable(const QPoint point) {
 
 void MainWindow::openContextualMenuTree(const QPoint point)
 {
-    QMenu* menu = new CustomerContextualMenu(this);
+    QMenu* menu = new Gui::Widgets::CustomerContextualMenu(this);
 
     emit changeTree();
     QPoint buffPoint = point;
@@ -224,7 +226,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
-                CustomerDatabase::instance()->getCustomersTable(filter));
+                Database::CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 200);
@@ -240,14 +242,14 @@ void MainWindow::updateTableProjects(const int pId)
     if(pId != 0) {
         lastId = pId;
     }
-    ui->tblProjects->setModel(ProjectDatabase::instance()->getProjectsTable(lastId));
+    ui->tblProjects->setModel(Database::ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
 }
 
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
-                CustomerDatabase::instance()->getCustomersTree(filter));
+                Database::CustomerDatabase::instance()->getCustomersTree(filter));
     ui->trCustomers->header()->close();
 }
 
@@ -401,4 +403,5 @@ void MainWindow::updateBtn()
     ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() != -1);
     ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
     ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
+}
 }

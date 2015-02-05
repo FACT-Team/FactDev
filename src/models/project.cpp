@@ -1,7 +1,9 @@
 #include "project.h"
 
 #include "database/projectdatabase.h"
+using namespace Database;
 
+namespace Models {
 const double Project::LEGAL_RATE = 9.61;
 const int Project::NB_DAILY_HOURS = 7;
 
@@ -115,6 +117,4 @@ void Project::setCustomer(QSharedPointer<Customer> customer)
     _customer = customer;
 }
 
-
-
-
+}

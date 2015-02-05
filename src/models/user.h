@@ -4,8 +4,9 @@
 
 #include "models/idatabasemodel.h"
 
-#include "log.h"
+#include "utils/log.h"
 
+namespace Models {
 /**
  * @author Florent Berbie
  * @brief The User class <b>User</b> of it application
@@ -182,5 +183,5 @@ private:
     QString _phone;         //!< Number of desktop phone
     QString _noSiret;       //!<  SIRET number (company registration number)
 };
-
+}
 #endif // USER_H

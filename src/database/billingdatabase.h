@@ -3,9 +3,13 @@
 
 #include "models/billing.h"
 #include "database.h"
-#include "log.h"
-#include "utils.h"
+#include "utils/log.h"
+#include "utils/string.h"
 
+using namespace Exceptions;
+using namespace Utils;
+
+namespace Database {
 /**
  * @author Cédric Rohaut @Oxynos
  * @brief The <b>BillingDatabase</b> class Billing (or Quote) table database
@@ -29,7 +33,7 @@ public:
      * @param pId billing id
      * @return the Billing
      */
-    Billing *getBilling(const int pId);
+    Models::Billing *getBilling(const int pId);
 
     /**
      * @brief BillingDatabase::getBillingsTable Return an item model of billings
@@ -45,13 +49,13 @@ public:
      * the database
      * @return billing id
      */
-    int addBilling(const Billing&);
+    int addBilling(const Models::Billing&);
 
     /**
      * @brief BillingDatabase::updateCustomer Update informations about the
      * billing <i>pCustomer</i>
      */
-    void updateBilling(const Billing&);
+    void updateBilling(const Models::Billing&);
 
     /**
      * @brief BillingDatabase::removeCustomer Remove the billing with the id
@@ -87,7 +91,6 @@ private:
      * @brief <b>BillingDatabase</b> is a singleton
      */
     BillingDatabase() throw(DbException*) ;
-
 };
-
+}
 #endif // BILLINGDATABASE_H

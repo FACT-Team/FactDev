@@ -5,6 +5,7 @@
 
 #include "models/billing.h"
 
+using namespace Models;
 class BillingDatabaseTest : public QObject
 {
     Q_OBJECT
@@ -18,8 +19,11 @@ private slots:
      void selectBillingNotFound();
      void selectBillingFound();
 private:
-     Billing b1;
+     Billing* b1;
      int _lastInsert;
+
+
+     void setup();
 };
 
 DECLARE_TEST(BillingDatabaseTest)

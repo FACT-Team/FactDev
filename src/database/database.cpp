@@ -1,6 +1,6 @@
 #include "database/database.h"
 
-
+namespace Database {
 // SINGLETON
 Database* Database::_instance = 0;
 bool Database::_dbInstance = 0;
@@ -182,3 +182,4 @@ QVariant Database::value(const QSqlQuery& q, const QString& champ) {
     return q.value(champ);
 }
 
+}

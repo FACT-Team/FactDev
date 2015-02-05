@@ -16,7 +16,7 @@ CONFIG += c++11
 
 
 SOURCES += mainwindow.cpp \
-        log.cpp\
+        utils/log.cpp\
         # Database files
         database/database.cpp \
         # Exceptions
@@ -24,47 +24,47 @@ SOURCES += mainwindow.cpp \
         parameters.cpp \
         database/customerdatabase.cpp \
         database/userdatabase.cpp \
-        dialogs/dialogaddcustomer.cpp \
+        gui/dialogs/dialogaddcustomer.cpp \
         models/customer.cpp \
     models/project.cpp \
     models/billing.cpp \
     models/contributory.cpp \
     models/user.cpp \
-    dialogs/userdatadialog.cpp \
-    widgets/customercontextualmenu.cpp \
+    gui/dialogs/userdatadialog.cpp \
+    gui/widgets/customercontextualmenu.cpp \
     models/search.cpp \
-    widgets/popup.cpp \
-    dialogs/addprojectdialog.cpp \
-    widgets/ratewidget.cpp \
+    gui/widgets/popup.cpp \
+    gui/dialogs/addprojectdialog.cpp \
+    gui/widgets/ratewidget.cpp \
     database/projectdatabase.cpp \
-    dialogs/addcontributorydialog.cpp \
-    widgets/comboboxmodelwidget.cpp\
-    utils.cpp \
-    widgets/searchwidget.cpp \
-    widgets/customerdatawidget.cpp \
-    widgets/projectswidget.cpp \
-    dialogs/addquotedialog.cpp \
-    widgets/checkfields/checkqlineedit.cpp \
-    widgets/checkfields/checkemail.cpp \
-    widgets/checkfields/checkphone.cpp \
-    widgets/checkfields/checkpostalcode.cpp \
-    widgets/checkfields/checkcity.cpp \
-    widgets/checkfields/checkcountry.cpp \
-    widgets/checkfields/checkname.cpp \
-    widgets/checkfields/checksiretnumber.cpp \
-    widgets/checkfields/checkuntilfield.cpp \
-    widgets/checkfields/checkvalidfield.cpp \
-    widgets/checkfields/checkfieldsletters.cpp \
-    widgets/contributorieswidget.cpp \
-    widgets/widgetsmodels/contributoriestablemodel.cpp \
-    widgets/delegates/projectcombodelegate.cpp \
+    gui/dialogs/addcontributorydialog.cpp \
+    gui/widgets/comboboxmodelwidget.cpp\
+    utils/string.cpp \
+    gui/widgets/searchwidget.cpp \
+    gui/widgets/customerdatawidget.cpp \
+    gui/widgets/projectswidget.cpp \
+    gui/dialogs/addquotedialog.cpp \
+    gui/widgets/checkfields/checkqlineedit.cpp \
+    gui/widgets/checkfields/checkemail.cpp \
+    gui/widgets/checkfields/checkphone.cpp \
+    gui/widgets/checkfields/checkpostalcode.cpp \
+    gui/widgets/checkfields/checkcity.cpp \
+    gui/widgets/checkfields/checkcountry.cpp \
+    gui/widgets/checkfields/checkname.cpp \
+    gui/widgets/checkfields/checksiretnumber.cpp \
+    gui/widgets/checkfields/checkuntilfield.cpp \
+    gui/widgets/checkfields/checkvalidfield.cpp \
+    gui/widgets/checkfields/checkfieldsletters.cpp \
+    gui/widgets/contributorieswidget.cpp \
+    gui/widgets/widgetsmodels/contributoriestablemodel.cpp \
+    gui/widgets/delegates/projectcombodelegate.cpp \
     database/billingdatabase.cpp \
     database/contributorydatabase.cpp \
-    itemtype.cpp \
-    dialogs/messagebox/messagebox.cpp
+    utils/itemtype.cpp \
+    gui/dialogs/messagebox.cpp
 
 HEADERS  += mainwindow.h \
-        log.h\
+        utils/log.h\
         # Database files
         database/database.h \
         #Exceptions
@@ -73,60 +73,60 @@ HEADERS  += mainwindow.h \
         database/customerdatabase.h \
         database/userdatabase.h \
         models/customer.h \
-        dialogs/dialogaddcustomer.h \
+        gui/dialogs/dialogaddcustomer.h \
     models/project.h \
     models/idatabasemodel.h \
     models/billing.h \
     models/contributory.h \
     database/userdatabase.h \
     models/user.h \
-    dialogs/userdatadialog.h \
-    widgets/customercontextualmenu.h \
+    gui/dialogs/userdatadialog.h \
+    gui/widgets/customercontextualmenu.h \
     models/search.h \
-    widgets/popup.h \
-    dialogs/addprojectdialog.h \
-    widgets/ratewidget.h \
+    gui/widgets/popup.h \
+    gui/dialogs/addprojectdialog.h \
+    gui/widgets/ratewidget.h \
     database/projectdatabase.h \
-    dialogs/addcontributorydialog.h \
-    widgets/comboboxmodelwidget.h \
-    utils.h \
-    widgets/searchwidget.h \
-    widgets/customerdatawidget.h \
-    widgets/projectswidget.h \
-    dialogs/addquotedialog.h \
-    widgets/checkfields/checkqlineedit.h \
-    widgets/checkfields/checkemail.h \
-    widgets/checkfields/checkphone.h \
-    widgets/checkfields/checkpostalcode.h \
-    widgets/checkfields/checkcity.h \
-    widgets/checkfields/checkcountry.h \
-    widgets/checkfields/checkname.h \
-    widgets/checkfields/checksiretnumber.h \
-    widgets/checkfields/checkuntilfield.h \
-    widgets/checkfields/checkvalidfield.h \
-    widgets/checkfields/checkfieldsletters.h \
-    widgets/contributorieswidget.h \
-    widgets/widgetsmodels/contributoriestablemodel.h \
-    widgets/delegates/projectcombodelegate.h \
+    gui/dialogs/addcontributorydialog.h \
+    gui/widgets/comboboxmodelwidget.h \
+    utils/string.h \
+    gui/widgets/searchwidget.h \
+    gui/widgets/customerdatawidget.h \
+    gui/widgets/projectswidget.h \
+    gui/dialogs/addquotedialog.h \
+    gui/widgets/checkfields/checkqlineedit.h \
+    gui/widgets/checkfields/checkemail.h \
+    gui/widgets/checkfields/checkphone.h \
+    gui/widgets/checkfields/checkpostalcode.h \
+    gui/widgets/checkfields/checkcity.h \
+    gui/widgets/checkfields/checkcountry.h \
+    gui/widgets/checkfields/checkname.h \
+    gui/widgets/checkfields/checksiretnumber.h \
+    gui/widgets/checkfields/checkuntilfield.h \
+    gui/widgets/checkfields/checkvalidfield.h \
+    gui/widgets/checkfields/checkfieldsletters.h \
+    gui/widgets/contributorieswidget.h \
+    gui/widgets/widgetsmodels/contributoriestablemodel.h \
+    gui/widgets/delegates/projectcombodelegate.h \
     database/billingdatabase.h \
     database/contributorydatabase.h \
-    itemtype.h \
-    dialogs/messagebox/messagebox.h \
-    widgets/checkfields/icheckfield.h
+    utils/itemtype.h \
+    gui/dialogs/messagebox.h \
+    gui/widgets/checkfields/icheckfield.h
 
 FORMS    += mainwindow.ui \
-        dialogs/dialogaddcustomer.ui \
-    dialogs/userdatadialog.ui \
-    dialogs/addprojectdialog.ui \
-    widgets/ratewidget.ui \
-    dialogs/addcontributorydialog.ui \
-    widgets/comboboxmodelwidget.ui \
-    widgets/searchwidget.ui \
-    widgets/customerdatawidget.ui \
-    widgets/projectswidget.ui \
-    dialogs/addquotedialog.ui \
-    widgets/contributorieswidget.ui \
-    dialogs/messagebox/messagebox.ui
+        gui/dialogs/dialogaddcustomer.ui \
+    gui/dialogs/userdatadialog.ui \
+    gui/dialogs/addprojectdialog.ui \
+    gui/widgets/ratewidget.ui \
+    gui/dialogs/addcontributorydialog.ui \
+    gui/widgets/comboboxmodelwidget.ui \
+    gui/widgets/searchwidget.ui \
+    gui/widgets/customerdatawidget.ui \
+    gui/widgets/projectswidget.ui \
+    gui/dialogs/addquotedialog.ui \
+    gui/widgets/contributorieswidget.ui \
+    gui/dialogs/messagebox.ui
 
 RESOURCES += \
     icons.qrc
@@ -139,7 +139,8 @@ OTHER_FILES += \
     sql/tests/billings.sql \
     sql/tests/billingsprojects.sql \
     sql/tests/contributories.sql \
-    sql/tests/projects.sql
+    sql/tests/projects.sql \
+    main.dox
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql

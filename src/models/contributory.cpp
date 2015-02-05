@@ -1,7 +1,9 @@
 #include "contributory.h"
 
 #include "database/contributorydatabase.h"
+using namespace Database;
 
+namespace Models {
 Contributory::Contributory()
 {
     _description = "";
@@ -75,5 +77,5 @@ void Contributory::setDescription(const QString &description)
 {
     _description = description;
 }
-
+}
 

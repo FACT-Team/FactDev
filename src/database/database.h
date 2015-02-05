@@ -16,9 +16,16 @@
 #include <exception>
 
 #include "exceptions/dbexception.h"
-#include "log.h"
+#include "utils/log.h"
 #include "parameters.h"
 
+using namespace Exceptions;
+using namespace Utils;
+
+/**
+ * @brief Class for Database, contains queries
+ */
+namespace Database {
 /**
  * @author Antoine de Roquemaurel
  * @brief The <b>Database</b> class Master class for all database access
@@ -118,5 +125,5 @@ protected:
 
 
 };
-
+}
 #endif // Database_H

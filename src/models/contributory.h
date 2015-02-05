@@ -3,6 +3,7 @@
 #include "models/project.h"
 #include "models/idatabasemodel.h"
 
+namespace Models {
 /**
  * @author
  * @brief The Contributory class
@@ -87,5 +88,5 @@ private:
     double _nbHours; //!< Nb of work hours of this contribution
     QString _description; //!< Description
 };
-
+}
 #endif // CONTRIBUTORY_H

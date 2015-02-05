@@ -1,5 +1,6 @@
 #include "database/customerdatabase.h"
 
+namespace Database {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }
@@ -54,10 +55,10 @@ throw(DbException*)
 
         ligne << new QStandardItem(value(q, "idCustomer").toString());
         ligne << new QStandardItem(
-                     Utils::firstLetterToUpper(value(q,"company").toString()));
+                     Utils::String::firstLetterToUpper(value(q,"company").toString()));
         ligne << new QStandardItem(
                      value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(Utils::firstLetterToUpper(
+        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
                                        value(q, "firstNameReferent").toString()));
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
@@ -98,10 +99,10 @@ throw(DbException*)
             item = new QStandardItem(
                         value(q, "lastnameReferent").toString().toUpper()
                         + " "
-                        +Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
+                        +Utils::String::firstLetterToUpper(value(q,"firstnameReferent").toString()));
         } else {
             item = new
-                QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
+                QStandardItem(Utils::String::firstLetterToUpper(value(q,"company").toString()));
         }
 
         item->setIcon(QIcon(":icons/customer"));
@@ -134,9 +135,9 @@ throw(DbException*)
     return retour;
 }
 
-QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
+QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
-    QSharedPointer<Customer> customer;
+    QSharedPointer<Models::Customer> customer;
 
     q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -150,7 +151,7 @@ QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
     }
 
     if(q.first()) {
-        customer = QSharedPointer<Customer>(new Customer());
+        customer = QSharedPointer<Models::Customer>(new Models::Customer());
         customer->setId(value(q, "idCustomer").toInt());
         customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
         customer->setLastnameReferent(value(q,"lastnameReferent").toString());
@@ -169,7 +170,7 @@ QSharedPointer<Customer> CustomerDatabase::getCustomer(const int pId) {
 }
 
 
-int CustomerDatabase::addCustomer(const Customer& pCustomer) {
+int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
     QSqlQuery q;
 
     q.prepare(
@@ -204,8 +205,7 @@ int CustomerDatabase::addCustomer(const Customer& pCustomer) {
     return q.lastInsertId().toInt();
 }
 
-void CustomerDatabase::updateCustomer(const Customer &pCustomer) {
-
+void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
     QSqlQuery q;
     q.prepare(
                 "UPDATE Customer SET "
@@ -276,4 +276,4 @@ int CustomerDatabase::getNbCustomers() {
 
     return value(q, "nb_p").toInt();
 }
-
+}

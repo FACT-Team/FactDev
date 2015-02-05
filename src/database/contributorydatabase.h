@@ -6,8 +6,13 @@
 
 #include "models/contributory.h"
 
-#include "log.h"
-#include "utils.h"
+#include "utils/log.h"
+#include "utils/string.h"
+
+using namespace Exceptions;
+using namespace Utils;
+
+namespace Database {
 
 /**
  * @author Cédric Rohaut @Oxynos
@@ -32,22 +37,22 @@ public:
      * @param idContributory Contributory id
      * @return the Contributory
      */
-    Contributory *getContributory(const int idContributory);
+    Models::Contributory *getContributory(const int idContributory);
 
-    QMap<Project *, QList<Contributory> > getContributoriesByBilling(const int idBilling);
+    QMap<Models::Project *, QList<Models::Contributory> > getContributoriesByBilling(const int idBilling);
 
     /**
      * @brief ContributoryDatabase::addContributory Add the Contributory <i>pContributory</i> to
      * the database
      * @return Contributory id
      */
-    int addContributory(const Contributory&);
+    int addContributory(const Models::Contributory&);
 
     /**
      * @brief ContributoryDatabase::updateCustomer Update informations about the
      * Contributory <i>pCustomer</i>
      */
-    void updateContributory(const Contributory&);
+    void updateContributory(const Models::Contributory&);
 
     /**
      * @brief ContributoryDatabase::removeCustomer Remove the Contributory with the id
@@ -61,7 +66,7 @@ public:
      * @param q The query to use
      * @return The contributory linked to q
      */
-    Contributory *getContributory(QSqlQuery &q);
+    Models::Contributory *getContributory(QSqlQuery &q);
 
 private:
     static ContributoryDatabase* _instance;  //!< Singleton instance of ContributoryDatabase
@@ -72,5 +77,5 @@ private:
     ContributoryDatabase() throw(DbException*) ;
 
 };
-
+}
 #endif // CONTRIBUTORYDATABASE_H

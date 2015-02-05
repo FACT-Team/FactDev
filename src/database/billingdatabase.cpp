@@ -1,5 +1,7 @@
 #include "database/billingdatabase.h"
 
+namespace Database {
+
 BillingDatabase::BillingDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }
@@ -16,9 +18,9 @@ BillingDatabase* BillingDatabase::instance()throw(DbException*)
     return _instance;
 }
 
-Billing* BillingDatabase::getBilling(const int pId) {
+Models::Billing* BillingDatabase::getBilling(const int pId) {
     QSqlQuery q;
-    Billing* billing;
+    Models::Billing* billing;
     q.prepare("SELECT * FROM Billing WHERE idBilling = :pId");
     q.bindValue(":pId", pId);
 
@@ -31,7 +33,7 @@ Billing* BillingDatabase::getBilling(const int pId) {
     }
 
     if(q.first()) {
-        billing = new Billing();
+        billing = new Models::Billing();
         billing->setId(value(q, "idBilling").toInt());
         billing->setTitle(value(q, "title").toString());
         billing->setDescription(value(q,"description").toString());
@@ -95,7 +97,7 @@ throw(DbException*)
 }
 
 
-int BillingDatabase::addBilling(const Billing& pBilling) {
+int BillingDatabase::addBilling(const Models::Billing& pBilling) {
     QSqlQuery q;
 
     q.prepare(
@@ -141,7 +143,7 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
 
 }
 
-void BillingDatabase::updateBilling(const Billing& pBilling)
+void BillingDatabase::updateBilling(const Models::Billing& pBilling)
 {
     Log::instance(ERROR) << "TODO implement ContributoryDatabase::updateBilling. Parameter: " << QString::number(pBilling.getId());
 }
@@ -180,3 +182,4 @@ int BillingDatabase::getMaxQuoteNuber()
     return value(q, "max").toInt();
 }
 
+}

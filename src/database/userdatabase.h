@@ -5,6 +5,8 @@
 #include "exceptions/dbexception.h"
 #include "models/user.h"
 
+namespace Database {
+
 /**
  * @author Florent Berbie
  * @brief The UserDatabase class Access to User data in the the table User of
@@ -39,13 +41,13 @@ public:
      * @param pId user id (1 default)     * 
      * @return the user
      */
-    User *getUser(const int pId=1);
+    Models::User *getUser(const int pId=1);
 
     /**
      * @brief updateUser Update informations about the user
      */
-    void updateUser(const User&);
+    void updateUser(const Models::User&);
 
 };
-
+}
 #endif // USERDATABASE_H
