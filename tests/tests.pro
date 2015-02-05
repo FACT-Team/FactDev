@@ -19,7 +19,8 @@ database/customerdatabasetest.h \
     models/searchtest.h \
     database/billingdatabasetest.h \
     models/billingmodeltest.h \
-    database/contributoriesdatabasetest.h
+    database/contributoriesdatabasetest.h \
+    generation.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -30,6 +31,7 @@ database/customerdatabasetest.cpp \
     models/searchtest.cpp \
     database/billingdatabasetest.cpp \
     models/billingmodeltest.cpp \
-    database/contributoriesdatabasetest.cpp
+    database/contributoriesdatabasetest.cpp \
+    generation.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp

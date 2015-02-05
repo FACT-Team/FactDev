@@ -61,7 +61,8 @@ SOURCES += mainwindow.cpp \
     database/billingdatabase.cpp \
     database/contributorydatabase.cpp \
     utils/itemtype.cpp \
-    gui/dialogs/messagebox.cpp
+    gui/dialogs/messagebox.cpp \
+    libs/qt-mustache/src/mustache.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -112,7 +113,8 @@ HEADERS  += mainwindow.h \
     database/contributorydatabase.h \
     utils/itemtype.h \
     gui/dialogs/messagebox.h \
-    gui/widgets/checkfields/icheckfield.h
+    gui/widgets/checkfields/icheckfield.h \
+    libs/qt-mustache/src/mustache.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

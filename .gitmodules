@@ -7,3 +7,6 @@
 [submodule "fact-team.github.io"]
 	path = fact-team.github.io
 	url = git@github.com:FACT-Team/fact-team.github.io.git
+[submodule "src/libs/qt-mustache"]
+	path = src/libs/qt-mustache
+	url = https://github.com/robertknight/qt-mustache.git
