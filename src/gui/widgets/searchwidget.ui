@@ -64,7 +64,7 @@
   <customwidget>
    <class>CheckName</class>
    <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkname.h</header>
+   <header>gui/widgets/checkfields/checkname.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

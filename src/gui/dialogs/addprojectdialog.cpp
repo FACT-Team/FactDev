@@ -1,5 +1,8 @@
-#include "dialogs/addprojectdialog.h"
+#include "gui/dialogs/addprojectdialog.h"
 #include "ui_addprojectdialog.h"
+
+namespace Gui {
+namespace Dialogs {
 
 AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
     QDialog(parent),
@@ -69,4 +72,6 @@ void AddProjectDialog::checkFields()
 {
     ui->btnValid->setEnabled(ui->leNameProject->isValid()
                             && ui->wdgSearch->isCustomerSelected());
+}
+}
 }

@@ -95,214 +95,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>BillingDatabase</name>
-    <filename>d0/dad/classBillingDatabase.html</filename>
-    <base>Database</base>
-    <member kind="function">
-      <type>Models::Billing *</type>
-      <name>getBilling</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a5c1d5b79e690df9b63a053e60626cf36</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>QStandardItemModel *</type>
-      <name>getBillingsTable</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>aec74e952e83d47332a5e07109588faa9</anchor>
-      <arglist>(const int idProject)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addBilling</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a2b99c012790171e9ea025fc2b60cc42c</anchor>
-      <arglist>(const Models::Billing &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateBilling</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a6d69e6294120f618c3d20b5dd1e1b8a1</anchor>
-      <arglist>(const Models::Billing &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeBilling</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a82e2c5503dc9b47a42bd592efece5532</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addBillingProject</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>ac8a618d0c2420f8db417c65fcdbc85c6</anchor>
-      <arglist>(const int idProject, const int idBilling, const int idContributory)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getMaxBillingNumber</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a342ccaed3192fadc91a15468a7d3d565</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getMaxQuoteNuber</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>adc3351f464ec63e15ba663ba4fb24f8f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>lastError</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a17465cc3fe0a8b853f96599e0584cc84</anchor>
-      <arglist>(const QSqlQuery &amp;q)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>testCases</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a702ce00658c10518d2ddbbd234a0c67d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>cleanDatabase</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a6c7ca19f0107fdad000c268fc2b14ac0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>executeFile</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a06216acb010c0ea93ac2a53aa46256c2</anchor>
-      <arglist>(QString pName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>openTransaction</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>ace56e75784477e79197485e9b5980804</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>closeTransaction</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a8322990bcba006d0d82ac069ad6e0307</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>close</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>ab89cb07242f0ab1d4058974bf3e7cf19</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>open</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a0d0134e05c8f2dc4fcbbb2f36c02a779</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Database</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a84d399a2ad58d69daab9b05330e1316d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDatabase</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a8b03d7f4a92325b9e519fd3f8a2e245c</anchor>
-      <arglist>(QSqlDatabase sql)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>createDatabase</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a2dc260583a49889bed8097e21953594e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static BillingDatabase *</type>
-      <name>instance</name>
-      <anchorfile>d0/dad/classBillingDatabase.html</anchorfile>
-      <anchor>a80a2bc546d92863a8b54786cfd832189</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static Database *</type>
-      <name>instance</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>aa334760d1e18f82a344fb696547bfa5c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type></type>
-      <name>Database</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a4703c80e6969d33565ea340f768fdadf</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>QVariant</type>
-      <name>value</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a88f0ccd102fc421fb10ddad0fd94e8c1</anchor>
-      <arglist>(const QSqlQuery &amp;q, const QString &amp;champ)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>QSettings *</type>
-      <name>_settings</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a6cde413cb6d644c835406c09ec37947e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>QSqlDatabase</type>
-      <name>mDatabase</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a64b9dbb3a5e6f42447a24caf726782e1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>QList&lt; Database * &gt;</type>
-      <name>_instances</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a9202583fae82c7f4ecbda6cb11b978c8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static Database *</type>
-      <name>_instance</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a4f435119a26cf1b0b8cca652a74c70b7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static bool</type>
-      <name>_dbInstance</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a923366369d404e62e9e77111d7c21bab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected" static="yes">
-      <type>static bool</type>
-      <name>isOpen</name>
-      <anchorfile>de/d03/classDatabase.html</anchorfile>
-      <anchor>a8ed9b8afac7134aa48e40c48780b240f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>BillingDatabaseTest</name>
     <filename>d1/db1/classBillingDatabaseTest.html</filename>
   </compound>
@@ -683,53 +475,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>ContributoryDatabase</name>
-    <filename>d6/d06/classContributoryDatabase.html</filename>
-    <base>Database</base>
-    <member kind="function">
-      <type>Models::Contributory *</type>
-      <name>getContributory</name>
-      <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>a43d608f537112b55a920456f7b9e4a3b</anchor>
-      <arglist>(const int idContributory)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addContributory</name>
-      <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>a9110546efa166d4d6c4703033328c368</anchor>
-      <arglist>(const Models::Contributory &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateContributory</name>
-      <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>a5a202aded20ab3e90a89548203fddbb2</anchor>
-      <arglist>(const Models::Contributory &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeContributory</name>
-      <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>afe934900e66553cb58e49ebf03a7d7a4</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>Models::Contributory *</type>
-      <name>getContributory</name>
-      <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>a1c270940416109dca85ba246f5215142</anchor>
-      <arglist>(QSqlQuery &amp;q)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static ContributoryDatabase *</type>
-      <name>instance</name>
-      <anchorfile>d6/d06/classContributoryDatabase.html</anchorfile>
-      <anchor>ac58610f75d4f51fa12c3e08cab1e4404</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>CustomerContextualMenu</name>
     <filename>d5/db9/classCustomerContextualMenu.html</filename>
     <member kind="function">
@@ -744,67 +489,6 @@
       <name>~CustomerContextualMenu</name>
       <anchorfile>d5/db9/classCustomerContextualMenu.html</anchorfile>
       <anchor>af3e43fde4d890830bfa33b948636faae</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>CustomerDatabase</name>
-    <filename>dc/d7c/classCustomerDatabase.html</filename>
-    <base>Database</base>
-    <member kind="function">
-      <type>QStandardItemModel *</type>
-      <name>getCustomersTable</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a2e25b4f197ccbdd2c5753558dbe18d4b</anchor>
-      <arglist>(QString filter=&quot;&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>QStandardItemModel *</type>
-      <name>getCustomersTree</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a0fc1ca7fe1020cef19b2423531c4e934</anchor>
-      <arglist>(QString filter=&quot;&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>QSharedPointer&lt; Models::Customer &gt;</type>
-      <name>getCustomer</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>ab6efaeabb32599dcccee6a94ee710402</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addCustomer</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>aa46198ba7cf2ebb51161572e171e7e9c</anchor>
-      <arglist>(const Models::Customer &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateCustomer</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a2e73d222f11beae089db0427a7c65f8e</anchor>
-      <arglist>(const Models::Customer &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeCustomer</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>aa1d21765bdf6319e580b3fcf20d841d1</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNbCustomers</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a1c60ecbaa2594426b522746c70beee19</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static CustomerDatabase *</type>
-      <name>instance</name>
-      <anchorfile>dc/d7c/classCustomerDatabase.html</anchorfile>
-      <anchor>a2b9546b1e5803c4055529d2a7f7df95e</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -833,10 +517,6 @@
   <compound kind="class">
     <name>CustomerModelTest</name>
     <filename>d5/dcd/classCustomerModelTest.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>Database</name>
-    <filename>de/d03/classDatabase.html</filename>
   </compound>
   <compound kind="class">
     <name>DbException</name>
@@ -1292,81 +972,6 @@
     <filename>d4/db0/classProjectComboDelegate.html</filename>
   </compound>
   <compound kind="class">
-    <name>ProjectDatabase</name>
-    <filename>d4/d8d/classProjectDatabase.html</filename>
-    <base>Database</base>
-    <member kind="function">
-      <type>Models::Project *</type>
-      <name>getProject</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a1200663abcfc669e5eb68c4355d73405</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addProject</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a0b35629c67cc0eb5d76823fd1ce9beaa</anchor>
-      <arglist>(const Models::Project &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateProject</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>ad57ce108679352e48b7138d6ee946326</anchor>
-      <arglist>(const Models::Project &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeProject</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a52f3c3b312c418568531eb4cd2ecf615</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNbProjects</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a48ab28fa18bc3f0371f8c17c5421a46e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNbProjectsForACustomer</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a3dbf2e270674727fc479d392c6609dec</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>QMap&lt; int, Models::Project &gt;</type>
-      <name>getProjectsOfCustomer</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a5aaef2623cdab7bbad9a5dbd98f97566</anchor>
-      <arglist>(QSharedPointer&lt; Models::Customer &gt; c)</arglist>
-    </member>
-    <member kind="function">
-      <type>QStandardItemModel *</type>
-      <name>getProjectsTable</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>af757914e88f67d9b62e4e762f8136048</anchor>
-      <arglist>(const int pId)</arglist>
-    </member>
-    <member kind="function">
-      <type>Models::Project *</type>
-      <name>getProject</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a8d3977e9b828772e4f2798598f94f984</anchor>
-      <arglist>(QSqlQuery &amp;q)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static ProjectDatabase *</type>
-      <name>instance</name>
-      <anchorfile>d4/d8d/classProjectDatabase.html</anchorfile>
-      <anchor>a06a93b599475687f19f66c7bbb921899</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ProjectsWidget</name>
     <filename>de/da7/classProjectsWidget.html</filename>
     <member kind="slot">
@@ -1543,39 +1148,6 @@
     <filename>db/d70/classTestRunner.html</filename>
   </compound>
   <compound kind="class">
-    <name>UserDatabase</name>
-    <filename>de/d47/classUserDatabase.html</filename>
-    <base>Database</base>
-    <member kind="function">
-      <type>QStandardItemModel *</type>
-      <name>getUserTable</name>
-      <anchorfile>de/d47/classUserDatabase.html</anchorfile>
-      <anchor>a6020d6686916f20b3e6a1a5fa5fa7978</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Models::User *</type>
-      <name>getUser</name>
-      <anchorfile>de/d47/classUserDatabase.html</anchorfile>
-      <anchor>aa88164bd2cda084c86d77d73a3d820e1</anchor>
-      <arglist>(const int pId=1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateUser</name>
-      <anchorfile>de/d47/classUserDatabase.html</anchorfile>
-      <anchor>a2d4981508ea96e6deb70d6bfd1360203</anchor>
-      <arglist>(const Models::User &amp;)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static UserDatabase *</type>
-      <name>instance</name>
-      <anchorfile>de/d47/classUserDatabase.html</anchorfile>
-      <anchor>aa1ce356d9f6f903c786e5f623dac90b6</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>UserDataDialog</name>
     <filename>de/d9c/classUserDataDialog.html</filename>
     <member kind="slot">
@@ -1623,6 +1195,444 @@
       <anchorfile>dc/dc5/classUtils.html</anchorfile>
       <anchor>a009b2a8ef00831aff87d2e46ca209398</anchor>
       <arglist>(QString s)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Database</name>
+    <filename>dc/d4f/namespaceDatabase.html</filename>
+    <class kind="class">Database::BillingDatabase</class>
+    <class kind="class">Database::ContributoryDatabase</class>
+    <class kind="class">Database::CustomerDatabase</class>
+    <class kind="class">Database::Database</class>
+    <class kind="class">Database::ProjectDatabase</class>
+    <class kind="class">Database::UserDatabase</class>
+  </compound>
+  <compound kind="class">
+    <name>Database::BillingDatabase</name>
+    <filename>d2/d86/classDatabase_1_1BillingDatabase.html</filename>
+    <base>Database::Database</base>
+    <member kind="function">
+      <type>Models::Billing *</type>
+      <name>getBilling</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>a3063746cff15d93c4f5f319d53381579</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItemModel *</type>
+      <name>getBillingsTable</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>a3d3aec676ed5f7862197cac63adb18e9</anchor>
+      <arglist>(const int idProject)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addBilling</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>aa08b3b4917eb6c447ef513e5aafff38f</anchor>
+      <arglist>(const Models::Billing &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateBilling</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>a59830561e9573ab3ce463e9dc1b68a0c</anchor>
+      <arglist>(const Models::Billing &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeBilling</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>af419d6b120523e9c67d5c89bcfcd44dd</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addBillingProject</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>a38514a0874d27551c67d56b9a7ec340e</anchor>
+      <arglist>(const int idProject, const int idBilling, const int idContributory)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMaxBillingNumber</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>ac00c08641d0f4cc0596430f8e888ee38</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getMaxQuoteNuber</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>ad9fe39d053a7f8686e1d94bc41eda03e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>lastError</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>aff2b9057350d618d9f126a0e6ac6be42</anchor>
+      <arglist>(const QSqlQuery &amp;q)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>testCases</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a77460984575eb485e3c6dcfc713e0e67</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>cleanDatabase</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a474fda5b2ee6cd1391f72ad5fe297ba5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>executeFile</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a8fa0ebf8b613b8c25f2485dee5c332f3</anchor>
+      <arglist>(QString pName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>openTransaction</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a657a65d7c085ef1b3fbc956d5c837ec0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>closeTransaction</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a7cb02c000e1bc3614aeda31ea6c13069</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>close</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>af4d88f98b0ce31369af5bbf4fd167664</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>open</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>aa12f5d991eb4d61ef0c6a0bc653f2580</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Database</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a52d0d890cef301f3dfb61121cf2c375b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setDatabase</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>acf027fd52b0669b1248cbb75e621c36a</anchor>
+      <arglist>(QSqlDatabase sql)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>createDatabase</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a4edb5ae1db1def878a728ce284d07871</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static BillingDatabase *</type>
+      <name>instance</name>
+      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
+      <anchor>a3ab4bd6cc25a186856aac757d6213aa0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Database *</type>
+      <name>instance</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a90cc546ea663945d6878c4babf10a9f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>Database</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a7c8f22f12dd131087a37f0b8222a3f63</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>QVariant</type>
+      <name>value</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>aeddc953300288d633881cf9bb6a4264e</anchor>
+      <arglist>(const QSqlQuery &amp;q, const QString &amp;champ)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>QSettings *</type>
+      <name>_settings</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a2b8055481c0231dab258d0446781a94d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>QSqlDatabase</type>
+      <name>mDatabase</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a6c63e366e01da448bc43c8a463c6eabd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>QList&lt; Database * &gt;</type>
+      <name>_instances</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>ac57a668c068a49b734c0407235848f54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static Database *</type>
+      <name>_instance</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a45c615cdb03c353a52dcb1a9fffc2393</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>_dbInstance</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>ae14d34aebe8f014c101d9fdc0cdb0daf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>isOpen</name>
+      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
+      <anchor>a7d0456fa60dffbdf454efdb5288b7a0f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Database::ContributoryDatabase</name>
+    <filename>d5/de0/classDatabase_1_1ContributoryDatabase.html</filename>
+    <base>Database::Database</base>
+    <member kind="function">
+      <type>Models::Contributory *</type>
+      <name>getContributory</name>
+      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>afe8913f62dfb75115090650d194a7bc4</anchor>
+      <arglist>(const int idContributory)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addContributory</name>
+      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>a7612a74e10fc04a5894bf01b6917a42e</anchor>
+      <arglist>(const Models::Contributory &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContributory</name>
+      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>a7f0abb17daa85b89f1a756a7ee2e482c</anchor>
+      <arglist>(const Models::Contributory &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeContributory</name>
+      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>aa362a76075ce095410411d7ac26bad5c</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>Models::Contributory *</type>
+      <name>getContributory</name>
+      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>af09f192038c786e0f4a2501214667cda</anchor>
+      <arglist>(QSqlQuery &amp;q)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ContributoryDatabase *</type>
+      <name>instance</name>
+      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>af454afba7ef6f6e267085db89e5f8da4</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Database::CustomerDatabase</name>
+    <filename>de/de4/classDatabase_1_1CustomerDatabase.html</filename>
+    <base>Database::Database</base>
+    <member kind="function">
+      <type>QStandardItemModel *</type>
+      <name>getCustomersTable</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a03110432af547dbe5447c51392cae53a</anchor>
+      <arglist>(QString filter=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItemModel *</type>
+      <name>getCustomersTree</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a158c95d767ccf6f4345dd54854088e4f</anchor>
+      <arglist>(QString filter=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>QSharedPointer&lt; Models::Customer &gt;</type>
+      <name>getCustomer</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a997eac5e1a9e4d27a4380d10e8f8d935</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addCustomer</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a10331f3013c56e9d9140d9c2e6d64b30</anchor>
+      <arglist>(const Models::Customer &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateCustomer</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a8408b97565455420fe062b5d62c19088</anchor>
+      <arglist>(const Models::Customer &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeCustomer</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>ad19fe8efe5e718aba97c9b1a606553c7</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNbCustomers</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a73d49c62c59c63607d3b1bf9c03328cb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static CustomerDatabase *</type>
+      <name>instance</name>
+      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
+      <anchor>adfa3f1c75bedb1b0112c06ddc1418f77</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Database::Database</name>
+    <filename>da/d8e/classDatabase_1_1Database.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>Database::ProjectDatabase</name>
+    <filename>dd/dbf/classDatabase_1_1ProjectDatabase.html</filename>
+    <base>Database::Database</base>
+    <member kind="function">
+      <type>Models::Project *</type>
+      <name>getProject</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>ae656663ce7e517e13815198f66341b2a</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addProject</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a904588d19669d5e391518a946fd94ddf</anchor>
+      <arglist>(const Models::Project &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateProject</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a5a839ed196050cf41a1b0f1073757599</anchor>
+      <arglist>(const Models::Project &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeProject</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a45fb24373d53e060d05cb166cd635370</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNbProjects</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a57f293ea89b06e1cefff8189a5dc9444</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNbProjectsForACustomer</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a9d86e98ae77eaef7875c36c84e08722b</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>QMap&lt; int, Models::Project &gt;</type>
+      <name>getProjectsOfCustomer</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a1bbdbcb01b9741800e49902d0783e5f3</anchor>
+      <arglist>(QSharedPointer&lt; Models::Customer &gt; c)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItemModel *</type>
+      <name>getProjectsTable</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>ad2da7cde75b3b84dcdf2771969950ae9</anchor>
+      <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>Models::Project *</type>
+      <name>getProject</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a360d570a10c3e9df38241a650e1a30a6</anchor>
+      <arglist>(QSqlQuery &amp;q)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ProjectDatabase *</type>
+      <name>instance</name>
+      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a051359f2f1390cbdd3c47b1044ab166f</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Database::UserDatabase</name>
+    <filename>d9/d32/classDatabase_1_1UserDatabase.html</filename>
+    <base>Database::Database</base>
+    <member kind="function">
+      <type>QStandardItemModel *</type>
+      <name>getUserTable</name>
+      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
+      <anchor>a1b35f88b06fc54521bb72acd1fbbdc1e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Models::User *</type>
+      <name>getUser</name>
+      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
+      <anchor>ad05795be223fef14a114d712aebef2e6</anchor>
+      <arglist>(const int pId=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateUser</name>
+      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
+      <anchor>af00cc95c910ab6ca3dbeef591531ae2b</anchor>
+      <arglist>(const Models::User &amp;)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static UserDatabase *</type>
+      <name>instance</name>
+      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
+      <anchor>ac8cdf7dc9b0163d832ca473973916952</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="namespace">

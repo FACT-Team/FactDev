@@ -10,6 +10,9 @@ namespace Ui {
 class DialogAddCustomer;
 }
 
+namespace Gui {
+namespace Dialogs {
+
 /**
  * @author Cédric Rohaut
  * @brief The DialogAddCustomer class Window to add or modify a Customer
@@ -52,5 +55,6 @@ private:
     QSharedPointer<Models::Customer> _custom;
     Ui::DialogAddCustomer *ui;
 };
-
+}
+}
 #endif // DIALOGADDCUSTOMER_H

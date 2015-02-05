@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>435</width>
-    <height>63</height>
+    <height>77</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,7 +20,7 @@
    <string>À propos</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../icons.qrc">
+   <iconset resource="../../../icons.qrc">
     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -83,7 +83,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../../icons.qrc"/>
+  <include location="../../../icons.qrc"/>
  </resources>
  <connections>
   <connection>

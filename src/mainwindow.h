@@ -11,21 +11,27 @@
 #include "database/projectdatabase.h"
 #include "database/billingdatabase.h"
 
-#include "widgets/popup.h"
-#include "widgets/customercontextualmenu.h"
+#include "gui/widgets/popup.h"
+#include "gui/widgets/customercontextualmenu.h"
 
-#include "dialogs/messagebox/messagebox.h"
-#include "dialogs/userdatadialog.h"
-#include "dialogs/dialogaddcustomer.h"
-#include "dialogs/addprojectdialog.h"
-#include "dialogs/addquotedialog.h"
+#include "gui/dialogs/messagebox/messagebox.h"
+#include "gui/dialogs/userdatadialog.h"
+#include "gui/dialogs/dialogaddcustomer.h"
+#include "gui/dialogs/addprojectdialog.h"
+#include "gui/dialogs/addquotedialog.h"
 
 #include "models/search.h"
+
+using namespace Gui::Dialogs;
 
 namespace Ui {
 class MainWindow;
 }
 
+/**
+ * Classes for Graphical User Interface
+ */
+namespace Gui {
 
 /**
  * @author Everybody
@@ -240,5 +246,5 @@ private:
 
     Ui::MainWindow *ui; //!< ui
 };
-
+}
 #endif // MAINWINDOW_H

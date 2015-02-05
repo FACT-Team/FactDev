@@ -20,7 +20,7 @@
       <string>Ajouter une prestation</string>
      </property>
      <property name="icon">
-      <iconset resource="../icons.qrc">
+      <iconset resource="../../icons.qrc">
        <normaloff>:/icons/img/add_contributory.png</normaloff>:/icons/img/add_contributory.png</iconset>
      </property>
     </widget>
@@ -31,7 +31,7 @@
       <string>Supprimer la prestation</string>
      </property>
      <property name="icon">
-      <iconset resource="../icons.qrc">
+      <iconset resource="../../icons.qrc">
        <normaloff>:/icons/img/remove_contributory.png</normaloff>:/icons/img/remove_contributory.png</iconset>
      </property>
     </widget>
@@ -55,7 +55,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../../icons.qrc"/>
  </resources>
  <connections>
   <connection>

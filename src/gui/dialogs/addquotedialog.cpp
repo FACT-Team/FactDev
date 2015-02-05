@@ -1,6 +1,9 @@
 #include "addquotedialog.h"
 #include "ui_addquotedialog.h"
 
+namespace Gui {
+namespace Dialogs {
+
 AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     QDialog(parent),
     _quote(0),
@@ -57,4 +60,6 @@ void AddQuoteDialog::updateBtn() {
     ui->btnSave->setEnabled(
                 ((ContributoriesWidget*)ui->wdgContributories)->count() > 0
                 && ui->leQuoteTitle->isValid());
+}
+}
 }

@@ -10,6 +10,9 @@ namespace Ui {
 class UserDataDialog;
 }
 
+namespace Gui {
+namespace Dialogs {
+
 /**
  * @author Florent Berbie
  * @brief The UserDataDialog class Window to fill user data
@@ -54,5 +57,6 @@ private:
     Ui::UserDataDialog *ui;
 
 };
-
+}
+}
 #endif // USERDATADIALOG_H

@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 
 #include "log.h"
+
+namespace Gui {
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -401,4 +403,5 @@ void MainWindow::updateBtn()
     ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() != -1);
     ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
     ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
+}
 }

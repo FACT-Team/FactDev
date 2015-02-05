@@ -12,6 +12,8 @@
 namespace Ui {
 class AddProjectDialog;
 }
+namespace Gui {
+namespace Dialogs {
 
 /**
  * @author Florent Berbie
@@ -74,5 +76,6 @@ private:
     Project _project;           //!< The new project to add
     Ui::AddProjectDialog *ui;   //!< User interface of <b>AddProjectDialog</b>
 };
-
+}
+}
 #endif // ADDPROJECTDIALOG_H

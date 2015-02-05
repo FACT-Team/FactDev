@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>530</width>
-    <height>527</height>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Ajouter un projet</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../../icons.qrc">
     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -73,7 +73,7 @@
         <string>Valider</string>
        </property>
        <property name="icon">
-        <iconset resource="../icons.qrc">
+        <iconset resource="../../icons.qrc">
          <normaloff>:/icons/img/ok_valid.png</normaloff>:/icons/img/ok_valid.png</iconset>
        </property>
       </widget>
@@ -84,7 +84,7 @@
         <string>Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="../icons.qrc">
+        <iconset resource="../../icons.qrc">
          <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
        </property>
       </widget>
@@ -115,26 +115,26 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>RateWidget</class>
    <extends>QWidget</extends>
-   <header>widgets/ratewidget.h</header>
+   <header>gui/widgets/ratewidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>searchWidget</class>
    <extends>QWidget</extends>
-   <header>widgets/searchwidget.h</header>
+   <header>gui/widgets/searchwidget.h</header>
    <container>1</container>
    <slots>
     <signal>selectCustomer()</signal>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>CheckUntilField</class>
-   <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkuntilfield.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -145,7 +145,7 @@
   <tabstop>btnCancel</tabstop>
  </tabstops>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../../icons.qrc"/>
  </resources>
  <connections>
   <connection>

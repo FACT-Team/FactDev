@@ -14,7 +14,7 @@
    <string>Devis n°XX</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../icons.qrc">
+   <iconset resource="../../icons.qrc">
     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <layout class="QGridLayout" name="_2">
@@ -42,7 +42,7 @@
         <string>Sauvegarder</string>
        </property>
        <property name="icon">
-        <iconset resource="../icons.qrc">
+        <iconset resource="../../icons.qrc">
          <normaloff>:/icons/img/ok_valid.png</normaloff>:/icons/img/ok_valid.png</iconset>
        </property>
       </widget>
@@ -53,7 +53,7 @@
         <string>Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="../icons.qrc">
+        <iconset resource="../../icons.qrc">
          <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
        </property>
       </widget>
@@ -129,14 +129,14 @@
   <customwidget>
    <class>CheckUntilField</class>
    <extends>QLineEdit</extends>
-   <header>widgets/checkfields/checkuntilfield.h</header>
+   <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../../icons.qrc"/>
  </resources>
  <connections>
   <connection>

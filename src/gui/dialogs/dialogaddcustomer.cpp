@@ -1,5 +1,8 @@
-#include "dialogs/dialogaddcustomer.h"
+#include "gui/dialogs/dialogaddcustomer.h"
 #include "ui_dialogaddcustomer.h"
+
+namespace Gui {
+namespace Dialogs {
 
 DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     QDialog(parent),
@@ -92,3 +95,5 @@ void DialogAddCustomer::checkFields() {
         );
 }
 
+}
+}

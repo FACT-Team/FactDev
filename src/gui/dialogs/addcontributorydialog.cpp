@@ -1,6 +1,9 @@
 #include "addcontributorydialog.h"
 #include "ui_addcontributorydialog.h"
 
+namespace Gui {
+namespace Dialogs {
+
 AddContributoryDialog::AddContributoryDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddContributoryDialog)
@@ -11,4 +14,6 @@ AddContributoryDialog::AddContributoryDialog(QWidget *parent) :
 AddContributoryDialog::~AddContributoryDialog()
 {
     delete ui;
+}
+}
 }

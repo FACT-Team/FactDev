@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>396</width>
-    <height>42</height>
+    <width>480</width>
+    <height>52</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <string>Modifier Projet</string>
      </property>
      <property name="icon">
-      <iconset resource="../icons.qrc">
+      <iconset resource="../../icons.qrc">
        <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
      </property>
     </widget>
@@ -34,7 +34,7 @@
       <string>Nouveau Projet</string>
      </property>
      <property name="icon">
-      <iconset resource="../icons.qrc">
+      <iconset resource="../../icons.qrc">
        <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
      </property>
     </widget>
@@ -45,7 +45,7 @@
       <string>Supprimer Projet</string>
      </property>
      <property name="icon">
-      <iconset resource="../icons.qrc">
+      <iconset resource="../../icons.qrc">
        <normaloff>:/icons/img/256/remove_project.png</normaloff>:/icons/img/256/remove_project.png</iconset>
      </property>
     </widget>
@@ -53,7 +53,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../icons.qrc"/>
+  <include location="../../icons.qrc"/>
  </resources>
  <connections>
   <connection>

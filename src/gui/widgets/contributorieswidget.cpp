@@ -1,6 +1,6 @@
 #include "contributorieswidget.h"
 #include "models/contributory.h"
-#include "widgets/delegates/projectcombodelegate.h"
+#include "gui/widgets/delegates/projectcombodelegate.h"
 #include "ui_contributorieswidget.h"
 
 

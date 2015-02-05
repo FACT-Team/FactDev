@@ -4,12 +4,14 @@
 #include <QDialog>
 #include "models/billing.h"
 
-#include "widgets/contributorieswidget.h"
+#include "gui/widgets/contributorieswidget.h"
 using namespace Models;
 
 namespace Ui {
 class AddQuoteDialog;
 }
+namespace Gui {
+namespace Dialogs {
 
 /**
  * @author Cédric Rohaut
@@ -47,5 +49,6 @@ private:
     Billing *_quote;        //!< The quote
     Ui::AddQuoteDialog *ui; //!< User interface of <b>AddQuoteDialog</b>
 };
-
+}
+}
 #endif // ADDQUOTEDIALOG_H

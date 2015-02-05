@@ -1,6 +1,9 @@
 #include "userdatadialog.h"
 #include "ui_userdatadialog.h"
 
+namespace Gui {
+namespace Dialogs {
+
 UserDataDialog::UserDataDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::UserDataDialog)
@@ -65,4 +68,6 @@ void UserDataDialog::checkFields() {
             || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
             || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
         && ui->leNoSiret->isValid());
+}
+}
 }

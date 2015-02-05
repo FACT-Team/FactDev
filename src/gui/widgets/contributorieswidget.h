@@ -6,7 +6,7 @@
 
 #include "models/contributory.h"
 
-#include "widgets/widgetsmodels/contributoriestablemodel.h"
+#include "gui/widgets/widgetsmodels/contributoriestablemodel.h"
 
 namespace Ui {
 class ContributoriesWidget;
