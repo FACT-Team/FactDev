@@ -6,8 +6,11 @@
 
 #include "models/contributory.h"
 
-#include "log.h"
-#include "utils.h"
+#include "utils/log.h"
+#include "utils/string.h"
+
+using namespace Exceptions;
+using namespace Utils;
 
 namespace Database {
 

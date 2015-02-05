@@ -5,9 +5,14 @@
 
 #include "models/contributory.h"
 
-#include "log.h"
+#include "utils/log.h"
 
 using namespace Models;
+using namespace Utils;
+
+namespace Gui {
+namespace Widgets {
+namespace WdgModels {
 
 /**
  * @author Antoine de Roquemaurel
@@ -95,5 +100,8 @@ private:
     QList<Contributory> _contributories; //!< contributories list
     QList<Contributory> _contributoriesToRemoved; //!< Contributories to removed
 };
+}
+}
+}
 
 #endif // CONTRIBUTORIESTABLEMODEL_H

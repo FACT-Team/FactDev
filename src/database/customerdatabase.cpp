@@ -55,10 +55,10 @@ throw(DbException*)
 
         ligne << new QStandardItem(value(q, "idCustomer").toString());
         ligne << new QStandardItem(
-                     Utils::firstLetterToUpper(value(q,"company").toString()));
+                     Utils::String::firstLetterToUpper(value(q,"company").toString()));
         ligne << new QStandardItem(
                      value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(Utils::firstLetterToUpper(
+        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
                                        value(q, "firstNameReferent").toString()));
         ligne << new QStandardItem(value(q, "phone").toString());
         ligne << new QStandardItem(value(q, "email").toString());
@@ -99,10 +99,10 @@ throw(DbException*)
             item = new QStandardItem(
                         value(q, "lastnameReferent").toString().toUpper()
                         + " "
-                        +Utils::firstLetterToUpper(value(q,"firstnameReferent").toString()));
+                        +Utils::String::firstLetterToUpper(value(q,"firstnameReferent").toString()));
         } else {
             item = new
-                QStandardItem(Utils::firstLetterToUpper(value(q,"company").toString()));
+                QStandardItem(Utils::String::firstLetterToUpper(value(q,"company").toString()));
         }
 
         item->setIcon(QIcon(":icons/customer"));

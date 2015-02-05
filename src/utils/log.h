@@ -10,6 +10,7 @@
 
 #include "parameters.h"
 
+namespace Utils {
 /**
  * @brief Enum for log : INFO, ERREUR, WARNING
 */
@@ -74,5 +75,5 @@ private:
      */
     QString typeLog2String(TypeLog type);
 };
-
+}
 #endif // LOG_H

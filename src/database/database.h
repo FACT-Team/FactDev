@@ -16,8 +16,11 @@
 #include <exception>
 
 #include "exceptions/dbexception.h"
-#include "log.h"
+#include "utils/log.h"
 #include "parameters.h"
+
+using namespace Exceptions;
+using namespace Utils;
 
 /**
  * @brief Class for Database, contains queries

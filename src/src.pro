@@ -16,7 +16,7 @@ CONFIG += c++11
 
 
 SOURCES += mainwindow.cpp \
-        log.cpp\
+        utils/log.cpp\
         # Database files
         database/database.cpp \
         # Exceptions
@@ -39,7 +39,7 @@ SOURCES += mainwindow.cpp \
     database/projectdatabase.cpp \
     gui/dialogs/addcontributorydialog.cpp \
     gui/widgets/comboboxmodelwidget.cpp\
-    utils.cpp \
+    utils/string.cpp \
     gui/widgets/searchwidget.cpp \
     gui/widgets/customerdatawidget.cpp \
     gui/widgets/projectswidget.cpp \
@@ -60,11 +60,11 @@ SOURCES += mainwindow.cpp \
     gui/widgets/delegates/projectcombodelegate.cpp \
     database/billingdatabase.cpp \
     database/contributorydatabase.cpp \
-    itemtype.cpp \
+    utils/itemtype.cpp \
     gui/dialogs/messagebox.cpp
 
 HEADERS  += mainwindow.h \
-        log.h\
+        utils/log.h\
         # Database files
         database/database.h \
         #Exceptions
@@ -89,7 +89,7 @@ HEADERS  += mainwindow.h \
     database/projectdatabase.h \
     gui/dialogs/addcontributorydialog.h \
     gui/widgets/comboboxmodelwidget.h \
-    utils.h \
+    utils/string.h \
     gui/widgets/searchwidget.h \
     gui/widgets/customerdatawidget.h \
     gui/widgets/projectswidget.h \
@@ -110,7 +110,7 @@ HEADERS  += mainwindow.h \
     gui/widgets/delegates/projectcombodelegate.h \
     database/billingdatabase.h \
     database/contributorydatabase.h \
-    itemtype.h \
+    utils/itemtype.h \
     gui/dialogs/messagebox.h \
     gui/widgets/checkfields/icheckfield.h
 

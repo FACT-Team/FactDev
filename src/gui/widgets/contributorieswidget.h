@@ -43,7 +43,7 @@ signals:
     void contributoryChanged();
 private:
     Ui::ContributoriesWidget *ui;
-    ContributoriesTableModel* _model;
+    Gui::Widgets::WdgModels::ContributoriesTableModel* _model;
 };
 }
 }

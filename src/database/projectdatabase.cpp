@@ -227,7 +227,7 @@ throw(DbException*)
 
         ligne << new QStandardItem(value(q, "idProject").toString());
         ligne << new QStandardItem(
-                     Utils::firstLetterToUpper(value(q,"name").toString()));
+                     Utils::String::firstLetterToUpper(value(q,"name").toString()));
         ligne << new QStandardItem(
                      value(q, "description").toString());
         ligne << new QStandardItem(

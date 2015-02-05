@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QMessageBox>
 
-#include "log.h"
+#include "utils/log.h"
 
 namespace Gui {
 namespace Widgets {

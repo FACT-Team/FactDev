@@ -8,6 +8,7 @@
 
 #include "log.h"
 
+namespace Utils {
 /**
  * @brief The ItemType class Item type model
  */
@@ -61,5 +62,5 @@ private:
     QString _name;  //!< Name of the type item
     int _type;      //!< Type of the item
 };
-
+}
 #endif // ITEMTYPE_H

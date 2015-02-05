@@ -1,4 +1,6 @@
 #include "itemtype.h"
+
+namespace Utils {
 ItemType::ItemType(int type, QString name)
 {
     _type = type;
@@ -43,5 +45,5 @@ void ItemType::setType(int type)
 {
     _type = type;
 }
-
+}
 

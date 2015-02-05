@@ -10,8 +10,8 @@ ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *
     ui(new Ui::ContributoriesWidget)
 {
     ui->setupUi(this);
-    _model  = new ContributoriesTableModel();
-    ProjectComboDelegate* delegate = new ProjectComboDelegate(c);
+    _model  = new WdgModels::ContributoriesTableModel();
+    Delegates::ProjectComboDelegate* delegate = new Delegates::ProjectComboDelegate(c);
     ui->tblContributories->setItemDelegateForColumn(0, delegate);
     ui->tblContributories->setModel(_model);
     ui->tblContributories->setEditTriggers(QAbstractItemView::DoubleClicked);

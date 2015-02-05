@@ -1,5 +1,8 @@
 #include "projectcombodelegate.h"
 #include "database/projectdatabase.h"
+namespace Gui {
+namespace Widgets {
+namespace Delegates {
 
 ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : QItemDelegate(parent)
 {
@@ -53,4 +56,7 @@ void ProjectComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     myOption.text = text;
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &myOption, painter);
+}
+}
+}
 }

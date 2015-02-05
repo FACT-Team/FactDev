@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "log.h"
+using namespace Utils;
 
 namespace Gui {
 MainWindow::MainWindow(QWidget *parent) :

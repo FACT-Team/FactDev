@@ -1,4 +1,7 @@
 #include "contributoriestablemodel.h"
+namespace Gui {
+namespace Widgets {
+namespace WdgModels {
 
 ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractTableModel(parent)
 {
@@ -93,3 +96,6 @@ int ContributoriesTableModel::count() {
     return _contributories.count();
 }
 
+}
+}
+}

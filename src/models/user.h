@@ -4,7 +4,7 @@
 
 #include "models/idatabasemodel.h"
 
-#include "log.h"
+#include "utils/log.h"
 
 namespace Models {
 /**

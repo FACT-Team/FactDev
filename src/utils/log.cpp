@@ -1,5 +1,6 @@
 #include "log.h"
 
+namespace Utils {
 Log* Log::_instance = 0;
 TypeLog Log::_type = INFO;
 
@@ -46,4 +47,5 @@ inline QString Log::head() {
     return  "["+QDateTime::currentDateTime().toString("dd/MM/yyyy hh:mm:ss")
             +" V"+QString::number(Parameters::VERSION)
             +" "+typeLog2String(_type)+"] ";
+}
 }

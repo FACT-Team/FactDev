@@ -6,7 +6,8 @@
 #include <QModelIndex>
 #include <QTableView>
 
-#include "itemtype.h"
+#include "utils/itemtype.h"
+#include "utils/log.h"
 
 #include "database/projectdatabase.h"
 #include "database/billingdatabase.h"
@@ -236,7 +237,7 @@ private:
      * @param tbl a table
      * @param item an item in the table <i>tbl</i>
      */
-    void removeItem(QTableView* tbl, ItemType item);
+    void removeItem(QTableView* tbl, Utils::ItemType item);
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
      * the  tableview <i>tbl</i>

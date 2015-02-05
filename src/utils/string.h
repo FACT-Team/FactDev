@@ -3,11 +3,12 @@
 
 #include <QString>
 
+namespace Utils {
 /**
  * @brief The Utils class
  * @author Antoine de Roquemaurel
  */
-class Utils
+class String
 {
 public:
     /**
@@ -17,5 +18,5 @@ public:
      */
     static QString firstLetterToUpper(QString s);
 };
-
+}
 #endif // UTILS_H

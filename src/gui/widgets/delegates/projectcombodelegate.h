@@ -6,6 +6,10 @@
 
 #include "models/project.h"
 
+namespace Gui {
+namespace Widgets {
+namespace Delegates {
+
 class ProjectComboDelegate : public QItemDelegate
 {
 Q_OBJECT
@@ -23,5 +27,7 @@ public:
 private:
   QMap<int, Models::Project> _projects;
 };
-
+}
+}
+}
 #endif // PROJECTCOMBODELEGATE_H
