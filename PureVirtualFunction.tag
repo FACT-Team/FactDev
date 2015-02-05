@@ -6,95 +6,6 @@
     <filename>dc/d04/md_tests_QTestRunner_README</filename>
   </compound>
   <compound kind="class">
-    <name>AddContributoryDialog</name>
-    <filename>d9/dfa/classAddContributoryDialog.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>AddContributoryDialog</name>
-      <anchorfile>d9/dfa/classAddContributoryDialog.html</anchorfile>
-      <anchor>a75ef0d55afcf2cc30a702bb4792ccc2b</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>AddProjectDialog</name>
-    <filename>d0/d23/classAddProjectDialog.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>checkFields</name>
-      <anchorfile>d0/d23/classAddProjectDialog.html</anchorfile>
-      <anchor>a781e8cf3e919f32706ddb15b13d2ab25</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>AddProjectDialog</name>
-      <anchorfile>d0/d23/classAddProjectDialog.html</anchorfile>
-      <anchor>abb96542ad074344f634d0ff834e65f03</anchor>
-      <arglist>(int id=0, QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>AddProjectDialog</name>
-      <anchorfile>d0/d23/classAddProjectDialog.html</anchorfile>
-      <anchor>a7acdb6d0e61449ad9376802d90162d2c</anchor>
-      <arglist>(int noRowCustomer, int idProject=0, QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>accept</name>
-      <anchorfile>d0/d23/classAddProjectDialog.html</anchorfile>
-      <anchor>adb873176b67a671fc417e7ab21389c21</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reject</name>
-      <anchorfile>d0/d23/classAddProjectDialog.html</anchorfile>
-      <anchor>a3e6011001312acd234f2352f1a796f0e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>fillFields</name>
-      <anchorfile>d0/d23/classAddProjectDialog.html</anchorfile>
-      <anchor>ad8c428e08b08a7aa36f7c6801810c0cd</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>AddQuoteDialog</name>
-    <filename>d6/dd0/classAddQuoteDialog.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>AddQuoteDialog</name>
-      <anchorfile>d6/dd0/classAddQuoteDialog.html</anchorfile>
-      <anchor>abffc6ab5550345bf6cfa57d0a4f2b8b4</anchor>
-      <arglist>(int idCustomer=0, int id=0, QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>fillFields</name>
-      <anchorfile>d6/dd0/classAddQuoteDialog.html</anchorfile>
-      <anchor>ae9ad47fdc3babc6546ed3708873c0d05</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>accept</name>
-      <anchorfile>d6/dd0/classAddQuoteDialog.html</anchorfile>
-      <anchor>a5926a2d7b00ddc3f623b34ee4489277f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reject</name>
-      <anchorfile>d6/dd0/classAddQuoteDialog.html</anchorfile>
-      <anchor>a8d639a263877c3bb10bda6ece25f0234</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>BillingDatabaseTest</name>
     <filename>d1/db1/classBillingDatabaseTest.html</filename>
   </compound>
@@ -361,575 +272,20 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>ComboBoxModelWidget</name>
-    <filename>d5/d79/classComboBoxModelWidget.html</filename>
-  </compound>
-  <compound kind="class">
     <name>ContributoriesDatabaseTest</name>
     <filename>d8/df7/classContributoriesDatabaseTest.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>ContributoriesTableModel</name>
-    <filename>d4/d24/classContributoriesTableModel.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>ContributoriesTableModel</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a7fb98c9bddccafe26319fc75ee92c80b</anchor>
-      <arglist>(QObject *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>rowCount</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>abab4002f904986345347dd43aa815380</anchor>
-      <arglist>(const QModelIndex &amp;) const </arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>columnCount</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>ae4734e8d3be16e8be792fe6eacee8095</anchor>
-      <arglist>(const QModelIndex &amp;) const </arglist>
-    </member>
-    <member kind="function">
-      <type>QVariant</type>
-      <name>data</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a6be653469563e4a78ce5934963f9c602</anchor>
-      <arglist>(const QModelIndex &amp;index, int role) const </arglist>
-    </member>
-    <member kind="function">
-      <type>QVariant</type>
-      <name>headerData</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a6500cff8e7312227347b971bd47e1190</anchor>
-      <arglist>(int section, Qt::Orientation orientation, int role) const </arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>setData</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>aabe9da4a6f1e5027879ed7132aa03d01</anchor>
-      <arglist>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>append</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a940072d62162b130bfd0cec0c6fd4567</anchor>
-      <arglist>(const Contributory &amp;contributory)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a00354b1b323c7d74d9cdef3333ef4df2</anchor>
-      <arglist>(const int i)</arglist>
-    </member>
-    <member kind="function">
-      <type>Qt::ItemFlags</type>
-      <name>flags</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a7be83a445e2b0cc5b9751691ed33499b</anchor>
-      <arglist>(const QModelIndex &amp;index) const </arglist>
-    </member>
-    <member kind="function">
-      <type>QList&lt; Contributory &gt;</type>
-      <name>getContributories</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>ae0aaacde6e79ccda128f589375f75e84</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>count</name>
-      <anchorfile>d4/d24/classContributoriesTableModel.html</anchorfile>
-      <anchor>a9bc91f439c8b8320e64ef0531e8d5c62</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ContributoriesWidget</name>
-    <filename>d0/d0b/classContributoriesWidget.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>add</name>
-      <anchorfile>d0/d0b/classContributoriesWidget.html</anchorfile>
-      <anchor>a58cdea8c2397c8bd1103e7a415f3e313</anchor>
-      <arglist>(void)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>remove</name>
-      <anchorfile>d0/d0b/classContributoriesWidget.html</anchorfile>
-      <anchor>a8203c0d2b23e658189dfd4b5ed9c8fbf</anchor>
-      <arglist>(void)</arglist>
-    </member>
-    <member kind="function">
-      <type>QList&lt; Contributory &gt;</type>
-      <name>getContributories</name>
-      <anchorfile>d0/d0b/classContributoriesWidget.html</anchorfile>
-      <anchor>a2e6c4f02e6c5507ab0891867a6c2c3d8</anchor>
-      <arglist>() const </arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>CustomerContextualMenu</name>
-    <filename>d5/db9/classCustomerContextualMenu.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>CustomerContextualMenu</name>
-      <anchorfile>d5/db9/classCustomerContextualMenu.html</anchorfile>
-      <anchor>a798a08f4b8526398a54752e7de87930e</anchor>
-      <arglist>(QWidget *w=0)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~CustomerContextualMenu</name>
-      <anchorfile>d5/db9/classCustomerContextualMenu.html</anchorfile>
-      <anchor>af3e43fde4d890830bfa33b948636faae</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>CustomerDatabaseTest</name>
     <filename>d2/d63/classCustomerDatabaseTest.html</filename>
   </compound>
   <compound kind="class">
-    <name>CustomerDataWidget</name>
-    <filename>df/df4/classCustomerDataWidget.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>printUserData</name>
-      <anchorfile>df/df4/classCustomerDataWidget.html</anchorfile>
-      <anchor>a9a56bd1d7faf76d083cfa97f2883bdf1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>printInformations</name>
-      <anchorfile>df/df4/classCustomerDataWidget.html</anchorfile>
-      <anchor>ab61052cc337e51d1e34149d67816c58f</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>CustomerModelTest</name>
     <filename>d5/dcd/classCustomerModelTest.html</filename>
   </compound>
   <compound kind="class">
-    <name>DbException</name>
-    <filename>dd/dca/classDbException.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>DbException</name>
-      <anchorfile>dd/dca/classDbException.html</anchorfile>
-      <anchor>a22204317679895d999e3621cf97d5dee</anchor>
-      <arglist>(const QString fct, const QString fctName, const QString logError, float errorCode)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~DbException</name>
-      <anchorfile>dd/dca/classDbException.html</anchorfile>
-      <anchor>a57b57d4d9010c06d158ccc44d45a1376</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>popupMessage</name>
-      <anchorfile>dd/dca/classDbException.html</anchorfile>
-      <anchor>a06765391cd11f596721c877c1a62c2f1</anchor>
-      <arglist>(QWidget *parent)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>DialogAddCustomer</name>
-    <filename>df/d01/classDialogAddCustomer.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>checkFields</name>
-      <anchorfile>df/d01/classDialogAddCustomer.html</anchorfile>
-      <anchor>ac4e42b4dc828c57383fe3a9d04685f9c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>DialogAddCustomer</name>
-      <anchorfile>df/d01/classDialogAddCustomer.html</anchorfile>
-      <anchor>a6123adb32813c5ebe71ce06012c46b9c</anchor>
-      <arglist>(int id=0, QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>fillFields</name>
-      <anchorfile>df/d01/classDialogAddCustomer.html</anchorfile>
-      <anchor>ae06c708abccad5ce0b8523c94b40eb75</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>accept</name>
-      <anchorfile>df/d01/classDialogAddCustomer.html</anchorfile>
-      <anchor>a1492352d114740bb44178f2415555155</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reject</name>
-      <anchorfile>df/d01/classDialogAddCustomer.html</anchorfile>
-      <anchor>a6affc8db156ee183ffd14a71d06a8534</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ICheckField</name>
     <filename>d5/d75/classICheckField.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>ItemType</name>
-    <filename>d2/de9/classItemType.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>ItemType</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>ae6db761c2f205fc9447d781015afb982</anchor>
-      <arglist>(int type, QString name)</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getName</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>a735cd1b13b8b4dc5c2d26793468f5516</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>Models::IDatabaseModel *</type>
-      <name>getModel</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>adf62a71c0e6766b8e93e809ec22876ce</anchor>
-      <arglist>(int id)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setName</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>a0ca95f11671b35aa0374b21f3ae4813a</anchor>
-      <arglist>(const QString &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getType</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>ae6f722f3ddf0a38a6ffa5542b049d629</anchor>
-      <arglist>() const </arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setType</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>a90eda70d59c0321eec8d9397864adb77</anchor>
-      <arglist>(int type)</arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const int</type>
-      <name>CUSTOMER</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>acb95d26d14359ec380296ca1d5a5cbdc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const int</type>
-      <name>PROJECT</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>ad7a156ecb9641e198ddc95a7e648fb8b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const int</type>
-      <name>BILLING</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>a4b72d61f3cdd0b89e59c51b3545c9312</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const int</type>
-      <name>QUOTE</name>
-      <anchorfile>d2/de9/classItemType.html</anchorfile>
-      <anchor>af058fe8d8650049f04ad37bbcbb058b8</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Log</name>
-    <filename>d0/d77/classLog.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>~Log</name>
-      <anchorfile>d0/d77/classLog.html</anchorfile>
-      <anchor>a0fbfda88fbee5027c89f6eb121059360</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>write</name>
-      <anchorfile>d0/d77/classLog.html</anchorfile>
-      <anchor>acef079f691840d7afd2ed9482d5d66ea</anchor>
-      <arglist>(const QString text)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Log</name>
-      <anchorfile>d0/d77/classLog.html</anchorfile>
-      <anchor>af6071a60aa52b6c1b511f99b4bc1b8fe</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static Log &amp;</type>
-      <name>instance</name>
-      <anchorfile>d0/d77/classLog.html</anchorfile>
-      <anchor>ad8ef93302c147f832ed8202a6b039eb5</anchor>
-      <arglist>(TypeLog type=INFO)</arglist>
-    </member>
-    <member kind="friend">
-      <type>friend Log &amp;</type>
-      <name>operator&lt;&lt;</name>
-      <anchorfile>d0/d77/classLog.html</anchorfile>
-      <anchor>a1ecba3328cadecbbd7d65ae2852171fc</anchor>
-      <arglist>(Log &amp;logger, const QString &amp;text)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MainWindow</name>
-    <filename>d6/d1a/classMainWindow.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>addCustomer</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a661e495fc5b587dce8c7b930120098aa</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>editCustomer</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>afff9ca5b1b867af6b54eb1c8d9501522</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>removeCustomer</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>adb6fcfe64c3a11f28655e397b3accea9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>addQuote</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>afd45bc05040ad2c44a35c020f687216d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>editUser</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a32fb574dece506733a3b80d2ccf565ac</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>search</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a62fcad69e9d32b98f3ac40a5a1d0f398</anchor>
-      <arglist>(QString s)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>search</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a274dd0e068ebdc2a752e7ef05209fb2d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>newProject</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a7093a481f61ac3dfd682245aaf4c03fd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>removeProject</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>acac126b5b24ba9027f6a0052aec10baf</anchor>
-      <arglist>(void)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>editProject</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a9841d0d3f02715dbc3cfda9ad6b107ca</anchor>
-      <arglist>(void)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>aboutQt</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a4710d90108bd39f7b80bdc6c3a1b1aef</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>aboutFact</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a82e1b6ba63283af94f37684cf14b5c66</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>aboutFactDev</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>af9af9644d45d2af769d18f2370eed83e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>aboutIcons</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>ae6a7598b9931ca8901a62bb95c490e0e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>updateBtn</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>ac81b82b3eb71d75fcd72bd93da18112d</anchor>
-      <arglist>(void)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>MainWindow</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a8b244be8b7b7db1b08de2a2acb9409db</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCurrentCustomerId</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a0584b17eb78c07b513524a09bd914042</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCurrentProjectId</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a08d33fd0a3a0a46e39393fefcfc97a05</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCurrentCustomerName</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a11baa86aa3af94b94d9566523f1b95cb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>QString</type>
-      <name>getCurrentProjectName</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a22db779c9d551c0c3adeb78a984ced8a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isTreeRoot</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a9e01c4b4fb06ddff0aca86b4ffbb5743</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isCustomerItemTree</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>a9665f7564352d678a7886815d375a13a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isProjectItemTree</name>
-      <anchorfile>d6/d1a/classMainWindow.html</anchorfile>
-      <anchor>ae6f67694a02c0da2aca08c009ccb4b62</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MessageBox</name>
-    <filename>d2/da3/classMessageBox.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>MessageBox</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>a990d6667ca2831882090602c93169b0d</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>aboutFact</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>ababd93e31998e3eabb1a655f044dea9c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>aboutFactDev</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>a18400f858bdb14e0af856893da73a932</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>aboutIcons</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>a9ffe14eb394b925e2a9a5a47c5f63238</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setImage</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>a9b5ddfd71ace7cd38f383f5c011ce37a</anchor>
-      <arglist>(QString img, int width=128, int height=128)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setText</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>a98245b5ce8053833fe6b1f3900e85fe2</anchor>
-      <arglist>(QString txt)</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>showAboutFact</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>a8bd06bf00849e20b2a1f4cf0741eee6c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>showAboutFactDev</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>aea5966113f5e40d53b450691ce41071c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>showAboutIcons</name>
-      <anchorfile>d2/da3/classMessageBox.html</anchorfile>
-      <anchor>ac9212e2d9aaba9df3dfceb768486fc21</anchor>
-      <arglist>()</arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>Parameters</name>
@@ -957,182 +313,12 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Popup</name>
-    <filename>d7/d6b/classPopup.html</filename>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>toImplement</name>
-      <anchorfile>d7/d6b/classPopup.html</anchorfile>
-      <anchor>aa3173e0f473b42f08363c4ef17c93a07</anchor>
-      <arglist>(QString, QWidget *)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ProjectComboDelegate</name>
-    <filename>d4/db0/classProjectComboDelegate.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>ProjectsWidget</name>
-    <filename>de/da7/classProjectsWidget.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>newProject</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>a9a3e158093ed435a68d4d9874a22a128</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>editSelectedProject</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>a026e17f035717e382f4afca6896a72d3</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>removeSelectedProject</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>a038205ca1dee68dadae84e31dabfd7fc</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="signal">
-      <type>void</type>
-      <name>addProject</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>ae745e92738053b6c3a514725fec9616f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="signal">
-      <type>void</type>
-      <name>editProject</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>a7be5b1aebb295169b201ceb4a7e3301a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="signal">
-      <type>void</type>
-      <name>removeProject</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>a1ee6b31af551020de2aa560f18be0ccc</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>ProjectsWidget</name>
-      <anchorfile>de/da7/classProjectsWidget.html</anchorfile>
-      <anchor>a542fb678c61897b56c86dc58524bd969</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>RateWidget</name>
-    <filename>dc/da5/classRateWidget.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>setDailyRate</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>ae06885c9e58ed09e5a210a295bb3ffbb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>setHourlyRate</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>af7b6ceb4d9ceb8efe84a497c7a42d048</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>RateWidget</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>ad1cb6a97e47b408043e83708ff8af15e</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>initRate</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>a4a3ec9a546055d6ecb3bd1a9ee8082a6</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setWidgetDailyRateValue</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>ab96e6867dba808a1dc5b8c327a84f93e</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getDailyRate</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>a0a72cea5ff524b47e513dcb21aea2022</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getHourlyRate</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>a50285d4472979e004c706ff5640e8227</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setWidgetHourlyRateValue</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>a5f1061f95f2a45b88434fbdf99136030</anchor>
-      <arglist>(double value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateConversionRate</name>
-      <anchorfile>dc/da5/classRateWidget.html</anchorfile>
-      <anchor>a04a7bd5b186482a60c16ed4334acd83b</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>searchTest</name>
     <filename>d7/d51/classsearchTest.html</filename>
   </compound>
   <compound kind="class">
-    <name>searchWidget</name>
-    <filename>d2/dfd/classsearchWidget.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>search</name>
-      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
-      <anchor>a15138eab0d8098a21c327bd34e328541</anchor>
-      <arglist>(QString toSearch)</arglist>
-    </member>
-    <member kind="slot">
-      <type>void</type>
-      <name>getCustomerData</name>
-      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
-      <anchor>a09e08e9768fbb579c065bcff0d47c2ac</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>searchWidget</name>
-      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
-      <anchor>a0c712bf4f3c2105319645ce97e23eba9</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCurrentCustomerId</name>
-      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
-      <anchor>ac74ae97eb8c147c89edc3dec3decf174</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isCustomerSelected</name>
-      <anchorfile>d2/dfd/classsearchWidget.html</anchorfile>
-      <anchor>ad69a78f1c657b026a149cdf61fd58f5e</anchor>
-      <arglist>() const </arglist>
-    </member>
+    <name>testadder</name>
+    <filename>d7/d26/classtestadder.html</filename>
   </compound>
   <compound kind="class">
     <name>TestAdder</name>
@@ -1140,62 +326,8 @@
     <templarg></templarg>
   </compound>
   <compound kind="class">
-    <name>testadder</name>
-    <filename>d7/d26/classtestadder.html</filename>
-  </compound>
-  <compound kind="class">
     <name>TestRunner</name>
     <filename>db/d70/classTestRunner.html</filename>
-  </compound>
-  <compound kind="class">
-    <name>UserDataDialog</name>
-    <filename>de/d9c/classUserDataDialog.html</filename>
-    <member kind="slot">
-      <type>void</type>
-      <name>checkFields</name>
-      <anchorfile>de/d9c/classUserDataDialog.html</anchorfile>
-      <anchor>a3ec2568b8b70aaf531585da0dc26f3de</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>UserDataDialog</name>
-      <anchorfile>de/d9c/classUserDataDialog.html</anchorfile>
-      <anchor>a51210d5e027d49b019fcd565d5b20e06</anchor>
-      <arglist>(QWidget *parent=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>fillFields</name>
-      <anchorfile>de/d9c/classUserDataDialog.html</anchorfile>
-      <anchor>a22f266169243757212ba7eb61d083ddb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>accept</name>
-      <anchorfile>de/d9c/classUserDataDialog.html</anchorfile>
-      <anchor>ad6ba344db1a10b804ca8f5f9a6ffed2c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reject</name>
-      <anchorfile>de/d9c/classUserDataDialog.html</anchorfile>
-      <anchor>a54519d6441212d50849de7b72ac5e623</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Utils</name>
-    <filename>dc/dc5/classUtils.html</filename>
-    <member kind="function" static="yes">
-      <type>static QString</type>
-      <name>firstLetterToUpper</name>
-      <anchorfile>dc/dc5/classUtils.html</anchorfile>
-      <anchor>a009b2a8ef00831aff87d2e46ca209398</anchor>
-      <arglist>(QString s)</arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>Database</name>
@@ -1632,6 +764,768 @@
       <name>instance</name>
       <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
       <anchor>ac8cdf7dc9b0163d832ca473973916952</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Exceptions::DbException</name>
+    <filename>d4/de4/classExceptions_1_1DbException.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>DbException</name>
+      <anchorfile>d4/de4/classExceptions_1_1DbException.html</anchorfile>
+      <anchor>a1e5736082ac86ff18556f66e86f92f58</anchor>
+      <arglist>(const QString fct, const QString fctName, const QString logError, float errorCode)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~DbException</name>
+      <anchorfile>d4/de4/classExceptions_1_1DbException.html</anchorfile>
+      <anchor>ad82383b348d70958ec498ffb73f816ae</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>popupMessage</name>
+      <anchorfile>d4/de4/classExceptions_1_1DbException.html</anchorfile>
+      <anchor>a4c04dbebd510cb3206b0263bc57c9f6d</anchor>
+      <arglist>(QWidget *parent)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Gui</name>
+    <filename>d9/dad/namespaceGui.html</filename>
+    <namespace>Gui::Widgets</namespace>
+    <class kind="class">Gui::MainWindow</class>
+  </compound>
+  <compound kind="class">
+    <name>Gui::MainWindow</name>
+    <filename>d5/d2f/classGui_1_1MainWindow.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>addCustomer</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a52d033c14efb98b5b389121b8d60f2fe</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>editCustomer</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a6487a725a2b58b89062944778ac59eca</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>removeCustomer</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>ab86dd052f06fb56dbd77e3ae4c228796</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>addQuote</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>aa7d3f2553b55d74885ad7f19ed403dfd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>editUser</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a5dfb182cf52eb48f71e70cd193ef7a8b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>search</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>af50656b4c43aa53bae1ac4a3d6b4c953</anchor>
+      <arglist>(QString s)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>search</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>aed8cb16bd8f1fc5419abc0038f3dc9ef</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>newProject</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a8ea6f84e7b61e6f826d8530700f7f780</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>removeProject</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a7e00765c3da7a97ba937bdecb095200b</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>editProject</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>adade8f873eb855b2ca0bb851c91cc5a9</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>aboutQt</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a6df8072789ea8ec81ca2dd8fa78a4b01</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>aboutFact</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a26726203b873f41f607d78c5d5619c7d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>aboutFactDev</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a39fe49fec47b6cbe4c8664d97bc47e0f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>aboutIcons</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a56db09003bd79c8635488d0edc57cdb3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>updateBtn</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a39723aa0949414313efad1528a856dfd</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MainWindow</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a5ea8e526d288b96595618942d44154d3</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getCurrentCustomerId</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a202cb1e7a7c0e47af15306c2587693ec</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getCurrentProjectId</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a9580e96fd90710c5e2c299c68108409a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCurrentCustomerName</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a0303a1752424b1e8c1a6e1b0bba2a823</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getCurrentProjectName</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>af83b009038b41bc676d15cb9bcfd5a39</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isTreeRoot</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>acaf52b97656cc6d69761b065b97a6077</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCustomerItemTree</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a15f26af9a47e3b7d3dfe961c9dcd57c6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isProjectItemTree</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a62789c0cd5dfdb3cca34002188648252</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Dialogs::AddContributoryDialog</name>
+    <filename>d5/de2/classGui_1_1Dialogs_1_1AddContributoryDialog.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AddContributoryDialog</name>
+      <anchorfile>d5/de2/classGui_1_1Dialogs_1_1AddContributoryDialog.html</anchorfile>
+      <anchor>a40687642b2f2b15a61298ab18256867a</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Dialogs::AddProjectDialog</name>
+    <filename>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>checkFields</name>
+      <anchorfile>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</anchorfile>
+      <anchor>ab30cf2a880e1746cf629a69fb7d9e7f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AddProjectDialog</name>
+      <anchorfile>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</anchorfile>
+      <anchor>a1fa86f5366f321233655aaf6923ec892</anchor>
+      <arglist>(int id=0, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AddProjectDialog</name>
+      <anchorfile>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</anchorfile>
+      <anchor>a7433c07961921a18abb56a6aeb741b1f</anchor>
+      <arglist>(int noRowCustomer, int idProject=0, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>accept</name>
+      <anchorfile>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</anchorfile>
+      <anchor>abe345ededea4911846a44b984cc04f18</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reject</name>
+      <anchorfile>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</anchorfile>
+      <anchor>a767dcea1ae96d2efc3085f8ade4406ce</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillFields</name>
+      <anchorfile>de/d36/classGui_1_1Dialogs_1_1AddProjectDialog.html</anchorfile>
+      <anchor>af31b6ed23acdd5fb8b71caaeddce34f4</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Dialogs::AddQuoteDialog</name>
+    <filename>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AddQuoteDialog</name>
+      <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
+      <anchor>aa2f97eece61cf962621db04d11ea99d7</anchor>
+      <arglist>(int idCustomer=0, int id=0, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillFields</name>
+      <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
+      <anchor>a5dd0cca14b1172a7e1dd9019d8fa8ff3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>accept</name>
+      <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
+      <anchor>abcc6fc79a513dd1765a4494d9499586b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reject</name>
+      <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
+      <anchor>a1ae935c40fb54142aad3a610a137bd36</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Dialogs::DialogAddCustomer</name>
+    <filename>d2/d50/classGui_1_1Dialogs_1_1DialogAddCustomer.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>checkFields</name>
+      <anchorfile>d2/d50/classGui_1_1Dialogs_1_1DialogAddCustomer.html</anchorfile>
+      <anchor>ab1c4fdf53139a3aac7243c42881d2af1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DialogAddCustomer</name>
+      <anchorfile>d2/d50/classGui_1_1Dialogs_1_1DialogAddCustomer.html</anchorfile>
+      <anchor>a7ac689e5bcf3c4e28426016b5a2f1478</anchor>
+      <arglist>(int id=0, QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillFields</name>
+      <anchorfile>d2/d50/classGui_1_1Dialogs_1_1DialogAddCustomer.html</anchorfile>
+      <anchor>a25d53880ea053c960ee621fec29afb36</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>accept</name>
+      <anchorfile>d2/d50/classGui_1_1Dialogs_1_1DialogAddCustomer.html</anchorfile>
+      <anchor>ab9f488af3fdfbf0ca9851cc59946dd5d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reject</name>
+      <anchorfile>d2/d50/classGui_1_1Dialogs_1_1DialogAddCustomer.html</anchorfile>
+      <anchor>a5f3b96e858dedc8a54ff184baafd6e90</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Dialogs::MessageBox</name>
+    <filename>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MessageBox</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>ad5f6041f0f540c6d32b9feb7f139fa53</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>aboutFact</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>acda77dd0e2edd3aa85b1de11ed7899a2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>aboutFactDev</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>a0b92573a4e1ff4d44e8259d86b5b8275</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>aboutIcons</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>a196094a26db9cff58e70801186b73453</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setImage</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>a4efd7f861c6338389dc7f42993413009</anchor>
+      <arglist>(QString img, int width=128, int height=128)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setText</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>af96c089b5fecffac59f2a337bad533cf</anchor>
+      <arglist>(QString txt)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>showAboutFact</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>ad00c9885477fb131a87e75abc9b88fb4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>showAboutFactDev</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>a5d17e7db09f46eb20fce54135b850497</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>showAboutIcons</name>
+      <anchorfile>d9/d31/classGui_1_1Dialogs_1_1MessageBox.html</anchorfile>
+      <anchor>af30290c193707375f259fe6970ab3d2d</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Dialogs::UserDataDialog</name>
+    <filename>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>checkFields</name>
+      <anchorfile>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</anchorfile>
+      <anchor>a9ab536a7485460c905a8f17be8939f38</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>UserDataDialog</name>
+      <anchorfile>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</anchorfile>
+      <anchor>a3cafa419d49d124e72511a3b91f8ee76</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillFields</name>
+      <anchorfile>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</anchorfile>
+      <anchor>ae1a17e6547a30b03ba2c837ba0b28455</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>accept</name>
+      <anchorfile>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</anchorfile>
+      <anchor>a2d3841c471d0ddfd58610d3667d8521a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reject</name>
+      <anchorfile>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</anchorfile>
+      <anchor>a919f59546670019bb4e72fcd0c7ea841</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>Gui::Widgets</name>
+    <filename>d4/dfe/namespaceGui_1_1Widgets.html</filename>
+    <class kind="class">Gui::Widgets::ComboBoxModelWidget</class>
+    <class kind="class">Gui::Widgets::ContributoriesWidget</class>
+    <class kind="class">Gui::Widgets::CustomerContextualMenu</class>
+    <class kind="class">Gui::Widgets::CustomerDataWidget</class>
+    <class kind="class">Gui::Widgets::Popup</class>
+    <class kind="class">Gui::Widgets::ProjectsWidget</class>
+    <class kind="class">Gui::Widgets::RateWidget</class>
+    <class kind="class">Gui::Widgets::searchWidget</class>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::ComboBoxModelWidget</name>
+    <filename>d2/de0/classGui_1_1Widgets_1_1ComboBoxModelWidget.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::ContributoriesWidget</name>
+    <filename>dc/da3/classGui_1_1Widgets_1_1ContributoriesWidget.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>add</name>
+      <anchorfile>dc/da3/classGui_1_1Widgets_1_1ContributoriesWidget.html</anchorfile>
+      <anchor>a756c0d1076fad1a3805975343e66a1de</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>dc/da3/classGui_1_1Widgets_1_1ContributoriesWidget.html</anchorfile>
+      <anchor>a35895ad0b9c497263f633680288b414e</anchor>
+      <arglist>(void)</arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; Contributory &gt;</type>
+      <name>getContributories</name>
+      <anchorfile>dc/da3/classGui_1_1Widgets_1_1ContributoriesWidget.html</anchorfile>
+      <anchor>a05ddbeb4ffce91003efc1c651d888955</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::CustomerContextualMenu</name>
+    <filename>d8/ded/classGui_1_1Widgets_1_1CustomerContextualMenu.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>CustomerContextualMenu</name>
+      <anchorfile>d8/ded/classGui_1_1Widgets_1_1CustomerContextualMenu.html</anchorfile>
+      <anchor>ab8fc199bd6adf21f7dd5e881e0a73b16</anchor>
+      <arglist>(QWidget *w=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~CustomerContextualMenu</name>
+      <anchorfile>d8/ded/classGui_1_1Widgets_1_1CustomerContextualMenu.html</anchorfile>
+      <anchor>a6814dcf744752f9026c85a9640cf23ef</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::CustomerDataWidget</name>
+    <filename>df/deb/classGui_1_1Widgets_1_1CustomerDataWidget.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>printUserData</name>
+      <anchorfile>df/deb/classGui_1_1Widgets_1_1CustomerDataWidget.html</anchorfile>
+      <anchor>a78504b749fc7d80302c27748a4033b1f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>printInformations</name>
+      <anchorfile>df/deb/classGui_1_1Widgets_1_1CustomerDataWidget.html</anchorfile>
+      <anchor>aa995ed95c5ca119db4258af2fe403691</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::Popup</name>
+    <filename>d4/d2f/classGui_1_1Widgets_1_1Popup.html</filename>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>toImplement</name>
+      <anchorfile>d4/d2f/classGui_1_1Widgets_1_1Popup.html</anchorfile>
+      <anchor>ac4a9958b16b454eab84eeb95a1f01fa7</anchor>
+      <arglist>(QString, QWidget *)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::ProjectsWidget</name>
+    <filename>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>newProject</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>acd6cd65ef7bf569ce4e44436d2f8b4f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>editSelectedProject</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>a33284320194d2c20ac6a47ebaaa57ad4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>removeSelectedProject</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>a02d9111ae56ff401bc512fa218161d94</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>addProject</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>a25a20fde082c2698d7067d10e5795c0f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>editProject</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>a8a49da147544ffd78131af2b9289c9d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="signal">
+      <type>void</type>
+      <name>removeProject</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>ac713b0c5c9afba988923fe3e29b405dc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ProjectsWidget</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>a400712a956057c7233c396bffeb7a086</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::RateWidget</name>
+    <filename>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>setDailyRate</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>a6709f344452ce25d111e503bf8087582</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>setHourlyRate</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>a5c45d856fa577d87d6b9c2a4821fb804</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RateWidget</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>a661ba8151fc842dcad246a7beb81de15</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>initRate</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>aaad3463fdd580fb30af147bee194d986</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWidgetDailyRateValue</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>ae45a317c4472714c742b472b40c8028a</anchor>
+      <arglist>(double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getDailyRate</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>a2020dfe26413b0a940e6c9c9bf3e5aa6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getHourlyRate</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>a710d062c9dfdb11c0b66174aa392e617</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWidgetHourlyRateValue</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>a9d7eecd8f136accd39699ae209fb6edf</anchor>
+      <arglist>(double value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateConversionRate</name>
+      <anchorfile>d0/de2/classGui_1_1Widgets_1_1RateWidget.html</anchorfile>
+      <anchor>ab5b8f371cee5a697470639f64e7856d6</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::searchWidget</name>
+    <filename>d7/d75/classGui_1_1Widgets_1_1searchWidget.html</filename>
+    <member kind="slot">
+      <type>void</type>
+      <name>search</name>
+      <anchorfile>d7/d75/classGui_1_1Widgets_1_1searchWidget.html</anchorfile>
+      <anchor>adf91225827fde587bea0d0fc803b0034</anchor>
+      <arglist>(QString toSearch)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>getCustomerData</name>
+      <anchorfile>d7/d75/classGui_1_1Widgets_1_1searchWidget.html</anchorfile>
+      <anchor>ae9e5a460a5320c8bfad4d6878009ccbc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>searchWidget</name>
+      <anchorfile>d7/d75/classGui_1_1Widgets_1_1searchWidget.html</anchorfile>
+      <anchor>a8d77bcf326543f841d1c05fe9819183f</anchor>
+      <arglist>(QWidget *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getCurrentCustomerId</name>
+      <anchorfile>d7/d75/classGui_1_1Widgets_1_1searchWidget.html</anchorfile>
+      <anchor>a93c6519cc7e0d8f440451d14fb85bd31</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isCustomerSelected</name>
+      <anchorfile>d7/d75/classGui_1_1Widgets_1_1searchWidget.html</anchorfile>
+      <anchor>a3cb27e088874c5b8c548d0346a5d85f2</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::Delegates::ProjectComboDelegate</name>
+    <filename>d6/d93/classGui_1_1Widgets_1_1Delegates_1_1ProjectComboDelegate.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::WdgModels::ContributoriesTableModel</name>
+    <filename>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ContributoriesTableModel</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>abfc7cdc96006729fa8b03571bb8b586b</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>a4adfd94506448337ceac8504b76531aa</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>ab052217cb08f856ecfe465458f95c174</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>aa95bb13ea63275f96187150a8a2d3972</anchor>
+      <arglist>(const QModelIndex &amp;index, int role) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>headerData</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>ac08635d8660ddd4444d7f2b75ae3d0ef</anchor>
+      <arglist>(int section, Qt::Orientation orientation, int role) const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setData</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>a1c9f7969dc52e5840acfc122fcb2ab48</anchor>
+      <arglist>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>append</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>a6d3f0ab976abd9993b731b27fbe3a404</anchor>
+      <arglist>(const Contributory &amp;contributory)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>a76666bbbc940867b6ff3366424f72e26</anchor>
+      <arglist>(const int i)</arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>a6bf3e8c45bb499e82546be456a7de77b</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; Contributory &gt;</type>
+      <name>getContributories</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>af20bc21f24f7597b6b7d053d11d02d97</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>count</name>
+      <anchorfile>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</anchorfile>
+      <anchor>acc01a97c00bb57e6733f697fc45be0ed</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -2589,10 +2483,134 @@
       <arglist>(const QString &amp;noSiret)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>Utils::ItemType</name>
+    <filename>d5/d7c/classUtils_1_1ItemType.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ItemType</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a5b06f6c289619f01ced33db7b16ab0f9</anchor>
+      <arglist>(int type, QString name)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getName</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a09fdb09837ad0ab678a271d3f97dd006</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>Models::IDatabaseModel *</type>
+      <name>getModel</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a9341f4f165726aa1e31543d6c7233cd6</anchor>
+      <arglist>(int id)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setName</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>aa993c315def3988851fc3af5f826c384</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getType</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a83266bf1a7fecbc0e747c5dc2b079ff5</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setType</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a80b89017d22b33c1ac1c84055592b7f7</anchor>
+      <arglist>(int type)</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>CUSTOMER</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a181d6656c7e2db09962fda0925c38ea5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>PROJECT</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>aa3f6eae0de61e9c259dae988c1e13846</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>BILLING</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a21c22e857bbe4549f37e3ae4e34c4ede</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const int</type>
+      <name>QUOTE</name>
+      <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
+      <anchor>a5c34781b4518fed7d53ce6f9aa4911c8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Utils::Log</name>
+    <filename>db/db3/classUtils_1_1Log.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>~Log</name>
+      <anchorfile>db/db3/classUtils_1_1Log.html</anchorfile>
+      <anchor>a659ea51c0749983cf9bba0274aa10184</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>write</name>
+      <anchorfile>db/db3/classUtils_1_1Log.html</anchorfile>
+      <anchor>a9f21042e13648171da95b27830e91c75</anchor>
+      <arglist>(const QString text)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Log</name>
+      <anchorfile>db/db3/classUtils_1_1Log.html</anchorfile>
+      <anchor>a0191645e4f86af331290c7062c79d7b7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Log &amp;</type>
+      <name>instance</name>
+      <anchorfile>db/db3/classUtils_1_1Log.html</anchorfile>
+      <anchor>aea616362bc63f99499e3964d5dc759d2</anchor>
+      <arglist>(TypeLog type=INFO)</arglist>
+    </member>
+    <member kind="friend">
+      <type>friend Log &amp;</type>
+      <name>operator&lt;&lt;</name>
+      <anchorfile>db/db3/classUtils_1_1Log.html</anchorfile>
+      <anchor>a1ecba3328cadecbbd7d65ae2852171fc</anchor>
+      <arglist>(Log &amp;logger, const QString &amp;text)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Utils::String</name>
+    <filename>dd/df6/classUtils_1_1String.html</filename>
+    <member kind="function" static="yes">
+      <type>static QString</type>
+      <name>firstLetterToUpper</name>
+      <anchorfile>dd/df6/classUtils_1_1String.html</anchorfile>
+      <anchor>a9ccf44a6e09a1391001304570ba615a3</anchor>
+      <arglist>(QString s)</arglist>
+    </member>
+  </compound>
   <compound kind="dir">
-    <name>src/widgets/checkfields</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/widgets/checkfields/</path>
-    <filename>dir_85da786ff65cbda030d304d3a1e6a30e.html</filename>
+    <name>src/gui/widgets/checkfields</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/checkfields/</path>
+    <filename>dir_0eead514b9ed4592c90e101ed422560f.html</filename>
     <file>checkcity.cpp</file>
     <file>checkcity.h</file>
     <file>checkcountry.cpp</file>
@@ -2646,17 +2664,16 @@
     <file>userdatabase.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/widgets/delegates</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/widgets/delegates/</path>
-    <filename>dir_b468fe03d98886b78ec49523fac59f95.html</filename>
+    <name>src/gui/widgets/delegates</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/delegates/</path>
+    <filename>dir_3f5c8b159cea2455682ba166343f1c24.html</filename>
     <file>projectcombodelegate.cpp</file>
     <file>projectcombodelegate.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/dialogs</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/dialogs/</path>
-    <filename>dir_9870864803860a03def48f6710b1f137.html</filename>
-    <dir>src/dialogs/messagebox</dir>
+    <name>src/gui/dialogs</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/dialogs/</path>
+    <filename>dir_efbc4204d7eafacd192acb41efadd819.html</filename>
     <file>addcontributorydialog.cpp</file>
     <file>addcontributorydialog.h</file>
     <file>addprojectdialog.cpp</file>
@@ -2665,6 +2682,9 @@
     <file>addquotedialog.h</file>
     <file>dialogaddcustomer.cpp</file>
     <file>dialogaddcustomer.h</file>
+    <file>messagebox.cpp</file>
+    <file>messagebox.h</file>
+    <file>messageboxhelp.cpp</file>
     <file>userdatadialog.cpp</file>
     <file>userdatadialog.h</file>
   </compound>
@@ -2676,12 +2696,11 @@
     <file>dbexception.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/dialogs/messagebox</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/dialogs/messagebox/</path>
-    <filename>dir_2ba520ac699545e0dbf222843725d59b.html</filename>
-    <file>messagebox.cpp</file>
-    <file>messagebox.h</file>
-    <file>messageboxhelp.cpp</file>
+    <name>src/gui</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/</path>
+    <filename>dir_99d0482cf009f9d97a0877749b817f19.html</filename>
+    <dir>src/gui/dialogs</dir>
+    <dir>src/gui/widgets</dir>
   </compound>
   <compound kind="dir">
     <name>tests/models</name>
@@ -2727,20 +2746,14 @@
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/</path>
     <filename>dir_68267d1309a1af8e8297ef4c3efbcdba.html</filename>
     <dir>src/database</dir>
-    <dir>src/dialogs</dir>
     <dir>src/exceptions</dir>
+    <dir>src/gui</dir>
     <dir>src/models</dir>
-    <dir>src/widgets</dir>
-    <file>itemtype.cpp</file>
-    <file>itemtype.h</file>
-    <file>log.cpp</file>
-    <file>log.h</file>
+    <dir>src/utils</dir>
     <file>mainwindow.cpp</file>
     <file>mainwindow.h</file>
     <file>parameters.cpp</file>
     <file>parameters.h</file>
-    <file>utils.cpp</file>
-    <file>utils.h</file>
   </compound>
   <compound kind="dir">
     <name>tests</name>
@@ -2752,12 +2765,23 @@
     <file>main.cpp</file>
   </compound>
   <compound kind="dir">
-    <name>src/widgets</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/widgets/</path>
-    <filename>dir_0abdee562046be6f5823d1ca8c3fd13c.html</filename>
-    <dir>src/widgets/checkfields</dir>
-    <dir>src/widgets/delegates</dir>
-    <dir>src/widgets/widgetsmodels</dir>
+    <name>src/utils</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/utils/</path>
+    <filename>dir_313caf1132e152dd9b58bea13a4052ca.html</filename>
+    <file>itemtype.cpp</file>
+    <file>itemtype.h</file>
+    <file>log.cpp</file>
+    <file>log.h</file>
+    <file>string.cpp</file>
+    <file>string.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>src/gui/widgets</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/</path>
+    <filename>dir_cc657b4ce13702a9d007a200bde234e1.html</filename>
+    <dir>src/gui/widgets/checkfields</dir>
+    <dir>src/gui/widgets/delegates</dir>
+    <dir>src/gui/widgets/widgetsmodels</dir>
     <file>comboboxmodelwidget.cpp</file>
     <file>comboboxmodelwidget.h</file>
     <file>contributorieswidget.cpp</file>
@@ -2776,9 +2800,9 @@
     <file>searchwidget.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/widgets/widgetsmodels</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/widgets/widgetsmodels/</path>
-    <filename>dir_bd05c1a27c2a43e11919786bc921e584.html</filename>
+    <name>src/gui/widgets/widgetsmodels</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/widgetsmodels/</path>
+    <filename>dir_510d0097101e86f8d90349dc8de0e8e3.html</filename>
     <file>contributoriestablemodel.cpp</file>
     <file>contributoriestablemodel.h</file>
   </compound>
