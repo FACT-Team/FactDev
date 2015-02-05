@@ -4,6 +4,9 @@
 #include <QWidget>
 
 #include "models/project.h"
+
+using namespace Models;
+
 namespace Ui {
 class RateWidget;
 }

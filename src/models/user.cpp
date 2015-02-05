@@ -1,6 +1,6 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
-
+namespace Models {
 User::User()
 {
 
@@ -147,4 +147,4 @@ void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
 }
-
+}

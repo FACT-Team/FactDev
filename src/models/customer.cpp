@@ -2,6 +2,7 @@
 
 #include "database/customerdatabase.h"
 
+namespace Models {
 Customer::Customer()
 {
     _id = 0;
@@ -164,13 +165,4 @@ void Customer::setCountry(const QString &country)
     _country = country;
 }
 
-
-
-
-
-
-
-
-
-
-
+}

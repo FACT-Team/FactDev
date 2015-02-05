@@ -5,11 +5,12 @@
 #include <QApplication>
 
 #include "models/project.h"
+
 class ProjectComboDelegate : public QItemDelegate
 {
 Q_OBJECT
 public:
-    ProjectComboDelegate(QSharedPointer<Customer> c, QObject* parent=0);
+    ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject* parent=0);
     ~ProjectComboDelegate();
 
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -20,7 +21,7 @@ public:
 
 
 private:
-  QMap<int, Project> _projects;
+  QMap<int, Models::Project> _projects;
 };
 
 #endif // PROJECTCOMBODELEGATE_H

@@ -16,7 +16,7 @@ BillingDatabase* BillingDatabase::instance()throw(DbException*)
     return _instance;
 }
 
-Billing* BillingDatabase::getBilling(const int pId) {
+Models::Billing* BillingDatabase::getBilling(const int pId) {
     QSqlQuery q;
     Billing* billing;
     q.prepare("SELECT * FROM Billing WHERE idBilling = :pId");
@@ -31,7 +31,7 @@ Billing* BillingDatabase::getBilling(const int pId) {
     }
 
     if(q.first()) {
-        billing = new Billing();
+        billing = new Models::Billing();
         billing->setId(value(q, "idBilling").toInt());
         billing->setTitle(value(q, "title").toString());
         billing->setDescription(value(q,"description").toString());

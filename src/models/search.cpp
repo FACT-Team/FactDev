@@ -1,5 +1,6 @@
 #include "search.h"
 
+namespace Models {
 Search::Search()
 {
     _searchInCompanies = true;
@@ -66,8 +67,4 @@ void Search::setText(const QString &text)
     _text = text;
     _text.replace("'", "''");
 }
-
-
-
-
-
+}

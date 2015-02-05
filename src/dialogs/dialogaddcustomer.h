@@ -3,6 +3,9 @@
 
 #include <QDialog>
 #include "models/customer.h"
+
+using namespace Models;
+
 namespace Ui {
 class DialogAddCustomer;
 }

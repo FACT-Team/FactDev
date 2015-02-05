@@ -10,6 +10,8 @@
 #include "log.h"
 #include "utils.h"
 
+using namespace Models;
+
 /** 
  * @author Antoine de Roquemaurel
  * @brief The <b>CustomerDatabase</b> class Customer table database

@@ -5,6 +5,7 @@
 #include "models/billing.h"
 
 #include "widgets/contributorieswidget.h"
+using namespace Models;
 
 namespace Ui {
 class AddQuoteDialog;

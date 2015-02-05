@@ -20,7 +20,7 @@ IDatabaseModel* ItemType::getModel(int id) {
     switch(_type) {
     case ItemType::BILLING:
     case ItemType::QUOTE:
-        ret = new Billing(id);
+        ret = new Models::Billing(id);
         break;
     case ItemType::CUSTOMER:
         ret = new Customer(id);

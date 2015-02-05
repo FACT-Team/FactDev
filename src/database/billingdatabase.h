@@ -6,6 +6,8 @@
 #include "log.h"
 #include "utils.h"
 
+using namespace Models;
+
 /**
  * @author Cédric Rohaut @Oxynos
  * @brief The <b>BillingDatabase</b> class Billing (or Quote) table database

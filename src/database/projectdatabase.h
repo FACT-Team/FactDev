@@ -9,6 +9,8 @@
 #include "utils.h"
 #include "log.h"
 
+using namespace Models;
+
 /**
  * @author Florent Berbie
  * @brief The ProjectDatabase class Project table database

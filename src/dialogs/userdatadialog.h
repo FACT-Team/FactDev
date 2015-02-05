@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "models/user.h"
 
+using namespace Models;
+
 namespace Ui {
 class UserDataDialog;
 }

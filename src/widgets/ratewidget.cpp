@@ -1,6 +1,7 @@
 #include "ratewidget.h"
 #include "ui_ratewidget.h"
 
+
 RateWidget::RateWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RateWidget)

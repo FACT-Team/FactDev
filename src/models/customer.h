@@ -3,6 +3,7 @@
 #include <QString>
 #include "models/idatabasemodel.h"
 
+namespace Models {
 /**
  * @author Antoine de Roquemaurel
  * @author Florent Berbie
@@ -204,5 +205,5 @@ private:
     QString _phone;             //!< Phone number of the customer
     QString _fax;               //!< Fax number of the customer
 };
-
+}
 #endif // CUSTOMER_H

@@ -7,6 +7,8 @@
 
 #include "log.h"
 
+using namespace Models;
+
 /**
  * @author Antoine de Roquemaurel
  * @brief The ContributoriesTableModel class for a custom table for contributories widget

@@ -2,6 +2,7 @@
 
 #include "database/billingdatabase.h"
 
+namespace Models {
 Billing::Billing()
 {
 
@@ -145,3 +146,4 @@ void Billing::setDate(const QDate &date)
     _date = date;
 }
 
+}

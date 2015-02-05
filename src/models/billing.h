@@ -11,6 +11,7 @@
 
 #include "database/contributorydatabase.h"
 
+namespace Models {
 /**
  * @author Cédric Rohaut @Oxynos for the quote part
  * @brief The Billing class : Billing or Quote of a Customer
@@ -152,4 +153,5 @@ private:
 
 };
 
+}
 #endif // BILLING_H

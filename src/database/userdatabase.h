@@ -5,6 +5,8 @@
 #include "exceptions/dbexception.h"
 #include "models/user.h"
 
+using namespace Models;
+
 /**
  * @author Florent Berbie
  * @brief The UserDatabase class Access to User data in the the table User of

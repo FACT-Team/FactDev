@@ -1,6 +1,7 @@
 #ifndef IDATABASEMODEL_H
 #define IDATABASEMODEL_H
 
+namespace Models {
 /**
  * @author Antoine de Roquemaurel
  * @brief The IDatabaseModel class
@@ -62,10 +63,5 @@ protected:
     int _id;    //!< Element identify
     bool _toRemoved; //!< Flag to know if the object must be removed
 };
-
+}
 #endif // IDATABASEMODEL_H
-
-
-
-
-
