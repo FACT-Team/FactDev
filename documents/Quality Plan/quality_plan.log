@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  6 FEB 2015 11:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  6 FEB 2015 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1405,24 +1405,25 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 \JustifyingParindent=\skip166
 ) (./quality_plan.aux
 (./contents/0-preambule.aux) (./contents/1-specification_du_projet.aux)
-(./contents/2-production.aux) (./contents/3-fournitures_et_livrables.aux))
+(./contents/2-production.aux) (./contents/3-fournitures_et_livrables.aux)
+(./contents/4-planning.aux) (./contents/5-demarche_qualite.aux))
 \openout1 = `quality_plan.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 58.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1441,9 +1442,9 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \makeMPintoPDFobject=\count295
 \everyMPtoPDFconversion=\toks49
 )
-LaTeX Info: Redefining \degres on input line 55.
-LaTeX Info: Redefining \dots on input line 55.
-LaTeX Info: Redefining \up on input line 55.
+LaTeX Info: Redefining \degres on input line 58.
+LaTeX Info: Redefining \dots on input line 58.
+LaTeX Info: Redefining \up on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1480,7 +1481,7 @@ LaTeX Info: Redefining \up on input line 55.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box93
-Package hyperref Info: Link coloring ON on input line 55.
+Package hyperref Info: Link coloring ON on input line 58.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1489,9 +1490,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 55.
-LaTeX Info: Redefining \pageref on input line 55.
-LaTeX Info: Redefining \nameref on input line 55.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (./quality_plan.out) (./quality_plan.out)
 \@outlinefile=\write7
@@ -1546,81 +1547,81 @@ Package minitoc(hints) Warning: W0023
 (minitoc(hints))                of loading the ``hyperref'' package.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 55.
+LaTeX Info: Redefining \selectfont on input line 58.
 \drop=\skip167
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 57.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 60.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 57.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 60.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 57.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 60.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 57.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 60.
 
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 57.
+(Font)              <12> on input line 60.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 57.
+(Font)              <8> on input line 60.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 57.
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+(Font)              <6> on input line 60.
+LaTeX Font Info:    Try loading font information for U+msa on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<./FACT_official.png, id=43, 965.6075pt x 363.3575pt>
+<./FACT_official.png, id=63, 965.6075pt x 363.3575pt>
 File: ./FACT_official.png Graphic file (type png)
 
 <use ./FACT_official.png>
-Package pdftex.def Info: ./FACT_official.png used on input line 57.
+Package pdftex.def Info: ./FACT_official.png used on input line 60.
 (pdftex.def)             Requested size: 113.81102pt x 42.8248pt.
-LaTeX Font Info:    Try loading font information for U+mvs on input line 57.
+LaTeX Font Info:    Try loading font information for U+mvs on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/marvosym/umvs.fd)
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 57.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 60.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 57.
+(Font)              <10.95> on input line 60.
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--57
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
 
  []
 
-<logo.jpg, id=46, 963.6pt x 324.21124pt>
+<logo.jpg, id=66, 963.6pt x 324.21124pt>
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 57.
+Package pdftex.def Info: logo.jpg used on input line 60.
 (pdftex.def)             Requested size: 142.26378pt x 47.8628pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 57.
+(Font)              <5> on input line 60.
 
-Overfull \hbox (75.83363pt too wide) in paragraph at lines 57--57
+Overfull \hbox (75.83363pt too wide) in paragraph at lines 60--60
 [][] 
  []
 
 Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM quality_plan.toc on input line 59
+(minitoc)             PREPARING MINITOCS FROM quality_plan.toc on input line 62
 .
 Package minitoc Info: I0033
 (minitoc)             Writing quality_plan.mtc1.
@@ -1642,11 +1643,19 @@ Package minitoc Info: I0033
 (minitoc)             Writing quality_plan.mtc5.
 \openout4 = `quality_plan.mtc5'.
 
+Package minitoc Info: I0033
+(minitoc)             Writing quality_plan.mtc6.
+\openout4 = `quality_plan.mtc6'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing quality_plan.mtc7.
+\openout4 = `quality_plan.mtc7'.
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./FACT_official.png> <./lo
 go.jpg>]
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 63.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 66.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (./quality_plan.toc)
@@ -1733,7 +1742,7 @@ Package epstopdf Info: Source file: <screens/scrum.eps>
 d-to.pdf screens/scrum.eps>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
-<screens/scrum-eps-converted-to.pdf, id=105, 2585.66pt x 438.63875pt>
+<screens/scrum-eps-converted-to.pdf, id=130, 2585.66pt x 438.63875pt>
 File: screens/scrum-eps-converted-to.pdf Graphic file (type pdf)
 
 <use screens/scrum-eps-converted-to.pdf>
@@ -1808,7 +1817,7 @@ eps-converted-to.pdf screens/BranchingWorkflow.eps>
 (epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<screens/BranchingWorkflow-eps-converted-to.pdf, id=157, 745.78625pt x 680.5425
+<screens/BranchingWorkflow-eps-converted-to.pdf, id=182, 745.78625pt x 680.5425
 pt>
 File: screens/BranchingWorkflow-eps-converted-to.pdf Graphic file (type pdf)
  <use screens/BranchingWorkflow-eps-converted-to.pdf>
@@ -1840,242 +1849,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
  (./contents/3-fournitures_et_livrables.tex
 Chapitre 3.
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 Le ré
-            sultat du projet sera présenté par le Titulaire au Client lo...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 Le résultat du projet sera pré
-                                       senté par le Titulaire au Client lo...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 Le résultat du projet sera présenté
-                                               par le Titulaire au Client lo...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:̂ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 ...e qui contient la description des contrô
-                                                  les et tests de recette pr...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.19 ... des contrôles et tests de recette pré
-                                                  vus.
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 Le dé
-            roulement du projet et les résultats obtenus seront présente...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 Le déroulement du projet et les ré
-                                           sultats obtenus seront présente...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...et et les résultats obtenus seront pré
-                                                  sentés oralement devant ...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...es résultats obtenus seront présenté
-                                                  s oralement devant un jury...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...nance en groupe du Titulaire, accompagné
-                                                  e de diapositives. Cette p...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 .... Cette présentation orale d’une duré
-                                                  e maximale de quinze minut...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...inze minutes sera suivie par un temps ré
-                                                  servé aux questions. Les...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...nutes sera suivie par un temps réservé
-                                                   aux questions. Les temps ...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...ons. Les temps de parole entre les diffé
-                                                  rents orateurs seront conv...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...�rents orateurs seront convenablement ré
-                                                  partis, de sorte que chacu...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...acun ait un temps de parole d’une duré
-                                                  e équivalente.
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Unicode char \u8:́ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 ...ait un temps de parole d’une durée é
-                                                  quivalente.
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 ) [12
+
+
+
+]
+\openout2 = `contents/4-planning.aux'.
+
+ (./contents/4-planning.tex
+Chapitre 4.
+) [13
+
+
+
+]
+\openout2 = `contents/5-demarche_qualite.aux'.
+
+ (./contents/5-demarche_qualite.tex
+Chapitre 5.
+) [14
 
 
 
@@ -2085,7 +1877,7 @@ Annexe A.
 \tf@lof=\write9
 \openout9 = `quality_plan.lof'.
 
- (./quality_plan.ind [13
+ (./quality_plan.ind [15
 
 
 ])
@@ -2110,30 +1902,31 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the quality_plan.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
-[14
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
+[16
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./quality_plan.aux (./contents/0-preambule.aux)
 (./contents/1-specification_du_projet.aux) (./contents/2-production.aux)
-(./contents/3-fournitures_et_livrables.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
+(./contents/3-fournitures_et_livrables.aux) (./contents/4-planning.aux)
+(./contents/5-demarche_qualite.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
 Package rerunfilecheck Info: File `quality_plan.out' has not changed.
-(rerunfilecheck)             Checksum: BE618692AF89536A983160FEAC01FCE6;550.
+(rerunfilecheck)             Checksum: 6FC9853B2D7C3AA8CE9D41C462FF012C;881.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 27845 strings out of 493304
- 482817 string characters out of 6139871
- 601134 words of memory out of 5000000
- 30410 multiletter control sequences out of 15000+600000
- 90134 words of font info for 71 fonts, out of 8000000 for 9000
+ 27881 strings out of 493304
+ 483434 string characters out of 6139871
+ 602678 words of memory out of 5000000
+ 30416 multiletter control sequences out of 15000+600000
+ 94397 words of font info for 72 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,14n,55p,10491b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
@@ -2144,15 +1937,16 @@ sr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/pu
 blic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/font
-s/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb>
-Output written on quality_plan.pdf (14 pages, 454905 bytes).
+s/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/marvosym/marvosym.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/avantgar/uagk8a.pfb>
+Output written on quality_plan.pdf (16 pages, 472909 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 260 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
