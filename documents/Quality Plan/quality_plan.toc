@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {1.2.4}Titulaire : \IeC {\'E}quipe FACT}{5}{subsection.1.2.4}
 \contentsline {chapter}{\numberline {2}Production}{6}{chapter.2}
 \contentsline {section}{\numberline {2.1}M\IeC {\'e}thode de d\IeC {\'e}veloppement}{6}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}D\IeC {\'e}finition et pertinence de la m\IeC {\'e}thode \textit {scrum}}{6}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}D\IeC {\'e}finition et pertinence de la m\IeC {\'e}thode scrum}{6}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Application de la m\IeC {\'e}thode \textit {Scrum} et crit\IeC {\`e}res de qualit\IeC {\'e}}{7}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Organisation et r\IeC {\^o}les dans l'\IeC {\'e}quipe de d\IeC {\'e}veloppement}{8}{subsection.2.1.3}
 \contentsline {subsubsection}{\numberline {2.1.3.1}Scrum Master : Florent Berbie}{8}{subsubsection.2.1.3.1}
