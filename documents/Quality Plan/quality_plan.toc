@@ -24,5 +24,6 @@
 \contentsline {subsection}{\numberline {2.2.3}Outils pour la Gestion de Projet Agile}{10}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Documentation}{11}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Assurance de la qualit\IeC {\'e} du code}{11}{subsection.2.2.5}
-\contentsline {chapter}{\numberline {A}Table des figures}{12}{appendix.A}
-\contentsline {chapter}{Index}{13}{appendix*.3}
+\contentsline {chapter}{\numberline {3}Fournitures et Livrables}{12}{chapter.3}
+\contentsline {chapter}{\numberline {A}Table des figures}{13}{appendix.A}
+\contentsline {chapter}{Index}{14}{appendix*.3}
