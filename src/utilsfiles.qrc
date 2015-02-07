@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/tpl">
+        <file alias="billingtpl">billing.tpl</file>
+    </qresource>
+</RCC>

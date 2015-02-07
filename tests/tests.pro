@@ -35,3 +35,6 @@ database/customerdatabasetest.cpp \
     generation.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
+
+RESOURCES += \
+    test.qrc

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/tpl">
+        <file alias="generation">generation.tpl</file>
+    </qresource>
+</RCC>

@@ -62,7 +62,8 @@ SOURCES += mainwindow.cpp \
     database/contributorydatabase.cpp \
     utils/itemtype.cpp \
     gui/dialogs/messagebox.cpp \
-    libs/qt-mustache/src/mustache.cpp
+    libs/qt-mustache/src/mustache.cpp \
+    generator.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -114,7 +115,8 @@ HEADERS  += mainwindow.h \
     utils/itemtype.h \
     gui/dialogs/messagebox.h \
     gui/widgets/checkfields/icheckfield.h \
-    libs/qt-mustache/src/mustache.h
+    libs/qt-mustache/src/mustache.h \
+    generator.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
@@ -131,7 +133,8 @@ FORMS    += mainwindow.ui \
     gui/dialogs/messagebox.ui
 
 RESOURCES += \
-    icons.qrc
+    icons.qrc \
+    utilsfiles.qrc
 
 OTHER_FILES += \
         sql/removetable.sql \
@@ -142,7 +145,8 @@ OTHER_FILES += \
     sql/tests/billingsprojects.sql \
     sql/tests/contributories.sql \
     sql/tests/projects.sql \
-    main.dox
+    main.dox \
+    billing.tpl\
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql
