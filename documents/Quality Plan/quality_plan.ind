@@ -1,18 +1,76 @@
 \begin{theindex}
 
-  \item Devis, \hyperpage{3}
+  \item Documentation, \hyperpage{10}
+    \subitem Comptes rendus mensuel, \hyperpage{10}
+    \subitem Doxygen, \hyperpage{10}
+    \subitem Graphqiues d'avancement
+      \subsubitem Burndown chart, \hyperpage{10}
+      \subsubitem Burnup chart, \hyperpage{10}
+    \subitem Manuel de l'utilisateur, \hyperpage{10}
+    \subitem Plan d'assurance qualit\IeC {\'e}, \hyperpage{10}
+    \subitem Product Backlog, \hyperpage{10}
+    \subitem Wiki, \hyperpage{10}
 
   \indexspace
 
-  \item Facture, \hyperpage{3}
+  \item FactDev
+    \subitem Devis, \hyperpage{8}
+    \subitem Facture, \hyperpage{8}
+    \subitem Gestion des clients, \hyperpage{8}
 
   \indexspace
 
-  \item Outils, \hyperpage{3}
-    \subitem Qt Creator, \hyperpage{3}
+  \item Graphqiues d'avancement, \hyperpage{10}
+
+  \indexspace
+
+  \item Livrables, \hyperpage{12}
+    \subitem Bilan du projet, \hyperpage{12}
+    \subitem Build, \hyperpage{12}
+    \subitem Compte rendu menseul, \hyperpage{12}
+    \subitem Graphiques d'avancement, \hyperpage{12}
+      \subsubitem Burdown chart, \hyperpage{12}
+      \subsubitem Burnup chart, \hyperpage{12}
+    \subitem Manuel de l'utilisateur, \hyperpage{12}
+    \subitem Plan d'assurance qualit\IeC {\'e}, \hyperpage{12}
+    \subitem Product Backlog, \hyperpage{12}
+
+  \indexspace
+
+  \item M\IeC {\'e}thode Scrum, \hyperpage{5}, \hyperpage{13}
+    \subitem \IeC {\'E}quipe de d\IeC {\'e}veloppement, \hyperpage{7}
+    \subitem Directeur documentation, \hyperpage{7}
+    \subitem Directeur qualit\IeC {\'e}, \hyperpage{7}
+    \subitem Directeur technique, \hyperpage{8}
+    \subitem Issue, \hyperpage{8}, \hyperpage{13}
+    \subitem M\IeC {\^e}l\IeC {\'e}es, \hyperpage{5, 6}, \hyperpage{13}
+    \subitem Product Owner, \hyperpage{7}
+    \subitem Product owner, \hyperpage{7}
+    \subitem Release, \hyperpage{5, 6}, \hyperpage{13}
+    \subitem Revue de sprint, \hyperpage{12}
+    \subitem Scrum master, \hyperpage{7}
+    \subitem Sprint, \hyperpage{5, 6}, \hyperpage{9}, \hyperpage{13}
+    \subitem Technical Story, \hyperpage{6}
+    \subitem User Story, \hyperpage{9}
+    \subitem User story, \hyperpage{6}
+
+  \indexspace
+
+  \item Outils
+    \subitem Git, \hyperpage{14}
+    \subitem Github, \hyperpage{9}, \hyperpage{14}
+    \subitem lcov, \hyperpage{15}
+    \subitem Qt, \hyperpage{9}
+    \subitem Qt Creator, \hyperpage{9}
+    \subitem SonarQube, \hyperpage{11}, \hyperpage{15}
+    \subitem SQLite, \hyperpage{8}
 
   \indexspace
 
   \item Parties prenantes, \hyperpage{3}
+    \subitem \IeC {\'E}quipe de d\IeC {\'e}veloppement, \hyperpage{4}
+    \subitem Client, \hyperpage{3}
+    \subitem Encadrant, \hyperpage{3}
+    \subitem Responsable de l'UE Projet, \hyperpage{3}
 
 \end{theindex}
