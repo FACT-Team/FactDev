@@ -2,28 +2,29 @@ language: cpp
 
 env:
 - QT_SELECT=qt5
-   global:
-      - GCC_VERSION="4.8"
-      
+
 compiler:
-  - gcc
-  - clang
-  
+- g++
+
 before_install:
   - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
-  - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
-  # clang 3.4
-  - if [ "$CXX" == "clang++" ]; then sudo add-apt-repository -y ppa:h-rayflood/llvm; fi
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libqt5core5 qt5-qmake qt5-default qtchooser
-  - sudo apt-get install gcc-4.8 g++-4.8;
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20;
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20;
-  
+  - cat /proc/cpuinfo
 install:
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq "g++-${GCC_VERSION}"; fi
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-${GCC_VERSION}" CC="gcc-${GCC_VERSION}"; fi
-  - if [ "$CXX" = "clang++" ]; then sudo apt-get install -qq "libstdc++-${GCC_VERSION}-dev"; fi
+  - sudo apt-get install g++-4.8;
+  - wget -O Qt5.2.0.tar.xz https://dl.dropboxusercontent.com/u/20447449/Qt5.2.0.tar.xz
+  - mkdir ~/Qt5.2.0
+  - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0
+  - sudo chmod -R 777 ~/Qt5.2.0/
+  - export CXX="g++-4.8"
   
 script:
-- qmake && make -j3 && ./tests
+  - ~/Qt5.2.0/5.2.0/gcc_64/bin/qmake FactDev.pro -r -spec linux-g++ CONFIG+=debug
+  - make -j9
+  - LD_LIBRARY_PATH=`pwd`/src
+  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+  - ls $LD_LIBRARY_PATH/*.so*
+  - ln -s `pwd`/src/sql `pwd`/tests/sql
+  - cd tests
+  - ./tests
