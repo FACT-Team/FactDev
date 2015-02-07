@@ -4,7 +4,7 @@ QT       -= gui
 QT       += testlib sql printsupport
 
 TARGET = tests
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=gnu++11
 
 TEMPLATE = app
 CONFIG += c++11

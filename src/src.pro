@@ -11,7 +11,7 @@ QT       += core gui sql printsupport
 
 TARGET = FactDev
 TEMPLATE = lib
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=gnu++11
 CONFIG += c++11
 
 

@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 CONFIG += ordered c++11
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=gnu++11
 
 SUBDIRS = \
     src \
