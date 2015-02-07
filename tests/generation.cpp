@@ -23,3 +23,6 @@ void Generation::testTemplate()
 
 }
 
+void Generation::testFileTemplate() {
+    QVERIFY(false);
+}

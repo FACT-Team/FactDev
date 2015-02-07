@@ -12,6 +12,7 @@ public:
 
 private slots:
     void testTemplate();
+    void testFileTemplate();
 };
 
 DECLARE_TEST(Generation)
