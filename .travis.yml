@@ -13,7 +13,7 @@ before_install:
 
 install:
   - sudo apt-get install g++-4.8;
-  - wget -O Qt5.2.0.tar.xz https://drive.google.com/open?id=0B0yWoNLJwcxkbGxnWVFvak13cVk&authuser=0
+  - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0
   - mkdir ~/Qt5.2.0
   - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0
   - sudo chmod -R 777 ~/Qt5.2.0/
