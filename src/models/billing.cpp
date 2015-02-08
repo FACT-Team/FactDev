@@ -86,6 +86,28 @@ QVariantHash Billing::getDataMap()
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.keys().first()->getCustomer()->getDataMap();
     data["billing"] = billing;//
+
+    QVariantList table;
+    QVariantHash project;
+    QVariantList contributories;
+    for(Project* p : _contributories.keys()) {
+        project["nameproject"] = p->getName();
+
+        for(Contributory c : _contributories.value(p)) {
+            contributories << c.getDataMap();
+        }
+        project["contributories"] = contributories;
+        contributories.clear();
+        table << project;
+        project.clear();
+    }
+//    contributories << _contributories.values().first().first().getDataMap();
+//    contributories << _contributories.values().first().first().getDataMap();
+//    contributories << _contributories.values().first().first().getDataMap();
+
+//    table << project;
+    data["table"] = table;
+
     return data;
 }
 

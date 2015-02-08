@@ -68,10 +68,24 @@
 	\normalsize
 	\textbf{ {{title}} }\\
 	{{description}}\\~\\
-	Ce devis est calculé sur la base de 105\euro{} par jour de
+	Ce devis est calculé sur la base de TODO\euro{} par jour de
 	travail.
-
-
+	{{/billing}}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{4.2cm}|p{10cm}|p{2cm}|r|}
+			\hline
+		    \textbf{Application} &\textbf{Prestation} & \textbf{Nombre de jours} & \textbf{Tarif\footnotemark}\\
+			\hline
+			{{#table}}
+				{{#contributories}}
+					{{ nameproject }} & {{ contributoryDescription }} & {{ nbHours }} & 42\\
+					\hline
+				{{/contributories}}
+			{{/table}}
+		\end{tabular}
+		\caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
+	\end{table}
 		    \begin{table}[H]
 		            \centering
 		            \begin{tabular}{|p{3.2cm}|l|p{2cm}|r|}
@@ -112,7 +126,7 @@
 	\caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
 	\end{table}
 	Offre valable 3 mois à compter du {{date}}.
-	{{/billing}}
+
 	\vfill
 	\raggedleft
 	\small

@@ -52,7 +52,13 @@ void Contributory::remove()
 
 QVariantHash Contributory::getDataMap()
 {
+    QVariantHash data;
 
+    data["project"] = _project->getName();
+    data["nbHours"] = _nbHours;
+    data["contributoryDescription"] = _description;
+
+    return data;
 }
 
 Project* Contributory::getProject() const
