@@ -31,5 +31,5 @@ script:
   - cd tests
   - ./tests
   - lcov --capture --directory ../src --output-file coverage.info
-  - lcov -r coverage.info ~/Qt5.2.0/5.2.0/gcc_64/\* /usr/include/\* /home/travis/build/FACT-Team/FactDev/src/gui/\* /home/travis/build/FACT-Team/FactDev/src/moc_\* /home/travis/FACT-Team/FactDev/src/ui_\* /home/travis/build/FACT-TEAM/FactDev/src/qrc_\* -o coverage.info
+  - lcov -r coverage.info ~/Qt5.2.0/5.2.0/gcc_64/\* /usr/include/\* /home/travis/build/FACT-Team/FactDev/src/gui/\* /home/travis/build/FACT-Team/FactDev/src/moc_\* /home/travis/build/FACT-Team/FactDev/src/ui_\* /home/travis/build/FACT-Team/FactDev/src/qrc_\* -o coverage.info
   - coveralls-lcov coverage.info
