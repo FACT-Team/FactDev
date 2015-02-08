@@ -5,16 +5,16 @@
 #include <QDate>
 #include <QSharedPointer>
 
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 #include "models/customer.h"
 
 namespace Models {
 /**
  * @author Florent Berbie
  * @brief The Project class : Project linked to a Customer
- * @see IDatabaseModel
+ * @see IModel
  */
-class Project : public IDatabaseModel
+class Project : public IModel
 {
 public:
     static const double LEGAL_RATE; //!< The Legal hourly Rate
@@ -57,6 +57,13 @@ public:
      * @brief Project::remove Remove the current project
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
+
     /**
      * @brief Project::getName Return the project name
      * @return project name

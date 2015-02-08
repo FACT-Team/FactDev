@@ -2,7 +2,7 @@
 #define USER_H
 #include <QString>
 
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 
 #include "utils/log.h"
 
@@ -11,7 +11,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The User class <b>User</b> of it application
  */
-class User : public IDatabaseModel
+class User : public IModel
 {
 public:
     /**
@@ -41,6 +41,12 @@ public:
      * @brief remove Remove the current User
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
 
     /**
      * @brief User::getFirstname Return the user firstname

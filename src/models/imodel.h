@@ -1,5 +1,6 @@
-#ifndef IDATABASEMODEL_H
-#define IDATABASEMODEL_H
+#ifndef IMODEL_H
+#define IMODEL_H
+#include <QVariantHash>
 
 /**
  * @brief Models classes
@@ -7,39 +8,44 @@
 namespace Models {
 /**
  * @author Antoine de Roquemaurel
- * @brief The IDatabaseModel class
+ * @brief The IModel class
  */
-class IDatabaseModel
+class IModel
 {
 public:
     /**
-     * @brief ~IDatabaseModel Remove an instance of IDatabaseModel
+     * @brief ~IModel Remove an instance of IModel
      */
-    virtual ~IDatabaseModel() {}
+    virtual ~IModel() {}
 
     /**
-     * @brief IDatabaseModel::commit Update or insert data into the database
+     * @brief IModel::commit Update or insert data into the database
      */
     virtual void commit() = 0;
     /**
-     * @brief IDatabaseModel::hydrat Get data of the element which is specified
+     * @brief IModel::hydrat Get data of the element which is specified
      * by the identify <i>id</i> from the database
      * @param id
      */
     virtual void hydrat(int id) = 0;
     /**
-     * @brief IDatabaseModel::remove Remove the current element in the database
+     * @brief IModel::remove Remove the current element in the database
      */
     virtual void remove() = 0;
 
     /**
-     * @brief IDatabaseModel::getId Return the identify of the element of the
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    virtual QVariantHash getDataMap() = 0;
+    /**
+     * @brief IModel::getId Return the identify of the element of the
      * database
      * @return identity
      */
     int getId() const { return _id; }
     /**
-     * @brief IDatabaseModel::setId Replace the current identify by <i>id</i>
+     * @brief IModel::setId Replace the current identify by <i>id</i>
      * @param id New identify
      */
     void setId(int id) { _id = id; }
@@ -67,4 +73,4 @@ protected:
     bool _toRemoved; //!< Flag to know if the object must be removed
 };
 }
-#endif // IDATABASEMODEL_H
+#endif // IModel_H

@@ -45,6 +45,11 @@ void Customer::remove()
     CustomerDatabase::instance()->removeCustomer(_id);
 }
 
+QVariantHash Customer::getDataMap()
+{
+
+}
+
 bool Customer::operator==(const Customer &c)
 {
     // all fields are the same.

@@ -1,7 +1,7 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <QString>
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 
 
 namespace Models {
@@ -10,7 +10,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The Customer class Customer
  */
-class Customer : public IDatabaseModel
+class Customer : public IModel
 {
 public:
     /**
@@ -40,6 +40,12 @@ public:
      * @brief Customer::remove Remove the current customer
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
 
     /**
      * @brief Customer::getFirstnameReferent Return the firstname of the

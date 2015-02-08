@@ -28,6 +28,21 @@ void User::remove()
     Log::instance(WARNING) << "User::remove is not implemented";
 }
 
+QVariantHash User::getDataMap()
+{
+    QVariantHash data;
+
+    data["firstName"] = _firstname;
+    data["lastName"] = _lastname;
+    data["title"] = _title;
+    data["address"] = _address;
+    // TODO user address additions…
+    data["postalCode"] = _postalCode;
+    data["city"] = _city;
+
+    return data;
+}
+
 void User::hydrat(int id)
 {
     User* user = UserDatabase::instance()->getUser(id);

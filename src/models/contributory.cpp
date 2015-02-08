@@ -50,6 +50,11 @@ void Contributory::remove()
     ContributoryDatabase::instance()->removeContributory(_id);
 }
 
+QVariantHash Contributory::getDataMap()
+{
+
+}
+
 Project* Contributory::getProject() const
 {
     return _project;

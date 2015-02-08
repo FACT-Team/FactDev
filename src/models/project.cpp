@@ -59,6 +59,11 @@ void Project::remove()
     ProjectDatabase::instance()->removeProject(_id);
 }
 
+QVariantHash Project::getDataMap()
+{
+
+}
+
 QString Project::getName() const
 {
     return _name;

@@ -73,6 +73,21 @@ void Billing::remove()
     BillingDatabase::instance()->removeBilling(_id);
 }
 
+QVariantHash Billing::getDataMap()
+{
+    QVariantHash data;
+    data["user"]  = Models::User(1).getDataMap();
+
+    return data;
+    //Models::User u = Models::User(1);
+}
+
+void Billing::generateTex()
+{
+    Generator g(":/tpl/billingtpl");
+    g.generate(getDataMap(), "./test.tex");
+}
+
 bool Billing::operator ==(const Billing &b)
 {
     return (getDate() == b.getDate() &&

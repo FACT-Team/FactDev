@@ -5,18 +5,21 @@
 #include <QMap>
 #include <QList>
 
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 #include "models/project.h"
 #include "models/contributory.h"
+#include "models/user.h"
 
 #include "database/contributorydatabase.h"
+
+#include "generator.h"
 
 namespace Models {
 /**
  * @author Cédric Rohaut @Oxynos for the quote part
  * @brief The Billing class : Billing or Quote of a Customer
  */
-class Billing : public IDatabaseModel
+class Billing : public IModel
 {
 public:
     /**
@@ -52,6 +55,17 @@ public:
      * @brief Billing::remove. Remove a Billing.
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
+
+    /**
+     * @brief generateTex Generate a .tex file for the billing
+     */
+    void generateTex();
 
     /**
      * @brief Billing::getContributories. Return a map of <b>Contributory</b>

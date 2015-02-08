@@ -77,7 +77,6 @@ HEADERS  += mainwindow.h \
         models/customer.h \
         gui/dialogs/dialogaddcustomer.h \
     models/project.h \
-    models/idatabasemodel.h \
     models/billing.h \
     models/contributory.h \
     database/userdatabase.h \
@@ -116,7 +115,8 @@ HEADERS  += mainwindow.h \
     gui/dialogs/messagebox.h \
     gui/widgets/checkfields/icheckfield.h \
     libs/qt-mustache/src/mustache.h \
-    generator.h
+    generator.h \
+    models/imodel.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
