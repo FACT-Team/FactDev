@@ -79,71 +79,35 @@
 			\hline
 			{{#table}}
 				{{#contributories}}
-					{{ nameproject }} & {{ contributoryDescription }} & {{ nbHours }} & 42\\
+					{{ nameproject }} & {{ contributoryDescription }} & {{ nbHours }} & {{ price }}\\
 					\hline
 				{{/contributories}}
 			{{/table}}
+		    \hline
+		    \textbf{Total}& &\textbf{TODO} & \textbf{TODO~\euro}\\
+			\hline
 		\end{tabular}
 		\caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
 	\end{table}
-		    \begin{table}[H]
-		            \centering
-		            \begin{tabular}{|p{3.2cm}|l|p{2cm}|r|}
-		    \hline
-		    \textbf{Application} &\textbf{Prestation} & \textbf{Nombre de jours} & \textbf{Tarif\footnotemark}\\
-		    \hline
-		            & Version multi-praticien & 9.5 & 997.5~\euro\\
-		    \cline{2-4}
-		    Logiciel \texttt{BilanMDT} & Affichage de statistiques
-		    simples & 2.5 & 262.5~\euro\\
-		    \cline{2-4}
-		            & Fenêtre de calcul de l'invalidité fonctionnelle & 1 & 105~\euro\\
-		    \cline{2-4}
-		    & Vidéo tutoriel sur le fonctionnement du logiciel & 1.5
-		    & 157.5~\euro \\
-		    \hline
-		    \textbf{Sous-Total}& &\textbf{14.5} & \textbf{1522.5~\euro}\\
-		    \hline
-		    Site web \texttt{afmck.fr}& Système de news & 1.5 & 157.5~\euro\\
-		    \cline{2-4}
-		    & Possibilité d'éditer l'intégralité des articles & 4 & 420~\euro\\
-		    \cline{2-4}
-		    & Nouvelle carte des praticiens automatisée & 2 &210~\euro\\
-		    \cline{2-4}
-		    & Formulaire d'inscription à divers événements & 2 & 210~\euro \\
-		    \cline{2-4}
-		    & Pages spécifiques pour des membres du CA & 2 & 210~\euro \\
-		    \cline{2-4}
-		    & Vidéo tutoriel sur le fonctionnement du site & 1.5 &
-		    157.5~\euro \\
-		    \hline
-		    \textbf{Sous-Total}& &\textbf{13} & \textbf{1365.0~\euro}\\
-		    \hline
-		    \hline
-		    \textbf{Total}& &\textbf{27.5} & \textbf{2887.5~\euro}\\
-		    \hline
-	\end{tabular}
-	\caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
-	\end{table}
-	Offre valable 3 mois à compter du {{date}}.
 
 	\vfill
 	\raggedleft
 	\small
-	\begin{tabular}{c p{1.5cm} c}
-	\begin{minipage}[t]{.6\textwidth}
-	Le prestataire,\\
-	Le . . . . . . . . . . . . . .\\
-	Signature\\
-	~\\~
-	\end{minipage} & &
-	\begin{minipage}[t]{.6\textwidth}
-	Le client,\\
-	Bon pour accord,\\
-	Le . . . . . . . . . . . . . .\\
-	Signature\\
-	~\\~
-	\end{minipage}
-	\end{tabular}
+% For Billing… TODO
+%	\begin{tabular}{c p{1.5cm} c}
+	%\begin{minipage}[t]{.6\textwidth}
+%	Le prestataire,\\
+	%Le . . . . . . . . . . . . . .\\
+%	Signature\\
+	%~\\~
+%	\end{minipage} & &
+	%\begin{minipage}[t]{.6\textwidth}
+%	Le client,\\
+	%Bon pour accord,\\
+%	Le . . . . . . . . . . . . . .\\
+	%Signature\\
+%	~\\~
+%	%\end{minipage}
+%	\end{tabular}
 	\footnotetext[1]{TVA non applicable, article 293B du Code Général des Impôts}
 \end{document}
