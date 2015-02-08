@@ -26,12 +26,12 @@
 \contentsline {subsection}{\numberline {2.2.5}Assurance de la qualit\IeC {\'e} du code}{11}{subsection.2.2.5}
 \contentsline {chapter}{\numberline {3}Fournitures et Livrables}{12}{chapter.3}
 \contentsline {chapter}{\numberline {4}Planning}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}Workplan}{17}{section.4.1}
 \contentsline {chapter}{\numberline {5}La D\IeC {\'e}marche Qualit\IeC {\'e}}{14}{chapter.5}
 \contentsline {section}{\numberline {5.1}D\IeC {\'e}veloppement collaboratif}{14}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Outil de gestion de version : Git}{14}{subsection.5.1.1}
 \contentsline {subsection}{\numberline {5.1.2}Revue de code : Github}{14}{subsection.5.1.2}
 \contentsline {section}{\numberline {5.2}Couverture des tests}{15}{section.5.2}
 \contentsline {section}{\numberline {5.3}Analyse statique de code : SonarQube}{15}{section.5.3}
-\contentsline {chapter}{\numberline {A}Table des figures}{16}{appendix.A}
-\contentsline {chapter}{Index}{17}{appendix*.3}
+\contentsline {chapter}{\numberline {6}Matrice de tra\IeC {\c c}abilit\IeC {\'e}}{16}{chapter.6}
+\contentsline {chapter}{\numberline {A}Table des figures}{17}{appendix.A}
+\contentsline {chapter}{Index}{18}{appendix*.3}
