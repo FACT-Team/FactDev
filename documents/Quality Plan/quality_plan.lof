@@ -1,9 +1,9 @@
 \select@language {french}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Description du Projet}{3}{chapter.1}
+\contentsline {xchapter}{Description du Projet}{4}{chapter.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Production}{5}{chapter.2}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Fonctionnement des \textit {Sprints} et \textit {Releases} de la m\IeC {\'e}thode \textit {Scrum}}}{5}{figure.2.1}
+\contentsline {xchapter}{Production}{6}{chapter.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Fonctionnement des \textit {Sprints} et \textit {Releases} de la m\IeC {\'e}thode \textit {Scrum}}}{6}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Principe du \IeC {\guillemotleft } Git Branching Workflow \IeC {\guillemotright }}}{10}{figure.2.2}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Fournitures et Livrables}{12}{chapter.3}
