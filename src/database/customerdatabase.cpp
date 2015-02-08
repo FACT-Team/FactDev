@@ -1,6 +1,6 @@
 #include "database/customerdatabase.h"
 
-namespace Database {
+namespace Databases {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }

@@ -1,7 +1,7 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
 
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
 User::User()

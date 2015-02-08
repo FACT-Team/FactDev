@@ -12,7 +12,7 @@
 using namespace Utils;
 using namespace Exceptions;
 
-namespace Database {
+namespace Databases {
 
 /**
  * @author Florent Berbie

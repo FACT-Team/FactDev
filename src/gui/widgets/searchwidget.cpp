@@ -65,7 +65,7 @@ void searchWidget::getCustomerData() {
 void searchWidget::updateTable(QString filter) {
 
     ui->tblSearch->setModel(
-                Database::CustomerDatabase::instance()->getCustomersTable(filter));
+                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblSearch->hideColumn(0);
     ui->tblSearch->hideColumn(4);
     ui->tblSearch->hideColumn(5);

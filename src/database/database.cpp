@@ -1,6 +1,6 @@
 #include "database/database.h"
 
-namespace Database {
+namespace Databases {
 // SINGLETON
 Database* Database::_instance = 0;
 bool Database::_dbInstance = 0;

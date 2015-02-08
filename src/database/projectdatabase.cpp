@@ -1,5 +1,5 @@
 #include "database/projectdatabase.h"
-namespace Database {
+namespace Databases {
 
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;

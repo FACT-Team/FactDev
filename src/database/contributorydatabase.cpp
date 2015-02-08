@@ -1,6 +1,6 @@
 #include "database/contributorydatabase.h"
 
-namespace Database {
+namespace Databases {
 ContributoryDatabase::ContributoryDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }

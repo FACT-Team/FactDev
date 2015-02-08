@@ -2,7 +2,7 @@
 
 #include "database/billingdatabase.h"
 
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
 Billing::Billing()

@@ -1,7 +1,7 @@
 #include "models/customer.h"
 
 #include "database/customerdatabase.h"
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
 Customer::Customer()

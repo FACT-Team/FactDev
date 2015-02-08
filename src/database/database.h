@@ -25,7 +25,7 @@ using namespace Utils;
 /**
  * @brief Class for Database, contains queries
  */
-namespace Database {
+namespace Databases {
 /**
  * @author Antoine de Roquemaurel
  * @brief The <b>Database</b> class Master class for all database access

@@ -59,7 +59,7 @@ void BillingModelTest::commitInsert()
     setup();
     b1->setId(0);
     b1->commit();
-    Billing *b2 = Database::BillingDatabase::instance()->getBilling(b1->getId());
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(b1->getId());
     QVERIFY(*b1 == *b2);
 }
 
