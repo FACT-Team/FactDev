@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.3)  8 FEB 2015 23:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.3)  8 FEB 2015 23:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1713,7 +1713,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<./FACT_official.png, id=63, 965.6075pt x 363.3575pt>
+<./FACT_official.png, id=67, 965.6075pt x 363.3575pt>
 File: ./FACT_official.png Graphic file (type png)
 
 <use ./FACT_official.png>
@@ -1734,7 +1734,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--65
 
  []
 
-<logo.jpg, id=66, 963.6pt x 324.21124pt>
+<logo.jpg, id=70, 963.6pt x 324.21124pt>
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
 Package pdftex.def Info: logo.jpg used on input line 65.
@@ -1793,7 +1793,7 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \openout8 = `quality_plan.toc'.
 
 
-<../../images/FACT_official.png, id=97, 965.6075pt x 363.3575pt>
+<../../images/FACT_official.png, id=101, 965.6075pt x 363.3575pt>
 File: ../../images/FACT_official.png Graphic file (type png)
 
 <use ../../images/FACT_official.png>
@@ -1913,7 +1913,7 @@ Package epstopdf Info: Source file: <screens/scrum.eps>
 d-to.pdf screens/scrum.eps>
 (epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
-<screens/scrum-eps-converted-to.pdf, id=134, 2585.66pt x 438.63875pt>
+<screens/scrum-eps-converted-to.pdf, id=137, 2585.66pt x 438.63875pt>
 File: screens/scrum-eps-converted-to.pdf Graphic file (type pdf)
 
 <use screens/scrum-eps-converted-to.pdf>
@@ -2037,7 +2037,7 @@ eps-converted-to.pdf screens/BranchingWorkflow.eps>
 (epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<screens/BranchingWorkflow-eps-converted-to.pdf, id=186, 745.78625pt x 680.5425
+<screens/BranchingWorkflow-eps-converted-to.pdf, id=189, 745.78625pt x 680.5425
 pt>
 File: screens/BranchingWorkflow-eps-converted-to.pdf Graphic file (type pdf)
  <use screens/BranchingWorkflow-eps-converted-to.pdf>
@@ -2103,6 +2103,37 @@ Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 
 
 ]
+\openout2 = `contents/4-planning.aux'.
+
+ (./contents/4-planning.tex
+Chapitre 4.
+
+Overfull \hbox (1.96762pt too wide) in paragraph at lines 6--7
+[]\T1/lmr/m/n/12 Conformément à la méthode \T1/lmr/m/it/12 Scrum[]\T1/lmr/m/n/1
+2 , des réunions hebdomadaires avec le client ont été programmées.
+ []
+
+)
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 77.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[13
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.77 	\include{contents/4-planning}
+                                   ]
 \openout2 = `contents/5-demarche_qualite.aux'.
 
  (./contents/5-demarche_qualite.tex
@@ -2116,8 +2147,7 @@ Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 [][] 
  []
 
-[15
-
+[14
 
 
 
@@ -2137,7 +2167,7 @@ Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 [][] 
  []
 
-[16]
+[15]
 \openout2 = `contents/6-matrice_tracabilite.aux'.
 
  (./contents/6-matrice_tracabilite.tex
@@ -2212,7 +2242,7 @@ Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 [][] 
  []
 
-[17
+[16
 
 
 
@@ -2238,7 +2268,7 @@ Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 [][] 
  []
 
-[18
+[17
 
 
 ])
@@ -2272,7 +2302,7 @@ Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 [][] 
  []
 
-[19
+[18
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
@@ -2284,7 +2314,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
 Package rerunfilecheck Info: File `quality_plan.out' has not changed.
-(rerunfilecheck)             Checksum: 8165A76D2DD0DAEEDBAF69D61AEAEF5D;902.
+(rerunfilecheck)             Checksum: 739D8B2433266AFEECE8698BAD46FC98;945.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2292,27 +2322,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 31426 strings out of 494990
- 580239 string characters out of 6180640
- 738275 words of memory out of 5000000
- 33648 multiletter control sequences out of 15000+600000
+ 31840 strings out of 494990
+ 589635 string characters out of 6180640
+ 738295 words of memory out of 5000000
+ 34061 multiletter control sequences out of 15000+600000
  94397 words of font info for 72 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 55i,17n,65p,10491b,555s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{page.14} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{page.13} has been referenced but does not exist, re
-placed by a fixed one
-
-pdfTeX warning (dest): name{figure.4.1} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.4} has been referenced but does not exist, 
-replaced by a fixed one
+ 55i,17n,67p,10491b,857s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
+st, replaced by a fixed one
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive
 /texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/en
@@ -2331,10 +2349,10 @@ texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 marvosym/marvosym.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/avantgar/u
 agk8a.pfb>
-Output written on quality_plan.pdf (17 pages, 505442 bytes).
+Output written on quality_plan.pdf (18 pages, 509768 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 67 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 387 PDF objects out of 1000 (max. 8388607)
+ 334 compressed objects within 4 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 164 words of extra memory for PDF output out of 10000 (max. 10000000)
 
