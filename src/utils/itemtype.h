@@ -1,7 +1,7 @@
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
 #include <QString>
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 #include "models/billing.h"
 #include "models/customer.h"
 #include "models/project.h"
@@ -39,7 +39,7 @@ public:
      * @param id Item type identity
      * @return database model
      */
-    Models::IDatabaseModel* getModel(int id);
+    Models::IModel* getModel(int id);
 
     /**
      * @brief ItemType::setName Modify the item name

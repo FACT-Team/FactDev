@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
   <compound kind="page">
+    <name>md_src_libs_qt-mustache_README</name>
+    <title>README</title>
+    <filename>d2/d70/md_src_libs_qt-mustache_README</filename>
+  </compound>
+  <compound kind="page">
     <name>md_tests_QTestRunner_README</name>
     <title>QTestRunner</title>
     <filename>dc/d04/md_tests_QTestRunner_README</filename>
@@ -276,6 +281,88 @@
     <filename>d8/df7/classContributoriesDatabaseTest.html</filename>
   </compound>
   <compound kind="class">
+    <name>CounterContext</name>
+    <filename>db/da6/classCounterContext.html</filename>
+    <base>Mustache::QtVariantContext</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>a2b2c8d5bbd329e20ce6e16be72676291</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>a01764884d5bdbe014b8e569c10c82e99</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Mustache::Renderer *renderer)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>adb984d696efcc32abaaf0aaeade4f8b8</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isFalse</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>af5f93b6ff7ac3c24928757a2af1b8820</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>listCount</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>aa055fefa606e0958549cb4671e628e9c</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>push</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>aa5164d437812877c96faa833d8ce5eac</anchor>
+      <arglist>(const QString &amp;key, int index=-1)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>pop</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>adfb3067d5cf209e4203a0b1754008efc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Context</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a0a3453e4a263cc9a1d061485c621f74e</anchor>
+      <arglist>(PartialResolver *resolver=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>partialValue</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>ad69c8fa16687f4e8d885821c0c3c25fd</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function">
+      <type>PartialResolver *</type>
+      <name>partialResolver</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>afb65ec991eb184bceeda1a49a193bb1f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="typedef">
+      <type>QString(*</type>
+      <name>fn_t</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a3b258bcbe77d882a01c53abd1a9425d0</anchor>
+      <arglist>)(const QString &amp;, Mustache::Renderer *, Mustache::Context *)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>CustomerDatabaseTest</name>
     <filename>d2/d63/classCustomerDatabaseTest.html</filename>
   </compound>
@@ -324,6 +411,10 @@
     <name>TestAdder</name>
     <filename>d0/d9b/classTestAdder.html</filename>
     <templarg></templarg>
+  </compound>
+  <compound kind="class">
+    <name>TestMustache</name>
+    <filename>de/d63/classTestMustache.html</filename>
   </compound>
   <compound kind="class">
     <name>TestRunner</name>
@@ -2484,6 +2575,212 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>Mustache::Context</name>
+    <filename>d7/d34/classMustache_1_1Context.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a49d5e75bc9d85b279f620b6557eefd0c</anchor>
+      <arglist>(const QString &amp;key) const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>isFalse</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a8af44c37ffdbdba1e3b93835ea87aff9</anchor>
+      <arglist>(const QString &amp;key) const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual int</type>
+      <name>listCount</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a934c2d632a2f9443d027582032d4ce90</anchor>
+      <arglist>(const QString &amp;key) const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>push</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a586f212ab34abacc4859c6bcae1298c3</anchor>
+      <arglist>(const QString &amp;key, int index=-1)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>pop</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>ac5f9a26fafe600ca8134348ecd12ad01</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a27d9b726c1554653f1783d0eb693662a</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>acded87450182e91cbb0b37e375a4a366</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Renderer *renderer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::PartialFileLoader</name>
+    <filename>da/d31/classMustache_1_1PartialFileLoader.html</filename>
+    <base>Mustache::PartialResolver</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>getPartial</name>
+      <anchorfile>da/d31/classMustache_1_1PartialFileLoader.html</anchorfile>
+      <anchor>a36ba8b817708a8755293db46bceb0dbb</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::PartialMap</name>
+    <filename>dc/d1a/classMustache_1_1PartialMap.html</filename>
+    <base>Mustache::PartialResolver</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>getPartial</name>
+      <anchorfile>dc/d1a/classMustache_1_1PartialMap.html</anchorfile>
+      <anchor>a676a6f9a77cdd53e91b18216733b2781</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::PartialResolver</name>
+    <filename>d0/dce/classMustache_1_1PartialResolver.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual QString</type>
+      <name>getPartial</name>
+      <anchorfile>d0/dce/classMustache_1_1PartialResolver.html</anchorfile>
+      <anchor>a81e9c5a8b32a52266cd8ea0580c3d3ac</anchor>
+      <arglist>(const QString &amp;name)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::QtVariantContext</name>
+    <filename>d5/d8b/classMustache_1_1QtVariantContext.html</filename>
+    <base>Mustache::Context</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a55b19269efa6924edf21118ab0b49e08</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a2671990a3c9d8d4d7b626fa85b841ab2</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a0602be333afa1d4fa89c2c5820311bf1</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Mustache::Renderer *renderer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::Renderer</name>
+    <filename>dc/d58/classMustache_1_1Renderer.html</filename>
+    <member kind="function">
+      <type>QString</type>
+      <name>render</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>ab82d90fe802606145d1f7ed9f2a9cf81</anchor>
+      <arglist>(const QString &amp;_template, Context *context)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>error</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>aaea1d06b2883b4f52a1117b7d5c5b75a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>errorPos</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>a35aea613ad6426661a715520fa617cb7</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>errorPartial</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>aa26c1e3e2444cccd926e1d8a4a50fcef</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTagMarkers</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>a4b61e7a727926ca21a812f6649488eb6</anchor>
+      <arglist>(const QString &amp;startMarker, const QString &amp;endMarker)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Mustache::Tag</name>
+    <filename>d5/dc2/structMustache_1_1Tag.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Type</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SectionStart</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472ad1e9af4f164680cdebbdeaef2c0a271c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>InvertedSectionStart</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472a63d4e5150e7c43623bfb976dbba96961</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SectionEnd</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472aa6404ddcd9008449cc61bea039dbb0af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Partial</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472ae07f1dc49d6e06735f63ec039e7ec77c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Comment</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472a85c0e87f362943cf0244792873edd478</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SetDelimiter</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472a680bf1878bdfa8c7ed5a594603b638be</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Utils::ItemType</name>
     <filename>d5/d7c/classUtils_1_1ItemType.html</filename>
     <member kind="function">
@@ -2703,6 +3000,12 @@
     <dir>src/gui/widgets</dir>
   </compound>
   <compound kind="dir">
+    <name>src/libs</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/libs/</path>
+    <filename>dir_87a455bccb09a92130c26a11a880c98a.html</filename>
+    <dir>src/libs/qt-mustache</dir>
+  </compound>
+  <compound kind="dir">
     <name>tests/models</name>
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/models/</path>
     <filename>dir_c7ec7d3a96f76aec1e8b71e782fe5cbb.html</filename>
@@ -2732,6 +3035,13 @@
     <file>user.h</file>
   </compound>
   <compound kind="dir">
+    <name>src/libs/qt-mustache</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/libs/qt-mustache/</path>
+    <filename>dir_a4b376f58c6c90836941def72b61fac9.html</filename>
+    <dir>src/libs/qt-mustache/src</dir>
+    <dir>src/libs/qt-mustache/tests</dir>
+  </compound>
+  <compound kind="dir">
     <name>tests/QTestRunner</name>
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/QTestRunner/</path>
     <filename>dir_2c44b78b8b65d06e29d47a71b2001f3a.html</filename>
@@ -2742,12 +3052,20 @@
     <file>testrunner.h</file>
   </compound>
   <compound kind="dir">
+    <name>src/libs/qt-mustache/src</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/libs/qt-mustache/src/</path>
+    <filename>dir_b38edd988e0afbdc06747b26cf2e7dcc.html</filename>
+    <file>mustache.cpp</file>
+    <file>mustache.h</file>
+  </compound>
+  <compound kind="dir">
     <name>src</name>
     <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/</path>
     <filename>dir_68267d1309a1af8e8297ef4c3efbcdba.html</filename>
     <dir>src/database</dir>
     <dir>src/exceptions</dir>
     <dir>src/gui</dir>
+    <dir>src/libs</dir>
     <dir>src/models</dir>
     <dir>src/utils</dir>
     <file>mainwindow.cpp</file>
@@ -2763,6 +3081,13 @@
     <dir>tests/models</dir>
     <dir>tests/QTestRunner</dir>
     <file>main.cpp</file>
+  </compound>
+  <compound kind="dir">
+    <name>src/libs/qt-mustache/tests</name>
+    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/libs/qt-mustache/tests/</path>
+    <filename>dir_29171be2402b84023e818af6c07c8ffa.html</filename>
+    <file>test_mustache.cpp</file>
+    <file>test_mustache.h</file>
   </compound>
   <compound kind="dir">
     <name>src/utils</name>

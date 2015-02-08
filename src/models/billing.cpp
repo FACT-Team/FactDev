@@ -73,6 +73,50 @@ void Billing::remove()
     BillingDatabase::instance()->removeBilling(_id);
 }
 
+QVariantHash Billing::getDataMap()
+{
+    QVariantHash data;
+    QVariantHash billing;
+    billing["no"] = _number;
+    billing["type"] = _isBilling ? "Facture" : "Devis";
+    billing["title"] = _title;
+    billing["description"] = _description;
+    billing["date"] = _date.toString("dddd d MMMM yyyy");
+// TODO daily rate !
+    data["user"]  = Models::User(1).getDataMap();
+    data["customer"] = _contributories.keys().first()->getCustomer()->getDataMap();
+    data["billing"] = billing;//
+
+    QVariantList table;
+    QVariantHash project;
+    QVariantList contributories;
+    for(Project* p : _contributories.keys()) {
+        project["nameproject"] = p->getName();
+
+        for(Contributory c : _contributories.value(p)) {
+            contributories << c.getDataMap();
+        }
+        project["contributories"] = contributories;
+        contributories.clear();
+        table << project;
+        project.clear();
+    }
+//    contributories << _contributories.values().first().first().getDataMap();
+//    contributories << _contributories.values().first().first().getDataMap();
+//    contributories << _contributories.values().first().first().getDataMap();
+
+//    table << project;
+    data["table"] = table;
+
+    return data;
+}
+
+void Billing::generateTex()
+{
+    Generator g(":/tpl/billingtpl");
+    g.generate(getDataMap(), "/tmp/test.tex");
+}
+
 bool Billing::operator ==(const Billing &b)
 {
     return (getDate() == b.getDate() &&

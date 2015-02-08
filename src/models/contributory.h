@@ -1,14 +1,14 @@
 #ifndef CONTRIBUTORY_H
 #define CONTRIBUTORY_H
 #include "models/project.h"
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 
 namespace Models {
 /**
  * @author
  * @brief The Contributory class
  */
-class Contributory : public IDatabaseModel
+class Contributory : public IModel
 {
 public:
     /**
@@ -44,6 +44,12 @@ public:
      * @brief Contributory::remove Remove the current Contributory
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
 
     /**
      * @brief Contributory::getProject Return the project linked to this

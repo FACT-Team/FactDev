@@ -45,9 +45,22 @@ void Contributory::hydrat(int id)
     delete c;
 }
 
+
 void Contributory::remove()
 {
     ContributoryDatabase::instance()->removeContributory(_id);
+}
+
+QVariantHash Contributory::getDataMap()
+{
+    QVariantHash data;
+
+    data["project"] = _project->getName();
+    data["nbHours"] = _nbHours;
+    data["contributoryDescription"] = _description;
+    data["price"] = "TODO";
+
+    return data;
 }
 
 Project* Contributory::getProject() const
