@@ -1,5 +1,5 @@
-#ifndef TESTOUILLE_H
-#define TESTOUILLE_H
+#ifndef GENERATION_H
+#define GENERATION_H
 #include "QTestRunner/testrunner.h"
 
 
@@ -18,4 +18,4 @@ private slots:
 
 DECLARE_TEST(Generation)
 
-#endif // TESTOUILLE_H
+#endif // GENERATION_H
