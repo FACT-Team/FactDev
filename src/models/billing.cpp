@@ -76,16 +76,23 @@ void Billing::remove()
 QVariantHash Billing::getDataMap()
 {
     QVariantHash data;
+    QVariantHash billing;
+    billing["no"] = _number;
+    billing["type"] = _isBilling ? "Facture" : "Devis";
+    billing["title"] = _title;
+    billing["description"] = _description;
+    billing["date"] = _date.toString("dddd d MMMM yyyy");
+// TODO daily rate !
     data["user"]  = Models::User(1).getDataMap();
-
+    data["customer"] = _contributories.keys().first()->getCustomer()->getDataMap();
+    data["billing"] = billing;//
     return data;
-    //Models::User u = Models::User(1);
 }
 
 void Billing::generateTex()
 {
     Generator g(":/tpl/billingtpl");
-    g.generate(getDataMap(), "./test.tex");
+    g.generate(getDataMap(), "/tmp/test.tex");
 }
 
 bool Billing::operator ==(const Billing &b)

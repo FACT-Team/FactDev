@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Gui::MainWindow w;
+    QLocale::setDefault(QLocale(QLocale::French));
 
     w.show();
     return a.exec();

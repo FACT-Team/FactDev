@@ -5,16 +5,13 @@
 class Generator
 {
 public:
-    Generator(Models::Billing *b);
+    Generator(QString tpl);
     ~Generator();
 
-    void generate();
-
-    Models::Billing* getBilling() const;
-    void setBilling(Models::Billing* getBilling);
+    void generate(QVariantHash data, QString path);
 
 private:
-    Models::Billing* _billing;
+    QString _tplFile;
 };
 
 #endif // GENERATOR_H

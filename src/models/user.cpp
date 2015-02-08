@@ -39,6 +39,8 @@ QVariantHash User::getDataMap()
     // TODO user address additions…
     data["postalCode"] = _postalCode;
     data["city"] = _city;
+    data["phone"] = _phone;
+    data["email"] = _email;
 
     return data;
 }

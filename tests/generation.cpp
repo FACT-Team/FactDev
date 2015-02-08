@@ -43,6 +43,8 @@ void Generation::testFileTemplate() {
 }
 
 void Generation::GenerationSimpleBilling() {
-    Generator gen(new Models::Billing(1));
-    gen.generate();
+    QLocale::setDefault(QLocale(QLocale::French));
+
+    Generator gen(":/tpl/billingtpl");
+    gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
 }
