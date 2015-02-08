@@ -133,7 +133,7 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 void MainWindow::updateTableBillings(const int idProject)
 {
     ui->tblQuotes->setModel(
-                Database::BillingDatabase::instance()->getBillingsTable(idProject));
+                Databases::BillingDatabase::instance()->getBillingsTable(idProject));
     ui->lblQuotes->setText("<b>Devis du projet: "+getCurrentProjectName()+"</b>");
     ui->tblQuotes->hideColumn(0);
     ui->tblQuotes->hideColumn(3);
@@ -226,7 +226,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
-                Database::CustomerDatabase::instance()->getCustomersTable(filter));
+                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 200);
@@ -242,14 +242,14 @@ void MainWindow::updateTableProjects(const int pId)
     if(pId != 0) {
         lastId = pId;
     }
-    ui->tblProjects->setModel(Database::ProjectDatabase::instance()->getProjectsTable(lastId));
+    ui->tblProjects->setModel(Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
 }
 
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
-                Database::CustomerDatabase::instance()->getCustomersTree(filter));
+                Databases::CustomerDatabase::instance()->getCustomersTree(filter));
     ui->trCustomers->header()->close();
 }
 

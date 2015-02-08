@@ -13,7 +13,7 @@
 using namespace Exceptions;
 using namespace Utils;
 
-namespace Database {
+namespace Databases {
 /** 
  * @author Antoine de Roquemaurel
  * @brief The <b>CustomerDatabase</b> class Customer table database

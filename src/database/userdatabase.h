@@ -5,7 +5,7 @@
 #include "exceptions/dbexception.h"
 #include "models/user.h"
 
-namespace Database {
+namespace Databases {
 
 /**
  * @author Florent Berbie

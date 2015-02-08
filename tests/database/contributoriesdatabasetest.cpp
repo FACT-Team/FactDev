@@ -3,7 +3,7 @@
 void ContributoriesDatabaseTest::getContributoriesByBilling()
 {
     QMap<Models::Project *, QList<Models::Contributory> > contributories =
-            Database::ContributoryDatabase::instance()->getContributoriesByBilling(1);
+            Databases::ContributoryDatabase::instance()->getContributoriesByBilling(1);
     QVERIFY(contributories.count() == 7);
 
     // we only check id… Remaining are already tested (getProject, getContributory)

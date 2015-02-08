@@ -9,7 +9,7 @@
 using namespace Exceptions;
 using namespace Utils;
 
-namespace Database {
+namespace Databases {
 /**
  * @author Cédric Rohaut @Oxynos
  * @brief The <b>BillingDatabase</b> class Billing (or Quote) table database

@@ -19,8 +19,8 @@ void BillingDatabaseTest::setup() {
 void BillingDatabaseTest::insert()
 {
     setup();
-    _lastInsert = Database::BillingDatabase::instance()->addBilling(*b1);
-    Billing* b2 = Database::BillingDatabase::instance()->getBilling(_lastInsert);
+    _lastInsert = Databases::BillingDatabase::instance()->addBilling(*b1);
+    Billing* b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
     //qDebug() << "insert" << b1->getDate() << " " << b2->getDate();
     QVERIFY(*b1 == *b2);
 }
@@ -47,12 +47,12 @@ void BillingDatabaseTest::update()
 void BillingDatabaseTest::selectBillingNotFound()
 {
     setup();
-    QVERIFY(Database::BillingDatabase::instance()->getBilling(321654) == NULL);
+    QVERIFY(Databases::BillingDatabase::instance()->getBilling(321654) == NULL);
 }
 
 void BillingDatabaseTest::selectBillingFound()
 {
-    Billing *b3 = Database::BillingDatabase::instance()->getBilling(1);
+    Billing *b3 = Databases::BillingDatabase::instance()->getBilling(1);
     b1->setId(1);
     b1->setTitle("fringilla,");
     b1->setDescription("tempus risus. Donec egestas. "

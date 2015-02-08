@@ -6,7 +6,7 @@ namespace Delegates {
 
 ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : QItemDelegate(parent)
 {
-    _projects = Database::ProjectDatabase::instance()->getProjectsOfCustomer(c);
+    _projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
 }
 
 ProjectComboDelegate::~ProjectComboDelegate()
