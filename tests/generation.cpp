@@ -47,4 +47,5 @@ void Generation::GenerationSimpleBilling() {
 
     Generator gen(":/tpl/billingtpl");
     gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
+    QVERIFY(QFile("/tmp/test.tex").exists());
 }
