@@ -18,6 +18,8 @@ install:
   - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0
   - sudo chmod -R 777 ~/Qt5.2.0/
   - export CXX="g++-4.8"
+  - sudo apt-get install -y lcov
+  - gem install coveralls-lcov
   
 script:
   - ~/Qt5.2.0/5.2.0/gcc_64/bin/qmake FactDev.pro -r -spec linux-g++ CONFIG+=debug
@@ -28,3 +30,6 @@ script:
   - ln -s `pwd`/src/sql `pwd`/tests/sql
   - cd tests
   - ./tests
+  - lcov --capture --directory ../src --output-file coverage.info
+  - lcov -r coverage.info ~/Qt5.2.0/5.2.0/gcc_64/\* /usr/include/\* `pwd`/../src/gui/\* `pwd`/../src/\* -o coverage.info
+  - coveralls-lcov coverage.info
