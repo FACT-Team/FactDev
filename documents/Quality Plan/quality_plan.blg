@@ -4,12 +4,16 @@ The top-level auxiliary file: quality_plan.aux
 A level-1 auxiliary file: contents/0-preambule.aux
 A level-1 auxiliary file: contents/1-specification_du_projet.aux
 A level-1 auxiliary file: contents/2-production.aux
+A level-1 auxiliary file: contents/3-fournitures_et_livrables.aux
+A level-1 auxiliary file: contents/4-planning.aux
+A level-1 auxiliary file: contents/5-demarche_qualite.aux
+A level-1 auxiliary file: contents/6-matrice_tracabilite.aux
 I found no \citation commands---while reading file quality_plan.aux
 I found no \bibdata command---while reading file quality_plan.aux
 I found no \bibstyle command---while reading file quality_plan.aux
 You've used 0 entries,
             0 wiz_defined-function locations,
-            86 strings with 585 characters,
+            90 strings with 712 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0
