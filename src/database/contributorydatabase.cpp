@@ -20,7 +20,7 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     Models::Contributory* contributory = new Models::Contributory();
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbDays").toDouble());
-    contributory->setDescription(value(q, "description").toString());
+    contributory->setDescription(value(q, "cdescription").toString());
     // contributory->setProject(); TODO join ?
 
     return contributory;
@@ -58,8 +58,9 @@ QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getCo
     QMap<int, Models::Project*> projects; // link between id and Project*
     q.prepare(
                 "SELECT DISTINCT project.idProject as idProject,"
-                " project.name as name, project.description as description, "
-                " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, billing.idBilling, nbDays "
+                " project.name as name, project.description as pdescription, "
+                " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, contributory.description as cDescription, "
+                " billing.idBilling, nbDays "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "
                 " AND project.idProject = billingProject.idProject "
