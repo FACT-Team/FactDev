@@ -413,7 +413,8 @@ void MainWindow::updateBtn()
 void MainWindow::editQuote()
 {
     if(ui->tblQuotes->selectionModel()->hasSelection()) {
-        AddQuoteDialog addquotedialog(getCurrentCustomerId());
+        AddQuoteDialog addquotedialog(getCurrentCustomerId(),getCurrentQuoteId());
+        qDebug() << getCurrentQuoteId();
         addquotedialog.exec();
     }
 
