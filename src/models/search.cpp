@@ -1,5 +1,5 @@
 #include "search.h"
-
+#include <QDebug>
 namespace Models {
 Search::Search()
 {
@@ -19,16 +19,20 @@ Search::~Search()
 QString Search::getFilter()
 {
     QString filter = "";
-    if(_text != "") {
+    QStringList list = _text.split(" ");
+
+    if(!_text.isEmpty()) {
         filter = "AND (0 ";
         if(_searchInCompanies || !_groupFilter) {
-            filter += "OR company LIKE '%"+_text+"%' ";
+            //filter += "OR company LIKE '%"+_text+"%' ";
+            filterOnCompany(filter, list);
         }
         if(_searchInReferentLastname || !_groupFilter) {
-            filter += "OR lastnameReferent LIKE '%"+_text+"%'";
+            //filter += "OR lastnameReferent LIKE '%"+_text+"%'";
+            filterOnReferentLastname(filter, list);
         }
 
-        // -------------------
+        /*
         if(_searchInProjects || !_groupFilter) {
             filter += "OR name LIKE '%"+_text+"%'";
         }
@@ -38,13 +42,47 @@ QString Search::getFilter()
         if(_searchInBillsQuotes || !_groupFilter) {
             filter +=   "OR title '%"+_text+"%' "
                         +"OR number '%"+_text+"%' ";
-
         }
+        */
         filter += ")";
     }
 
     return filter;
 }
+
+void Search::filterOnElements(QString &filter, const QStringList list, QString element)
+{
+    for (QString str: list) {
+        filter += "OR " + element + " LIKE '%" + str + "%' ";
+    }
+}
+
+void Search::filterOnCompany(QString &filter, const QStringList list)
+{
+    filterOnElements(filter, list, "company");
+}
+
+void Search::filterOnReferentLastname(QString &filter, const QStringList list)
+{
+    filterOnElements(filter, list, "lastnameReferent");
+}
+
+void Search::filterOnProjects(QString &filter, const QStringList list)
+{
+    filterOnElements(filter, list, "name");
+}
+
+void Search::filterOnContributories(QString &filter, const QStringList list)
+{
+    filterOnElements(filter, list, "name");
+}
+
+void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
+{
+    filterOnElements(filter, list, "title");
+    filterOnElements(filter, list, "number");
+}
+
 bool Search::getSearchInCompanies() const
 {
     return _searchInCompanies;
@@ -72,6 +110,7 @@ void Search::setGroupFilter(bool groupFilter)
 {
     _groupFilter = groupFilter;
 }
+
 QString Search::getText() const
 {
     return _text;

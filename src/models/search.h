@@ -25,6 +25,48 @@ public:
      * @return filter selected (sql portion)
      */
     QString getFilter();
+
+    void filterOnElements(QString &filter, const QStringList list, QString element);
+    /**
+     * @brief Search::filterOnCompany Search all companies contained in the
+     * <i>list</i> of the <i>filter</i>
+     * @param filter Text inputed in searchbar
+     * @param list List of companies
+     */
+    void filterOnCompany(QString &filter, const QStringList list);
+
+    /**
+     * @brief Search::filterOnReferentLastname Search all referents last name
+     * contained in the <i>list</i> of the <i>filter</i>
+     * @param filter Text inputed in searchbar
+     * @param list List of referent last name
+     */
+    void filterOnReferentLastname(QString &filter, const QStringList list);
+
+    /**
+     * @brief Search::filterOnProjects Search all projects contained in the
+     * <i>list</i> of the <i>filter</i>
+     * @param filter Text inputed in searchbar
+     * @param list List of projects
+     */
+    void filterOnProjects(QString &filter, const QStringList list);
+
+    /**
+     * @brief Search::filterOnContributories Search all contributories contained
+     *  in the <i>list</i> of the <i>filter</i>
+     * @param filter Text inputed in searchbar
+     * @param list List of contributories
+     */
+    void filterOnContributories(QString &filter, const QStringList list);
+
+    /**
+     * @brief Search::filterOnBillsOrQuotes Search all bills or quotes which are
+     *  contained in the <i>list</i> of the <i>filter</i>
+     * @param filter Text inputed in searchbar
+     * @param list List of bills or quotes
+     */
+    void filterOnBillsOrQuotes(QString &filter, const QStringList list);
+
     /**
      * @brief Search::getSearchInCompanies Return if we search a company
      * @return boolean if we search a company
@@ -94,7 +136,7 @@ public:
      * @return boolean if search filter is actived
      */
     bool getGroupFilter() const;
-    /**mother
+    /**
      * @brief Search::setGroupFilter Modify if we active search filter
      * @param getGroupFilter Get if filter is actived
      */
