@@ -13,8 +13,8 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     if (id != 0) {
         // WARNING : Possibility to update a quote ?
 
-        //_quote = new Billing(id);
-        //fillFields();
+        _quote = new Billing(id);
+        fillFields();
         //setWindowTitle("Modifier le client "+_custom->getCompany());
     } else {
         _quote = new Billing();
