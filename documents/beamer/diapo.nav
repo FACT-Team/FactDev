@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.32pt}
+\beamer@endinputifotherversion {3.33pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\sectionentry {1}{Section A}{2}{Section A}{0}}
@@ -30,8 +30,14 @@
 \headcommand {\beamer@subsectionentry {0}{3}{2}{8}{Subsection CB}}\headcommand {\beamer@subsectionpages {8}{7}}
 \headcommand {\slideentry {3}{2}{1}{8/8}{Subsection CB}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@partpages {1}{8}}
-\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\beamer@sectionpages {7}{8}}
-\headcommand {\beamer@documentpages {8}}
-\headcommand {\def \inserttotalframenumber {8}}
+\headcommand {\slideentry {3}{2}{2}{9/9}{Subsection CB}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {3}{2}{3}{10/10}{Subsection CB}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {3}{2}{4}{11/11}{Subsection CB}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@partpages {1}{11}}
+\headcommand {\beamer@subsectionpages {8}{11}}
+\headcommand {\beamer@sectionpages {7}{11}}
+\headcommand {\beamer@documentpages {11}}
+\headcommand {\def \inserttotalframenumber {11}}

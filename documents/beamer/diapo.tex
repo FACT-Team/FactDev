@@ -26,7 +26,6 @@
 
 
 
-
 \usepackage[francais]{babel}
 % or autre comme par exemple \usepackage[english]{babel}
 
@@ -40,9 +39,8 @@
 \usepackage[T1]{fontenc}
 % Or autre. Notez que le codage et la fonte doivent être assortis. Si T1
 % ne paraît pas tr\`es esth\'etique, essayer d'effacer la ligne contenant fontenc.
-
+\makeatletter
 \hypersetup{pdfpagemode=FullScreen}
-
 
 \mode<presentation> {
   \usetheme{UNLTheme}
@@ -113,59 +111,91 @@
 	\end{beamercolorbox}%
 
 	\begin{beamercolorbox}[wd=.76\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
-		\usebeamerfont{section in head/foot} Développement d'un logiciel de facturation : FactDev 
-	\end{beamercolorbox}%
+		%\usebeamerfont{section in head/foot} Développement d'un logiciel de facturation : FactDev 
+		\definecolor{lightgr}{HTML}{7ca3d7}
+		\begin{minipage}{0.75\textwidth}
+		  \color{lightgr}% to color the progressbar
+		  \hspace*{-\beamer@leftmargin}%
+		  \hspace{10px}
+		  \rlap{\rule{\dimexpr
+				  \beamer@startpageofframe
+				  \dimexpr \beamer@rightmargin+\textwidth\relax/\beamer@endpageofdocument 
+				  }{0.0pt}
+				  \hspace{-20px}
+				  \tiny{$\blacktriangledown$}
+		  }
 
-	\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
-		\usebeamerfont{section in head/foot}\hspace*{2em}
-		\hspace{-10px}\textbf{\insertframenumber{}} / \inserttotalframenumber\hspace*{2ex}
-	\end{beamercolorbox}}%
-					\vskip0pt%
-}
+		  \hspace{10px}
+		  \rule{\dimexpr
+		  \textwidth-\beamer@rightmargin
+		  }{0.5pt}%
+		  \vspace{2px}
+		  % next 'empty' line is mandatory!
 
-\setbeamertemplate{navigation symbols}{}
-\begin{document}
-\begin{frame}
-  \titlepage
-\end{frame}
-\section{Section A}
-\subsection{Subsection AA}
-\begin{frame}{COUCOU a}
-	~
-\end{frame}
-\subsection{Subsection AB}
-\begin{frame}{COUCOU b}
-	~
-\end{frame}
-\section{Section B}
-\subsection{Subsection BA}
-\subsection{Subsection BB}
-\begin{frame}{COUCOU B}
-	~
-\end{frame}
-\section{Section C}
-\subsection{Subsection CA}
-\subsection{Subsection CB}
-\begin{frame}{COUCOU C}
-	~
-\end{frame}
-\end{document}
+		  {}
+		\end{minipage}
+				\usebeamerfont{section in head/foot} Développement d'un logiciel de facturation : FactDev 
+		\end{beamercolorbox}%
+
+		\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
+			\usebeamerfont{section in head/foot}\hspace*{2em}
+			\hspace{-10px}\textbf{\insertframenumber{}} / \inserttotalframenumber\hspace*{2ex}
+		\end{beamercolorbox}}%
+		\vskip0pt%
+		}
+
+		\setbeamertemplate{navigation symbols}{}
+		\begin{document}
+		\begin{frame}
+			\titlepage
+		\end{frame}
+		\section{Section A}
+		\subsection{Subsection AA}
+		\begin{frame}{COUCOU a}
+			~
+		\end{frame}
+		\subsection{Subsection AB}
+		\begin{frame}{COUCOU b}
+			~
+		\end{frame}
+		\section{Section B}
+		\subsection{Subsection BA}
+		\subsection{Subsection BB}
+		\begin{frame}{COUCOU B}
+			~
+		\end{frame}
+		\section{Section C}
+		\subsection{Subsection CA}
+		\subsection{Subsection CB}
+		\begin{frame}{COUCOU C}
+			~
+		\end{frame}
+		\begin{frame}{COUCOU C}
+			~
+		\end{frame}
+		\begin{frame}{COUCOU C}
+			~
+		\end{frame}
+		\begin{frame}{COUCOU C}
+			~
+		\end{frame}
+		\end{document}
 
 
-%Intro 2'
-%Entreprise
-	
-1'
-	% 2'
-%probleme
-	% 2'
-%greent
-	% 2.5'
-	% 4'
-%conclu 
-	% 2'
+		%Intro 2'
+		%Entreprise
 
-%15.5
+		1'
+		% 2'
+		%probleme
+		% 2'
+		%greent
+		% 2.5'
+		% 4'
+		%conclu 
+		% 2'
 
-% gestion des ex ->
-%	rédac -> crreeer
+		%15.5
+
+		% gestion des ex ->
+		%	rédac -> crreeer
