@@ -82,7 +82,7 @@ void Search::setText(const QString &text)
     _text = text;
     _text.replace("'", "''");
 }
-bool Search::searchInBillsQuotes() const
+bool Search::getSearchInBillsQuotes() const
 {
     return _searchInBillsQuotes;
 }

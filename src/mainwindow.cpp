@@ -172,7 +172,9 @@ void MainWindow::search(QString text)
     s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
-   // s.setSearchInProjects(ui->c);
+    s.setSearchInProjects(ui->chkProjectName->isChecked());
+    s.setSearchInContributories(ui->chkContributory->isChecked());
+    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
@@ -197,6 +199,9 @@ void MainWindow::search(QString text)
     s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+    s.setSearchInProjects(ui->chkProjectName->isChecked());
+    s.setSearchInContributories(ui->chkContributory->isChecked());
+    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());

@@ -31,7 +31,7 @@ public:
      */
     bool getSearchInCompanies() const;
     /**
-     * @brief Search::setSearchInCompanies Modify the filter of search
+     * @brief Search::setSearchInCompanies Modify the filter of companies search
      * @param getSearchInCompanies Search in companies is concerned
      */
     void setSearchInCompanies(bool searchInCompanies);
@@ -43,41 +43,49 @@ public:
      */
     bool getSearchInReferentLastname() const;
     /**
-     * @brief Search::setSearchInReferentLastname Modify the filter of search
-     * @param searchInReferentLastname Search in referent last name is concerned
+     * @brief Search::setSearchInReferentLastname Modify the filter of referents
+     * last name search
+     * @param searchInReferentLastname Search in referents last name which are
+     * concerned
      */
     void setSearchInReferentLastname(bool searchInReferentLastname);
 
     /**
-     * @brief Search::getSearchInProjects
-     * @return
+     * @brief Search::getSearchInProjects Return TRUE if it exists one or more
+     * projets in database
+     * @return boolean if project are existing
      */
     bool getSearchInProjects() const;
     /**
-     * @brief Search::setSearchInProjects
-     * @param searchInProjects
+     * @brief Search::setSearchInProjects Modify the filter of projects search
+     * @param searchInProjects Search in projects which are concerned
      */
     void setSearchInProjects(bool searchInProjects);
 
     /**
-     * @brief Search::getSearchInContributories
-     * @return
+     * @brief Search::getSearchInContributories  Return TRUE if it exists one or
+     *  more projets in database
+     * @return boolean if contributories are existing
      */
     bool searchInContributories() const;
     /**
-     * @brief Search::setSearchInContributories
-     * @param searchInContributories
+     * @brief Search::setSearchInContributories Modify the filter of
+     * contributories search
+     * @param searchInContributories Search in contributories which are
+     * concerned
      */
     void setSearchInContributories(bool searchInContributories);
 
     /**
-     * @brief Search::searchInBillsQuotes
-     * @return
+     * @brief Search::searchInBillsQuotes Return TRUE if it exists one or more
+     * bills or quotes in database
+     * @return boolean if bills or quotes are existing
      */
     bool getSearchInBillsQuotes() const;
     /**
-     * @brief Search::setSearchInBillsQuotes
-     * @param searchInBillsQuotes
+     * @brief Search::setSearchInBillsQuotes Modify the filter of bills and
+     * quotes search
+     * @param searchInBillsQuotes Search in bills or quotes which are concerned
      */
     void setSearchInBillsQuotes(bool searchInBillsQuotes);
 
