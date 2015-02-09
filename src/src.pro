@@ -12,10 +12,10 @@ QT       += core gui sql printsupport
 TARGET = FactDev
 TEMPLATE = lib
 
-unix:!macx {
-QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
-QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
-LIBS =  -lgcov
+linux-g++ {
+    QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
+    QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
+    LIBS =  -lgcov
 }
 CONFIG += c++11
 
