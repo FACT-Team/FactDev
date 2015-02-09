@@ -4,12 +4,11 @@ QT       -= gui
 QT       += testlib sql printsupport
 
 TARGET = tests
-QMAKE_CXXFLAGS += -std=c++11
- #ifndef Q_WS_MAC
-QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+unix:!macx {
+QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
 QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
-LIBS += -lcov
-#endif
+LIBs += -lgcov
+}
 
 TEMPLATE = app
 CONFIG += c++11
@@ -24,7 +23,9 @@ database/customerdatabasetest.h \
     models/searchtest.h \
     database/billingdatabasetest.h \
     models/billingmodeltest.h \
-    database/contributoriesdatabasetest.h
+    database/contributoriesdatabasetest.h \
+    generation.h \
+    qt-mustache/test_mustache.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -35,6 +36,11 @@ database/customerdatabasetest.cpp \
     models/searchtest.cpp \
     database/billingdatabasetest.cpp \
     models/billingmodeltest.cpp \
-    database/contributoriesdatabasetest.cpp
+    database/contributoriesdatabasetest.cpp \
+    generation.cpp \
+    qt-mustache/test_mustache.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
+
+RESOURCES += \
+    test.qrc

@@ -11,12 +11,12 @@ QT       += core gui sql printsupport
 
 TARGET = FactDev
 TEMPLATE = lib
-QMAKE_CXXFLAGS += -std=c++11
- #ifndef Q_WS_MAC
-QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+
+unix:!macx {
+QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
 QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
 LIBS =  -lgcov
-#endif
+}
 CONFIG += c++11
 
 
@@ -66,7 +66,9 @@ SOURCES += mainwindow.cpp \
     database/billingdatabase.cpp \
     database/contributorydatabase.cpp \
     utils/itemtype.cpp \
-    gui/dialogs/messagebox.cpp
+    gui/dialogs/messagebox.cpp \
+    libs/qt-mustache/src/mustache.cpp \
+    generator.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -80,7 +82,6 @@ HEADERS  += mainwindow.h \
         models/customer.h \
         gui/dialogs/dialogaddcustomer.h \
     models/project.h \
-    models/idatabasemodel.h \
     models/billing.h \
     models/contributory.h \
     database/userdatabase.h \
@@ -117,7 +118,10 @@ HEADERS  += mainwindow.h \
     database/contributorydatabase.h \
     utils/itemtype.h \
     gui/dialogs/messagebox.h \
-    gui/widgets/checkfields/icheckfield.h
+    gui/widgets/checkfields/icheckfield.h \
+    libs/qt-mustache/src/mustache.h \
+    generator.h \
+    models/imodel.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
@@ -134,7 +138,8 @@ FORMS    += mainwindow.ui \
     gui/dialogs/messagebox.ui
 
 RESOURCES += \
-    icons.qrc
+    icons.qrc \
+    utilsfiles.qrc
 
 OTHER_FILES += \
         sql/removetable.sql \
@@ -145,7 +150,8 @@ OTHER_FILES += \
     sql/tests/billingsprojects.sql \
     sql/tests/contributories.sql \
     sql/tests/projects.sql \
-    main.dox
+    main.dox \
+    billing.tpl\
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql
