@@ -358,6 +358,8 @@ void MainWindow::changeTree()
     if (isQuoteItemTree()) { // Quote or billing, to define
         //TODO
     }
+
+    updateBtn();
 }
 
 void MainWindow::changeCustomerTable()
