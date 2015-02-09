@@ -40,7 +40,7 @@ throw(DbException*)
               " phone, email "
               "FROM Customer "
               "WHERE 1 "+filter+" "
-                                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException(
@@ -78,7 +78,7 @@ throw(DbException*)
 
     q.prepare("SELECT * "
               "FROM Customer WHERE 1 "+filter+" "
-                                              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException(

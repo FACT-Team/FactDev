@@ -94,7 +94,7 @@ public:
      * @return boolean if search filter is actived
      */
     bool getGroupFilter() const;
-    /**
+    /**mother
      * @brief Search::setGroupFilter Modify if we active search filter
      * @param getGroupFilter Get if filter is actived
      */

@@ -364,7 +364,7 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>180</height>
+     <height>200</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -410,6 +410,12 @@ border: 1px solid #bbb;</string>
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>150</height>
+        </size>
+       </property>
        <property name="title">
         <string>Filtre de recherche</string>
        </property>
@@ -453,6 +459,9 @@ border: 1px solid #bbb;</string>
           </property>
           <property name="text">
            <string>Nom du projet</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -752,8 +761,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>540</y>
+     <x>372</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -768,8 +777,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>549</y>
+     <x>353</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -804,8 +813,8 @@ border: 1px solid #bbb;</string>
      <y>241</y>
     </hint>
     <hint type="destinationlabel">
-     <x>157</x>
-     <y>191</y>
+     <x>169</x>
+     <y>183</y>
     </hint>
    </hints>
   </connection>
@@ -820,8 +829,8 @@ border: 1px solid #bbb;</string>
      <y>241</y>
     </hint>
     <hint type="destinationlabel">
-     <x>150</x>
-     <y>225</y>
+     <x>162</x>
+     <y>206</y>
     </hint>
    </hints>
   </connection>
@@ -832,8 +841,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>222</x>
-     <y>191</y>
+     <x>234</x>
+     <y>183</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -848,8 +857,8 @@ border: 1px solid #bbb;</string>
    <slot>search()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>225</y>
+     <x>233</x>
+     <y>206</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -880,8 +889,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>595</x>
-     <y>549</y>
+     <x>316</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -896,8 +905,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>614</x>
-     <y>540</y>
+     <x>335</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -1024,8 +1033,8 @@ border: 1px solid #bbb;</string>
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>379</x>
-     <y>107</y>
+     <x>378</x>
+     <y>98</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -1040,8 +1049,8 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>336</x>
-     <y>106</y>
+     <x>331</x>
+     <y>95</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -1072,8 +1081,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>678</x>
-     <y>236</y>
+     <x>379</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1088,8 +1097,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>359</x>
-     <y>95</y>
+     <x>581</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1104,8 +1113,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>504</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1120,8 +1129,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>504</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1136,8 +1145,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>504</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>
@@ -1168,8 +1177,8 @@ border: 1px solid #bbb;</string>
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>532</x>
-     <y>226</y>
+     <x>378</x>
+     <y>98</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1184,8 +1193,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>471</x>
-     <y>192</y>
+     <x>379</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
      <x>-131</x>
@@ -1206,6 +1215,54 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>618</x>
      <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkProjectName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>60</x>
+     <y>149</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>57</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkContributory</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>97</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkBillQuote</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>269</y>
     </hint>
    </hints>
   </connection>
