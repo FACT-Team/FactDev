@@ -1,0 +1,171 @@
+% /solutions/conference-talks/conference-ornate-20min.fr.tex, 22/02/2006 De Sousa
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{tikz}
+% Ce fichier est un exemple d'expos\'e
+
+% - pour des conf\'erences,
+% - d'une dur\'ee approximative de 20 minutes,
+% - avec un style ornemental.
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% Traduction de Philippe De Sousa <philippejjg@free.fr>
+%
+% En principe, ce fichier peut être redistribu\'e et/ou modifi\'e conform\'ement
+% aux termes de la GNU Public License, version 2.
+%
+% Cependant, ce fichier est suppos\'e comme \'etant un "exemple-type" qui peut être modifi\'e
+% selon vos propres besoins. Pour cette raison, si vous utilisez ce fichier en tant qu'
+% "exemple-type" et non sp\'ecifiquement pour le distribuer en tant que partie d'un
+% package ou programme, je vous donne la permission exceptionnelle de copier librement et
+% de modifier ce fichier et même d'effacer ce message de copyright.
+\usepackage{pdfpages}
+
+
+
+
+\usepackage[francais]{babel}
+% or autre comme par exemple \usepackage[english]{babel}
+
+\usepackage[utf8]{inputenc}
+% or autre
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or autre. Notez que le codage et la fonte doivent être assortis. Si T1
+% ne paraît pas tr\`es esth\'etique, essayer d'effacer la ligne contenant fontenc.
+
+\hypersetup{pdfpagemode=FullScreen}
+
+
+\mode<presentation> {
+  \usetheme{UNLTheme}
+  % ou autre ...
+	
+ 	% \setbeamercovered{none}
+  % ou autre chose (il est \'egalement possible de supprimer cette ligne)
+}
+
+\title[] % (facultatif, \`a utiliser uniquement si le titre de l'article est trop long)
+{Logiciel de devis et Facturation}
+\subtitle {FactDev}
+
+\author[Antoine de \bsc{Roquemaurel}\newline \bsc{Razanajatovo}] % (facultatif, \`a utiliser seulement avec plusieurs auteurs)
+{Antoine de \bsc{Roquemaurel}\newline tet\newline truc\newline lkj \newline mkj}
+
+% - Composez les noms dans l'ordre dans lequel ils apparaîtrons dans l'article
+% - Utilisez la commande \inst{?} uniquement si les auteurs ont des affiliations
+%   diff\'erentes.
+
+\institute[] % (facultatif mais g\'en\'eralement n\'ecessaire)
+{
+  Universit\'e Toulouse III -- Paul Sabatier \\
+  M1 Informatique -- Développement Logiciel 
+  \vspace{-10px}
+}
+% - Utilisez la commande \inst uniquement s'il y a plusieurs affectations
+% - Faîtes quelque chose de simple, personne ne s'int\'eresse \`a votre adresse
+
+\date[ ~ ~ ~ JJ / MM / 2015] % (facultatif, peut être une abr\'eviation du nom de la conf\'erence)
+{JJ / MM / 2015}
+% - Utilisez \`a la fois le nom de la conf\'erence et son abr\'eviation.
+% - N'a pas r\'eellement d'importance pour l'assistance qui sera pr\'esente lors de la conf\'erence,
+%   mais en a surtout pour les personnes (y compris vous-même) qui liront les transparents en ligne.
+
+\subject{Plateforme de tests automatis\'es}
+% Ins\'er\'e uniquement dans la page d'information du fichier PDF. Peut être
+% supprim\'e.
+
+
+% Si vous avez un fichier nomm\'e "universit\'e-logo-nomfichier.xxx", où xxx
+% est un format graphique accept\'e par latex ou pdflatex (comme par exemple .png),
+% alors vous pouvez ins\'erer votre logo ainsi :
+
+ \pgfdeclareimage[width=2.5cm]{le-logo}{../../images/FACT_official.png}
+ \logo{\pgfuseimage{le-logo}}
+
+
+% \`a supprimer si vous ne voulez pas que la table des mati\`eres apparaisse
+% au d\'ebut de chaque sous-section : 
+\AtBeginSection[] {
+  \begin{frame}<beamer>{Ligne directrice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+% Si vous souhaitez recouvrir vos transparents un \`a un,
+% utilisez la commande suivante (pour plus d'info, voir la page 74 du manuel
+% d'utilisation de Beamer (version 3.06) par Till Tantau) :
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\setbeamertemplate{footline}{
+	\leavevmode%
+	\hbox{\hspace*{-0.6cm}
+	\begin{beamercolorbox}[wd=.19\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+		\usebeamerfont{section in head/foot}\insertshortdate{}
+	\end{beamercolorbox}%
+
+	\begin{beamercolorbox}[wd=.76\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+		\usebeamerfont{section in head/foot} Développement d'un logiciel de facturation : FactDev 
+	\end{beamercolorbox}%
+
+	\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
+		\usebeamerfont{section in head/foot}\hspace*{2em}
+		\hspace{-10px}\textbf{\insertframenumber{}} / \inserttotalframenumber\hspace*{2ex}
+	\end{beamercolorbox}}%
+					\vskip0pt%
+}
+
+\setbeamertemplate{navigation symbols}{}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\section{Section A}
+\subsection{Subsection AA}
+\begin{frame}{COUCOU a}
+	~
+\end{frame}
+\subsection{Subsection AB}
+\begin{frame}{COUCOU b}
+	~
+\end{frame}
+\section{Section B}
+\subsection{Subsection BA}
+\subsection{Subsection BB}
+\begin{frame}{COUCOU B}
+	~
+\end{frame}
+\section{Section C}
+\subsection{Subsection CA}
+\subsection{Subsection CB}
+\begin{frame}{COUCOU C}
+	~
+\end{frame}
+\end{document}
+
+
+%Intro 2'
+%Entreprise
+	
+1'
+	% 2'
+%probleme
+	% 2'
+%greent
+	% 2.5'
+	% 4'
+%conclu 
+	% 2'
+
+%15.5
+
+% gestion des ex ->
+%	rédac -> crreeer
