@@ -5,6 +5,9 @@ Search::Search()
 {
     _searchInCompanies = true;
     _searchInReferentLastname = true;
+    _searchInProjects = true;
+    _searchInContributories = true;
+    _searchInBillsQuotes = true;
     _groupFilter = false;
 }
 
@@ -25,6 +28,18 @@ QString Search::getFilter()
             filter += "OR lastnameReferent LIKE '%"+_text+"%'";
         }
 
+        // -------------------
+        if(_searchInProjects || !_groupFilter) {
+            filter += "OR name LIKE '%"+_text+"%'";
+        }
+        if(_searchInContributories || !_groupFilter) {
+            filter += "OR description '%"+_text+"%'";
+        }
+        if(_searchInBillsQuotes || !_groupFilter) {
+            filter +=   "OR title '%"+_text+"%' "
+                        +"OR number '%"+_text+"%' ";
+
+        }
         filter += ")";
     }
 
@@ -67,4 +82,34 @@ void Search::setText(const QString &text)
     _text = text;
     _text.replace("'", "''");
 }
+bool Search::searchInBillsQuotes() const
+{
+    return _searchInBillsQuotes;
+}
+
+void Search::setSearchInBillsQuotes(bool searchInBillsQuotes)
+{
+    _searchInBillsQuotes = searchInBillsQuotes;
+}
+
+bool Search::getSearchInProjects() const
+{
+    return _searchInProjects;
+}
+
+void Search::setSearchInProjects(bool searchInProjects)
+{
+    _searchInProjects = searchInProjects;
+}
+bool Search::searchInContributories() const
+{
+    return _searchInContributories;
+}
+
+void Search::setSearchInContributories(bool searchInContributories)
+{
+    _searchInContributories = searchInContributories;
+}
+
+
 }

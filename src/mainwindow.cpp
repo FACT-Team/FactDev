@@ -172,6 +172,7 @@ void MainWindow::search(QString text)
     s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+   // s.setSearchInProjects(ui->c);
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());

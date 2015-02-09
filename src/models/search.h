@@ -34,7 +34,7 @@ public:
      * @brief Search::setSearchInCompanies Modify the filter of search
      * @param getSearchInCompanies Search in companies is concerned
      */
-    void setSearchInCompanies(bool getSearchInCompanies);
+    void setSearchInCompanies(bool searchInCompanies);
 
     /**
      * @brief Search::getSearchInReferentLastname Return if we search
@@ -44,9 +44,42 @@ public:
     bool getSearchInReferentLastname() const;
     /**
      * @brief Search::setSearchInReferentLastname Modify the filter of search
-     * @param getSearchInReferentLastname Search in referent last name is concerned
+     * @param searchInReferentLastname Search in referent last name is concerned
      */
-    void setSearchInReferentLastname(bool getSearchInReferentLastname);
+    void setSearchInReferentLastname(bool searchInReferentLastname);
+
+    /**
+     * @brief Search::getSearchInProjects
+     * @return
+     */
+    bool getSearchInProjects() const;
+    /**
+     * @brief Search::setSearchInProjects
+     * @param searchInProjects
+     */
+    void setSearchInProjects(bool searchInProjects);
+
+    /**
+     * @brief Search::getSearchInContributories
+     * @return
+     */
+    bool searchInContributories() const;
+    /**
+     * @brief Search::setSearchInContributories
+     * @param searchInContributories
+     */
+    void setSearchInContributories(bool searchInContributories);
+
+    /**
+     * @brief Search::searchInBillsQuotes
+     * @return
+     */
+    bool getSearchInBillsQuotes() const;
+    /**
+     * @brief Search::setSearchInBillsQuotes
+     * @param searchInBillsQuotes
+     */
+    void setSearchInBillsQuotes(bool searchInBillsQuotes);
 
     /**
      * @brief Search::getGroupFilter Return if the filter is actived
@@ -70,9 +103,15 @@ public:
      */
     void setText(const QString &getText);
 
+
+
+
 private:
     bool _searchInCompanies;        //!< Companies involved in search
     bool _searchInReferentLastname; //!< Referent last name involved in search
+    bool _searchInProjects;         //!< Projets name in search
+    bool _searchInContributories;   //!< Contributories involved in search
+    bool _searchInBillsQuotes;      //!< Bills Quotes involved in search
     bool _groupFilter;              //!< filter of serach actived
     QString _text;                  //!< Text involved in the sql query
 };
