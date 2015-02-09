@@ -283,6 +283,17 @@
              </spacer>
             </item>
             <item>
+             <widget class="QPushButton" name="btnEditQuote">
+              <property name="text">
+               <string>Editer devis</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="pushButton">
               <property name="text">
                <string>Générer en LaTeX</string>
@@ -309,7 +320,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>27</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
