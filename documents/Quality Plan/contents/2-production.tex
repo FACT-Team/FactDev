@@ -1,15 +1,15 @@
 \chapter{Production}
 \section{Méthode de développement}
 \subsection{Définition et pertinence de la méthode scrum\index{Méthode Scrum}}
-Le développement du projet se fera selon la méthode Agile \key{Scrum}, comme cela a été convenu avec notre encadrant.
+Le développement du projet se fera selon la méthode Agile \key{Scrum}, comme convenu avec notre encadrant.
 
-Cette méthode, basée sur les stratégies itératives et incrémentale, permet de produire à la fin de chaque \key{Sprint}\index{Méthode Scrum!Sprint} (incrément/itération) une
+Cette méthode, basée sur les stratégies itératives et incrémentales, permet de produire à la fin de chaque \key{Sprint}\index{Méthode Scrum!Sprint} (incrément/itération) une
 version stable et testable du logiciel. Les différents événements associés à \key{Scrum} accroissent la communication grâce à des réunions quotidiennes
 aussi appelées \key{mêlées}\index{Méthode Scrum!Mêlées}. Ceci permet une meilleure cohésion, une meilleure coopération et une meilleure homogénéité du travail fourni par les
-membres de l'équipe. A cela s'ajoute la présence d'artefacts, c'est-à-dire des éléments à réaliser avec des ordres de priorité et qui contribuent à
+membres de l'équipe. A cela s'ajoute la présence d'artefacts, c'est-à-dire d'éléments à réaliser avec des ordres de priorité et qui contribuent à
 améliorer la productivité.
                     
-Dans le cadre de ce projet, la méthode \key{Scrum} s’avère être pertinente pour plusieurs raisons : 
+Dans le cadre de ce projet, la méthode \key{Scrum} s’avère être pertinente pour plusieurs raisons. 
 Premièrement, dans la mesure où nous avons proposé un sujet et spécifié les fonctionnalités de celui-ci, la méthode \key{Scrum} se veut adaptée. En effet,
 les fonctionnalités que nous avons proposé permettent de définir les limites de notre première version \key{Release}\index{Méthode Scrum!Release} livrable. 
 
@@ -31,12 +31,10 @@ par la majorité du groupe).
 
 \subsection{Application de la méthode \key{Scrum} et critères de qualité}
 Dans le cadre de notre projet, la durée d'un \key{Sprint} a été défini à deux semaines. Un \key{Sprint}\index{Méthode Scrum!Sprint} est constitué de \key{User Stories}\index{Méthode Scrum!User story} et de 
-\key{Technicals Stories}\index{Méthode Scrum!Technical Story} qui sont préalablement définies lors de réunions quotidiennes aussi appelées \key{mêlées}\index{Méthode Scrum!Mêlées}. Ces \key{mêlées} sont quotidiennes, nous
-profitons de notre temps libre dans l’emploi du temps pour les organiser. Pour les jours où ce n’est pas possible, nous avons mis en place un salon
+\key{Technicals Stories}\index{Méthode Scrum!Technical Story} qui sont préalablement définies lors de réunions quotidiennes appelées \key{mêlées}\index{Méthode Scrum!Mêlées}. Ces \key{mêlées} sont quotidiennes et organisées durant notre temps libre. En dehors de ces réunions, nous avons mis en place un salon
 de discussion IRC.  
 
-La définition des \key{Technical Stories} indique brièvement la fonction que l'on doit réaliser. Les \key{User Stories} sont quant à elles toujours posées
-sous cette forme :
+Les \key{Technical Stories} indiquent brièvement la fonction que l'on doit réaliser. Les \key{User Stories} indique les fonctionnalités du logiciel sous cette forme :
 
 \begin{exemple}
 	\textbf{En tant que} \texttt{[Personne(s) utilisant le logiciel]}\\
@@ -44,11 +42,8 @@ sous cette forme :
 	\textbf{Afin de} \texttt{[Objectif de la fonctionnalité]}
 \end{exemple}
 
-Chaque \key{Story} possède un poids, c'est-à-dire une valeur indiquant sa complexité et/ou le temps nécessaire afin de la mettre en œuvre. Le poids de
-chacune des \key{Story} est déterminé durant les \key{mêlées}\index{Méthode Scrum!Mêlées} au moyen d’un « Planning poker ». Ceci permet à chacun d’exprimer la complexité d’une
-\key{Story} à réaliser. Chacun justifie le choix du poids qu'il a affecté et après un éventuel débat, on affecte cette valeur à la \key{Story}. Celle-ci ne
-peut être affectée qu'une fois que l'ensemble des membres de l'équipe se sont mis d’accord. Elle possède également une priorité précisant
-l'importance d’intégrer cette \key{Story} ans le \key{Sprint}\index{Méthode Scrum!Sprint}. Cette priorité se fait au moyen de quatre niveaux d’importance : 
+Chaque membre de l'équipe détermine un poids pour chaque \key{Story} c'est-à-dire une valeur indiquant sa complexité et/ou le temps nécessaire afin de la mettre en œuvre. Le poids de chaque \key{Story} est déterminé durant les \key{mêlées}\index{Méthode Scrum!Mêlées} au moyen d’un « Planning poker ».  Ainsi, chaque membre justifie le poids qu'il a déterminé et après un éventuel débat et en commun accord, une valeur est attribuée à la \key{Story}. Elle possède également des niveaux de priorité précisant
+l'importance d’intégrer cette \key{Story} dans le \key{Sprint}\index{Méthode Scrum!Sprint}: 
 
 \begin{itemize}
 	\item \textit{Must} : La \key{Story} doit obligatoirement être réalisée lors du \key{Sprint}
@@ -57,14 +52,15 @@ l'importance d’intégrer cette \key{Story} ans le \key{Sprint}\index{Méthode 
 	\item \textit{Would} : La \key{Story} ne sera pas nécessairement faite et sera alors reportée au prochain \key{Sprint}
 \end{itemize}
 
-Une  \key{Story} est considérée comme finie lorsqu'elle est fonctionnelle d’un point de vue utilisateur c'est-à-dire :
+Une  \key{Story} est considérée comme terminée lorsqu'elle est fonctionnelle d’un point de vue utilisateur c'est-à-dire :
 \begin{itemize}
-	\item Les tests unitaires (pour la base de données ou pour les modèles) sont validés
-	\item Les tests d’intégrations sont validés
+	\item lorsque les tests unitaires (pour la base de données ou pour les modèles) sont validés
+	\item lorsque les tests d’intégrations sont validés
 	\item Lorsque chaque méthode est documentée
 \end{itemize}
 
-À la fin du \key{Sprint}, on présente à notre client, Monsieur Frédéric \bsc{Migeon}, afin qu'il le valide. Un \key{Sprint} fournit toujours :
+À la fin du \key{Sprint}, on présente notre logiciel à notre client, Monsieur Frédéric \bsc{Migeon} afin qu'il le valide. 
+Un \key{Sprint} fournit toujours :
 \begin{itemize}
 	\item une démonstration des nouvelles fonctionnalités logicielles
 	\item des tests unitaires
@@ -72,12 +68,11 @@ Une  \key{Story} est considérée comme finie lorsqu'elle est fonctionnelle d’
 	\item un manuel d’utilisateur à jour des nouvelles fonctionnalités
 \end{itemize}
 
-Notre projet sera réalisé en deux \key{Releases}\index{Méthode Scrum!Release}, c'est-à-dire qu'il y aura deux versions livrables. Chacune de ces versions est composée de trois 
+Notre projet sera réalisé en deux \key{Releases}\index{Méthode Scrum!Release} c'est-à-dire qu'il y aura deux versions livrables. Chacune de ces versions est composée de trois 
 \key{Sprints}\index{Méthode Scrum!Sprint}  ayant chacun un poids moyen de 50 pour environ 10 \key{Stories}.
 
 Les versions livrables du logiciel sont définies dans un carnet des produits (\key{Product Backlog}) qui référence l'ensemble des \key{Stories} des
-différents \key{Sprints}. Ce carnet est susceptible d’évoluer en fonction des besoins du client, de nouveaux choix de conception ou encore d’éléments
-n’ayant pas été prévu. 
+différents \key{Sprints}. Ce carnet est susceptible d’évoluer en fonction des besoins du client, de nouveaux choix de conception ou encore d’éléments non prévus. 
 
 \subsection{Organisation et rôles dans l'équipe de développement}
 La méthode \key{Scrum} possède des rôles qui lui sont propres: le \key{Scrum Master}\index{Méthode Scrum!Scrum master}, le \key{Product Owner}\index{Méthode Scrum!Product Owner} et l'équipe de développement\index{Méthode Scrum!Équipe de développement}. 
@@ -87,46 +82,45 @@ Le \key{Scrum Master}\index{Méthode Scrum!Scrum master} aura pour mission princ
 comprise de tous et appliquée de façon correcte. Il aura le rôle de meneur lors de phases importantes d’application de la méthode telles que le
 planning poker ou encore les mêlées quotidiennes.
 \subsubsection{Product owner : Antoine de Roquemaurel}
-Le \key{Product owner}\index{Méthode Scrum!Product owner} est la seule personne responsable du carnet de produit et de sa gestion. Ce dernier comprend l’expression de tous les items associés
+Le \key{Product owner}\index{Méthode Scrum!Product owner} est la seule personne responsable du carnet de produit et de sa gestion. Ce carnet comprend l’expression de tous les items associés
 à une priorité (l'importance pour le client). La compréhension de ceux-ci ainsi que la vérification du travail fourni est sous la responsabilité du
 \key{Product owner}.
 \subsubsection{Équipe de développement\index{Méthode Scrum!Équipe de développement} : Florent \bsc{Berbie}, Antoine de \bsc{Roquemaurel}, Cédric
 \bsc{Rohaut}, Andriamihary \bsc{Razanajatovo}}
-Afin d’assurer une plus grande cohésion entre les membres de l’équipe, un même niveau d’implication et un travail de plus grande qualité nous avons
-définis des rôles spécifiques : 
+Afin d’assurer une certaine cohésion entre les membres de l’équipe, un même niveau d’implication et un travail de qualité nous avons
+définis des rôles spécifiques pour chaque membre : 
 \subsubsection{Directeur qualité\index{Méthode Scrum!Directeur qualité} : Cédric \bsc{Rohaut}}
-Le responsable qualité sera garant de la transposition des exigences du client sous forme de solutions techniques au sein du logiciel final. En
-d’autres termes, il veillera à ce que le logiciel apporte une solution technique optimale pour le client. De plus il devra vérifier et valider la
+Le responsable qualité sera garant de la transposition des exigences du client sous forme de solutions techniques au sein du logiciel final. De plus il devra vérifier et valider la
 qualité du logiciel au travers de tests, du respect des conventions et de l'aspect général du logiciel.
 
 \subsubsection{Directeur documentation\index{Méthode Scrum!Directeur documentation} : Andriamihary \bsc{Razanajatovo}}
 Le responsable documentation sera chargé de la révision de l'ensemble des documents avant leur remise ou leur soumission aux parties prenantes
-concernées. Il veillera à la qualité des aspects fondamentaux, à savoir le fond et la forme, des documentations à fournir.
+concernées. Il veillera à la qualité des aspects fondamentaux ()le fond et la forme) des documentations à fournir.
 
 \subsubsection{Directeur technique\index{Méthode Scrum!Directeur technique} Qt, C++ : Antoine de Roquemaurel}
 Le responsable technique Qt, C++ sert de support à l'équipe en cas de problèmes techniques liés au développement sur la plate-forme Qt. De par ses
-connaissances acquises dans ce domaine, il sera le plus à même à aider les membres de l'équipe projet ayant des difficultés avec cette technologie.
+connaissances acquises dans ce domaine, il sera le plus apte à aider les membres de l'équipe projet ayant des difficultés avec cette technologie.
 De plus, dans le but de minimiser les couplages lors de la conception, il veillera à ce que le patron de conception MVC\footnote{Modele, Vue, Contrôleur} soit correctement utilisé. Ainsi, le code
 sera clairement découpé en trois parties : modèle, vue et contrôleur ce qui permettra de s’assurer des contrôles d'interactions entre nos composants
 logiciels.
 
 \subsubsection{Autres rôles, responsabilités de chaque développeur et organisation générale}
-Dans un souci d’assurance qualité, chaque responsable est en mesure de présenter les difficultés qu'il a eu à gérer, de présenter les différents
-solutions possibles à ce problème et de justifier le choix de la technique adoptée.
+Dans un souci d’assurance qualité, chaque responsable est en mesure de présenter les difficultés rencontrées, les différentes
+solutions possibles et de justifier le choix de la technique adoptée.
 
 Lors de la réalisation d’un cas d’utilisation (\key{issue}\index{Méthode Scrum!Issue} sur \key{Github}), celui-ci est assigné à un développeur. Une fois que ce dernier considère sa
 tâche comme finie, il indique (via une \key{Pull Request}) aux autres membres de l’équipe que la tâche est soumise à la validation et à l'intégration.
 Un des autres membres vérifie que la fonction est conforme à sa description, que le code est facilement compréhensible et correctement commenté. Dans
 le cas ou la revue de code ne donne pleine satisfaction, le membre effectuant cette revue et les autres membres de l’équipe pourront ajouter des
-commentaires pour débattre de la fonctionnalité, de l’implémentation de la fonction ou des technologies employées pour y résoudre. Chacun pourra
+commentaires pour débattre de la fonctionnalité, de l’implémentation de la fonction ou des technologies à employer. Chacun pourra
 alors soumettre sa vision du problème et la manière avec laquelle il aurait résolu le problème. 
 
-\section{Les Technologies utilisées}
+\section{Technologies utilisées}
 \subsection{Architecture Logicielle}
-L’objectif du logiciel est d’éditer des devis\index{FactDev!Devis} et factures\index{FactDev!Facture} et de proposer une gestion de ses clients\index{FactDev!Gestion des clients} : le client possède un ou plusieurs projets auxquels sont associés un ou plusieurs devis et/ou factures. 
-De ce fait, l’architecture logicielle comporte une base de données de type SQLite\index{Outils!SQLite} pour la gestion des clients, de ses projets, des devis et factures associés à chacun des projets et des prestations propres à chaque devis et facture. 
+L’objectif du logiciel est d’éditer des devis\index{FactDev!Devis} et factures\index{FactDev!Facture} et de proposer une gestion des clients\index{FactDev!Gestion des clients} : le client possède un ou plusieurs projets auxquels sont associés un ou plusieurs devis et/ou factures. 
+Ainsi, l’architecture logicielle comporte une base de données de type SQLite\index{Outils!SQLite} pour la gestion des clients, de ses projets, des devis et factures associés. 
 Nous utilisons un patron de conception MVC, avec un modèle qui correspond aux objets métiers Client, Projet, Factures, Devis, Prestations. Ces objets sont instanciés par les classes associées à la base de données qui réalisent ces tâches.
-Enfin nous générerons les devis et factures en LaTeX ou en PDF.
+Enfin, nous générerons les devis et factures en LaTeX ou en PDF.
 
 \subsection{Environnement de développement}
 Le logiciel est développé à partir du \key{framework}
@@ -140,7 +134,7 @@ Afin de mener au mieux ce projet, l'équipe utilise l'outil \key{Github}, un ser
 
 \subsection{Outils pour la Gestion de Projet Agile}
 La développement de notre logiciel s’appuie sur \key{Github}\index{Outils!Github} qui permet la gestion des différentes versions de notre logiciel. 
-Cet outil est composé d’une branche directrice (appelée \key{Master}), sur laquelle se greffe de nouvelles branches : une branche par \key{Sprint}\index{Méthode Scrum!Sprint}. L’ensemble des \key{User Stories}\index{Méthode Scrum!User Story} que nous avons défini sont représentées dans \key{Github} par des \key{Issues}. Chaque \key{Issue} fait l’objet d’une nouvelle branche provenant de celle du Sprint associé. L’avantage que propose cette gestion permet à chacun de développer de son côté sans entrer en conflit avec les autres membres de l’équipe. Une fois l’issue terminée et validée par la revue de code, l’on fusionne la branche de l’issue à celle du Sprint associée afin que l’équipe bénéficie de la nouvelle version, stable et fonctionnelle. On procède de la même façon en fin de \key{Sprint} en intégrant la branche de \key{Sprint} à la branche principale \key{Master}.
+Cet outil est composé d’une branche directrice (appelée \key{Master}), sur laquelle se greffe de nouvelles branches : une branche par \key{Sprint}\index{Méthode Scrum!Sprint}. L’ensemble des \key{User Stories}\index{Méthode Scrum!User Story} que nous avons défini sont représentées dans \key{Github} par des \key{Issues}. Chaque \key{Issue} fait l’objet d’une nouvelle branche provenant de celle du Sprint associé. Cette gestion permet à chaque membre de développer indépendamment des autres sans entrer en conflit avec le reste l’équipe. Une fois l’issue terminée et validée par la revue de code, l’on fusionne la branche de l’issue à celle du Sprint associée afin que l’équipe bénéficie de la nouvelle version stable et fonctionnelle. On procède de la même façon en fin de \key{Sprint} en intégrant la branche de \key{Sprint} à la branche principale \key{Master}.
 
 \begin{figure}[H]
 	\centering
@@ -148,17 +142,19 @@ Cet outil est composé d’une branche directrice (appelée \key{Master}), sur l
 	\caption{Principe du « Git Branching Workflow »}
 \end{figure}
 
-Outre la gestion des différentes versions de notre code, \key{Github} permet un suivi de notre projet. Le site internet \key{Github} dédié au projet est accessible à l’équipe et notre client Monsieur Frédéric \bsc{Migeon}. 
+Outre la gestion des différentes versions de notre code, \key{Github} permet un suivi de notre projet. Le site internet \key{Github} dédié au projet est accessible par l’équipe et notre client Monsieur Frédéric \bsc{Migeon}. 
 De plus, \key{Github} contient un Wiki avec les règles de bonne conduite et les conventions à respecter pour assurer l'homogénéité de notre projet. 
 
 \subsection{Documentation\index{Documentation}}
 La centralisation des documents se fait au moyen du Wiki\index{Documentation!Wiki} de \key{Github} et de Google Drive. 
 Le Wiki de \key{Github} contient :
-Tutoriel sur les méthodes de travail (Git, Scrum, C++)
-Convention de code à respecter (conventions de nommage des variables, des méthodes, d’organisation du code...)
-Tutoriel sur la documentation (\key{Doxygen})\index{Documentation!Doxygen}.
+\begin{itemize}
+	\item un tutoriel sur les méthodes de travail (Git, Scrum, C++)
+	\item une convention de code à respecter (conventions de nommage des variables, des méthodes, d’organisation du code...)
+	\item un tutoriel sur la documentation (\key{Doxygen})\index{Documentation!Doxygen}.
+\end{itemize}
 
-Sur Google Drive, on trouve l’ensemble des documents à rédiger en équipe. Cet outils permet notamment d’éditer un même document à plusieurs et d’être facilement accessible par tout le monde. Parmi les documents accessibles sur le Drive, on trouve :
+Sur Google Drive, on trouve l’ensemble des documents à rédiger en équipe. Cet outil permet notamment d’éditer un même document à plusieurs et d’être facilement accessible. Parmi les documents accessibles sur le Drive, on trouve :
 \begin{itemize}
 	\item le manuel de l’utilisateur\index{Documentation!Manuel de l'utilisateur}
 	\item le plan d'assurance qualité\index{Documentation!Plan d'assurance qualité}
@@ -174,10 +170,11 @@ Sur Google Drive, on trouve l’ensemble des documents à rédiger en équipe. C
  
 \subsection{Assurance de la qualité du code}
 Pour assurer une meilleure homogénéité, lisibilité et maintenabilité du code, nous utilisons l’outil \key{SonarQube}\index{Outils!SonarQube}, un logiciel permettant de mesurer la qualité du code source  en continu. 
-//Celui-ci analyse et fournit diverses informations sur le code tel que:
+Celui-ci analyse et fournit diverses informations sur le code tel que:
 \begin{itemize}
 	\item le pourcentage de code non documenté (ou pas assez documenté)
-	\item la complexité générale du logiciel ou, au car pas car, des méthodes de notre programme
+	\item la complexité générale du logiciel ou, au cas pas cas, des méthodes de notre programme
 	\item le bon respect des conventions de codages (nommage des attributs/méthodes, indentation, …)
-	\item la couverture de code (via les tests unitaires) la duplication de code
+	\item la couverture de code (via les tests unitaires) 
+	\item la duplication de code
 \end{itemize}

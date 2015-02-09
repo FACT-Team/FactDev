@@ -1,5 +1,5 @@
 \chapter{La Démarche Qualité}
-La démarche qualité s'engage à aux offrir au client et à l'encadrant un système de qualité et d'amélioration continue. 
+La démarche qualité s'engage à offrir au client et à l'encadrant une procédure de qualité et d'amélioration continue. 
 Dans un souci de respect de cette démarche, l'équipe à mis en place des outils et méthodes de fonctionnement. 
 \section{Développement collaboratif}
 Comme cela fut décrit au préalable, le projet est réalisé selon la méthode Scrum. L'outil de gestion de version \key{Git} mis en place assure une certaine qualité au logiciel.
@@ -11,7 +11,7 @@ Cela permet également, via le système des branches exposé plus haut, de trava
 La revue de code est élément essentiel à la qualité d'un logiciel. \\
 Le site web d'hébergement \key{Github} de \key{Git} permet de mettre en application cette revue de code. En effet, lorsqu'un membre de l'équipe de développement considère la tâche qu'il avait affecté comme terminé, il créer une \key{Pull Request}. Un autre membre de l'équipe procède alors à la revue de code. La revue de code consiste à vérifier que la fonctionnalité spécifiée est correcte, que le code est simple, lisible et correctement documenté. Durant la revue de code, il est possible via \key{Github} de créer un échange entre le développeur de la fonction et le reste de l'équipe pour débattre de la manière dont la fonction a été traitée. Ce n'est qu'après approbation qu'il est possible d'intégrer, c'est-à-dire de fusionner le travail du développeur avec le reste de l'équipe. 
 \section{Couverture des tests}
-Le logiciel \FactDev manipule un certains nombre de données (utilisateur, clients, factures, ...) qui peuvent être ajouter, supprimer ou modifier. C'est pourquoi, il est important de mettre en place des tests unitaires pour vérifier de l'exactitude des données manipulées et de s'assurer que les modifications effectuées se font correctement. Pour cela nous utilisons les bibliothèques fournies par Qt (\key{QtTest} et \key{QTestRunner}). \\
+Le logiciel \FactDev manipule un certain nombre de données (utilisateur, clients, factures, ...) qui peuvent être ajouter, supprimer ou modifier. C'est pourquoi, il est important de mettre en place des tests unitaires pour vérifier de l'exactitude des données manipulées et de s'assurer que les modifications effectuées se font correctement. Pour cela, nous utilisons les bibliothèques fournies par Qt (\key{QtTest} et \key{QTestRunner}). \\
 En complément à ces tests, nous utilisons \key{lcov}\index{Outils!lcov}, un outil graphique permettant par analyse du code de définir la couverture de code offerte par nos tests unitaires. 
 \section{Analyse statique de code : SonarQube\index{Outils!SonarQube}}
 \key{SonarQube} s'avère être un outil capital à la qualité du code de l'application. En effet, ce dernier fournit des statistiques sur la qualité du code (pourcentage de documentation, duplication de code, complexité,...). Il se montre un excellent complément à la couverture du code.  
