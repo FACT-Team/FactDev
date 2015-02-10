@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  9 FEB 2015 22:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  10 FEB 2015 09:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1812,19 +1812,23 @@ Package epstopdf Info: Source file: <screens/scrum.eps>
 (epstopdf)                    size: 11702 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/scrum-eps-converte
 d-to.pdf screens/scrum.eps>
-(epstopdf)             \includegraphics on input line 23.
+(epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 <screens/scrum-eps-converted-to.pdf, id=135, 2585.66pt x 438.63875pt>
 File: screens/scrum-eps-converted-to.pdf Graphic file (type pdf)
 
 <use screens/scrum-eps-converted-to.pdf>
 Package pdftex.def Info: screens/scrum-eps-converted-to.pdf used on input line 
-23.
+13.
 (pdftex.def)             Requested size: 512.1496pt x 86.88286pt.
 
-Overfull \hbox (11.38089pt too wide) in paragraph at lines 23--24
+Overfull \hbox (11.38089pt too wide) in paragraph at lines 13--14
  [][] 
  []
+
+
+LaTeX Font Warning: Font shape `T1/pag/bc/it' undefined
+(Font)              using `T1/pag/bc/n' instead on input line 17.
 
 [6
 
@@ -1835,19 +1839,12 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.30 
+l.23 
       <./screens/scrum-eps-converted-to.pdf>]
-
-LaTeX Font Warning: Font shape `T1/pag/bc/it' undefined
-(Font)              using `T1/pag/bc/n' instead on input line 32.
-
-Package mdframed Info: mdframed works in twoside mode on input line 39.
+Package mdframed Info: mdframed works in twoside mode on input line 24.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 39.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(mdframed)              on input line 24.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1856,6 +1853,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
+Underfull \vbox (badness 1303) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1863,6 +1863,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
+Underfull \vbox (badness 4673) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1879,7 +1882,7 @@ Package epstopdf Info: Source file: <screens/BranchingWorkflow.eps>
 (epstopdf)                    size: 28631 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/BranchingWorkflow-
 eps-converted-to.pdf screens/BranchingWorkflow.eps>
-(epstopdf)             \includegraphics on input line 142.
+(epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
 <screens/BranchingWorkflow-eps-converted-to.pdf, id=190, 745.78625pt x 680.5425
@@ -1887,11 +1890,8 @@ pt>
 File: screens/BranchingWorkflow-eps-converted-to.pdf Graphic file (type pdf)
  <use screens/BranchingWorkflow-eps-converted-to.pdf>
 Package pdftex.def Info: screens/BranchingWorkflow-eps-converted-to.pdf used on
- input line 142.
+ input line 126.
 (pdftex.def)             Requested size: 341.43306pt x 311.55801pt.
-
-Underfull \vbox (badness 5217) has occurred while \output is active []
-
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1904,9 +1904,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.153 	\item u
-              n tutoriel sur les méthodes de travail (Git, Scrum, C++) <./scre
-ens/BranchingWorkflow-eps-converted-to.pdf>])
+l.140 \end{itemize}
+                    <./screens/BranchingWorkflow-eps-converted-to.pdf>])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -2112,7 +2111,7 @@ type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb><
 share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/marvosym/marvosym.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/avantgar/uagk8a.pfb>
-Output written on quality_plan.pdf (18 pages, 487767 bytes).
+Output written on quality_plan.pdf (18 pages, 486698 bytes).
 PDF statistics:
  385 PDF objects out of 1000 (max. 8388607)
  334 compressed objects within 4 object streams
