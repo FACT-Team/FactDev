@@ -36,7 +36,6 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::demo() {
-    ui->actionNewBill->setVisible(false);
 }
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
@@ -405,5 +404,6 @@ void MainWindow::updateBtn()
     ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() != -1);
     ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
     ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
+    ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() != -1);
 }
 }
