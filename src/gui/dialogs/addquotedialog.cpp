@@ -39,8 +39,8 @@ AddQuoteDialog::~AddQuoteDialog()
 
 void AddQuoteDialog::fillFields() {
     // WARNING : Possibility to update a quote ?
-    //ui->leQuoteTitle->setText("djcjcwk");
-    qDebug() << _quote->getTitle();
+     ((CheckUntilField*) ui->leQuoteTitle)->setText("MACHALLAH");
+     qDebug() << _quote->getTitle();
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
