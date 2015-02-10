@@ -94,6 +94,7 @@ public:
 
     //TODO
     bool isQuoteItemTree();
+    bool isBillItemTree();
     void demo();
 public slots:
     /**

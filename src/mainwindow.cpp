@@ -319,8 +319,15 @@ bool MainWindow::isCustomerItemTree() {
     return !isTreeRoot() && !ui->trCustomers->currentIndex().parent().isValid();
 }
 
+// TODO : difference between bill and quote
 bool MainWindow::isQuoteItemTree() {
-    return false;
+    return !isTreeRoot()
+            && !ui->trCustomers->currentIndex().parent().parent().isValid();
+}
+// TODO : difference between bill and quote
+bool MainWindow::isBillItemTree() {
+    return !isTreeRoot()
+            && !ui->trCustomers->currentIndex().parent().parent().isValid();
 }
 
 void MainWindow::changeTree()
@@ -333,18 +340,14 @@ void MainWindow::changeTree()
         ui->tblCustomers->clearSelection();
         ui->wdgCustomerData->hide();
         ui->trCustomers->collapseAll();
-    }
-
-    if (isCustomerItemTree()) {
+    } else if (isCustomerItemTree()) {
         ui->tblCustomers->selectRow(idRow-1);
         ui->wdgCustomerData->printInformations(getCurrentCustomerId());
         ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
         changeProjectsTable();
         ui->stackedWidget->setCurrentIndex(1);
-    }
-
-    if (isProjectItemTree()) {
+    } else if (isProjectItemTree()) {
         // Need to verify if the current customer is the father
         // Then update TableProjects
         ui->tblCustomers->selectRow(index.parent().row()-1);
@@ -352,10 +355,28 @@ void MainWindow::changeTree()
         ui->tblProjects->selectRow(idRow);
         updateTableBillings(getCurrentProjectId());
         ui->stackedWidget->setCurrentIndex(2);
-    }
-
-    if (isQuoteItemTree()) { // Quote or billing, to define
-        //TODO
+    } else if (isQuoteItemTree()) {
+        // TODO
+        // Need to verify if the current customer is the father
+        // Need to verify if the current project is the father, also add the
+        // quote in all fathers where it is referenced
+        ui->tblCustomers->selectRow(index.parent().parent().row()-1);
+        updateTableProjects(getCurrentCustomerId());
+        ui->tblProjects->selectRow(index.parent().row()-1);
+        updateTableBillings(getCurrentProjectId());
+        ui->tblQuotes->selectRow(idRow);
+        ui->stackedWidget->setCurrentIndex(3);
+    } else if (isBillItemTree()) {
+        // TODO
+        // Need to verify if the current customer is the father
+        // Need to verify if the current project is the father, also add the
+        // quote in all fathers where it is referenced
+        ui->tblCustomers->selectRow(index.parent().parent().row()-1);
+        updateTableProjects(getCurrentCustomerId());
+        ui->tblProjects->selectRow(index.parent().row()-1);
+        updateTableBillings(getCurrentProjectId());
+        ui->tblQuotes->selectRow(idRow);
+        ui->stackedWidget->setCurrentIndex(3);
     }
 
     updateBtn();
