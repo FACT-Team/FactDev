@@ -301,63 +301,40 @@ void MainWindow::aboutIcons() {
     MessageBox::showAboutIcons();
 }
 
-bool MainWindow::isTreeRoot() {
-    return ui->trCustomers->currentIndex().data() == "Tous les clients";
-}
+int MainWindow::treeLevel() {
+    int ret = 0;
 
-bool MainWindow::isProjectItemTree() {
-    int i = 0;
     QModelIndex currentIndex = ui->trCustomers->currentIndex();
-    while (currentIndex.parent().isValid()) {
-        currentIndex = currentIndex.parent();
-        i++;
+    if (currentIndex.data() != "Tous les clients") {
+        ret++;      // Level = 1, item != root
+        while (currentIndex.parent().isValid()) {
+            currentIndex = currentIndex.parent();
+            ret++;
+        }
     }
-    return i == 1;
-}
-
-bool MainWindow::isCustomerItemTree() {
-    return !isTreeRoot() && !ui->trCustomers->currentIndex().parent().isValid();
-}
-
-// TODO : difference between bill and quote
-bool MainWindow::isQuoteItemTree() {
-    int i = 0;
-    QModelIndex currentIndex = ui->trCustomers->currentIndex();
-    while (currentIndex.parent().isValid()) {
-        currentIndex = currentIndex.parent();
-        i++;
-    }
-    return i == 2;
-}
-// TODO : difference between bill and quote
-bool MainWindow::isBillItemTree() {
-    int i = 0;
-    QModelIndex currentIndex = ui->trCustomers->currentIndex();
-    while (currentIndex.parent().isValid()) {
-        currentIndex = currentIndex.parent();
-        i++;
-    }
-    return i == 2;
+    return ret;
 }
 
 void MainWindow::changeTree()
 {
     QModelIndex index = ui->trCustomers->currentIndex();
     int idRow = index.row();
-    //qDebug() << "Change : " << idRow << " " << !isTreeRoot() << " " << ui->trCustomers->currentIndex().parent().parent().isValid();;
-    if (isTreeRoot()) {
+    switch (treeLevel()) {
+    case 0:         // Root "Tous les clients"
         ui->stackedWidget->setCurrentIndex(0);
         ui->tblCustomers->clearSelection();
         ui->wdgCustomerData->hide();
         ui->trCustomers->collapseAll();
-    } else if (isCustomerItemTree()) {
+        break;
+    case 1:         // Customer
         ui->tblCustomers->selectRow(idRow-1);
         ui->wdgCustomerData->printInformations(getCurrentCustomerId());
         ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
         changeProjectsTable();
         ui->stackedWidget->setCurrentIndex(1);
-    } else if (isProjectItemTree()) {
+        break;
+    case 2:         // Project
         // Need to verify if the current customer is the father
         // Then update TableProjects
         ui->tblCustomers->selectRow(index.parent().row()-1);
@@ -367,8 +344,8 @@ void MainWindow::changeTree()
         //ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
         ui->stackedWidget->setCurrentIndex(2);
-    } else if (isQuoteItemTree()) {
-        // TODO
+        break;
+    case 3:         // Bill/Quote
         // Need to verify if the current customer is the father
         // Need to verify if the current project is the father, also add the
         // quote in all fathers where it is referenced
@@ -378,17 +355,9 @@ void MainWindow::changeTree()
         updateTableBillings(getCurrentProjectId());
         ui->tblQuotes->selectRow(idRow);
         ui->stackedWidget->setCurrentIndex(2);
-    } else if (isBillItemTree()) {
-        // TODO
-        // Need to verify if the current customer is the father
-        // Need to verify if the current project is the father, also add the
-        // quote in all fathers where it is referenced
-        ui->tblCustomers->selectRow(index.parent().parent().row()-1);
-        updateTableProjects(getCurrentCustomerId());
-        ui->tblProjects->selectRow(index.parent().row());
-        updateTableBillings(getCurrentProjectId());
-        ui->tblQuotes->selectRow(idRow);
-        ui->stackedWidget->setCurrentIndex(2);
+        break;
+    default:        // Other
+        break;
     }
 
     updateBtn();

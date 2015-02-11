@@ -153,7 +153,7 @@ throw(DbException*)
 
             // Manage any bill/quote of a project of a customer
             while (q3.next()) {
-                QStandardItem *itemBillQuote = new QStandardItem(value(q3,"title").toString());    // Child of child of the item customer
+                QStandardItem *itemBillQuote = new QStandardItem(value(q3,"date").toString() + " " + value(q3,"title").toString());    // Child of child of the item customer
                 if (value(q3,"isBilling").toInt() == 0) itemBillQuote->setIcon(QIcon(":icons/img/quote"));
                 else if (value(q3,"isBilling").toInt() == 1) itemBillQuote->setIcon(QIcon(":icons/img/bill"));
                 itemProject->appendRow(itemBillQuote);
