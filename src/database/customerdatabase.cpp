@@ -74,17 +74,19 @@ throw(DbException*)
 {
     QStandardItemModel* retour = new QStandardItemModel();
 
-    QSqlQuery q;
+    // QUERY 1
+    // Query for customers
+    QSqlQuery q1;
 
-    q.prepare("SELECT * "
+    q1.prepare("SELECT * "
               "FROM Customer WHERE 1 "+filter+" "
                                               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
-    if(!q.exec()) {
+    if(!q1.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la liste des Customers",
                     "CustomerDatabase::getCustomersTree",
-                    lastError(q),
+                    lastError(q1),
                     1.1);
     }
 
@@ -92,44 +94,74 @@ throw(DbException*)
     item->setIcon(QIcon(":icons/customer"));
     retour->appendRow(item);
 
-    while(q.next()) {
-        QStandardItem* item;
+    // Manage any customer
+    while (q1.next()) {
+        QStandardItem *itemCustomer;
 
-        if(value(q,"company").toString().isEmpty()) {
-            item = new QStandardItem(
-                        value(q, "lastnameReferent").toString().toUpper()
+        if(value(q1,"company").toString().isEmpty()) {
+            itemCustomer = new QStandardItem(
+                        value(q1, "lastnameReferent").toString().toUpper()
                         + " "
-                        +Utils::String::firstLetterToUpper(value(q,"firstnameReferent").toString()));
+                        +Utils::String::firstLetterToUpper(value(q1,"firstnameReferent").toString()));
         } else {
-            item = new
-                QStandardItem(Utils::String::firstLetterToUpper(value(q,"company").toString()));
+            itemCustomer = new
+                QStandardItem(Utils::String::firstLetterToUpper(value(q1,"company").toString()));
         }
 
-        item->setIcon(QIcon(":icons/customer"));
+        itemCustomer->setIcon(QIcon(":icons/customer"));
 
-        // Project for a customer
+        // QUERY 2
+        // Query for projects of a customer
         QSqlQuery q2;
 
         q2.prepare("SELECT *"
                    "FROM Project WHERE idCustomer = :idCustom "
                    "ORDER BY UPPER(name), UPPER(description)");
-        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
+        q2.bindValue(":idCustom",value(q1, "idCustomer").toString());
 
         if(!q2.exec()) {
             throw new DbException(
                         "Impossible d'obtenir la liste des Projects",
                         "CustomerDatabase::getCustomersTree",
-                        lastError(q),
+                        lastError(q2),
                         1.1);
         }
 
-        while(q2.next()) {
-            QStandardItem *child = new QStandardItem(value(q2,"name").toString());
-            child->setIcon(QIcon(":icons/img/project"));
-            item->appendRow(child);
+        // Manage any project of a customer
+        while (q2.next()) {
+            QStandardItem *itemProject = new QStandardItem(value(q2,"name").toString());    // Child of the item customer
+            itemProject->setIcon(QIcon(":icons/img/project"));
+
+            // QUERY 3
+            // Query for bills or quotes of a project of a customer
+            QSqlQuery q3;
+
+            q3.prepare(
+                     "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
+                     "FROM Billing b, BillingProject bp "
+                     "WHERE idProject = :idproject "
+                     "AND b.idBilling = bp.idBilling ORDER BY date DESC");
+            q3.bindValue(":idproject",value(q2, "idProject").toString());
+
+            if(!q3.exec()) {
+                throw new DbException(
+                            "Impossible d'obtenir la liste des Factures/Devis",
+                            "CustomerDatabase::getCustomersTree",
+                            lastError(q3),
+                            1.1);
+            }
+
+            // Manage any bill/quote of a project of a customer
+            while (q3.next()) {
+                QStandardItem *itemBillQuote = new QStandardItem(value(q3,"title").toString());    // Child of child of the item customer
+                //itemProject->setIcon(QIcon(":icons/img/project"));
+                itemProject->appendRow(itemBillQuote);
+            }
+
+            itemCustomer->appendRow(itemProject);
         }
 
-        retour->appendRow(item);
+        retour->appendRow(itemCustomer);
     }
 
     return retour;
