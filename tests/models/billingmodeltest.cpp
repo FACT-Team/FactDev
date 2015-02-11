@@ -1,5 +1,6 @@
 #include "billingmodeltest.h"
-#include "dialogs/userdatadialog.h"
+#include "gui/dialogs/userdatadialog.h"
+
 BillingModelTest::BillingModelTest()
 {
 }
