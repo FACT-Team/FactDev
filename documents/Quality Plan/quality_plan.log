@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  10 FEB 2015 09:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  11 FEB 2015 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1805,10 +1805,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  (./contents/2-production.tex
 Chapitre 2.
 Package epstopdf Info: Source file: <screens/scrum.eps>
-(epstopdf)                    date: 2015-02-09 20:18:11
+(epstopdf)                    date: 2015-02-11 10:03:17
 (epstopdf)                    size: 18930 bytes
 (epstopdf)             Output file: <screens/scrum-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-09 20:18:11
+(epstopdf)                    date: 2015-02-11 10:03:17
 (epstopdf)                    size: 11702 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/scrum-eps-converte
 d-to.pdf screens/scrum.eps>
@@ -1874,11 +1874,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [9]
 Package epstopdf Info: Source file: <screens/BranchingWorkflow.eps>
-(epstopdf)                    date: 2015-02-09 20:18:11
+(epstopdf)                    date: 2015-02-11 10:03:17
 (epstopdf)                    size: 63457 bytes
 (epstopdf)             Output file: <screens/BranchingWorkflow-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-02-09 20:18:11
+(epstopdf)                    date: 2015-02-11 10:03:17
 (epstopdf)                    size: 28631 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/BranchingWorkflow-
 eps-converted-to.pdf screens/BranchingWorkflow.eps>
@@ -2111,7 +2111,7 @@ type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb><
 share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/marvosym/marvosym.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/avantgar/uagk8a.pfb>
-Output written on quality_plan.pdf (18 pages, 486665 bytes).
+Output written on quality_plan.pdf (18 pages, 486669 bytes).
 PDF statistics:
  385 PDF objects out of 1000 (max. 8388607)
  334 compressed objects within 4 object streams
