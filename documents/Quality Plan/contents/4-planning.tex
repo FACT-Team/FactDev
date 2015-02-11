@@ -1,0 +1,67 @@
+\chapter{Planning}
+Conformément aux dates qui nous sont imposées, le projet a débuté le 27 décembre 2014 et prendra fin à la soutenance d'avril.
+
+La première phase du projet consiste à choisir les langages et l'environnement de développement. Une fois défini, on réalise la conception globale de l'application. De plus, afin que les membres de l'équipe ait une vision précise et commune du logiciel, des maquettes de l'interface sont réalisées.  
+
+Conformément à la méthode \key{Scrum}\index{Méthode Scrum}, des réunions hebdomadaires avec le client ont été programmées. L'équipe de développement organisera également des \key{mêlées}\index{Méthode Scrum!Mêlées} quotidiennes afin de faire un point sur l'avancement du \key{Sprint}\index{Méthode Scrum!Sprint} en cours. 
+
+Le Titulaire prendra compte les remarques et demandes de notre encadrant Monsieur \bsc{Migeon} lors des réunions. Celles-ci feront l'objet d'une ou plusieurs \key{issue}\index{Méthode Scrum!Issue} du \key{Sprint} suivant. 
+
+Le projet comportera deux \key{Releases}\index{Méthode Scrum!Release} avec, pour chacune d'elle, trois \key{Sprints} de deux semaines comme le montre le diagramme de GANTT ci-dessous.
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{ganttchart}[
+	vgrid,
+	y unit title=0.8cm,
+	y unit chart=0.5cm,
+%	group label font=\color	{black},
+%	group label text={#1},
+%	bar label font=	\Large	,
+%	bar label text={--#1$\rightarrow$},	
+%	milestone label font=\color{black},
+%	milestone label node/.append style={rotate=30},
+	milestone label text={#1}
+	]{1}{20}
+	%labels
+	\gantttitle{2014-2015}{20} \\
+	\gantttitle{Déc.}{2}
+	\gantttitle{Janvier}{4}
+	\gantttitle{Février}{4} 
+	\gantttitle{Mars}{4} 
+	\gantttitle{Avril}{4} 
+	\gantttitle{Mai}{2} \\
+	%tasks -------------------------------
+	% Release 1
+	\ganttgroup{Release 1}{2}{10} \\
+		\ganttbar{Sprint 0}{2}{3} \\
+		\ganttbar{Sprint 1}{4}{5} \\
+		\ganttbar{Sprint 2}{6}{7} \\
+		\ganttbar{Sprint 3}{8}{10} \\
+	% Release 2
+	\ganttgroup{Release 2}{11}{18} \\
+		\ganttbar{Déf. Release 2}{11}{12} \\
+		\ganttbar{Sprint 4}{13}{14} \\
+		\ganttbar{Sprint 5}{15}{16} \\
+		\ganttbar{Sprint 6}{17}{18} \\
+	
+	% Réunions
+	\ganttmilestone{Plan qualité}{8} \\
+	\ganttmilestone{Oral}{18}
+	
+	
+	%relations --------------------------
+	%Release 1
+	\ganttlink{elem1}{elem2} 
+	\ganttlink{elem2}{elem3}
+	\ganttlink{elem3}{elem4}  
+	
+	%Release 2
+%	\ganttlink{elem5}{elem6} 
+	\ganttlink{elem6}{elem7} 
+	\ganttlink{elem7}{elem8}
+	\ganttlink{elem8}{elem9}  
+	\end{ganttchart}
+	\end{center}
+\caption{Diagramme de Gantt du projet FactDev}
+\end{figure}
