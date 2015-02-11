@@ -26,9 +26,28 @@ public:
      */
     QString getFilter();
 
-    void filterOnVarcharElements(QString &filter, const QStringList list, QString element);
+    /**
+     * @brief Search::filterOnVarcharElements Search, for each word of the
+     * <i>list</i> from the <i>filter</i>, if it corresponds to the
+     * <i>element</i> in the database
+     * @param filter Text inputed in the searchbar
+     * @param list List of words from the <i>filter</i>
+     * @param element Attribute name into the database
+     */
+    void filterOnVarcharElements(
+            QString &filter, const QStringList list, QString element);
 
-    void filterOnNumberElements(QString &filter, const QStringList list, QString element);
+    /**
+     * @brief Search::filterOnNumberElements Search, for each number of the
+     * <i>list</i> from the <i>filter</i>, if it corresponds to the
+     * <i>element</i> in the database
+     * @param filter Text inputed in the searchbar
+     * @param list List of numbers from the <i>filter</i>
+     * @param element Attribute name into the database
+     */
+    void filterOnNumberElements(
+            QString &filter, const QStringList list, QString element);
+
     /**
      * @brief Search::filterOnCompany Search all companies contained in the
      * <i>list</i> of the <i>filter</i>

@@ -20,7 +20,7 @@ void Database::setDatabase(QSqlDatabase sql) {
 }
 
 void Database::close() {
-    mDatabase.close();
+    mDatabase.close();    
 }
 
 Database::Database() throw(DbException*) {

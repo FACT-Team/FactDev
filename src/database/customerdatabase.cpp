@@ -86,16 +86,13 @@ throw(DbException*)
                 << ("EMail")
                 );
     QSqlQuery q;
-    QString requete =  "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-                       "c.lastnameReferent, c.company, c.phone, c.email "
-                       "FROM Customer c, Project p, BillingProject bp, Billing b "
-                       "WHERE p.idCustomer = c.idCustomer "
-                       "AND bp.idProject = p.idProject "
-                       "AND bp.IdBilling = b.idBilling "
-                       "AND 1 "+filter+" "
-                       "ORDER BY UPPER(company), UPPER(lastnameReferent)";
-    qDebug() << requete;
-    q.prepare(requete);
+
+    q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+              "c.lastnameReferent, c.company, c.phone, c.email "
+              "FROM Customer c, Project p, BillingProject bp, Billing b "
+              "WHERE bp.idProject = p.idProject "
+              "AND 1 "+filter+" "
+              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException(
@@ -197,15 +194,14 @@ QStandardItemModel *CustomerDatabase::getTree(QString filter) throw(DbException*
 
     QSqlQuery q;
 
-    q.prepare(
-               "SELECT * "
-               "FROM Customer c, Project p, BillingProject bp, Billing b "
-               "WHERE p.idCustomer = c.idCustomer "
-               "AND bp.idProject = p.idProject "
-               "AND 1 "+filter+" "
-               "ORDER BY UPPER(company), UPPER(lastnameReferent)"
+    q.prepare(  "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+                "c.lastnameReferent, c.company, c.address, c.postalCode, "
+                "c.city, c.country, c.email, c.mobilephone, c.phone "
+                "FROM Customer c, Project p, BillingProject bp, Billing b "
+                "WHERE bp.idProject = p.idProject "
+                "AND 1 "+filter+" "
+                "ORDER BY UPPER(company), UPPER(lastnameReferent)" );
 
-                );
 
     if(!q.exec()) {
         throw new DbException(
