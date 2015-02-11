@@ -26,7 +26,9 @@ public:
      */
     QString getFilter();
 
-    void filterOnElements(QString &filter, const QStringList list, QString element);
+    void filterOnVarcharElements(QString &filter, const QStringList list, QString element);
+
+    void filterOnNumberElements(QString &filter, const QStringList list, QString element);
     /**
      * @brief Search::filterOnCompany Search all companies contained in the
      * <i>list</i> of the <i>filter</i>

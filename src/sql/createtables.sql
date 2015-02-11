@@ -70,5 +70,9 @@ CREATE TABLE User
     noSiret VARCHAR(16)
 );
 
-CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC);
+CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC, lastnameReferent);
+CREATE INDEX I_PK_PROJECT ON Project (idProject, name);
+CREATE INDEX I_PK_BILLING ON Billing (idBilling, title, number);
+CREATE INDEX I_PK_CONTRIBUTORY ON Contributory (idContributory ASC);
+CREATE INDEX I_PK_BILLINGPROJECT ON BillingProject (idProject, idBilling, idContributory);
 INSERT INTO User(idUser) VALUES(1);

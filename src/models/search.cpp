@@ -15,7 +15,26 @@ Search::~Search()
 {
 
 }
-
+/*
+SELECT DISTINCT c.idCustomer , c.firstnameReferent,
+c.lastnameReferent, c.company, c.phone, c.email
+FROM Customer c, Project p, BillingProject bp, Billing b
+WHERE p.idCustomer = c.idCustomer
+AND bp.idProject = p.idProject
+AND c.company LIKE '%'
+AND c.lastnameReferent LIKE '%'
+AND bp.idProject = (
+    SELECT idProject FROM Project
+    WHERE name LIKE '%')
+AND bp.idContributory = (
+    SELECT idContributory FROM Contributory
+    WHERE name LIKE '%')
+AND bp.idBilling = (
+    SELECT idBilling FROM Billing
+    WHERE title LIKE '%'
+    AND number LIKE '%')
+ORDER BY UPPER(c.company), UPPER(c.lastnameReferent)
+*/
 QString Search::getFilter()
 {
     QString filter = "";
@@ -32,55 +51,85 @@ QString Search::getFilter()
             filterOnReferentLastname(filter, list);
         }
 
-        /*
+
         if(_searchInProjects || !_groupFilter) {
-            filter += "OR name LIKE '%"+_text+"%'";
+            filterOnProjects(filter, list);
         }
+
         if(_searchInContributories || !_groupFilter) {
-            filter += "OR description '%"+_text+"%'";
+            filterOnContributories(filter, list);
         }
+
         if(_searchInBillsQuotes || !_groupFilter) {
-            filter +=   "OR title '%"+_text+"%' "
-                        +"OR number '%"+_text+"%' ";
+            filterOnBillsOrQuotes(filter, list);
         }
-        */
+
         filter += ")";
     }
 
     return filter;
 }
 
-void Search::filterOnElements(QString &filter, const QStringList list, QString element)
+void Search::filterOnVarcharElements(QString &filter, const QStringList list, QString element)
 {
     for (QString str: list) {
-        filter += "OR " + element + " LIKE '%" + str + "%' ";
+        if (!str.isEmpty()) {
+            filter += "OR " + element + " LIKE '%" + str + "%' ";
+        }
+    }
+}
+
+void Search::filterOnNumberElements(QString &filter, const QStringList list, QString element)
+{
+    QRegExp numberRgx("[0-9]{1,}");
+    numberRgx.setCaseSensitivity(Qt::CaseInsensitive);
+    numberRgx.setPatternSyntax(QRegExp::RegExp);
+
+    for (QString str: list) {
+        if (numberRgx.exactMatch(str)) {
+            filter += "OR " + element + "=" + str + " ";
+        }
+
     }
 }
 
 void Search::filterOnCompany(QString &filter, const QStringList list)
 {
-    filterOnElements(filter, list, "company");
+    filterOnVarcharElements(filter, list, "company");
 }
 
 void Search::filterOnReferentLastname(QString &filter, const QStringList list)
 {
-    filterOnElements(filter, list, "lastnameReferent");
+    filterOnVarcharElements(filter, list, "lastnameReferent");
 }
 
 void Search::filterOnProjects(QString &filter, const QStringList list)
 {
-    filterOnElements(filter, list, "name");
+    filter +=   " OR bp.idProject = ( "
+                    "SELECT idProject FROM Project "
+                    "WHERE 0 ";
+    filterOnVarcharElements(filter, list, "name");
+    filter +=   ")";
 }
 
 void Search::filterOnContributories(QString &filter, const QStringList list)
 {
-    filterOnElements(filter, list, "name");
+    filter +=   " OR bp.idContributory = ( "
+                    "SELECT idContributory FROM Contributory "
+                    "WHERE 0 ";
+    filterOnVarcharElements(filter, list, "description");
+    filter +=   ")";
 }
 
 void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
 {
-    filterOnElements(filter, list, "title");
-    filterOnElements(filter, list, "number");
+    filter +=   " OR bp.idBilling = ( "
+                    "SELECT idBilling FROM Billing "
+                    "WHERE 0 ";
+    filterOnVarcharElements(filter, list, "title");
+    filter +=   " OR 0 ";
+    filterOnNumberElements(filter, list, "number");
+    filter +=   ")";
 }
 
 bool Search::getSearchInCompanies() const

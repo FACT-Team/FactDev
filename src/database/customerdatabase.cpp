@@ -1,4 +1,5 @@
 #include "database/customerdatabase.h"
+#include <QDebug>
 
 namespace Databases {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
@@ -69,6 +70,60 @@ throw(DbException*)
     return retour;
 }
 
+QStandardItemModel *CustomerDatabase::getTable(QString filter)
+throw(DbException*)
+{
+    QStandardItemModel* retour = new QStandardItemModel();
+
+    retour->setColumnCount(5);
+    retour->setHorizontalHeaderLabels(
+                QStringList()
+                << ("Id")
+                << ("Société")
+                << ("Nom")
+                << ("Prénom")
+                << ("Téléphone")
+                << ("EMail")
+                );
+    QSqlQuery q;
+    QString requete =  "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+                       "c.lastnameReferent, c.company, c.phone, c.email "
+                       "FROM Customer c, Project p, BillingProject bp, Billing b "
+                       "WHERE p.idCustomer = c.idCustomer "
+                       "AND bp.idProject = p.idProject "
+                       "AND bp.IdBilling = b.idBilling "
+                       "AND 1 "+filter+" "
+                       "ORDER BY UPPER(company), UPPER(lastnameReferent)";
+    qDebug() << requete;
+    q.prepare(requete);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la liste des Customers",
+                    "CustomerDatabase::getCustomersTable",
+                    lastError(q),
+                    1.1);
+    }
+
+    while(q.next()) {
+        QList<QStandardItem*> ligne;
+
+        ligne << new QStandardItem(value(q, "idCustomer").toString());
+        ligne << new QStandardItem(
+                     Utils::String::firstLetterToUpper(value(q,"company").toString()));
+        ligne << new QStandardItem(
+                     value(q, "lastnameReferent").toString().toUpper());
+        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
+                                       value(q, "firstNameReferent").toString()));
+        ligne << new QStandardItem(value(q, "phone").toString());
+        ligne << new QStandardItem(value(q, "email").toString());
+
+        retour->appendRow(ligne);
+    }
+
+    return retour;
+}
+
 QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
 throw(DbException*)
 {
@@ -76,9 +131,10 @@ throw(DbException*)
 
     QSqlQuery q;
 
-    q.prepare("SELECT * "
-              "FROM Customer WHERE 1 "+filter+" "
-              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    q.prepare(
+                "SELECT * "
+                "FROM Customer WHERE 1 "+filter+" "
+                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException(
@@ -112,6 +168,77 @@ throw(DbException*)
 
         q2.prepare("SELECT *"
                    "FROM Project WHERE idCustomer = :idCustom "
+                   "ORDER BY UPPER(name), UPPER(description)");
+        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
+
+        if(!q2.exec()) {
+            throw new DbException(
+                        "Impossible d'obtenir la liste des Projects",
+                        "CustomerDatabase::getCustomersTree",
+                        lastError(q),
+                        1.1);
+        }
+
+        while(q2.next()) {
+            QStandardItem *child = new QStandardItem(value(q2,"name").toString());
+            child->setIcon(QIcon(":icons/img/project"));
+            item->appendRow(child);
+        }
+
+        retour->appendRow(item);
+    }
+
+    return retour;
+}
+
+QStandardItemModel *CustomerDatabase::getTree(QString filter) throw(DbException*)
+{
+    QStandardItemModel* retour = new QStandardItemModel();
+
+    QSqlQuery q;
+
+    q.prepare(
+               "SELECT * "
+               "FROM Customer c, Project p, BillingProject bp, Billing b "
+               "WHERE p.idCustomer = c.idCustomer "
+               "AND bp.idProject = p.idProject "
+               "AND 1 "+filter+" "
+               "ORDER BY UPPER(company), UPPER(lastnameReferent)"
+
+                );
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la liste des Customers",
+                    "CustomerDatabase::getCustomersTree",
+                    lastError(q),
+                    1.1);
+    }
+
+    QStandardItem* item = new QStandardItem("Tous les clients");
+    item->setIcon(QIcon(":icons/customer"));
+    retour->appendRow(item);
+
+    while(q.next()) {
+        QStandardItem* item;
+
+        if(value(q,"company").toString().isEmpty()) {
+            item = new QStandardItem(
+                        value(q, "lastnameReferent").toString().toUpper()
+                        + " "
+                        +Utils::String::firstLetterToUpper(value(q,"firstnameReferent").toString()));
+        } else {
+            item = new
+                QStandardItem(Utils::String::firstLetterToUpper(value(q,"company").toString()));
+        }
+
+        item->setIcon(QIcon(":icons/customer"));
+
+        // Project for a customer
+        QSqlQuery q2;
+
+        q2.prepare("SELECT * FROM Project "
+                   "WHERE idCustomer = :idCustom "
                    "ORDER BY UPPER(name), UPPER(description)");
         q2.bindValue(":idCustom",value(q, "idCustomer").toString());
 
