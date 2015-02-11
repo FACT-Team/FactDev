@@ -2,16 +2,16 @@
 La démarche qualité s'engage à offrir au client et à l'encadrant une procédure de qualité et d'amélioration continue. 
 Dans un souci de respect de cette démarche, l'équipe à mis en place des outils et méthodes de fonctionnement. 
 \section{Développement collaboratif}
-Comme cela fut décrit au préalable, le projet est réalisé selon la méthode Scrum. L'outil de gestion de version \key{Git} mis en place assure une certaine qualité au logiciel.
+Comme cela fut décrit au préalable, le projet est réalisé selon la méthode \key{Scrum}. L'outil de gestion de version \key{Git} mis en place assure une certaine qualité au logiciel.
 \subsection{Outil de gestion de version : Git\index{Outils!Git}}
 \key{Git} est un outil puissant permettant de conserver les différentes versions de notre logiciel, de connaître les fonctions auxquelles sont affectées les membres de l'équipe et, en cas de difficultés, de revenir dans un état antérieur. 
 
 \key{Git} permet également, via le système des branches exposé plus haut, de travailler sur des versions séparées du code. Ainsi, il est possible de développer chacun de son côté sans créer de conflits avec le code des autres membres de l'équipe. 
 \subsection{Revue de code : Github\index{Outils!Github}}
-La revue de code est élément essentiel à la qualité d'un logiciel. Elle consiste à vérifier que la fonctionnalité spécifiée est correcte, que le code est simple, lisible et correctement documenté. Le site web d'hébergement \key{Github} de \key{Git} permet de mettre en application cette revue de code. En effet, lorsqu'un membre de l'équipe de développement considère la tâche qu'il avait affecté comme terminée, il crée une \key{Pull Request}. Un autre membre de l'équipe procède à la revue de code. Il est également possible pour les autres développeurs d'exposer la façon avec laquelle ils auraient traités la fonction. \\
+La revue de code est un élément essentiel à la qualité d'un logiciel. Elle consiste à vérifier que la fonctionnalité spécifiée est correcte, que le code est simple, lisible et correctement documenté. Le site web d'hébergement \key{Github} de \key{Git} permet de mettre en application cette revue de code. En effet, lorsqu'un membre de l'équipe de développement considère la tâche qu'il avait affecté comme terminée, il crée une \key{Pull Request}. Un autre membre de l'équipe procède à la revue de code. Il est également possible pour les autres développeurs d'exposer la façon avec laquelle ils auraient traités la fonction. \\
 Après approbation, on fusionne (\key{Merge}) le travail avec celui du reste du groupe. 
 \section{Couverture des tests}
-Le logiciel \FactDev manipule un certain nombre de données (utilisateur, clients, factures, ...) qui peuvent être ajouter, supprimer ou modifier. C'est pourquoi il est important de mettre en place des tests unitaires pour vérifier de l'exactitude des données avant et après manipulation. Pour cela, nous utilisons les bibliothèques fournies par Qt (\key{QtTest}\index{Outils!QTest}). \\
+Le logiciel \FactDev  manipule un certain nombre de données (utilisateur, clients, factures, ...) qui peuvent être ajoutées, supprimées ou modifiées. C'est pourquoi il est important de mettre en place des tests unitaires pour vérifier de l'exactitude des données avant et après manipulation. Pour cela, nous utilisons les bibliothèques fournies par Qt (\key{QtTest}\index{Outils!QTest}). \\
 En complément à ces tests, nous utilisons \key{lcov}\index{Outils!lcov}, un outil graphique permettant, par analyse du code, de définir la couverture de code de nos tests unitaires. 
 \section{Analyse statique de code : SonarQube\index{Outils!SonarQube}}
 \key{SonarQube} s'avère être un outil capital à la qualité du code de l'application. En effet, il fournit des statistiques sur la qualité du code (pourcentage de documentation, duplication de code, complexité,...). Il se montre un excellent complément à la couverture du code.  
