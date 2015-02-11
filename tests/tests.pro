@@ -8,7 +8,7 @@ TARGET = tests
 linux-g++ {
 	QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
 	QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
-	LIBs += -lgcov
+        LIBS += -lgcov
 }
 
 TEMPLATE = app
