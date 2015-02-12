@@ -33,25 +33,25 @@
 \contentsline {section}{\numberline {5.2}Couverture des tests}{16}{section.5.2}
 \contentsline {section}{\numberline {5.3}Analyse statique de code : SonarQube}{16}{section.5.3}
 \contentsline {chapter}{\numberline {6}Matrice de tra\IeC {\c c}abilit\IeC {\'e}}{17}{chapter.6}
-\contentsline {chapter}{\numberline {A}Table des figures}{18}{appendix.A}
-\contentsline {chapter}{Index}{19}{appendix*.3}
-\contentsline {chapter}{\numberline {B}Conventions C++}{20}{appendix.B}
-\contentsline {section}{\numberline {B.1}English, of course !}{20}{section.B.1}
-\contentsline {section}{\numberline {B.2}Le nommage}{20}{section.B.2}
-\contentsline {subsection}{\numberline {B.2.1}Les attributs}{20}{subsection.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}Les noms de constantes}{20}{subsection.B.2.2}
-\contentsline {subsection}{\numberline {B.2.3}Les noms de m\IeC {\'e}thodes}{21}{subsection.B.2.3}
-\contentsline {paragraph}{Les accesseurs}{21}{lstnumber.-3.7}
-\contentsline {subsection}{\numberline {B.2.4}Les noms de classes ou d'interface}{21}{subsection.B.2.4}
-\contentsline {section}{\numberline {B.3}L'indentation}{21}{section.B.3}
-\contentsline {section}{\numberline {B.4}Les accolades}{22}{section.B.4}
-\contentsline {section}{\numberline {B.5}Les types}{22}{section.B.5}
-\contentsline {section}{\numberline {B.6}Les bonnes pratiques}{23}{section.B.6}
-\contentsline {subsection}{\numberline {B.6.1}Le mot cl\IeC {\'e} \texttt {const}}{23}{subsection.B.6.1}
-\contentsline {subsection}{\numberline {B.6.2}Le mot cl\IeC {\'e} \texttt {void}}{23}{subsection.B.6.2}
-\contentsline {subsection}{\numberline {B.6.3}Longueur du code}{23}{subsection.B.6.3}
-\contentsline {section}{\numberline {B.7}Conventions des composants graphiques}{24}{section.B.7}
-\contentsline {section}{\numberline {B.8}Conventions de documentation}{24}{section.B.8}
-\contentsline {subsubsection}{\numberline {B.8.0.1}Pour une classe}{24}{subsubsection.B.8.0.1}
-\contentsline {subsubsection}{\numberline {B.8.0.2}Pour un attribut ou une m\IeC {\'e}thode}{24}{subsubsection.B.8.0.2}
-\contentsline {subsubsection}{\numberline {B.8.0.3}Remarques}{24}{subsubsection.B.8.0.3}
+\contentsline {chapter}{\numberline {A}Conventions de programmation en C++}{18}{appendix.A}
+\contentsline {section}{\numberline {A.1}English, of course !}{18}{section.A.1}
+\contentsline {section}{\numberline {A.2}Le nommage}{18}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Les attributs}{18}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}Les noms de constantes}{18}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}Les noms de m\IeC {\'e}thodes}{19}{subsection.A.2.3}
+\contentsline {paragraph}{Les accesseurs}{19}{lstnumber.-3.7}
+\contentsline {subsection}{\numberline {A.2.4}Les noms de classes ou d'interface}{19}{subsection.A.2.4}
+\contentsline {section}{\numberline {A.3}L'indentation}{19}{section.A.3}
+\contentsline {section}{\numberline {A.4}Les accolades}{20}{section.A.4}
+\contentsline {section}{\numberline {A.5}Les types}{21}{section.A.5}
+\contentsline {section}{\numberline {A.6}Les bonnes pratiques}{21}{section.A.6}
+\contentsline {subsection}{\numberline {A.6.1}Le mot cl\IeC {\'e} \texttt {const}}{21}{subsection.A.6.1}
+\contentsline {subsection}{\numberline {A.6.2}Le mot cl\IeC {\'e} \texttt {void}}{21}{subsection.A.6.2}
+\contentsline {subsection}{\numberline {A.6.3}Longueur du code}{21}{subsection.A.6.3}
+\contentsline {section}{\numberline {A.7}Conventions des composants graphiques}{22}{section.A.7}
+\contentsline {section}{\numberline {A.8}Conventions de documentation}{22}{section.A.8}
+\contentsline {subsubsection}{\numberline {A.8.0.1}Pour une classe}{22}{subsubsection.A.8.0.1}
+\contentsline {subsubsection}{\numberline {A.8.0.2}Pour un attribut ou une m\IeC {\'e}thode}{22}{subsubsection.A.8.0.2}
+\contentsline {subsubsection}{\numberline {A.8.0.3}Remarques}{22}{subsubsection.A.8.0.3}
+\contentsline {chapter}{\numberline {B}Table des figures}{24}{appendix.B}
+\contentsline {chapter}{Index}{25}{appendix*.3}
