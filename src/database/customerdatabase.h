@@ -49,14 +49,14 @@ public:
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
 
     /**
-     * @author Manantsoa Razanajatovo
-     * @brief CustomerDatabase::getCustomersTree Return an item model of
-     * customers for QTree
+     * @author Manantsoa Razanajatovo & Cédric Rohaut (@Oxynos)
+     * @brief CustomerDatabase::getTree Return an item model of customers
+     * for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
      * @throw DbException
      * @return QStandardItemModel an item model for QTreeView
      */
-    QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
+    QStandardItemModel *getTree(QString filter="") throw(DbException*);
 
     /**
      * @brief CustomerDatabase::getCustomer get informations about the customer
@@ -92,6 +92,11 @@ public:
      * @return number of customers
      */
     int getNbCustomers();
+
+    QStandardItem *getItemRoot();
+    QStandardItem *getItemCustomer(QSqlQuery q1);
+    QStandardItem *getItemProject(QSqlQuery q2);
+    QStandardItem *getItemBillQuote(QSqlQuery q3);
 
 };
 }

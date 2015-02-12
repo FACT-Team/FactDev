@@ -69,18 +69,17 @@ throw(DbException*)
     return retour;
 }
 
-QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
+QStandardItemModel* CustomerDatabase::getTree(QString filter)
 throw(DbException*)
 {
-    QStandardItemModel* retour = new QStandardItemModel();
+     QStandardItemModel* ret = new QStandardItemModel();
 
     // QUERY 1
     // Query for customers
     QSqlQuery q1;
 
-    q1.prepare("SELECT * "
-              "FROM Customer WHERE 1 "+filter+" "
-                                              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    q1.prepare( "SELECT * FROM Customer WHERE 1 " + filter + " "
+                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q1.exec()) {
         throw new DbException(
@@ -90,25 +89,11 @@ throw(DbException*)
                     1.1);
     }
 
-    QStandardItem* item = new QStandardItem("Tous les clients");
-    item->setIcon(QIcon(":icons/customer"));
-    retour->appendRow(item);
+    ret->appendRow(getItemRoot());
 
     // Manage any customer
     while (q1.next()) {
-        QStandardItem *itemCustomer;
-
-        if(value(q1,"company").toString().isEmpty()) {
-            itemCustomer = new QStandardItem(
-                        value(q1, "lastnameReferent").toString().toUpper()
-                        + " "
-                        +Utils::String::firstLetterToUpper(value(q1,"firstnameReferent").toString()));
-        } else {
-            itemCustomer = new
-                QStandardItem(Utils::String::firstLetterToUpper(value(q1,"company").toString()));
-        }
-
-        itemCustomer->setIcon(QIcon(":icons/customer"));
+        QStandardItem *itemCustomer = getItemCustomer(q1);
 
         // QUERY 2
         // Query for projects of a customer
@@ -129,8 +114,7 @@ throw(DbException*)
 
         // Manage any project of a customer
         while (q2.next()) {
-            QStandardItem *itemProject = new QStandardItem(value(q2,"name").toString());    // Child of the item customer
-            itemProject->setIcon(QIcon(":icons/img/project"));
+            QStandardItem *itemProject = getItemProject(q2);
 
             // QUERY 3
             // Query for bills or quotes of a project of a customer
@@ -152,20 +136,42 @@ throw(DbException*)
             }
 
             // Manage any bill/quote of a project of a customer
-            while (q3.next()) {
-                QStandardItem *itemBillQuote = new QStandardItem(value(q3,"date").toString() + " " + value(q3,"title").toString());    // Child of child of the item customer
-                if (value(q3,"isBilling").toInt() == 0) itemBillQuote->setIcon(QIcon(":icons/img/quote"));
-                else if (value(q3,"isBilling").toInt() == 1) itemBillQuote->setIcon(QIcon(":icons/img/bill"));
-                itemProject->appendRow(itemBillQuote);
-            }
+            while (q3.next()) itemProject->appendRow(getItemBillQuote(q3));
 
             itemCustomer->appendRow(itemProject);
         }
 
-        retour->appendRow(itemCustomer);
+        ret->appendRow(itemCustomer);
     }
 
-    return retour;
+    return ret;
+}
+
+QStandardItem *CustomerDatabase::getItemRoot() {
+    QStandardItem* itemRoot = new QStandardItem("Tous les clients");
+    itemRoot->setIcon(QIcon(":icons/customer"));
+    return itemRoot;
+}
+
+QStandardItem *CustomerDatabase::getItemCustomer(QSqlQuery q1) {
+    QStandardItem *itemCustomer;
+    if(value(q1,"company").toString().isEmpty()) itemCustomer = new QStandardItem(value(q1, "lastnameReferent").toString().toUpper() + " " + Utils::String::firstLetterToUpper(value(q1,"firstnameReferent").toString()));
+    else itemCustomer = new QStandardItem(Utils::String::firstLetterToUpper(value(q1,"company").toString()));
+    itemCustomer->setIcon(QIcon(":icons/customer"));
+    return itemCustomer;
+}
+
+QStandardItem *CustomerDatabase::getItemProject(QSqlQuery q2) {
+    QStandardItem *itemProject = new QStandardItem(value(q2,"name").toString());
+    itemProject->setIcon(QIcon(":icons/img/project"));
+    return itemProject;
+}
+
+QStandardItem *CustomerDatabase::getItemBillQuote(QSqlQuery q3) {
+    QStandardItem *itemBillQuote = new QStandardItem(value(q3,"date").toString() + " " + value(q3,"title").toString());
+    if (value(q3,"isBilling").toInt() == 0) itemBillQuote->setIcon(QIcon(":icons/img/quote"));
+    else if (value(q3,"isBilling").toInt() == 1) itemBillQuote->setIcon(QIcon(":icons/img/bill"));
+    return itemBillQuote;
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
