@@ -54,5 +54,6 @@
 \contentsline {subsubsection}{\numberline {A.8.0.2}Pour un attribut ou une m\IeC {\'e}thode}{22}{subsubsection.A.8.0.2}
 \contentsline {subsubsection}{\numberline {A.8.0.3}Remarques}{22}{subsubsection.A.8.0.3}
 \contentsline {chapter}{\numberline {B}Backlog product}{24}{appendix.B}
-\contentsline {chapter}{\numberline {C}Table des figures}{26}{appendix.C}
-\contentsline {chapter}{Index}{27}{appendix*.3}
+\contentsline {chapter}{\numberline {C}R\IeC {\'e}f\IeC {\'e}rences}{26}{appendix.C}
+\contentsline {chapter}{\numberline {D}Table des figures}{27}{appendix.D}
+\contentsline {chapter}{Index}{28}{appendix*.3}
