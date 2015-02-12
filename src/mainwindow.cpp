@@ -257,7 +257,7 @@ void MainWindow::updateTableProjects(const int pId)
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
-                Databases::CustomerDatabase::instance()->getCustomersTree(filter));
+                Databases::CustomerDatabase::instance()->getTree(filter));
     ui->trCustomers->header()->close();
 }
 

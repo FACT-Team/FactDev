@@ -71,7 +71,7 @@ throw(DbException*)
     return retour;
 }
 
-QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
+QStandardItemModel* CustomerDatabase::getTree(QString filter)
 throw(DbException*)
 {
     QStandardItemModel* retour = new QStandardItemModel();

@@ -48,7 +48,6 @@ public:
      */
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
 
-    QStandardItemModel* getTable(QString filter="") throw(DbException*);
     /**
      * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTree Return an item model of
@@ -57,8 +56,7 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTreeView
      */
-    QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
-    QStandardItemModel* getTree(QString filter="") throw(DbException*);
+    QStandardItemModel *getTree(QString filter="") throw(DbException*);
 
     /**
      * @brief CustomerDatabase::getCustomer get informations about the customer
