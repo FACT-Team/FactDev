@@ -1,0 +1,2 @@
+*.ui linguist-language=XML
+*.pro linguist-language=QMake
