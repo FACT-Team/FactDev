@@ -75,7 +75,7 @@ throw(DbException*)
 
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible de récupérer les Billing",
+                    "Impossible de récupérer les Factures/Devis",
                     "BddCustomer::getBillingsTable",
                     lastError(q),
                     1.3);

@@ -74,26 +74,11 @@ public:
      */
     QString getCurrentProjectName();
     /**
-     * @brief MainWindow::isTreeRoot return if the node selected in the
-     * tree is the root
-     * @return boolean
+     * @brief MainWindow::treeLevel return the level of the node selected in the tree
+     * @return integer, depth of the item in tree
      */
-    bool isTreeRoot();
-    /**
-     * @brief MainWindow::isCustomerItemTree return if the node selected in the
-     * tree is a customer
-     * @return boolean
-     */
-    bool isCustomerItemTree();
-    /**
-     * @brief MainWindow::isProjectItemTree return if the node selected in the
-     * tree is a project
-     * @return boolean
-     */
-    bool isProjectItemTree();
+    int treeLevel();
 
-    //TODO
-    bool isQuoteItemTree();
     void demo();
 public slots:
     /**
