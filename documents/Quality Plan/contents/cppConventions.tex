@@ -1,7 +1,7 @@
 \chapter{Conventions de programmation en C++}
-Voici les conventions écritures que nous avons fixé, il faudra les
+Voici les conventions d'écriture que nous avons fixé, il faudra les
 respecter pour que nous ayons un code propre et homogène, de plus elles
-ont été fixés pour que ce soit le plus simple pour nous (lecture rapide,
+ont été fixées pour que ce soit le plus simple pour nous (lecture rapide,
 propreté etc\ldots{}).
 
 \begin{attention}
@@ -26,7 +26,7 @@ qu'il soit un peu long, on a l'auto complétion que diable! Donc les
 variables d'une lettre, à bannir! (à part le i dans le cas d'un for,
 s'il n'est pas réutilisé après le for)
 
-Les attributs seront préfixé par \texttt{\_} afin de pouvoir les reconnaître
+Les attributs seront préfixés par \texttt{\_} afin de pouvoir les reconnaître
 facilement.
 
 \begin{lstlisting}[language=C++,numbers=none]
@@ -38,7 +38,7 @@ bool _youLostTheGame;
 
 Les constantes doivent être tout en majuscule, les différents mots de la
 constante sont séparés par des underscore (\texttt{\_}). Même remarque que pour
-les attributs, choisissez des noms de constante clair, compréhensible
+les attributs, choisissez des noms de constantes clairs, compréhensibles
 par tous, pas seulement par ceux qui sont dans votre tête!
 
 \begin{lstlisting}[language=C++]
@@ -64,7 +64,7 @@ retournant quelques choses doivent être au
 participe passé. Il faut décomposer au maximum, n'hésitez pas à faire
 une méthode \texttt{private} si besoin est, c'est toujours plus clair
 d'avoir une fonction, dictant explicitement ce qu'elle fait par son nom
-que 10 lignes de code bizarroodes avec 2-3 lignes de commentaire! Et donc, les noms de fonctions sont essentiels!!
+que 10 lignes de code bizarroïdes avec 2-3 lignes de commentaire! Et donc, les noms de fonctions sont essentiels!!
 
 \begin{lstlisting}[language=C++]
 void display(QString textToDisplay) { 
@@ -98,18 +98,18 @@ noms de variables, classe, paramètre, méthodes etc\ldots{} )
 \section{L'indentation}\label{lindentation}
 
 La règle est simple, on ouvre une accolade, la ligne suivante sera
-décalé vers la droite(une tab = 4 caractères), on ferme une accolade, on
-décale l'accolade vers la gauche et tout ce qui suis.
+décalée vers la droite(une tab = 4 caractères), on ferme une accolade, on
+décale l'accolade vers la gauche et tout ce qui suit.
 
-Également, si une ligne est trop longue, on va a la ligne, et décalons
-d'une ligne vers la droite, une fois l'instruction finie, on redécalé
+Également, si une ligne est trop longue, on va à la ligne, et décalons
+d'une ligne vers la droite, une fois l'instruction finie, on redécale
 vers la gauche.
 
 Dans le cas d'un switch, le break doit s'aligner avec le case 42: tout
 ce qui est entre case et break sera indenté.
 
-Merci de mettre un espace avant chaque accolades, oui je sais je suis
-psychorigides, mais c'est moche sinon
+Merci de mettre un espace avant chaque accolade, oui je sais je suis
+psychorigide, mais c'est moche sinon.
 
 \begin{lstlisting}[language=C++]
 class MaSuperClasse { 
@@ -146,10 +146,10 @@ MaSuperClasse::method() {
 
 \section{Les accolades}\label{les-accolades}
 
-Les accolades ouvrante sont positionnés à la fin de la ligne demandant
+Les accolades ouvrantes sont positionnées à la fin de la ligne demandant
 une accolade (\texttt{switch}, \texttt{if}, \texttt{class}, \texttt{else}, \texttt{else if}, \ldots{})
 
-Les accolades fermantes sont positionnés une ligne après la dernière
+Les accolades fermantes sont positionnées une ligne après la dernière
 instruction. (avec une désindentation) Les \texttt{else} et \texttt{else if} se mettent sur la 
 même ligne que l'accolade fermante.
 
@@ -191,7 +191,7 @@ suivants(c'est facile, ça commence pas un Q :) ) :
 \end{itemize}
 
 Je vous ferais p'têtre un wiki sur les types cool en Qt\ldots{} Mais
-sinon la doc est vraiment très bien fait ! Au pire, c'est assez intuitif
+sinon la doc est vraiment très bien faite ! Au pire, c'est assez intuitif
 « je veux une pile\ldots{} Ça commence par Q. Comment on dit pile ?
 Stack ? Ah ben \texttt{QStack}. »
 
@@ -201,7 +201,7 @@ Stack ? Ah ben \texttt{QStack}. »
 
 Dès que vous pouvez\ldots{} hop un \texttt{const}.
 
-Autrement dit : si vous ne modifié jamais un paramètre, un attribut, une
+Autrement dit : si vous ne modifiez jamais un paramètre, un attribut, une
 variable où que sait-je, on met un const. Ça permet de n'avoir aucune
 ambiguïté, c'est clair, et quelqu'un qui utilise la méthode sait que le
 paramètre ne serait pas modifié.

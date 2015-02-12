@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2014.7.22)  12 FEB 2015 15:00
+This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2014.12.21)  12 FEB 2015 20:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **quality_plan.tex
 (./quality_plan.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 76 languages loaded.
+Babel <3.9h> and hyphenation patterns for 2 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/bk12.clo
@@ -333,6 +333,14 @@ File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen103
 )
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language `French' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for english instead on input line 63.
+
+\l@french = a dialect from \language0
 \FB@interchartokenstateORI=\count90
 Package babel Info: Making : an active character on input line 240.
 Package babel Info: Making ; an active character on input line 241.
@@ -345,8 +353,7 @@ Package babel Info: Making ? an active character on input line 243.
 \labelwidthFB=\skip44
 \leftmarginFB=\skip45
 \parindentFFN=\dimen105
-))
-(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
@@ -1857,10 +1864,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  (./contents/2-production.tex
 Chapitre 2.
 Package epstopdf Info: Source file: <screens/scrum.eps>
-(epstopdf)                    date: 2015-02-12 14:53:33
+(epstopdf)                    date: 2015-02-12 19:05:55
 (epstopdf)                    size: 18930 bytes
 (epstopdf)             Output file: <screens/scrum-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-12 14:53:33
+(epstopdf)                    date: 2015-02-12 19:05:55
 (epstopdf)                    size: 11702 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/scrum-eps-converte
 d-to.pdf screens/scrum.eps>
@@ -1926,11 +1933,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [10]
 Package epstopdf Info: Source file: <screens/BranchingWorkflow.eps>
-(epstopdf)                    date: 2015-02-12 14:53:33
+(epstopdf)                    date: 2015-02-12 19:05:55
 (epstopdf)                    size: 63457 bytes
 (epstopdf)             Output file: <screens/BranchingWorkflow-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-02-12 14:53:33
+(epstopdf)                    date: 2015-02-12 19:05:55
 (epstopdf)                    size: 28631 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/BranchingWorkflow-
 eps-converted-to.pdf screens/BranchingWorkflow.eps>
@@ -1980,8 +1987,8 @@ Chapitre 3.
 Chapitre 4.
 
 Overfull \hbox (0.86328pt too wide) in paragraph at lines 8--9
-[]\T1/lmr/m/n/12 Le Ti-tu-laire pren-dra compte les re-marques et de-mandes de 
-notre en-ca-drant Mon-sieur \T1/lmr/m/sc/12 Migeon
+[]\T1/lmr/m/n/12 Le Tit-u-laire pren-dra compte les re-mar-ques et de-man-des d
+e notre en-cad-rant Mon-sieur \T1/lmr/m/sc/12 Migeon
  []
 
 ) [14
@@ -2255,18 +2262,15 @@ Package rerunfilecheck Info: File `quality_plan.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
  ) 
 Here is how much of TeX's memory you used:
- 30533 strings out of 493328
- 540942 string characters out of 6140733
- 721657 words of memory out of 5000000
- 32847 multiletter control sequences out of 15000+600000
+ 30537 strings out of 495034
+ 540993 string characters out of 6181676
+ 717463 words of memory out of 5000000
+ 32604 multiletter control sequences out of 15000+600000
  103705 words of font info for 86 fonts, out of 8000000 for 9000
- 953 hyphenation exceptions out of 8191
+ 14 hyphenation exceptions out of 8191
  56i,15n,67p,10491b,1345s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
 st, replaced by a fixed one
@@ -2291,7 +2295,7 @@ lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 ive/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/marvosym/marvosym.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/avantgar/uagk8a.pfb>
-Output written on quality_plan.pdf (28 pages, 630717 bytes).
+Output written on quality_plan.pdf (28 pages, 630900 bytes).
 PDF statistics:
  640 PDF objects out of 1000 (max. 8388607)
  569 compressed objects within 6 object streams
