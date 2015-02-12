@@ -231,10 +231,9 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 }
 
 void MainWindow::updateTableCustomers(QString filter) {
-//    ui->tblCustomers->setModel(
-//                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblCustomers->setModel(
-                    Databases::CustomerDatabase::instance()->getTable(filter));
+                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
+
 
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
@@ -258,8 +257,7 @@ void MainWindow::updateTableProjects(const int pId)
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
-//                Databases::CustomerDatabase::instance()->getCustomersTree(filter));
-                Databases::CustomerDatabase::instance()->getTree(filter));
+                Databases::CustomerDatabase::instance()->getCustomersTree(filter));
     ui->trCustomers->header()->close();
 }
 
