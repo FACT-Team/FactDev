@@ -52,7 +52,7 @@ void Search::filterOnVarcharElements(QString &filter, const QStringList list, QS
 {
     for (QString str: list) {
         if (!str.isEmpty()) {
-            filter += "OR UPPER(" + element + ") LIKE '%" + str + "%' ";
+            filter += "OR " + element + " LIKE '%" + str + "%' ";
         }
     }
 }
@@ -82,16 +82,16 @@ void Search::filterOnReferentLastname(QString &filter, const QStringList list)
 
 void Search::filterOnProjects(QString &filter, const QStringList list)
 {
-//    filter +=   " AND bp.idProject = ( "
+//    filter +=   " AND (bp.idProject = ( "
 //                    "SELECT idProject FROM Project "
 //                    "WHERE 0 ";
     filterOnVarcharElements(filter, list, "p.name");
-//    filter +=   ")";
+    filter +=   " AND bp.idProject = p.idProject ";
 }
 
 void Search::filterOnContributories(QString &filter, const QStringList list)
 {
-    filter +=   " AND bp.idContributory = ( "
+    filter +=   " OR bp.idContributory = ( "
                     "SELECT idContributory FROM Contributory "
                     "WHERE 0 ";
     filterOnVarcharElements(filter, list, "description");
@@ -100,7 +100,7 @@ void Search::filterOnContributories(QString &filter, const QStringList list)
 
 void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
 {
-    filter +=   " AND bp.idBilling = ( "
+    filter +=   " AND 1 OR bp.idBilling = ( "
                     "SELECT idBilling FROM Billing "
                     "WHERE 0 ";
     filterOnVarcharElements(filter, list, "title");

@@ -89,8 +89,9 @@ throw(DbException*)
 
     q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
               "c.lastnameReferent, c.company, c.phone, c.email "
-              "FROM Customer c, Project p, BillingProject bp, Billing b "
-              "WHERE bp.idProject = p.idProject "
+              "FROM Customer c, Project p, BillingProject bp "
+              "WHERE c.idCustomer = p.idCustomer "
+              "AND bp.idProject = p.idProject "
               "AND 1 "+filter+" "
               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
@@ -193,14 +194,16 @@ QStandardItemModel *CustomerDatabase::getTree(QString filter) throw(DbException*
     QStandardItemModel* retour = new QStandardItemModel();
 
     QSqlQuery q;
-
-    q.prepare(  "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-                "c.lastnameReferent, c.company, c.address, c.postalCode, "
-                "c.city, c.country, c.email, c.mobilephone, c.phone "
-                "FROM Customer c, Project p, BillingProject bp, Billing b "
-                "WHERE bp.idProject = p.idProject "
-                "AND 1 "+filter+" "
-                "ORDER BY UPPER(company), UPPER(lastnameReferent)" );
+    QString requete = "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+                    "c.lastnameReferent, c.company, c.address, c.postalCode, "
+                    "c.city, c.country, c.email, c.mobilephone, c.phone "
+                    "FROM Customer c, Project p, BillingProject bp "
+                    "WHERE c.idCustomer = p.idCustomer "
+                    "AND bp.idProject = p.idProject "
+                    "AND 1 "+filter+" "
+                    "ORDER BY UPPER(company), UPPER(lastnameReferent)" ;
+    qDebug() << requete << "\n";
+    q.prepare(  requete);
 
 
     if(!q.exec()) {
