@@ -9,7 +9,6 @@ ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, Q
     _projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
 }
 
-//COnstructeurs avec quote ?
 
 ProjectComboDelegate::~ProjectComboDelegate()
 {
@@ -22,7 +21,6 @@ QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionV
     for(Models::Project p : _projects.values())
     {
         editor->addItem(p.getName(), QVariant(p.getId()));
-        qDebug() << "COMBODELEGATE: " << p.getName();
     }
     return editor;
 }

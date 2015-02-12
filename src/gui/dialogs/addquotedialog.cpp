@@ -13,7 +13,9 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     if (id != 0) {
 
         _quote = new Billing(id);
-        setWindowTitle("Modifier Devis n° "+_quote->getNumber());//+_custom->getCompany()
+        qDebug() << "NUmber: " << _quote->getNumber();
+        setWindowTitle("Modifier le devis N°" + QString::number(_quote->getNumber()) +
+                       " de " + (Customer(idCustomer).getCompany()));
         ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
         fillFields();
     } else {
@@ -28,7 +30,7 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
 
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
-    emit ui->leQuoteTitle->textChanged("");
+    emit ui->leQuoteTitle->textChanged(_quote->getTitle());
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -39,15 +41,15 @@ AddQuoteDialog::~AddQuoteDialog()
 
 void AddQuoteDialog::fillFields() {
      ((CheckUntilField*) ui->leQuoteTitle)->setText(_quote->getTitle());
-     qDebug() << _quote->getTitle();
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
      for(Project* p : _quote->getContributories().keys()) {
          for(Contributory c : _quote->getContributories()[p]) {
-            ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
              c.setProject(p);
-             qDebug() << "Nom projet: " << c.getProject()->getName();
+            ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
+
+             qDebug() << "FillFields" << c.getProject()->getName();
          }
      }
 }
