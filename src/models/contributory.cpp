@@ -65,6 +65,7 @@ QVariantHash Contributory::getDataMap()
 
 Project* Contributory::getProject() const
 {
+    qDebug() << "GETPROJECT: " << _project->getName();
     return _project;
 }
 

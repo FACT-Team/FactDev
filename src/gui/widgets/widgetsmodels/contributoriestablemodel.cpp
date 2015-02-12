@@ -52,6 +52,7 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
         switch(index.column()) {
         case 0:
             _contributories[index.row()].setProject(new Project(value.toInt()));
+            //_contributories[index.row()].setDescription(value.toString());
             break;
         case 1:
             _contributories[index.row()].setDescription(value.toString());

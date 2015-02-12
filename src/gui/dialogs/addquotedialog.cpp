@@ -13,7 +13,7 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     if (id != 0) {
 
         _quote = new Billing(id);
-        setWindowTitle("Modifier le client ");//+_custom->getCompany()
+        setWindowTitle("Modifier Devis n° "+_quote->getNumber());//+_custom->getCompany()
         ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
         fillFields();
     } else {
@@ -38,21 +38,18 @@ AddQuoteDialog::~AddQuoteDialog()
 }
 
 void AddQuoteDialog::fillFields() {
-    // WARNING : Possibility to update a quote ?
-     ((CheckUntilField*) ui->leQuoteTitle)->setText("MACHALLAH");
+     ((CheckUntilField*) ui->leQuoteTitle)->setText(_quote->getTitle());
      qDebug() << _quote->getTitle();
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
      for(Project* p : _quote->getContributories().keys()) {
          for(Contributory c : _quote->getContributories()[p]) {
-             qDebug() << p->getName();
             ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
+             c.setProject(p);
+             qDebug() << "Nom projet: " << c.getProject()->getName();
          }
      }
-     /*for(Contributory c : _quote->getContributories().k) {
-        ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
-     }*/
 }
 
 void AddQuoteDialog::accept() {
