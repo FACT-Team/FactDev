@@ -249,7 +249,8 @@ void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-    //ui->trCustomers->header()->close();
+    // http://stackoverflow.com/tags/qtreewidget/hot
+    ui->trCustomers->header()->close();
 }
 
 void MainWindow::newProject()

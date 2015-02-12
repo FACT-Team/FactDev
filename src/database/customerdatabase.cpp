@@ -72,7 +72,7 @@ throw(DbException*)
 QStandardItemModel* CustomerDatabase::getTree(QString filter)
 throw(DbException*)
 {
-     QStandardItemModel* ret = new QStandardItemModel();
+    QStandardItemModel* ret = new QStandardItemModel();
 
     // QUERY 1
     // Query for customers
@@ -84,7 +84,7 @@ throw(DbException*)
     if(!q1.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la liste des Customers",
-                    "CustomerDatabase::getCustomersTree",
+                    "CustomerDatabase::getTree",
                     lastError(q1),
                     1.1);
     }
@@ -107,7 +107,7 @@ throw(DbException*)
         if(!q2.exec()) {
             throw new DbException(
                         "Impossible d'obtenir la liste des Projects",
-                        "CustomerDatabase::getCustomersTree",
+                        "CustomerDatabase::getTree",
                         lastError(q2),
                         1.1);
         }
@@ -130,7 +130,7 @@ throw(DbException*)
             if(!q3.exec()) {
                 throw new DbException(
                             "Impossible d'obtenir la liste des Factures/Devis",
-                            "CustomerDatabase::getCustomersTree",
+                            "CustomerDatabase::getTree",
                             lastError(q3),
                             1.1);
             }
