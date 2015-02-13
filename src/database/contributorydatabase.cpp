@@ -21,7 +21,7 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbDays").toDouble());
     contributory->setDescription(value(q, "cdescription").toString());
-    // contributory->setProject(); TODO join ?
+    //contributory->setProject();
 
     return contributory;
 }
@@ -147,9 +147,11 @@ void ContributoryDatabase::removeContributory(const int pId)
                     1.5);
     }
 
+    q.clear();
+
     q.prepare(
                 "DELETE FROM Contributory "
-                "WHERE idCustomer=:pId");
+                "WHERE idContributory=:pId");
 
     q.bindValue(":pId",pId);
 

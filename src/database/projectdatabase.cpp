@@ -221,7 +221,6 @@ throw(DbException*)
                     lastError(q),
                     1.1);
     }
-    qDebug() << pId;
     while(q.next()) {
         QList<QStandardItem*> ligne;
 

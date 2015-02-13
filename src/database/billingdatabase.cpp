@@ -145,12 +145,62 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
 
 void BillingDatabase::updateBilling(const Models::Billing& pBilling)
 {
-    Log::instance(ERROR) << "TODO implement ContributoryDatabase::updateBilling. Parameter: " << QString::number(pBilling.getId());
+   QSqlQuery q;
+   q.prepare("UPDATE Billing SET "
+             "title=:title, "
+             "description=:description "
+             "number=:number"
+             "date=:date"
+             "WHERE idBilling=:idBilling"
+             );
+
+   q.bindValue(":title", pBilling.getTitle());
+   q.bindValue(":description", pBilling.getDescription());
+   q.bindValue(":number", pBilling.getNumber());
+   q.bindValue(":isBilling", pBilling.isBilling());
+   q.bindValue(":date", pBilling.getDate());
+   q.bindValue(":idBilling",pBilling.getId());
+
+   if(!q.exec()) {
+       throw new DbException(
+                   "Impossible de mettre à jour le Billing",
+                   "BddBilling::updateBilling",
+                   lastError(q),
+                   1.4);
+   }
 }
 
 void BillingDatabase::removeBilling(const int pId)
 {
-    Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeBilling. Parameter: " << QString::number(pId);
+    QSqlQuery q;
+    q.prepare("DELETE FROM BillingProject "
+              "WHERE idBilling=:pId");
+
+    q.bindValue(":pId",pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer le Billing ",
+                    "BddContributory::removeBilling",
+                    lastError(q),
+                    1.5);
+    }
+
+    q.clear();
+
+    q.prepare(
+                "DELETE FROM Billing "
+                "WHERE idBIlling=:pId");
+
+    q.bindValue(":pId",pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer le Billing ",
+                    "BddContributory::removeBilling",
+                    lastError(q),
+                    1.5);
+    }
 }
 int BillingDatabase::getMaxBillingNumber()
 {

@@ -47,8 +47,6 @@ void AddQuoteDialog::fillFields() {
          for(Contributory c : _quote->getContributories()[p]) {
              c.setProject(p);
             ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
-
-             qDebug() << "FillFields" << c.getProject()->getName();
          }
      }
 }
