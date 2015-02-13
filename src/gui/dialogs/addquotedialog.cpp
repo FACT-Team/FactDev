@@ -10,22 +10,20 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
-    if (id != 0) {
+    ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
 
+    if (id != 0) {
         _quote = new Billing(id);
+        fillFields();
         setWindowTitle("Modifier le devis N°" + QString::number(_quote->getNumber()) +
                        " de " + (Customer(idCustomer).getCompany()));
-        ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
-        fillFields();
     } else {
         _quote = new Billing();
         ui->dateEditQuote->setDate(QDate::currentDate());
-        ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
-
+        setWindowTitle("Nouveau devis de " + (Customer(idCustomer).getCompany()));
     }
     _quote->setId(id);
     _quote->setIsBilling(false);
-
 
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
@@ -39,6 +37,7 @@ AddQuoteDialog::~AddQuoteDialog()
 }
 
 void AddQuoteDialog::fillFields() {
+
      ((CheckUntilField*) ui->leQuoteTitle)->setText(_quote->getTitle());
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());

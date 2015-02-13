@@ -148,16 +148,16 @@ void BillingDatabase::updateBilling(const Models::Billing& pBilling)
    QSqlQuery q;
    q.prepare("UPDATE Billing SET "
              "title=:title, "
-             "description=:description "
-             "number=:number"
-             "date=:date"
+             "description=:description, "
+             "number=:number, "
+             "date=:date "
              "WHERE idBilling=:idBilling"
              );
 
    q.bindValue(":title", pBilling.getTitle());
    q.bindValue(":description", pBilling.getDescription());
    q.bindValue(":number", pBilling.getNumber());
-   q.bindValue(":isBilling", pBilling.isBilling());
+   //q.bindValue(":isBilling", pBilling.isBilling());
    q.bindValue(":date", pBilling.getDate());
    q.bindValue(":idBilling",pBilling.getId());
 

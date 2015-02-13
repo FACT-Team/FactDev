@@ -414,7 +414,6 @@ void MainWindow::editQuote()
 {
     if(ui->tblQuotes->selectionModel()->hasSelection()) {
         AddQuoteDialog addquotedialog(getCurrentCustomerId(),getCurrentQuoteId());
-        qDebug() << getCurrentQuoteId();
         addquotedialog.exec();
     }
 

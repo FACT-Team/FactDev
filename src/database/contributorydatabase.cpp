@@ -19,7 +19,7 @@ ContributoryDatabase* ContributoryDatabase::instance()throw(DbException*)
 Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     Models::Contributory* contributory = new Models::Contributory();
     contributory->setId(value(q, "idContributory").toInt());
-    contributory->setNbHours(value(q, "nbDays").toDouble());
+    contributory->setNbHours(value(q, "nbHours").toDouble());
     contributory->setDescription(value(q, "cdescription").toString());
     //contributory->setProject();
 
@@ -60,7 +60,7 @@ QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getCo
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
                 " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, contributory.description as cDescription, "
-                " billing.idBilling, nbDays "
+                " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "
                 " AND project.idProject = billingProject.idProject "
@@ -92,13 +92,13 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO Contributory "
-                "(description, nbDays)"
+                "(description, nbHours)"
                 " VALUES "
-                "(:description, :nbDays)"
+                "(:description, :nbHours)"
                 );
 
     q.bindValue(":description", pContributory.getDescription());
-    q.bindValue(":nbDays", pContributory.getNbHours());
+    q.bindValue(":nbHours", pContributory.getNbHours());
 
     if(!q.exec()) {
         throw new DbException(
@@ -115,12 +115,12 @@ void ContributoryDatabase::updateContributory(const Models::Contributory& pContr
     QSqlQuery q;
     q.prepare("UPDATE Contributory SET "
               "description=:description, "
-              "nbDays =:nbDays "
+              "nbHours =:nbHours "
               "WHERE idContributory=:idContributory"
               );
 
     q.bindValue(":description", pContributory.getDescription());
-    q.bindValue(":nbDays", pContributory.getNbHours());
+    q.bindValue(":nbHours", pContributory.getNbHours());
     q.bindValue(":idContributory",pContributory.getId());
 
     if(!q.exec()) {
