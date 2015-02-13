@@ -19,3 +19,15 @@ INSERT INTO "Billing" VALUES(18,'Braver','Saliver',18,0,'2015-02-13');
 INSERT INTO "Billing" VALUES(19,'Parlons','Manger un pneu',19,0,'2015-02-13');
 INSERT INTO "Billing" VALUES(20,'Multiply','Add',20,0,'2015-02-13');
 INSERT INTO "Billing" VALUES(21,'Balance','Papa',21,0,'2015-02-13');
+
+INSERT INTO "Billing" VALUES(22,'Suppra billing ','Une description qui parle de truc et d''autres',1,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(23,'J''aime créer tout pleins de billing','c''est suppra chouett e:)',2,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(24,'Un suppra devis','Je suis une description pas rigolotte',3,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(25,'Haha','Hihi	',4,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(26,'Biduletruc','Descriptiontruc',5,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(27,'Ahaha ho','mls jmqd jqdqds jsqd j	',6,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(28,'J''aime les petits poneys','mlsqdfjlqjf mqdz sqbf 	',7,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(29,'J''AI FAIM BORDEL','Je veux manger !',8,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(30,'Devis','Chose ! 	',9,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(31,'MANGERRR','Il est 10h51… Et j''ai déjà faim. C''est trste :-(	',10,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(32,'CAFFÉÉÉÉÉ','C''est l''heure du café…	',11,0,'2015-02-13');
