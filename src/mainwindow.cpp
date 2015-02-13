@@ -70,7 +70,7 @@ void MainWindow::addCustomer()
     DialogAddCustomer win;
     if(win.exec()) {
         updateTableCustomers();
-        //updateTree();
+        updateTree();
     }
 }
 
@@ -88,7 +88,6 @@ void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
     ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
     changeTree();
-    updateBtn();
 }
 
 void MainWindow::updateUser()
@@ -281,6 +280,9 @@ void MainWindow::editProject() {
                     index.row(),
                     getCurrentProjectId());
         w.exec();
+
+        updateTableProjects(getCurrentCustomerId());
+        updateTree();
     }
 }
 
@@ -404,9 +406,18 @@ void MainWindow::quotesProject()
 
 void MainWindow::updateBtn()
 {
-    ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() != -1);
-    ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
-    ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
-    ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() != -1);
+    qDebug() << ui->stackedWidget->currentIndex();
+
+    ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() > -1
+                    && ui->tblCustomers->selectionModel()->hasSelection());
+    ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() > -1
+                    && ui->tblCustomers->selectionModel()->hasSelection());
+
+    ui->wdgTblProjectsToolBar->updateBtn(
+                ui->tblProjects->currentIndex().row() > -1
+                && ui->tblProjects->selectionModel()->hasSelection());
+
+    ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() > -1);
+    ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() > -1);
 }
 }

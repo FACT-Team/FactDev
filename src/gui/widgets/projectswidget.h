@@ -45,6 +45,12 @@ public slots:
      */
     void removeSelectedProject();
 
+    /**
+     * @brief ProjectsWidget::updateBtn Update the toolbar in tblProjects
+     * @param boolean if a row is selected
+     */
+    void updateBtn(bool b);
+
 signals:
     /**
      * @brief ProjectsWidget::addProject Add a new project to the current

@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -150,7 +150,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="Gui::Widgets::ProjectsWidget" name="widget" native="true">
+           <widget class="Gui::Widgets::ProjectsWidget" name="wdgTblProjectsToolBar" native="true">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -309,7 +309,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -719,8 +719,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>540</y>
+     <x>371</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -735,8 +735,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>549</y>
+     <x>356</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -847,8 +847,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>595</x>
-     <y>549</y>
+     <x>326</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -863,8 +863,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>614</x>
-     <y>540</y>
+     <x>341</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -992,7 +992,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>379</x>
-     <y>107</y>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -1039,8 +1039,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>678</x>
-     <y>236</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1055,8 +1055,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>359</x>
-     <y>95</y>
+     <x>657</x>
+     <y>138</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1065,14 +1065,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>addProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1081,14 +1081,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>editProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1097,14 +1097,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>removeProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>
@@ -1135,8 +1135,8 @@ border: 1px solid #bbb;</string>
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>532</x>
-     <y>226</y>
+     <x>379</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1151,8 +1151,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>471</x>
-     <y>192</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>-131</x>
