@@ -10,7 +10,8 @@ void searchTest::searchAll()
 {
     _search.setGroupFilter(false);
     _search.setText("facilisis");
-    QVERIFY(_search.getFilter() == "AND (0 OR company LIKE '%facilisis%' OR lastnameReferent LIKE '%facilisis%')");
+
+    QVERIFY(_search.getFilter() == "AND (0 OR company LIKE '%facilisis%' OR lastnameReferent LIKE '%facilisis%' OR p.name LIKE '%facilisis%'  AND bp.idProject = p.idProject  OR bp.idContributory = ( SELECT idContributory FROM Contributory WHERE 0 OR description LIKE '%facilisis%' ) AND 1 OR bp.idBilling = ( SELECT idBilling FROM Billing WHERE 0 OR title LIKE '%facilisis%'  OR 0 ))");
     QStandardItemModel* model = Databases::CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
     QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "MIDDLETON");
 }
