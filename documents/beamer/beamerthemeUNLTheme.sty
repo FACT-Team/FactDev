@@ -257,7 +257,7 @@
 %border: \vskip-\paperwidth\hskip\beamer@sidebarwidth\pgfuseshading{beamer@sideborder}
 }
 % End Shadow
-
+\definecolor{theme}{RGB}{75,106,149}
 \usecolortheme[RGB={75,106,149}]{structure}
 
 % Complete color themes:
@@ -324,6 +324,29 @@
    \end{center}
   \end{frame}
   }%
+}
+
+\newcommand{\insertprogressbar}{%
+\begin{minipage}{0.75\textwidth}
+	\color{theme}
+  \hspace*{-\beamer@leftmargin}%
+  \hspace{10px}
+  \rlap{\rule{\dimexpr
+		  \beamer@startpageofframe
+		  \dimexpr \beamer@rightmargin+\textwidth\relax/\beamer@endpageofdocument 
+		  }{0.0pt}
+		  \hspace{-20px}
+		  \tiny{$\blacktriangledown$}
+  }
+
+  \hspace{10px}
+  \rule{\dimexpr
+  \textwidth-\beamer@rightmargin
+  }{0.5pt}%
+  \vspace{2px}
+  % next 'empty' line is mandatory!
+  {}
+\end{minipage}
 }
 
 \newcommand{\noteslide}{%to be used after every \framebreak
