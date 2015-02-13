@@ -1,4 +1,4 @@
-INSERT INTO "Billing" VALUES(1,'Coucou','Mon super devis de la mort qui rox du poulet	',1,0,'2015-02-13');
+INSERT INTO "Billing" VALUES(1,'Coucou','Mon super devis de la mort qui rox du poulet',1,0,'2015-02-13');
 INSERT INTO "Billing" VALUES(2,'Bonjour','Manger du poney',2,0,'2015-02-13');
 INSERT INTO "Billing" VALUES(3,'Puiser','Energie',3,0,'2015-02-13');
 INSERT INTO "Billing" VALUES(4,'Y a t-il quelqu''un ?','Ouiii',4,0,'2015-02-13');

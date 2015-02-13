@@ -54,12 +54,11 @@ void BillingDatabaseTest::selectBillingFound()
 {
     Billing *b3 = Databases::BillingDatabase::instance()->getBilling(1);
     b1->setId(1);
-    b1->setTitle("fringilla,");
-    b1->setDescription("tempus risus. Donec egestas. "
-                      "Duis ac arcu. Nunc mauris. Morbi");
+    b1->setTitle("Coucou");
+    b1->setDescription("Mon super devis de la mort qui rox du poulet");
     b1->setNumber(1);
-    b1->setIsBilling(true);
-    b1->setDate(QDate(2015,04,24));
+    b1->setIsBilling(false);
+    b1->setDate(QDate(2015,02,13));
 
     QVERIFY(*b1 == *b3);
 }

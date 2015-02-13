@@ -3,44 +3,24 @@
 void ContributoriesDatabaseTest::getContributoriesByBilling()
 {
     QMap<Models::Project *, QList<Models::Contributory> > contributories =
-            Databases::ContributoryDatabase::instance()->getContributoriesByBilling(1);
-    QVERIFY(contributories.count() == 7);
+            Databases::ContributoryDatabase::instance()->getContributoriesByBilling(24);
+    QCOMPARE(contributories.count(), 2);
 
     // we only check id… Remaining are already tested (getProject, getContributory)
     for(auto i = contributories.begin(); i != contributories.end() ; ++i) {
         switch(i.key()->getId()) {
-        case 22:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 17);
-            QVERIFY(i.value().at(1).getId() == 108);
+        case 21:
+            QCOMPARE(i.value().count(), 3);
+            QCOMPARE(i.value().at(0).getId(), 59);
+            QCOMPARE(i.value().at(1).getId(), 60);
+            QCOMPARE(i.value().at(2).getId(), 61);
             break;
-        case 29:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 220);
-            QVERIFY(i.value().at(1).getId() == 239);
-            break;
-        case 30:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 24);
-            break;
-        case 32:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 89);
-            break;
-        case 33:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 50);
-            break;
-        case 34:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 276);
-            break;
-        case 40:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 74);
+        case 44:
+            QCOMPARE(i.value().count(), 1);
+            QCOMPARE(i.value().at(0).getId(), 62);
             break;
         default:
-            QVERIFY(false);
+            QFAIL("Default case");
         }
     }
 }
