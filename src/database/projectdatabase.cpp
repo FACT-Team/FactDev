@@ -207,7 +207,6 @@ throw(DbException*)
                 );
     QSqlQuery q;
 
-
     q.prepare("SELECT idProject ,name, description,beginDate,endDate "
               "FROM Project "
               "WHERE idCustomer= :pId "
@@ -222,7 +221,7 @@ throw(DbException*)
                     lastError(q),
                     1.1);
     }
-
+    qDebug() << pId;
     while(q.next()) {
         QList<QStandardItem*> ligne;
 

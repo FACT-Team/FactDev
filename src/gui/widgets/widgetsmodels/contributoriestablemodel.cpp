@@ -21,7 +21,7 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
     }
     const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
-    case 0: return contributory.getProject()->getName();
+    case 0: return contributory.getProject()->getId();
     case 1: return contributory.getDescription();
     case 2: return contributory.getNbHours();
     default: return QVariant();
@@ -52,7 +52,6 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
         switch(index.column()) {
         case 0:
             _contributories[index.row()].setProject(new Project(value.toInt()));
-            //_contributories[index.row()].setDescription(value.toString());
             break;
         case 1:
             _contributories[index.row()].setDescription(value.toString());
