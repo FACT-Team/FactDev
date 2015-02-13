@@ -47,6 +47,7 @@ public:
      * @return QStandardItemModel an item model for QTableView
      */
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+
     /**
      * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTree Return an item model of
