@@ -27,21 +27,21 @@ void BillingDatabaseTest::insert()
 
 void BillingDatabaseTest::remove()
 {
-    /*qDebug() << _lastInsert;
-    BillingDatabase::instance()->removeBilling(_lastInsert);
-    Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b2 == 0);*/
+    qDebug() << _lastInsert;
+    Databases::BillingDatabase::instance()->removeBilling(_lastInsert);
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+    QVERIFY(b2 == 0);
 }
 
 void BillingDatabaseTest::update()
 {
-    /*_lastInsert = BillingDatabase::instance()->addBilling(b1);
+    _lastInsert = Databases::BillingDatabase::instance()->addBilling(*b1);
     b1->setId(_lastInsert);
     b1->setTitle("Paladin donut");
     b1->setDescription("Création des donuts platines");
-    BillingDatabase::instance()->updateBilling(b1);
-    Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b1 == *b2);*/
+    Databases::BillingDatabase::instance()->updateBilling(*b1);
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+    QVERIFY(*b1 == *b2);
 }
 
 void BillingDatabaseTest::selectBillingNotFound()
