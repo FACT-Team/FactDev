@@ -13,7 +13,6 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     if (id != 0) {
 
         _quote = new Billing(id);
-        qDebug() << "NUmber: " << _quote->getNumber();
         setWindowTitle("Modifier le devis N°" + QString::number(_quote->getNumber()) +
                        " de " + (Customer(idCustomer).getCompany()));
         ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);

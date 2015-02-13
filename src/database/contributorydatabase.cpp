@@ -102,8 +102,8 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
 
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible d'ajouter le Customer",
-                    "BddContributory::addCustomer",
+                    "Impossible d'ajouter la Contributory",
+                    "BddContributory::addContributory",
                     lastError(q),
                     1.3);
     }
@@ -111,14 +111,54 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
     return q.lastInsertId().toInt();
 }
 
-void ContributoryDatabase::updateContributory(const Models::Contributory& pContributory)
-{
-    Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pContributory.getId());
+void ContributoryDatabase::updateContributory(const Models::Contributory& pContributory) {
+    QSqlQuery q;
+    q.prepare("UPDATE Contributory SET "
+              "description=:description, "
+              "nbDays =:nbDays "
+              "WHERE idContributory=:idContributory"
+              );
+
+    q.bindValue(":description", pContributory.getDescription());
+    q.bindValue(":nbDays", pContributory.getNbHours());
+    q.bindValue(":idContributory",pContributory.getId());
+
+    if(!q.exec()) {
+        throw new DbException("Impossible de mettra à jour la Contributory",
+                              "BddContributory::updateContributory",
+                              lastError(q),
+                              1.4);
+    }
 }
 
 void ContributoryDatabase::removeContributory(const int pId)
 {
     QSqlQuery q;
-    Log::instance(ERROR) << "TODO implement ContributoryDatabase::removeContributory. Parameter: " << QString::number(pId);
+    q.prepare("DELETE FROM BillingProject "
+              "WHERE idContributory=:pId");
+
+    q.bindValue(":pId",pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer la Contributory ",
+                    "BddContributory::removeContributory",
+                    lastError(q),
+                    1.5);
+    }
+
+    q.prepare(
+                "DELETE FROM Contributory "
+                "WHERE idCustomer=:pId");
+
+    q.bindValue(":pId",pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer la Contributory ",
+                    "BddContributory::removeContributory",
+                    lastError(q),
+                    1.5);
+    }
 }
 }
