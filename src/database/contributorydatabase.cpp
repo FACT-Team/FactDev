@@ -21,7 +21,29 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbHours").toDouble());
     contributory->setDescription(value(q, "description").toString());
-    //contributory->setProject();
+
+    QSqlQuery q2;
+    Models::Project* p;
+    q2.prepare("SELECT p.*, p.description as pdescription FROM BillingProject bp, Project p "
+               "WHERE idContributory= :idContributory "
+               "AND bp.idProject = p.idProject");
+
+    q2.bindValue(":idContributory", contributory->getId());
+
+    if(!q2.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le projet",
+                    "BddContributory::getContributory",
+                    lastError(q2),
+                    1.2);
+    }
+
+    if(q2.first()) {
+        contributory->setProject(
+                    Databases::ProjectDatabase::instance()->getProject(q2));
+    } else {
+        contributory->setProject(NULL);
+    }
 
     return contributory;
 }
