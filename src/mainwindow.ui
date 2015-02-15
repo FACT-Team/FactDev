@@ -1228,6 +1228,7 @@ border: 1px solid #bbb;</string>
      <y>295</y>
     </hint>
    </hints>
+  </connection>
   <connection>
    <sender>gpbxSearchFilter</sender>
    <signal>clicked(bool)</signal>
