@@ -90,5 +90,16 @@ void Contributory::setDescription(const QString &description)
 {
     _description = description;
 }
+
+bool Contributory::operator ==(const Contributory &c)
+{
+    return (getDescription() == c.getDescription() &&
+            getNbHours() == c.getNbHours());
+}
+
+bool Contributory::operator !=(const Contributory &c)
+{
+    return !(*this == c);
+}
 }
 

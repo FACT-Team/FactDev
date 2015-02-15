@@ -49,9 +49,9 @@ public:
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
 
     /**
-     * @author Manantsoa Razanajatovo
-     * @brief CustomerDatabase::getCustomersTree Return an item model of
-     * customers for QTree
+     * @author Manantsoa Razanajatovo & Cédric Rohaut (@Oxynos)
+     * @brief CustomerDatabase::getTree Return an item model of customers
+     * for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
      * @throw DbException
      * @return QStandardItemModel an item model for QTreeView
@@ -92,6 +92,35 @@ public:
      * @return number of customers
      */
     int getNbCustomers();
+
+    /**
+     * @brief CustomerDatabase::getItemRoot Return the first item
+     * for the QStandardItemModel
+     * @return QStandardItem an item for QTree (level/depth 0)
+     */
+    QStandardItem *getItemRoot();
+
+    /**
+     * @brief CustomerDatabase::getItemCustomer Return the customer item
+     * for the QStandardItemModel
+     * @param q1 the row of the sql query for customers
+     * @return QStandardItem an item for QTree (level/depth 1)
+     */
+    QStandardItem *getItemCustomer(QSqlQuery q1);
+    /**
+     * @brief CustomerDatabase::getItemProject Return the project item
+     * for the QStandardItemModel
+     * @param q2 the row of the sql query for projects
+     * @return QStandardItem an item for QTree (level/depth 2)
+     */
+    QStandardItem *getItemProject(QSqlQuery q2);
+    /**
+     * @brief CustomerDatabase::getItemCustomer Return the bill/quote item
+     * for the QStandardItemModel
+     * @param q3 the first row of the sql query for bills/quotes
+     * @return QStandardItem an item for QTree (level/depth 3)
+     */
+    QStandardItem *getItemBillQuote(QSqlQuery q3);
 
 };
 }

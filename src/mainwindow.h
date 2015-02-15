@@ -61,6 +61,12 @@ public:
      * @return id of the selected project
      */
     int getCurrentProjectId();
+
+    /**
+     * @brief MainWindow::getCurrentQuoteId get the selected quote id
+     * @return id of the selected quote
+     */
+    int getCurrentQuoteId();
     /**
      * @brief MainWindow::getCurrentCustomerName get the selected customer name
      * in the customers' table
@@ -74,26 +80,11 @@ public:
      */
     QString getCurrentProjectName();
     /**
-     * @brief MainWindow::isTreeRoot return if the node selected in the
-     * tree is the root
-     * @return boolean
+     * @brief MainWindow::treeLevel return the level of the node selected in the tree
+     * @return integer, depth of the item in tree
      */
-    bool isTreeRoot();
-    /**
-     * @brief MainWindow::isCustomerItemTree return if the node selected in the
-     * tree is a customer
-     * @return boolean
-     */
-    bool isCustomerItemTree();
-    /**
-     * @brief MainWindow::isProjectItemTree return if the node selected in the
-     * tree is a project
-     * @return boolean
-     */
-    bool isProjectItemTree();
+    int treeLevel();
 
-    //TODO
-    bool isQuoteItemTree();
     void demo();
 public slots:
     /**
@@ -162,6 +153,11 @@ public slots:
      * @brief updateBtn Update all button to disable or enabled its
      */
     void updateBtn(void);
+
+    /**
+     * @brief MainWindow::editQuote Edit the quote of the project
+     */
+    void editQuote();
 
 private slots:
     /**

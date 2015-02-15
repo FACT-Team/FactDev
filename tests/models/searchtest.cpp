@@ -82,7 +82,7 @@ void searchTest::searchContributoryDescription()
     _search.setSearchInContributories(true);
     _search.setSearchInBillsQuotes(false);
     _search.setText("amet, conse");
-    QVERIFY(_search.getFilter() == "AND (0  OR company LIKE '%amet, conse%'  OR bp.idContributory = ( SELECT idContributory FROM Contributory WHERE 0 OR description LIKE '%amet,%conse%' ))");
+    QVERIFY(_search.getFilter() == "AND (0  OR bp.idContributory = ( SELECT idContributory FROM Contributory WHERE 0 OR description LIKE '%amet,%conse%' ))");
     QStandardItemModel* model = Databases::CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
     QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "BELL");
 }

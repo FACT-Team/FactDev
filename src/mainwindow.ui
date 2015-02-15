@@ -283,6 +283,17 @@
              </spacer>
             </item>
             <item>
+             <widget class="QPushButton" name="btnEditQuote">
+              <property name="text">
+               <string>Editer devis</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="pushButton">
               <property name="text">
                <string>Générer en LaTeX</string>
@@ -1219,6 +1230,7 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
+<<<<<<< HEAD
    <sender>gpbxSearchFilter</sender>
    <signal>clicked(bool)</signal>
    <receiver>chkProjectName</receiver>
@@ -1263,6 +1275,18 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>107</x>
      <y>269</y>
+   <sender>btnEditQuote</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editQuote()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>722</x>
+     <y>536</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>502</x>
+     <y>630</y>
     </hint>
    </hints>
   </connection>
@@ -1292,5 +1316,6 @@ border: 1px solid #bbb;</string>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
   <slot>updateBtn()</slot>
+  <slot>editQuote()</slot>
  </slots>
 </ui>

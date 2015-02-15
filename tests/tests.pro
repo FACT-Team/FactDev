@@ -4,12 +4,16 @@ QT       -= gui
 QT       += testlib sql printsupport
 
 TARGET = tests
-QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
-QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
+
+linux-g++ {
+    QMAKE_CXXFLAGS += -std=c++0x -fprofile-arcs -ftest-coverage
+    QMAKE_LDFLAGS += -fprofile-arcs -ftest-coverage
+    LIBS += -lgcov
+}
 
 TEMPLATE = app
 CONFIG += c++11
-LIBS += -L../src -lFactDev -lgcov
+LIBS += -L../src -lFactDev
 
 HEADERS += \
     #CustomTestPrinter.h

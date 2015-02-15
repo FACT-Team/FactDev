@@ -40,7 +40,7 @@ CREATE TABLE Contributory
 (
     idContributory INTEGER PRIMARY KEY AUTOINCREMENT,
     description TEXT,
-    nbDays INTEGER
+    nbHours INTEGER
 );
 
 CREATE TABLE BillingProject

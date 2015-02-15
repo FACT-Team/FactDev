@@ -1,0 +1,29 @@
+This is makeindex, version 2.15 [TeX Live 2012] (kpathsea + Thai support).
+Scanning input file StyleInd.ist...
+!! Input index error (file = StyleInd.ist, line = 1):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 2):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 3):
+   -- Unknown index keyword heading_prefix"\\centerline.
+!! Input index error (file = StyleInd.ist, line = 4):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 5):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 6):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 7):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 8):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 9):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 10):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 11):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = StyleInd.ist, line = 12):
+   -- Missing arguments -- need two (premature LFD).
+done (0 entries accepted, 12 rejected).
+Nothing written in StyleInd.ind.
+Transcript written in StyleInd.ilg.

@@ -1,11 +1,59 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Description du Projet}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Objet du projet}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Pr\IeC {\'e}sentation des Parties Prenantes}{3}{section.1.2}
-\contentsline {chapter}{\numberline {2}Production}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}M\IeC {\'e}thode de d\IeC {\'e}veloppement et espace de travail}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}M\IeC {\'e}thode Scrum}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Organisation et r\IeC {\^o}les dans l'\IeC {\'e}quipe de d\IeC {\'e}veloppement}{5}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Outils pour la gestion de projet Agile}{6}{subsection.2.1.3}
-\contentsline {chapter}{\numberline {A}Table des figures}{7}{appendix.A}
-\contentsline {chapter}{Index}{8}{appendix*.3}
+\contentsline {chapter}{\numberline {1}Description du Projet}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Objet du projet}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Pr\IeC {\'e}sentation des Parties Prenantes}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Client: Antoine de \bsc {Roquemaurel}}{5}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Encadrant: F\IeC {\'e}d\IeC {\'e}ric \bsc {Migeon}}{5}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Responsable de l'UE Projet : Bernard \bsc {Cherbonneau}}{5}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Titulaire : \IeC {\'E}quipe FACT}{6}{subsection.1.2.4}
+\contentsline {chapter}{\numberline {2}Production}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}M\IeC {\'e}thode de d\IeC {\'e}veloppement}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}D\IeC {\'e}finition et pertinence de la m\IeC {\'e}thode scrum}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Application de la m\IeC {\'e}thode \textit {Scrum} et crit\IeC {\`e}res de qualit\IeC {\'e}}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Organisation et r\IeC {\^o}les dans l'\IeC {\'e}quipe de d\IeC {\'e}veloppement}{8}{subsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.3.1}Scrum Master : Florent Berbie}{8}{subsubsection.2.1.3.1}
+\contentsline {subsubsection}{\numberline {2.1.3.2}Product owner : Antoine de Roquemaurel}{9}{subsubsection.2.1.3.2}
+\contentsline {subsubsection}{\numberline {2.1.3.3}\IeC {\'E}quipe de d\IeC {\'e}veloppement : Florent \bsc {Berbie}, Antoine de \bsc {Roquemaurel}, C\IeC {\'e}dric \bsc {Rohaut}, Andriamihary \bsc {Razanajatovo}}{9}{subsubsection.2.1.3.3}
+\contentsline {subsubsection}{\numberline {2.1.3.4}Directeur qualit\IeC {\'e} : C\IeC {\'e}dric \bsc {Rohaut}}{9}{subsubsection.2.1.3.4}
+\contentsline {subsubsection}{\numberline {2.1.3.5}Directeur documentation : Andriamihary \bsc {Razanajatovo}}{9}{subsubsection.2.1.3.5}
+\contentsline {subsubsection}{\numberline {2.1.3.6}Directeur technique Qt, C++ : Antoine de Roquemaurel}{9}{subsubsection.2.1.3.6}
+\contentsline {subsubsection}{\numberline {2.1.3.7}Autres r\IeC {\^o}les, responsabilit\IeC {\'e}s de chaque d\IeC {\'e}veloppeur et organisation g\IeC {\'e}n\IeC {\'e}rale}{10}{subsubsection.2.1.3.7}
+\contentsline {section}{\numberline {2.2}Technologies utilis\IeC {\'e}es}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Architecture Logicielle}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Environnement de d\IeC {\'e}veloppement}{10}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Outils pour la Gestion de Projet Agile}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Documentation}{11}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Assurance de la qualit\IeC {\'e} du code}{12}{subsection.2.2.5}
+\contentsline {chapter}{\numberline {3}Fournitures et Livrables}{13}{chapter.3}
+\contentsline {chapter}{\numberline {4}Planning}{14}{chapter.4}
+\contentsline {chapter}{\numberline {5}La D\IeC {\'e}marche Qualit\IeC {\'e}}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}D\IeC {\'e}veloppement collaboratif}{15}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Outil de gestion de version : Git}{15}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Revue de code : Github}{15}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Couverture des tests}{16}{section.5.2}
+\contentsline {section}{\numberline {5.3}Analyse statique de code : SonarQube}{16}{section.5.3}
+\contentsline {chapter}{\numberline {6}Matrice de tra\IeC {\c c}abilit\IeC {\'e}}{17}{chapter.6}
+\contentsline {chapter}{\numberline {A}Conventions de programmation en C++}{18}{appendix.A}
+\contentsline {section}{\numberline {A.1}English, of course !}{18}{section.A.1}
+\contentsline {section}{\numberline {A.2}Le nommage}{18}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Les attributs}{18}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}Les noms de constantes}{18}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}Les noms de m\IeC {\'e}thodes}{19}{subsection.A.2.3}
+\contentsline {paragraph}{Les accesseurs}{19}{lstnumber.-3.7}
+\contentsline {subsection}{\numberline {A.2.4}Les noms de classes ou d'interface}{19}{subsection.A.2.4}
+\contentsline {section}{\numberline {A.3}L'indentation}{19}{section.A.3}
+\contentsline {section}{\numberline {A.4}Les accolades}{20}{section.A.4}
+\contentsline {section}{\numberline {A.5}Les types}{21}{section.A.5}
+\contentsline {section}{\numberline {A.6}Les bonnes pratiques}{21}{section.A.6}
+\contentsline {subsection}{\numberline {A.6.1}Le mot cl\IeC {\'e} \texttt {const}}{21}{subsection.A.6.1}
+\contentsline {subsection}{\numberline {A.6.2}Le mot cl\IeC {\'e} \texttt {void}}{21}{subsection.A.6.2}
+\contentsline {subsection}{\numberline {A.6.3}Longueur du code}{21}{subsection.A.6.3}
+\contentsline {section}{\numberline {A.7}Conventions des composants graphiques}{22}{section.A.7}
+\contentsline {section}{\numberline {A.8}Conventions de documentation}{22}{section.A.8}
+\contentsline {subsubsection}{\numberline {A.8.0.1}Pour une classe}{22}{subsubsection.A.8.0.1}
+\contentsline {subsubsection}{\numberline {A.8.0.2}Pour un attribut ou une m\IeC {\'e}thode}{22}{subsubsection.A.8.0.2}
+\contentsline {subsubsection}{\numberline {A.8.0.3}Remarques}{22}{subsubsection.A.8.0.3}
+\contentsline {chapter}{\numberline {B}Backlog product}{24}{appendix.B}
+\contentsline {chapter}{\numberline {C}R\IeC {\'e}f\IeC {\'e}rences}{26}{appendix.C}
+\contentsline {chapter}{\numberline {D}Table des figures}{27}{appendix.D}
+\contentsline {chapter}{Index}{28}{appendix*.3}
