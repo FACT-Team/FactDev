@@ -107,6 +107,7 @@ inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billings.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/contributories.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billingsprojects.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billingrate.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/removeuselessdata.sql");
 
     updateBillingNumber();

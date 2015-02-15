@@ -154,5 +154,6 @@ OTHER_FILES += \
     billing.tpl\
 
 DISTFILES += \
-    sql/tests/removeuselessdata.sql
+    sql/tests/removeuselessdata.sql \
+    sql/tests/billingrate.sql
 
