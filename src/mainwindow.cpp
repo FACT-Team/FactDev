@@ -457,4 +457,16 @@ void MainWindow::editQuote()
     }
 
 }
+
+void MainWindow::editBill()
+{
+    if(ui->tblQuotes->selectionModel()->hasSelection()) {
+        AddQuoteDialog addquotedialog(false, getCurrentCustomerId(),getCurrentQuoteId());
+        addquotedialog.exec();
+        updateTableBillings(getCurrentProjectId());
+        updateBtn();
+        updateTree();
+    }
+
+}
 }

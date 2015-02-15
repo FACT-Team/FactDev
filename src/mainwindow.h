@@ -153,16 +153,18 @@ public slots:
      * @brief MainWindow::aboutIcons() show icons's details
      */
     void aboutIcons();
-
     /**
      * @brief updateBtn Update all button to disable or enabled its
      */
     void updateBtn(void);
-
     /**
      * @brief MainWindow::editQuote Edit the quote of the project
      */
     void editQuote();
+    /**
+     * @brief MainWindow::editQuote Edit the quote of the project
+     */
+    void editBill();
 
 private slots:
     /**

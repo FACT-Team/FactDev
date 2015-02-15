@@ -283,6 +283,17 @@
              </spacer>
             </item>
             <item>
+             <widget class="QPushButton" name="btnEditBill">
+              <property name="text">
+               <string>Editer facture</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/img20/add_bill20.png</normaloff>:/icons/img/img20/add_bill20.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="btnEditQuote">
               <property name="text">
                <string>Editer devis</string>
@@ -1050,8 +1061,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>233</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1082,8 +1093,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1098,8 +1109,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1114,8 +1125,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>
@@ -1162,8 +1173,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>233</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>-131</x>
@@ -1235,6 +1246,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnEditBill</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editBill()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>503</x>
+     <y>533</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>563</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1263,5 +1290,6 @@ border: 1px solid #bbb;</string>
   <slot>updateBtn()</slot>
   <slot>editQuote()</slot>
   <slot>addBill()</slot>
+  <slot>editBill()</slot>
  </slots>
 </ui>
