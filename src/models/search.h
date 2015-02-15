@@ -6,6 +6,7 @@
 namespace Models {
 /**
  * @author Antoine de Roquemaurel
+ * @author Florent Berbie
  * @brief The Search class
  */
 class Search

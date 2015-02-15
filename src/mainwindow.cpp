@@ -209,7 +209,6 @@ void MainWindow::search(QString text)
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
-    qDebug() << s.getFilter();
     updateBtn();
 }
 

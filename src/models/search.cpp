@@ -76,27 +76,16 @@ void Search::filterOnNumberElements(QString &filter, const QStringList list, QSt
 
 void Search::filterOnCompany(QString &filter, const QStringList list)
 {
-//    filter +=   " OR c.idCustomer = ( "
-//                    "SELECT idCustomer FROM Customer "
-//                    "WHERE (0 ";
-//  filterOnVarcharElements(filter, list, "company");
     filter +=   " OR company LIKE '%" + _text + "%' ";
-//    filter +=   ")";
 }
 
 void Search::filterOnReferentLastname(QString &filter, const QStringList list)
 {
-//    filter +=   " AND (0 ";
-//    filterOnVarcharElements(filter, list, "lastnameReferent");
       filter +=   " OR lastnameReferent LIKE '%" + _text + "%' ";
-//    filter +=   ")) ";
 }
 
 void Search::filterOnProjects(QString &filter, const QStringList list)
 {
-//    filter +=   " AND (bp.idProject = ( "
-//                    "SELECT idProject FROM Project "
-//                    "WHERE 0 ";
     filterOnVarcharElements(filter, list, "p.name");
     filter +=   " AND bp.idProject = p.idProject ";
 }
