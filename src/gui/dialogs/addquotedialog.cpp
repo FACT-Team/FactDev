@@ -10,6 +10,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
     ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
+
     if (id != 0) {
         //setWindowTitle("Modifier");
     } else {
@@ -29,6 +30,10 @@ AddQuoteDialog::~AddQuoteDialog()
 {
     delete _quote;
     delete ui;
+}
+
+int AddQuoteDialog::getNumber() {
+    return _quote->getNumber();
 }
 
 void AddQuoteDialog::fillFields() {

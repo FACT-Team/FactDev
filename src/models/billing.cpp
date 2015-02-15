@@ -67,18 +67,6 @@ void Billing::hydrat(int id)
     _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
 }
 
-void Billing::hydrat(int id, bool isBilling)
-{
-    _id = id;
-    _isBilling = isBilling;
-    Billing *quote = BillingDatabase::instance()->getBilling(id);
-    _title = quote->getTitle();
-    _description = quote->getDescription();
-    _number = quote->getNumber();
-    _date = quote ->getDate();
-    _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
-}
-
 void Billing::remove()
 {
     BillingDatabase::instance()->removeBilling(_id);

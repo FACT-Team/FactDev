@@ -144,6 +144,8 @@ void MainWindow::addQuote()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         AddQuoteDialog winAddQuote(false, getCurrentCustomerId());
+        QString s(QString::number(winAddQuote.getNumber()));
+        winAddQuote.setWindowTitle("Devis n°" + s);
         winAddQuote.exec();
         updateTableBillings(getCurrentProjectId());
         updateTree();
@@ -157,6 +159,8 @@ void MainWindow::addBill()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         AddQuoteDialog winAddQuote(true, getCurrentCustomerId());
+        QString s(QString::number(winAddQuote.getNumber()));
+        winAddQuote.setWindowTitle("Facture n°" + s);
         winAddQuote.exec();
         updateTableBillings(getCurrentProjectId());
         updateTree();

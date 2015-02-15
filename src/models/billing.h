@@ -52,14 +52,6 @@ public:
     void hydrat(int getId);
 
     /**
-     * @brief Billing::hydrat. Update of the Billing which is specified
-     * by <i>getId</i>
-     * @param getId
-     * @param isBilling
-     */
-    void hydrat(int getId, bool isBilling);
-
-    /**
      * @brief Billing::remove. Remove a Billing.
      */
     void remove();

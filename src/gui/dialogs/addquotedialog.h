@@ -34,16 +34,20 @@ public:
      * @brief AddQuoteDialog::Fill line edits with the data of the quote
      */
     void fillFields();
-
+    /**
+     * @brief AddQuoteDialog::getNumber return the number of bill or quote
+     * @return int
+     */
+    int getNumber();
     /**
      * @brief AddQuoteDialog::accept Valid data inputed by user and add these data in Database
      */
     void accept();
-
     /**
      * @brief AddQuoteDialog::reject Cancel the operation and close the windows
      */
     void reject();
+
 public slots:
     void updateBtn(void);
 private:
