@@ -4,24 +4,20 @@
 namespace Gui {
 namespace Dialogs {
 
-AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
+AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *parent) :
     QDialog(parent),
     _quote(0),
     ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
     if (id != 0) {
-        // WARNING : Possibility to update a quote ?
-
-        //_quote = new Billing(id);
-        //fillFields();
-        //setWindowTitle("Modifier le client "+_custom->getCompany());
+        //setWindowTitle("Modifier");
     } else {
         _quote = new Billing();
         ui->dateEditQuote->setDate(QDate::currentDate());
     }
     _quote->setId(id);
-    _quote->setIsBilling(false);
+    _quote->setIsBilling(isBilling);
 
     ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);

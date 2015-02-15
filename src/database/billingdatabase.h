@@ -79,10 +79,10 @@ public:
     int getMaxBillingNumber();
 
     /**
-     * @brief getMaxQuoteNuber Get the last number of a quote
+     * @brief getMaxQuoteNumber Get the last number of a quote
      * @return  The last number
      */
-    int getMaxQuoteNuber();
+    int getMaxQuoteNumber();
 
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase

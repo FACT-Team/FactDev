@@ -26,7 +26,8 @@ public:
      * @brief AddQuoteDialog::AddQuoteDialog Construct a windows AddQuoteDialog
      * @param parent QWidget of the current windows
      */
-    explicit AddQuoteDialog(int idCustomer = 0, int id = 0, QWidget *parent = 0);
+    explicit AddQuoteDialog(bool isBilling, int idCustomer = 0, int id = 0,
+                            QWidget *parent = 0);
     ~AddQuoteDialog();
 
     /**
@@ -46,7 +47,7 @@ public:
 public slots:
     void updateBtn(void);
 private:
-    Billing *_quote;        //!< The quote
+    Billing *_quote;        //!< The quote or billing
     Ui::AddQuoteDialog *ui; //!< User interface of <b>AddQuoteDialog</b>
 };
 }

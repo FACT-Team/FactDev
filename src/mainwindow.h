@@ -100,6 +100,11 @@ public slots:
      */
     void addQuote();
     /**
+     * @brief MainWindow::addBill open window to add a new bill
+     * @see AddQuoteDialog
+     */
+    void addBill();
+    /**
      * @brief MainWindow::editUser modify the user
      * @see UserDataDialog
      */

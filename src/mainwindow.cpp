@@ -143,7 +143,20 @@ void MainWindow::updateTableBillings(const int idProject)
 void MainWindow::addQuote()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
-        AddQuoteDialog winAddQuote(getCurrentCustomerId());
+        AddQuoteDialog winAddQuote(false, getCurrentCustomerId());
+        winAddQuote.exec();
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+    } else {
+        Gui::Widgets::Popup *p = new Gui::Widgets::Popup();
+        p->toImplement("\nVeuillez sélectionner un client", this);
+    }
+}
+
+void MainWindow::addBill()
+{
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        AddQuoteDialog winAddQuote(true, getCurrentCustomerId());
         winAddQuote.exec();
         updateTableBillings(getCurrentProjectId());
         updateTree();
@@ -406,8 +419,6 @@ void MainWindow::quotesProject()
 
 void MainWindow::updateBtn()
 {
-    qDebug() << ui->stackedWidget->currentIndex();
-
     ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() > -1
                     && ui->tblCustomers->selectionModel()->hasSelection());
     ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() > -1

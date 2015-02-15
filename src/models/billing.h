@@ -34,6 +34,13 @@ public:
     Billing(int id);
 
     /**
+     * @brief Billing::Billing. Construct a Billing or quote.
+     * @param int id
+     * @param bool isBilling
+     */
+    Billing(int id, bool isBilling);
+
+    /**
       * @brief destruct a billing object
     */
     ~Billing();
@@ -50,6 +57,14 @@ public:
      * @param getId
      */
     void hydrat(int getId);
+
+    /**
+     * @brief Billing::hydrat. Update of the Billing which is specified
+     * by <i>getId</i>
+     * @param getId
+     * @param isBilling
+     */
+    void hydrat(int getId, bool isBilling);
 
     /**
      * @brief Billing::remove. Remove a Billing.
