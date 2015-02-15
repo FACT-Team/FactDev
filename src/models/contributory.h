@@ -89,6 +89,24 @@ public:
      */
     void setDescription(const QString &getDescription);
 
+    /**
+     * @brief operator == define the operator "==" to compare two
+     * <b>Contributory</b>
+     * @param c the <b>Contributory</b> to compare with the current
+     * <b>Contributory</b>
+     * @return true if the <b>Contributory</b> are equals else false
+     */
+    bool operator ==(const Contributory &c);
+
+    /**
+     * @brief operator != define the operator "!=" to compare two
+     * <b>Contributory</b>
+     * @param c the <b>Contributory</b> to compare with the current
+     * <b>Contributory</b>
+     * @return true if the <b>Contributory</b> are different else false
+     */
+    bool operator !=(const Contributory &c);
+
 private:
     Project* _project;    //!< Contributory project
     double _nbHours; //!< Nb of work hours of this contribution

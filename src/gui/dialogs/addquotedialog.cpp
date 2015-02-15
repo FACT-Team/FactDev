@@ -4,29 +4,38 @@
 namespace Gui {
 namespace Dialogs {
 
-AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
+AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *parent) :
     QDialog(parent),
     _quote(0),
     ui(new Ui::AddQuoteDialog)
 {
     ui->setupUi(this);
-    if (id != 0) {
-        // WARNING : Possibility to update a quote ?
+    ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
 
-        //_quote = new Billing(id);
-        //fillFields();
-        //setWindowTitle("Modifier le client "+_custom->getCompany());
+    if (id != 0) {
+        _quote = new Billing(id);
+        fillFields();
+        if (isBilling) setWindowTitle("Modifier la facture n°"
+                                      + QString::number(getNumber()) + " de "
+                                      + (Customer(idCustomer).getCompany()));
+        else setWindowTitle("Modifier le devis n°"
+                            + QString::number(getNumber()) + " de "
+                            + (Customer(idCustomer).getCompany()));
     } else {
         _quote = new Billing();
+        _quote->setId(id);
         ui->dateEditQuote->setDate(QDate::currentDate());
+        if (isBilling) setWindowTitle("Nouveau devis n°"
+                                      +  QString::number(getNumber()) + " de "
+                                      + (Customer(idCustomer).getCompany()));
+        else setWindowTitle("Nouvelle facture n°"
+                            +  QString::number(getNumber()) + " de "
+                            + (Customer(idCustomer).getCompany()));
     }
-    _quote->setId(id);
-    _quote->setIsBilling(false);
-
-    ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
+    _quote->setIsBilling(isBilling);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
-    emit ui->leQuoteTitle->textChanged("");
+    emit ui->leQuoteTitle->textChanged(_quote->getTitle());
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -35,9 +44,21 @@ AddQuoteDialog::~AddQuoteDialog()
     delete ui;
 }
 
+int AddQuoteDialog::getNumber() {
+    return _quote->getNumber();
+}
+
 void AddQuoteDialog::fillFields() {
-    // WARNING : Possibility to update a quote ?
-    ui->leQuoteTitle->setText(_quote->getTitle());
+
+     ((CheckUntilField*) ui->leQuoteTitle)->setText(_quote->getTitle());
+     ui->dateEditQuote->setDate(_quote->getDate());
+     ui->leDescription->setText(_quote->getDescription());
+
+     for(Project* p : _quote->getContributories().keys()) {
+         for(Contributory c : _quote->getContributories()[p]) {
+            ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
+         }
+     }
 }
 
 void AddQuoteDialog::accept() {

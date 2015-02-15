@@ -38,6 +38,12 @@ void ContributoriesWidget::add()
     emit contributoryChanged();
 }
 
+void ContributoriesWidget::add(Contributory c)
+{
+    _model->append(c);
+    emit contributoryChanged();
+}
+
 void ContributoriesWidget::remove()
 {
     if (ui->tblContributories->selectionModel()->hasSelection()) {

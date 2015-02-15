@@ -51,6 +51,11 @@ int MainWindow::getCurrentProjectId() {
     return getCurrentTableId(ui->tblProjects);
 }
 
+int MainWindow::getCurrentQuoteId()
+{
+    return getCurrentTableId(ui->tblQuotes);
+}
+
 
 QString MainWindow::getCurrentCustomerName()
 {
@@ -70,7 +75,7 @@ void MainWindow::addCustomer()
     DialogAddCustomer win;
     if(win.exec()) {
         updateTableCustomers();
-        //updateTree();
+        updateTree();
     }
 }
 
@@ -88,7 +93,6 @@ void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
     ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
     changeTree();
-    updateBtn();
 }
 
 void MainWindow::updateUser()
@@ -144,7 +148,20 @@ void MainWindow::updateTableBillings(const int idProject)
 void MainWindow::addQuote()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
-        AddQuoteDialog winAddQuote(getCurrentCustomerId());
+        AddQuoteDialog winAddQuote(false, getCurrentCustomerId());
+        winAddQuote.exec();
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+    } else {
+        Gui::Widgets::Popup *p = new Gui::Widgets::Popup();
+        p->toImplement("\nVeuillez sélectionner un client", this);
+    }
+}
+
+void MainWindow::addBill()
+{
+    if (ui->tblCustomers->selectionModel()->hasSelection()) {
+        AddQuoteDialog winAddQuote(true, getCurrentCustomerId());
         winAddQuote.exec();
         updateTableBillings(getCurrentProjectId());
         updateTree();
@@ -281,6 +298,9 @@ void MainWindow::editProject() {
                     index.row(),
                     getCurrentProjectId());
         w.exec();
+
+        updateTableProjects(getCurrentCustomerId());
+        updateTree();
     }
 }
 
@@ -404,9 +424,37 @@ void MainWindow::quotesProject()
 
 void MainWindow::updateBtn()
 {
-    ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() != -1);
-    ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
-    ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
-    ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() != -1);
+    ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() > -1
+                    && ui->tblCustomers->selectionModel()->hasSelection());
+    ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() > -1
+                    && ui->tblCustomers->selectionModel()->hasSelection());
+
+    if (ui->tblQuotes->currentIndex().row() > -1
+        && ui->tblQuotes->selectionModel()->hasSelection()) {
+        ui->btnEditQuote->setEnabled(!Billing(getCurrentQuoteId()).isBilling());
+        ui->btnLatex->setEnabled(true);
+    } else {
+        ui->btnEditQuote->setEnabled(false);
+        ui->btnLatex->setEnabled(false);
+    }
+
+    ui->wdgTblProjectsToolBar->updateBtn(
+                ui->tblProjects->currentIndex().row() > -1
+                && ui->tblProjects->selectionModel()->hasSelection());
+
+    ui->actionNewQuote->setEnabled(ui->tblProjects->currentIndex().row() > -1);
+    ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() > -1);
+}
+
+void MainWindow::editQuote()
+{
+    if(ui->tblQuotes->selectionModel()->hasSelection()) {
+        AddQuoteDialog addquotedialog(false, getCurrentCustomerId(),getCurrentQuoteId());
+        addquotedialog.exec();
+        updateTableBillings(getCurrentProjectId());
+        updateBtn();
+        updateTree();
+    }
+
 }
 }

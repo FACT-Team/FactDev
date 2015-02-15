@@ -27,5 +27,10 @@ void ProjectsWidget::editSelectedProject() {
 void ProjectsWidget::removeSelectedProject() {
     emit removeProject();
 }
+
+void ProjectsWidget::updateBtn(bool b) {
+    ui->btnDeleteProject->setEnabled(b);
+    ui->btnEditProject->setEnabled(b);
+}
 }
 }

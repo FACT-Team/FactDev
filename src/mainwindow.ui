@@ -150,7 +150,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="Gui::Widgets::ProjectsWidget" name="widget" native="true">
+           <widget class="Gui::Widgets::ProjectsWidget" name="wdgTblProjectsToolBar" native="true">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -283,7 +283,18 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="btnEditQuote">
+              <property name="text">
+               <string>Editer devis</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnLatex">
               <property name="text">
                <string>Générer en LaTeX</string>
               </property>
@@ -309,7 +320,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -719,8 +730,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>540</y>
+     <x>371</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -735,8 +746,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>549</y>
+     <x>356</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -847,8 +858,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>595</x>
-     <y>549</y>
+     <x>326</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -863,8 +874,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>614</x>
-     <y>540</y>
+     <x>341</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -992,7 +1003,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>379</x>
-     <y>107</y>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -1039,8 +1050,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>678</x>
-     <y>236</y>
+     <x>673</x>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1055,8 +1066,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>359</x>
-     <y>95</y>
+     <x>590</x>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1065,14 +1076,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>addProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>910</x>
+     <y>544</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1081,14 +1092,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>editProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>910</x>
+     <y>544</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1097,14 +1108,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>removeProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>910</x>
+     <y>544</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>
@@ -1135,8 +1146,8 @@ border: 1px solid #bbb;</string>
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>532</x>
-     <y>226</y>
+     <x>379</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1151,8 +1162,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>471</x>
-     <y>192</y>
+     <x>673</x>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>-131</x>
@@ -1167,8 +1178,56 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>369</x>
-     <y>107</y>
+     <x>330</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewBill</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addBill()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnEditQuote</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editQuote()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>722</x>
+     <y>536</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>502</x>
+     <y>630</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblQuotes</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateBtn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>608</x>
+     <y>326</y>
     </hint>
     <hint type="destinationlabel">
      <x>618</x>
@@ -1202,5 +1261,7 @@ border: 1px solid #bbb;</string>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
   <slot>updateBtn()</slot>
+  <slot>editQuote()</slot>
+  <slot>addBill()</slot>
  </slots>
 </ui>

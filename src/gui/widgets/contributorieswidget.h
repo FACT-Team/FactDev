@@ -28,6 +28,12 @@ public:
      */
     QList<Contributory> getContributories() const;
     int count();
+
+    /**
+     * @brief add Add the Contributory <i>c</i> in the model
+     * @param c the <b>Contributory</b>
+     */
+    void add(Contributory c);
 public slots:
     /**
      * @brief add Add a new empty contributory

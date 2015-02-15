@@ -7,11 +7,10 @@ using namespace Databases;
 namespace Models {
 Billing::Billing()
 {
-
     // TODO :
     // add enum for quote or billing, passed in constructor
     // If quote, line behind, else getMaxBillingNumber.
-    _number = BillingDatabase::instance()->getMaxQuoteNuber()+1;
+    _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
 }
 
 Billing::Billing(int id)
@@ -52,6 +51,7 @@ void Billing::commit()
                                                                 _id,
                                                                c.getId());
             }
+
         }
     }
     Database::Database::instance()->closeTransaction();
@@ -62,6 +62,7 @@ void Billing::hydrat(int id)
     _id = id;
     Billing *quote = BillingDatabase::instance()->getBilling(id);
     _title = quote->getTitle();
+    _isBilling = quote->isBilling();
     _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();

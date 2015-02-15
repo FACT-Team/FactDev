@@ -9,6 +9,7 @@ ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, Q
     _projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
 }
 
+
 ProjectComboDelegate::~ProjectComboDelegate()
 {
 

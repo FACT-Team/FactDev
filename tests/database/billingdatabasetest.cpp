@@ -27,21 +27,21 @@ void BillingDatabaseTest::insert()
 
 void BillingDatabaseTest::remove()
 {
-    /*qDebug() << _lastInsert;
-    BillingDatabase::instance()->removeBilling(_lastInsert);
-    Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b2 == 0);*/
+    qDebug() << _lastInsert;
+    Databases::BillingDatabase::instance()->removeBilling(_lastInsert);
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+    QVERIFY(b2 == 0);
 }
 
 void BillingDatabaseTest::update()
 {
-    /*_lastInsert = BillingDatabase::instance()->addBilling(b1);
+    _lastInsert = Databases::BillingDatabase::instance()->addBilling(*b1);
     b1->setId(_lastInsert);
     b1->setTitle("Paladin donut");
     b1->setDescription("Création des donuts platines");
-    BillingDatabase::instance()->updateBilling(b1);
-    Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b1 == *b2);*/
+    Databases::BillingDatabase::instance()->updateBilling(*b1);
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+    QVERIFY(*b1 == *b2);
 }
 
 void BillingDatabaseTest::selectBillingNotFound()
@@ -54,12 +54,11 @@ void BillingDatabaseTest::selectBillingFound()
 {
     Billing *b3 = Databases::BillingDatabase::instance()->getBilling(1);
     b1->setId(1);
-    b1->setTitle("fringilla,");
-    b1->setDescription("tempus risus. Donec egestas. "
-                      "Duis ac arcu. Nunc mauris. Morbi");
+    b1->setTitle("Coucou");
+    b1->setDescription("Mon super devis de la mort qui rox du poulet");
     b1->setNumber(1);
-    b1->setIsBilling(true);
-    b1->setDate(QDate(2015,04,24));
+    b1->setIsBilling(false);
+    b1->setDate(QDate(2015,02,13));
 
     QVERIFY(*b1 == *b3);
 }

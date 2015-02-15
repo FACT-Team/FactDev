@@ -61,6 +61,12 @@ public:
      * @return id of the selected project
      */
     int getCurrentProjectId();
+
+    /**
+     * @brief MainWindow::getCurrentQuoteId get the selected quote id
+     * @return id of the selected quote
+     */
+    int getCurrentQuoteId();
     /**
      * @brief MainWindow::getCurrentCustomerName get the selected customer name
      * in the customers' table
@@ -99,6 +105,11 @@ public slots:
      * @see AddQuoteDialog
      */
     void addQuote();
+    /**
+     * @brief MainWindow::addBill open window to add a new bill
+     * @see AddQuoteDialog
+     */
+    void addBill();
     /**
      * @brief MainWindow::editUser modify the user
      * @see UserDataDialog
@@ -147,6 +158,11 @@ public slots:
      * @brief updateBtn Update all button to disable or enabled its
      */
     void updateBtn(void);
+
+    /**
+     * @brief MainWindow::editQuote Edit the quote of the project
+     */
+    void editQuote();
 
 private slots:
     /**
