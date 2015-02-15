@@ -1039,8 +1039,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>380</x>
-     <y>112</y>
+     <x>673</x>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1055,8 +1055,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>657</x>
-     <y>138</y>
+     <x>356</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1071,8 +1071,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>492</x>
-     <y>123</y>
+     <x>910</x>
+     <y>544</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1087,8 +1087,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>492</x>
-     <y>123</y>
+     <x>910</x>
+     <y>544</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1103,8 +1103,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>492</x>
-     <y>123</y>
+     <x>910</x>
+     <y>544</y>
     </hint>
     <hint type="destinationlabel">
      <x>-453</x>
@@ -1151,8 +1151,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>380</x>
-     <y>112</y>
+     <x>673</x>
+     <y>233</y>
     </hint>
     <hint type="destinationlabel">
      <x>-131</x>
@@ -1167,8 +1167,24 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>369</x>
-     <y>107</y>
+     <x>330</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewBill</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addBill()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>618</x>
@@ -1202,5 +1218,6 @@ border: 1px solid #bbb;</string>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
   <slot>updateBtn()</slot>
+  <slot>addBill()</slot>
  </slots>
 </ui>
