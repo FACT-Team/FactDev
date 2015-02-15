@@ -73,6 +73,15 @@ public:
     void addBillingProject(const int idProject, const int idBilling, const int idContributory);
 
     /**
+     * @brief BillingDatabase::removeBillingProject remove a link between a project,
+     * a billing and a contributory in the table BillingProject
+     * @param idProject Project id
+     * @param idBilling Billing id
+     * @param idContributory Contributory id
+     */
+    void removeBillingProject(const int idProject, const int idBilling, const int idContributory);
+
+    /**
      * @brief getMaxBillingNumber Get the last number of a billing
      * @return  The max number
      */
