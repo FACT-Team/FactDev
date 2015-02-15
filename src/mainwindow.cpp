@@ -488,6 +488,19 @@ void MainWindow::editBill()
 
 void MainWindow::editDoc()
 {
+    AddQuoteDialog *editDocDialog(0);
+    Billing b(getCurrentQuoteId());
 
+    if (b.isBilling()) editDocDialog = new AddQuoteDialog(
+                true, getCurrentCustomerId(),getCurrentQuoteId());
+    else editDocDialog = new AddQuoteDialog(
+                false, getCurrentCustomerId(),getCurrentQuoteId());
+
+    editDocDialog->exec();
+    delete editDocDialog;
+
+    updateTableBillings(getCurrentProjectId());
+    updateBtn();
+    updateTree();
 }
 }
