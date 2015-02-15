@@ -31,6 +31,9 @@ void searchWidget::search(QString text)
     s.setGroupFilter(false);
     s.setSearchInCompanies(true);
     s.setSearchInReferentLastname(true);
+    s.setSearchInContributories(false);
+    s.setSearchInProjects(false);
+    s.setSearchInBillsQuotes(false);
     s.setText(text);
     updateTable(s.getFilter());
 

@@ -17,7 +17,10 @@ private slots:
     void searchReferentLastname();
     void searchWithoutFilters();
     void searchCompanyNameWithSimpleQuote();
-
+    void searchProjectName();
+    void searchContributoryDescription();
+    void searchBillOrQuoteTitle();
+    void searchBillOrQuoteNumber();
 private:
     Search _search;
 };

@@ -188,6 +188,9 @@ void MainWindow::search(QString text)
     s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+    s.setSearchInProjects(ui->chkProjectName->isChecked());
+    s.setSearchInContributories(ui->chkContributory->isChecked());
+    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
@@ -212,6 +215,9 @@ void MainWindow::search(QString text)
     s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
     s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
     s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+    s.setSearchInProjects(ui->chkProjectName->isChecked());
+    s.setSearchInContributories(ui->chkContributory->isChecked());
+    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
@@ -243,6 +249,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getCustomersTable(filter));
+
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
     ui->tblCustomers->setColumnWidth(1, 200);
@@ -266,7 +273,8 @@ void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-    // http://stackoverflow.com/tags/qtreewidget/hot
+
+
     ui->trCustomers->header()->close();
 }
 
@@ -457,4 +465,9 @@ void MainWindow::editQuote()
     }
 
 }
+}
+
+void Gui::MainWindow::on_chkProjectName_clicked(bool checked)
+{
+
 }

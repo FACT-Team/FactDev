@@ -21,13 +21,12 @@ void BillingDatabaseTest::insert()
     setup();
     _lastInsert = Databases::BillingDatabase::instance()->addBilling(*b1);
     Billing* b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
-    //qDebug() << "insert" << b1->getDate() << " " << b2->getDate();
+
     QVERIFY(*b1 == *b2);
 }
 
 void BillingDatabaseTest::remove()
 {
-    qDebug() << _lastInsert;
     Databases::BillingDatabase::instance()->removeBilling(_lastInsert);
     Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
     QVERIFY(b2 == 0);

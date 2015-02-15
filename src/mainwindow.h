@@ -204,6 +204,8 @@ private slots:
      */
     void quotesProject();
 
+    void on_chkProjectName_clicked(bool checked);
+
 private:
     /**
      * @brief MainWindow::updateTable Update the table view

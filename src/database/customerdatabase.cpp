@@ -1,4 +1,5 @@
 #include "database/customerdatabase.h"
+#include <QDebug>
 
 namespace Databases {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
@@ -35,12 +36,13 @@ throw(DbException*)
                 );
     QSqlQuery q;
 
-
-    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, company,"
-              " phone, email "
-              "FROM Customer "
-              "WHERE 1 "+filter+" "
-                                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+              "c.lastnameReferent, c.company, c.phone, c.email "
+              "FROM Customer c, Project p, BillingProject bp "
+              "WHERE c.idCustomer = p.idCustomer "
+              "AND bp.idProject = p.idProject "
+              "AND 1 "+filter+" "
+              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
         throw new DbException(
@@ -74,35 +76,40 @@ throw(DbException*)
 {
     QStandardItemModel* ret = new QStandardItemModel();
 
-    // QUERY 1
-    // Query for customers
-    QSqlQuery q1;
+    QSqlQuery q;
 
-    q1.prepare( "SELECT * FROM Customer WHERE 1 " + filter + " "
-                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
-    if(!q1.exec()) {
+    q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+               "c.lastnameReferent, c.company, c.address, c.postalCode, "
+               "c.city, c.country, c.email, c.mobilephone, c.phone "
+               "FROM Customer c, Project p, BillingProject bp "
+               "WHERE c.idCustomer = p.idCustomer "
+               "AND bp.idProject = p.idProject "
+               "AND 1 "+filter+" "
+               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+
+    if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la liste des Customers",
                     "CustomerDatabase::getTree",
-                    lastError(q1),
+                    lastError(q),
                     1.1);
     }
 
     ret->appendRow(getItemRoot());
 
     // Manage any customer
-    while (q1.next()) {
-        QStandardItem *itemCustomer = getItemCustomer(q1);
+    while (q.next()) {
+        QStandardItem *itemCustomer = getItemCustomer(q);
 
         // QUERY 2
         // Query for projects of a customer
         QSqlQuery q2;
 
-        q2.prepare("SELECT *"
-                   "FROM Project WHERE idCustomer = :idCustom "
+        q2.prepare("SELECT * FROM Project "
+                   "WHERE idCustomer = :idCustom "
                    "ORDER BY UPPER(name), UPPER(description)");
-        q2.bindValue(":idCustom",value(q1, "idCustomer").toString());
+        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
 
         if(!q2.exec()) {
             throw new DbException(

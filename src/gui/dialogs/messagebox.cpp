@@ -59,7 +59,7 @@ void MessageBox::aboutFactDev()
     setImage(":/icons/FactDev");
     setText(
         "<p>FactDev est un logiciel de Facture et Devis développé par <br/>"
-        "l'équipe FACT dans le cadre de l'UE Projet pour l'université <br/>"
+        "l'équipe FACT dans le cadre de l'UE Projet pour l'Université <br/>"
         "Toulouse III - Paul  Sabatier.<br/></p>"
         "<p>"
        // "Ce logiciel est libre et sous license *****. "
