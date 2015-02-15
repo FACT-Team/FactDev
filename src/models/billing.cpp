@@ -72,16 +72,16 @@ QVariantHash Billing::getDataMap()
     billing["date"] = _date.toString("dddd d MMMM yyyy");
 // TODO daily rate !
     data["user"]  = Models::User(1).getDataMap();
-    data["customer"] = _contributories.keys().first()->getCustomer()->getDataMap();
+    data["customer"] = _contributories.getCustomer()->getDataMap();
     data["billing"] = billing;//
 
     QVariantList table;
     QVariantHash project;
     QVariantList contributories;
-    for(Project* p : _contributories.keys()) {
+    for(Project* p : _contributories.getProjects()) {
         project["nameproject"] = p->getName();
 
-        for(Contributory c : _contributories.value(p)) {
+        for(Contributory c : _contributories.getContributories(p)) {
             contributories << c.getDataMap();
         }
         project["contributories"] = contributories;
@@ -114,7 +114,7 @@ bool Billing::operator !=(const Billing &b)
     return !(*this == b);
 }
 
-QMap<Project*, QList<Contributory>> Billing::getContributories() const
+ContributoriesList Billing::getContributories() const
 {
     return _contributories;
 }

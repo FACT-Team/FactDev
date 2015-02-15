@@ -54,11 +54,7 @@ void AddQuoteDialog::fillFields() {
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
-     for(Project* p : _quote->getContributories().keys()) {
-         for(Contributory c : _quote->getContributories()[p]) {
-            ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
-         }
-     }
+    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(_quote->getContributories().getAllContributories());
 }
 
 void AddQuoteDialog::accept() {

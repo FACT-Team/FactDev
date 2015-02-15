@@ -33,7 +33,8 @@ public:
      * @brief add Add the Contributory <i>c</i> in the model
      * @param c the <b>Contributory</b>
      */
-    void add(Contributory c);
+    void add(QList<Contributory> &c);
+    void add(Contributory &c);
 public slots:
     /**
      * @brief add Add a new empty contributory

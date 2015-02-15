@@ -38,10 +38,17 @@ void ContributoriesWidget::add()
     emit contributoryChanged();
 }
 
-void ContributoriesWidget::add(Contributory c)
+void ContributoriesWidget::add(Contributory& c)
 {
     _model->append(c);
     emit contributoryChanged();
+}
+
+void ContributoriesWidget::add(QList<Contributory>& contributories)
+{
+    for(Contributory& c : contributories) {
+        add(c);
+    }
 }
 
 void ContributoriesWidget::remove()
