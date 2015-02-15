@@ -77,6 +77,15 @@ throw(DbException*)
     QStandardItemModel* retour = new QStandardItemModel();
 
     QSqlQuery q;
+    QString requete = "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+                      "c.lastnameReferent, c.company, c.address, c.postalCode, "
+                      "c.city, c.country, c.email, c.mobilephone, c.phone "
+                      "FROM Customer c, Project p, BillingProject bp "
+                      "WHERE c.idCustomer = p.idCustomer "
+                      "AND bp.idProject = p.idProject "
+                      "AND 1 "+filter+" "
+                      "ORDER BY UPPER(company), UPPER(lastnameReferent)";
+    /*
     q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
                "c.lastnameReferent, c.company, c.address, c.postalCode, "
                "c.city, c.country, c.email, c.mobilephone, c.phone "
@@ -85,7 +94,9 @@ throw(DbException*)
                "AND bp.idProject = p.idProject "
                "AND 1 "+filter+" "
                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
-
+    */
+    qDebug() << requete;
+    q.prepare(requete);
 
     if(!q.exec()) {
         throw new DbException(

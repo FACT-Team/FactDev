@@ -50,11 +50,14 @@ QString Search::getFilter()
 
 void Search::filterOnVarcharElements(QString &filter, const QStringList list, QString element)
 {
-    for (QString str: list) {
-        if (!str.isEmpty()) {
-            filter += "OR " + element + " LIKE '%" + str + "%' ";
+    filter += "OR "+ element + " LIKE '%";
+        for (QString str: list) {
+            if (!str.isEmpty()) {
+                filter += "" + str + "%";
+            }
         }
-    }
+    filter += "' ";
+
 }
 
 void Search::filterOnNumberElements(QString &filter, const QStringList list, QString element)
@@ -62,6 +65,7 @@ void Search::filterOnNumberElements(QString &filter, const QStringList list, QSt
     QRegExp numberRgx("[0-9]{1,}");
     numberRgx.setCaseSensitivity(Qt::CaseInsensitive);
     numberRgx.setPatternSyntax(QRegExp::RegExp);
+
 
     for (QString str: list) {
         if (numberRgx.exactMatch(str)) {
@@ -72,12 +76,20 @@ void Search::filterOnNumberElements(QString &filter, const QStringList list, QSt
 
 void Search::filterOnCompany(QString &filter, const QStringList list)
 {
-    filterOnVarcharElements(filter, list, "company");
+//    filter +=   " OR c.idCustomer = ( "
+//                    "SELECT idCustomer FROM Customer "
+//                    "WHERE (0 ";
+//  filterOnVarcharElements(filter, list, "company");
+    filter +=   " OR company LIKE '%" + _text + "%' ";
+//    filter +=   ")";
 }
 
 void Search::filterOnReferentLastname(QString &filter, const QStringList list)
 {
-    filterOnVarcharElements(filter, list, "lastnameReferent");
+//    filter +=   " AND (0 ";
+//    filterOnVarcharElements(filter, list, "lastnameReferent");
+      filter +=   " OR lastnameReferent LIKE '%" + _text + "%' ";
+//    filter +=   ")) ";
 }
 
 void Search::filterOnProjects(QString &filter, const QStringList list)
