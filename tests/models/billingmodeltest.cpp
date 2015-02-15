@@ -69,56 +69,35 @@ void BillingModelTest::hydrat()
     setup();
     Billing b2 = Billing(1);
     b1->setId(1);
-    b1->setTitle("fringilla,");
-    b1->setDescription("tempus risus. Donec egestas. "
-                      "Duis ac arcu. Nunc mauris. Morbi");
+    b1->setTitle("Coucou");
+    b1->setDescription("Mon super devis de la mort qui rox du poulet");
     b1->setNumber(1);
-    b1->setIsBilling(true);
-    b1->setDate(QDate(2015,04,24));
+    b1->setIsBilling(false);
+    b1->setDate(QDate(2015,02,13));
 
     QVERIFY(*b1 == b2);
 }
 
 void BillingModelTest::hydratWithContributories() {
     setup();
-    QMap<Project *, QList<Contributory> > contributories = Billing(1).getContributories();
-    QVERIFY(contributories.count() == 7);
+    QMap<Project *, QList<Contributory> > contributories = Billing(24).getContributories();
+    QCOMPARE(contributories.count(), 2);
 
     // we only check id… Remaining are already tested (getProject, getContributory)
     for(auto i = contributories.begin(); i != contributories.end() ; ++i) {
         switch(i.key()->getId()) {
-        case 22:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 17);
-            QVERIFY(i.value().at(1).getId() == 108);
+        case 21:
+            QCOMPARE(i.value().count(), 3);
+            QCOMPARE(i.value().at(0).getId(), 59);
+            QCOMPARE(i.value().at(1).getId(), 60);
+            QCOMPARE(i.value().at(2).getId(), 61);
             break;
-        case 29:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 220);
-            QVERIFY(i.value().at(1).getId() == 239);
-            break;
-        case 30:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 24);
-            break;
-        case 32:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 89);
-            break;
-        case 33:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 50);
-            break;
-        case 34:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 276);
-            break;
-        case 40:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 74);
+        case 44:
+            QCOMPARE(i.value().count(), 1);
+            QCOMPARE(i.value().at(0).getId(), 62);
             break;
         default:
-            QVERIFY(false);
+            QFAIL("Default case");
         }
     }
 }

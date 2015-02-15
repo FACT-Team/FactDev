@@ -51,6 +51,11 @@ int MainWindow::getCurrentProjectId() {
     return getCurrentTableId(ui->tblProjects);
 }
 
+int MainWindow::getCurrentQuoteId()
+{
+    return getCurrentTableId(ui->tblQuotes);
+}
+
 
 QString MainWindow::getCurrentCustomerName()
 {
@@ -408,5 +413,14 @@ void MainWindow::updateBtn()
     ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
     ui->btnDelCustomer->setEnabled(ui->tblCustomers->currentIndex().row() != -1);
     ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() != -1);
+}
+
+void MainWindow::editQuote()
+{
+    if(ui->tblQuotes->selectionModel()->hasSelection()) {
+        AddQuoteDialog addquotedialog(getCurrentCustomerId(),getCurrentQuoteId());
+        addquotedialog.exec();
+    }
+
 }
 }
