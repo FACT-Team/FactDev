@@ -431,10 +431,27 @@ void MainWindow::updateBtn()
 
     if (ui->tblQuotes->currentIndex().row() > -1
         && ui->tblQuotes->selectionModel()->hasSelection()) {
-        ui->btnEditQuote->setEnabled(!Billing(getCurrentQuoteId()).isBilling());
+        Billing b(getCurrentQuoteId());
+        if (b.isBilling()) {
+            ui->btnEditDoc->setText("Éditer la facture");
+            ui->btnEditDoc->setIcon(QIcon(":icons/img/add_bill"));
+            ui->btnEditQuote->setEnabled(false);
+            ui->btnEditBill->setEnabled(true);
+        } else {
+            ui->btnEditDoc->setText("Éditer le devis");
+            ui->btnEditDoc->setIcon(QIcon(":icons/img/add_quote"));
+            ui->btnEditBill->setEnabled(false);
+            ui->btnEditQuote->setEnabled(true);
+        }
+
+        ui->btnEditDoc->setEnabled(true);
         ui->btnLatex->setEnabled(true);
     } else {
+        ui->btnEditDoc->setText("Éditer le document");
+        ui->btnEditDoc->setIcon(QIcon(":icons/edit"));
+        ui->btnEditDoc->setEnabled(false);
         ui->btnEditQuote->setEnabled(false);
+        ui->btnEditBill->setEnabled(false);
         ui->btnLatex->setEnabled(false);
     }
 
@@ -467,6 +484,10 @@ void MainWindow::editBill()
         updateBtn();
         updateTree();
     }
+}
+
+void MainWindow::editDoc()
+{
 
 }
 }

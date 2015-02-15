@@ -165,6 +165,7 @@ public slots:
      * @brief MainWindow::editQuote Edit the quote of the project
      */
     void editBill();
+    void editDoc();
 
 private slots:
     /**

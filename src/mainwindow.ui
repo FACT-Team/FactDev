@@ -283,6 +283,17 @@
              </spacer>
             </item>
             <item>
+             <widget class="QPushButton" name="btnEditDoc">
+              <property name="text">
+               <string>Éditer le document</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="btnEditBill">
               <property name="text">
                <string>Editer facture</string>
@@ -1061,8 +1072,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1173,8 +1184,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>-131</x>
