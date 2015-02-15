@@ -68,7 +68,8 @@ SOURCES += mainwindow.cpp \
     utils/itemtype.cpp \
     gui/dialogs/messagebox.cpp \
     libs/qt-mustache/src/mustache.cpp \
-    generator.cpp
+    generator.cpp \
+    models/contributorieslist.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -121,7 +122,8 @@ HEADERS  += mainwindow.h \
     gui/widgets/checkfields/icheckfield.h \
     libs/qt-mustache/src/mustache.h \
     generator.h \
-    models/imodel.h
+    models/imodel.h \
+    models/contributorieslist.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

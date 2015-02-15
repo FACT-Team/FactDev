@@ -9,7 +9,7 @@
 #include "models/project.h"
 #include "models/contributory.h"
 #include "models/user.h"
-
+#include "models/contributorieslist.h"
 #include "database/contributorydatabase.h"
 
 #include "generator.h"
@@ -157,7 +157,7 @@ public:
     bool operator !=(const Billing &b);
 
 private:
-    QMap<Project*,QList<Contributory> > _contributories;   //!< List of contributories
+    ContributoriesList _contributories;   //!< List of contributories
     QString _title;                                         //!< Title of billing
     QString _description;                                   //!< Description of a billing
     int _number;                                            //!< Number of billing

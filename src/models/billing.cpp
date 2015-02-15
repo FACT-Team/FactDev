@@ -37,23 +37,10 @@ void Billing::commit()
     } else {
         BillingDatabase::instance()->updateBilling(*this);
     }
+    _contributories.setIdBilling(_id);
+    _contributories.setInsert(insert);
+    _contributories.commit();
 
-    // Commits contributories and projects
-    auto end = _contributories.cend();
-    for (auto it = _contributories.cbegin(); it != end; ++it) {
-        ((Project*)(it.key()))->commit();
-        for(Contributory c : it.value()) {
-            c.commit();
-
-            // Fill trinary legs… :)
-            if(insert) {
-                BillingDatabase::instance()->addBillingProject(((Project*)it.key())->getId(),
-                                                                _id,
-                                                               c.getId());
-            }
-
-        }
-    }
     Database::Database::instance()->closeTransaction();
 }
 
@@ -102,11 +89,7 @@ QVariantHash Billing::getDataMap()
         table << project;
         project.clear();
     }
-//    contributories << _contributories.values().first().first().getDataMap();
-//    contributories << _contributories.values().first().first().getDataMap();
-//    contributories << _contributories.values().first().first().getDataMap();
 
-//    table << project;
     data["table"] = table;
 
     return data;
@@ -138,10 +121,7 @@ QMap<Project*, QList<Contributory>> Billing::getContributories() const
 
 void Billing::addContributory(Contributory& c)
 {
-    if(_contributories.contains(c.getProject())) {
-        _contributories.insert(c.getProject(), QList<Contributory>());
-    }
-    _contributories[c.getProject()].push_back(c);
+    _contributories.addContributory(c);
 }
 
 QString Billing::getTitle() const
