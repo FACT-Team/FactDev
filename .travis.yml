@@ -12,7 +12,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install g++-4.8;
+  - sudo apt-get install g++-4.8 gdb
   - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0
   - mkdir ~/Qt5.2.0
   - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0
@@ -23,10 +23,9 @@ install:
   
 script:
   - ~/Qt5.2.0/5.2.0/gcc_64/bin/qmake FactDev.pro -r -spec linux-g++ CONFIG+=debug
-  - make -j9
+  - make -j15
   - LD_LIBRARY_PATH=`pwd`/src
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-  - ls $LD_LIBRARY_PATH/*.so*
   - ln -s `pwd`/src/sql `pwd`/tests/sql
   - cd tests
   - ./tests
