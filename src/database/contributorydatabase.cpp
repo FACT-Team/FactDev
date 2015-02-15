@@ -54,7 +54,7 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     QSqlQuery q;
     Models::Contributory* contributory;
 
-    q.prepare("SELECT * FROM Contributory WHERE idContributory = :pId");
+    q.prepare("SELECT idContributory, description as cdescription, nbhours FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
 
     if(!q.exec()) {
