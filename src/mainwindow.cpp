@@ -205,6 +205,7 @@ void MainWindow::search(QString text)
     s.setText(text);
     updateTableCustomers(s.getFilter());
     updateTree(s.getFilter());
+    qDebug() << s.getFilter();
     updateBtn();
 }
 
@@ -233,7 +234,6 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 void MainWindow::updateTableCustomers(QString filter) {
     ui->tblCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getCustomersTable(filter));
-
 
     ui->tblCustomers->hideColumn(0);
     ui->tblCustomers->setColumnWidth(0, 100);
