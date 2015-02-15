@@ -1228,24 +1228,6 @@ border: 1px solid #bbb;</string>
      <y>295</y>
     </hint>
    </hints>
-  </connection>
-  <connection>
-<<<<<<< HEAD
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkProjectName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>60</x>
-     <y>149</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>57</x>
-     <y>219</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>gpbxSearchFilter</sender>
    <signal>clicked(bool)</signal>
