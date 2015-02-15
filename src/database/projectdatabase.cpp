@@ -22,6 +22,8 @@ Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
     project->setId(value(q, "idProject").toInt());
     project->setName(value(q,"name").toString());
     project->setDescription(value(q,"pdescription").toString());
+    //project->setBeginDate(value(q,"beginDate").toDate());
+    //project->setEndDate(value(q,"endDate").toDate());
     project->setDailyRate(value(q,"dailyRate").toDouble());
     project->setCustomer(QSharedPointer<Models::Customer>(new Models::Customer(value(q,"idCustomer").toInt())));
 

@@ -20,11 +20,12 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     Models::Contributory* contributory = new Models::Contributory();
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbHours").toDouble());
-    contributory->setDescription(value(q, "description").toString());
+    contributory->setDescription(value(q, "cdescription").toString());
 
     QSqlQuery q2;
-    Models::Project* p;
-    q2.prepare("SELECT p.*, p.description as pdescription FROM BillingProject bp, Project p "
+    q2.prepare("SELECT p.idProject, name,  p.description as pdescription, "
+               " beginDate, endDate, dailyRate, idCustomer "
+               "FROM BillingProject bp, Project p "
                "WHERE idContributory= :idContributory "
                "AND bp.idProject = p.idProject");
 
@@ -81,7 +82,7 @@ QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getCo
     q.prepare(
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
-                " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, contributory.description as description, "
+                " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, contributory.description as cdescription, "
                 " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "
