@@ -1259,6 +1259,7 @@ border: 1px solid #bbb;</string>
      <x>107</x>
      <y>269</y>
    </hint>
+   </hints>
    <sender>btnEditQuote</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
