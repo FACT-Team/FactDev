@@ -217,7 +217,7 @@ int BillingDatabase::getMaxBillingNumber()
     return value(q, "max").toInt();
 }
 
-int BillingDatabase::getMaxQuoteNuber()
+int BillingDatabase::getMaxQuoteNumber()
 {
     QSqlQuery q;
     q.prepare("SELECT MAX(number) as max from Billing where isBilling=0");

@@ -4,7 +4,7 @@
 namespace Gui {
 namespace Dialogs {
 
-AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
+AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *parent) :
     QDialog(parent),
     _quote(0),
     ui(new Ui::AddQuoteDialog)
@@ -15,16 +15,24 @@ AddQuoteDialog::AddQuoteDialog(int idCustomer, int id, QWidget *parent) :
     if (id != 0) {
         _quote = new Billing(id);
         fillFields();
-        setWindowTitle("Modifier le devis N°" + QString::number(_quote->getNumber()) +
-                       " de " + (Customer(idCustomer).getCompany()));
+        if (isBilling) setWindowTitle("Modifier la facture n°"
+                                      + QString::number(getNumber()) + " de "
+                                      + (Customer(idCustomer).getCompany()));
+        else setWindowTitle("Modifier le devis n°"
+                            + QString::number(getNumber()) + " de "
+                            + (Customer(idCustomer).getCompany()));
     } else {
         _quote = new Billing();
+        _quote->setId(id);
         ui->dateEditQuote->setDate(QDate::currentDate());
-        setWindowTitle("Nouveau devis de " + (Customer(idCustomer).getCompany()));
+        if (isBilling) setWindowTitle("Nouveau devis n°"
+                                      +  QString::number(getNumber()) + " de "
+                                      + (Customer(idCustomer).getCompany()));
+        else setWindowTitle("Nouvelle facture n°"
+                            +  QString::number(getNumber()) + " de "
+                            + (Customer(idCustomer).getCompany()));
     }
-    _quote->setId(id);
-    _quote->setIsBilling(false);
-
+    _quote->setIsBilling(isBilling);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
     emit ui->leQuoteTitle->textChanged(_quote->getTitle());
@@ -34,6 +42,10 @@ AddQuoteDialog::~AddQuoteDialog()
 {
     delete _quote;
     delete ui;
+}
+
+int AddQuoteDialog::getNumber() {
+    return _quote->getNumber();
 }
 
 void AddQuoteDialog::fillFields() {
