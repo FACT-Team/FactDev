@@ -98,19 +98,19 @@ throw(DbException*)
     qDebug() << requete;
     q.prepare(requete);
 
-    if(!q1.exec()) {
+    if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la liste des Customers",
                     "CustomerDatabase::getTree",
-                    lastError(q1),
+                    lastError(q),
                     1.1);
     }
 
     ret->appendRow(getItemRoot());
 
     // Manage any customer
-    while (q1.next()) {
-        QStandardItem *itemCustomer = getItemCustomer(q1);
+    while (q.next()) {
+        QStandardItem *itemCustomer = getItemCustomer(q);
 
         // QUERY 2
         // Query for projects of a customer
@@ -119,7 +119,7 @@ throw(DbException*)
         q2.prepare("SELECT * FROM Project "
                    "WHERE idCustomer = :idCustom "
                    "ORDER BY UPPER(name), UPPER(description)");
-        q2.bindValue(":idCustom",value(q1, "idCustomer").toString());
+        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
 
         if(!q2.exec()) {
             throw new DbException(

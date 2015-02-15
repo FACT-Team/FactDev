@@ -81,10 +81,10 @@ void searchTest::searchContributoryDescription()
     _search.setSearchInProjects(false);
     _search.setSearchInContributories(true);
     _search.setSearchInBillsQuotes(false);
-    _search.setText("amet, conse");
-    QVERIFY(_search.getFilter() == "AND (0  OR bp.idContributory = ( SELECT idContributory FROM Contributory WHERE 0 OR description LIKE '%amet,%conse%' ))");
+    _search.setText("manger");
+    QVERIFY(_search.getFilter() == "AND (0  OR bp.idContributory = ( SELECT idContributory FROM Contributory WHERE 0 OR description LIKE '%manger%' ))");
     QStandardItemModel* model = Databases::CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "BELL");
+    QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "LOVE");
 }
 
 void searchTest::searchBillOrQuoteTitle()
@@ -94,10 +94,10 @@ void searchTest::searchBillOrQuoteTitle()
     _search.setSearchInProjects(false);
     _search.setSearchInContributories(false);
     _search.setSearchInBillsQuotes(true);
-    _search.setText("mollis nec");
-    QVERIFY(_search.getFilter() == "AND (0  AND 1 OR bp.idBilling = ( SELECT idBilling FROM Billing WHERE 0 OR title LIKE '%mollis%nec%'  OR 0 ))");
+    _search.setText("Baobab");
+    QVERIFY(_search.getFilter() == "AND (0  AND 1 OR bp.idBilling = ( SELECT idBilling FROM Billing WHERE 0 OR title LIKE '%Baobab%'  OR 0 ))");
     QStandardItemModel* model = Databases::CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "COTE");
+    QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "LOVE");
 }
 
 void searchTest::searchBillOrQuoteNumber()
@@ -107,10 +107,10 @@ void searchTest::searchBillOrQuoteNumber()
     _search.setSearchInProjects(false);
     _search.setSearchInContributories(false);
     _search.setSearchInBillsQuotes(true);
-    _search.setText("");
-    QVERIFY(_search.getFilter() == "");
+    _search.setText("5");
+    QVERIFY(_search.getFilter() == "AND (0  AND 1 OR bp.idBilling = ( SELECT idBilling FROM Billing WHERE 0 OR title LIKE '%5%'  OR 0 OR number=5 ))");
     QStandardItemModel* model = Databases::CustomerDatabase::instance()->getCustomersTable(_search.getFilter());
-    QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "");
+    QVERIFY(model->data(model->index(0, 2)).toString().toUpper() == "LOVE");
 }
 
 void searchTest::searchWithoutFilters()
