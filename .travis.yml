@@ -7,22 +7,22 @@ compiler:
 - g++
 
 before_install:
-  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -qq
+  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa >> /dev/null
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y >> /dev/null
+  - sudo apt-get update -qq >> /dev/null
 
 install:
-  - sudo apt-get install g++-4.8 gdb
-  - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0
-  - mkdir ~/Qt5.2.0
-  - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0
+  - sudo apt-get install g++-4.8 gdb >> /dev/null
+  - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 >> /dev/null
+  - mkdir ~/Qt5.2.0 
+  - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
   - sudo chmod -R 777 ~/Qt5.2.0/
   - export CXX="g++-4.8"
-  - sudo apt-get install -y lcov
-  - gem install coveralls-lcov
+  - sudo apt-get install -y lcov >> /dev/null
+  - gem install coveralls-lcov >> /dev/null
   
 script:
-  - ~/Qt5.2.0/5.2.0/gcc_64/bin/qmake FactDev.pro -r -spec linux-g++ CONFIG+=debug
+  - ~/Qt5.2.0/5.2.0/gcc_64/bin/qmake FactDev.pro -r -spec linux-g++ CONFIG+=debug >> /dev/null
   - make -j15 >> /dev/null
   - LD_LIBRARY_PATH=`pwd`/src
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
@@ -31,4 +31,4 @@ script:
   - ./tests
   - lcov --capture --directory ../src --output-file coverage.info >> /dev/null
   - lcov -r coverage.info ~/Qt5.2.0/5.2.0/gcc_64/\* /usr/include/\* /home/travis/build/FACT-Team/FactDev/src/gui/\* /home/travis/build/FACT-Team/FactDev/src/moc_\* /home/travis/build/FACT-Team/FactDev/src/ui_\* /home/travis/build/FACT-Team/FactDev/src/qrc_\* /home/travis/build/FACT-Team/FactDev/src/mainwindow.\* -o coverage.info | tail -n3
-  - coveralls-lcov coverage.info
+  - coveralls-lcov coverage.info >> /dev/null
