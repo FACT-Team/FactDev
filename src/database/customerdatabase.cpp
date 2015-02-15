@@ -87,7 +87,6 @@ throw(DbException*)
                "AND bp.idProject = p.idProject "
                "AND 1 "+filter+" "
                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
-    q.prepare(requete);
 
     if(!q.exec()) {
         throw new DbException(
