@@ -34,13 +34,6 @@ public:
     Billing(int id);
 
     /**
-     * @brief Billing::Billing. Construct a Billing or quote.
-     * @param int id
-     * @param bool isBilling
-     */
-    Billing(int id, bool isBilling);
-
-    /**
       * @brief destruct a billing object
     */
     ~Billing();

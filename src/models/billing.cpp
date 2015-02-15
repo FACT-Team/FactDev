@@ -18,12 +18,6 @@ Billing::Billing(int id)
     hydrat(id);
 }
 
-Billing::Billing(int id, bool isBilling)
-{
-    hydrat(id, isBilling);
-
-}
-
 Billing::~Billing()
 {
 //    auto end = _contributories.cend();
