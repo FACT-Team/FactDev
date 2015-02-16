@@ -1,4 +1,5 @@
 #include "billingdatabasetest.h"
+#include "database/billingdatabase.h"
 
 BillingDatabaseTest::BillingDatabaseTest()
 {
@@ -109,4 +110,3 @@ void BillingDatabaseTest::removeBillingProject()
             q.isNull("idBilling") &&
             q.isNull("idCOntributory"));
 }
-
