@@ -140,6 +140,10 @@ void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
 }
 
+void MainWindow::removeDoc() {
+
+}
+
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 {
     if (tbl->selectionModel()->hasSelection()) {
@@ -477,9 +481,4 @@ void MainWindow::openContextualMenuTree(const QPoint point)
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
 
 }
-}
-
-void Gui::MainWindow::on_chkProjectName_clicked(bool checked)
-{
-
 }

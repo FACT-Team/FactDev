@@ -167,6 +167,10 @@ public slots:
      * @brief MainWindow::editDoc Edit the quote or bill of the project
      */
     void editDoc();
+    /**
+     * @brief MainWindow::removeDoc Remove the quote or bill of the project
+     */
+    void removeDoc();
 
 private slots:
     /**
@@ -207,8 +211,6 @@ private slots:
      * of the project in the table of projects
      */
     void quotesProject();
-
-    void on_chkProjectName_clicked(bool checked);
 
 private:
     /**
