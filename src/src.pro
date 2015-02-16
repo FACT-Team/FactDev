@@ -42,7 +42,6 @@ SOURCES += mainwindow.cpp \
     gui/dialogs/addprojectdialog.cpp \
     gui/widgets/ratewidget.cpp \
     database/projectdatabase.cpp \
-    gui/dialogs/addcontributorydialog.cpp \
     gui/widgets/comboboxmodelwidget.cpp\
     utils/string.cpp \
     gui/widgets/searchwidget.cpp \
@@ -69,7 +68,8 @@ SOURCES += mainwindow.cpp \
     gui/dialogs/messagebox.cpp \
     libs/qt-mustache/src/mustache.cpp \
     generator.cpp \
-    models/contributorieslist.cpp
+    models/contributorieslist.cpp \
+    gui/widgets/widgetsmodels/projectcontributoriestablemodel.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -94,7 +94,6 @@ HEADERS  += mainwindow.h \
     gui/dialogs/addprojectdialog.h \
     gui/widgets/ratewidget.h \
     database/projectdatabase.h \
-    gui/dialogs/addcontributorydialog.h \
     gui/widgets/comboboxmodelwidget.h \
     utils/string.h \
     gui/widgets/searchwidget.h \
@@ -123,14 +122,14 @@ HEADERS  += mainwindow.h \
     libs/qt-mustache/src/mustache.h \
     generator.h \
     models/imodel.h \
-    models/contributorieslist.h
+    models/contributorieslist.h \
+    gui/widgets/widgetsmodels/projectcontributoriestablemodel.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
     gui/dialogs/userdatadialog.ui \
     gui/dialogs/addprojectdialog.ui \
     gui/widgets/ratewidget.ui \
-    gui/dialogs/addcontributorydialog.ui \
     gui/widgets/comboboxmodelwidget.ui \
     gui/widgets/searchwidget.ui \
     gui/widgets/customerdatawidget.ui \
