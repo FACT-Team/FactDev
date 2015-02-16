@@ -3,10 +3,12 @@
 
 #include <QWidget>
 #include <QStandardItem>
+#include <QSpinBox>
 
 #include "models/contributory.h"
 
 #include "gui/widgets/widgetsmodels/contributoriestablemodel.h"
+#include "gui/widgets/widgetsmodels/projectcontributoriestablemodel.h"
 
 namespace Ui {
 class ContributoriesWidget;
@@ -46,11 +48,17 @@ public slots:
      */
     void remove(void);
 
+    void addProject(void);
+    void removeProject(void);
+    void changeProject(void);
+
 signals:
     void contributoryChanged();
 private:
     Ui::ContributoriesWidget *ui;
-    Gui::Widgets::WdgModels::ContributoriesTableModel* _model;
+    QList<WdgModels::ContributoriesTableModel*> _modelsContributories;
+    Gui::Widgets::WdgModels::ProjectContributoriesTableModel* _modelProjects;
+    QSharedPointer<Customer> _customer;
 };
 }
 }

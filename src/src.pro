@@ -69,7 +69,8 @@ SOURCES += mainwindow.cpp \
     libs/qt-mustache/src/mustache.cpp \
     generator.cpp \
     models/contributorieslist.cpp \
-    gui/widgets/widgetsmodels/projectcontributoriestablemodel.cpp
+    gui/widgets/widgetsmodels/projectcontributoriestablemodel.cpp \
+    gui/widgets/delegates/doublespinboxdelegate.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -123,7 +124,8 @@ HEADERS  += mainwindow.h \
     generator.h \
     models/imodel.h \
     models/contributorieslist.h \
-    gui/widgets/widgetsmodels/projectcontributoriestablemodel.h
+    gui/widgets/widgetsmodels/projectcontributoriestablemodel.h \
+    gui/widgets/delegates/doublespinboxdelegate.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

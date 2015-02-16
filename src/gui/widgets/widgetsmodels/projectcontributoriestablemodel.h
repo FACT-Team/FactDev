@@ -65,8 +65,10 @@ public:
       */
      Qt::ItemFlags flags(const QModelIndex & index) const ;
 
+    void append();
+
 private:
-     QSet<QPair<Models::Project*, double> > _projects;
+     QList<QPair<Models::Project*, double> > _projects;
 };
 
 }

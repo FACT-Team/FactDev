@@ -1,5 +1,5 @@
 #include "projectcontributoriestablemodel.h"
-
+#include <QDebug>
 namespace Gui {
 namespace Widgets {
 namespace WdgModels {
@@ -21,6 +21,7 @@ int ProjectContributoriesTableModel::columnCount(const QModelIndex &) const
 
 QVariant ProjectContributoriesTableModel::data(const QModelIndex &index, int role) const
 {
+    return QVariant();
 
 }
 
@@ -45,12 +46,19 @@ QVariant ProjectContributoriesTableModel::headerData(int section, Qt::Orientatio
 
 bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-
+    qDebug() << "test";
 }
 
 Qt::ItemFlags ProjectContributoriesTableModel::flags(const QModelIndex &index) const
 {
-    return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
+    return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled;
+}
+
+void ProjectContributoriesTableModel::append()
+{
+    beginInsertRows(QModelIndex(), _projects.count(), _projects.count());
+    _projects.append(QPair<Models::Project*, double>(new Models::Project, 0));
+    endInsertRows();
 }
 
 }
