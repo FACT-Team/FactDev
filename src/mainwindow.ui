@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -128,6 +128,9 @@
          <widget class="QTableView" name="tblProjects">
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
           </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
@@ -283,13 +286,13 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="btnEditQuote">
+             <widget class="QPushButton" name="btnEditDoc">
               <property name="text">
-               <string>Editer devis</string>
+               <string>Éditer le document</string>
               </property>
               <property name="icon">
                <iconset resource="icons.qrc">
-                <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
+                <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
               </property>
              </widget>
             </item>
@@ -836,8 +839,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>326</x>
-     <y>117</y>
+     <x>355</x>
+     <y>519</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -1028,12 +1031,28 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>233</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
      <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackToProjects</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToProjectsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>392</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>672</x>
+     <y>567</y>
     </hint>
    </hints>
   </connection>
@@ -1044,8 +1063,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1060,8 +1079,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1076,8 +1095,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>492</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1124,8 +1143,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>233</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1166,14 +1185,14 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>btnEditQuote</sender>
-   <signal>released()</signal>
+   <sender>tblQuotes</sender>
+   <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>editQuote()</slot>
+   <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>722</x>
-     <y>536</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>502</x>
@@ -1358,18 +1377,18 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>tblQuotes</sender>
-   <signal>clicked(QModelIndex)</signal>
+   <sender>btnEditDoc</sender>
+   <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>updateBtn()</slot>
+   <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>608</x>
-     <y>326</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
-     <x>618</x>
-     <y>295</y>
+     <x>319</x>
+     <y>563</y>
     </hint>
    </hints>
   </connection>
@@ -1399,7 +1418,7 @@ border: 1px solid #bbb;</string>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
   <slot>updateBtn()</slot>
-  <slot>editQuote()</slot>
   <slot>addBill()</slot>
+  <slot>editDoc()</slot>
  </slots>
 </ui>

@@ -84,6 +84,12 @@ public:
      * @return integer, depth of the item in tree
      */
     int treeLevel();
+    /**
+     * @brief MainWindow::addDoc open window to add a new document
+     * @param bool quote or bill
+     * @see addBill addQuote
+     */
+    void addDoc(bool isBilling);
 
     void demo();
 public slots:
@@ -153,16 +159,14 @@ public slots:
      * @brief MainWindow::aboutIcons() show icons's details
      */
     void aboutIcons();
-
     /**
      * @brief updateBtn Update all button to disable or enabled its
      */
     void updateBtn(void);
-
     /**
-     * @brief MainWindow::editQuote Edit the quote of the project
+     * @brief MainWindow::editDoc Edit the quote or bill of the project
      */
-    void editQuote();
+    void editDoc();
 
 private slots:
     /**
@@ -210,13 +214,16 @@ private:
     /**
      * @brief MainWindow::updateTable Update the table view
      * (just client in the first version)
+     * @param filter
+     * @param row optional parameter for select the row in table
      */
-    void updateTableCustomers(QString filter="");
+    void updateTableCustomers(QString filter="", const int row = -1);
     /**
      * @brief MainWindow::updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
+     * @param row optional parameter for select the row in table
      */
-    void updateTableProjects(const int pId = 0);
+    void updateTableProjects(const int pId = 0, const int row = -1);
 
 
     /**
@@ -232,8 +239,9 @@ private:
      * @brief MainWindow::updateTableBillings Update the table of
      * billings view
      * @param idProject Only billings corresponding to the idProject
+     * @param row optional parameter for select the row in table
      */
-    void updateTableBillings(const int idProject);
+    void updateTableBillings(const int idProject, const int row = -1);
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
      * table <i>tbl</i>
