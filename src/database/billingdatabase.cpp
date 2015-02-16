@@ -148,7 +148,7 @@ void BillingDatabase::removeBillingProject(const int idProject, const int idBill
     QSqlQuery q;
     QString project;
 
-    (idProject == 0) ? project="" : project="idProject= "+QString(idProject)+" AND ";
+    (idProject == 0) ? project="" : project="idProject= "+ QString::number(idProject) +" AND ";
 
     q.prepare(
                 "DELETE FROM BillingProject "
