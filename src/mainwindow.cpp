@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->trCustomers,
         SIGNAL(customContextMenuRequested(const QPoint &)),
         this,
-        SLOT(openContextualMenuTree(const QPoint &)));
+        SLOT(openContextupdualMenuTree(const QPoint &)));
 
     updateUser();
     demo();
@@ -247,6 +247,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 }
 
 void MainWindow::updateTableCustomers(QString filter) {
+
     ui->tblCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getCustomersTable(filter));
 

@@ -162,8 +162,15 @@ QStandardItem *CustomerDatabase::getItemRoot() {
 
 QStandardItem *CustomerDatabase::getItemCustomer(QSqlQuery q1) {
     QStandardItem *itemCustomer;
-    if(value(q1,"company").toString().isEmpty()) itemCustomer = new QStandardItem(value(q1, "lastnameReferent").toString().toUpper() + " " + Utils::String::firstLetterToUpper(value(q1,"firstnameReferent").toString()));
-    else itemCustomer = new QStandardItem(Utils::String::firstLetterToUpper(value(q1,"company").toString()));
+    if(value(q1,"company").toString().isEmpty()) {
+        itemCustomer =
+                new QStandardItem(value(q1, "lastnameReferent").toString().toUpper()
+                + " "
+                + Utils::String::firstLetterToUpper(value(q1,"firstnameReferent").toString()));
+    } else {
+        itemCustomer =
+                new QStandardItem(Utils::String::firstLetterToUpper(value(q1,"company").toString()));
+    }
     itemCustomer->setIcon(QIcon(":icons/customer"));
     return itemCustomer;
 }
@@ -176,8 +183,12 @@ QStandardItem *CustomerDatabase::getItemProject(QSqlQuery q2) {
 
 QStandardItem *CustomerDatabase::getItemBillQuote(QSqlQuery q3) {
     QStandardItem *itemBillQuote = new QStandardItem(value(q3,"date").toString() + " " + value(q3,"title").toString());
-    if (value(q3,"isBilling").toInt() == 0) itemBillQuote->setIcon(QIcon(":icons/img/quote"));
-    else if (value(q3,"isBilling").toInt() == 1) itemBillQuote->setIcon(QIcon(":icons/img/bill"));
+    if (value(q3,"isBilling").toInt() == 0) {
+        itemBillQuote->setIcon(QIcon(":icons/img/quote"));
+    } else if (value(q3,"isBilling").toInt() == 1) {
+        itemBillQuote->setIcon(QIcon(":icons/img/bill"));
+    }
+
     return itemBillQuote;
 }
 
