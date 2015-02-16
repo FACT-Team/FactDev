@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
         SLOT(openContextualMenuTree(const QPoint &)));
 
     updateUser();
+    updateBtn();
     demo();
 }
 
@@ -232,9 +233,6 @@ void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-
-
-    ui->trCustomers->header()->close();
 }
 
 void MainWindow::newProject()
@@ -328,13 +326,18 @@ void MainWindow::changeTree()
     default:        // Other
         break;
     }
-
     updateBtn();
 }
 
 void MainWindow::changeCustomerTable()
 {
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
+    int row = ui->tblCustomers->currentIndex().row();
+    QModelIndex index(ui->trCustomers->indexAt(QPoint()));
+    for (int i = 0 ; i <= row ; ++i) {
+        index = ui->trCustomers->indexBelow(index);
+    }
+    ui->trCustomers->setCurrentIndex(index);
     updateBtn();
 }
 
@@ -379,6 +382,7 @@ void MainWindow::updateBtn()
     } else {
         ui->btnEdit->setEnabled(false);
         ui->btnDelCustomer->setEnabled(false);
+        ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
     }
 
     if (ui->tblProjects->currentIndex().row() > -1
