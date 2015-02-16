@@ -398,17 +398,24 @@ void MainWindow::updateBtn()
         if (b.isBilling()) {
             ui->btnEditDoc->setText("Éditer la facture");
             ui->btnEditDoc->setIcon(QIcon(":icons/img/add_bill"));
+            ui->btnRemoveDoc->setText("Supprimer la facture");
+            ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_bill"));
         } else {
             ui->btnEditDoc->setText("Éditer le devis");
             ui->btnEditDoc->setIcon(QIcon(":icons/img/add_quote"));
+            ui->btnRemoveDoc->setText("Supprimer le devis");
+            ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_quote"));
         }
-
+        ui->btnRemoveDoc->setEnabled(true);
         ui->btnEditDoc->setEnabled(true);
         ui->btnLatex->setEnabled(true);
     } else {
         ui->btnEditDoc->setText("Éditer le document");
         ui->btnEditDoc->setIcon(QIcon(":icons/edit"));
         ui->btnEditDoc->setEnabled(false);
+        ui->btnRemoveDoc->setText("Supprimer le document");
+        ui->btnRemoveDoc->setIcon(QIcon(":icons/edit"));
+        ui->btnRemoveDoc->setEnabled(false);
         ui->btnLatex->setEnabled(false);
     }
 }
