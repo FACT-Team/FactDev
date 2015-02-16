@@ -82,6 +82,7 @@ void BillingDatabaseTest::addBillingProject()
     }
 
     q.first();
+    qDebug() << q.isNull(0);
     QVERIFY(q.value("idProject").toInt()==project &&
             q.value("idBilling").toInt()==billing &&
             q.value("idContributory").toInt()==contributory);
@@ -106,7 +107,7 @@ void BillingDatabaseTest::removeBillingProject()
                     1.3);
     }
     q.first();
-    QVERIFY(q.isNull("idProject") &&
-            q.isNull("idBilling") &&
-            q.isNull("idCOntributory"));
+    QVERIFY(q.isNull(0) &&
+            q.isNull(1) &&
+            q.isNull(2));
 }
