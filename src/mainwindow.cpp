@@ -141,39 +141,38 @@ void MainWindow::removeProject() {
 }
 
 void MainWindow::removeDoc() {
-
+    removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
 }
 
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 {
-    if (tbl->selectionModel()->hasSelection()) {
-
-        if (QMessageBox::warning(
-                    this,
-                    "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
-                    "Voulez vous supprimer " +
-                    (itemType.getType() == ItemType::BILLING ?
-                            "la " +itemType.getName()+" séléctionnée" :
-                            "le "+itemType.getName()+" sélectionné") + " ?",
-                    "Supprimer",
-                    "Annuler") == 0)
-        {
-            QModelIndex ls = tbl->selectionModel()->selectedRows().first();
-            int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
-            itemType.getModel(pid)->remove();
-            switch(itemType.getType()) {
-            case ItemType::CUSTOMER:
-                updateTableCustomers();
-                break;
-            case ItemType::PROJECT:
-                updateTableProjects();
-                break;
-            case ItemType::BILLING:
-                break;
-            }
-
-            updateTree();
+    if (QMessageBox::warning(
+                this,
+                "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
+                "Voulez vous supprimer " +
+                (itemType.getType() == ItemType::BILLING ?
+                        "la " +itemType.getName()+" séléctionnée" :
+                        "le "+itemType.getName()+" sélectionné") + " ?",
+                "Supprimer",
+                "Annuler") == 0)
+    {
+        QModelIndex ls = tbl->selectionModel()->selectedRows().first();
+        int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
+        itemType.getModel(pid)->remove();
+        switch(itemType.getType()) {
+        case ItemType::CUSTOMER:
+            updateTableCustomers();
+            break;
+        case ItemType::PROJECT:
+            updateTableProjects();
+            break;
+        case ItemType::BILLING:
+            updateTableBillings(getCurrentProjectId());
+            break;
         }
+
+        updateTree();
+        updateBtn();
     }
 }
 
