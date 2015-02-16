@@ -146,13 +146,16 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
 void BillingDatabase::removeBillingProject(const int idProject, const int idBilling, const int idContributory)
 {
     QSqlQuery q;
+    QString project;
+
+    (idProject == 0) ? project="" : project="idProject= "+QString(idProject)+" AND ";
+
     q.prepare(
                 "DELETE FROM BillingProject "
-                "WHERE idProject=:idProject "
-                "AND idBilling=:idBilling "
+                "WHERE "+project+
+                "idBilling=:idBilling "
                 "AND idContributory=:idContributory");
 
-    q.bindValue(":idProject",idProject);
     q.bindValue(":idBilling", idBilling);
     q.bindValue(":idContributory",idContributory);
 
