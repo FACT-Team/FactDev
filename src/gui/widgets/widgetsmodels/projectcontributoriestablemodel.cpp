@@ -1,5 +1,6 @@
 #include "projectcontributoriestablemodel.h"
 #include <QDebug>
+#include "utils/log.h"
 namespace Gui {
 namespace Widgets {
 namespace WdgModels {
@@ -21,8 +22,15 @@ int ProjectContributoriesTableModel::columnCount(const QModelIndex &) const
 
 QVariant ProjectContributoriesTableModel::data(const QModelIndex &index, int role) const
 {
-    return QVariant();
-
+    if (role != Qt::DisplayRole && role != Qt::EditRole) {
+        return QVariant();
+    }
+    switch (index.column()) {
+    case 0: return _projects[index.row()].first->getId();
+    case 1: return _projects[index.row()].second;
+    case 2: return _projects[index.row()].second;
+    default: return QVariant();
+    };
 }
 
 QVariant ProjectContributoriesTableModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -46,7 +54,23 @@ QVariant ProjectContributoriesTableModel::headerData(int section, Qt::Orientatio
 
 bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    qDebug() << "test";
+    if (role == Qt::EditRole) {
+        switch(index.column()) {
+        case 0:
+            delete _projects[index.row()].first;
+            _projects[index.row()].first = new Models::Project(value.toInt());
+            break;
+        case 1:
+            _projects[index.row()].second = value.toDouble();
+            break;
+        case 2:
+            break;
+        default:
+        Utils::Log::instance(Utils::WARNING) << "Error, in default case of ContributoriesTableModel::setData";
+        }
+    }
+
+    return true;
 }
 
 Qt::ItemFlags ProjectContributoriesTableModel::flags(const QModelIndex &index) const
