@@ -3,6 +3,9 @@
 
 #include "checkuntilfield.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckPhone class Line Edit of Phone number with a check icon
  */
@@ -37,5 +40,8 @@ public:
 private :
     QString _country;
 };
+}
+}
+}
 
 #endif // CHECKPHONE_H

@@ -2,6 +2,11 @@
 #include "checkphone.h"
 #include <QDebug>
 #include <QStringRef>
+
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
+
 CheckPhone::CheckPhone(QWidget *w, QPushButton* btn) : CheckUntilField(w, btn) {
     _country = "";
 }
@@ -45,3 +50,6 @@ void CheckPhone::setCountry(const QString &country)
 }
 
 
+}
+}
+}

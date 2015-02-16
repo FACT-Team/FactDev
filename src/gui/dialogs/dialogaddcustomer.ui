@@ -25,7 +25,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1" colspan="4">
-       <widget class="CheckUntilField" name="leAddress">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress">
         <property name="placeholderText">
          <string>51 Avenue du Général de Gaulle</string>
         </property>
@@ -39,7 +39,7 @@
        </widget>
       </item>
       <item row="1" column="4">
-       <widget class="CheckCity" name="leCity">
+       <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity">
         <property name="placeholderText">
          <string>TOULOUSE</string>
         </property>
@@ -53,7 +53,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="CheckPostalCode" name="lePostalCode">
+       <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode">
         <property name="placeholderText">
          <string>31400</string>
         </property>
@@ -74,7 +74,7 @@
        </widget>
       </item>
       <item row="2" column="1" colspan="4">
-       <widget class="CheckCountry" name="leCountry">
+       <widget class="Gui::Widgets::CheckFields::CheckCountry" name="leCountry">
         <property name="placeholderText">
          <string>FRANCE</string>
         </property>
@@ -84,7 +84,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="CheckValidField" name="leCompany">
+    <widget class="Gui::Widgets::CheckFields::CheckValidField" name="leCompany">
      <property name="toolTip">
       <string>Nom de la société du client</string>
      </property>
@@ -108,7 +108,7 @@
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="CheckEmail" name="leEmail">
+    <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail">
      <property name="placeholderText">
       <string>roger.waters@ag42plus.com</string>
      </property>
@@ -122,7 +122,7 @@
     </widget>
    </item>
    <item row="6" column="1">
-    <widget class="CheckPhone" name="leMobilePhone">
+    <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
      <property name="placeholderText">
       <string>06 01 02 03 04</string>
      </property>
@@ -136,7 +136,7 @@
     </widget>
    </item>
    <item row="8" column="1">
-    <widget class="CheckPhone" name="leFax">
+    <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leFax">
      <property name="placeholderText">
       <string>05 01 02 03 09</string>
      </property>
@@ -150,14 +150,14 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="CheckName" name="leLastNameReferent">
+    <widget class="Gui::Widgets::CheckFields::CheckName" name="leLastNameReferent">
      <property name="placeholderText">
       <string>BALAKA</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="CheckName" name="leFirstNameReferent">
+    <widget class="Gui::Widgets::CheckFields::CheckName" name="leFirstNameReferent">
      <property name="placeholderText">
       <string>Roger</string>
      </property>
@@ -217,7 +217,7 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="CheckPhone" name="lePhone">
+    <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
      <property name="placeholderText">
       <string>05 01 02 03 04</string>
      </property>
@@ -227,7 +227,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Gui::Widgets::CheckUntilField</class>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>
@@ -235,7 +235,7 @@
    </slots>
   </customwidget>
   <customwidget>
-  <class>Gui::Widgets::CheckEmail</class>
+  <class>Gui::Widgets::CheckFields::CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkemail.h</header>
    <slots>
@@ -243,7 +243,7 @@
    </slots>
   </customwidget>
   <customwidget>
-  <class>Gui::Widgets::CheckCity</class>
+  <class>Gui::Widgets::CheckFields::CheckCity</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcity.h</header>
    <slots>
@@ -251,7 +251,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckName</class>
+   <class>Gui::Widgets::CheckFields::CheckName</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkname.h</header>
    <slots>
@@ -259,7 +259,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckValidField</class>
+   <class>Gui::Widgets::CheckFields::CheckValidField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkvalidfield.h</header>
    <slots>
@@ -267,7 +267,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckPhone</class>
+   <class>Gui::Widgets::CheckFields::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
    <slots>
@@ -275,7 +275,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckPostalCode</class>
+   <class>Gui::Widgets::CheckFields::CheckPostalCode</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkpostalcode.h</header>
    <slots>
@@ -283,7 +283,7 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckCountry</class>
+   <class>Gui::Widgets::CheckFields::CheckCountry</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcountry.h</header>
    <slots>

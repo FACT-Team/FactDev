@@ -49,8 +49,7 @@ int AddQuoteDialog::getNumber() {
 }
 
 void AddQuoteDialog::fillFields() {
-
-     ((CheckUntilField*) ui->leQuoteTitle)->setText(_quote->getTitle());
+     ui->leQuoteTitle->setText(_quote->getTitle());
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 

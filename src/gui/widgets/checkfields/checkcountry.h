@@ -3,6 +3,9 @@
 
 #include "checkfieldsletters.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief CheckCountry::CheckCountry Line Edit of country with a check icon
  */
@@ -17,5 +20,7 @@ public:
 
 
 };
-
+}
+}
+}
 #endif // CHECKCOUNTRY_H

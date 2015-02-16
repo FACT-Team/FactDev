@@ -3,6 +3,9 @@
 
 #include "checkqlineedit.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckValidField class Check field not required
  */
@@ -21,5 +24,7 @@ public:
      */
     bool check(QString text);
 };
-
+}
+}
+}
 #endif // CHECKVALIDFIELD_H

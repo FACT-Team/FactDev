@@ -1,5 +1,8 @@
 #include "checkemail.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 
 CheckEmail::CheckEmail(QWidget* w, QPushButton* btn ) : CheckQLineEdit(w, btn)
 {
@@ -17,4 +20,8 @@ bool CheckEmail::check(QString text)
     emailRgx.setPatternSyntax(QRegExp::RegExp);
 
     return emailRgx.exactMatch(text);
+}
+
+}
+}
 }

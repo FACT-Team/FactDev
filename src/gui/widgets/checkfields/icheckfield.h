@@ -3,6 +3,9 @@
 
 #include <QString>
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The ICheckField class Interface to check fields validity
  */
@@ -17,5 +20,7 @@ public:
     virtual bool check(QString text) = 0;
 
 };
-
+}
+}
+}
 #endif // ICHECKFIELD_H

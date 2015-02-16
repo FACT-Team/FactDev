@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>736</width>
-    <height>371</height>
+    <width>1024</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,9 +81,6 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="CheckUntilField" name="leQuoteTitle"/>
-   </item>
    <item row="3" column="1">
     <widget class="QTextEdit" name="leDescription">
      <property name="sizePolicy">
@@ -123,11 +120,14 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="1">
+    <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leQuoteTitle"/>
+   </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Gui::Widgets::CheckUntilField</class>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>
@@ -146,12 +146,12 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>639</x>
-     <y>340</y>
+     <x>2010</x>
+     <y>1013</y>
     </hint>
     <hint type="destinationlabel">
-     <x>114</x>
-     <y>201</y>
+     <x>1211</x>
+     <y>754</y>
     </hint>
    </hints>
   </connection>
@@ -162,44 +162,12 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>725</x>
-     <y>340</y>
+     <x>2113</x>
+     <y>1013</y>
     </hint>
     <hint type="destinationlabel">
-     <x>393</x>
-     <y>198</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leQuoteTitle</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>AddQuoteDialog</receiver>
-   <slot>updateBtn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>131</x>
-     <y>22</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-67</x>
-     <y>162</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leQuoteTitle</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leQuoteTitle</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>185</x>
-     <y>28</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>406</x>
-     <y>19</y>
+     <x>1490</x>
+     <y>751</y>
     </hint>
    </hints>
   </connection>

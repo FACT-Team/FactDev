@@ -3,6 +3,9 @@
 
 #include "checkqlineedit.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckUntilField class
  */
@@ -23,5 +26,7 @@ public:
      */
     bool check (QString text);
 };
-
+}
+}
+}
 #endif // CHECKUNTILFIELD_H

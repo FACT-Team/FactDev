@@ -3,6 +3,9 @@
 
 #include "checkfieldsletters.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckName class Line edit of name with a check icon
  */
@@ -17,5 +20,7 @@ public:
 
 
 };
-
+}
+}
+}
 #endif // CHECKNAME_H
