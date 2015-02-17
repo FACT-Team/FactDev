@@ -23,9 +23,11 @@ public:
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
+    void removeInCombo(QList<int>&);
 
 private:
   QMap<int, Models::Project> _projects;
+  QList<int> _removeInCombo;
 };
 }
 }

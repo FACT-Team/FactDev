@@ -78,11 +78,17 @@ void ContributoriesWidget::addProject(void)
 void ContributoriesWidget::removeProject(void)
 {
     qDebug() << "I want to remove this project :-(";
+    _modelProjects->remove(ui->tblProjects->currentIndex().row());
 }
 
 void ContributoriesWidget::changeProject()
 {
     ui->stack->setCurrentIndex(ui->tblProjects->currentIndex().row());
+}
+
+void ContributoriesWidget::editing()
+{
+    ((Delegates::ProjectComboDelegate*)ui->tblProjects->itemDelegateForColumn(0))->removeInCombo(_modelProjects->getSelectedProjects());
 }
 
 int ContributoriesWidget::count() {

@@ -51,6 +51,7 @@ public slots:
     void addProject(void);
     void removeProject(void);
     void changeProject(void);
+    void editing(void);
 
 signals:
     void contributoryChanged();

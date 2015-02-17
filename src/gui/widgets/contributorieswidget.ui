@@ -28,7 +28,7 @@
     </spacer>
    </item>
    <item row="1" column="2">
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="btnRemoveProject">
      <property name="text">
       <string>Supprimer le projet</string>
      </property>
@@ -61,7 +61,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="btnAddProject">
      <property name="text">
       <string>Ajouter le projet</string>
      </property>
@@ -130,7 +130,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_3</sender>
+   <sender>btnAddProject</sender>
    <signal>released()</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>addProject()</slot>
@@ -146,7 +146,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_4</sender>
+   <sender>btnRemoveProject</sender>
    <signal>released()</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>removeProject()</slot>
@@ -193,6 +193,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>editing()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-110</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>add()</slot>
@@ -200,5 +216,6 @@
   <slot>addProject()</slot>
   <slot>removeProject()</slot>
   <slot>changeProject()</slot>
+  <slot>editing()</slot>
  </slots>
 </ui>

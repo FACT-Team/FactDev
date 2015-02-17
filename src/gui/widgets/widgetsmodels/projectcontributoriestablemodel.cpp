@@ -57,8 +57,8 @@ bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QV
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
-            delete _projects[index.row()].first;
-            _projects[index.row()].first = new Models::Project(value.toInt());
+            _projects[index.row()].first->hydrat(value.toInt());
+            _selectedProjects << value.toInt();
             break;
         case 1:
             _projects[index.row()].second = value.toDouble();
@@ -84,6 +84,20 @@ void ProjectContributoriesTableModel::append()
     _projects.append(QPair<Models::Project*, double>(new Models::Project, 0));
     endInsertRows();
 }
+
+void ProjectContributoriesTableModel::remove(int index) {
+    beginRemoveRows(QModelIndex(), index, index);
+    _selectedProjects.removeOne(_projects.at(index).first->getId());
+    _projects.removeAt(index);
+    endRemoveRows();
+}
+
+QList<int>& ProjectContributoriesTableModel::getSelectedProjects()
+{
+    return _selectedProjects;
+}
+
+
 
 }
 }

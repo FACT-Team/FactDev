@@ -67,8 +67,13 @@ public:
 
     void append();
 
+    QList<int> &getSelectedProjects();
+
+    void remove(int index);
 private:
-     QList<QPair<Models::Project*, double> > _projects;
+    QList<QPair<Models::Project*, double> > _projects;
+    QList<int> _selectedProjects;
+
 };
 
 }

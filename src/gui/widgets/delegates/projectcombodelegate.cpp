@@ -18,10 +18,16 @@ ProjectComboDelegate::~ProjectComboDelegate()
 QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */, const QModelIndex &/* index */) const
 {
     QComboBox* editor = new QComboBox(parent);
-    for(Models::Project p : _projects.values())
-    {
+    QMap<int, Models::Project> buff = _projects;
+
+    for(int key : _removeInCombo) {
+        buff.remove(key);
+    }
+
+    for(Models::Project p : buff.values()) {
         editor->addItem(p.getName(), QVariant(p.getId()));
     }
+
     return editor;
 }
 
@@ -57,6 +63,11 @@ void ProjectComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     myOption.text = text;
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &myOption, painter);
+}
+
+void ProjectComboDelegate::removeInCombo(QList<int> &l)
+{
+    _removeInCombo = l;
 }
 }
 }
