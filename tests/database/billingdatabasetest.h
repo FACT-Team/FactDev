@@ -18,6 +18,8 @@ private slots:
      void update();
      void selectBillingNotFound();
      void selectBillingFound();
+     void addBillingProject();
+     void removeBillingProject();
 private:
      Billing* b1;
      int _lastInsert;

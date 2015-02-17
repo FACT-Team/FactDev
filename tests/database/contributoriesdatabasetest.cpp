@@ -1,5 +1,6 @@
 #include "contributoriesdatabasetest.h"
 #include "database/contributorydatabase.h"
+
 ContributoriesDatabaseTest::ContributoriesDatabaseTest()
 {
     c1 = new Models::Contributory();

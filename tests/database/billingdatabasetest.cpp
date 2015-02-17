@@ -62,3 +62,52 @@ void BillingDatabaseTest::selectBillingFound()
     QVERIFY(*b1 == *b3);
 }
 
+void BillingDatabaseTest::addBillingProject()
+{
+    int project = 1, billing = 1, contributory = 1;
+    Databases::BillingDatabase::instance()->addBillingProject(project,billing,contributory);
+
+    QSqlQuery q;
+    q.prepare("SELECT * from BillingProject "
+              "WHERE idProject=1 "
+              "AND idBilling=1 "
+              "AND idContributory=1");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de selectionner le BillingProject",
+                    "BddBillingDatabaseTest::addBillingProject",
+                    Databases::Database::instance()->lastError(q),
+                    1.3);
+    }
+
+    q.first();
+    qDebug() << q.isNull(0);
+    QVERIFY(q.value("idProject").toInt()==project &&
+            q.value("idBilling").toInt()==billing &&
+            q.value("idContributory").toInt()==contributory);
+}
+
+void BillingDatabaseTest::removeBillingProject()
+{
+    int project = 1, billing = 1, contributory = 1;
+    Databases::BillingDatabase::instance()->removeBillingProject(project,billing,contributory);
+
+    QSqlQuery q;
+    q.prepare("SELECT * from BillingProject "
+              "WHERE idProject=1 "
+              "AND idBilling=1 "
+              "AND idContributory=1");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de selectionner le BillingProject",
+                    "BddBillingDatabaseTest::addBillingProject",
+                    Databases::Database::instance()->lastError(q),
+                    1.3);
+    }
+    q.first();
+    QVERIFY(q.isNull(0) &&
+            q.isNull(1) &&
+            q.isNull(2));
+}
