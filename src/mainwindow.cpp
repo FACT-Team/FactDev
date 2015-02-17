@@ -298,7 +298,7 @@ void MainWindow::changeTree()
         ui->wdgCustomerData->printInformations(getCurrentCustomerId());
         ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
-        changeProjectsTable();
+        customersTableToProjectsTable();
         ui->stackedWidget->setCurrentIndex(1);
         break;
     case 2:         // Project
@@ -341,6 +341,20 @@ void MainWindow::changeCustomerTable()
 }
 
 void MainWindow::changeProjectsTable()
+{
+    int row = ui->tblProjects->currentIndex().row();
+    QModelIndex index(ui->trCustomers->currentIndex());
+    if (treeLevel() == 2) {
+        while (index.parent().isValid())
+            index = ui->trCustomers->indexAbove(index);
+    }
+    for (int i = 0 ; i <= row ; ++i)
+        index = ui->trCustomers->indexBelow(index);
+    ui->trCustomers->setCurrentIndex(index);
+    updateBtn();
+}
+
+void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
     ui->lblProjects->setText("<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");

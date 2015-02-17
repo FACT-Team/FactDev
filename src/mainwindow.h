@@ -190,14 +190,20 @@ private slots:
      */
     void changeTree();
     /**
-     * @brief MainWindow::changeCustomerTable calls changeCustomerTable
+     * @brief MainWindow::changeCustomerTable function to update the view
+     * when we change the selected customer in tblCustomers
      */
     void changeCustomerTable();
     /**
-     * @brief MainWindow::changeProjectsTable changes projects with the <i>index</i>
-     * of the customer in table of customers
+     * @brief MainWindow::changeProjectsTable function to update the view
+     * when we change the selected project in tblProjects
      */
     void changeProjectsTable();
+    /**
+     * @brief MainWindow::customersTableToProjectsTable changes projects with the <i>index</i>
+     * of the customer in table of customers
+     */
+    void customersTableToProjectsTable();
     /**
      * @brief MainWindow::backToCustomersTable displays the customers table
      */
