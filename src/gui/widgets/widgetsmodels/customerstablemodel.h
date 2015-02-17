@@ -22,7 +22,6 @@ namespace WdgModels {
 class CustomersTableModel : public QAbstractTableModel
 {
 public:
-    CustomersTableModel();
     /**
      * @brief CustomersTableModel::CustomersTableModel Construct a
      * CustomersTableModel
@@ -48,7 +47,7 @@ public:
      * @param role The role of set
      * @return The data of cell
      */
-    QVariant data(const QModelIndex &index, int role) const;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
     /**
      * @brief CustomersTableModel::headerData Obtains header title of table
@@ -57,7 +56,7 @@ public:
      * @param role
      * @return The Title header of column
      */
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
 
     /**
       * @brief CustomersTableModel::setData Change data of a cell

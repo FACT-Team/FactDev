@@ -19,9 +19,10 @@ int Gui::Widgets::WdgModels::CustomersTableModel::columnCount(const QModelIndex 
 QVariant Gui::Widgets::WdgModels::CustomersTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole && role != Qt::EditRole) {
+    if (role != Qt::DisplayRole && role != Qt::EditRole || index.row() == -1) {
         return QVariant();
     }
+
     const Customer &customer = _customers[index.row()];
     switch (index.column()) {
     case 0: return customer.getId();

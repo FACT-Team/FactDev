@@ -4,12 +4,13 @@
 #include "database/database.h"
 #include "exceptions/dbexception.h"
 #include "models/customer.h"
-#include "gui/widgets/widgetsmodels/customerstablemodel.h"
 #include "utils/log.h"
 #include "utils/string.h"
+#include "gui/widgets/widgetsmodels/customerstablemodel.h"
 
 using namespace Exceptions;
 using namespace Utils;
+using namespace Gui::Widgets;
 
 namespace Databases {
 /** 
@@ -20,13 +21,7 @@ namespace Databases {
  */
 class CustomerDatabase : public Database
 {
-private:
-    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
 
-    /**
-     * @brief <b>CustomerDatabase</b> is a singleton
-     */
-    CustomerDatabase() throw(DbException*) ;
 public:
     /**
      * @brief CustomerDatabase::getInstance Return an instance of
@@ -44,7 +39,7 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+    WdgModels::CustomersTableModel* getCustomersTable(QString filter="") throw(DbException*);
 
 
     /**
@@ -121,6 +116,20 @@ public:
      */
     QStandardItem *getItemBillQuote(QSqlQuery q3);
 
+    /**
+     * @brief getCustomer
+     * @param q
+     * @return
+     */
+    QSharedPointer<Models::Customer> getCustomer(QSqlQuery &q);
+
+private:
+    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
+
+    /**
+     * @brief <b>CustomerDatabase</b> is a singleton
+     */
+    CustomerDatabase() throw(DbException*) ;
 };
 }
 #endif // BDDCUSTOMER_H

@@ -19,25 +19,15 @@ CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 }
 
 
-QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter)
-throw(DbException*)
+WdgModels::CustomersTableModel*
+    CustomerDatabase::getCustomersTable(QString filter) throw(DbException*)
 {
-    QStandardItemModel* retour = new QStandardItemModel();
-
-    retour->setColumnCount(5);
-    retour->setHorizontalHeaderLabels(
-                QStringList()
-                << ("Id")
-                << ("Société")
-                << ("Nom")
-                << ("Prénom")
-                << ("Téléphone")
-                << ("EMail")
-                );
+    WdgModels::CustomersTableModel* ret
+            = new WdgModels::CustomersTableModel();
     QSqlQuery q;
-
     q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-              "c.lastnameReferent, c.company, c.phone, c.email "
+              "c.lastnameReferent, c.company, c.address, c.postalCode, "
+              "c.city, c.country, c.email, c.mobilephone, c.phone, c.fax "
               "FROM Customer c, Project p, BillingProject bp "
               "WHERE c.idCustomer = p.idCustomer "
               "AND bp.idProject = p.idProject "
@@ -53,22 +43,10 @@ throw(DbException*)
     }
 
     while(q.next()) {
-        QList<QStandardItem*> ligne;
-
-        ligne << new QStandardItem(value(q, "idCustomer").toString());
-        ligne << new QStandardItem(
-                     Utils::String::firstLetterToUpper(value(q,"company").toString()));
-        ligne << new QStandardItem(
-                     value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
-                                       value(q, "firstNameReferent").toString()));
-        ligne << new QStandardItem(value(q, "phone").toString());
-        ligne << new QStandardItem(value(q, "email").toString());
-
-        retour->appendRow(ligne);
+        ret->append(*getCustomer(q));
     }
 
-    return retour;
+    return ret;
 }
 
 
@@ -83,7 +61,7 @@ throw(DbException*)
 
     q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
                "c.lastnameReferent, c.company, c.address, c.postalCode, "
-               "c.city, c.country, c.email, c.mobilephone, c.phone "
+               "c.city, c.country, c.email, c.mobilephone, c.phone, c.fax "
                "FROM Customer c, Project p, BillingProject bp "
                "WHERE c.idCustomer = p.idCustomer "
                "AND bp.idProject = p.idProject "
@@ -194,6 +172,26 @@ QStandardItem *CustomerDatabase::getItemBillQuote(QSqlQuery q3) {
     return itemBillQuote;
 }
 
+QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
+{
+    QSharedPointer<Models::Customer> customer =
+            QSharedPointer<Models::Customer>(new Models::Customer());
+    customer->setId(value(q, "idCustomer").toInt());
+    customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
+    customer->setLastnameReferent(value(q,"lastnameReferent").toString());
+    customer->setCompany(value(q,"company").toString());
+    customer->setAddress(value(q,"address").toString());
+    customer->setPostalCode(value(q,"postalCode").toString());
+    customer->setCity(value(q,"city").toString());
+    customer->setCountry(value(q,"country").toString());
+    customer->setEmail(value(q,"email").toString());
+    customer->setMobilePhone(value(q,"mobilePhone").toString());
+    customer->setPhone(value(q,"phone").toString());
+    customer->setFax(value(q,"fax").toString());
+
+    return customer;
+}
+
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
     QSharedPointer<Models::Customer> customer;
@@ -210,19 +208,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     }
 
     if(q.first()) {
-        customer = QSharedPointer<Models::Customer>(new Models::Customer());
-        customer->setId(value(q, "idCustomer").toInt());
-        customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
-        customer->setLastnameReferent(value(q,"lastnameReferent").toString());
-        customer->setCompany(value(q,"company").toString());
-        customer->setAddress(value(q,"address").toString());
-        customer->setPostalCode(value(q,"postalCode").toString());
-        customer->setCity(value(q,"city").toString());
-        customer->setCountry(value(q,"country").toString());
-        customer->setEmail(value(q,"email").toString());
-        customer->setMobilePhone(value(q,"mobilePhone").toString());
-        customer->setPhone(value(q,"phone").toString());
-        customer->setFax(value(q,"fax").toString());
+        customer = getCustomer(q);
     }
 
     return customer;
