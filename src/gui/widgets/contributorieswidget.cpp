@@ -17,7 +17,11 @@ ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *
     ui->tblProjects->setItemDelegateForColumn(1, new Delegates::DoubleSpinBoxDelegate());
     ui->tblProjects->setItemDelegateForColumn(2, new Delegates::DoubleSpinBoxDelegate());
     ui->tblProjects->setModel(_modelProjects);
+    ui->btnAddPrestation->hide();
+    ui->btnRmovePrestation->hide();
+    connect(ui->tblProjects->itemDelegateForColumn(0), SIGNAL(closeEditor(QWidget*)), SLOT(editing()));
     emit contributoryChanged();
+    emit updateBtn();
 }
 
 ContributoriesWidget::~ContributoriesWidget()
@@ -71,6 +75,7 @@ void ContributoriesWidget::addProject(void)
     view->setColumnWidth(2, 150);
 
     ui->stack->insertWidget(ui->stack->count(), view);
+    emit updateBtn();
 //    table->horizontalHeader()->setResizeMode( 0, QHeaderView::Stretch );
 //    table->horizontalHeader()->setResizeMode( 1, QHeaderView::ResizeToContents );
 }
@@ -79,16 +84,36 @@ void ContributoriesWidget::removeProject(void)
 {
     qDebug() << "I want to remove this project :-(";
     _modelProjects->remove(ui->tblProjects->currentIndex().row());
+    ui->stack->removeWidget(ui->stack->currentWidget());
+    emit updateBtn();
 }
 
 void ContributoriesWidget::changeProject()
 {
     ui->stack->setCurrentIndex(ui->tblProjects->currentIndex().row());
+    emit updateBtn();
 }
 
 void ContributoriesWidget::editing()
 {
     ((Delegates::ProjectComboDelegate*)ui->tblProjects->itemDelegateForColumn(0))->removeInCombo(_modelProjects->getSelectedProjects());
+    emit updateBtn();
+}
+
+void ContributoriesWidget::updateBtn()
+{
+    ui->btnAddProject->setEnabled(_modelProjects->getSelectedProjects().count() <
+                                  ((Delegates::ProjectComboDelegate*)ui->tblProjects->itemDelegateForColumn(0))->getProjects().count() &&
+                                  _modelProjects->allProjectsChose());
+    ui->btnRemoveProject->setEnabled(ui->tblProjects->currentIndex().row() != -1);
+
+    if(_modelProjects->getSelectedProjects().count() > 0) {
+        ui->btnAddPrestation->show();
+        ui->btnRmovePrestation->show();
+    } else {
+        ui->btnAddPrestation->hide();
+        ui->btnRmovePrestation->hide();
+    }
 }
 
 int ContributoriesWidget::count() {

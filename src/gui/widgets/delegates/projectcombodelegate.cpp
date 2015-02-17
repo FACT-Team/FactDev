@@ -7,6 +7,7 @@ namespace Delegates {
 ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : QItemDelegate(parent)
 {
     _projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
+    _locked = false;
 }
 
 
@@ -15,8 +16,13 @@ ProjectComboDelegate::~ProjectComboDelegate()
 
 }
 
-QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */, const QModelIndex &/* index */) const
+QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */,
+                                            const QModelIndex & index) const
 {
+    if(index.model()->data(index, Qt::EditRole).toUInt() != 0) {
+        return 0;
+    }
+
     QComboBox* editor = new QComboBox(parent);
     QMap<int, Models::Project> buff = _projects;
 
@@ -69,6 +75,15 @@ void ProjectComboDelegate::removeInCombo(QList<int> &l)
 {
     _removeInCombo = l;
 }
+QMap<int, Models::Project> ProjectComboDelegate::getProjects() const
+{
+    return _projects;
+}
+bool ProjectComboDelegate::getLlocked() const
+{
+    return _locked;
+}
+
 }
 }
 }

@@ -67,6 +67,7 @@ public:
 
     void append();
 
+    bool allProjectsChose();
     QList<int> &getSelectedProjects();
 
     void remove(int index);

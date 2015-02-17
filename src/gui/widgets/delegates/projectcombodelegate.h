@@ -25,9 +25,15 @@ public:
 
     void removeInCombo(QList<int>&);
 
+    QMap<int, Models::Project> getProjects() const;
+
+    bool getLlocked() const;
+    void setLocked(bool getLlocked);
+
 private:
-  QMap<int, Models::Project> _projects;
-  QList<int> _removeInCombo;
+    QMap<int, Models::Project> _projects;
+    QList<int> _removeInCombo;
+    bool _locked;
 };
 }
 }

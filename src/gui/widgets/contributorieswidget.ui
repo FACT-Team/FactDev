@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item row="1" column="5">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="btnRmovePrestation">
      <property name="text">
       <string>Supprimer la prestation</string>
      </property>
@@ -50,7 +50,7 @@
     </widget>
    </item>
    <item row="1" column="4">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="btnAddPrestation">
      <property name="text">
       <string>Ajouter une prestation</string>
      </property>
@@ -98,7 +98,7 @@
  </resources>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>btnAddPrestation</sender>
    <signal>released()</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>add()</slot>
@@ -114,7 +114,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>btnRmovePrestation</sender>
    <signal>released()</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>remove()</slot>
@@ -217,5 +217,6 @@
   <slot>removeProject()</slot>
   <slot>changeProject()</slot>
   <slot>editing()</slot>
+  <slot>updateBtn()</slot>
  </slots>
 </ui>

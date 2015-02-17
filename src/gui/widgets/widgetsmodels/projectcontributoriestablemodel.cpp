@@ -85,12 +85,23 @@ void ProjectContributoriesTableModel::append()
     endInsertRows();
 }
 
+bool ProjectContributoriesTableModel::allProjectsChose()
+{
+    for(QPair<Models::Project*, double> key : _projects) {
+        if(key.first->getId() == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 void ProjectContributoriesTableModel::remove(int index) {
     beginRemoveRows(QModelIndex(), index, index);
     _selectedProjects.removeOne(_projects.at(index).first->getId());
     _projects.removeAt(index);
     endRemoveRows();
 }
+
 
 QList<int>& ProjectContributoriesTableModel::getSelectedProjects()
 {
