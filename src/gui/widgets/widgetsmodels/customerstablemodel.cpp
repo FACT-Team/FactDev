@@ -62,7 +62,7 @@ bool Gui::Widgets::WdgModels::CustomersTableModel::setData(
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
-            _customers[index.row()].setId(new Customer(value.toInt()));
+            _customers[index.row()].setId(value.toInt());
             break;
         case 1:
             _customers[index.row()].setCompany(value.toString());
@@ -87,9 +87,12 @@ bool Gui::Widgets::WdgModels::CustomersTableModel::setData(
     return true;
 }
 
-void Gui::Widgets::WdgModels::CustomersTableModel::append(const Contributory &contributory)
+void Gui::Widgets::WdgModels::CustomersTableModel::append(
+        const Customer &customer)
 {
-
+    beginInsertRows(QModelIndex(), _customers.count(), _customers.count());
+    _customers.append(customer);
+    endInsertRows();
 }
 
 void Gui::Widgets::WdgModels::CustomersTableModel::remove(const int i)
@@ -97,16 +100,18 @@ void Gui::Widgets::WdgModels::CustomersTableModel::remove(const int i)
 
 }
 
-Qt::ItemFlags Gui::Widgets::WdgModels::CustomersTableModel::flags(const QModelIndex &index) const
+Qt::ItemFlags Gui::Widgets::WdgModels::CustomersTableModel::flags(
+        const QModelIndex &index) const
 {
-
+    return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
 }
 
-QList<Customer> Gui::Widgets::WdgModels::CustomersTableModel::customers() const
+int Gui::Widgets::WdgModels::CustomersTableModel::count()
 {
-
+    return _customers.count();
 }
-QList<Customer> CustomersTableModel::getCustomers() const
+
+QList<Customer> Gui::Widgets::WdgModels::CustomersTableModel::getCustomers() const
 {
     return _customers;
 }

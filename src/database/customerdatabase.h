@@ -2,11 +2,9 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
-
 #include "exceptions/dbexception.h"
-
 #include "models/customer.h"
-
+#include "gui/widgets/widgetsmodels/customerstablemodel.h"
 #include "utils/log.h"
 #include "utils/string.h"
 
@@ -47,6 +45,7 @@ public:
      * @return QStandardItemModel an item model for QTableView
      */
     QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+
 
     /**
      * @author Manantsoa Razanajatovo & Cédric Rohaut (@Oxynos)
