@@ -77,7 +77,7 @@ void BillingDatabaseTest::addBillingProject()
         throw new DbException(
                     "Impossible de selectionner le BillingProject",
                     "BddBillingDatabaseTest::addBillingProject",
-                    Databases::Database::instance()->lastError(q),
+                    "Databases::Database::instance()->lastError(q)",
                     1.3);
     }
 
@@ -103,7 +103,7 @@ void BillingDatabaseTest::removeBillingProject()
         throw new DbException(
                     "Impossible de selectionner le BillingProject",
                     "BddBillingDatabaseTest::addBillingProject",
-                    Databases::Database::instance()->lastError(q),
+                    "Databases::Database::instance()->lastError(q)",
                     1.3);
     }
     q.first();

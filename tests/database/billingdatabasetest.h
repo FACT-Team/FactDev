@@ -6,6 +6,7 @@
 #include "models/billing.h"
 
 using namespace Models;
+
 class BillingDatabaseTest : public QObject
 {
     Q_OBJECT
