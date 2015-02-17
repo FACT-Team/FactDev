@@ -237,6 +237,7 @@ void MainWindow::updateTree(QString filter)
 
 void MainWindow::newProject()
 {
+    QModelIndex indexTree = ui->trCustomers->currentIndex();
     QModelIndex index = ui->tblCustomers->currentIndex();
     AddProjectDialog *w;
     if(ui->stackedWidget->currentIndex() == 1) {
@@ -344,10 +345,18 @@ void MainWindow::changeProjectsTable()
 {
     int row = ui->tblProjects->currentIndex().row();
     QModelIndex index(ui->trCustomers->currentIndex());
-    if (treeLevel() == 2) {
-        while (index.parent().isValid())
-            index = ui->trCustomers->indexAbove(index);
-    }
+    if (treeLevel() == 2) index = findParent();
+    for (int i = 0 ; i <= row ; ++i)
+        index = ui->trCustomers->indexBelow(index);
+    ui->trCustomers->setCurrentIndex(index);
+    updateBtn();
+}
+
+void MainWindow::changeDocsTable()
+{
+    int row = ui->tblQuotes->currentIndex().row();
+    QModelIndex index(ui->trCustomers->currentIndex());
+    if (treeLevel() == 3) index = findParent();
     for (int i = 0 ; i <= row ; ++i)
         index = ui->trCustomers->indexBelow(index);
     ui->trCustomers->setCurrentIndex(index);
@@ -369,6 +378,34 @@ void MainWindow::customersTableToProjectsTable()
     updateBtn();
 }
 
+void MainWindow::projectsTableToDocsTable()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    updateTableBillings(getCurrentProjectId());
+    QModelIndex index(ui->trCustomers->currentIndex());
+    ui->trCustomers->expand(index);
+    updateBtn();
+}
+
+QModelIndex MainWindow::findParent() {
+    QModelIndex parent(ui->trCustomers->currentIndex());
+    switch (treeLevel()) {
+    case 2:
+        while (parent.parent().isValid())
+            parent = ui->trCustomers->indexAbove(parent);
+        break;
+    case 3:
+        while (parent.parent().parent().isValid())
+            parent = ui->trCustomers->indexAbove(parent);
+        break;
+    default:
+        parent = ui->trCustomers->indexAt(QPoint());
+        break;
+    }
+
+    return parent;
+}
+
 void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
@@ -380,13 +417,9 @@ void MainWindow::backToCustomersTable()
 void MainWindow::backToProjectsTable()
 {
     ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::quotesProject()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-    updateTableBillings(getCurrentProjectId());
-    updateBtn();
+    QModelIndex index(ui->trCustomers->currentIndex());
+    if (treeLevel() != 2)  ui->trCustomers->collapse(index = findParent());
+    ui->trCustomers->setCurrentIndex(index);
 }
 
 void MainWindow::updateBtn()

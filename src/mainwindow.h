@@ -200,6 +200,11 @@ private slots:
      */
     void changeProjectsTable();
     /**
+     * @brief MainWindow::changeDocsTable function to update the view
+     * when we change the selected doc in tblQuotes
+     */
+    void changeDocsTable();
+    /**
      * @brief MainWindow::customersTableToProjectsTable changes projects with the <i>index</i>
      * of the customer in table of customers
      */
@@ -213,10 +218,15 @@ private slots:
      */
     void backToProjectsTable();
     /**
-     * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
+     * @brief MainWindow::projectsTableToDocsTable displays quotes of a project with the <i>index</i>
      * of the project in the table of projects
      */
-    void quotesProject();
+    void projectsTableToDocsTable();
+    /**
+     * @brief MainWindow::findParent return the parent of an item in tree
+     * @return QModelIndex
+     */
+    QModelIndex findParent();
 
 private:
     /**

@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -1042,7 +1042,7 @@ border: 1px solid #bbb;</string>
    <sender>tblProjects</sender>
    <signal>doubleClicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>quotesProject()</slot>
+   <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>392</x>
@@ -1202,7 +1202,7 @@ border: 1px solid #bbb;</string>
    <sender>tblQuotes</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>updateBtn()</slot>
+   <slot>changeDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>698</x>
@@ -1441,7 +1441,7 @@ border: 1px solid #bbb;</string>
   <slot>backToCustomersTable()</slot>
   <slot>addQuote()</slot>
   <slot>projectsCustomersTableTree()</slot>
-  <slot>quotesProject()</slot>
+  <slot>projectsTableToDocsTable()</slot>
   <slot>backToProjectsTable()</slot>
   <slot>editProject()</slot>
   <slot>removeProject()</slot>
@@ -1452,5 +1452,6 @@ border: 1px solid #bbb;</string>
   <slot>editDoc()</slot>
   <slot>removeDoc()</slot>
   <slot>changeProjectsTable()</slot>
+  <slot>changeDocsTable()</slot>
  </slots>
 </ui>
