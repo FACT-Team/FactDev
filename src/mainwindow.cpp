@@ -171,10 +171,16 @@ void MainWindow::removeCustomer() {
 
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
+    changeCustomerTable();
+    ui->trCustomers->expand(ui->trCustomers->currentIndex());
 }
 
 void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
+    changeCustomerTable();
+    ui->trCustomers->expand(ui->trCustomers->currentIndex());
+    changeProjectsTable();
+    ui->trCustomers->expand(ui->trCustomers->currentIndex());
 }
 
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
