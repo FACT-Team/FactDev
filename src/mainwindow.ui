@@ -789,8 +789,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>902</x>
-     <y>539</y>
+     <x>371</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -805,8 +805,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>784</x>
-     <y>539</y>
+     <x>356</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -853,8 +853,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>355</x>
-     <y>519</y>
+     <x>326</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -869,8 +869,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>656</x>
-     <y>539</y>
+     <x>341</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -997,8 +997,8 @@ border: 1px solid #bbb;</string>
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>672</x>
-     <y>193</y>
+     <x>379</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -1008,13 +1008,13 @@ border: 1px solid #bbb;</string>
   </connection>
   <connection>
    <sender>btnBackToCustomers</sender>
-   <signal>clicked()</signal>
+   <signal>released()</signal>
    <receiver>MainWindow</receiver>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>472</x>
-     <y>133</y>
+     <x>336</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -1045,8 +1045,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>697</x>
-     <y>263</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1056,7 +1056,7 @@ border: 1px solid #bbb;</string>
   </connection>
   <connection>
    <sender>btnBackToProjects</sender>
-   <signal>clicked()</signal>
+   <signal>released()</signal>
    <receiver>MainWindow</receiver>
    <slot>backToProjectsTable()</slot>
    <hints>
@@ -1077,8 +1077,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>538</y>
+     <x>515</x>
+     <y>144</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1093,8 +1093,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>538</y>
+     <x>515</x>
+     <y>144</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1109,8 +1109,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>538</y>
+     <x>515</x>
+     <y>144</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1141,8 +1141,8 @@ border: 1px solid #bbb;</string>
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>672</x>
-     <y>193</y>
+     <x>379</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1157,8 +1157,8 @@ border: 1px solid #bbb;</string>
    <slot>updateBtn()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>697</x>
-     <y>263</y>
+     <x>380</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>

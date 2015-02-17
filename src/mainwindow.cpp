@@ -334,9 +334,8 @@ void MainWindow::changeCustomerTable()
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
     int row = ui->tblCustomers->currentIndex().row();
     QModelIndex index(ui->trCustomers->indexAt(QPoint()));
-    for (int i = 0 ; i <= row ; ++i) {
+    for (int i = 0 ; i <= row ; ++i)
         index = ui->trCustomers->indexBelow(index);
-    }
     ui->trCustomers->setCurrentIndex(index);
     updateBtn();
 }
@@ -351,14 +350,17 @@ void MainWindow::changeProjectsTable()
     ui->tblProjects->setColumnWidth(3, 122);
     ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
+    QModelIndex index(ui->trCustomers->currentIndex());
+    ui->trCustomers->expand(index);
     updateBtn();
 }
 
 void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    ui->actionNewQuote->setEnabled(false);
-    ui->actionNewBill->setEnabled(false);
+    ui->trCustomers->collapseAll();
+    changeCustomerTable();
+    updateBtn();
 }
 
 void MainWindow::backToProjectsTable()
@@ -375,17 +377,21 @@ void MainWindow::quotesProject()
 
 void MainWindow::updateBtn()
 {
-    if (ui->tblCustomers->currentIndex().row() > -1
+    if (ui->stackedWidget->currentIndex() == 0
+            && ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->btnEdit->setEnabled(true);
         ui->btnDelCustomer->setEnabled(true);
-    } else {
+    } else if (ui->tblCustomers->currentIndex().row() == -1
+               && !ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->btnEdit->setEnabled(false);
         ui->btnDelCustomer->setEnabled(false);
         ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
     }
 
-    if (ui->tblProjects->currentIndex().row() > -1
+    if ((ui->stackedWidget->currentIndex() == 1
+            || ui->stackedWidget->currentIndex() == 2)
+            && ui->tblProjects->currentIndex().row() > -1
             && ui->tblProjects->selectionModel()->hasSelection()) {
         ui->actionNewQuote->setEnabled(true);
         ui->actionNewBill->setEnabled(true);
@@ -396,8 +402,9 @@ void MainWindow::updateBtn()
         ui->actionNewBill->setEnabled(false);
     }
 
-    if (ui->tblQuotes->currentIndex().row() > -1
-        && ui->tblQuotes->selectionModel()->hasSelection()) {
+    if (ui->stackedWidget->currentIndex() == 2
+            && ui->tblQuotes->currentIndex().row() > -1
+            && ui->tblQuotes->selectionModel()->hasSelection()) {
         Billing b(getCurrentQuoteId());
         if (b.isBilling()) {
             ui->btnEditDoc->setText("Éditer la facture");
