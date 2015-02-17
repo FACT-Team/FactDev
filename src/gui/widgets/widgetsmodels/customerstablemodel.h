@@ -3,8 +3,7 @@
 #include <QObject>
 #include <QAbstractTableModel>
 
-#include "models/contributory.h"
-
+#include "models/customer.h"
 #include "utils/log.h"
 
 using namespace Models;
@@ -28,6 +27,8 @@ public:
      * @param parent Parent widget
      */
     CustomersTableModel(QObject* parent = 0);
+    ~CustomersTableModel();
+
 
     /**
      * @brief CustomersTableModel::rowCount Number of customers row
@@ -100,7 +101,7 @@ public:
     QList<Customer> getCustomers() const;
 
 private:
-    QList<Customer> _customers; //!< contributories list
+    QList<Customer> _customers; //!< customers list
 };
 }
 }

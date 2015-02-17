@@ -248,6 +248,9 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 void MainWindow::updateTableCustomers(QString filter) {
 
+    if (ui->tblCustomers->model() != NULL) {
+        delete ui->tblCustomers->model();
+    }
     ui->tblCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getCustomersTable(filter));
 

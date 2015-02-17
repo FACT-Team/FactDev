@@ -17,7 +17,9 @@ ProjectDatabase *ProjectDatabase::instance() throw(DbException*)
     return _instance;
 }
 
-Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
+
+Models::Project* ProjectDatabase::getProject(QSqlQuery& q)
+{
     Models::Project* project = new Models::Project();
     project->setId(value(q, "idProject").toInt());
     project->setName(value(q,"name").toString());
@@ -25,9 +27,12 @@ Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
     //project->setBeginDate(value(q,"beginDate").toDate());
     //project->setEndDate(value(q,"endDate").toDate());
     project->setDailyRate(value(q,"dailyRate").toDouble());
-    project->setCustomer(QSharedPointer<Models::Customer>(new Models::Customer(value(q,"idCustomer").toInt())));
+    project->setCustomer(
+                QSharedPointer<Models::Customer>(
+                    new Models::Customer(value(q,"idCustomer").toInt())));
 
     return project;
+
 }
 
 Models::Project *ProjectDatabase::getProject(const int pId)
@@ -35,7 +40,8 @@ Models::Project *ProjectDatabase::getProject(const int pId)
     QSqlQuery q;
     Models::Project* project;
 
-    q.prepare("SELECT idProject, name, description as pDescription, beginDate, endDate, dailyRate, idCustomer "
+    q.prepare("SELECT idProject, name, description as pDescription, beginDate, "
+              "endDate, dailyRate, idCustomer "
               " FROM Project WHERE idProject = :pId");
     q.bindValue(":pId", pId);
 

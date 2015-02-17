@@ -117,9 +117,10 @@ public:
     QStandardItem *getItemBillQuote(QSqlQuery q3);
 
     /**
-     * @brief getCustomer
-     * @param q
-     * @return
+     * @brief CustomerDatabase::getCustomer Add the element of the <i>q</i>
+     * request and return their
+     * @param q SQL request
+     * @return a customer formed according to QSharedPointer
      */
     QSharedPointer<Models::Customer> getCustomer(QSqlQuery &q);
 

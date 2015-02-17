@@ -6,6 +6,11 @@ Gui::Widgets::WdgModels::CustomersTableModel::CustomersTableModel(QObject *paren
 
 }
 
+Gui::Widgets::WdgModels::CustomersTableModel::~CustomersTableModel()
+{
+
+}
+
 int Gui::Widgets::WdgModels::CustomersTableModel::rowCount(const QModelIndex &) const
 {
     return _customers.count();

@@ -93,7 +93,7 @@ void Project::setBeginDate(QDate beginDate)
     _beginDate = beginDate;
 }
 
-QDate Project::getEndDate()
+QDate Project::getEndDate() const
 {
     return _endDate;
 }

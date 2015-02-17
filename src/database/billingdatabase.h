@@ -5,9 +5,11 @@
 #include "database.h"
 #include "utils/log.h"
 #include "utils/string.h"
+#include "gui/widgets/widgetsmodels/billingstablemodel.h"
 
 using namespace Exceptions;
 using namespace Utils;
+using namespace Gui::Widgets;
 
 namespace Databases {
 /**
@@ -42,7 +44,7 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    QStandardItemModel* getBillingsTable(const int idProject) throw(DbException*);
+    WdgModels::BillingsTableModel *getBillingsTable(const int idProject) throw(DbException*);
 
     /**
      * @brief BillingDatabase::addBilling Add the billing <i>pBilling</i> to
@@ -83,6 +85,14 @@ public:
      * @return  The last number
      */
     int getMaxQuoteNumber();
+
+    /**
+     * @brief BillingDatabase::getBilling Add the element of the <i>q</i>
+     * request and return their
+     * @param q SQL request
+     * @return a billing formed according to QSharedPointer
+     */
+    QSharedPointer<Models::Billing> getBilling(QSqlQuery &q);
 
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase

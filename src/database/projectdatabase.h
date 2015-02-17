@@ -22,13 +22,7 @@ namespace Databases {
  */
 class ProjectDatabase : public Database
 {
-private:
-    static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
 
-    /**
-     * @brief ProjectDatabase: is a singleton
-     */
-    ProjectDatabase() throw (DbException*);
 public:
     /**
      * @brief ProjectDatabase::getInstance Return an instance of ProjectDatabase
@@ -98,6 +92,14 @@ public:
      * @return The project linked to q
      */
     Models::Project *getProject(QSqlQuery &q);
+private:
+    static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
+
+    /**
+     * @brief ProjectDatabase: is a singleton
+     */
+    ProjectDatabase() throw (DbException*);
+
 };
 }
 #endif // PROJECTDATABASE_H
