@@ -74,6 +74,7 @@ void MainWindow::addCustomer()
 {
     DialogAddCustomer addCustomerDialog;
     if (addCustomerDialog.exec()) { // accept
+        ui->stackedWidget->setCurrentIndex(0);
         updateTree();
         updateTableCustomers();
         updateBtn();
@@ -84,9 +85,6 @@ void MainWindow::addCustomer()
 void MainWindow::newProject()
 {
     QModelIndex index = ui->tblCustomers->currentIndex();
-    QModelIndex indexTree = ui->trCustomers->currentIndex();
-    if (treeLevel() == 2) indexTree = findParent();
-
     AddProjectDialog *addProjectDialog;
     if(ui->stackedWidget->currentIndex() == 1) {
         addProjectDialog = new AddProjectDialog(index.row(), 0, 0);
@@ -97,9 +95,9 @@ void MainWindow::newProject()
     if (addProjectDialog->exec()) {
         updateTree();
         updateTableProjects(getCurrentCustomerId());
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
-    ui->trCustomers->setCurrentIndex(indexTree);
-    ui->trCustomers->expand(indexTree);
 }
 
 void MainWindow::addQuote()
@@ -118,13 +116,16 @@ void MainWindow::addDoc(bool isBilling)
     if (addDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
         updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
 void MainWindow::editCustomer() {
     DialogAddCustomer editCustomerDialog(getCurrentCustomerId());
     if (editCustomerDialog.exec()) {
-        updateTableCustomers("", ui->tblCustomers->currentIndex().row());
+        updateTableCustomers("");
         updateTree();
     }
 }
@@ -133,8 +134,10 @@ void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
     AddProjectDialog editProjectDialog(row, getCurrentProjectId());
     if (editProjectDialog.exec()) {
-        updateTableProjects(getCurrentCustomerId(), row);
+        updateTableProjects(getCurrentCustomerId());
         updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
 }
 
@@ -149,9 +152,13 @@ void MainWindow::editDoc()
                 false, getCurrentCustomerId(),getCurrentQuoteId());
 
     if (editDocDialog->exec()) {
-        updateTableBillings(getCurrentProjectId(),
-                            ui->tblQuotes->currentIndex().row());
+        updateTableBillings(getCurrentProjectId());
         updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        changeProjectsTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        //ui->stackedWidget->setCurrentIndex(1); // if we remove te project in bill return to projects list
     }
     delete editDocDialog;
 }
@@ -220,6 +227,7 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     ui->tblQuotes->setColumnWidth(2, 100);
     ui->tblQuotes->setColumnWidth(4, 150);
     if (row > -1) ui->tblQuotes->selectRow(row);
+    else ui->tblQuotes->clearSelection();
 }
 
 void MainWindow::editUser()
@@ -240,6 +248,7 @@ void MainWindow::updateTableCustomers(QString filter, const int row) {
     ui->tblCustomers->setColumnWidth(4, 150);
     ui->tblCustomers->setColumnWidth(5, 250);
     if (row > -1) ui->tblCustomers->selectRow(row);
+    else ui->tblCustomers->clearSelection();
 }
 
 void MainWindow::updateTableProjects(const int pId, const int row)
@@ -251,6 +260,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
     ui->tblProjects->setModel(Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
     if (row > -1) ui->tblProjects->selectRow(row);
+    else ui->tblProjects->clearSelection();
 }
 
 void MainWindow::updateTree(QString filter)
