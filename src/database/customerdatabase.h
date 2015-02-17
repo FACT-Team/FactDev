@@ -124,6 +124,13 @@ public:
      */
     QSharedPointer<Models::Customer> getCustomer(QSqlQuery &q);
 
+    /**
+     * @brief CustomerDatabase::updateCustomer Update customer data according to
+     *  the request <i>q</i>
+     * @param q SQL request
+     */
+    void updateCustomer(QSqlQuery &q, Customer pCustomer);
+
 private:
     static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
 

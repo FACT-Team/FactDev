@@ -67,23 +67,28 @@ public:
      * @return id of the selected quote
      */
     int getCurrentQuoteId();
+
     /**
      * @brief MainWindow::getCurrentCustomerName get the selected customer name
      * in the customers' table
      * @return name of the selected customer
      */
     QString getCurrentCustomerName();
+
     /**
      * @brief MainWindow::getCurrentProjectName get the selected project name in
      * the table of projects
      * @return name of the selected project
      */
     QString getCurrentProjectName();
+
     /**
      * @brief MainWindow::treeLevel return the level of the node selected in the tree
      * @return integer, depth of the item in tree
      */
     int treeLevel();
+
+
 
     void demo();
 public slots:
@@ -155,9 +160,9 @@ public slots:
     void aboutIcons();
 
     /**
-     * @brief updateBtn Update all button to disable or enabled its
+     * @brief updateButton Update all button to disable or enabled its
      */
-    void updateBtn(void);
+    void updateButtons(void);
 
     /**
      * @brief MainWindow::editQuote Edit the quote of the project
@@ -204,36 +209,45 @@ private slots:
      */
     void quotesProject();
 
-    void on_chkProjectName_clicked(bool checked);
 
 private:
+
+    /**
+     * @brief MainWindow::updateUI Update all components of the
+     * <b>MainWindow</b>
+     */
+    void updateUI(QString filter="");
+
     /**
      * @brief MainWindow::updateTable Update the table view
      * (just client in the first version)
      */
     void updateTableCustomers(QString filter="");
+
     /**
      * @brief MainWindow::updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
      */
     void updateTableProjects(const int pId = 0);
 
-
     /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)
      */
     void updateTree(QString filter="");
+
     /**
      * @brief MainWindow::updateUser Update user data panel
      */
     void updateUser();
+
     /**
      * @brief MainWindow::updateTableBillings Update the table of
      * billings view
      * @param idProject Only billings corresponding to the idProject
      */
     void updateTableBillings(const int idProject);
+
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
      * table <i>tbl</i>
@@ -241,6 +255,7 @@ private:
      * @param item an item in the table <i>tbl</i>
      */
     void removeItem(QTableView* tbl, Utils::ItemType item);
+
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
      * the  tableview <i>tbl</i>

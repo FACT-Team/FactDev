@@ -320,7 +320,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -1028,8 +1028,8 @@ border: 1px solid #bbb;</string>
    <slot>quotesProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>233</y>
+     <x>388</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1044,8 +1044,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1060,8 +1060,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1076,8 +1076,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>544</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1121,11 +1121,11 @@ border: 1px solid #bbb;</string>
    <sender>tblProjects</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>updateBtn()</slot>
+   <slot>updateButtons()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>673</x>
-     <y>233</y>
+     <x>388</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1361,7 +1361,7 @@ border: 1px solid #bbb;</string>
    <sender>tblQuotes</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>updateBtn()</slot>
+   <slot>updateButtons()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>608</x>
@@ -1370,6 +1370,22 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>618</x>
      <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackCustomersProject</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateBtn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>774</x>
+     <y>-20</y>
     </hint>
    </hints>
   </connection>
@@ -1401,5 +1417,6 @@ border: 1px solid #bbb;</string>
   <slot>updateBtn()</slot>
   <slot>editQuote()</slot>
   <slot>addBill()</slot>
+  <slot>updateButtons()</slot>
  </slots>
 </ui>

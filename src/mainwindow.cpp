@@ -56,7 +56,6 @@ int MainWindow::getCurrentQuoteId()
     return getCurrentTableId(ui->tblQuotes);
 }
 
-
 QString MainWindow::getCurrentCustomerName()
 {
     QModelIndex index =
@@ -74,8 +73,9 @@ void MainWindow::addCustomer()
 {
     DialogAddCustomer win;
     if(win.exec()) {
-        updateTableCustomers();
-        updateTree();
+//        updateTableCustomers();
+//        updateTree();
+        updateUI();
     }
 }
 
@@ -83,8 +83,9 @@ void MainWindow::editCustomer() {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         DialogAddCustomer winAddCustomer(getCurrentCustomerId());
         if(winAddCustomer.exec()) {
-            updateTableCustomers();
-            updateTree();
+//            updateTableCustomers();
+//            updateTree();
+            updateUI();
         }
     }
 }
@@ -93,11 +94,6 @@ void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
     ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
     changeTree();
-}
-
-void MainWindow::updateUser()
-{
-    ui->wdgUserData->printUserData();
 }
 
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
@@ -133,25 +129,14 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
     }
 }
 
-void MainWindow::updateTableBillings(const int idProject)
-{
-    ui->tblQuotes->setModel(
-                Databases::BillingDatabase::instance()->getBillingsTable(idProject));
-    ui->lblQuotes->setText("<b>Devis du projet: "+getCurrentProjectName()+"</b>");
-    ui->tblQuotes->hideColumn(0);
-    ui->tblQuotes->hideColumn(3);
-    ui->tblQuotes->setColumnWidth(1, 200);
-    ui->tblQuotes->setColumnWidth(2, 100);
-    ui->tblQuotes->setColumnWidth(4, 150);
-}
-
 void MainWindow::addQuote()
 {
     if (ui->tblCustomers->selectionModel()->hasSelection()) {
         AddQuoteDialog winAddQuote(false, getCurrentCustomerId());
         winAddQuote.exec();
         updateTableBillings(getCurrentProjectId());
-        updateTree();
+//        updateTree();
+        updateUI();
     } else {
         Gui::Widgets::Popup *p = new Gui::Widgets::Popup();
         p->toImplement("\nVeuillez sélectionner un client", this);
@@ -164,7 +149,8 @@ void MainWindow::addBill()
         AddQuoteDialog winAddQuote(true, getCurrentCustomerId());
         winAddQuote.exec();
         updateTableBillings(getCurrentProjectId());
-        updateTree();
+//        updateTree();
+        updateUI();
     } else {
         Gui::Widgets::Popup *p = new Gui::Widgets::Popup();
         p->toImplement("\nVeuillez sélectionner un client", this);
@@ -185,15 +171,13 @@ void MainWindow::search() {
 void MainWindow::search(QString text)
 {
     Search s;
-    s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
-    s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
-    s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
-    s.setSearchInProjects(ui->chkProjectName->isChecked());
-    s.setSearchInContributories(ui->chkContributory->isChecked());
-    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
-    s.setText(text);
-    updateTableCustomers(s.getFilter());
-    updateTree(s.getFilter());
+//    s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
+//    s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
+//    s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
+//    s.setSearchInProjects(ui->chkProjectName->isChecked());
+//    s.setSearchInContributories(ui->chkContributory->isChecked());
+//    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
+//    s.setText(text);
 
     QString styleSearchBackground =
             "background: url(:/icons/searchMini);"
@@ -219,9 +203,8 @@ void MainWindow::search(QString text)
     s.setSearchInContributories(ui->chkContributory->isChecked());
     s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
     s.setText(text);
-    updateTableCustomers(s.getFilter());
-    updateTree(s.getFilter());
-    updateBtn();
+
+    updateUI(s.getFilter());
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point) {
@@ -244,42 +227,6 @@ void MainWindow::openContextualMenuTree(const QPoint point)
     buffPoint.setY(point.y()+35);
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
 
-}
-
-void MainWindow::updateTableCustomers(QString filter) {
-
-    if (ui->tblCustomers->model() != NULL) {
-        delete ui->tblCustomers->model();
-    }
-    ui->tblCustomers->setModel(
-                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
-
-    ui->tblCustomers->hideColumn(0);
-    ui->tblCustomers->setColumnWidth(0, 100);
-    ui->tblCustomers->setColumnWidth(1, 200);
-    ui->tblCustomers->setColumnWidth(2, 100);
-    ui->tblCustomers->setColumnWidth(3, 150);
-    ui->tblCustomers->setColumnWidth(4, 150);
-    ui->tblCustomers->setColumnWidth(5, 250);
-}
-
-void MainWindow::updateTableProjects(const int pId)
-{
-    static int lastId = pId;
-    if(pId != 0) {
-        lastId = pId;
-    }
-    ui->tblProjects->setModel(Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
-    ui->tblProjects->hideColumn(0);
-}
-
-void MainWindow::updateTree(QString filter)
-{
-    ui->trCustomers->setModel(
-                Databases::CustomerDatabase::instance()->getTree(filter));
-
-
-    ui->trCustomers->header()->close();
 }
 
 void MainWindow::newProject()
@@ -393,13 +340,13 @@ void MainWindow::changeTree()
         break;
     }
 
-    updateBtn();
+    updateButtons();
 }
 
 void MainWindow::changeCustomerTable()
 {
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
-    updateBtn();
+    updateButtons();
 }
 
 void MainWindow::changeProjectsTable()
@@ -412,7 +359,7 @@ void MainWindow::changeProjectsTable()
     ui->tblProjects->setColumnWidth(3, 122);
     ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
-    updateBtn();
+    updateButtons();
 }
 
 void MainWindow::backToCustomersTable()
@@ -431,10 +378,92 @@ void MainWindow::quotesProject()
 {
     ui->stackedWidget->setCurrentIndex(2);
     updateTableBillings(getCurrentProjectId());
-    updateBtn();
+    updateButtons();
 }
 
-void MainWindow::updateBtn()
+void MainWindow::editQuote()
+{
+    if(ui->tblQuotes->selectionModel()->hasSelection()) {
+        AddQuoteDialog addquotedialog(false, getCurrentCustomerId(),getCurrentQuoteId());
+        addquotedialog.exec();
+        updateTableBillings(getCurrentProjectId());
+        updateUI();
+    }
+
+}
+
+void MainWindow::updateUI(QString filter)
+{
+    if (ui->tblCustomers->model() != NULL) {
+        delete ui->tblCustomers->model();
+    }
+    updateTableCustomers(filter);
+
+    if (ui->tblProjects->model() != NULL) {
+        delete ui->tblProjects->model();
+    }
+    updateTableProjects(getCurrentCustomerId());
+
+    if (ui->tblQuotes->model() != NULL) {
+        delete ui->tblQuotes->model();
+    }
+    updateTableBillings(getCurrentProjectId());
+
+    if (ui->trCustomers->model() != NULL) {
+        delete ui->trCustomers->model();
+    }
+    updateTree(filter);
+
+    updateButtons();
+    updateUser();
+}
+
+void MainWindow::updateTableCustomers(QString filter) {
+
+    ui->tblCustomers->setModel(
+                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
+
+    ui->tblCustomers->hideColumn(0);
+    ui->tblCustomers->setColumnWidth(0, 100);
+    ui->tblCustomers->setColumnWidth(1, 200);
+    ui->tblCustomers->setColumnWidth(2, 100);
+    ui->tblCustomers->setColumnWidth(3, 150);
+    ui->tblCustomers->setColumnWidth(4, 150);
+    ui->tblCustomers->setColumnWidth(5, 250);
+}
+
+void MainWindow::updateTableProjects(const int pId)
+{
+    static int lastId = pId;
+    if(pId != 0) {
+        lastId = pId;
+    }
+    ui->tblProjects->setModel(Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
+    ui->tblProjects->hideColumn(0);
+}
+
+void MainWindow::updateTableBillings(const int idProject)
+{
+    ui->tblQuotes->setModel(
+                Databases::BillingDatabase::instance()->getBillingsTable(idProject));
+    ui->lblQuotes->setText("<b>Devis du projet: "+getCurrentProjectName()+"</b>");
+    ui->tblQuotes->hideColumn(0);
+    ui->tblQuotes->hideColumn(3);
+    ui->tblQuotes->setColumnWidth(1, 200);
+    ui->tblQuotes->setColumnWidth(2, 100);
+    ui->tblQuotes->setColumnWidth(4, 150);
+}
+
+void MainWindow::updateTree(QString filter)
+{
+    ui->trCustomers->setModel(
+                Databases::CustomerDatabase::instance()->getTree(filter));
+
+
+    ui->trCustomers->header()->close();
+}
+
+void MainWindow::updateButtons()
 {
     ui->btnEdit->setEnabled(ui->tblCustomers->currentIndex().row() > -1
                     && ui->tblCustomers->selectionModel()->hasSelection());
@@ -458,20 +487,10 @@ void MainWindow::updateBtn()
     ui->actionNewBill->setEnabled(ui->tblProjects->currentIndex().row() > -1);
 }
 
-void MainWindow::editQuote()
+void MainWindow::updateUser()
 {
-    if(ui->tblQuotes->selectionModel()->hasSelection()) {
-        AddQuoteDialog addquotedialog(false, getCurrentCustomerId(),getCurrentQuoteId());
-        addquotedialog.exec();
-        updateTableBillings(getCurrentProjectId());
-        updateBtn();
-        updateTree();
-    }
-
-}
+    ui->wdgUserData->printUserData();
 }
 
-void Gui::MainWindow::on_chkProjectName_clicked(bool checked)
-{
 
 }
