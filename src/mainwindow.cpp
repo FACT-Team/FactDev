@@ -73,9 +73,33 @@ QString MainWindow::getCurrentProjectName()
 void MainWindow::addCustomer()
 {
     DialogAddCustomer addCustomerDialog;
-    addCustomerDialog.exec();
-    updateTableCustomers();
-    updateTree();
+    if (addCustomerDialog.exec()) { // accept
+        updateTree();
+        updateTableCustomers();
+        updateBtn();
+    }
+
+}
+
+void MainWindow::newProject()
+{
+    QModelIndex index = ui->tblCustomers->currentIndex();
+    QModelIndex indexTree = ui->trCustomers->currentIndex();
+    if (treeLevel() == 2) indexTree = findParent();
+
+    AddProjectDialog *addProjectDialog;
+    if(ui->stackedWidget->currentIndex() == 1) {
+        addProjectDialog = new AddProjectDialog(index.row(), 0, 0);
+        addProjectDialog->fillFields();
+    } else {
+        addProjectDialog = new AddProjectDialog(0, 0, 0);
+    }
+    if (addProjectDialog->exec()) {
+        updateTree();
+        updateTableProjects(getCurrentCustomerId());
+    }
+    ui->trCustomers->setCurrentIndex(indexTree);
+    ui->trCustomers->expand(indexTree);
 }
 
 void MainWindow::addQuote()
@@ -91,26 +115,27 @@ void MainWindow::addBill()
 void MainWindow::addDoc(bool isBilling)
 {
     AddQuoteDialog addDocDialog(isBilling, getCurrentCustomerId());
-    addDocDialog.exec();
-    updateTableBillings(getCurrentProjectId());
-    updateTree();
+    if (addDocDialog.exec()) {
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+    }
 }
 
 void MainWindow::editCustomer() {
     DialogAddCustomer editCustomerDialog(getCurrentCustomerId());
-    editCustomerDialog.exec();
-
-    updateTableCustomers("", ui->tblCustomers->currentIndex().row());
-    updateTree();
+    if (editCustomerDialog.exec()) {
+        updateTableCustomers("", ui->tblCustomers->currentIndex().row());
+        updateTree();
+    }
 }
 
 void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
     AddProjectDialog editProjectDialog(row, getCurrentProjectId());
-    editProjectDialog.exec();
-
-    updateTableProjects(getCurrentCustomerId(), row);
-    updateTree();
+    if (editProjectDialog.exec()) {
+        updateTableProjects(getCurrentCustomerId(), row);
+        updateTree();
+    }
 }
 
 void MainWindow::editDoc()
@@ -123,12 +148,12 @@ void MainWindow::editDoc()
     else editDocDialog = new AddQuoteDialog(
                 false, getCurrentCustomerId(),getCurrentQuoteId());
 
-    editDocDialog->exec();
+    if (editDocDialog->exec()) {
+        updateTableBillings(getCurrentProjectId(),
+                            ui->tblQuotes->currentIndex().row());
+        updateTree();
+    }
     delete editDocDialog;
-
-    updateTableBillings(getCurrentProjectId(),
-                        ui->tblQuotes->currentIndex().row());
-    updateTree();
 }
 
 void MainWindow::removeCustomer() {
@@ -200,8 +225,7 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
 void MainWindow::editUser()
 {
     UserDataDialog userdialog;
-    userdialog.exec();
-    updateUser();
+    if (userdialog.exec()) updateUser();
 }
 
 void MainWindow::updateTableCustomers(QString filter, const int row) {
@@ -233,22 +257,6 @@ void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-}
-
-void MainWindow::newProject()
-{
-    QModelIndex indexTree = ui->trCustomers->currentIndex();
-    QModelIndex index = ui->tblCustomers->currentIndex();
-    AddProjectDialog *w;
-    if(ui->stackedWidget->currentIndex() == 1) {
-        w = new AddProjectDialog(index.row(), 0, 0);
-        w->fillFields();
-    } else {
-        w = new AddProjectDialog(0, 0, 0);
-    }
-    w->exec();
-    updateTree();
-    updateTableProjects(getCurrentCustomerId());
 }
 
 void MainWindow::aboutQt()
@@ -418,7 +426,8 @@ void MainWindow::backToProjectsTable()
 {
     ui->stackedWidget->setCurrentIndex(1);
     QModelIndex index(ui->trCustomers->currentIndex());
-    if (treeLevel() != 2)  ui->trCustomers->collapse(index = findParent());
+    if (treeLevel() != 2)  index = findParent();
+    ui->trCustomers->collapse(index);
     ui->trCustomers->setCurrentIndex(index);
 }
 
