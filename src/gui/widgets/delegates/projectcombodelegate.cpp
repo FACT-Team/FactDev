@@ -19,7 +19,7 @@ ProjectComboDelegate::~ProjectComboDelegate()
 QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */,
                                             const QModelIndex & index) const
 {
-    if(index.model()->data(index, Qt::EditRole).toUInt() != 0) {
+    if(_locked && index.model()->data(index, Qt::EditRole).toUInt() != 0) {
         return 0;
     }
 
@@ -79,7 +79,13 @@ QMap<int, Models::Project> ProjectComboDelegate::getProjects() const
 {
     return _projects;
 }
-bool ProjectComboDelegate::getLlocked() const
+
+void ProjectComboDelegate::setLocked(bool locked)
+{
+    _locked = locked;
+}
+
+bool ProjectComboDelegate::getLocked() const
 {
     return _locked;
 }

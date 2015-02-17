@@ -102,6 +102,15 @@ void ProjectContributoriesTableModel::remove(int index) {
     endRemoveRows();
 }
 
+QPair<Models::Project *, double> ProjectContributoriesTableModel::getProject(const int row)
+{
+    return _projects[row];
+}
+
+QList<QPair<Models::Project *, double>> ProjectContributoriesTableModel::getProjects()
+{
+    return _projects;
+}
 
 QList<int>& ProjectContributoriesTableModel::getSelectedProjects()
 {

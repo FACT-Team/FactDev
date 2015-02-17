@@ -6,6 +6,7 @@
 #include <QSpinBox>
 
 #include "models/contributory.h"
+#include "models/contributorieslist.h"
 
 #include "gui/widgets/widgetsmodels/contributoriestablemodel.h"
 #include "gui/widgets/widgetsmodels/projectcontributoriestablemodel.h"
@@ -28,7 +29,7 @@ public:
      * @brief getContributories Get contributories List
      * @return
      */
-    QList<Contributory> getContributories() const;
+    ContributoriesList* getContributories() const;
     int count();
 
     /**

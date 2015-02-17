@@ -53,7 +53,8 @@ void AddQuoteDialog::fillFields() {
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
-    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(_quote->getContributories().getAllContributories());
+     // TODO editing… FIXME.
+//    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(_quote->getContributories().getAllContributories());
 }
 
 void AddQuoteDialog::accept() {
@@ -61,9 +62,16 @@ void AddQuoteDialog::accept() {
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
 
-    for(Contributory c : ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()) {
-        _quote->addContributory(c);
+    // count() == 2
+    QList<Contributory>* listContributories = ((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()->getAllContributories();
+
+    // skip
+    for(Contributory& contrib : *listContributories) {
+        _quote->addContributory(contrib);
     }
+    delete listContributories;
+
+    // count() == 0
     _quote->commit();
     QDialog::accept();
 }

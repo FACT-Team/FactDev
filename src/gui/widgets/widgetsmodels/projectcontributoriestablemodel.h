@@ -71,6 +71,9 @@ public:
     QList<int> &getSelectedProjects();
 
     void remove(int index);
+
+    QPair<Models::Project*, double> getProject(const int row);
+    QList<QPair<Models::Project*, double> > getProjects(void);
 private:
     QList<QPair<Models::Project*, double> > _projects;
     QList<int> _selectedProjects;

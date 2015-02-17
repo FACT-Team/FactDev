@@ -7,7 +7,7 @@
 
 
 namespace Models {
-class ContributoriesList : private QMap<QPair<Project*,int>*,QList<Contributory> >
+class ContributoriesList : private QMap<QPair<Project*,double>*,QList<Contributory> >
 {
 public:
     ContributoriesList();
@@ -19,7 +19,7 @@ public:
     virtual void commit();
 
     void addContributory(Models::Contributory& contributory);
-    void addProject(Project* p, int rate);
+    void addProject(Project* p, double rate);
     QList<Contributory> &getContributories(Project* p);
     int getIdBilling() const;
     void setIdBilling(int getIdBilling);
@@ -31,7 +31,7 @@ public:
 
     QSharedPointer<Customer> getCustomer();
     QList<Project *> getProjects();
-    QList<Contributory> &getAllContributories();
+    QList<Contributory> *getAllContributories();
 private:
     int _idBilling;
     bool _insert;

@@ -2,10 +2,12 @@
 #include "models/contributory.h"
 #include "gui/widgets/delegates/projectcombodelegate.h"
 #include "gui/widgets/delegates/doublespinboxdelegate.h"
+#include "models/contributorieslist.h"
 #include "ui_contributorieswidget.h"
 
 namespace Gui {
 namespace Widgets {
+
 ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ContributoriesWidget)
@@ -13,7 +15,9 @@ ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *
     ui->setupUi(this);
     _modelProjects = new WdgModels::ProjectContributoriesTableModel();
     _customer = c;
-    ui->tblProjects->setItemDelegateForColumn(0, new Delegates::ProjectComboDelegate(c));
+    Delegates::ProjectComboDelegate* d = new Delegates::ProjectComboDelegate(c);
+    d->setLocked(true);
+    ui->tblProjects->setItemDelegateForColumn(0, d);
     ui->tblProjects->setItemDelegateForColumn(1, new Delegates::DoubleSpinBoxDelegate());
     ui->tblProjects->setItemDelegateForColumn(2, new Delegates::DoubleSpinBoxDelegate());
     ui->tblProjects->setModel(_modelProjects);
@@ -29,9 +33,19 @@ ContributoriesWidget::~ContributoriesWidget()
     delete ui;
 }
 
-QList<Contributory> ContributoriesWidget::getContributories() const
+ContributoriesList* ContributoriesWidget::getContributories() const
 {
-//    return _modelContributories->getContributories();
+    int i = 0;
+    ContributoriesList* contribList = new ContributoriesList();
+    for(QPair<Models::Project*, double> pair : _modelProjects->getProjects()) {
+        contribList->addProject(pair.first, pair.second);
+
+        for(Contributory& c : _modelsContributories[i++]->getContributories()) {
+            c.setProject(pair.first);
+            contribList->addContributory(c);
+        }
+    }
+    return contribList;
 }
 
 void ContributoriesWidget::add()

@@ -27,7 +27,7 @@ public:
 
     QMap<int, Models::Project> getProjects() const;
 
-    bool getLlocked() const;
+    bool getLocked() const;
     void setLocked(bool getLlocked);
 
 private:
