@@ -99,6 +99,9 @@
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::SingleSelection</enum>
             </property>
@@ -128,6 +131,9 @@
          <widget class="QTableView" name="tblProjects">
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
           </property>
           <property name="selectionMode">
            <enum>QAbstractItemView::SingleSelection</enum>
@@ -200,6 +206,9 @@
            <widget class="QTableView" name="tblQuotes">
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
             </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::SingleSelection</enum>
@@ -334,7 +343,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -789,8 +798,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>853</x>
-     <y>519</y>
+     <x>910</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -805,8 +814,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>710</x>
-     <y>519</y>
+     <x>823</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -853,8 +862,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>366</x>
-     <y>519</y>
+     <x>599</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -869,8 +878,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>537</x>
-     <y>519</y>
+     <x>726</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -1061,8 +1070,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>657</x>
-     <y>138</y>
+     <x>583</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1077,8 +1086,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>538</y>
+     <x>916</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1093,8 +1102,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>538</y>
+     <x>916</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1109,8 +1118,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>538</y>
+     <x>916</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1161,8 +1170,8 @@ border: 1px solid #bbb;</string>
      <y>158</y>
     </hint>
     <hint type="destinationlabel">
-     <x>0</x>
-     <y>151</y>
+     <x>20</x>
+     <y>20</y>
     </hint>
    </hints>
   </connection>
@@ -1241,8 +1250,8 @@ border: 1px solid #bbb;</string>
      <y>255</y>
     </hint>
     <hint type="destinationlabel">
-     <x>68</x>
-     <y>198</y>
+     <x>80</x>
+     <y>183</y>
     </hint>
    </hints>
   </connection>
@@ -1273,8 +1282,8 @@ border: 1px solid #bbb;</string>
      <y>255</y>
     </hint>
     <hint type="destinationlabel">
-     <x>115</x>
-     <y>261</y>
+     <x>127</x>
+     <y>252</y>
     </hint>
    </hints>
   </connection>
@@ -1321,8 +1330,8 @@ border: 1px solid #bbb;</string>
      <y>211</y>
     </hint>
     <hint type="destinationlabel">
-     <x>152</x>
-     <y>198</y>
+     <x>164</x>
+     <y>183</y>
     </hint>
    </hints>
   </connection>
@@ -1337,8 +1346,8 @@ border: 1px solid #bbb;</string>
      <y>211</y>
     </hint>
     <hint type="destinationlabel">
-     <x>152</x>
-     <y>219</y>
+     <x>164</x>
+     <y>206</y>
     </hint>
    </hints>
   </connection>
@@ -1422,6 +1431,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnBackCustomersProject</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateButtons()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>774</x>
+     <y>-20</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1447,11 +1472,12 @@ border: 1px solid #bbb;</string>
   <slot>removeProject()</slot>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
-  <slot>updateBtn()</slot>
   <slot>addBill()</slot>
   <slot>editDoc()</slot>
   <slot>removeDoc()</slot>
   <slot>changeProjectsTable()</slot>
   <slot>changeDocsTable()</slot>
+  <slot>editQuote()</slot>
+  <slot>updateButtons()</slot>
  </slots>
 </ui>

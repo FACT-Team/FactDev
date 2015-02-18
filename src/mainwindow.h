@@ -67,18 +67,21 @@ public:
      * @return id of the selected quote
      */
     int getCurrentQuoteId();
+
     /**
      * @brief MainWindow::getCurrentCustomerName get the selected customer name
      * in the customers' table
      * @return name of the selected customer
      */
     QString getCurrentCustomerName();
+
     /**
      * @brief MainWindow::getCurrentProjectName get the selected project name in
      * the table of projects
      * @return name of the selected project
      */
     QString getCurrentProjectName();
+
     /**
      * @brief MainWindow::treeLevel return the level of the node selected in the tree
      * @return integer, depth of the item in tree
@@ -95,6 +98,8 @@ public:
      * @see addBill addQuote
      */
     void addDoc(bool isBilling);
+
+
 
     void demo();
 public slots:
@@ -165,9 +170,10 @@ public slots:
      */
     void aboutIcons();
     /**
-     * @brief updateBtn Update all button to disable or enabled its
+     * @brief updateButton Update all button to disable or enabled its
      */
-    void updateBtn(void);
+    void updateButtons(void);
+
     /**
      * @brief MainWindow::editDoc Edit the quote or bill of the project
      */
@@ -177,6 +183,10 @@ public slots:
      */
     void removeDoc();
 
+    /**
+     * @brief MainWindow::editQuote Edit the qupte or
+     */
+    //void editQuote();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu
@@ -232,8 +242,16 @@ private slots:
      * @return QModelIndex
      */
     QModelIndex findParent();
+    void quotesProject();
 
 private:
+
+    /**
+     * @brief MainWindow::updateUI Update all components of the
+     * <b>MainWindow</b>
+     */
+    void updateUI(QString filter="");
+
     /**
      * @brief MainWindow::updateTable Update the table view
      * (just client in the first version)
@@ -248,16 +266,17 @@ private:
      */
     void updateTableProjects(const int pId = 0, const int row = -1);
 
-
     /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)
      */
     void updateTree(QString filter="");
+
     /**
      * @brief MainWindow::updateUser Update user data panel
      */
     void updateUser();
+
     /**
      * @brief MainWindow::updateTableBillings Update the table of
      * billings view
@@ -272,6 +291,7 @@ private:
      * @param item an item in the table <i>tbl</i>
      */
     void removeItem(QTableView* tbl, Utils::ItemType item);
+
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
      * the  tableview <i>tbl</i>

@@ -60,7 +60,7 @@ public:
 
     /**
      * @brief Contributory::setProject Modify the identify <i>id</i> of the
-     *  Project linke to this Contributory
+     *  Project linked to this Contributory
      * @param id Project Identify
      */
     void setProject(Project *id);

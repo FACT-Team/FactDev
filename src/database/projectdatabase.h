@@ -8,9 +8,11 @@
 
 #include "utils/string.h"
 #include "utils/log.h"
+#include "gui/widgets/widgetsmodels/projectstablemodel.h"
 
 using namespace Utils;
 using namespace Exceptions;
+using namespace Gui::Widgets;
 
 namespace Databases {
 
@@ -22,13 +24,7 @@ namespace Databases {
  */
 class ProjectDatabase : public Database
 {
-private:
-    static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
 
-    /**
-     * @brief ProjectDatabase: is a singleton
-     */
-    ProjectDatabase() throw (DbException*);
 public:
     /**
      * @brief ProjectDatabase::getInstance Return an instance of ProjectDatabase
@@ -37,12 +33,19 @@ public:
     static ProjectDatabase*  instance() throw (DbException*);
 
     /**
-     * @brief ProjectDatabasegetProject Get informations about the project
+     * @brief ProjectDatabase::getProject Get informations about the project
      * identified by 'pId'
      * @param pId project
      * @return the project
      */
-    Models::Project *getProject(const int pId);
+    Models::Project* getProject(const int pId);
+
+    /**
+     * @brief ProjectDatabase::getProject
+     * @param q
+     * @return
+     */
+    Models::Project* getProject(QSqlQuery& q);
 
     /**
      * @brief ProjectDatabase:addProject Add the project 'pProject' to the
@@ -90,14 +93,22 @@ public:
       * @param filter Select only projects who are specified by <i>filter</i>
       * @return QStandardItemModel an item model for QTableView
       */
-    QStandardItemModel* getProjectsTable(const int pId) throw(DbException*);
+    WdgModels::ProjectsTableModel* getProjectsTable(const int pId) throw(DbException*);
 
     /**
      * @brief getProject Obtain a project without new query
      * @param q The query to use
      * @return The project linked to q
      */
-    Models::Project *getProject(QSqlQuery &q);
+    QSharedPointer<Project> updateProject(QSqlQuery &q);
+private:
+    static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
+
+    /**
+     * @brief ProjectDatabase: is a singleton
+     */
+    ProjectDatabase() throw (DbException*);
+
 };
 }
 #endif // PROJECTDATABASE_H

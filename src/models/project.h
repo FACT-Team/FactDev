@@ -101,7 +101,7 @@ public:
      * @brief Project::getEndDate Return the <i>endDate</i> of the <b>Project</b>
      * @return the end date of the project
      */
-    QDate getEndDate();
+    QDate getEndDate() const;
 
     /**
      * @brief Project::setEndDate Modify <i>endDate</i> of <b>Project</b>
