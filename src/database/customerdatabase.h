@@ -15,6 +15,9 @@ using namespace Gui::Widgets;
 namespace Databases {
 /** 
  * @author Antoine de Roquemaurel
+ * @author Manantsoa Razanajatovo
+ * @author Florent Berbie
+ * @author Cédric Rohaut
  * @brief The <b>CustomerDatabase</b> class Customer table database
  * @see Database
  * @see Customer
@@ -32,7 +35,6 @@ public:
     static CustomerDatabase* instance()throw(DbException*);
 
     /**
-     * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTable Return an item model of
      * customers for QTableView
      * @param filter Select only customers who are specified by <i>filter</i>
@@ -43,7 +45,6 @@ public:
 
 
     /**
-     * @author Manantsoa Razanajatovo & Cédric Rohaut (@Oxynos)
      * @brief CustomerDatabase::getTree Return an item model of customers
      * for QTree
      * @param filter Select only customers who are specified by <i>filter</i>

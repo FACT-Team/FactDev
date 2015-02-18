@@ -1377,7 +1377,7 @@ border: 1px solid #bbb;</string>
    <sender>btnBackCustomersProject</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindow</receiver>
-   <slot>updateBtn()</slot>
+   <slot>updateButtons()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>365</x>
@@ -1414,7 +1414,6 @@ border: 1px solid #bbb;</string>
   <slot>removeProject()</slot>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
-  <slot>updateBtn()</slot>
   <slot>editQuote()</slot>
   <slot>addBill()</slot>
   <slot>updateButtons()</slot>

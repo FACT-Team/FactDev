@@ -8,9 +8,11 @@
 
 #include "utils/string.h"
 #include "utils/log.h"
+#include "gui/widgets/widgetsmodels/projectstablemodel.h"
 
 using namespace Utils;
 using namespace Exceptions;
+using namespace Gui::Widgets;
 
 namespace Databases {
 
@@ -36,7 +38,7 @@ public:
      * @param pId project
      * @return the project
      */
-    Models::Project *getProject(const int pId);
+    QSharedPointer<Project> *getProject(const int pId);
 
     /**
      * @brief ProjectDatabase:addProject Add the project 'pProject' to the
@@ -84,14 +86,14 @@ public:
       * @param filter Select only projects who are specified by <i>filter</i>
       * @return QStandardItemModel an item model for QTableView
       */
-    QStandardItemModel* getProjectsTable(const int pId) throw(DbException*);
+    WdgModels::ProjectsTableModel* getProjectsTable(const int pId) throw(DbException*);
 
     /**
      * @brief getProject Obtain a project without new query
      * @param q The query to use
      * @return The project linked to q
      */
-    Models::Project *getProject(QSqlQuery &q);
+    QSharedPointer<Project> getProject(QSqlQuery &q);
 private:
     static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
 
