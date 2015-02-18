@@ -71,7 +71,9 @@ SOURCES += mainwindow.cpp \
     models/contributorieslist.cpp \
     gui/widgets/widgetsmodels/projectcontributoriestablemodel.cpp \
     gui/widgets/delegates/doublespinboxdelegate.cpp \
-    models/rate.cpp
+    models/rate.cpp \
+    gui/widgets/delegates/unitcombodelegate.cpp \
+    gui/widgets/delegates/comboboxdelegate.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -127,7 +129,9 @@ HEADERS  += mainwindow.h \
     models/contributorieslist.h \
     gui/widgets/widgetsmodels/projectcontributoriestablemodel.h \
     gui/widgets/delegates/doublespinboxdelegate.h \
-    models/rate.h
+    models/rate.h \
+    gui/widgets/delegates/unitcombodelegate.h \
+    gui/widgets/delegates/comboboxdelegate.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

@@ -2,6 +2,7 @@
 #include "models/contributory.h"
 #include "gui/widgets/delegates/projectcombodelegate.h"
 #include "gui/widgets/delegates/doublespinboxdelegate.h"
+#include "gui/widgets/delegates/unitcombodelegate.h"
 #include "models/contributorieslist.h"
 #include "ui_contributorieswidget.h"
 
@@ -83,10 +84,11 @@ void ContributoriesWidget::addProject(void)
     _modelsContributories << new WdgModels::ContributoriesTableModel();
     view->setModel(_modelsContributories.last());
     view->setEditTriggers(QAbstractItemView::DoubleClicked);
-
-    view->setColumnWidth(0, 150);
-    view->setColumnWidth(1, 350);
-    view->setColumnWidth(2, 150);
+    view->setItemDelegateForColumn(1, new Delegates::DoubleSpinBoxDelegate());
+    view->setItemDelegateForColumn(2, new Delegates::UnitComboDelegate());
+    view->setColumnWidth(0, 450);
+    view->setColumnWidth(1, 100);
+    view->setColumnWidth(2, 100);
 
     ui->stack->insertWidget(ui->stack->count(), view);
     emit updateBtn();

@@ -4,16 +4,10 @@ namespace Gui {
 namespace Widgets {
 namespace Delegates {
 
-ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : QItemDelegate(parent)
+ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : ComboBoxDelegate(parent)
 {
     _projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
     _locked = false;
-}
-
-
-ProjectComboDelegate::~ProjectComboDelegate()
-{
-
 }
 
 QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */,
@@ -35,30 +29,6 @@ QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionV
     }
 
     return editor;
-}
-
-void ProjectComboDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
-{
-    QComboBox *comboBox = static_cast<QComboBox*>(editor);
-    int value = index.model()->data(index, Qt::EditRole).toUInt();
-    for(int i = 0 ; i < comboBox->count() ; ++i) {
-        if(comboBox->itemData(i) == value) {
-            comboBox->setCurrentIndex(i);
-            break;
-        }
-    }
-
-}
-
-void ProjectComboDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
-{
-    QComboBox *comboBox = static_cast<QComboBox*>(editor);
-    model->setData(index, comboBox->itemData(comboBox->currentIndex()), Qt::EditRole);
-}
-
-void ProjectComboDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &/* index */) const
-{
-    editor->setGeometry(option.rect);
 }
 
 void ProjectComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
