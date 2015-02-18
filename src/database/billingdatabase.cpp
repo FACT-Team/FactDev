@@ -135,12 +135,37 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
     q.bindValue(":idContributory", idContributory);
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible d'ajouter le Customer",
-                    "BddCustomer::addCustomer",
+                    "Impossible d'ajouter la liaison dans BillingProject",
+                    "BddCustomer::addBillingProject",
                     lastError(q),
                     1.3);
     }
 
+}
+
+void BillingDatabase::removeBillingProject(const int idProject, const int idBilling, const int idContributory)
+{
+    QSqlQuery q;
+    QString project;
+
+    (idProject == 0) ? project="" : project="idProject= "+ QString::number(idProject) +" AND ";
+
+    q.prepare(
+                "DELETE FROM BillingProject "
+                "WHERE "+project+
+                "idBilling=:idBilling "
+                "AND idContributory=:idContributory");
+
+    q.bindValue(":idBilling", idBilling);
+    q.bindValue(":idContributory",idContributory);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer la liaison dans BillingProject ",
+                    "BddContributory::removeBillingProject",
+                    lastError(q),
+                    1.5);
+    }
 }
 
 void BillingDatabase::updateBilling(const Models::Billing& pBilling)
