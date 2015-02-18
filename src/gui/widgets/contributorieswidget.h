@@ -53,7 +53,8 @@ public slots:
     void removeProject(void);
     void changeProject(void);
     void editing(void);
-    void updateBtn(void);
+    void updateUi(void);
+    void updatePrice(void);
 
 signals:
     void contributoryChanged();

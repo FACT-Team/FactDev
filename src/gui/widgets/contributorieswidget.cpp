@@ -26,7 +26,7 @@ ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *
     ui->btnRmovePrestation->hide();
     connect(ui->tblProjects->itemDelegateForColumn(0), SIGNAL(closeEditor(QWidget*)), SLOT(editing()));
     emit contributoryChanged();
-    emit updateBtn();
+    emit updateUi();
 }
 
 ContributoriesWidget::~ContributoriesWidget()
@@ -51,8 +51,8 @@ ContributoriesList* ContributoriesWidget::getContributories() const
 
 void ContributoriesWidget::add()
 {
-    _modelsContributories[ui->stack->currentIndex()]->append(Contributory());
-    emit contributoryChanged();
+    Contributory c;
+    add(c);
 }
 
 void ContributoriesWidget::add(Contributory& c)
@@ -89,11 +89,10 @@ void ContributoriesWidget::addProject(void)
     view->setColumnWidth(0, 450);
     view->setColumnWidth(1, 100);
     view->setColumnWidth(2, 100);
-
+    connect(view->itemDelegateForColumn(2), SIGNAL(closeEditor(QWidget*)), SLOT(updatePrice()));
+    connect(view->itemDelegateForColumn(1), SIGNAL(closeEditor(QWidget*)), SLOT(updatePrice()));
     ui->stack->insertWidget(ui->stack->count(), view);
-    emit updateBtn();
-//    table->horizontalHeader()->setResizeMode( 0, QHeaderView::Stretch );
-//    table->horizontalHeader()->setResizeMode( 1, QHeaderView::ResizeToContents );
+    emit updateUi();
 }
 
 void ContributoriesWidget::removeProject(void)
@@ -101,22 +100,22 @@ void ContributoriesWidget::removeProject(void)
     qDebug() << "I want to remove this project :-(";
     _modelProjects->remove(ui->tblProjects->currentIndex().row());
     ui->stack->removeWidget(ui->stack->currentWidget());
-    emit updateBtn();
+    emit updateUi();
 }
 
 void ContributoriesWidget::changeProject()
 {
     ui->stack->setCurrentIndex(ui->tblProjects->currentIndex().row());
-    emit updateBtn();
+    emit updateUi();
 }
 
 void ContributoriesWidget::editing()
 {
     ((Delegates::ProjectComboDelegate*)ui->tblProjects->itemDelegateForColumn(0))->removeInCombo(_modelProjects->getSelectedProjects());
-    emit updateBtn();
+    emit updateUi();
 }
 
-void ContributoriesWidget::updateBtn()
+void ContributoriesWidget::updateUi()
 {
     ui->btnAddProject->setEnabled(_modelProjects->getSelectedProjects().count() <
                                   ((Delegates::ProjectComboDelegate*)ui->tblProjects->itemDelegateForColumn(0))->getProjects().count() &&
@@ -129,6 +128,23 @@ void ContributoriesWidget::updateBtn()
     } else {
         ui->btnAddPrestation->hide();
         ui->btnRmovePrestation->hide();
+    }
+    updatePrice();
+}
+
+void ContributoriesWidget::updatePrice()
+{
+    if(_modelsContributories.count() > 0) {
+        WdgModels::ContributoriesTableModel* currentContributory = _modelsContributories[ui->stack->currentIndex()];
+        QPair<Models::Project*, Models::Rate> currentProject = _modelProjects->getProject(ui->stack->currentIndex());
+
+        ui->sbSubSum->setValue(currentContributory->getSumQuantity() * currentProject.second.getDailyRate());
+        double value;
+        int i;
+        for(WdgModels::ContributoriesTableModel* contributory : _modelsContributories) {
+            value += contributory->getSumQuantity() * _modelProjects->getProject(i++).second.getDailyRate();
+        }
+        ui->sbAllSums->setValue(value);
     }
 }
 

@@ -1,9 +1,10 @@
-#ifndef CONTRIBUTORIESTABLEMODEL_H
+﻿#ifndef CONTRIBUTORIESTABLEMODEL_H
 #define CONTRIBUTORIESTABLEMODEL_H
 #include <QObject>
 #include <QAbstractTableModel>
 
 #include "models/contributory.h"
+#include "models/rate.h"
 
 #include "utils/log.h"
 
@@ -96,6 +97,8 @@ public:
      * @return The number of contributories
      */
     int count();
+
+    double getSumQuantity() const;
 private:
     QList<Contributory> _contributories; //!< contributories list
     QList<Contributory> _contributoriesToRemoved; //!< Contributories to removed

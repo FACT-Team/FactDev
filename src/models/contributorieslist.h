@@ -32,6 +32,7 @@ public:
     QSharedPointer<Customer> getCustomer();
     QList<Project *> getProjects();
     QList<Contributory> *getAllContributories();
+    Models::Rate getRate(Models::Project *project);
 private:
     int _idBilling;
     bool _insert;

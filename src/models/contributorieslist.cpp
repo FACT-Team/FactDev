@@ -1,5 +1,6 @@
 #include "contributorieslist.h"
 #include "database/billingdatabase.h"
+#include "database/ratedatabase.h"
 
 using namespace Databases;
 
@@ -27,6 +28,9 @@ void ContributoriesList::commit()
                 BillingDatabase::instance()->addBillingProject(c.getProject()->getId(),
                                                                 _idBilling,
                                                                c.getId());
+                RateDatabase::instance()->addRateProject(c.getProject()->getId(),
+                                                         _idBilling,
+                                                         getRate(c.getProject()).getHourlyRate());
             }
 
         }
@@ -85,6 +89,15 @@ QList<Project*> ContributoriesList::getProjects() {
         projects.append(pair->first);
     }
     return projects;
+}
+
+Models::Rate ContributoriesList::getRate(Models::Project* project) {
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
+        if(pair->first->getId() == project->getId()) {
+            return pair->second;
+        }
+    }
+    return Models::Rate();
 }
 
 int ContributoriesList::getNbProjects() {

@@ -62,16 +62,12 @@ void AddQuoteDialog::accept() {
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
 
-    // count() == 2
     QList<Contributory>* listContributories = ((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()->getAllContributories();
-
-    // skip
     for(Contributory& contrib : *listContributories) {
         _quote->addContributory(contrib);
     }
     delete listContributories;
 
-    // count() == 0
     _quote->commit();
     QDialog::accept();
 }

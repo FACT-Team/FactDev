@@ -73,7 +73,8 @@ SOURCES += mainwindow.cpp \
     gui/widgets/delegates/doublespinboxdelegate.cpp \
     models/rate.cpp \
     gui/widgets/delegates/unitcombodelegate.cpp \
-    gui/widgets/delegates/comboboxdelegate.cpp
+    gui/widgets/delegates/comboboxdelegate.cpp \
+    database/ratedatabase.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -131,7 +132,8 @@ HEADERS  += mainwindow.h \
     gui/widgets/delegates/doublespinboxdelegate.h \
     models/rate.h \
     gui/widgets/delegates/unitcombodelegate.h \
-    gui/widgets/delegates/comboboxdelegate.h
+    gui/widgets/delegates/comboboxdelegate.h \
+    database/ratedatabase.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

@@ -19,11 +19,13 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
     if (role != Qt::DisplayRole && role != Qt::EditRole) {
         return QVariant();
     }
+    Models::Rate r;
+
     const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
     case 0: return contributory.getDescription();
-    case 1: return contributory.getNbHours();
-    case 2: return "Cool.";
+    case 1: return contributory.getNbHours()/r.getNbDailyHours();
+    case 2: return 0; // TODO unit
     default: return QVariant();
     };
 }
@@ -48,16 +50,17 @@ QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orien
 
 bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    Models::Rate r;
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
             _contributories[index.row()].setDescription(value.toString());
             break;
         case 1:
-//            _contributories[index.row()].setDescription(value.toString());
+            _contributories[index.row()].setNbHours(value.toDouble()*r.getNbDailyHours());
             break;
         case 2:
-//            _contributories[index.row()].setNbHours(value.toDouble());
+            // TODO unit.
             break;
         default:
             Log::instance(WARNING) << "Error, in default case of ContributoriesTableModel::setData";
@@ -94,6 +97,16 @@ QList<Contributory> ContributoriesTableModel::getContributories()
 
 int ContributoriesTableModel::count() {
     return _contributories.count();
+}
+
+double ContributoriesTableModel::getSumQuantity() const
+{
+    double ret;
+    for(Contributory c : _contributories) {
+        ret += c.getNbHours();
+    }
+
+    return ret;
 }
 
 }
