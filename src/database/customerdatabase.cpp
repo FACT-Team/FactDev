@@ -241,7 +241,7 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
                 "postalCode, city, country, email, mobilePhone, phone, fax)"
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email,:phone,:mobilePhone,:fax)"
+                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
@@ -252,10 +252,9 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
     q.bindValue(":city", pCustomer.getCity());
     q.bindValue(":country", pCustomer.getCountry());
     q.bindValue(":email", pCustomer.getEmail());
-    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
-//    updateCustomer(q, pCustomer);
 
     if(!q.exec()) {
         throw new DbException(
