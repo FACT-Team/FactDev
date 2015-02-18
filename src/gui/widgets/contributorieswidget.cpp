@@ -37,7 +37,7 @@ ContributoriesList* ContributoriesWidget::getContributories() const
 {
     int i = 0;
     ContributoriesList* contribList = new ContributoriesList();
-    for(QPair<Models::Project*, double> pair : _modelProjects->getProjects()) {
+    for(QPair<Models::Project*, Models::Rate> pair : _modelProjects->getProjects()) {
         contribList->addProject(pair.first, pair.second);
 
         for(Contributory& c : _modelsContributories[i++]->getContributories()) {

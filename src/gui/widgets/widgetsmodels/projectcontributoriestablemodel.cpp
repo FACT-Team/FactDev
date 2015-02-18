@@ -25,10 +25,11 @@ QVariant ProjectContributoriesTableModel::data(const QModelIndex &index, int rol
     if (role != Qt::DisplayRole && role != Qt::EditRole) {
         return QVariant();
     }
+
     switch (index.column()) {
     case 0: return _projects[index.row()].first->getId();
-    case 1: return _projects[index.row()].second;
-    case 2: return _projects[index.row()].second;
+    case 1: return _projects[index.row()].second.getHourlyRate();
+    case 2: return _projects[index.row()].second.getDailyRate();
     default: return QVariant();
     };
 }
@@ -81,13 +82,13 @@ Qt::ItemFlags ProjectContributoriesTableModel::flags(const QModelIndex &index) c
 void ProjectContributoriesTableModel::append()
 {
     beginInsertRows(QModelIndex(), _projects.count(), _projects.count());
-    _projects.append(QPair<Models::Project*, double>(new Models::Project, 0));
+    _projects.append(QPair<Models::Project*, Models::Rate>(new Models::Project, 0));
     endInsertRows();
 }
 
 bool ProjectContributoriesTableModel::allProjectsChose()
 {
-    for(QPair<Models::Project*, double> key : _projects) {
+    for(QPair<Models::Project*, Models::Rate> key : _projects) {
         if(key.first->getId() == 0) {
             return false;
         }
@@ -102,12 +103,12 @@ void ProjectContributoriesTableModel::remove(int index) {
     endRemoveRows();
 }
 
-QPair<Models::Project *, double> ProjectContributoriesTableModel::getProject(const int row)
+QPair<Models::Project *, Models::Rate> ProjectContributoriesTableModel::getProject(const int row)
 {
     return _projects[row];
 }
 
-QList<QPair<Models::Project *, double>> ProjectContributoriesTableModel::getProjects()
+QList<QPair<Models::Project *, Models::Rate>> ProjectContributoriesTableModel::getProjects()
 {
     return _projects;
 }

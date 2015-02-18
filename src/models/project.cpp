@@ -4,8 +4,6 @@
 using namespace Databases;
 
 namespace Models {
-const double Project::LEGAL_RATE = 9.61;
-const int Project::NB_DAILY_HOURS = 7;
 
 Project::Project()
 {

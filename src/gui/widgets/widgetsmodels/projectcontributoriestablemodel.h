@@ -5,6 +5,7 @@
 #include <QPair>
 
 #include "models/project.h"
+#include "models/rate.h"
 
 namespace Gui {
 namespace Widgets {
@@ -72,10 +73,10 @@ public:
 
     void remove(int index);
 
-    QPair<Models::Project*, double> getProject(const int row);
-    QList<QPair<Models::Project*, double> > getProjects(void);
+    QPair<Models::Project*, Models::Rate> getProject(const int row);
+    QList<QPair<Models::Project*, Models::Rate> > getProjects(void);
 private:
-    QList<QPair<Models::Project*, double> > _projects;
+    QList<QPair<Models::Project*, Models::Rate> > _projects;
     QList<int> _selectedProjects;
 
 };

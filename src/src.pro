@@ -70,7 +70,8 @@ SOURCES += mainwindow.cpp \
     generator.cpp \
     models/contributorieslist.cpp \
     gui/widgets/widgetsmodels/projectcontributoriestablemodel.cpp \
-    gui/widgets/delegates/doublespinboxdelegate.cpp
+    gui/widgets/delegates/doublespinboxdelegate.cpp \
+    models/rate.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -125,7 +126,8 @@ HEADERS  += mainwindow.h \
     models/imodel.h \
     models/contributorieslist.h \
     gui/widgets/widgetsmodels/projectcontributoriestablemodel.h \
-    gui/widgets/delegates/doublespinboxdelegate.h
+    gui/widgets/delegates/doublespinboxdelegate.h \
+    models/rate.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

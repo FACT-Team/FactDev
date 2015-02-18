@@ -4,10 +4,10 @@
 #include <QMap>
 #include "models/project.h"
 #include "models/contributory.h"
-
+#include "models/rate.h"
 
 namespace Models {
-class ContributoriesList : private QMap<QPair<Project*,double>*,QList<Contributory> >
+class ContributoriesList : private QMap<QPair<Project*,Models::Rate>*,QList<Contributory> >
 {
 public:
     ContributoriesList();
@@ -19,7 +19,7 @@ public:
     virtual void commit();
 
     void addContributory(Models::Contributory& contributory);
-    void addProject(Project* p, double rate);
+    void addProject(Project* p, Models::Rate rate);
     QList<Contributory> &getContributories(Project* p);
     int getIdBilling() const;
     void setIdBilling(int getIdBilling);

@@ -26,7 +26,8 @@ database/customerdatabasetest.h \
     models/billingmodeltest.h \
     database/contributoriesdatabasetest.h \
     generation.h \
-    qt-mustache/test_mustache.h
+    qt-mustache/test_mustache.h \
+    models/ratemodeltest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -39,7 +40,8 @@ database/customerdatabasetest.cpp \
     models/billingmodeltest.cpp \
     database/contributoriesdatabasetest.cpp \
     generation.cpp \
-    qt-mustache/test_mustache.cpp
+    qt-mustache/test_mustache.cpp \
+    models/ratemodeltest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
 

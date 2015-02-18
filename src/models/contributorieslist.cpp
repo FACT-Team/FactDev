@@ -36,8 +36,8 @@ void ContributoriesList::commit()
 void ContributoriesList::addContributory(Contributory &contributory)
 {
     bool toInsert = true;
-    QPair<Project*, double>* key;
-    for(QPair<Project*, double>* p : keys()) {
+    QPair<Project*, Models::Rate>* key;
+    for(QPair<Project*, Models::Rate>* p : keys()) {
         if(p->first->getId() == contributory.getProject()->getId()) {
             toInsert = false;
             key = p;
@@ -45,22 +45,22 @@ void ContributoriesList::addContributory(Contributory &contributory)
         }
     }
     if(toInsert) {
-        key = new QPair<Project*, double>(contributory.getProject(), 0);
+        key = new QPair<Project*, Models::Rate>(contributory.getProject(), Models::Rate());
         insert(key, QList<Contributory>());
     }
 
     (*this)[key].push_back(contributory);
 }
 
-void ContributoriesList::addProject(Project *p, double rate)
+void ContributoriesList::addProject(Project *p, Models::Rate rate)
 {
-    insert(new QPair<Project*, double>(p, rate), QList<Models::Contributory>());
+    insert(new QPair<Project*, Models::Rate>(p, rate), QList<Models::Contributory>());
 }
 
 QList<Contributory>& ContributoriesList::getContributories(Project *p)
 {
-    QPair<Project*, double>* key;
-    for(QPair<Project*, double>* pair : keys()) {
+    QPair<Project*, Models::Rate>* key;
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
         if(pair->first == p || pair->first->getId() == p->getId()) {
             key = pair;
             break;
@@ -81,7 +81,7 @@ QList<Contributory>* ContributoriesList::getAllContributories() {
 QList<Project*> ContributoriesList::getProjects() {
     QList<Project*> projects;
 
-    for(QPair<Project*, double>* pair : keys()) {
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
         projects.append(pair->first);
     }
     return projects;
