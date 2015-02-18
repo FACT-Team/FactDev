@@ -129,7 +129,7 @@ public:
      *  the request <i>q</i>
      * @param q SQL request
      */
-    void updateCustomer(QSqlQuery &q, Customer pCustomer);
+    void updateCustomer(QSqlQuery &q, Customer &pCustomer);
 
 private:
     static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase

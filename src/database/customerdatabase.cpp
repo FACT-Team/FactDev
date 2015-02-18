@@ -194,19 +194,18 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
     return customer;
 }
 
-void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer pCustomer)
+void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
 {
-    q.bindValue(":firstname", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastname", pCustomer.getLastnameReferent());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
-    q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
     q.bindValue(":city", pCustomer.getCity());
     q.bindValue(":country", pCustomer.getCountry());
     q.bindValue(":email", (pCustomer.getEmail()));
-    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
     q.bindValue(":fax", pCustomer.getFax());
 }
 
@@ -242,21 +241,21 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
                 "postalCode, city, country, email, mobilePhone, phone, fax)"
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email, :mobilePhone, :phone, :fax)"
+                ":postalCode, :city, :country, :email,:phone,:mobilePhone,:fax)"
                 );
 
-//    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-//    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
-//    q.bindValue(":company", pCustomer.getCompany());
-//    q.bindValue(":address", pCustomer.getAddress());
-//    q.bindValue(":postalCode", pCustomer.getPostalCode());
-//    q.bindValue(":city", pCustomer.getCity());
-//    q.bindValue(":country", pCustomer.getCountry());
-//    q.bindValue(":email", pCustomer.getEmail());
-//    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
-//    q.bindValue(":phone", pCustomer.getPhone());
-//    q.bindValue(":fax", pCustomer.getFax());
-    updateCustomer(q, pCustomer);
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":company", pCustomer.getCompany());
+    q.bindValue(":address", pCustomer.getAddress());
+    q.bindValue(":postalCode", pCustomer.getPostalCode());
+    q.bindValue(":city", pCustomer.getCity());
+    q.bindValue(":country", pCustomer.getCountry());
+    q.bindValue(":email", pCustomer.getEmail());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
+    q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":fax", pCustomer.getFax());
+//    updateCustomer(q, pCustomer);
 
     if(!q.exec()) {
         throw new DbException(
@@ -273,15 +272,26 @@ void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
     QSqlQuery q;
     q.prepare(
                 "UPDATE Customer SET "
-                "firstnameReferent=:firstnameReferent, lastnameReferent=:lastnameReferent,"
-                "company=:company, address=:address, postalCode=:postalCode, city=:city,"
-                "country=:country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
-                "fax=:fax "
+                "firstnameReferent=:firstnameReferent, "
+                "lastnameReferent=:lastnameReferent, company=:company, "
+                "address=:address, postalCode=:postalCode, city=:city, "
+                "country=:country, email=:email, mobilePhone=:mobilePhone, "
+                "phone=:phone, fax=:fax "
                 "WHERE idCustomer=:idCustomer");
 
     q.bindValue(":idCustomer", pCustomer.getId());
-
-    updateCustomer(q, pCustomer);
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":company", pCustomer.getCompany());
+    q.bindValue(":address", pCustomer.getAddress());
+    q.bindValue(":postalCode", pCustomer.getPostalCode());
+    q.bindValue(":city", pCustomer.getCity());
+    q.bindValue(":country", pCustomer.getCountry());
+    q.bindValue(":email", pCustomer.getEmail());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
+    q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":fax", pCustomer.getFax());
+//    updateCustomer(q, pCustomer);
 
     if(!q.exec()) {
         throw new DbException(
