@@ -38,10 +38,7 @@ throw(DbException*)
 
     q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
               "c.lastnameReferent, c.company, c.phone, c.email "
-              "FROM Customer c, Project p, BillingProject bp "
-              "WHERE c.idCustomer = p.idCustomer "
-              "AND bp.idProject = p.idProject "
-              "AND 1 "+filter+" "
+              "FROM Customer c "+filter+" "
               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {
@@ -82,10 +79,7 @@ throw(DbException*)
     q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
                "c.lastnameReferent, c.company, c.address, c.postalCode, "
                "c.city, c.country, c.email, c.mobilephone, c.phone "
-               "FROM Customer c, Project p, BillingProject bp "
-               "WHERE c.idCustomer = p.idCustomer "
-               "AND bp.idProject = p.idProject "
-               "AND 1 "+filter+" "
+               "FROM Customer c"+filter+" "
                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
 
     if(!q.exec()) {

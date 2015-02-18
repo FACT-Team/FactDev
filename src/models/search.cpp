@@ -22,7 +22,11 @@ QString Search::getFilter()
     QStringList list = _text.split(" ");
 
     if(!_text.isEmpty()) {
-        filter = "AND (0 ";
+        filter =   ", Project p, BillingProject bp "
+                    "WHERE c.idCustomer = p.idCustomer "
+                    "AND bp.idProject = p.idProject "
+                    "AND 1 "
+                    "AND (0 ";
         if(_searchInCompanies || !_groupFilter) {
             filterOnCompany(filter, list);
         }
