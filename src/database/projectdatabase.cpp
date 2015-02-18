@@ -17,11 +17,8 @@ ProjectDatabase *ProjectDatabase::instance() throw(DbException*)
     return _instance;
 }
 
-
-QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
-{
-    QSharedPointer<Models::Project> project =
-            QSharedPointer<Models::Project>(new Models::Project());
+Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
+    Models::Project* project = new Models::Project();
     project->setId(value(q, "idProject").toInt());
     project->setName(value(q,"name").toString());
     project->setDescription(value(q,"pdescription").toString());
@@ -33,14 +30,32 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
                     new Models::Customer(value(q,"idCustomer").toInt())));
 
     return project;
+}
+
+
+QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
+{
+    QSharedPointer<Models::Project> project =
+            QSharedPointer<Models::Project>(new Models::Project());
+    project->setId(value(q, "idProject").toInt());
+    project->setName(value(q,"name").toString());
+    project->setDescription(value(q,"description").toString());
+    project->setBeginDate(value(q,"beginDate").toDate());
+    project->setEndDate(value(q,"endDate").toDate());
+    project->setDailyRate(value(q,"dailyRate").toDouble());
+    project->setCustomer(
+                QSharedPointer<Models::Customer>(
+                    new Models::Customer(value(q,"idCustomer").toInt())));
+
+    return project;
 
 }
 
 
-QSharedPointer<Models::Project> *ProjectDatabase::updateProject(const int pId)
+Models::Project* ProjectDatabase::getProject(const int pId)
 {
     QSqlQuery q;
-    QSharedPointer<Models::Project>* project;
+    Models::Project* project;
 
     q.prepare("SELECT idProject, name, description as pDescription, beginDate, "
               "endDate, dailyRate, idCustomer "
@@ -209,7 +224,8 @@ throw(DbException*)
 
     QSqlQuery q;
 
-    q.prepare("SELECT idProject ,name, description,beginDate,endDate "
+    q.prepare("SELECT idProject, name, description, beginDate, endDate, "
+              "dailyRate, idCustomer "
               "FROM Project "
               "WHERE idCustomer= :pId "
               "ORDER BY UPPER(name), UPPER(description)");

@@ -33,12 +33,19 @@ public:
     static ProjectDatabase*  instance() throw (DbException*);
 
     /**
-     * @brief ProjectDatabasegetProject Get informations about the project
+     * @brief ProjectDatabase::getProject Get informations about the project
      * identified by 'pId'
      * @param pId project
      * @return the project
      */
-    QSharedPointer<Project> *getProject(const int pId);
+    Models::Project* getProject(const int pId);
+
+    /**
+     * @brief ProjectDatabase::getProject
+     * @param q
+     * @return
+     */
+    Models::Project* getProject(QSqlQuery& q);
 
     /**
      * @brief ProjectDatabase:addProject Add the project 'pProject' to the
@@ -93,7 +100,7 @@ public:
      * @param q The query to use
      * @return The project linked to q
      */
-    QSharedPointer<Project> getProject(QSqlQuery &q);
+    QSharedPointer<Project> updateProject(QSqlQuery &q);
 private:
     static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
 

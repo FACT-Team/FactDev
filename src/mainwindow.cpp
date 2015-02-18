@@ -438,7 +438,8 @@ void MainWindow::updateTableProjects(const int pId)
     if(pId != 0) {
         lastId = pId;
     }
-    ui->tblProjects->setModel(Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
+    ui->tblProjects->setModel(
+                Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
 }
 
