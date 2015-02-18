@@ -12,7 +12,7 @@ QWidget *DoubleSpinBoxDelegate::createEditor(QWidget *parent, const QStyleOption
 {
     QDoubleSpinBox* editor = new QDoubleSpinBox(parent);
     editor->setMinimum(0);
-    editor->setMaximum(100);
+    editor->setMaximum(1000);
     editor->setSingleStep(0.5);
     return editor;
 }

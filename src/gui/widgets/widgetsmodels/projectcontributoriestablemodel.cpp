@@ -55,6 +55,7 @@ QVariant ProjectContributoriesTableModel::headerData(int section, Qt::Orientatio
 
 bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    Models::Rate r;
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
@@ -62,9 +63,11 @@ bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QV
             _selectedProjects << value.toInt();
             break;
         case 1:
-            _projects[index.row()].second = value.toDouble();
+            _projects[index.row()].second = Models::Rate(value.toDouble());
             break;
         case 2:
+            r.setDailyRate(value.toDouble());
+            _projects[index.row()].second = r;
             break;
         default:
         Utils::Log::instance(Utils::WARNING) << "Error, in default case of ContributoriesTableModel::setData";
