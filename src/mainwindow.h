@@ -85,6 +85,11 @@ public:
      */
     int treeLevel();
     /**
+     * @brief MainWindow::rootTree return the root of the tree "Tous les clients"
+     * @return QModelIndex
+     */
+    QModelIndex rootTree();
+    /**
      * @brief MainWindow::addDoc open window to add a new document
      * @param bool quote or bill
      * @see addBill addQuote
@@ -167,6 +172,10 @@ public slots:
      * @brief MainWindow::editDoc Edit the quote or bill of the project
      */
     void editDoc();
+    /**
+     * @brief MainWindow::removeDoc Remove the quote or bill of the project
+     */
+    void removeDoc();
 
 private slots:
     /**
@@ -186,14 +195,25 @@ private slots:
      */
     void changeTree();
     /**
-     * @brief MainWindow::changeCustomerTable calls changeCustomerTable
+     * @brief MainWindow::changeCustomerTable function to update the view
+     * when we change the selected customer in tblCustomers
      */
     void changeCustomerTable();
     /**
-     * @brief MainWindow::changeProjectsTable changes projects with the <i>index</i>
-     * of the customer in table of customers
+     * @brief MainWindow::changeProjectsTable function to update the view
+     * when we change the selected project in tblProjects
      */
     void changeProjectsTable();
+    /**
+     * @brief MainWindow::changeDocsTable function to update the view
+     * when we change the selected doc in tblQuotes
+     */
+    void changeDocsTable();
+    /**
+     * @brief MainWindow::customersTableToProjectsTable changes projects with the <i>index</i>
+     * of the customer in table of customers
+     */
+    void customersTableToProjectsTable();
     /**
      * @brief MainWindow::backToCustomersTable displays the customers table
      */
@@ -203,12 +223,15 @@ private slots:
      */
     void backToProjectsTable();
     /**
-     * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
+     * @brief MainWindow::projectsTableToDocsTable displays quotes of a project with the <i>index</i>
      * of the project in the table of projects
      */
-    void quotesProject();
-
-    void on_chkProjectName_clicked(bool checked);
+    void projectsTableToDocsTable();
+    /**
+     * @brief MainWindow::findParent return the parent of an item in tree
+     * @return QModelIndex
+     */
+    QModelIndex findParent();
 
 private:
     /**

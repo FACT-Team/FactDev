@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
         SLOT(openContextualMenuTree(const QPoint &)));
 
     updateUser();
+    updateBtn();
     demo();
 }
 
@@ -72,9 +73,31 @@ QString MainWindow::getCurrentProjectName()
 void MainWindow::addCustomer()
 {
     DialogAddCustomer addCustomerDialog;
-    addCustomerDialog.exec();
-    updateTableCustomers();
-    updateTree();
+    if (addCustomerDialog.exec()) { // accept
+        ui->stackedWidget->setCurrentIndex(0);
+        updateTree();
+        updateTableCustomers();
+        updateBtn();
+    }
+
+}
+
+void MainWindow::newProject()
+{
+    QModelIndex index = ui->tblCustomers->currentIndex();
+    AddProjectDialog *addProjectDialog;
+    if(ui->stackedWidget->currentIndex() == 1) {
+        addProjectDialog = new AddProjectDialog(index.row(), 0, 0);
+        addProjectDialog->fillFields();
+    } else {
+        addProjectDialog = new AddProjectDialog(0, 0, 0);
+    }
+    if (addProjectDialog->exec()) {
+        updateTree();
+        updateTableProjects(getCurrentCustomerId());
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+    }
 }
 
 void MainWindow::addQuote()
@@ -90,26 +113,33 @@ void MainWindow::addBill()
 void MainWindow::addDoc(bool isBilling)
 {
     AddQuoteDialog addDocDialog(isBilling, getCurrentCustomerId());
-    addDocDialog.exec();
-    updateTableBillings(getCurrentProjectId());
-    updateTree();
+    if (addDocDialog.exec()) {
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        ui->stackedWidget->setCurrentIndex(1);
+    }
 }
 
 void MainWindow::editCustomer() {
     DialogAddCustomer editCustomerDialog(getCurrentCustomerId());
-    editCustomerDialog.exec();
-
-    updateTableCustomers("", ui->tblCustomers->currentIndex().row());
-    updateTree();
+    if (editCustomerDialog.exec()) {
+        updateTableCustomers("");
+        updateTree();
+        ui->trCustomers->setCurrentIndex(rootTree());
+    }
 }
 
 void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
     AddProjectDialog editProjectDialog(row, getCurrentProjectId());
-    editProjectDialog.exec();
-
-    updateTableProjects(getCurrentCustomerId(), row);
-    updateTree();
+    if (editProjectDialog.exec()) {
+        updateTableProjects(getCurrentCustomerId());
+        updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+    }
 }
 
 void MainWindow::editDoc()
@@ -122,54 +152,65 @@ void MainWindow::editDoc()
     else editDocDialog = new AddQuoteDialog(
                 false, getCurrentCustomerId(),getCurrentQuoteId());
 
-    editDocDialog->exec();
+    if (editDocDialog->exec()) {
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        changeProjectsTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        //ui->stackedWidget->setCurrentIndex(1); // if we remove te project in bill return to projects list
+    }
     delete editDocDialog;
-
-    updateTableBillings(getCurrentProjectId(),
-                        ui->tblQuotes->currentIndex().row());
-    updateTree();
 }
 
 void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
-    ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
-    changeTree();
 }
 
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
 }
 
+void MainWindow::removeDoc() {
+    removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
+}
+
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 {
-    if (tbl->selectionModel()->hasSelection()) {
-
-        if (QMessageBox::warning(
-                    this,
-                    "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
-                    "Voulez vous supprimer " +
-                    (itemType.getType() == ItemType::BILLING ?
-                            "la " +itemType.getName()+" séléctionnée" :
-                            "le "+itemType.getName()+" sélectionné") + " ?",
-                    "Supprimer",
-                    "Annuler") == 0)
-        {
-            QModelIndex ls = tbl->selectionModel()->selectedRows().first();
-            int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
-            itemType.getModel(pid)->remove();
-            switch(itemType.getType()) {
-            case ItemType::CUSTOMER:
-                updateTableCustomers();
-                break;
-            case ItemType::PROJECT:
-                updateTableProjects();
-                break;
-            case ItemType::BILLING:
-                break;
-            }
-
-            updateTree();
+    if (QMessageBox::warning(
+                this,
+                "Suppression d'"+ QString((itemType.getType() == ItemType::BILLING ? "une " : "un ")) + itemType.getName(),
+                "Voulez vous supprimer " +
+                (itemType.getType() == ItemType::BILLING ?
+                        "la " +itemType.getName()+" séléctionnée" :
+                        "le "+itemType.getName()+" sélectionné") + " ?",
+                "Supprimer",
+                "Annuler") == 0)
+    {
+        QModelIndex ls = tbl->selectionModel()->selectedRows().first();
+        int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
+        itemType.getModel(pid)->remove();
+        updateTree();
+        switch(itemType.getType()) {
+        case ItemType::CUSTOMER:
+            updateTableCustomers();
+            ui->trCustomers->setCurrentIndex(rootTree());
+            break;
+        case ItemType::PROJECT:
+            updateTableProjects();
+            changeCustomerTable();
+            ui->trCustomers->expand(ui->trCustomers->currentIndex());
+            break;
+        case ItemType::BILLING:
+            updateTableBillings(getCurrentProjectId());
+            changeCustomerTable();
+            ui->trCustomers->expand(ui->trCustomers->currentIndex());
+            changeProjectsTable();
+            ui->trCustomers->expand(ui->trCustomers->currentIndex());
+            break;
         }
+        updateBtn();
     }
 }
 
@@ -191,13 +232,13 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     ui->tblQuotes->setColumnWidth(2, 100);
     ui->tblQuotes->setColumnWidth(4, 150);
     if (row > -1) ui->tblQuotes->selectRow(row);
+    else ui->tblQuotes->clearSelection();
 }
 
 void MainWindow::editUser()
 {
     UserDataDialog userdialog;
-    userdialog.exec();
-    updateUser();
+    if (userdialog.exec()) updateUser();
 }
 
 void MainWindow::updateTableCustomers(QString filter, const int row) {
@@ -212,6 +253,7 @@ void MainWindow::updateTableCustomers(QString filter, const int row) {
     ui->tblCustomers->setColumnWidth(4, 150);
     ui->tblCustomers->setColumnWidth(5, 250);
     if (row > -1) ui->tblCustomers->selectRow(row);
+    else ui->tblCustomers->clearSelection();
 }
 
 void MainWindow::updateTableProjects(const int pId, const int row)
@@ -223,30 +265,13 @@ void MainWindow::updateTableProjects(const int pId, const int row)
     ui->tblProjects->setModel(Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
     if (row > -1) ui->tblProjects->selectRow(row);
+    else ui->tblProjects->clearSelection();
 }
 
 void MainWindow::updateTree(QString filter)
 {
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-
-
-    ui->trCustomers->header()->close();
-}
-
-void MainWindow::newProject()
-{
-    QModelIndex index = ui->tblCustomers->currentIndex();
-    AddProjectDialog *w;
-    if(ui->stackedWidget->currentIndex() == 1) {
-        w = new AddProjectDialog(index.row(), 0, 0);
-        w->fillFields();
-    } else {
-        w = new AddProjectDialog(0, 0, 0);
-    }
-    w->exec();
-    updateTree();
-    updateTableProjects(getCurrentCustomerId());
 }
 
 void MainWindow::aboutQt()
@@ -297,7 +322,7 @@ void MainWindow::changeTree()
         ui->wdgCustomerData->printInformations(getCurrentCustomerId());
         ui->trCustomers->collapseAll();
         ui->trCustomers->expand(index);
-        changeProjectsTable();
+        customersTableToProjectsTable();
         ui->stackedWidget->setCurrentIndex(1);
         break;
     case 2:         // Project
@@ -325,17 +350,43 @@ void MainWindow::changeTree()
     default:        // Other
         break;
     }
-
     updateBtn();
 }
 
 void MainWindow::changeCustomerTable()
 {
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
+    int row = ui->tblCustomers->currentIndex().row();
+    QModelIndex index(rootTree());
+    for (int i = 0 ; i <= row ; ++i)
+        index = ui->trCustomers->indexBelow(index);
+    ui->trCustomers->setCurrentIndex(index);
     updateBtn();
 }
 
 void MainWindow::changeProjectsTable()
+{
+    int row = ui->tblProjects->currentIndex().row();
+    QModelIndex index(ui->trCustomers->currentIndex());
+    if (treeLevel() == 2) index = findParent();
+    for (int i = 0 ; i <= row ; ++i)
+        index = ui->trCustomers->indexBelow(index);
+    ui->trCustomers->setCurrentIndex(index);
+    updateBtn();
+}
+
+void MainWindow::changeDocsTable()
+{
+    int row = ui->tblQuotes->currentIndex().row();
+    QModelIndex index(ui->trCustomers->currentIndex());
+    if (treeLevel() == 3) index = findParent();
+    for (int i = 0 ; i <= row ; ++i)
+        index = ui->trCustomers->indexBelow(index);
+    ui->trCustomers->setCurrentIndex(index);
+    updateBtn();
+}
+
+void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
     ui->lblProjects->setText("<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");
@@ -345,40 +396,80 @@ void MainWindow::changeProjectsTable()
     ui->tblProjects->setColumnWidth(3, 122);
     ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
+    QModelIndex index(ui->trCustomers->currentIndex());
+    ui->trCustomers->expand(index);
     updateBtn();
+}
+
+void MainWindow::projectsTableToDocsTable()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    updateTableBillings(getCurrentProjectId());
+    QModelIndex index(ui->trCustomers->currentIndex());
+    ui->trCustomers->expand(index);
+    updateBtn();
+}
+
+QModelIndex MainWindow::rootTree() {
+    QModelIndex root = ui->trCustomers->indexAt(QPoint());
+    while (ui->trCustomers->indexAbove(root).isValid())
+        root = ui->trCustomers->indexAbove(root);
+    return root;
+}
+
+QModelIndex MainWindow::findParent() {
+    QModelIndex parent(ui->trCustomers->currentIndex());
+    switch (treeLevel()) {
+    case 2:
+        while (parent.parent().isValid())
+            parent = ui->trCustomers->indexAbove(parent);
+        break;
+    case 3:
+        while (parent.parent().parent().isValid())
+            parent = ui->trCustomers->indexAbove(parent);
+        break;
+    default:
+
+        break;
+    }
+
+    return parent;
 }
 
 void MainWindow::backToCustomersTable()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    ui->actionNewQuote->setEnabled(false);
-    ui->actionNewBill->setEnabled(false);
+    ui->trCustomers->collapseAll();
+    changeCustomerTable();
+    updateBtn();
 }
 
 void MainWindow::backToProjectsTable()
 {
     ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::quotesProject()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-    updateTableBillings(getCurrentProjectId());
-    updateBtn();
+    QModelIndex index(ui->trCustomers->currentIndex());
+    if (treeLevel() != 2)  index = findParent();
+    ui->trCustomers->collapse(index);
+    ui->trCustomers->setCurrentIndex(index);
 }
 
 void MainWindow::updateBtn()
 {
-    if (ui->tblCustomers->currentIndex().row() > -1
+    if (ui->stackedWidget->currentIndex() == 0
+            && ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->btnEdit->setEnabled(true);
         ui->btnDelCustomer->setEnabled(true);
-    } else {
+    } else if (ui->tblCustomers->currentIndex().row() == -1
+               && !ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->btnEdit->setEnabled(false);
         ui->btnDelCustomer->setEnabled(false);
+        ui->trCustomers->setCurrentIndex(rootTree());
     }
 
-    if (ui->tblProjects->currentIndex().row() > -1
+    if ((ui->stackedWidget->currentIndex() == 1
+            || ui->stackedWidget->currentIndex() == 2)
+            && ui->tblProjects->currentIndex().row() > -1
             && ui->tblProjects->selectionModel()->hasSelection()) {
         ui->actionNewQuote->setEnabled(true);
         ui->actionNewBill->setEnabled(true);
@@ -389,23 +480,31 @@ void MainWindow::updateBtn()
         ui->actionNewBill->setEnabled(false);
     }
 
-    if (ui->tblQuotes->currentIndex().row() > -1
-        && ui->tblQuotes->selectionModel()->hasSelection()) {
+    if (ui->stackedWidget->currentIndex() == 2
+            && ui->tblQuotes->currentIndex().row() > -1
+            && ui->tblQuotes->selectionModel()->hasSelection()) {
         Billing b(getCurrentQuoteId());
         if (b.isBilling()) {
             ui->btnEditDoc->setText("Éditer la facture");
             ui->btnEditDoc->setIcon(QIcon(":icons/img/add_bill"));
+            ui->btnRemoveDoc->setText("Supprimer la facture");
+            ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_bill"));
         } else {
             ui->btnEditDoc->setText("Éditer le devis");
             ui->btnEditDoc->setIcon(QIcon(":icons/img/add_quote"));
+            ui->btnRemoveDoc->setText("Supprimer le devis");
+            ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_quote"));
         }
-
+        ui->btnRemoveDoc->setEnabled(true);
         ui->btnEditDoc->setEnabled(true);
         ui->btnLatex->setEnabled(true);
     } else {
         ui->btnEditDoc->setText("Éditer le document");
         ui->btnEditDoc->setIcon(QIcon(":icons/edit"));
         ui->btnEditDoc->setEnabled(false);
+        ui->btnRemoveDoc->setText("Supprimer le document");
+        ui->btnRemoveDoc->setIcon(QIcon(":icons/edit"));
+        ui->btnRemoveDoc->setEnabled(false);
         ui->btnLatex->setEnabled(false);
     }
 }
@@ -477,9 +576,4 @@ void MainWindow::openContextualMenuTree(const QPoint point)
     menu->exec(ui->trCustomers->mapToGlobal(buffPoint));
 
 }
-}
-
-void Gui::MainWindow::on_chkProjectName_clicked(bool checked)
-{
-
 }
