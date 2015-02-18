@@ -416,6 +416,7 @@ void MainWindow::updateUI(QString filter)
 
     updateButtons();
     updateUser();
+
 }
 
 void MainWindow::updateTableCustomers(QString filter) {
