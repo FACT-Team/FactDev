@@ -85,6 +85,11 @@ public:
      */
     int treeLevel();
     /**
+     * @brief MainWindow::rootTree return the root of the tree "Tous les clients"
+     * @return QModelIndex
+     */
+    QModelIndex rootTree();
+    /**
      * @brief MainWindow::addDoc open window to add a new document
      * @param bool quote or bill
      * @see addBill addQuote

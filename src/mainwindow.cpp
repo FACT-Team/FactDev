@@ -127,6 +127,7 @@ void MainWindow::editCustomer() {
     if (editCustomerDialog.exec()) {
         updateTableCustomers("");
         updateTree();
+        ui->trCustomers->setCurrentIndex(rootTree());
     }
 }
 
@@ -165,22 +166,14 @@ void MainWindow::editDoc()
 
 void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
-    ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
-    changeTree();
 }
 
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
-    changeCustomerTable();
-    ui->trCustomers->expand(ui->trCustomers->currentIndex());
 }
 
 void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
-    changeCustomerTable();
-    ui->trCustomers->expand(ui->trCustomers->currentIndex());
-    changeProjectsTable();
-    ui->trCustomers->expand(ui->trCustomers->currentIndex());
 }
 
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
@@ -198,19 +191,25 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
         QModelIndex ls = tbl->selectionModel()->selectedRows().first();
         int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
         itemType.getModel(pid)->remove();
+        updateTree();
         switch(itemType.getType()) {
         case ItemType::CUSTOMER:
             updateTableCustomers();
+            ui->trCustomers->setCurrentIndex(rootTree());
             break;
         case ItemType::PROJECT:
             updateTableProjects();
+            changeCustomerTable();
+            ui->trCustomers->expand(ui->trCustomers->currentIndex());
             break;
         case ItemType::BILLING:
             updateTableBillings(getCurrentProjectId());
+            changeCustomerTable();
+            ui->trCustomers->expand(ui->trCustomers->currentIndex());
+            changeProjectsTable();
+            ui->trCustomers->expand(ui->trCustomers->currentIndex());
             break;
         }
-
-        updateTree();
         updateBtn();
     }
 }
@@ -358,7 +357,7 @@ void MainWindow::changeCustomerTable()
 {
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
     int row = ui->tblCustomers->currentIndex().row();
-    QModelIndex index(ui->trCustomers->indexAt(QPoint()));
+    QModelIndex index(rootTree());
     for (int i = 0 ; i <= row ; ++i)
         index = ui->trCustomers->indexBelow(index);
     ui->trCustomers->setCurrentIndex(index);
@@ -411,6 +410,13 @@ void MainWindow::projectsTableToDocsTable()
     updateBtn();
 }
 
+QModelIndex MainWindow::rootTree() {
+    QModelIndex root = ui->trCustomers->indexAt(QPoint());
+    while (ui->trCustomers->indexAbove(root).isValid())
+        root = ui->trCustomers->indexAbove(root);
+    return root;
+}
+
 QModelIndex MainWindow::findParent() {
     QModelIndex parent(ui->trCustomers->currentIndex());
     switch (treeLevel()) {
@@ -423,7 +429,7 @@ QModelIndex MainWindow::findParent() {
             parent = ui->trCustomers->indexAbove(parent);
         break;
     default:
-        parent = ui->trCustomers->indexAt(QPoint());
+
         break;
     }
 
@@ -458,7 +464,7 @@ void MainWindow::updateBtn()
                && !ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->btnEdit->setEnabled(false);
         ui->btnDelCustomer->setEnabled(false);
-        ui->trCustomers->setCurrentIndex(ui->trCustomers->indexAt(QPoint()));
+        ui->trCustomers->setCurrentIndex(rootTree());
     }
 
     if ((ui->stackedWidget->currentIndex() == 1
