@@ -158,7 +158,8 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 void MainWindow::editCustomer() {
     DialogAddCustomer editCustomerDialog(getCurrentCustomerId());
     if (editCustomerDialog.exec()) {
-        updateUI();
+        updateTableCustomers("");
+        updateTree();
         ui->trCustomers->setCurrentIndex(rootTree());
     }
 }
@@ -167,7 +168,8 @@ void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
     AddProjectDialog editProjectDialog(row, getCurrentProjectId());
     if (editProjectDialog.exec()) {
-    updateUI();
+        updateTableProjects(getCurrentCustomerId());
+        updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
@@ -178,15 +180,16 @@ void MainWindow::editDoc()
     AddQuoteDialog *editDocDialog(0);
     Billing b(getCurrentQuoteId());
     if (b.isBilling()) {
-    editDocDialog = new AddQuoteDialog(
-        true, getCurrentCustomerId(),getCurrentQuoteId());
+        editDocDialog = new AddQuoteDialog(
+            true, getCurrentCustomerId(),getCurrentQuoteId());
     } else {
-    editDocDialog = new AddQuoteDialog(
-    false, getCurrentCustomerId(),getCurrentQuoteId());
+        editDocDialog = new AddQuoteDialog(
+            false, getCurrentCustomerId(),getCurrentQuoteId());
     }
 
     if (editDocDialog->exec()) {
-        updateUI();
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
         changeProjectsTable();
@@ -466,7 +469,6 @@ void MainWindow::updateUI(QString filter)
         delete ui->tblCustomers->model();
     }
     updateTableCustomers(filter);
-    qDebug() << filter;
 
     if (ui->tblProjects->model() != NULL) {
         delete ui->tblProjects->model();
