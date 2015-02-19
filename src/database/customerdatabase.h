@@ -2,33 +2,29 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
-
 #include "exceptions/dbexception.h"
-
 #include "models/customer.h"
-
 #include "utils/log.h"
 #include "utils/string.h"
+#include "gui/widgets/widgetsmodels/customerstablemodel.h"
 
 using namespace Exceptions;
 using namespace Utils;
+using namespace Gui::Widgets;
 
 namespace Databases {
 /** 
  * @author Antoine de Roquemaurel
+ * @author Manantsoa Razanajatovo
+ * @author Florent Berbie
+ * @author Cédric Rohaut
  * @brief The <b>CustomerDatabase</b> class Customer table database
  * @see Database
  * @see Customer
  */
 class CustomerDatabase : public Database
 {
-private:
-    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
 
-    /**
-     * @brief <b>CustomerDatabase</b> is a singleton
-     */
-    CustomerDatabase() throw(DbException*) ;
 public:
     /**
      * @brief CustomerDatabase::getInstance Return an instance of
@@ -39,17 +35,16 @@ public:
     static CustomerDatabase* instance()throw(DbException*);
 
     /**
-     * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTable Return an item model of
      * customers for QTableView
      * @param filter Select only customers who are specified by <i>filter</i>
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+    WdgModels::CustomersTableModel* getCustomersTable(QString filter="") throw(DbException*);
+
 
     /**
-     * @author Manantsoa Razanajatovo & Cédric Rohaut (@Oxynos)
      * @brief CustomerDatabase::getTree Return an item model of customers
      * for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
@@ -122,6 +117,28 @@ public:
      */
     QStandardItem *getItemBillQuote(QSqlQuery q3);
 
+    /**
+     * @brief CustomerDatabase::getCustomer Add the element of the <i>q</i>
+     * request and return their
+     * @param q SQL request
+     * @return a customer formed according to QSharedPointer
+     */
+    QSharedPointer<Models::Customer> getCustomer(QSqlQuery &q);
+
+    /**
+     * @brief CustomerDatabase::updateCustomer Update customer data according to
+     *  the request <i>q</i>
+     * @param q SQL request
+     */
+    void updateCustomer(QSqlQuery &q, Customer &pCustomer);
+
+private:
+    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
+
+    /**
+     * @brief <b>CustomerDatabase</b> is a singleton
+     */
+    CustomerDatabase() throw(DbException*) ;
 };
 }
 #endif // BDDCUSTOMER_H

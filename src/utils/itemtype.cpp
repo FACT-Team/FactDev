@@ -17,7 +17,7 @@ void ItemType::setName(const QString &name)
 }
 
 Models::IModel* ItemType::getModel(int id) {
-    Models::IModel* ret;
+    Models::IModel* ret(0);
 
     switch(_type) {
     case ItemType::BILLING:

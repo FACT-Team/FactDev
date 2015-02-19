@@ -68,7 +68,10 @@ SOURCES += mainwindow.cpp \
     utils/itemtype.cpp \
     gui/dialogs/messagebox.cpp \
     libs/qt-mustache/src/mustache.cpp \
-    generator.cpp
+    generator.cpp \
+    gui/widgets/widgetsmodels/customerstablemodel.cpp \
+    gui/widgets/widgetsmodels/projectstablemodel.cpp \
+    gui/widgets/widgetsmodels/billingstablemodel.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -121,7 +124,10 @@ HEADERS  += mainwindow.h \
     gui/widgets/checkfields/icheckfield.h \
     libs/qt-mustache/src/mustache.h \
     generator.h \
-    models/imodel.h
+    models/imodel.h \
+    gui/widgets/widgetsmodels/customerstablemodel.h \
+    gui/widgets/widgetsmodels/projectstablemodel.h \
+    gui/widgets/widgetsmodels/billingstablemodel.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

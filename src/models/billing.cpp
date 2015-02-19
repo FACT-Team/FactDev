@@ -51,7 +51,12 @@ void Billing::commit()
                                                                 _id,
                                                                c.getId());
             }
-
+            else if (!_toRemoved) { //if update
+                BillingDatabase::instance()->removeBillingProject(0,_id,c.getId());
+                BillingDatabase::instance()->addBillingProject(((Project*)it.key())->getId(),
+                                                                _id,
+                                                               c.getId());
+            }
         }
     }
     Database::Database::instance()->closeTransaction();

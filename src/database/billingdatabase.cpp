@@ -41,6 +41,7 @@ Models::Billing* BillingDatabase::getBilling(const int pId) {
         billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
         billing->setIsBilling(value(q,"isBilling").toBool());
         billing->setToRemoved(false);
+
     } else {
         billing = NULL;
     }
@@ -48,25 +49,14 @@ Models::Billing* BillingDatabase::getBilling(const int pId) {
     return billing;
 }
 
-QStandardItemModel *BillingDatabase::getBillingsTable(const int idProject)
-throw(DbException*)
+WdgModels::BillingsTableModel* BillingDatabase::getBillingsTable(
+        const int idProject) throw(DbException*)
 {
+    WdgModels::BillingsTableModel* ret = new WdgModels::BillingsTableModel();
     QSqlQuery q;
-    QStandardItemModel* retour = new QStandardItemModel();
-
-    retour->setColumnCount(5);
-    retour->setHorizontalHeaderLabels(
-                QStringList()
-                << ("Id")
-                << ("Titre")
-                << ("Numéro")
-                << ("Facture/Devis")
-                << ("Date")
-                );
-
-
     q.prepare(
-             "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
+             "SELECT DISTINCT b.idBilling, title, description, number, "
+             "isBilling, date "
              "FROM Billing b, BillingProject bp "
              "WHERE idProject = :idproject "
              "AND b.idBilling = bp.idBilling ORDER BY date DESC");
@@ -82,26 +72,17 @@ throw(DbException*)
     }
 
     while(q.next()) {
-        QList<QStandardItem*> ligne;
-
-        ligne << new QStandardItem(value(q,"idBilling").toString());
-        ligne << new QStandardItem(value(q,"title").toString());
-        ligne << new QStandardItem(value(q,"number").toString());
-        ligne << new QStandardItem(value(q,"isBilling").toString());
-        ligne << new QStandardItem(value(q,"date").toString());
-
-        retour->appendRow(ligne);
+        ret->append(*getBilling(q));
     }
 
-    return retour;
+    return ret;
 }
 
 
 int BillingDatabase::addBilling(const Models::Billing& pBilling) {
     QSqlQuery q;
 
-    q.prepare(
-                "INSERT INTO Billing "
+    q.prepare(  "INSERT INTO Billing "
                 "(title, description, number, isBilling, date)"
                 " VALUES "
                 "(:title, :description, :number, :isBilling, :date)"
@@ -135,12 +116,37 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
     q.bindValue(":idContributory", idContributory);
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible d'ajouter le Customer",
-                    "BddCustomer::addCustomer",
+                    "Impossible d'ajouter la liaison dans BillingProject",
+                    "BddCustomer::addBillingProject",
                     lastError(q),
                     1.3);
     }
 
+}
+
+void BillingDatabase::removeBillingProject(const int idProject, const int idBilling, const int idContributory)
+{
+    QSqlQuery q;
+    QString project;
+
+    (idProject == 0) ? project="" : project="idProject= "+ QString::number(idProject) +" AND ";
+
+    q.prepare(
+                "DELETE FROM BillingProject "
+                "WHERE "+project+
+                "idBilling=:idBilling "
+                "AND idContributory=:idContributory");
+
+    q.bindValue(":idBilling", idBilling);
+    q.bindValue(":idContributory",idContributory);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer la liaison dans BillingProject ",
+                    "BddContributory::removeBillingProject",
+                    lastError(q),
+                    1.5);
+    }
 }
 
 void BillingDatabase::updateBilling(const Models::Billing& pBilling)
@@ -230,6 +236,21 @@ int BillingDatabase::getMaxQuoteNumber()
     }
     q.first();
     return value(q, "max").toInt();
+}
+
+QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
+{
+    QSharedPointer<Models::Billing> billing =
+            QSharedPointer<Models::Billing>(new Models::Billing());
+    billing->setId(value(q, "idBilling").toInt());
+    billing->setTitle(value(q, "title").toString());
+    billing->setDescription(value(q,"description").toString());
+    billing->setNumber(value(q,"number").toInt());
+    billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+    billing->setIsBilling(value(q,"isBilling").toBool());
+    billing->setToRemoved(false);
+
+    return billing;
 }
 
 }

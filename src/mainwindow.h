@@ -67,23 +67,39 @@ public:
      * @return id of the selected quote
      */
     int getCurrentQuoteId();
+
     /**
      * @brief MainWindow::getCurrentCustomerName get the selected customer name
      * in the customers' table
      * @return name of the selected customer
      */
     QString getCurrentCustomerName();
+
     /**
      * @brief MainWindow::getCurrentProjectName get the selected project name in
      * the table of projects
      * @return name of the selected project
      */
     QString getCurrentProjectName();
+
     /**
      * @brief MainWindow::treeLevel return the level of the node selected in the tree
      * @return integer, depth of the item in tree
      */
     int treeLevel();
+    /**
+     * @brief MainWindow::rootTree return the root of the tree "Tous les clients"
+     * @return QModelIndex
+     */
+    QModelIndex rootTree();
+    /**
+     * @brief MainWindow::addDoc open window to add a new document
+     * @param bool quote or bill
+     * @see addBill addQuote
+     */
+    void addDoc(bool isBilling);
+
+
 
     void demo();
 public slots:
@@ -153,17 +169,24 @@ public slots:
      * @brief MainWindow::aboutIcons() show icons's details
      */
     void aboutIcons();
+    /**
+     * @brief updateButton Update all button to disable or enabled its
+     */
+    void updateButtons(void);
 
     /**
-     * @brief updateBtn Update all button to disable or enabled its
+     * @brief MainWindow::editDoc Edit the quote or bill of the project
      */
-    void updateBtn(void);
+    void editDoc();
+    /**
+     * @brief MainWindow::removeDoc Remove the quote or bill of the project
+     */
+    void removeDoc();
 
     /**
-     * @brief MainWindow::editQuote Edit the quote of the project
+     * @brief MainWindow::editQuote Edit the qupte or
      */
-    void editQuote();
-
+    //void editQuote();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu
@@ -182,14 +205,25 @@ private slots:
      */
     void changeTree();
     /**
-     * @brief MainWindow::changeCustomerTable calls changeCustomerTable
+     * @brief MainWindow::changeCustomerTable function to update the view
+     * when we change the selected customer in tblCustomers
      */
     void changeCustomerTable();
     /**
-     * @brief MainWindow::changeProjectsTable changes projects with the <i>index</i>
-     * of the customer in table of customers
+     * @brief MainWindow::changeProjectsTable function to update the view
+     * when we change the selected project in tblProjects
      */
     void changeProjectsTable();
+    /**
+     * @brief MainWindow::changeDocsTable function to update the view
+     * when we change the selected doc in tblQuotes
+     */
+    void changeDocsTable();
+    /**
+     * @brief MainWindow::customersTableToProjectsTable changes projects with the <i>index</i>
+     * of the customer in table of customers
+     */
+    void customersTableToProjectsTable();
     /**
      * @brief MainWindow::backToCustomersTable displays the customers table
      */
@@ -199,41 +233,57 @@ private slots:
      */
     void backToProjectsTable();
     /**
-     * @brief MainWindow::quotesProject displays quotes of a project with the <i>index</i>
+     * @brief MainWindow::projectsTableToDocsTable displays quotes of a project with the <i>index</i>
      * of the project in the table of projects
      */
+    void projectsTableToDocsTable();
+    /**
+     * @brief MainWindow::findParent return the parent of an item in tree
+     * @return QModelIndex
+     */
+    QModelIndex findParent();
     void quotesProject();
 
-    void on_chkProjectName_clicked(bool checked);
-
 private:
+
+    /**
+     * @brief MainWindow::updateUI Update all components of the
+     * <b>MainWindow</b>
+     */
+    void updateUI(QString filter="");
+
     /**
      * @brief MainWindow::updateTable Update the table view
      * (just client in the first version)
+     * @param filter
+     * @param row optional parameter for select the row in table
      */
-    void updateTableCustomers(QString filter="");
+    void updateTableCustomers(QString filter="", const int row = -1);
     /**
      * @brief MainWindow::updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
+     * @param row optional parameter for select the row in table
      */
-    void updateTableProjects(const int pId = 0);
-
+    void updateTableProjects(const int pId = 0, const int row = -1);
 
     /**
      * @brief MainWindow::updateTree Update the tree view
      * (just client in the first version)
      */
     void updateTree(QString filter="");
+
     /**
      * @brief MainWindow::updateUser Update user data panel
      */
     void updateUser();
+
     /**
      * @brief MainWindow::updateTableBillings Update the table of
      * billings view
      * @param idProject Only billings corresponding to the idProject
+     * @param row optional parameter for select the row in table
      */
-    void updateTableBillings(const int idProject);
+    void updateTableBillings(const int idProject, const int row = -1);
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
      * table <i>tbl</i>
@@ -241,6 +291,7 @@ private:
      * @param item an item in the table <i>tbl</i>
      */
     void removeItem(QTableView* tbl, Utils::ItemType item);
+
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in
      * the  tableview <i>tbl</i>

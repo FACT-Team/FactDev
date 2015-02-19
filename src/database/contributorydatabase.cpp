@@ -54,7 +54,8 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     QSqlQuery q;
     Models::Contributory* contributory;
 
-    q.prepare("SELECT idContributory, description as cdescription, nbhours FROM Contributory WHERE idContributory = :pId");
+    q.prepare("SELECT idContributory, description as cdescription, nbhours "
+              "FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
 
     if(!q.exec()) {
@@ -82,7 +83,8 @@ QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getCo
     q.prepare(
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
-                " project.dailyRate as dailyRate, project.idCustomer, contributory.idContributory, contributory.description as cdescription, "
+                " project.dailyRate as dailyRate, project.idCustomer, "
+                " contributory.idContributory, contributory.description as cdescription, "
                 " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "
