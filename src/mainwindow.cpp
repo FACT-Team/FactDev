@@ -167,7 +167,7 @@ void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
     AddProjectDialog editProjectDialog(row, getCurrentProjectId());
     if (editProjectDialog.exec()) {
-	updateUI();
+    updateUI();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
@@ -178,11 +178,11 @@ void MainWindow::editDoc()
     AddQuoteDialog *editDocDialog(0);
     Billing b(getCurrentQuoteId());
     if (b.isBilling()) {
-	editDocDialog = new AddQuoteDialog(
-		true, getCurrentCustomerId(),getCurrentQuoteId());
+    editDocDialog = new AddQuoteDialog(
+        true, getCurrentCustomerId(),getCurrentQuoteId());
     } else {
-	editDocDialog = new AddQuoteDialog(
-	false, getCurrentCustomerId(),getCurrentQuoteId());
+    editDocDialog = new AddQuoteDialog(
+    false, getCurrentCustomerId(),getCurrentQuoteId());
     }
 
     if (editDocDialog->exec()) {

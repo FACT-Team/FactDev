@@ -49,30 +49,7 @@ QString Search::getFilter()
         filter +=   ") ";
     }
 
-    filter +=   " UNION "
-                "SELECT DISTINCT idCustomer, "
-                "firstnameReferent , "
-                "lastnameReferent as clastnameReferent, company as ccompany, "
-                "address, postalcode, "
-                "city, country, email, "
-                "phone, mobilephone, fax "
-                "FROM Customer c "
-                "WHERE 1 AND (0 "
-
-            ;
-    if (!_groupFilter) {
-
-        if(_searchInCompanies || !_groupFilter) {
-            filterOnCompany(filter, list);
-        }
-        if(_searchInReferentLastname || !_groupFilter) {
-            filterOnReferentLastname(filter, list);
-        }
-    } else {
-        filterOnCompany(filter, list);
-        filterOnReferentLastname(filter, list);
-    }
-    filter +=   ") ";
+    filterOnCustomerWithoutProject(filter, list);
 
     return filter;
 }
@@ -137,6 +114,35 @@ void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
     filter +=   " OR 0 ";
     filterOnNumberElements(filter, list, "number");
     filter +=   ")";
+}
+
+void Search::filterOnCustomerWithoutProject(QString &filter, const QStringList list)
+{
+    filter +=
+        " UNION "
+        "SELECT DISTINCT c.idCustomer as cidcustomer, "
+        "c.firstnameReferent as cfirstnameReferent, "
+        "UPPER(c.lastnameReferent) as clastnameReferent, "
+        "c.company as ccompany, "
+        "c.address as caddress, c.postalCode as cpostalcode, "
+        "c.city as ccity, c.country as ccountry, c.email as cemail, "
+        "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+        "FROM Customer c "
+        "WHERE 1 AND (0 "
+            ;
+    if (!_groupFilter) {
+
+        if(_searchInCompanies || !_groupFilter) {
+            filterOnCompany(filter, list);
+        }
+        if(_searchInReferentLastname || !_groupFilter) {
+            filterOnReferentLastname(filter, list);
+        }
+    } else {
+        filterOnCompany(filter, list);
+        filterOnReferentLastname(filter, list);
+    }
+    filter +=   ") ";
 }
 
 bool Search::getSearchInCompanies() const

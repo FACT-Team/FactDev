@@ -27,13 +27,13 @@ WdgModels::CustomersTableModel*
     QSqlQuery q;
     q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
                "c.firstnameReferent as cfirstnameReferent, "
-               "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
+               "UPPER(c.lastnameReferent) as clastnameReferent, "
+               "c.company as ccompany, "
                "c.address as caddress, c.postalCode as cpostalcode, "
                "c.city as ccity, c.country as ccountry, c.email as cemail, "
                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
                "FROM Customer c "+filter+" "
-               "ORDER BY UPPER(ccompany), UPPER(clastnameReferent) "
-               "LIMIT 0,30 "
+               "ORDER BY 4, 3"
                );
 
     if(!q.exec()) {
@@ -59,26 +59,17 @@ throw(DbException*)
     QStandardItemModel* ret = new QStandardItemModel();
 
     QSqlQuery q;
-    QString req =
-            "SELECT DISTINCT c.idCustomer as cidcustomer, "
-           "c.firstnameReferent as cfirstnameReferent, "
-           "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
-           "c.address as caddress, c.postalCode as cpostalcode, "
-           "c.city as ccity, c.country as ccountry, c.email as cemail, "
-           "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
-            "FROM Customer c "+filter+" "
-            "ORDER BY UPPER(ccompany), UPPER(clastnameReferent) "
-            "LIMIT 0,30 "
-            ;
-    qDebug() << req;
-    q.prepare(req);
 
-//    q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-//               "c.lastnameReferent, c.company, c.address, c.postalCode, "
-//               "c.city, c.country, c.email, c.mobilephone, c.phone "
-//               "FROM Customer c"+filter+" "
-////               "ORDER BY UPPER(company), UPPER(lastnameReferent)"
-//               );
+    q.prepare(  "SELECT DISTINCT c.idCustomer as cidcustomer, "
+                "c.firstnameReferent as cfirstnameReferent, "
+                "UPPER(c.lastnameReferent) as clastnameReferent, "
+                "c.company as ccompany, "
+                "c.address as caddress, c.postalCode as cpostalcode, "
+                "c.city as ccity, c.country as ccountry, c.email as cemail, "
+                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "FROM Customer c "+filter+" "
+                "ORDER BY 4, 3 "
+                );
 
     if(!q.exec()) {
         throw new DbException(
