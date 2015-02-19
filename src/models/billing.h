@@ -72,7 +72,7 @@ public:
      * for each <b>Project</b> of the <b>Billing</b>
      * @return QMap<Project, QList<Contributory>>
      */
-    ContributoriesList getContributories() const;
+    ContributoriesList &getContributories();
 
     /**
      * @brief addContributories Add a new contributory for project p

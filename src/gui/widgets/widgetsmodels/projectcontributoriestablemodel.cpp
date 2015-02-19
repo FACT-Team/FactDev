@@ -89,6 +89,14 @@ void ProjectContributoriesTableModel::append()
     endInsertRows();
 }
 
+void ProjectContributoriesTableModel::append(QPair<Models::Project*, Models::Rate> p)
+{
+    beginInsertRows(QModelIndex(), _projects.count(), _projects.count());
+    _projects.append(p);
+    _selectedProjects << p.first->getId();
+    endInsertRows();
+}
+
 bool ProjectContributoriesTableModel::allProjectsChose()
 {
     for(QPair<Models::Project*, Models::Rate> key : _projects) {

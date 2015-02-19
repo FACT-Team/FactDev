@@ -114,7 +114,7 @@ bool Billing::operator !=(const Billing &b)
     return !(*this == b);
 }
 
-ContributoriesList Billing::getContributories() const
+ContributoriesList& Billing::getContributories()
 {
     return _contributories;
 }

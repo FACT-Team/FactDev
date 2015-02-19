@@ -51,21 +51,19 @@ ContributoriesList* ContributoriesWidget::getContributories() const
 
 void ContributoriesWidget::add()
 {
-    Contributory c;
-    add(c);
+    _modelsContributories[ui->stack->currentIndex()]->append(Contributory());
+
 }
 
-void ContributoriesWidget::add(Contributory& c)
+void ContributoriesWidget::add(ContributoriesList& list)
 {
-    _modelsContributories[ui->stack->currentIndex()]->append(c);
-    emit contributoryChanged();
-}
-
-void ContributoriesWidget::add(QList<Contributory>& contributories)
-{
-    for(Contributory& c : contributories) {
-        add(c);
+    for(Project* p : list.getProjects()) {
+        addProject(new QPair<Project*, Rate>(p, list.getRate(p)));
+        for(Contributory c :list.getContributories(p)) {
+            _modelsContributories.last()->append(c);
+        }
     }
+    emit contributoryChanged();
 }
 
 void ContributoriesWidget::remove(void)
@@ -76,10 +74,14 @@ void ContributoriesWidget::remove(void)
     emit contributoryChanged();
 }
 
-void ContributoriesWidget::addProject(void)
+void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
 {
     qDebug() << "Yeah ! I add a new project :)";
-    _modelProjects->append();
+    if(p == 0) {
+        _modelProjects->append();
+    } else {
+        _modelProjects->append(*p);
+    }
     QTableView* view = new QTableView();
     _modelsContributories << new WdgModels::ContributoriesTableModel();
     view->setModel(_modelsContributories.last());
@@ -134,15 +136,16 @@ void ContributoriesWidget::updateUi()
 
 void ContributoriesWidget::updatePrice()
 {
+    // TODO put me in Billing
     if(_modelsContributories.count() > 0) {
         WdgModels::ContributoriesTableModel* currentContributory = _modelsContributories[ui->stack->currentIndex()];
         QPair<Models::Project*, Models::Rate> currentProject = _modelProjects->getProject(ui->stack->currentIndex());
 
-        ui->sbSubSum->setValue(currentContributory->getSumQuantity() * currentProject.second.getDailyRate());
+        ui->sbSubSum->setValue(currentContributory->getSumQuantity() * currentProject.second.getHourlyRate());
         double value;
         int i;
         for(WdgModels::ContributoriesTableModel* contributory : _modelsContributories) {
-            value += contributory->getSumQuantity() * _modelProjects->getProject(i++).second.getDailyRate();
+            value += contributory->getSumQuantity() * _modelProjects->getProject(i++).second.getHourlyRate();
         }
         ui->sbAllSums->setValue(value);
     }

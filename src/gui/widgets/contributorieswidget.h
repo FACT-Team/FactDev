@@ -36,8 +36,7 @@ public:
      * @brief add Add the Contributory <i>c</i> in the model
      * @param c the <b>Contributory</b>
      */
-    void add(QList<Contributory> &c);
-    void add(Contributory &c);
+    void add(ContributoriesList &list);
 public slots:
     /**
      * @brief add Add a new empty contributory
@@ -49,7 +48,7 @@ public slots:
      */
     void remove(void);
 
-    void addProject(void);
+    void addProject(QPair<Project *, Rate> *p=0);
     void removeProject(void);
     void changeProject(void);
     void editing(void);

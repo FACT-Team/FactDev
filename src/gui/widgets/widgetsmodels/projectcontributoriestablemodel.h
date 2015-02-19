@@ -66,6 +66,7 @@ public:
       */
      Qt::ItemFlags flags(const QModelIndex & index) const ;
 
+    void append(QPair<Models::Project *, Models::Rate> p);
     void append();
 
     bool allProjectsChose();

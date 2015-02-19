@@ -15,22 +15,18 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
     if (id != 0) {
         _quote = new Billing(id);
         fillFields();
-        if (isBilling) setWindowTitle("Modifier la facture n°"
-                                      + QString::number(getNumber()) + " de "
-                                      + (Customer(idCustomer).getCompany()));
-        else setWindowTitle("Modifier le devis n°"
-                            + QString::number(getNumber()) + " de "
-                            + (Customer(idCustomer).getCompany()));
+
+        setWindowTitle((isBilling ? "Modifier la facture" : "Modifier le devis")+
+                       QString::number(getNumber())+ " de " +
+                       (Customer(idCustomer).getCompany()));
     } else {
         _quote = new Billing();
         _quote->setId(id);
         ui->dateEditQuote->setDate(QDate::currentDate());
-        if (isBilling) setWindowTitle("Nouveau devis n°"
-                                      +  QString::number(getNumber()) + " de "
-                                      + (Customer(idCustomer).getCompany()));
-        else setWindowTitle("Nouvelle facture n°"
-                            +  QString::number(getNumber()) + " de "
-                            + (Customer(idCustomer).getCompany()));
+
+        setWindowTitle((isBilling ? "Nouvelle facture" : "Nouveau devis")+
+                       QString::number(getNumber())+ " de " +
+                       (Customer(idCustomer).getCompany()));
     }
     _quote->setIsBilling(isBilling);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
@@ -53,8 +49,7 @@ void AddQuoteDialog::fillFields() {
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
-     // TODO editing… FIXME.
-//    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(_quote->getContributories().getAllContributories());
+    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(_quote->getContributories());
 }
 
 void AddQuoteDialog::accept() {
