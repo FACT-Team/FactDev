@@ -33,13 +33,28 @@ throw(DbException*)
                 << ("Prénom")
                 << ("Téléphone")
                 << ("EMail")
+                << ("Adresse")
+                << ("CP")
+                << ("Ville")
+                << ("Pays")
+                << ("Mobile")
                 );
-    QSqlQuery q;
 
-    q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-              "c.lastnameReferent, c.company, c.phone, c.email "
-              "FROM Customer c "+filter+" "
-              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    QSqlQuery q;
+    QString req =
+            "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+            "c.lastnameReferent, c.company, c.address, c.postalCode, "
+            "c.city, c.country, c.email, c.mobilephone, c.phone "
+            "FROM Customer c "+filter+" "
+            ;
+    qDebug() << req;
+    q.prepare(req);
+//    q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+//              "c.lastnameReferent, c.company, c.address, c.postalCode, "
+//              "c.city, c.country, c.email, c.mobilephone, c.phone "
+//              "FROM Customer c "+filter+" "
+// //             "ORDER BY UPPER(company), UPPER(lastnameReferent)"
+//              );
 
     if(!q.exec()) {
         throw new DbException(
@@ -52,16 +67,21 @@ throw(DbException*)
     while(q.next()) {
         QList<QStandardItem*> ligne;
 
-        ligne << new QStandardItem(value(q, "idCustomer").toString());
-        ligne << new QStandardItem(
-                     Utils::String::firstLetterToUpper(value(q,"company").toString()));
-        ligne << new QStandardItem(
-                     value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
-                                       value(q, "firstNameReferent").toString()));
-        ligne << new QStandardItem(value(q, "phone").toString());
-        ligne << new QStandardItem(value(q, "email").toString());
+        ligne << new QStandardItem(value(q, "c.idCustomer").toString());
 
+        ligne << new QStandardItem(
+                     Utils::String::firstLetterToUpper(value(q,"c.company").toString()));
+        ligne << new QStandardItem(
+                     value(q, "c.lastnameReferent").toString().toUpper());
+        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
+                                       value(q, "c.firstNameReferent").toString()));
+        ligne << new QStandardItem(value(q, "c.phone").toString());
+        ligne << new QStandardItem(value(q, "c.email").toString());
+        ligne << new QStandardItem(value(q, "c.address").toString());
+        ligne << new QStandardItem(value(q, "c.postalCode").toString());
+        ligne << new QStandardItem(value(q, "c.city").toString());
+        ligne << new QStandardItem(value(q, "c.country").toString());
+        ligne << new QStandardItem(value(q, "c.mobilePhone").toString());
         retour->appendRow(ligne);
     }
 
@@ -74,13 +94,21 @@ throw(DbException*)
     QStandardItemModel* ret = new QStandardItemModel();
 
     QSqlQuery q;
+    QString req =
+            "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+            "c.lastnameReferent, c.company, c.address, c.postalCode, "
+            "c.city, c.country, c.email, c.mobilephone, c.phone "
+            "FROM Customer c "+filter+" "
+            ;
+    qDebug() << req;
+    q.prepare(req);
 
-
-    q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-               "c.lastnameReferent, c.company, c.address, c.postalCode, "
-               "c.city, c.country, c.email, c.mobilephone, c.phone "
-               "FROM Customer c"+filter+" "
-               "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+//    q.prepare( "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
+//               "c.lastnameReferent, c.company, c.address, c.postalCode, "
+//               "c.city, c.country, c.email, c.mobilephone, c.phone "
+//               "FROM Customer c"+filter+" "
+////               "ORDER BY UPPER(company), UPPER(lastnameReferent)"
+//               );
 
     if(!q.exec()) {
         throw new DbException(
