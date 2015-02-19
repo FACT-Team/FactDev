@@ -32,6 +32,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
     emit ui->leQuoteTitle->textChanged(_quote->getTitle());
+    updateBtn();
 }
 
 AddQuoteDialog::~AddQuoteDialog()

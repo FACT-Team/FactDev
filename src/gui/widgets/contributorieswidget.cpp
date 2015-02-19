@@ -52,7 +52,7 @@ ContributoriesList* ContributoriesWidget::getContributories() const
 void ContributoriesWidget::add()
 {
     _modelsContributories[ui->stack->currentIndex()]->append(Contributory());
-
+    emit contributoryChanged();
 }
 
 void ContributoriesWidget::add(ContributoriesList& list)
@@ -142,8 +142,8 @@ void ContributoriesWidget::updatePrice()
         QPair<Models::Project*, Models::Rate> currentProject = _modelProjects->getProject(ui->stack->currentIndex());
 
         ui->sbSubSum->setValue(currentContributory->getSumQuantity() * currentProject.second.getHourlyRate());
-        double value;
-        int i;
+        double value = 0.0;
+        int i = 0;
         for(WdgModels::ContributoriesTableModel* contributory : _modelsContributories) {
             value += contributory->getSumQuantity() * _modelProjects->getProject(i++).second.getHourlyRate();
         }
@@ -152,7 +152,7 @@ void ContributoriesWidget::updatePrice()
 }
 
 int ContributoriesWidget::count() {
-    //return _modelContributories->count();
+    return _modelsContributories.count() > 0 && _modelProjects->getProjects().count() > 0;
 }
 
 }
