@@ -242,7 +242,7 @@ private slots:
      * @return QModelIndex
      */
     QModelIndex findParent();
-    void quotesProject();
+    //void quotesProject();
 
 private:
 

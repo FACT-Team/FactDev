@@ -25,14 +25,16 @@ WdgModels::CustomersTableModel*
     WdgModels::CustomersTableModel* ret
             = new WdgModels::CustomersTableModel();
     QSqlQuery q;
-    q.prepare("SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-              "c.lastnameReferent, c.company, c.address, c.postalCode, "
-              "c.city, c.country, c.email, c.mobilephone, c.phone, c.fax "
-              "FROM Customer c, Project p, BillingProject bp "
-              "WHERE c.idCustomer = p.idCustomer "
-              "AND bp.idProject = p.idProject "
-              "AND 1 "+filter+" "
-              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
+               "c.firstnameReferent as cfirstnameReferent, "
+               "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
+               "c.address as caddress, c.postalCode as cpostalcode, "
+               "c.city as ccity, c.country as ccountry, c.email as cemail, "
+               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+               "FROM Customer c "+filter+" "
+               "ORDER BY UPPER(ccompany), UPPER(clastnameReferent) "
+               "LIMIT 0,30 "
+               );
 
     if(!q.exec()) {
         throw new DbException(
@@ -58,10 +60,15 @@ throw(DbException*)
 
     QSqlQuery q;
     QString req =
-            "SELECT DISTINCT c.idCustomer , c.firstnameReferent, "
-            "c.lastnameReferent, c.company, c.address, c.postalCode, "
-            "c.city, c.country, c.email, c.mobilephone, c.phone "
+            "SELECT DISTINCT c.idCustomer as cidcustomer, "
+           "c.firstnameReferent as cfirstnameReferent, "
+           "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
+           "c.address as caddress, c.postalCode as cpostalcode, "
+           "c.city as ccity, c.country as ccountry, c.email as cemail, "
+           "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
             "FROM Customer c "+filter+" "
+            "ORDER BY UPPER(ccompany), UPPER(clastnameReferent) "
+            "LIMIT 0,30 "
             ;
     qDebug() << req;
     q.prepare(req);
@@ -92,9 +99,9 @@ throw(DbException*)
         QSqlQuery q2;
 
         q2.prepare("SELECT * FROM Project "
-                   "WHERE idCustomer = :idCustom "
+                   "WHERE idCustomer = :idCustomer "
                    "ORDER BY UPPER(name), UPPER(description)");
-        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
+        q2.bindValue(":idCustomer",value(q, "cidcustomer").toString());
 
         if(!q2.exec()) {
             throw new DbException(
@@ -147,14 +154,14 @@ QStandardItem *CustomerDatabase::getItemRoot() {
 
 QStandardItem *CustomerDatabase::getItemCustomer(QSqlQuery q1) {
     QStandardItem *itemCustomer;
-    if(value(q1,"company").toString().isEmpty()) {
+    if(value(q1,"ccompany").toString().isEmpty()) {
         itemCustomer =
-                new QStandardItem(value(q1, "lastnameReferent").toString().toUpper()
+                new QStandardItem(value(q1, "clastnameReferent").toString().toUpper()
                 + " "
-                + Utils::String::firstLetterToUpper(value(q1,"firstnameReferent").toString()));
+                + Utils::String::firstLetterToUpper(value(q1,"cfirstnameReferent").toString()));
     } else {
         itemCustomer =
-                new QStandardItem(Utils::String::firstLetterToUpper(value(q1,"company").toString()));
+                new QStandardItem(Utils::String::firstLetterToUpper(value(q1,"ccompany").toString()));
     }
     itemCustomer->setIcon(QIcon(":icons/customer"));
     return itemCustomer;
@@ -183,18 +190,18 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 {
     QSharedPointer<Models::Customer> customer =
             QSharedPointer<Models::Customer>(new Models::Customer());
-    customer->setId(value(q, "idCustomer").toInt());
-    customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
-    customer->setLastnameReferent(value(q,"lastnameReferent").toString());
-    customer->setCompany(value(q,"company").toString());
-    customer->setAddress(value(q,"address").toString());
-    customer->setPostalCode(value(q,"postalCode").toString());
-    customer->setCity(value(q,"city").toString());
-    customer->setCountry(value(q,"country").toString());
-    customer->setEmail(value(q,"email").toString());
-    customer->setMobilePhone(value(q,"mobilePhone").toString());
-    customer->setPhone(value(q,"phone").toString());
-    customer->setFax(value(q,"fax").toString());
+    customer->setId(value(q, "cidCustomer").toInt());
+    customer->setFirstnameReferent(value(q,"cfirstnameReferent").toString());
+    customer->setLastnameReferent(value(q,"clastnameReferent").toString());
+    customer->setCompany(value(q,"ccompany").toString());
+    customer->setAddress(value(q,"caddress").toString());
+    customer->setPostalCode(value(q,"cpostalCode").toString());
+    customer->setCity(value(q,"ccity").toString());
+    customer->setCountry(value(q,"ccountry").toString());
+    customer->setEmail(value(q,"cemail").toString());
+    customer->setPhone(value(q,"cphone").toString());
+    customer->setMobilePhone(value(q,"cmobilePhone").toString());
+    customer->setFax(value(q,"cfax").toString());
 
     return customer;
 }
@@ -218,7 +225,14 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
     QSharedPointer<Models::Customer> customer;
 
-    q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
+    q.prepare("SELECT DISTINCT c.idCustomer as cidcustomer, "
+              "c.firstnameReferent as cfirstnameReferent, "
+              "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
+              "c.address as caddress, c.postalCode as cpostalcode, "
+              "c.city as ccity, c.country as ccountry, c.email as cemail, "
+              "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+              "FROM Customer c "
+              "WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {

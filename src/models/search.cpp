@@ -46,15 +46,20 @@ QString Search::getFilter()
             filterOnBillsOrQuotes(filter, list);
         }
 
-        filter += ")";
+        filter +=   ") ";
     }
 
     filter +=   " UNION "
-                "SELECT DISTINCT c2.idCustomer , c2.firstnameReferent, "
-                "c2.lastnameReferent, c2.company, c2.address, c2.postalCode, "
-                "c2.city, c2.country, c2.email, c2.mobilephone, c2.phone "
-                "FROM Customer c2 "
-                "WHERE 1 AND (0 ";
+                "SELECT DISTINCT idCustomer, "
+                "firstnameReferent , "
+                "lastnameReferent as clastnameReferent, company as ccompany, "
+                "address, postalcode, "
+                "city, country, email, "
+                "phone, mobilephone, fax "
+                "FROM Customer c "
+                "WHERE 1 AND (0 "
+
+            ;
     if (!_groupFilter) {
 
         if(_searchInCompanies || !_groupFilter) {
@@ -67,7 +72,7 @@ QString Search::getFilter()
         filterOnCompany(filter, list);
         filterOnReferentLastname(filter, list);
     }
-    filter += ")";
+    filter +=   ") ";
 
     return filter;
 }
