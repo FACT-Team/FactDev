@@ -49,7 +49,7 @@ QString Search::getFilter()
         filter +=   ") ";
     }
 
-    filterOnCustomerWithoutProject(filter, list);
+    filterOnCustomersWithoutProject(filter, list);
 
     return filter;
 }
@@ -116,7 +116,7 @@ void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
     filter +=   ")";
 }
 
-void Search::filterOnCustomerWithoutProject(QString &filter, const QStringList list)
+void Search::filterOnCustomersWithoutProject(QString &filter, const QStringList list)
 {
     filter +=
         " UNION "

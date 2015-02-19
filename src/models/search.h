@@ -90,12 +90,12 @@ public:
     void filterOnBillsOrQuotes(QString &filter, const QStringList list);
 
     /**
-     * @brief Search::filterOnCustomerWithoutProject Search all customers which
-     * are contained in the <i>list</i> of the <i>filter</i>
+     * @brief Search::filterOnCustomersWithoutProject Search all customers which
+     *  are contained in the <i>list</i> of the <i>filter</i>
      * @param filter Text inputed in searchbar
      * @param list List of bills or quotes
      */
-    void filterOnCustomerWithoutProject(QString &filter, const QStringList list);
+    void filterOnCustomersWithoutProject(QString &filter, const QStringList list);
 
     /**
      * @brief Search::getSearchInCompanies Return if we search a company

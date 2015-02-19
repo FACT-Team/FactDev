@@ -466,6 +466,7 @@ void MainWindow::updateUI(QString filter)
         delete ui->tblCustomers->model();
     }
     updateTableCustomers(filter);
+    qDebug() << filter;
 
     if (ui->tblProjects->model() != NULL) {
         delete ui->tblProjects->model();
