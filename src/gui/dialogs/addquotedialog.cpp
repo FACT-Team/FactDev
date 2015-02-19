@@ -11,6 +11,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
 {
     ui->setupUi(this);
     ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
+    connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
 
     if (id != 0) {
         _quote = new Billing(id);
@@ -30,9 +31,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
     }
     _quote->setIsBilling(isBilling);
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
-    connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
     emit ui->leQuoteTitle->textChanged(_quote->getTitle());
-    updateBtn();
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -57,7 +56,6 @@ void AddQuoteDialog::accept() {
     _quote->setTitle(ui->leQuoteTitle->text());
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
-
     QList<Contributory>* listContributories = ((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()->getAllContributories();
     for(Contributory& contrib : *listContributories) {
         _quote->addContributory(contrib);

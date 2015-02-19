@@ -11,6 +11,7 @@ Billing::Billing()
     // add enum for quote or billing, passed in constructor
     // If quote, line behind, else getMaxBillingNumber.
     _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
+    _toRemoved = false;
 }
 
 Billing::Billing(int id)
@@ -28,6 +29,7 @@ Billing::~Billing()
 
 void Billing::commit()
 {
+    qDebug() << _toRemoved;
     Database::Database::instance()->openTransaction();
     bool insert = _id == 0;
     if(insert) {
@@ -53,6 +55,7 @@ void Billing::hydrat(int id)
     _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();
+    _toRemoved = false;
     _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
 }
 

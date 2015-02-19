@@ -76,7 +76,6 @@ void ContributoriesWidget::remove(void)
 
 void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
 {
-    qDebug() << "Yeah ! I add a new project :)";
     if(p == 0) {
         _modelProjects->append();
     } else {
