@@ -798,8 +798,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>543</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -814,8 +814,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>543</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -862,8 +862,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>543</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -878,8 +878,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>726</x>
-     <y>543</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -1054,8 +1054,8 @@ border: 1px solid #bbb;</string>
    <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>158</y>
+     <x>388</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1086,8 +1086,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>543</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1102,8 +1102,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>543</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1118,8 +1118,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>543</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1166,8 +1166,8 @@ border: 1px solid #bbb;</string>
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>158</y>
+     <x>388</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>

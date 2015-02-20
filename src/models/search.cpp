@@ -22,7 +22,11 @@ QString Search::getFilter()
     QStringList list = _text.split(" ");
 
     if(!_text.isEmpty()) {
-        filter = "AND (0 ";
+        filter =   ", Project p, BillingProject bp "
+                    "WHERE c.idCustomer = p.idCustomer "
+                    "AND bp.idProject = p.idProject "
+                    "AND 1 "
+                    "AND (0 ";
         if(_searchInCompanies || !_groupFilter) {
             filterOnCompany(filter, list);
         }
@@ -42,8 +46,10 @@ QString Search::getFilter()
             filterOnBillsOrQuotes(filter, list);
         }
 
-        filter += ")";
+        filter +=   ") ";
     }
+
+    filterOnCustomersWithoutProject(filter, list);
 
     return filter;
 }
@@ -108,6 +114,35 @@ void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
     filter +=   " OR 0 ";
     filterOnNumberElements(filter, list, "number");
     filter +=   ")";
+}
+
+void Search::filterOnCustomersWithoutProject(QString &filter, const QStringList list)
+{
+    filter +=
+        " UNION "
+        "SELECT DISTINCT c.idCustomer as cidcustomer, "
+        "c.firstnameReferent as cfirstnameReferent, "
+        "UPPER(c.lastnameReferent) as clastnameReferent, "
+        "c.company as ccompany, "
+        "c.address as caddress, c.postalCode as cpostalcode, "
+        "c.city as ccity, c.country as ccountry, c.email as cemail, "
+        "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+        "FROM Customer c "
+        "WHERE 1 AND (0 "
+            ;
+    if (!_groupFilter) {
+
+        if(_searchInCompanies || !_groupFilter) {
+            filterOnCompany(filter, list);
+        }
+        if(_searchInReferentLastname || !_groupFilter) {
+            filterOnReferentLastname(filter, list);
+        }
+    } else {
+        filterOnCompany(filter, list);
+        filterOnReferentLastname(filter, list);
+    }
+    filter +=   ") ";
 }
 
 bool Search::getSearchInCompanies() const
