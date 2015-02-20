@@ -17,7 +17,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
         _quote = new Billing(id);
         fillFields();
 
-        setWindowTitle((isBilling ? "Modifier la facture" : "Modifier le devis")+
+        setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
                        QString::number(getNumber())+ " de " +
                        (Customer(idCustomer).getCompany()));
     } else {
@@ -25,7 +25,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
         _quote->setId(id);
         ui->dateEditQuote->setDate(QDate::currentDate());
 
-        setWindowTitle((isBilling ? "Nouvelle facture" : "Nouveau devis")+
+        setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                        QString::number(getNumber())+ " de " +
                        (Customer(idCustomer).getCompany()));
     }

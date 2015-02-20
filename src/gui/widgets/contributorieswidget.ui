@@ -13,153 +13,238 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QTableView" name="tblProjects">
-     <property name="maximumSize">
-      <size>
-       <width>380</width>
-       <height>16777215</height>
-      </size>
+  <layout class="QGridLayout" name="gridLayout_5">
+   <item row="0" column="0">
+    <widget class="QSplitter" name="splitter">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="selectionBehavior">
-      <enum>QAbstractItemView::SelectRows</enum>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
      </property>
-    </widget>
-   </item>
-   <item row="0" column="2" colspan="4">
-    <widget class="QStackedWidget" name="stack">
-     <property name="currentIndex">
-      <number>-1</number>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
      </property>
-    </widget>
-   </item>
-   <item row="1" column="5">
-    <widget class="QDoubleSpinBox" name="sbSubSum">
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="buttonSymbols">
-      <enum>QAbstractSpinBox::NoButtons</enum>
-     </property>
-     <property name="specialValueText">
-      <string/>
-     </property>
-     <property name="suffix">
-      <string> €</string>
-     </property>
-     <property name="maximum">
-      <double>100000.990000000005239</double>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="btnAddProject">
-     <property name="text">
-      <string>Ajouter le projet</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="btnRemoveProject">
-     <property name="text">
-      <string>Supprimer le projet</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/remove_project.png</normaloff>:/icons/img/remove_project.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="3" colspan="2">
-    <widget class="QPushButton" name="btnAddPrestation">
-     <property name="text">
-      <string>Ajouter une prestation</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/add_contributory.png</normaloff>:/icons/img/add_contributory.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="5">
-    <widget class="QPushButton" name="btnRmovePrestation">
-     <property name="text">
-      <string>Supprimer la prestation</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/remove_contributory.png</normaloff>:/icons/img/remove_contributory.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="5">
-    <widget class="QDoubleSpinBox" name="sbAllSums">
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-     <property name="readOnly">
+     <property name="opaqueResize">
       <bool>true</bool>
      </property>
-     <property name="buttonSymbols">
-      <enum>QAbstractSpinBox::NoButtons</enum>
+     <property name="childrenCollapsible">
+      <bool>true</bool>
      </property>
-     <property name="specialValueText">
-      <string/>
-     </property>
-     <property name="suffix">
-      <string> €</string>
-     </property>
-     <property name="maximum">
-      <double>100000.990000000005239</double>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="3" colspan="2" alignment="Qt::AlignRight">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Sous-Total</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="3" colspan="2" alignment="Qt::AlignRight">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Total:</string>
-     </property>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
+       </property>
+       <item row="1" column="0" colspan="2">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnAddProject">
+           <property name="text">
+            <string>Ajouter le projet</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnRemoveProject">
+           <property name="text">
+            <string>Supprimer le projet</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/remove_project.png</normaloff>:/icons/img/remove_project.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QTableView" name="tblProjects">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>380</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMaximumSize</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QStackedWidget" name="stack"/>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnAddPrestation">
+           <property name="text">
+            <string>Ajouter une prestation</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/add_contributory.png</normaloff>:/icons/img/add_contributory.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnRmovePrestation">
+           <property name="text">
+            <string>Supprimer la prestation</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/remove_contributory.png</normaloff>:/icons/img/remove_contributory.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Sous-Total</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="sbSubSum">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="specialValueText">
+            <string/>
+           </property>
+           <property name="suffix">
+            <string> €</string>
+           </property>
+           <property name="maximum">
+            <double>100000.990000000005239</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Total:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="sbAllSums">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="specialValueText">
+            <string/>
+           </property>
+           <property name="suffix">
+            <string> €</string>
+           </property>
+           <property name="maximum">
+            <double>100000.990000000005239</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
-  <zorder>btnRemoveProject</zorder>
-  <zorder>btnRmovePrestation</zorder>
-  <zorder>btnAddPrestation</zorder>
-  <zorder>btnAddProject</zorder>
-  <zorder>stack</zorder>
-  <zorder>tblProjects</zorder>
-  <zorder>sbAllSums</zorder>
-  <zorder>sbSubSum</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label</zorder>
  </widget>
  <resources>
   <include location="../../icons.qrc"/>
@@ -231,6 +316,22 @@
   </connection>
   <connection>
    <sender>tblProjects</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>editing()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-110</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblProjects</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>changeProject()</slot>
@@ -258,22 +359,6 @@
     <hint type="destinationlabel">
      <x>-196</x>
      <y>116</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>tblProjects</sender>
-   <signal>doubleClicked(QModelIndex)</signal>
-   <receiver>ContributoriesWidget</receiver>
-   <slot>editing()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>268</x>
-     <y>171</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-110</x>
-     <y>180</y>
     </hint>
    </hints>
   </connection>

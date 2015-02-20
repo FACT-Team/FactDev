@@ -14,6 +14,7 @@ ContributoriesWidget::ContributoriesWidget(QSharedPointer<Customer> c, QWidget *
     ui(new Ui::ContributoriesWidget)
 {
     ui->setupUi(this);
+    ui->splitter->setStretchFactor(1, 1);
     _modelProjects = new WdgModels::ProjectContributoriesTableModel();
     _customer = c;
     Delegates::ProjectComboDelegate* d = new Delegates::ProjectComboDelegate(c);
