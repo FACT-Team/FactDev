@@ -60,6 +60,7 @@ signals:
 private:
     Ui::ContributoriesWidget *ui;
     QList<WdgModels::ContributoriesTableModel*> _modelsContributories;
+    QList<WdgModels::ContributoriesTableModel*> _modelsContributoriesToRemoved;
     Gui::Widgets::WdgModels::ProjectContributoriesTableModel* _modelProjects;
     QSharedPointer<Customer> _customer;
 };

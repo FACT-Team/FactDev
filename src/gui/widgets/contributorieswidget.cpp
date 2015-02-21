@@ -48,6 +48,14 @@ ContributoriesList* ContributoriesWidget::getContributories() const
                 contribList->addContributory(c);
             }
         }
+
+        for(WdgModels::ContributoriesTableModel* model : _modelsContributoriesToRemoved) {
+            for(Contributory& c : model->getContributories()) {
+                c.setProject(pair.first);
+                c.setToRemoved(true);
+                contribList->addContributory(c);
+            }
+        }
     }
     return contribList;
 }
@@ -102,9 +110,12 @@ void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
 
 void ContributoriesWidget::removeProject(void)
 {
-    qDebug() << "I want to remove this project :-(";
+    _modelsContributoriesToRemoved << _modelsContributories[ui->tblProjects->currentIndex().row()];
+    _modelsContributories.removeAt(ui->tblProjects->currentIndex().row());
     _modelProjects->remove(ui->tblProjects->currentIndex().row());
     ui->stack->removeWidget(ui->stack->currentWidget());
+    ui->stack->setCurrentIndex(0);
+
     emit updateUi();
 }
 

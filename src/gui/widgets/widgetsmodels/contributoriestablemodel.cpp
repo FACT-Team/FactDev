@@ -7,6 +7,10 @@ ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractT
 {
 }
 
+ContributoriesTableModel::~ContributoriesTableModel() {
+    clear();
+}
+
 int ContributoriesTableModel::rowCount(const QModelIndex &) const {
     return _contributories.count();
 }
@@ -74,6 +78,12 @@ void ContributoriesTableModel::append(const Contributory &contributory) {
     beginInsertRows(QModelIndex(), _contributories.count(), _contributories.count());
     _contributories.append(contributory);
     endInsertRows();
+}
+
+void ContributoriesTableModel::clear() {
+    for(int i = 0 ; i < _contributories.count() ; ++i) {
+        remove(i);
+    }
 }
 
 void ContributoriesTableModel::remove(const int a)

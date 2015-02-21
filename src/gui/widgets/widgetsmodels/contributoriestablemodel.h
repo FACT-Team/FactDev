@@ -28,6 +28,7 @@ public:
      * @param parent Parent widget
      */
     ContributoriesTableModel(QObject* parent = 0);
+    ~ContributoriesTableModel();
 
     /**
      * @brief rowCount Number of contributories row
@@ -99,6 +100,7 @@ public:
     int count();
 
     double getSumQuantity() const;
+    void clear();
 private:
     QList<Contributory> _contributories; //!< contributories list
     QList<Contributory> _contributoriesToRemoved; //!< Contributories to removed
