@@ -43,8 +43,10 @@ ContributoriesList* ContributoriesWidget::getContributories() const
         contribList->addProject(pair.first, pair.second);
 
         for(Contributory& c : _modelsContributories[i++]->getContributories()) {
-            c.setProject(pair.first);
-            contribList->addContributory(c);
+            if(!c.isToRemoved() || c.getId() != 0) {
+                c.setProject(pair.first);
+                contribList->addContributory(c);
+            }
         }
     }
     return contribList;
@@ -69,9 +71,10 @@ void ContributoriesWidget::add(ContributoriesList& list)
 
 void ContributoriesWidget::remove(void)
 {
-//    if (ui->tblContributories->selectionModel()->hasSelection()) {
-//        _modelContributories->remove(ui->tblContributories->currentIndex().row());
-//    }
+    QTableView* view = (QTableView*)ui->stack->currentWidget();
+    if (view->selectionModel()->hasSelection()) {
+        _modelsContributories[ui->stack->currentIndex()]->remove(view->currentIndex().row());
+    }
     emit contributoryChanged();
 }
 

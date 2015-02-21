@@ -20,6 +20,11 @@ void ContributoriesList::commit()
 {
     // Commits contributories
     for (auto it = cbegin(); it != cend(); ++it) {
+        if(_insert) {
+            RateDatabase::instance()->addRateProject(it.key()->first->getId(),
+                                                     _idBilling,
+                                                     getRate(it.key()->first).getHourlyRate());
+        }
         for(Contributory c : it.value()) {
             c.commit();
 
@@ -28,9 +33,6 @@ void ContributoriesList::commit()
                 BillingDatabase::instance()->addBillingProject(c.getProject()->getId(),
                                                                 _idBilling,
                                                                c.getId());
-                RateDatabase::instance()->addRateProject(c.getProject()->getId(),
-                                                         _idBilling,
-                                                         getRate(c.getProject()).getHourlyRate());
             }
 
         }
