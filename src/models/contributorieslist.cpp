@@ -26,15 +26,14 @@ void ContributoriesList::commit()
                                                      getRate(it.key()->first).getHourlyRate());
         }
         for(Contributory c : it.value()) {
-            c.commit();
-
             // Fill trinary legs… :)
-            if(_insert) {
+            bool insertBillingProject = c.getId() == 0;
+            c.commit();
+            if(insertBillingProject) {
                 BillingDatabase::instance()->addBillingProject(c.getProject()->getId(),
                                                                 _idBilling,
                                                                c.getId());
             }
-
         }
     }
 }
