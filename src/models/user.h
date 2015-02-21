@@ -176,6 +176,30 @@ public:
      */
     void setNoSiret(const QString &noSiret);
 
+    /**
+     * @brief User::getWorkspaceName Return the name of the workspace user
+     * @return workspace name
+     */
+    QString getWorkspaceName() const;
+    /**
+     * @brief User::setWorkspaceName Change the current workspace name by the
+     * new <i>workspaceName</i>
+     * @param workspaceName
+     */
+    void setWorkspaceName(const QString &workspaceName);
+
+    /**
+     * @brief User::getWorkspacePath Return the path of the workspace user
+     * @return workspace path
+     */
+    QString getWorkspacePath() const;
+    /**
+     * @brief User::setWorkspacePath Change the current workspace path by the
+     * new <i>workspacePath</i>
+     * @param workspacePath
+     */
+    void setWorkspacePath(const QString &workspacePath);
+
 private:
     QString _firstname;     //!< User firstname
     QString _lastname;      //!< User lastname
@@ -187,7 +211,9 @@ private:
     QString _email;         //!< Professionnal email of the company
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _phone;         //!< Number of desktop phone
-    QString _noSiret;       //!<  SIRET number (company registration number)
+    QString _noSiret;       //!< SIRET number (company registration number)
+    QString _workspaceName; //!< Workspace name
+    QString _workspacePath; //!< Workspace directory path
 };
 }
 #endif // USER_H
