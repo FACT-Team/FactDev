@@ -45,9 +45,9 @@ public:
     void popupMessage(QWidget *parent);
 private:
 
-    QString _userError; //!<
+    QString _userError; //!< user error
 
-    int _errorCode; //!<  Error code
+    int _errorCode;     //!<  Error code
 };
 }
 

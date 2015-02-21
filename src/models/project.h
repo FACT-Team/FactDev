@@ -136,6 +136,15 @@ public:
      */
     void setCustomer(QSharedPointer<Customer> customer);
 
+    /**
+     * @brief Project::operator == Re-define the operator "==" to compare if
+     * the current project is the same to the other <b>Project</b> <i>p</i>
+     * Return TRUE if both projects are the same, else FALSE
+     * @param c Project to compare
+     * @return boolean
+     */
+    bool operator ==(const Project &p);
+
 private:
     QString _name;          //!< Project name
     QString _description;   //!< Description on the targets of this project

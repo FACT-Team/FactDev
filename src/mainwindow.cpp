@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "exceptions/fileexception.h"
 
 using namespace Utils;
 
@@ -25,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
         this,
         SLOT(openContextupdualMenuTree(const QPoint &)));
 
+    _hierarchy = HierarchicalSystem();
     updateUser();
     updateButtons();
     demo();
@@ -41,7 +43,7 @@ void MainWindow::demo() {
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
     QModelIndex idCell = tbl->model()->index(tbl->currentIndex().row(), 0);
-        return tbl->model()->itemData(idCell).value(0).toInt();
+    return tbl->model()->itemData(idCell).value(0).toInt();
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -638,6 +640,67 @@ void MainWindow::updateUser()
     ui->wdgUserData->printUserData();
 }
 
+void MainWindow::updateFolders()
+{
+    User* user = new User(1);
+    QString path = user->getWorkspacePath();
+    QString folder = user->getWorkspaceName();
+    QDir directory(path);
+
+    // Make Root directory
+    path = makeDirectory(directory, path, folder);
+
+    //  + COMPANY CustomerLastname CustomerFirstname/
+    QMap<Models::Customer, Models::Project>::iterator c;
+    for (c = _hierarchy.getCustomers().begin();
+         c != _hierarchy.getCustomers().end();
+         ++c ) {
+
+        folder =    c.key().getCompany().toUpper()
+                    + " " + c.key().getLastnameReferent()
+                    + " " + c.key().getFirstnameReferent();
+
+        path = makeDirectory(directory, path, folder);
+
+        QMap<Models::Project, Models::Billing>::iterator p;
+        for (p = _hierarchy.getProjects().begin();
+             p != _hierarchy.getProjects().end();
+             ++p ) {
+
+            if (p.key() == c.value()) {
+                // + Billings/
+                if (p.value().isBilling()) {
+                    folder = "Factures";
+                }
+                // + Quotes/
+                else {
+                    folder = "Devis";
+                }
+                path  = makeDirectory(directory, path, folder);
+
+            }
+        }
+    }
+
+    delete user;
+}
+
+QString MainWindow::makeDirectory(QDir &directory,
+                                  const QString path, const QString folder) {
+    if (!directory.cd(path + "/" + folder)) {
+        if (directory.mkdir(folder)) {
+            directory.setPath(path + "/" + folder);
+        } else {
+            throw new FileException(
+                        "Impossible de créer le répertoire de travail",
+                        "mkdir::" + path + "/" + folder,
+                        directory.currentPath(),
+                        1.1);
+        }
+    }
+
+    return path + " " + folder;
+}
 
 }
 

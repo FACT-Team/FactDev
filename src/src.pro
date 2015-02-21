@@ -71,7 +71,9 @@ SOURCES += mainwindow.cpp \
     generator.cpp \
     gui/widgets/widgetsmodels/customerstablemodel.cpp \
     gui/widgets/widgetsmodels/projectstablemodel.cpp \
-    gui/widgets/widgetsmodels/billingstablemodel.cpp
+    gui/widgets/widgetsmodels/billingstablemodel.cpp \
+    exceptions/fileexception.cpp \
+    utils/hierarchicalsystem.cpp
 
 HEADERS  += mainwindow.h \
         utils/log.h\
@@ -127,7 +129,9 @@ HEADERS  += mainwindow.h \
     models/imodel.h \
     gui/widgets/widgetsmodels/customerstablemodel.h \
     gui/widgets/widgetsmodels/projectstablemodel.h \
-    gui/widgets/widgetsmodels/billingstablemodel.h
+    gui/widgets/widgetsmodels/billingstablemodel.h \
+    exceptions/fileexception.h \
+    utils/hierarchicalsystem.h
 
 FORMS    += mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \

@@ -55,9 +55,7 @@ void UserDataDialog::accept() {
     }
 
     if (ui->leWorkspacePath->text().isEmpty()) {
-        _user->setWorkspacePath(
-                    QCoreApplication::applicationDirPath()
-                    + "/" + _user->getWorkspaceName());
+        _user->setWorkspacePath(QCoreApplication::applicationDirPath());
     } else {
         _user->setWorkspacePath(ui->leWorkspacePath->text());
     }
