@@ -17,6 +17,8 @@ public:
     static RateDatabase*  instance() throw (DbException*);
 
     void addRateProject(int idProject, int idBilling, double hourlyRate);
+    double getRate(const int idBilling, const int idProject) const;
+    void updateRateProject(int idProject, int idBilling, double hourlyRate);
 private:
     static RateDatabase* _instance; //!< Singleton instance of RateDatabase
     /**

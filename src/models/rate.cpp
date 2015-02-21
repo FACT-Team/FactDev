@@ -9,6 +9,11 @@ Rate::Rate(double hourly)
     setHourlyRate(hourly);
 }
 
+Rate::Rate(int idBilling, int idProject)
+{
+    setHourlyRate(Databases::RateDatabase::instance()->getRate(idBilling, idProject));
+}
+
 Rate::Rate()
 {
     _hourly = getLegalRate();

@@ -155,6 +155,7 @@ public:
      * @return true if the <b>Billing</b> are different else false
      */
     bool operator !=(const Billing &b);
+    void setContributories(const ContributoriesList &contributories);
 
 private:
     ContributoriesList _contributories;   //!< List of contributories

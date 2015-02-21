@@ -30,8 +30,10 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
                        (Customer(idCustomer).getCompany()));
     }
     _quote->setIsBilling(isBilling);
+
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
     emit ui->leQuoteTitle->textChanged(_quote->getTitle());
+    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->updateUi();
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -56,11 +58,8 @@ void AddQuoteDialog::accept() {
     _quote->setTitle(ui->leQuoteTitle->text());
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
-    QList<Contributory>* listContributories = ((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()->getAllContributories();
-    for(Contributory& contrib : *listContributories) {
-        _quote->addContributory(contrib);
-    }
-    delete listContributories;
+
+    _quote->setContributories(*((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories());
 
     _quote->commit();
     QDialog::accept();

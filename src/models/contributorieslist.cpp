@@ -24,6 +24,10 @@ void ContributoriesList::commit()
             RateDatabase::instance()->addRateProject(it.key()->first->getId(),
                                                      _idBilling,
                                                      getRate(it.key()->first).getHourlyRate());
+        } else {
+            RateDatabase::instance()->updateRateProject(it.key()->first->getId(),
+                                                     _idBilling,
+                                                     getRate(it.key()->first).getHourlyRate());
         }
         for(Contributory c : it.value()) {
             // Fill trinary legs… :)
@@ -50,7 +54,7 @@ void ContributoriesList::addContributory(Contributory &contributory)
         }
     }
     if(toInsert) {
-        key = new QPair<Project*, Models::Rate>(contributory.getProject(), Models::Rate());
+        key = new QPair<Project*, Models::Rate>(contributory.getProject(), Models::Rate(_idBilling, contributory.getProject()->getId()));
         insert(key, QList<Contributory>());
     }
 

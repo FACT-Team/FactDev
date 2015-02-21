@@ -29,7 +29,6 @@ Billing::~Billing()
 
 void Billing::commit()
 {
-    qDebug() << _toRemoved;
     Database::Database::instance()->openTransaction();
     bool insert = _id == 0;
     if(insert) {
@@ -116,6 +115,12 @@ bool Billing::operator !=(const Billing &b)
 {
     return !(*this == b);
 }
+
+void Billing::setContributories(const ContributoriesList &contributories)
+{
+    _contributories = contributories;
+}
+
 
 ContributoriesList& Billing::getContributories()
 {

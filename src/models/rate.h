@@ -1,12 +1,15 @@
 #ifndef RATE_H
 #define RATE_H
 
+#include "database/ratedatabase.h"
+
 namespace Models {
 
 class Rate
 {
 public:
     Rate(double hourly);
+    Rate(int idBilling, int idProject);
     Rate();
 
     void setDailyRate(const double&);
