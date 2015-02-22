@@ -11,6 +11,7 @@ UnitComboDelegate::UnitComboDelegate(QObject *parent)
 
 QWidget *UnitComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    return 0; // TODO, remove me for unit implementation
     if(index.model()->data(index, Qt::EditRole).toUInt() != 0) {
         return 0;
     }
