@@ -107,6 +107,7 @@ inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billings.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/contributories.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billingsprojects.sql");
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/billingrate.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/removeuselessdata.sql");
 
     updateBillingNumber();
@@ -171,14 +172,14 @@ void Database::closeTransaction()
 
 }
 
-inline QString Database::lastError(const QSqlQuery& q) {
+inline QString Database::lastError(const QSqlQuery& q) const {
     QString ret = "[ ERREUR  ] " + q.lastError().text()+"\n"
             +"[ query ] " + q.lastQuery() +"\n";
 
     return ret;
 }
 
-QVariant Database::value(const QSqlQuery& q, const QString& champ) {
+QVariant Database::value(const QSqlQuery& q, const QString& champ) const {
     return q.value(champ);
 }
 

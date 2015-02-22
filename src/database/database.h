@@ -44,7 +44,7 @@ public:
      * @param q SQL request
      * @return an error message
      */
-    QString  lastError(const QSqlQuery& q);
+    QString  lastError(const QSqlQuery& q) const;
 
     /**
      * @brief Database::testCases Realise a test cases
@@ -121,7 +121,7 @@ protected:
      * @param champ Field
      * @return  The value
      */
-    QVariant value(const QSqlQuery& q, const QString& champ);
+    QVariant value(const QSqlQuery& q, const QString& champ) const;
 
 
 };

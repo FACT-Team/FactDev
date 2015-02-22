@@ -465,20 +465,23 @@ void MainWindow::editQuote()
 
 void MainWindow::updateUI(QString filter)
 {
+    int row = ui->tblCustomers->currentIndex().row();
     if (ui->tblCustomers->model() != NULL) {
         delete ui->tblCustomers->model();
     }
-    updateTableCustomers(filter);
+    updateTableCustomers(filter, row);
 
+    row = ui->tblProjects->currentIndex().row();
     if (ui->tblProjects->model() != NULL) {
         delete ui->tblProjects->model();
     }
-    updateTableProjects(getCurrentCustomerId());
+    updateTableProjects(getCurrentCustomerId(), row);
 
+    row = ui->tblQuotes->currentIndex().row();
     if (ui->tblQuotes->model() != NULL) {
         delete ui->tblQuotes->model();
     }
-    updateTableBillings(getCurrentProjectId());
+    updateTableBillings(getCurrentProjectId(), row);
 
     if (ui->trCustomers->model() != NULL) {
         delete ui->trCustomers->model();
@@ -487,7 +490,6 @@ void MainWindow::updateUI(QString filter)
 
     updateButtons();
     updateUser();
-
 }
 
 void MainWindow::search() {
@@ -572,9 +574,7 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
 
 void MainWindow::updateTree(QString filter)
 {
-    ui->trCustomers->setModel(
-        Databases::CustomerDatabase::instance()->getTree(filter));
-    //ui->trCustomers->header()->close();
+    ui->trCustomers->setModel(Databases::CustomerDatabase::instance()->getTree(filter));
 }
 
 void MainWindow::updateButtons()

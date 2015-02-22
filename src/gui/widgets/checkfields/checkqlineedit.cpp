@@ -1,5 +1,9 @@
 #include "checkqlineedit.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
+
 CheckQLineEdit::CheckQLineEdit(QWidget *parent, QPushButton* btn) : QLineEdit(parent)
 {
     _btnValid = btn;
@@ -60,4 +64,8 @@ void CheckQLineEdit::setBtnValid(QPushButton *btnValid)
 bool CheckQLineEdit::isValid()
 {
     return check(text());
+}
+
+}
+}
 }

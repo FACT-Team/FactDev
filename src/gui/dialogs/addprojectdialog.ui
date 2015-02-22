@@ -102,7 +102,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="CheckUntilField" name="leNameProject">
+    <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leNameProject">
      <property name="toolTip">
       <string>Nom du projet</string>
      </property>
@@ -115,7 +115,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Gui::Widgets::CheckUntilField</class>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>

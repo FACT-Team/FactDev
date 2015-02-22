@@ -7,6 +7,10 @@ ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractT
 {
 }
 
+ContributoriesTableModel::~ContributoriesTableModel() {
+    clear();
+}
+
 int ContributoriesTableModel::rowCount(const QModelIndex &) const {
     return _contributories.count();
 }
@@ -19,11 +23,13 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
     if (role != Qt::DisplayRole && role != Qt::EditRole) {
         return QVariant();
     }
+    Models::Rate r;
+
     const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
-    case 0: return contributory.getProject()->getId();
-    case 1: return contributory.getDescription();
-    case 2: return contributory.getNbHours();
+    case 0: return contributory.getDescription();
+    case 1: return contributory.getNbHours()/r.getNbDailyHours();
+    case 2: return 0; // TODO unit
     default: return QVariant();
     };
 }
@@ -39,25 +45,26 @@ QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orien
     }
 
     switch (section) {
-    case 0: return "Projet";
-    case 1: return "Description";
-    case 2: return "Nombre d'heures";
+    case 0: return "Description";
+    case 1: return "Quantité";
+    case 2: return "Unité";
     default: return QVariant();
     }
 }
 
 bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    Models::Rate r;
     if (role == Qt::EditRole) {
         switch(index.column()) {
         case 0:
-            _contributories[index.row()].setProject(new Project(value.toInt()));
-            break;
-        case 1:
             _contributories[index.row()].setDescription(value.toString());
             break;
+        case 1:
+            _contributories[index.row()].setNbHours(value.toDouble()*r.getNbDailyHours());
+            break;
         case 2:
-            _contributories[index.row()].setNbHours(value.toDouble());
+            // TODO unit.
             break;
         default:
             Log::instance(WARNING) << "Error, in default case of ContributoriesTableModel::setData";
@@ -71,6 +78,12 @@ void ContributoriesTableModel::append(const Contributory &contributory) {
     beginInsertRows(QModelIndex(), _contributories.count(), _contributories.count());
     _contributories.append(contributory);
     endInsertRows();
+}
+
+void ContributoriesTableModel::clear() {
+    for(int i = 0 ; i < _contributories.count() ; ++i) {
+        remove(i);
+    }
 }
 
 void ContributoriesTableModel::remove(const int a)
@@ -94,6 +107,16 @@ QList<Contributory> ContributoriesTableModel::getContributories()
 
 int ContributoriesTableModel::count() {
     return _contributories.count();
+}
+
+double ContributoriesTableModel::getSumQuantity() const
+{
+    double ret;
+    for(Contributory c : _contributories) {
+        ret += c.getNbHours();
+    }
+
+    return ret;
 }
 
 }

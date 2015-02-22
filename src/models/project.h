@@ -17,8 +17,6 @@ namespace Models {
 class Project : public IModel
 {
 public:
-    static const double LEGAL_RATE; //!< The Legal hourly Rate
-    static const int NB_DAILY_HOURS; //!< The number of daily hours in a day
 
     /**
      * @brief Project::Project Construct a Project

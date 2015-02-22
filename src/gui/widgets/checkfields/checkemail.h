@@ -3,6 +3,10 @@
 
 #include "checkqlineedit.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
+
 /**
  * @brief The CheckEmail class Line Edit of email with a check icon
  */
@@ -30,5 +34,7 @@ public:
      */
     bool check(const QString text);
 };
-
+}
+}
+}
 #endif // CHECKEMAIL_H

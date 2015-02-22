@@ -1,5 +1,9 @@
 #include "checksiretnumber.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
+
 CheckSiretNumber::CheckSiretNumber(QWidget* w, QPushButton *btn) : CheckQLineEdit(w, btn) {
 
 }
@@ -17,4 +21,8 @@ bool CheckSiretNumber::check(QString text) {
     siretRgx.setPatternSyntax(QRegExp::RegExp);
 
     return siretRgx.exactMatch(text);
+}
+
+}
+}
 }

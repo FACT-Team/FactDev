@@ -11,31 +11,29 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *
 {
     ui->setupUi(this);
     ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
+    connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
 
     if (id != 0) {
         _quote = new Billing(id);
         fillFields();
-        if (isBilling) setWindowTitle("Modifier la facture n°"
-                                      + QString::number(getNumber()) + " de "
-                                      + (Customer(idCustomer).getCompany()));
-        else setWindowTitle("Modifier le devis n°"
-                            + QString::number(getNumber()) + " de "
-                            + (Customer(idCustomer).getCompany()));
+
+        setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
+                       QString::number(getNumber())+ " de " +
+                       (Customer(idCustomer).getCompany()));
     } else {
         _quote = new Billing();
         _quote->setId(id);
         ui->dateEditQuote->setDate(QDate::currentDate());
-        if (isBilling) setWindowTitle("Nouveau devis n°"
-                                      +  QString::number(getNumber()) + " de "
-                                      + (Customer(idCustomer).getCompany()));
-        else setWindowTitle("Nouvelle facture n°"
-                            +  QString::number(getNumber()) + " de "
-                            + (Customer(idCustomer).getCompany()));
+
+        setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
+                       QString::number(getNumber())+ " de " +
+                       (Customer(idCustomer).getCompany()));
     }
     _quote->setIsBilling(isBilling);
+
     ui->_2->addWidget(ui->wdgContributories, 5, 0, 1, 2);
-    connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
     emit ui->leQuoteTitle->textChanged(_quote->getTitle());
+    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->updateUi();
 }
 
 AddQuoteDialog::~AddQuoteDialog()
@@ -49,16 +47,11 @@ int AddQuoteDialog::getNumber() {
 }
 
 void AddQuoteDialog::fillFields() {
-
-     ((CheckUntilField*) ui->leQuoteTitle)->setText(_quote->getTitle());
+     ui->leQuoteTitle->setText(_quote->getTitle());
      ui->dateEditQuote->setDate(_quote->getDate());
      ui->leDescription->setText(_quote->getDescription());
 
-     for(Project* p : _quote->getContributories().keys()) {
-         for(Contributory c : _quote->getContributories()[p]) {
-            ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(c);
-         }
-     }
+    ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->add(_quote->getContributories());
 }
 
 void AddQuoteDialog::accept() {
@@ -66,9 +59,8 @@ void AddQuoteDialog::accept() {
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
 
-    for(Contributory c : ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories()) {
-        _quote->addContributory(c);
-    }
+    _quote->setContributories(*((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories());
+
     _quote->commit();
     QDialog::accept();
 }

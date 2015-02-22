@@ -38,10 +38,8 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
                     lastError(q2),
                     1.2);
     }
-
     if(q2.first()) {
-        contributory->setProject(
-                    Databases::ProjectDatabase::instance()->getProject(q2));
+        contributory->setProject(Databases::ProjectDatabase::instance()->getProject(q2));
     } else {
         contributory->setProject(NULL);
     }
@@ -75,11 +73,11 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     return contributory;
 }
 
-QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int idBilling)
 {
     QSqlQuery q;
-    QMap<Models::Project *, QList<Models::Contributory>> contributories;
-    QMap<int, Models::Project*> projects; // link between id and Project*
+    Models::ContributoriesList contributories;
+
     q.prepare(
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
@@ -100,15 +98,12 @@ QMap<Models::Project *, QList<Models::Contributory>> ContributoryDatabase::getCo
                     lastError(q),
                     1.8);
     }
+    contributories.setIdBilling(idBilling);
 
     while(q.next()) {
-        if(!projects.contains(value(q, "idProject").toInt())) { // It's a new project !
-            Models::Project* p = ProjectDatabase::instance()->getProject(q);
-            projects.insert(value(q, "idProject").toInt(), p);
-            contributories.insert(p, QList<Models::Contributory>());
-        }
-        contributories[projects.last()].append(*getContributory(q));
+        contributories.addContributory(*getContributory(q));
     }
+
     return contributories;
 }
 

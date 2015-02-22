@@ -1,5 +1,11 @@
 #include "checkpostalcode.h"
 #include <QDebug>
+
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
+
+
 CheckPostalCode::CheckPostalCode(QWidget* w, QPushButton* btn ) : CheckUntilField (w, btn) {
 
 }
@@ -35,3 +41,6 @@ void CheckPostalCode::setCountry(const QString &country)
     _country = country.toUpper();
 }
 
+}
+}
+}

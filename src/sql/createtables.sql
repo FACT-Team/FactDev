@@ -54,6 +54,16 @@ CREATE TABLE BillingProject
     FOREIGN KEY (idContributory) REFERENCES Contributory (idContributory)
 );
 
+CREATE TABLE BillingRate
+(
+    idBilling INTEGER,
+    idProject INTEGER,
+    hourlyRate DOUBLE,
+    PRIMARY KEY(idBilling, idProject)
+    FOREIGN KEY (idBilling) REFERENCES Billing(idBilling),
+    FOREIGN KEY (idProject) REFERENCES Project(idProject)
+);
+
 CREATE TABLE User
 (
     idUser INTEGER PRIMARY KEY AUTOINCREMENT,

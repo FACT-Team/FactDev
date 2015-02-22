@@ -4,49 +4,31 @@ namespace Gui {
 namespace Widgets {
 namespace Delegates {
 
-ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : QItemDelegate(parent)
+ProjectComboDelegate::ProjectComboDelegate(QSharedPointer<Models::Customer> c, QObject *parent) : ComboBoxDelegate(parent)
 {
     _projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
+    _locked = false;
 }
 
-
-ProjectComboDelegate::~ProjectComboDelegate()
+QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */,
+                                            const QModelIndex & index) const
 {
+    if(_locked && index.model()->data(index, Qt::EditRole).toUInt() != 0) {
+        return 0;
+    }
 
-}
-
-QWidget *ProjectComboDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &/* option */, const QModelIndex &/* index */) const
-{
     QComboBox* editor = new QComboBox(parent);
-    for(Models::Project p : _projects.values())
-    {
+    QMap<int, Models::Project> buff = _projects;
+
+    for(int key : _removeInCombo) {
+        buff.remove(key);
+    }
+
+    for(Models::Project p : buff.values()) {
         editor->addItem(p.getName(), QVariant(p.getId()));
     }
+
     return editor;
-}
-
-void ProjectComboDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
-{
-    QComboBox *comboBox = static_cast<QComboBox*>(editor);
-    int value = index.model()->data(index, Qt::EditRole).toUInt();
-    for(int i = 0 ; i < comboBox->count() ; ++i) {
-        if(comboBox->itemData(i) == value) {
-            comboBox->setCurrentIndex(i);
-            break;
-        }
-    }
-
-}
-
-void ProjectComboDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
-{
-    QComboBox *comboBox = static_cast<QComboBox*>(editor);
-    model->setData(index, comboBox->itemData(comboBox->currentIndex()), Qt::EditRole);
-}
-
-void ProjectComboDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &/* index */) const
-{
-    editor->setGeometry(option.rect);
 }
 
 void ProjectComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -58,6 +40,26 @@ void ProjectComboDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &myOption, painter);
 }
+
+void ProjectComboDelegate::removeInCombo(QList<int> &l)
+{
+    _removeInCombo = l;
+}
+QMap<int, Models::Project> ProjectComboDelegate::getProjects() const
+{
+    return _projects;
+}
+
+void ProjectComboDelegate::setLocked(bool locked)
+{
+    _locked = locked;
+}
+
+bool ProjectComboDelegate::getLocked() const
+{
+    return _locked;
+}
+
 }
 }
 }

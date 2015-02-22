@@ -80,24 +80,26 @@ void BillingModelTest::hydrat()
 
 void BillingModelTest::hydratWithContributories() {
     setup();
-    QMap<Project *, QList<Contributory> > contributories = Billing(24).getContributories();
-    QCOMPARE(contributories.count(), 2);
+    ContributoriesList contributories = Billing(24).getContributories();
+    QCOMPARE(contributories.getNbProjects(), 2);
 
     // we only check id… Remaining are already tested (getProject, getContributory)
-    for(auto i = contributories.begin(); i != contributories.end() ; ++i) {
-        switch(i.key()->getId()) {
-        case 21:
-            QCOMPARE(i.value().count(), 3);
-            QCOMPARE(i.value().at(0).getId(), 59);
-            QCOMPARE(i.value().at(1).getId(), 60);
-            QCOMPARE(i.value().at(2).getId(), 61);
-            break;
-        case 44:
-            QCOMPARE(i.value().count(), 1);
-            QCOMPARE(i.value().at(0).getId(), 62);
-            break;
-        default:
-            QFAIL("Default case");
+    for(Project* p : contributories.getProjects()) {
+        QList<Contributory> list = contributories.getContributories(p);
+            switch(p->getId()) {
+            case 21:
+                QCOMPARE(list.count(), 3);
+                QCOMPARE(list.at(0).getId(), 59);
+                QCOMPARE(list.at(1).getId(), 60);
+                QCOMPARE(list.at(2).getId(), 61);
+                break;
+            case 44:
+                QCOMPARE(list.count(), 1);
+                QCOMPARE(list.at(0).getId(), 62);
+                break;
+            default:
+                QFAIL("Default case");
         }
+
     }
 }

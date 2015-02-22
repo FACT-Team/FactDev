@@ -9,7 +9,7 @@
 #include "models/project.h"
 #include "models/contributory.h"
 #include "models/user.h"
-
+#include "models/contributorieslist.h"
 #include "database/contributorydatabase.h"
 
 #include "generator.h"
@@ -72,7 +72,7 @@ public:
      * for each <b>Project</b> of the <b>Billing</b>
      * @return QMap<Project, QList<Contributory>>
      */
-    QMap<Project *, QList<Contributory> > getContributories() const;
+    ContributoriesList &getContributories();
 
     /**
      * @brief addContributories Add a new contributory for project p
@@ -155,9 +155,10 @@ public:
      * @return true if the <b>Billing</b> are different else false
      */
     bool operator !=(const Billing &b);
+    void setContributories(const ContributoriesList &contributories);
 
 private:
-    QMap<Project*,QList<Contributory> > _contributories;   //!< List of contributories
+    ContributoriesList _contributories;   //!< List of contributories
     QString _title;                                         //!< Title of billing
     QString _description;                                   //!< Description of a billing
     int _number;                                            //!< Number of billing
