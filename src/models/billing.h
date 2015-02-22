@@ -141,6 +141,8 @@ public:
      * @param getDate the new date of the Billing
      */
     void setDate(const QDate &getDate);
+
+
     /**
      * @brief Billing::operator == define the operator "==" to compare two
      * billings and to see if they are the same
@@ -156,6 +158,14 @@ public:
      */
     bool operator !=(const Billing &b);
 
+    /**
+     * @brief Billing::operator < defines the operator "< to compare two
+     * <b>Billing</b> and to see if the fisrt is anterior to the second
+     * @param b the <b>Billing</b> to compare with the current <b>Billing</b>
+     * @return true if the <b>Billing</b> are different else false
+     */
+    bool operator <(const Billing &b) const;
+
 private:
     QMap<Project*,QList<Contributory> > _contributories;   //!< List of contributories
     QString _title;                                         //!< Title of billing
@@ -163,8 +173,6 @@ private:
     int _number;                                            //!< Number of billing
     bool _isBilling;                                        //!< Is a billing… Or if a quote
     QDate _date;                                            //!< Date for billing
-
-
 };
 
 }

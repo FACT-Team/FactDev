@@ -8,6 +8,8 @@
 #include "models/customer.h"
 #include "models/project.h"
 
+using namespace Models;
+
 namespace Utils {
 /**
  * @author Florent Berbie
@@ -21,17 +23,28 @@ class HierarchicalSystem {
 
 public:    
     /**
-     * @brief HierarchicalSystem::HierarchicalSystem Contruct a
-     * HierarchicalSystem
+     * @brief HierarchicalSystem::HierarchicalSystem Construct a
+     *  HierarchicalSystem
      */
     HierarchicalSystem();
-    ~HierarchicalSystem();
 
     /**
-     * @brief HierarchicalSystem::getAllProjects Get all project and add each
+     * @brief HierarchicalSystem::getAllProjects Get all projects and add each
      * project to Customer linked
      */
     void getAllProjects();
+
+    /**
+     * @brief HierarchicalSystem::getAllBillings Get all billings and add each
+     * billing to Project linked
+     */
+    void getAllBillings();
+
+    /**
+     * @brief HierarchicalSystem::updateData Update data on Customers, Projects,
+     *  Billings
+     */
+    void updateData();
 
     /**
      * @brief HierarchicalSystem::addProjectToCustomer Add the Project <i>p</i>
@@ -39,7 +52,7 @@ public:
      * @param p Project
      * @param c Customer
      */
-    void addProjectToCustomer(Models::Project p, Models::Customer c);
+    void addProjectToCustomer(Project p, Customer c);
 
     /**
      * @brief HierarchicalSystem::addBillingToProject Add the Billing <i>b</i>
@@ -47,28 +60,27 @@ public:
      * @param b Billing
      * @param p Project
      */
-    void addBillingToProject(Models::Billing b, Models::Project p);
+    void addBillingToProject(Billing b, Project p);
 
     /**
      * @brief HierarchicalSystem::getCustomers Return all customers and these
      * projects linked
      * @return Projects linked to Customers
      */
-    QMap<Models::Project, Models::Customer> getCustomers() const;
+    QMap<Project, Customer> getCustomers() const;
 
     /**
      * @brief HierarchicalSystem::getProjects Return all projects and these
      * billing linked
      * @return Billing linked to Projects
      */
-    QMap<Models::Billing, Models::Project> getProjects() const;
+    QMap<Billing, Project> getProjects() const;
 
 private:
-    //!< Projects linked to Customers
-    QMap<Models::Project, Models::Customer> _customers;
-    //!< Billing linked to Projects
-    QMap<Models::Billing, Models::Project> _projects;
 
+    QMap<Project, Customer> _customers;    //!< Projects linked to Customers
+    QMap<Billing, Project> _projects;      //!< Billing linked to Projects
 };
 }
+
 #endif // HIERARCHICALSYSTEM_H

@@ -173,6 +173,13 @@ void Customer::setFax(const QString &fax)
     _fax = fax;
 }
 
+QString Customer::getPath() const
+{
+   return  getCompany().toUpper()
+            + " " + getLastnameReferent()
+            + " " + getFirstnameReferent();
+}
+
 
 QString Customer::getCountry() const
 {

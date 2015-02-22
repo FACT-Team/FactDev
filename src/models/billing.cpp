@@ -136,6 +136,11 @@ bool Billing::operator !=(const Billing &b)
     return !(*this == b);
 }
 
+bool Billing::operator <(const Billing &b) const
+{
+    return getDate() < b.getDate();
+}
+
 QMap<Project*, QList<Contributory>> Billing::getContributories() const
 {
     return _contributories;

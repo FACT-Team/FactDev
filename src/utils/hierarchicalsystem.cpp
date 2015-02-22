@@ -1,61 +1,63 @@
-#include "database/customerdatabase.h"
+#include "database/projectdatabase.h"
+#include "database/billingdatabase.h"
+#include "exceptions/dbexception.h"
 #include "hierarchicalsystem.h"
 
 namespace Utils {
-
-HierarchicalSystem::HierarchicalSystem()
-{
-    getAllProjects();
+HierarchicalSystem::HierarchicalSystem() {
+    updateData();
 }
 
-HierarchicalSystem::~HierarchicalSystem()
-{
-
-}
 
 void HierarchicalSystem::getAllProjects()
 {
-    Project p;
-    // TODO SQL requete
-    /*
-    QSqlQuery q;
-    q.prepare();
-    if(!q.exec()) {
-        throw new DbException(
-                    "Impossible d'obtenir la liste des Customers",
-                    "CustomerDatabase::getCustomersTable",
-                    lastError(q),
-                    1.1);
+    for (Project p: Databases::ProjectDatabase::instance()->getAllProjects())
+    {
+        addProjectToCustomer(p, Customer(p.getId()));
     }
+}
 
-    while(q.next()) {
+void HierarchicalSystem::getAllBillings()
+{
+    QMap<int,Billing> map =
+            Databases::BillingDatabase::instance()->getAllBillingsOfProject();
 
+    for (auto it = map.cbegin(); it != map.cend(); ++it)
+    {
+        addBillingToProject(it.value(), Project(it.key()));
     }
-    */
+}
+
+void HierarchicalSystem::updateData()
+{
+
+    getAllProjects();
+    getAllBillings();
 }
 
 void HierarchicalSystem::addProjectToCustomer(Models::Project p, Models::Customer c)
 {
-    if (!_customers.contains(c)) {
-        _customers.insert(c,p);
+    if (!_customers.contains(p)) {
+        _customers.insert(p,c);
     }
 }
 
 void HierarchicalSystem::addBillingToProject(Models::Billing b, Models::Project p)
 {
     if (!_projects.contains(b)) {
-        _projects.insert(p,b);
+        _projects.insert(b,p);
     }
 }
-QMap<Models::Project, Models::Customer> HierarchicalSystem::getCustomers() const
+QMap<Project, Customer> HierarchicalSystem::getCustomers() const
 {
     return _customers;
 }
 
 
-QMap<Models::Billing, Models::Project> HierarchicalSystem::projects() const
+QMap<Billing, Project> HierarchicalSystem::getProjects() const
 {
     return _projects;
 }
 
 }
+

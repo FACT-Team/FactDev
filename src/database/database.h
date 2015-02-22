@@ -95,9 +95,13 @@ public:
     void setDatabase(QSqlDatabase sql);
 
     /**
-     * @brief Database::creerDatabase Create a new database
+     * @brief Database::createDatabase Create a new database
      */
     void createDatabase();
+
+    /**
+     * @brief Database::updateBillingNumber Update the billing number
+     */
     void updateBillingNumber();
 protected:
     /**

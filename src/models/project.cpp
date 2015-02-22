@@ -129,4 +129,9 @@ bool Project::operator ==(const Project &p)
             && getCustomer() == getCustomer();
 }
 
+bool Project::operator <(const Project &p) const
+{
+    return getBeginDate() < p.getBeginDate();
+}
+
 }

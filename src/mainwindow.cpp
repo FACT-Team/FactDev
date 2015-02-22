@@ -26,7 +26,6 @@ MainWindow::MainWindow(QWidget *parent) :
         this,
         SLOT(openContextupdualMenuTree(const QPoint &)));
 
-    _hierarchy = HierarchicalSystem();
     updateUser();
     updateButtons();
     demo();
@@ -651,25 +650,24 @@ void MainWindow::updateFolders()
     path = makeDirectory(directory, path, folder);
 
     //  + COMPANY CustomerLastname CustomerFirstname/
-    QMap<Models::Customer, Models::Project>::iterator c;
-    for (c = _hierarchy.getCustomers().begin();
-         c != _hierarchy.getCustomers().end();
+    //QMap<Models::Customer, Models::Project>::iterator c;
+    for (auto c = _hierarchy.getCustomers().cbegin();
+         c != _hierarchy.getCustomers().cend();
          ++c ) {
 
-        folder =    c.key().getCompany().toUpper()
-                    + " " + c.key().getLastnameReferent()
-                    + " " + c.key().getFirstnameReferent();
+        folder = c.value().getPath();
 
         path = makeDirectory(directory, path, folder);
 
-        QMap<Models::Project, Models::Billing>::iterator p;
-        for (p = _hierarchy.getProjects().begin();
-             p != _hierarchy.getProjects().end();
+        //QMap<Models::Project, Models::Billing>::iterator p;
+        for (auto p = _hierarchy.getProjects().cbegin();
+             p != _hierarchy.getProjects().cend();
              ++p ) {
-
-            if (p.key() == c.value()) {
+            Project p1 = p.value();
+            Project p2 = c.key();
+            if (p1 == p2) {
                 // + Billings/
-                if (p.value().isBilling()) {
+                if (p.key().isBilling()) {
                     folder = "Factures";
                 }
                 // + Quotes/
@@ -677,7 +675,6 @@ void MainWindow::updateFolders()
                     folder = "Devis";
                 }
                 path  = makeDirectory(directory, path, folder);
-
             }
         }
     }
