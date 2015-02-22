@@ -246,6 +246,15 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>tblProjects</tabstop>
+  <tabstop>btnAddProject</tabstop>
+  <tabstop>btnRemoveProject</tabstop>
+  <tabstop>btnAddPrestation</tabstop>
+  <tabstop>btnRmovePrestation</tabstop>
+  <tabstop>sbSubSum</tabstop>
+  <tabstop>sbAllSums</tabstop>
+ </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
  </resources>

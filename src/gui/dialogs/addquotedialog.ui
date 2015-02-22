@@ -135,6 +135,13 @@
    </slots>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>leQuoteTitle</tabstop>
+  <tabstop>dateEditQuote</tabstop>
+  <tabstop>leDescription</tabstop>
+  <tabstop>btnSave</tabstop>
+  <tabstop>btnCancel</tabstop>
+ </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
  </resources>
@@ -146,8 +153,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>2010</x>
-     <y>1013</y>
+     <x>1034</x>
+     <y>584</y>
     </hint>
     <hint type="destinationlabel">
      <x>1211</x>
@@ -162,8 +169,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>2113</x>
-     <y>1013</y>
+     <x>1137</x>
+     <y>584</y>
     </hint>
     <hint type="destinationlabel">
      <x>1490</x>
