@@ -31,7 +31,9 @@ database/customerdatabasetest.h \
     database/projectdatabasetest.h \
     models/projectmodeltest.h \
     database/userdatabasetest.h \
-    models/usermodeltest.h
+    models/usermodeltest.h \
+    utils/stringtest.h \
+    models/contributorymodeltest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -49,7 +51,9 @@ database/customerdatabasetest.cpp \
     database/projectdatabasetest.cpp \
     models/projectmodeltest.cpp \
     database/userdatabasetest.cpp \
-    models/usermodeltest.cpp
+    models/usermodeltest.cpp \
+    utils/stringtest.cpp \
+    models/contributorymodeltest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
 
