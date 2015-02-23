@@ -90,7 +90,7 @@ public:
     /**
      * @brief User::setTitle Modify the user/company activities
      *  <i>description</i>
-     * @param title Short description on activity(ies) of customer company
+     * @param title Short description on activity(ies) of User company
      */
     void setTitle(const QString &title);
 
@@ -176,11 +176,28 @@ public:
      */
     void setNoSiret(const QString &noSiret);
 
+    /**
+     * @brief User::operator == Re-define the operator "==" to compare if
+     * the current User is the same to the other <b>User</b> <i>c</i>
+     * Return TRUE if both Users are the same, else FALSE
+     * @param u User to compare
+     * @return boolean
+     */
+    bool operator ==(const User &u);
+    /**
+     * @brief User::operator == Re-define the operator "!=" to compare if
+     * the current User is differnt to the other <b>User</b> <i>c</i>
+     * Return TRUE if both Users are different, else FALSE
+     * @param u User to compare
+     * @return boolean
+     */
+    bool operator !=(const User &u);
+
 private:
     QString _firstname;     //!< User firstname
     QString _lastname;      //!< User lastname
     QString _company;       //!< Company name of the User
-    QString _title;         //!< Customer/Company description on it activity
+    QString _title;         //!< User/Company description on it activity
     QString _address;       //!< Name and number of street
     QString _postalCode;    //!< Postal code
     QString _city;          //!< City
