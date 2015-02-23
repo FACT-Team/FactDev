@@ -650,7 +650,7 @@ void MainWindow::updateFolders()
 
     // Make Root directory
     path = makeDirectory(directory, path, folder);
-
+    qDebug() << "0. >" << path;
     //  + COMPANY CustomerLastname CustomerFirstname/
     //QMap<Customer, Project>;
     for (auto c = _hierarchy.getCustomers().cbegin();
@@ -660,7 +660,7 @@ void MainWindow::updateFolders()
         folder = customer.getPath();
 
         path = makeDirectory(directory, path, folder);
-        qDebug() << "[" << customer.getFirstnameReferent() << "]" << path;
+        qDebug() << "1. >" << path;
 
         //QMap<Project, Billing>;
         for (auto p = _hierarchy.getProjects().cbegin();
@@ -678,7 +678,7 @@ void MainWindow::updateFolders()
                     folder = "Devis";
                 }
                 path  = makeDirectory(directory, path, folder);
-                //qDebug() << "-->" << p1.getName() << "]" << path;
+                qDebug() << "2. >" << path;
             }
 
             path = user->getWorkspacePath()
@@ -686,6 +686,8 @@ void MainWindow::updateFolders()
             directory.setPath(path);
             //qDebug() << path;
         }
+        path = user->getWorkspacePath() + "/" + user->getWorkspaceName();
+        directory.setPath(path);
     }
 
     delete user;
@@ -693,7 +695,7 @@ void MainWindow::updateFolders()
 
 QString MainWindow::makeDirectory(QDir &directory,
                                   const QString path, const QString folder) {
-    qDebug () << "--> current: " << path + "/" + folder;
+    qDebug () << "-. > " << path + "/" + folder;
     if (!directory.cd(path + "/" + folder)) {
         if (directory.mkdir(folder)) {
             directory.setPath(path + "/" + folder);

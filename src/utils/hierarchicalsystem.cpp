@@ -16,7 +16,6 @@ void HierarchicalSystem::getAllProjects()
     for (Project* p: Databases::ProjectDatabase::instance()->getAllProjects())
     {
         c = *(p->getCustomer());
-        //qDebug() << p.getName() << "-" << c.getFirstnameReferent();
         addProjectToCustomer(p, c);
     }
 }
@@ -34,32 +33,20 @@ void HierarchicalSystem::getAllBillings()
 
 void HierarchicalSystem::updateData()
 {
-    Project p;
-    Customer c;
     getAllProjects();
     getAllBillings();
-
-    qDebug() << _customers.keys().count();    
-//    for (Project* p : _customers.keys()) {
-//        c = _customers.value(p);
-//        qDebug() <<  "map contains:" << c.getFirstnameReferent() << " - " << p->getName();
-//    }
 }
 
 void HierarchicalSystem::addProjectToCustomer(Project* p, Customer c)
 {     
     _customers.insert(p,c);
-    for (Project* p : _customers.keys()) {
-        c = _customers.value(p);
-        qDebug() <<  "add:" << c.getFirstnameReferent() << " - " << p->getName();
-    }
 }
 
 void HierarchicalSystem::addBillingToProject(Billing* b, Project p)
 {
     _projects.insert(b,p);
-
 }
+
 QMap<Project*, Customer> HierarchicalSystem::getCustomers() const
 {
     return _customers;
