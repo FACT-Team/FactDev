@@ -1,6 +1,6 @@
 #include "billingmodeltest.h"
 #include "gui/dialogs/userdatadialog.h"
-
+#include "database/billingdatabase.h"
 BillingModelTest::BillingModelTest()
 {
 }
@@ -41,6 +41,14 @@ void BillingModelTest::notEquals()
     setup();
     b1->setDescription("Découpe de cheval");
     QVERIFY(*b1 != *b2);
+}
+
+void BillingModelTest::commitRemove()
+{
+    Billing b1(12);
+    b1.setToRemoved(true);
+    b1.commit();
+    QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
 }
 
 void BillingModelTest::commitUpdate()
