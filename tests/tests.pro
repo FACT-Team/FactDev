@@ -30,7 +30,8 @@ database/customerdatabasetest.h \
     models/ratemodeltest.h \
     database/projectdatabasetest.h \
     models/projectmodeltest.h \
-    database/userdatabasetest.h
+    database/userdatabasetest.h \
+    models/usermodeltest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -47,7 +48,8 @@ database/customerdatabasetest.cpp \
     models/ratemodeltest.cpp \
     database/projectdatabasetest.cpp \
     models/projectmodeltest.cpp \
-    database/userdatabasetest.cpp
+    database/userdatabasetest.cpp \
+    models/usermodeltest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
 
