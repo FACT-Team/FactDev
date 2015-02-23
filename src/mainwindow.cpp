@@ -250,6 +250,7 @@ void MainWindow::editUser()
     if (userdialog.exec()) {
         updateUser();
     }
+    updateUI();
 }
 
 void MainWindow::aboutQt()
