@@ -33,13 +33,17 @@
 			}
 		}\\[.35ex]
 %
-		\textit{ {{ title }} }\\~\\
+                \textit{%
+                {{ title }}%
+                }\\~\\
 %
 		\small
 		{{ address }}\\
 		{{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
-		\Telefon~{{ phone }}
-		\Letter~\texttt{ {{ email }} }
+                \Telefon~{{ phone }}\\
+                \Letter\texttt{%
+                {{ email }}
+                }
 		{{/user}}
 	\end{minipage}\\[1em]
 	%
@@ -53,7 +57,7 @@
 			{{address}}\\
 			{{postalcode}}, \bsc{ {{city}} }\\[.35ex]
 			\Telefon~{{ phone }}\\
-			\Letter~\texttt{ {{ email }} }
+                        \Letter\texttt{ {{ email }} }
 			{{/customer}}
 		}
 	\end{minipage}
