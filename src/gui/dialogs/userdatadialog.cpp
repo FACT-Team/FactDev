@@ -33,6 +33,8 @@ void UserDataDialog::fillFields() {
     ui->lePhone->setText(_user->getPhone());
     ui->leMobilePhone->setText(_user->getMobilePhone());
     ui->leNoSiret->setText(_user->getNoSiret());
+    ui->leWorkspaceName->setText(_user->getWorkspaceName());
+    ui->leWorkspacePath->setText(_user->getWorkspacePath());
 }
 
 void UserDataDialog::accept() {

@@ -2,6 +2,7 @@
 #include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
 #include "hierarchicalsystem.h"
+#include <QDebug>
 
 namespace Utils {
 HierarchicalSystem::HierarchicalSystem() {
@@ -11,15 +12,18 @@ HierarchicalSystem::HierarchicalSystem() {
 
 void HierarchicalSystem::getAllProjects()
 {
+    Customer c;
     for (Project p: Databases::ProjectDatabase::instance()->getAllProjects())
     {
-        addProjectToCustomer(p, Customer(p.getId()));
+        c = *(p.getCustomer());
+        //qDebug() << p.getName() << "-" << c.getFirstnameReferent();
+        addProjectToCustomer(&p, c);
     }
 }
 
 void HierarchicalSystem::getAllBillings()
 {
-    QMap<int,Billing> map =
+    QMap<int,Billing*> map =
             Databases::BillingDatabase::instance()->getAllBillingsOfProject();
 
     for (auto it = map.cbegin(); it != map.cend(); ++it)
@@ -30,31 +34,39 @@ void HierarchicalSystem::getAllBillings()
 
 void HierarchicalSystem::updateData()
 {
-
+    Project p;
+    Customer c;
     getAllProjects();
     getAllBillings();
+
+    qDebug() << _customers.keys().count();    
+//    for (Project* p : _customers.keys()) {
+//        c = _customers.value(p);
+//        qDebug() <<  "map contains:" << c.getFirstnameReferent() << " - " << p->getName();
+//    }
 }
 
-void HierarchicalSystem::addProjectToCustomer(Models::Project p, Models::Customer c)
-{
-    if (!_customers.contains(p)) {
-        _customers.insert(p,c);
+void HierarchicalSystem::addProjectToCustomer(Project* p, Customer c)
+{     
+    _customers.insert(p,c);
+    for (Project* p : _customers.keys()) {
+        c = _customers.value(p);
+        qDebug() <<  "map contains:" << c.getFirstnameReferent() << " - " << p->getName();
     }
 }
 
-void HierarchicalSystem::addBillingToProject(Models::Billing b, Models::Project p)
+void HierarchicalSystem::addBillingToProject(Billing* b, Project p)
 {
-    if (!_projects.contains(b)) {
-        _projects.insert(b,p);
-    }
+    _projects.insert(b,p);
+
 }
-QMap<Project, Customer> HierarchicalSystem::getCustomers() const
+QMap<Project*, Customer> HierarchicalSystem::getCustomers() const
 {
     return _customers;
 }
 
 
-QMap<Billing, Project> HierarchicalSystem::getProjects() const
+QMap<Billing*, Project> HierarchicalSystem::getProjects() const
 {
     return _projects;
 }

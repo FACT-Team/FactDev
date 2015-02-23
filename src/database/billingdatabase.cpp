@@ -253,9 +253,9 @@ QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
     return billing;
 }
 
-QMap<int, Billing> BillingDatabase::getAllBillingsOfProject()
+QMap<int, Billing*> BillingDatabase::getAllBillingsOfProject()
 {
-    QMap<int, Billing>  map;
+    QMap<int, Billing*>  map;
     int idProject = 0;
     QSqlQuery q;
     q.prepare("SELECT DISTINCT idProject, idBilling FROM BillingProject");
@@ -270,7 +270,7 @@ QMap<int, Billing> BillingDatabase::getAllBillingsOfProject()
 
     while(q.next()) {
         idProject = value(q, "idProject").toInt();
-        map.insert(idProject, Billing(value(q, "idBilling").toInt()));
+        map.insert(idProject, new Billing(value(q, "idBilling").toInt()));
     }
     return map;
 }

@@ -54,10 +54,9 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
 QList<Project> ProjectDatabase::getAllProjects()
 {
     QList<Project> list;
-    Project p;
 
     QSqlQuery q;
-    q.prepare("SELECT DISTINCT * FROM Project");
+    q.prepare("SELECT * FROM Project");
 
     if(!q.exec()) {
         throw new DbException(
@@ -68,8 +67,7 @@ QList<Project> ProjectDatabase::getAllProjects()
     }
 
     while(q.next()) {
-        p = Project(value(q, "idProject").toInt());
-        list.append(p);
+        list << Project(value(q, "idProject").toInt());
     }
     return list;
 }

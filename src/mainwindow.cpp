@@ -488,6 +488,7 @@ void MainWindow::updateUI(QString filter)
 
     updateButtons();
     updateUser();
+    updateFolders();
 
 }
 
@@ -644,30 +645,33 @@ void MainWindow::updateFolders()
     User* user = new User(1);
     QString path = user->getWorkspacePath();
     QString folder = user->getWorkspaceName();
+    Customer customer;
     QDir directory(path);
 
     // Make Root directory
     path = makeDirectory(directory, path, folder);
 
     //  + COMPANY CustomerLastname CustomerFirstname/
-    //QMap<Models::Customer, Models::Project>::iterator c;
+    //QMap<Customer, Project>;
     for (auto c = _hierarchy.getCustomers().cbegin();
          c != _hierarchy.getCustomers().cend();
          ++c ) {
+        customer = c.value();
+        folder = customer.getPath();
 
-        folder = c.value().getPath();
+        qDebug() << customer.getFirstnameReferent();
 
         path = makeDirectory(directory, path, folder);
 
-        //QMap<Models::Project, Models::Billing>::iterator p;
+        //QMap<Project, Billing>;
         for (auto p = _hierarchy.getProjects().cbegin();
              p != _hierarchy.getProjects().cend();
              ++p ) {
             Project p1 = p.value();
-            Project p2 = c.key();
+            Project p2 = *c.key();
             if (p1 == p2) {
                 // + Billings/
-                if (p.key().isBilling()) {
+                if ((p.key())->isBilling()) {
                     folder = "Factures";
                 }
                 // + Quotes/
@@ -690,13 +694,13 @@ QString MainWindow::makeDirectory(QDir &directory,
         } else {
             throw new FileException(
                         "Impossible de créer le répertoire de travail",
-                        "mkdir::" + path + "/" + folder,
+                        "makeDirectory::" + path + "/" + folder,
                         directory.currentPath(),
                         1.1);
         }
     }
-
-    return path + " " + folder;
+    qDebug () << "current: " << path + "/" + folder;
+    return path + "/" + folder;
 }
 
 }

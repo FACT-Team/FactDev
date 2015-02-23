@@ -52,7 +52,7 @@ public:
      * @param p Project
      * @param c Customer
      */
-    void addProjectToCustomer(Project p, Customer c);
+    void addProjectToCustomer(Project *p, Customer c);
 
     /**
      * @brief HierarchicalSystem::addBillingToProject Add the Billing <i>b</i>
@@ -60,26 +60,26 @@ public:
      * @param b Billing
      * @param p Project
      */
-    void addBillingToProject(Billing b, Project p);
+    void addBillingToProject(Billing *b, Project p);
 
     /**
      * @brief HierarchicalSystem::getCustomers Return all customers and these
      * projects linked
      * @return Projects linked to Customers
      */
-    QMap<Project, Customer> getCustomers() const;
+    QMap<Project *, Customer> getCustomers() const;
 
     /**
      * @brief HierarchicalSystem::getProjects Return all projects and these
      * billing linked
      * @return Billing linked to Projects
      */
-    QMap<Billing, Project> getProjects() const;
+    QMap<Billing *, Project> getProjects() const;
 
 private:
 
-    QMap<Project, Customer> _customers;    //!< Projects linked to Customers
-    QMap<Billing, Project> _projects;      //!< Billing linked to Projects
+    QMap<Project*, Customer> _customers;    //!< Projects linked to Customers
+    QMap<Billing*, Project> _projects;      //!< Billing linked to Projects
 };
 }
 
