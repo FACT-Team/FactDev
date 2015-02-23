@@ -1,6 +1,7 @@
 #include "projectmodeltest.h"
 
 #include "database/projectdatabase.h"
+#include "gui/widgets/widgetsmodels/projectstablemodel.h"
 ProjectModelTest::ProjectModelTest()
 {
     p1.setName("vehicula");
@@ -21,12 +22,24 @@ void ProjectModelTest::equals1()
 }
 void ProjectModelTest::equals2()
 {
-    p1.setName("Not the same name");
-    QVERIFY(!(p1 == p2));
+    Project p;
+    p.setDailyRate(13);
+    p.setName("Not the same name");
+    p.setCustomer(QSharedPointer<Customer>(new Customer(14)));
+
+    p.setDescription("a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam");
+    QVERIFY(!(p == p2));
 }
 void ProjectModelTest::notEquals()
 {
-    QVERIFY(p1 != p2);
+    Project p;
+    p.setDailyRate(13);
+    p.setName("Not the same name");
+    p.setCustomer(QSharedPointer<Customer>(new Customer(14)));
+
+    p.setDescription("a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam");
+
+    QVERIFY(p != p2);
 }
 
 void ProjectModelTest::commitInsert()
@@ -62,4 +75,21 @@ void ProjectModelTest::remove()
 {
     p1.remove();
     QVERIFY(Databases::ProjectDatabase::instance()->getProject(p1.getId()) == NULL);
+}
+void ProjectModelTest::getProjectsTable(void) {
+    WdgModels::ProjectsTableModel* w = Databases::ProjectDatabase::instance()->getProjectsTable(1);
+
+    for(Project p : w->getProjects()) {
+        switch(p.getId()) {
+        case 9:
+        case 14:
+        case 47:
+        case 48:
+            QVERIFY(true);
+            break;
+        default:
+            QVERIFY2(false, QString("Oups: "+QString::number(p.getId())).toStdString().c_str());
+        }
+
+    }
 }

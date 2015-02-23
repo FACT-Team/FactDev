@@ -23,6 +23,7 @@ private slots:
     void hydrat();
     void remove();
 
+    void getProjectsTable();
 private:
     Project p1;
     Project p2;
