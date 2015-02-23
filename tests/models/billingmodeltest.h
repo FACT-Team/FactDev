@@ -3,7 +3,6 @@
 #include "QTestRunner/testrunner.h"
 
 #include "models/billing.h"
-
 #include "database/billingdatabase.h"
 
 using namespace Models;
