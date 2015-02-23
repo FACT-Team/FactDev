@@ -53,14 +53,12 @@ void BillingModelTest::commitRemove()
 
 void BillingModelTest::commitUpdate()
 {
-    // TODO implementation
-    /*
-    int id = BillingDatabase::instance()->addBilling(b1);
+    int id = Databases::BillingDatabase::instance()->addBilling(*b1);
     b1->setId(id);
     b1->setDescription("Découpe de poulet");
     b1->commit();
-    Billing *b2 = BillingDatabase::instance()->getBilling(id);
-    QVERIFY(b1 == *b2);*/
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(id);
+    QVERIFY(*b1 == *b2);
 }
 
 void BillingModelTest::commitInsert()
