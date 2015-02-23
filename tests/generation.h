@@ -10,6 +10,7 @@ class Generation : public QObject
 public:
     Generation();
 
+    void GenerationSimpleBillingWithModel();
 private slots:
     void testTemplate();
     void testFileTemplate();
