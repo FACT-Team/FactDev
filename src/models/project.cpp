@@ -120,4 +120,16 @@ void Project::setCustomer(QSharedPointer<Customer> customer)
     _customer = customer;
 }
 
+bool Project::operator ==(const Project &p)
+{
+    bool ret = getBeginDate() == p.getBeginDate() && *(getCustomer()) == *(p.getCustomer()) && getDailyRate() == p.getDailyRate() &&
+            getDescription() == p.getDescription() && p.getEndDate() == getEndDate() && p.getName() == getName();
+    return ret;
+}
+
+bool Project::operator !=(const Project &p)
+{
+    return !(*this == p);
+}
+
 }
