@@ -28,11 +28,15 @@ public:
     void setInsert(bool getInsert);
 
     int getNbProjects();
+    double getSumRate();
+    double getSumQuantity();
 
     QSharedPointer<Customer> getCustomer();
     QList<Project *> getProjects();
     QList<Contributory> *getAllContributories();
     Models::Rate getRate(Models::Project *project);
+
+    QVariantList getDataMap();
 private:
     int _idBilling;
     bool _insert;
