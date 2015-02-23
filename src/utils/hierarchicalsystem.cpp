@@ -22,12 +22,12 @@ void HierarchicalSystem::getAllProjects()
 
 void HierarchicalSystem::getAllBillings()
 {
-    QMap<int,Billing*> map =
+    QMap<Project*,Billing*> map =
             Databases::BillingDatabase::instance()->getAllBillingsOfProject();
 
     for (auto it = map.cbegin(); it != map.cend(); ++it)
     {
-        addBillingToProject(it.value(), Project(it.key()));
+        addBillingToProject(it.value(), it.key());
     }
 }
 
@@ -42,7 +42,7 @@ void HierarchicalSystem::addProjectToCustomer(Project* p, Customer c)
     _customers.insert(p,c);
 }
 
-void HierarchicalSystem::addBillingToProject(Billing* b, Project p)
+void HierarchicalSystem::addBillingToProject(Billing* b, Project* p)
 {
     _projects.insert(b,p);
 }
@@ -53,7 +53,7 @@ QMap<Project*, Customer> HierarchicalSystem::getCustomers() const
 }
 
 
-QMap<Billing*, Project> HierarchicalSystem::getProjects() const
+QMap<Billing*, Project*> HierarchicalSystem::getProjects() const
 {
     return _projects;
 }

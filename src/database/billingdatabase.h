@@ -111,7 +111,7 @@ public:
      * project id as key linked to the billing
      * @return Map with projects and Billing
      */
-    QMap<int,Billing*> getAllBillingsOfProject();
+    QMap<Project *, Billing *> getAllBillingsOfProject();
 
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase

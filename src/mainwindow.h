@@ -320,9 +320,9 @@ private:
     /**
      * @brief MainWindow::makeDirectory If not exists make a new directory
      * <i>folder</i>
-     * @param path
-     * @param folder
-     * @return
+     * @param path Return the path of the folder just created
+     * @param folder Folder name to create
+     * @return Path of the folder just created
      */
     QString makeDirectory(QDir &directory,
                           const QString path, const QString folder);
