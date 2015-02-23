@@ -659,9 +659,8 @@ void MainWindow::updateFolders()
         customer = c.value();
         folder = customer.getPath();
 
-        qDebug() << customer.getFirstnameReferent();
-
         path = makeDirectory(directory, path, folder);
+        qDebug() << "[" << customer.getFirstnameReferent() << "]" << path;
 
         //QMap<Project, Billing>;
         for (auto p = _hierarchy.getProjects().cbegin();
@@ -679,7 +678,13 @@ void MainWindow::updateFolders()
                     folder = "Devis";
                 }
                 path  = makeDirectory(directory, path, folder);
+                //qDebug() << "-->" << p1.getName() << "]" << path;
             }
+
+            path = user->getWorkspacePath()
+                    + "/" + user->getWorkspaceName() + "/" + customer.getPath();
+            directory.setPath(path);
+            //qDebug() << path;
         }
     }
 
@@ -688,6 +693,7 @@ void MainWindow::updateFolders()
 
 QString MainWindow::makeDirectory(QDir &directory,
                                   const QString path, const QString folder) {
+    qDebug () << "--> current: " << path + "/" + folder;
     if (!directory.cd(path + "/" + folder)) {
         if (directory.mkdir(folder)) {
             directory.setPath(path + "/" + folder);
@@ -699,7 +705,7 @@ QString MainWindow::makeDirectory(QDir &directory,
                         1.1);
         }
     }
-    qDebug () << "current: " << path + "/" + folder;
+
     return path + "/" + folder;
 }
 

@@ -13,11 +13,11 @@ HierarchicalSystem::HierarchicalSystem() {
 void HierarchicalSystem::getAllProjects()
 {
     Customer c;
-    for (Project p: Databases::ProjectDatabase::instance()->getAllProjects())
+    for (Project* p: Databases::ProjectDatabase::instance()->getAllProjects())
     {
-        c = *(p.getCustomer());
+        c = *(p->getCustomer());
         //qDebug() << p.getName() << "-" << c.getFirstnameReferent();
-        addProjectToCustomer(&p, c);
+        addProjectToCustomer(p, c);
     }
 }
 
@@ -51,7 +51,7 @@ void HierarchicalSystem::addProjectToCustomer(Project* p, Customer c)
     _customers.insert(p,c);
     for (Project* p : _customers.keys()) {
         c = _customers.value(p);
-        qDebug() <<  "map contains:" << c.getFirstnameReferent() << " - " << p->getName();
+        qDebug() <<  "add:" << c.getFirstnameReferent() << " - " << p->getName();
     }
 }
 

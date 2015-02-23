@@ -106,7 +106,7 @@ public:
      * @brief Project::getAllProjects Return the list of projects
      * @return Projects list
      */
-    QList<Project> getAllProjects();
+    QList<Project*> getAllProjects();
 
 private:
     static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase

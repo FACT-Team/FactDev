@@ -51,9 +51,9 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
 
 }
 
-QList<Project> ProjectDatabase::getAllProjects()
+QList<Project*> ProjectDatabase::getAllProjects()
 {
-    QList<Project> list;
+    QList<Project*> list;
 
     QSqlQuery q;
     q.prepare("SELECT * FROM Project");
@@ -67,7 +67,7 @@ QList<Project> ProjectDatabase::getAllProjects()
     }
 
     while(q.next()) {
-        list << Project(value(q, "idProject").toInt());
+        list << new Project(value(q, "idProject").toInt());
     }
     return list;
 }
