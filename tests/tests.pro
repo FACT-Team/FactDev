@@ -28,7 +28,8 @@ database/customerdatabasetest.h \
     generation.h \
     qt-mustache/test_mustache.h \
     models/ratemodeltest.h \
-    database/projectdatabasetest.h
+    database/projectdatabasetest.h \
+    models/projectmodeltest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -43,7 +44,8 @@ database/customerdatabasetest.cpp \
     generation.cpp \
     qt-mustache/test_mustache.cpp \
     models/ratemodeltest.cpp \
-    database/projectdatabasetest.cpp
+    database/projectdatabasetest.cpp \
+    models/projectmodeltest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
 
