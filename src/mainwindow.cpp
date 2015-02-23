@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     updateUser();
     updateButtons();
+    updateFolders();
     demo();
 }
 
@@ -643,13 +644,14 @@ void MainWindow::updateUser()
 void MainWindow::updateFolders()
 {
     User* user = new User(1);
+    Customer customer;
+    Project p1;
+    Project p2;
     QString path = user->getWorkspacePath();
     QString folder = user->getWorkspaceName();
-    Customer customer;
-    QDir directory(path);
-    int i = 0;
 
-    // Make Root directory
+    QDir directory(path);
+
     path = makeDirectory(directory, path, folder);
     //qDebug() << "0. >" << path;
     //  + COMPANY CustomerLastname CustomerFirstname/
@@ -657,44 +659,29 @@ void MainWindow::updateFolders()
     for (auto c = _hierarchy.getCustomers().cbegin();
          c != _hierarchy.getCustomers().cend();
          ++c ) {
-        i = 0;
         customer = c.value();
         folder = customer.getPath();
 
         path = makeDirectory(directory, path, folder);
-        //qDebug() << "1. >" << path;
 
-        //QMap<Project, Billing>;
         for (auto p = _hierarchy.getProjects().cbegin();
              p != _hierarchy.getProjects().cend();
              ++p ) {
-            Project p1 = *p.value();
-            Project p2 = *c.key();
+            p1 = *p.value();
+            p2 = *c.key();
 
             if (p1 == p2) {
-
-                // + Billings/
                 if ((*p.key()).isBilling()) {
                     folder = "Factures";
-                }
-                // + Quotes/
-                else {
+                } else {
                     folder = "Devis";
                 }
                 path  = makeDirectory(directory, path, folder);
-                if (customer.getLastnameReferent().toUpper() == "HALEY") {
-                    qDebug() << p1.getName() << " - " << (*p.key()).isBilling();
-                    qDebug() << "2. >" << path;
-                }
-
             }
 
             path = user->getWorkspacePath()
                     + "/" + user->getWorkspaceName() + "/" + customer.getPath();
             directory.setPath(path);
-            if (customer.getLastnameReferent().toUpper() == "HALEY") {
-                qDebug() << "3. >" << path;
-            }
         }
         path = user->getWorkspacePath() + "/" + user->getWorkspaceName();
         directory.setPath(path);
@@ -707,15 +694,6 @@ QString MainWindow::makeDirectory(QDir &directory,
                                   const QString path, const QString folder) {
 
     if (!directory.cd(path + "/" + folder)) {
-//        if (directory.mkdir(folder)) {
-//            directory.setPath(path + "/" + folder);
-//        } else {
-//            throw new FileException(
-//                        "Impossible de créer le répertoire de travail",
-//                        "makeDirectory::" + path + "/" + folder,
-//                        directory.currentPath(),
-//                        1.1);
-//        }
         if (!directory.mkdir(folder)) {
             throw new FileException(
                         "Impossible de créer le répertoire de travail",
@@ -723,6 +701,7 @@ QString MainWindow::makeDirectory(QDir &directory,
                         directory.currentPath(),
                         1.1);
         }
+
     }
     directory.setPath(path + "/" + folder);
     return path + "/" + folder;
