@@ -1,3 +1,4 @@
+#include <QStandardPaths>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "exceptions/fileexception.h"
@@ -647,15 +648,24 @@ void MainWindow::updateFolders()
     Customer customer;
     Project p1;
     Project p2;
-    QString path = user->getWorkspacePath();
-    QString folder = user->getWorkspaceName();
+    QString path;
+    QString folder;
+    QDir directory;
 
-    QDir directory(path);
+    if (user->getWorkspacePath().isEmpty()) {
+        user->setWorkspacePath(
+            QDir::homePath() + "/" +
+            QStandardPaths::displayName(QStandardPaths::DocumentsLocation));
+    }
+    if (user->getWorkspaceName().isEmpty()) {
+        user->setWorkspaceName("FactDev");
+    }
+    path = user->getWorkspacePath();
+    folder = user->getWorkspaceName();
+    directory.setPath(path);
 
     path = makeDirectory(directory, path, folder);
-    //qDebug() << "0. >" << path;
-    //  + COMPANY CustomerLastname CustomerFirstname/
-    //QMap<Customer, Project>;
+
     for (auto c = _hierarchy.getCustomers().cbegin();
          c != _hierarchy.getCustomers().cend();
          ++c ) {

@@ -62,6 +62,7 @@ void UserDataDialog::accept() {
         _user->setWorkspacePath(ui->leWorkspacePath->text());
     }
 
+
     _user->commit();
     QDialog::accept();
 }
@@ -83,7 +84,10 @@ void UserDataDialog::checkFields() {
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
             || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
             || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
-                && ui->leNoSiret->isValid());
+                && ui->leNoSiret->isValid()
+        && ui->leWorkspaceName->isValid()
+        && ui->leWorkspacePath->isValid()
+       );
 }
 
 void UserDataDialog::browseWorkspacePath()

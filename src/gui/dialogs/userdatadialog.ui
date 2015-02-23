@@ -262,20 +262,6 @@
           <string>Répertoire</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="leWorkspacePath">
-            <property name="placeholderText">
-             <string>Chemin d'accès </string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="lbWorkspacePath">
-            <property name="text">
-             <string>Chemin</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="lbWorkspaceName">
             <property name="text">
@@ -283,7 +269,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
+          <item row="2" column="3">
            <widget class="QPushButton" name="btnBrowseWorkspace">
             <property name="text">
              <string>Parcourir</string>
@@ -294,10 +280,30 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1" colspan="2">
-           <widget class="QLineEdit" name="leWorkspaceName">
-            <property name="placeholderText">
-             <string>Nom de votre espace de travail</string>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbWorkspacePath">
+            <property name="text">
+             <string>Chemin</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <widget class="CheckUntilField" name="leWorkspacePath" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="2" colspan="3">
+           <widget class="CheckUntilField" name="leWorkspaceName" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
             </property>
            </widget>
           </item>
