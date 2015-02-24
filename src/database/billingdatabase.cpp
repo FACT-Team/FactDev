@@ -253,4 +253,26 @@ QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
     return billing;
 }
 
+QMap<Project*, Billing*> BillingDatabase::getAllBillingsOfProject()
+{
+    QMap<Project*, Billing*>  map;
+    QSqlQuery q;
+    q.prepare("SELECT idProject, idBilling FROM BillingProject");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la liste des Billings",
+                    "HierarchicalSystem:getAllBillings",
+                    lastError(q),
+                    1.2);
+    }
+
+    while(q.next()) {
+        map.insert(
+                    new Project(value(q,"idProject").toInt()),
+                    new Billing(value(q, "idBilling").toInt()));
+    }
+    return map;
+}
+
 }

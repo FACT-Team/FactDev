@@ -51,6 +51,27 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
 
 }
 
+QList<Project*> ProjectDatabase::getAllProjects()
+{
+    QList<Project*> list;
+
+    QSqlQuery q;
+    q.prepare("SELECT * FROM Project");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la liste des Projects",
+                    "ProjectDatabase::getAllProjects",
+                    lastError(q),
+                    1.9);
+    }
+
+    while(q.next()) {
+        list << new Project(value(q, "idProject").toInt());
+    }
+    return list;
+}
+
 
 Models::Project* ProjectDatabase::getProject(const int pId)
 {

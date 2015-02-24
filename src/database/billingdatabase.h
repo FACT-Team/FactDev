@@ -44,7 +44,8 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    WdgModels::BillingsTableModel *getBillingsTable(const int idProject) throw(DbException*);
+    WdgModels::BillingsTableModel *getBillingsTable(const int idProject)
+        throw(DbException*);
 
     /**
      * @brief BillingDatabase::addBilling Add the billing <i>pBilling</i> to
@@ -72,16 +73,18 @@ public:
      * @param idBilling Billing id
      * @param idContributory Contributory id
      */
-    void addBillingProject(const int idProject, const int idBilling, const int idContributory);
+    void addBillingProject(
+            const int idProject, const int idBilling, const int idContributory);
 
     /**
-     * @brief BillingDatabase::removeBillingProject remove a link between a project,
-     * a billing and a contributory in the table BillingProject
+     * @brief BillingDatabase::removeBillingProject remove a link between a
+     * project, a billing and a contributory in the table BillingProject
      * @param idProject Project id
      * @param idBilling Billing id
      * @param idContributory Contributory id
      */
-    void removeBillingProject(const int idProject, const int idBilling, const int idContributory);
+    void removeBillingProject(
+            const int idProject, const int idBilling, const int idContributory);
 
     /**
      * @brief getMaxBillingNumber Get the last number of a billing
@@ -102,6 +105,13 @@ public:
      * @return a billing formed according to QSharedPointer
      */
     QSharedPointer<Models::Billing> getBilling(QSqlQuery &q);
+
+    /**
+     * @brief BillingDatabase::getAllBillingsOfProject Return a map with the
+     * project id as key linked to the billing
+     * @return Map with projects and Billing
+     */
+    QMap<Project *, Billing *> getAllBillingsOfProject();
 
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase

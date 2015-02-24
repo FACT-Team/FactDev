@@ -1,5 +1,7 @@
+#include <QStandardPaths>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "exceptions/fileexception.h"
 
 using namespace Utils;
 
@@ -27,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     updateUser();
     updateButtons();
+    updateFolders();
     demo();
 }
 
@@ -41,7 +44,7 @@ void MainWindow::demo() {
 
 int MainWindow::getCurrentTableId(QTableView *tbl) {
     QModelIndex idCell = tbl->model()->index(tbl->currentIndex().row(), 0);
-        return tbl->model()->itemData(idCell).value(0).toInt();
+    return tbl->model()->itemData(idCell).value(0).toInt();
 }
 
 int MainWindow::getCurrentCustomerId() {
@@ -247,6 +250,7 @@ void MainWindow::editUser()
     if (userdialog.exec()) {
         updateUser();
     }
+    updateUI();
 }
 
 void MainWindow::aboutQt()
@@ -490,6 +494,7 @@ void MainWindow::updateUI(QString filter)
 
     updateButtons();
     updateUser();
+    updateFolders();
 }
 
 void MainWindow::search() {
@@ -638,6 +643,80 @@ void MainWindow::updateUser()
     ui->wdgUserData->printUserData();
 }
 
+void MainWindow::updateFolders()
+{
+    User* user = new User(1);
+    Customer customer;
+    Project p1;
+    Project p2;
+    QString path;
+    QString folder;
+    QDir directory;
+
+    if (user->getWorkspacePath().isEmpty()) {
+        user->setWorkspacePath(
+            QDir::homePath() + "/" +
+            QStandardPaths::displayName(QStandardPaths::DocumentsLocation));
+    }
+    if (user->getWorkspaceName().isEmpty()) {
+        user->setWorkspaceName("FactDev");
+    }
+    path = user->getWorkspacePath();
+    folder = user->getWorkspaceName();
+    directory.setPath(path);
+
+    path = makeDirectory(directory, path, folder);
+
+    for (auto c = _hierarchy.getCustomers().cbegin();
+         c != _hierarchy.getCustomers().cend();
+         ++c ) {
+        customer = c.value();
+        folder = customer.getPath();
+
+        path = makeDirectory(directory, path, folder);
+
+        for (auto p = _hierarchy.getProjects().cbegin();
+             p != _hierarchy.getProjects().cend();
+             ++p ) {
+            p1 = *p.value();
+            p2 = *c.key();
+
+            if (p1 == p2) {
+                if ((*p.key()).isBilling()) {
+                    folder = "Factures";
+                } else {
+                    folder = "Devis";
+                }
+                path  = makeDirectory(directory, path, folder);
+            }
+
+            path = user->getWorkspacePath()
+                    + "/" + user->getWorkspaceName() + "/" + customer.getPath();
+            directory.setPath(path);
+        }
+        path = user->getWorkspacePath() + "/" + user->getWorkspaceName();
+        directory.setPath(path);
+    }
+
+    delete user;
+}
+
+QString MainWindow::makeDirectory(QDir &directory,
+                                  const QString path, const QString folder) {
+
+    if (!directory.cd(path + "/" + folder)) {
+        if (!directory.mkdir(folder)) {
+            throw new FileException(
+                        "Impossible de créer le répertoire de travail",
+                        "makeDirectory::" + path + "/" + folder,
+                        directory.currentPath(),
+                        1.1);
+        }
+
+    }
+    directory.setPath(path + "/" + folder);
+    return path + "/" + folder;
+}
 
 }
 

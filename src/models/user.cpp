@@ -60,6 +60,8 @@ void User::hydrat(int id)
     _mobilePhone = user->getMobilePhone();
     _phone = user->getPhone();
     _noSiret = user->getNoSiret();
+    _workspaceName = user->getWorkspaceName();
+    _workspacePath = user->getWorkspacePath();
 }
 
 
@@ -167,4 +169,24 @@ void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
 }
+QString User::getWorkspaceName() const
+{
+    return _workspaceName;
+}
+
+void User::setWorkspaceName(const QString &workspaceName)
+{
+    _workspaceName = workspaceName;
+}
+QString User::getWorkspacePath() const
+{
+    return _workspacePath;
+}
+
+void User::setWorkspacePath(const QString &workspacePath)
+{
+    _workspacePath = workspacePath;
+}
+
+
 }

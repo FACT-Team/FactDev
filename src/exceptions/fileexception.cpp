@@ -1,8 +1,8 @@
-#include "dbexception.h"
-
+#include "fileexception.h"
 namespace Exceptions {
-DbException::DbException(const QString userError, const QString fctName,
-    const QString logError, float errorCode)
+
+FileException::FileException(const QString userError, const QString fctName,
+                             const QString logError, float errorCode)
 {
     Utils::Log::instance(Utils::ERROR) <<
         "["+QString::number(errorCode)+"] Erreur dans la fonction " + fctName;
@@ -18,7 +18,13 @@ DbException::DbException(const QString userError, const QString fctName,
     _userError += "<b>Erreur n°"+QString::number(errorCode)+"</b></span>";
 }
 
-void DbException::popupMessage(QWidget* parent)
+FileException::~FileException()
+{
+
+}
+
+
+void Exceptions::FileException::popupMessage(QWidget *parent)
 {
     QMessageBox::critical(parent, "Erreur innatendue", _userError, "OK");
 }

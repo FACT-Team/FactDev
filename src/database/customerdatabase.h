@@ -27,7 +27,7 @@ class CustomerDatabase : public Database
 
 public:
     /**
-     * @brief CustomerDatabase::getInstance Return an instance of
+     * @brief CustomerDatabase::instance Return an instance of
      * <b>CustomerDatabase</b>
      * @see DbException
      * @return Instance of CustomerDatabase

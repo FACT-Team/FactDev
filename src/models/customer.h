@@ -183,6 +183,13 @@ public:
     void setFax(const QString &fax);
 
     /**
+     * @brief Customer::getPath Return the path of the workspace for the current
+     *  Customer
+     * @return workspace path
+     */
+    QString getPath() const;
+
+    /**
      * @brief Customer::operator == Re-define the operator "==" to compare if
      * the current customer is the same to the other <b>Customer</b> <i>c</i>
      * Return TRUE if both customers are the same, else FALSE
@@ -198,6 +205,8 @@ public:
      * @return boolean
      */
     bool operator !=(const Customer &c);
+
+
 private:
     QString _firstnameReferent; //!< Firstname of the referent customer
     QString _lastnameReferent;  //!< Lastname of the referent customer

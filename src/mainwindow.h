@@ -5,9 +5,11 @@
 #include <QMessageBox>
 #include <QModelIndex>
 #include <QTableView>
+#include <QDir>
 
 #include "utils/itemtype.h"
 #include "utils/log.h"
+#include "utils/hierarchicalsystem.h"
 
 #include "database/projectdatabase.h"
 #include "database/billingdatabase.h"
@@ -299,7 +301,35 @@ private:
      */
     int getCurrentTableId(QTableView *tbl);
 
+    /**
+     * @brief MainWindow::updateFolders Make directories which contain quotes
+     * and billings. Directories are the same than theirs of the Tree
+     * organisation (without Projects).
+     *
+     * Organisation of folders are formed like this:
+     *  + COMPANY CustomerLastname CustomerFirstname/
+     *      + Quotes/
+     *          - quote1
+     *          ...
+     *      + Billings/
+     *          - billing1
+     *          ...
+     */
+    void updateFolders();
+
+    /**
+     * @brief MainWindow::makeDirectory If not exists make a new directory
+     * <i>folder</i>
+     * @param path Return the path of the folder just created
+     * @param folder Folder name to create
+     * @return Path of the folder just created
+     */
+    QString makeDirectory(QDir &directory,
+                          const QString path, const QString folder);
+
     Ui::MainWindow *ui; //!< ui
+    Utils::HierarchicalSystem _hierarchy;
+
 };
 }
 #endif // MAINWINDOW_H

@@ -121,6 +121,11 @@ void Billing::setContributories(const ContributoriesList &contributories)
 }
 
 
+bool Billing::operator <(const Billing &b) const
+{
+    return getDate() < b.getDate();
+}
+
 ContributoriesList& Billing::getContributories()
 {
     return _contributories;
