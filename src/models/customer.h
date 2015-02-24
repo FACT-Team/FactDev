@@ -190,6 +190,13 @@ public:
     QString getPath() const;
 
     /**
+     * @brief Customer::getNameFolder Return the name of the current Customer's
+     * folder in the workspace
+     * @return name of the Customer's folder
+     */
+    QString getNameFolder() const;
+
+    /**
      * @brief Customer::operator == Re-define the operator "==" to compare if
      * the current customer is the same to the other <b>Customer</b> <i>c</i>
      * Return TRUE if both customers are the same, else FALSE

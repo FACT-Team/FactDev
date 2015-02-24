@@ -671,9 +671,7 @@ void MainWindow::updateFolders()
          c != _hierarchy.getCustomers().cend();
          ++c ) {
         customer = c.value();
-        folder = customer.getCompany().toUpper()
-                + " " + customer.getLastnameReferent()
-                + " " + customer.getFirstnameReferent();
+        folder = customer.getNameFolder();
 
         path = makeDirectory(directory, path, folder);
 

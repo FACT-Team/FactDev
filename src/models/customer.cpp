@@ -179,9 +179,15 @@ QString Customer::getPath() const
    User u(1);
 
    return   u.getWorkspacePath()
-            + "/" + u.getWorkspaceName() + "/" +getCompany().toUpper()
+            + "/" + u.getWorkspaceName() + "/"
+            + getNameFolder();
+}
+
+QString Customer::getNameFolder() const
+{
+    return getCompany().toUpper()
             + " " + getLastnameReferent()
-            + " " + getFirstnameReferent();
+           + " " + getFirstnameReferent();
 }
 
 
