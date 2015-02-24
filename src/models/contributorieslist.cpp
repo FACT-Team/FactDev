@@ -105,8 +105,60 @@ Models::Rate ContributoriesList::getRate(Models::Project* project) {
     return Models::Rate();
 }
 
+QVariantList ContributoriesList::getDataMap()
+{
+    QVariantList contributories;
+    QVariantHash project;
+    QVariantList ret;
+    QVariantHash buff;
+
+    for(QPair<Project*,Models::Rate>* key : keys()) {
+        project["nameproject"] = key->first->getName();
+        for(Contributory c : getContributories(key->first)) {
+            buff = c.getDataMap();
+            buff["price"] = key->second.getDailyRate() * buff["nbHours"].toDouble();
+            contributories << buff;
+            buff.clear();
+        }
+        project["contributories"] = contributories;
+        contributories.clear();
+        ret << project;
+        project.clear();
+    }
+
+    return ret;
+}
+
 int ContributoriesList::getNbProjects() {
     return count();
+}
+
+double ContributoriesList::getSumRate()
+{
+    double ret = 0;
+
+    for(QPair<Project*,Models::Rate>* key : keys()) {
+        for(Contributory c : getContributories(key->first)) {
+            ret += c.getNbHours() * key->second.getDailyRate();
+        }
+    }
+
+
+//        for(Contributory c : getContributories(key->first)) {
+//            ret += c.getNbHours() * key->second.getDailyRate();
+//        }
+//    }
+    return ret;
+}
+
+double ContributoriesList::getSumQuantity()
+{
+    double ret = 0;
+    for(Contributory c : *getAllContributories()) {
+        ret += c.getNbHours();
+    }
+
+    return ret;
 }
 
 QSharedPointer<Customer> ContributoriesList::getCustomer()

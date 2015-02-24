@@ -81,6 +81,8 @@ public:
      */
     void addContributory(Contributory &c);
 
+    double getSumRate();
+    double getSumQuantity();
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>
      * @return title of Billing

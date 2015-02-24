@@ -33,13 +33,17 @@
 			}
 		}\\[.35ex]
 %
-		\textit{ {{ title }} }\\~\\
+                \textit{%
+                {{ title }}%
+                }\\~\\
 %
 		\small
 		{{ address }}\\
 		{{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
-		\Telefon~{{ phone }}
-		\Letter~\texttt{ {{ email }} }
+                \Telefon~{{ phone }}\\
+                \Letter\texttt{%
+                {{ email }}
+                }
 		{{/user}}
 	\end{minipage}\\[1em]
 	%
@@ -53,7 +57,7 @@
 			{{address}}\\
 			{{postalcode}}, \bsc{ {{city}} }\\[.35ex]
 			\Telefon~{{ phone }}\\
-			\Letter~\texttt{ {{ email }} }
+                        \Letter\texttt{ {{ email }} }
 			{{/customer}}
 		}
 	\end{minipage}
@@ -73,22 +77,22 @@
 	{{/billing}}
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{4.2cm}|p{10cm}|p{2cm}|r|}
+                \begin{tabular}{|p{4.2cm}|p{8cm}|p{2cm}|r|}
 			\hline
 		    \textbf{Application} &\textbf{Prestation} & \textbf{Nombre de jours} & \textbf{Tarif\footnotemark}\\
 			\hline
 			{{#table}}
 				{{#contributories}}
-					{{ nameproject }} & {{ contributoryDescription }} & {{ nbHours }} & {{ price }}\\
+                                        {{ nameproject }} & {{ contributoryDescription }} & {{ nbHours }} & {{ price }}\euro{}\\
 					\hline
 				{{/contributories}}
 			{{/table}}
-		    \hline
-		    \textbf{Total}& &\textbf{TODO} & \textbf{TODO~\euro}\\
-			\hline
-		\end{tabular}
+                    \hline
+                    \textbf{Total}& &\textbf{ {{ totalQuantity }} } & \textbf{ {{totalRate }} ~\euro}\\
+                        \hline
+                \end{tabular}
 		\caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
-	\end{table}
+        \end{table}
 
 	\vfill
 	\raggedleft

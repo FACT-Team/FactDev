@@ -78,20 +78,17 @@ QVariantHash Billing::getDataMap()
 
     QVariantList table;
     QVariantHash project;
-    QVariantList contributories;
     for(Project* p : _contributories.getProjects()) {
         project["nameproject"] = p->getName();
+        project["contributories"] = _contributories.getDataMap();
 
-        for(Contributory c : _contributories.getContributories(p)) {
-            contributories << c.getDataMap();
-        }
-        project["contributories"] = contributories;
-        contributories.clear();
         table << project;
         project.clear();
     }
+    data["totalRate"] = getSumRate();
+    data["totalQuantity"] = getSumQuantity();
 
-    data["table"] = table;
+    data["table"] = _contributories.getDataMap();
 
     return data;
 }
@@ -134,6 +131,16 @@ ContributoriesList& Billing::getContributories()
 void Billing::addContributory(Contributory& c)
 {
     _contributories.addContributory(c);
+}
+
+double Billing::getSumRate()
+{
+return _contributories.getSumRate();
+}
+
+double Billing::getSumQuantity()
+{
+    return _contributories.getSumQuantity();
 }
 
 QString Billing::getTitle() const
