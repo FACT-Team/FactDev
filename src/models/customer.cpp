@@ -1,6 +1,7 @@
 #include "models/customer.h"
 
 #include "database/customerdatabase.h"
+#include "models/user.h"
 using namespace Databases;
 
 namespace Models {
@@ -175,7 +176,10 @@ void Customer::setFax(const QString &fax)
 
 QString Customer::getPath() const
 {
-   return  getCompany().toUpper()
+   User u(1);
+
+   return   u.getWorkspacePath()
+            + "/" + u.getWorkspaceName() + "/" +getCompany().toUpper()
             + " " + getLastnameReferent()
             + " " + getFirstnameReferent();
 }

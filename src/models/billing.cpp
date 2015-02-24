@@ -96,7 +96,7 @@ QVariantHash Billing::getDataMap()
 void Billing::generateTex()
 {
     Generator g(":/tpl/billingtpl");
-    g.generate(getDataMap(), "/tmp/test.tex");
+    g.generate(getDataMap(), _contributories.getCustomer()->getPath()+"/blablabla.tex");
 }
 
 bool Billing::operator ==(const Billing &b)

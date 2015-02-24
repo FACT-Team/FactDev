@@ -671,7 +671,9 @@ void MainWindow::updateFolders()
          c != _hierarchy.getCustomers().cend();
          ++c ) {
         customer = c.value();
-        folder = customer.getPath();
+        folder = customer.getCompany().toUpper()
+                + " " + customer.getLastnameReferent()
+                + " " + customer.getFirstnameReferent();
 
         path = makeDirectory(directory, path, folder);
 
@@ -690,8 +692,7 @@ void MainWindow::updateFolders()
                 path  = makeDirectory(directory, path, folder);
             }
 
-            path = user->getWorkspacePath()
-                    + "/" + user->getWorkspaceName() + "/" + customer.getPath();
+            path = customer.getPath();
             directory.setPath(path);
         }
         path = user->getWorkspacePath() + "/" + user->getWorkspaceName();
