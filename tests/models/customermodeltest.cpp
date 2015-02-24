@@ -1,5 +1,6 @@
 #include "customermodeltest.h"
 #include "database/customerdatabase.h"
+#include "database/userdatabase.h"
 
 CustomerModelTest::CustomerModelTest()
 {
@@ -87,4 +88,14 @@ void CustomerModelTest::remove()
     c1.remove();
     QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
 
+}
+
+void CustomerModelTest::getPath()
+{
+    QVERIFY(c1.getPath() =="//SIT AMET ORNARE CONSULTING Boyle Jonah");
+}
+
+void CustomerModelTest::getNameFolder()
+{
+    QVERIFY(c1.getNameFolder() == "SIT AMET ORNARE CONSULTING Boyle Jonah");
 }
