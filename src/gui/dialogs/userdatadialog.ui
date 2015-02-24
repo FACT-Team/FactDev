@@ -327,42 +327,42 @@
   <customwidget>
    <class>CheckPhone</class>
    <extends>QWidget</extends>
-   <header>checkphone.h</header>
+   <header>gui/widgets/checkfields/checkphone.h</header>
   </customwidget>
   <customwidget>
    <class>CheckSiretNumber</class>
    <extends>QWidget</extends>
-   <header>checksiretnumber.h</header>
+   <header>gui/widgets/checkfields/checksiretnumber.h</header>
   </customwidget>
   <customwidget>
    <class>CheckValidField</class>
    <extends>QWidget</extends>
-   <header>checkvalidfield.h</header>
+   <header>gui/widgets/checkfields/checkvalidfield.h</header>
   </customwidget>
   <customwidget>
    <class>CheckName</class>
    <extends>QWidget</extends>
-   <header>checkname.h</header>
+   <header>gui/widgets/checkfields/checkname.h</header>
   </customwidget>
   <customwidget>
    <class>CheckCity</class>
    <extends>QWidget</extends>
-   <header>checkcity.h</header>
+   <header>gui/widgets/checkfields/checkcity.h</header>
   </customwidget>
   <customwidget>
    <class>CheckPostalCode</class>
    <extends>QWidget</extends>
-   <header>checkpostalcode.h</header>
+   <header>gui/widgets/checkfields/checkpostalcode.h</header>
   </customwidget>
   <customwidget>
    <class>CheckUntilField</class>
    <extends>QWidget</extends>
-   <header>checkuntilfield.h</header>
+   <header>gui/widgets/checkfields/checkuntilfield.h</header>
   </customwidget>
   <customwidget>
    <class>CheckEmail</class>
    <extends>QWidget</extends>
-   <header>checkemail.h</header>
+   <header>gui/widgets/checkfields/checkemail.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
