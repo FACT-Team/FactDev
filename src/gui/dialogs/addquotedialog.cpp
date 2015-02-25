@@ -62,6 +62,7 @@ void AddQuoteDialog::accept() {
     _quote->setContributories(*((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories());
 
     _quote->commit();
+    _quote->generateTex();
     QDialog::accept();
 }
 

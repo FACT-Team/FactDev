@@ -18,6 +18,8 @@ private slots:
     void commitInsert();
     void hydrat();
     void remove();
+    void getPath();
+    void getNameFolder();
 private:
     Customer c1;
     Customer c2;
