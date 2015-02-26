@@ -11,12 +11,12 @@ before_install:
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y >> /dev/null
   - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2    
   - sudo apt-get update -qq >> /dev/null
-  - sudo apt-get install python-software-properties 
+  - sudo apt-get install python-software-properties  >> /dev/null
 
 install:
   - sudo apt-get install g++-4.8 gdb >> /dev/null
-  - sudo apt-get install doxygen    
-  - suo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils 
+  - sudo apt-get install doxygen doxygen-latex doxygen-doc >> /dev/null   
+  - sudo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils  >> /dev/null
   - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 >> /dev/null
   - mkdir ~/Qt5.2.0 
   - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
@@ -40,10 +40,12 @@ script:
   - cd fact-team.github.io/
   - git checkout master
   - cd ..
-  - doxygen >> /dev/null
+  - doxygen >> /dev/null 2> fact-team.github.io/doc/doxygen.log
   - cd fact-team.github.io/doc/latex
-  - make >> /dev/null
+  - make 
   - cd ..
+  - git config --global user.email "ups.fact@gmail.com"
+  - git config --global user.name "Travis FACT"
   - git add .
   - git commit -a -m "[Travis] Generate Doxygen"
   - git push origin master
