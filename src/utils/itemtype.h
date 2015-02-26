@@ -34,7 +34,7 @@ public:
     QString getName() const;
 
     /**
-     * @brief ItemType::getModel Get the databasemodele of the <b>ItemType</b>
+     * @brief ItemType::getModel Get the databasemodel of the <b>ItemType</b>
      * according to this identity <i>id</i>
      * @param id Item type identity
      * @return database model
