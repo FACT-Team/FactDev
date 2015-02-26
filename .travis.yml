@@ -7,23 +7,23 @@ compiler:
     - g++
 
 before_install:
-    - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa >> /dev/null
-    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y >> /dev/null
+    - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa 
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
     - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2    
-    - sudo apt-get update -qq >> /dev/null
-    - sudo apt-get install python-software-properties  >> /dev/null
+    - sudo apt-get update -qq 
+    - sudo apt-get install python-software-properties 
 
 install:
-    - sudo apt-get install g++-4.8 gdb >> /dev/null
-    - sudo apt-get install doxygen doxygen-latex doxygen-doc >> /dev/null   
+    - sudo apt-get install g++-4.8 gdb 
+    - sudo apt-get install doxygen doxygen-latex doxygen-doc
+    - sudo apt-get install -y lcov 
 #  - sudo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils  >> /dev/null
-    - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 >> /dev/null
+    - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 
     - mkdir ~/Qt5.2.0 
     - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
     - sudo chmod -R 777 ~/Qt5.2.0/
     - export CXX="g++-4.8"
-    - sudo apt-get install -y lcov >> /dev/null
-    - gem install coveralls-lcov >> /dev/null
+    - gem install coveralls-lcov 
 
 before_script:
     - git config --global user.name "Travis FACT"
