@@ -1,7 +1,7 @@
 FactDev
 =======
 [![Build Status](https://travis-ci.org/FACT-Team/FactDev.svg)](https://travis-ci.org/FACT-Team/FactDev)
- <a href='https://coveralls.io/r/FACT-Team/FactDev?branch=S3'><img src='https://coveralls.io/repos/FACT-Team/FactDev/badge.svg?branch=S3' alt='Coverage Status' /></a> 
+ <a href='https://coveralls.io/r/FACT-Team/FactDev'><img src='https://coveralls.io/repos/FACT-Team/FactDev/badge.svg' alt='Coverage Status' /></a> 
 
 # Team
 FACT team is a team for Universitiy Project. Members of this team are : 
