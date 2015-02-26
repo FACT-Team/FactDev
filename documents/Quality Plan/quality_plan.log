@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2014.12.21)  12 FEB 2015 20:13
+This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2014.7.22)  26 FEB 2015 08:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **quality_plan.tex
 (./quality_plan.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+Babel <3.9h> and hyphenation patterns for 76 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/bk12.clo
@@ -333,14 +333,6 @@ File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen103
 )
-
-Package babel Warning: No hyphenation patterns were preloaded for
-(babel)                the language `French' into the format.
-(babel)                Please, configure your TeX system to add them and
-(babel)                rebuild the format. Now I will use the patterns
-(babel)                preloaded for english instead on input line 63.
-
-\l@french = a dialect from \language0
 \FB@interchartokenstateORI=\count90
 Package babel Info: Making : an active character on input line 240.
 Package babel Info: Making ; an active character on input line 241.
@@ -353,7 +345,8 @@ Package babel Info: Making ? an active character on input line 243.
 \labelwidthFB=\skip44
 \leftmarginFB=\skip45
 \parindentFFN=\dimen105
-)) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
@@ -1542,21 +1535,21 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 (./contents/references.aux))
 \openout1 = `quality_plan.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1575,9 +1568,9 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \makeMPintoPDFobject=\count313
 \everyMPtoPDFconversion=\toks50
 )
-LaTeX Info: Redefining \degres on input line 68.
-LaTeX Info: Redefining \dots on input line 68.
-LaTeX Info: Redefining \up on input line 68.
+LaTeX Info: Redefining \degres on input line 69.
+LaTeX Info: Redefining \dots on input line 69.
+LaTeX Info: Redefining \up on input line 69.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1614,7 +1607,7 @@ LaTeX Info: Redefining \up on input line 68.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box99
-Package hyperref Info: Link coloring ON on input line 68.
+Package hyperref Info: Link coloring ON on input line 69.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1623,9 +1616,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count314
 )
-LaTeX Info: Redefining \ref on input line 68.
-LaTeX Info: Redefining \pageref on input line 68.
-LaTeX Info: Redefining \nameref on input line 68.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
 
 (./quality_plan.out) (./quality_plan.out)
 \@outlinefile=\write7
@@ -1665,42 +1658,42 @@ Package minitoc(hints) Warning: W0023
 (minitoc(hints))                of loading the ``hyperref'' package.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 68.
+LaTeX Info: Redefining \selectfont on input line 69.
 \drop=\skip169
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 70.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 70.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 70.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 71.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 70.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 71.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 70.
+(Font)              <12> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 70.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 70.
-LaTeX Font Info:    Try loading font information for U+msa on input line 70.
+(Font)              <6> on input line 71.
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 70.
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1709,37 +1702,42 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: ./FACT_official.png Graphic file (type png)
 
 <use ./FACT_official.png>
-Package pdftex.def Info: ./FACT_official.png used on input line 70.
+Package pdftex.def Info: ./FACT_official.png used on input line 71.
 (pdftex.def)             Requested size: 113.81102pt x 42.8248pt.
-LaTeX Font Info:    Try loading font information for U+mvs on input line 70.
+LaTeX Font Info:    Try loading font information for U+mvs on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/marvosym/umvs.fd)
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 70.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 70.
+(Font)              <10.95> on input line 71.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--70
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
  []
 
 <logo.jpg, id=114, 963.6pt x 324.21124pt>
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 70.
+Package pdftex.def Info: logo.jpg used on input line 71.
 (pdftex.def)             Requested size: 142.26378pt x 47.8628pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 70.
+(Font)              <5> on input line 71.
 
-Overfull \hbox (75.83363pt too wide) in paragraph at lines 70--70
+Overfull \hbox (75.83363pt too wide) in paragraph at lines 71--71
+[][] 
+ []
+
+
+Overfull \hbox (62.17485pt too wide) in paragraph at lines 71--71
 [][] 
  []
 
 Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM quality_plan.toc on input line 72
+(minitoc)             PREPARING MINITOCS FROM quality_plan.toc on input line 73
 .
 Package minitoc Info: I0033
 (minitoc)             Writing quality_plan.mtc1.
@@ -1789,12 +1787,24 @@ Package minitoc Info: I0033
 
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./FACT_offi
 cial.png> <./logo.jpg>]
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 76.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 77.
  (/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (./quality_plan.toc [2
+) (./quality_plan.toc
+<../../images/FACT_official.png, id=151, 965.6075pt x 363.3575pt>
+File: ../../images/FACT_official.png Graphic file (type png)
 
-])
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 51.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[2
+
+ <../../images/FACT_official.png>])
 \tf@toc=\write8
 \openout8 = `quality_plan.toc'.
 
@@ -1805,10 +1815,29 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 79.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
 [3]
 \openout2 = `contents/0-preambule.aux'.
 
- (./contents/0-preambule.tex) [4
+ (./contents/0-preambule.tex)
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 79.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[4
 
 
 ]
@@ -1827,6 +1856,15 @@ LaTeX Font Warning: Font shape `T1/pag/bc/n' undefined
 
 LaTeX Font Warning: Font shape `T1/pag/bc/sc' undefined
 (Font)              using `T1/pag/bc/n' instead on input line 8.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 29.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
 [5
 
@@ -1858,22 +1896,31 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 80.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
 [6]
 \openout2 = `contents/2-production.aux'.
 
  (./contents/2-production.tex
 Chapitre 2.
 Package epstopdf Info: Source file: <screens/scrum.eps>
-(epstopdf)                    date: 2015-02-12 19:05:55
+(epstopdf)                    date: 2015-02-25 13:13:12
 (epstopdf)                    size: 18930 bytes
 (epstopdf)             Output file: <screens/scrum-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-12 19:05:55
+(epstopdf)                    date: 2015-02-25 13:13:12
 (epstopdf)                    size: 11702 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/scrum-eps-converte
 d-to.pdf screens/scrum.eps>
 (epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
-<screens/scrum-eps-converted-to.pdf, id=195, 2585.66pt x 438.63875pt>
+<screens/scrum-eps-converted-to.pdf, id=197, 2585.66pt x 438.63875pt>
 File: screens/scrum-eps-converted-to.pdf Graphic file (type pdf)
 
 <use screens/scrum-eps-converted-to.pdf>
@@ -1888,6 +1935,15 @@ Overfull \hbox (11.38089pt too wide) in paragraph at lines 13--14
 
 LaTeX Font Warning: Font shape `T1/pag/bc/it' undefined
 (Font)              using `T1/pag/bc/n' instead on input line 17.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 23.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
 [7
 
@@ -1911,40 +1967,46 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 73.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
 [8]
-Underfull \vbox (badness 1303) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 102.
+
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
 [9]
-Underfull \vbox (badness 4673) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10]
 Package epstopdf Info: Source file: <screens/BranchingWorkflow.eps>
-(epstopdf)                    date: 2015-02-12 19:05:55
+(epstopdf)                    date: 2015-02-25 13:13:12
 (epstopdf)                    size: 63457 bytes
 (epstopdf)             Output file: <screens/BranchingWorkflow-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-02-12 19:05:55
+(epstopdf)                    date: 2015-02-25 13:13:12
 (epstopdf)                    size: 28631 bytes
 (epstopdf)             Command: <repstopdf --outfile=screens/BranchingWorkflow-
 eps-converted-to.pdf screens/BranchingWorkflow.eps>
 (epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
-<screens/BranchingWorkflow-eps-converted-to.pdf, id=249, 745.78625pt x 680.5425
+<screens/BranchingWorkflow-eps-converted-to.pdf, id=243, 745.78625pt x 680.5425
 pt>
 File: screens/BranchingWorkflow-eps-converted-to.pdf Graphic file (type pdf)
  <use screens/BranchingWorkflow-eps-converted-to.pdf>
@@ -1958,12 +2020,39 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 128.
+
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[10]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 154.
+
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
 [11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.140 \end{itemize}
+l.154 \end{itemize}
                     <./screens/BranchingWorkflow-eps-converted-to.pdf>])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1971,12 +2060,31 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 81.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
 [12]
 \openout2 = `contents/3-fournitures_et_livrables.aux'.
 
  (./contents/3-fournitures_et_livrables.tex
 Chapitre 3.
-) [13
+)
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 82.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[13
 
 
 
@@ -1987,11 +2095,21 @@ Chapitre 3.
 Chapitre 4.
 
 Overfull \hbox (0.86328pt too wide) in paragraph at lines 8--9
-[]\T1/lmr/m/n/12 Le Tit-u-laire pren-dra compte les re-mar-ques et de-man-des d
-e notre en-cad-rant Mon-sieur \T1/lmr/m/sc/12 Migeon
+[]\T1/lmr/m/n/12 Le Ti-tu-laire pren-dra compte les re-marques et de-mandes de 
+notre en-ca-drant Mon-sieur \T1/lmr/m/sc/12 Migeon
  []
 
-) [14
+)
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 83.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[14
 
 
 
@@ -2000,16 +2118,22 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.82 	\include{contents/4-planning}
+l.83 	\include{contents/4-planning}
                                    ]
 \openout2 = `contents/5-demarche_qualite.aux'.
 
  (./contents/5-demarche_qualite.tex
 Chapitre 5.
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 16.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
- [15
+[15
 
 
 
@@ -2019,6 +2143,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 85.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
 [16]
 \openout2 = `contents/6-matrice_tracabilite.aux'.
@@ -2085,7 +2218,17 @@ Overfull \hbox (27.68932pt too wide) in paragraph at lines 3--62
 []  []
  []
 
-) [17
+)
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 86.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[17
 
 
 
@@ -2094,7 +2237,7 @@ as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.85 	\include{contents/6-matrice_tracabilite}
+l.86 	\include{contents/6-matrice_tracabilite}
                                               ]
 \openout2 = `contents/cppConventions.aux'.
 
@@ -2114,33 +2257,44 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 33.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 33.
- [18
-
-
-
-]
 Package mdframed Info: mdframed works in twoside mode on input line 50.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 50.
+File: ../../images/FACT_official.png Graphic file (type png)
+
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 52.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[18
+
+
+
+]
+Package mdframed Info: Not enough space on this page on input line 52.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 118.
+
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
 [19]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20]
 Overfull \hbox (8.79457pt too wide) in paragraph at lines 184--191
 []\T1/lmr/m/n/12 Collections : \T1/lmtt/m/n/12 QList<Type>\T1/lmr/m/n/12 , \T1/
 lmtt/m/n/12 QSet<Type>\T1/lmr/m/n/12 , \T1/lmtt/m/n/12 QStack<Type>\T1/lmr/m/n/
@@ -2149,27 +2303,43 @@ ype>\T1/lmr/m/n/12 ,
  []
 
 
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 191.
+
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[20]
+
 LaTeX Font Warning: Font shape `T1/lmtt/bc/n' undefined
 (Font)              using `T1/lmtt/m/n' instead on input line 200.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 246.
+
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
 
 [21]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22]
 Package mdframed Info: mdframed works in twoside mode on input line 290.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2181,19 +2351,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23]
-Annexe B.
-<backlog.pdf, id=424, 794.97pt x 614.295pt>
-File: backlog.pdf Graphic file (type pdf)
- <use backlog.pdf>
-Package pdftex.def Info: backlog.pdf used on input line 90.
-(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 88.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
 
-Overfull \hbox (46.66039pt too wide) in paragraph at lines 90--91
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
 [][] 
  []
 
-[24
+[22]
+Annexe B.
+<backlog.pdf, id=422, 794.97pt x 614.295pt>
+File: backlog.pdf Graphic file (type pdf)
+ <use backlog.pdf>
+Package pdftex.def Info: backlog.pdf used on input line 91.
+(pdftex.def)             Requested size: 794.96806pt x 614.29349pt.
+
+Overfull \hbox (46.66039pt too wide) in paragraph at lines 91--92
+[][] 
+ []
+
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 93.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[23
 
 
 ]
@@ -2203,14 +2391,33 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./backlog.pdf>]
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 93.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[24 <./backlog.pdf>]
 \openout2 = `contents/references.aux'.
 
  (./contents/references.tex
 Annexe C.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3.
-) [26
+)
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 93.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[25
 
 
 ]
@@ -2219,7 +2426,17 @@ Annexe D.
 \tf@lof=\write9
 \openout9 = `quality_plan.lof'.
 
- (./quality_plan.ind [27
+ (./quality_plan.ind
+File: ../../images/FACT_official.png Graphic file (type png)
+ <use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 1.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[26
 
 
 ])
@@ -2244,34 +2461,46 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the quality_plan.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
-[28
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
+File: ../../images/FACT_official.png Graphic file (type png)
+<use ../../images/FACT_official.png>
+Package pdftex.def Info: ../../images/FACT_official.png used on input line 97.
+(pdftex.def)             Requested size: 56.9055pt x 21.4124pt.
+
+Overfull \hbox (6.82558pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[27
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
  (./quality_plan.aux (./contents/0-preambule.aux)
 (./contents/1-specification_du_projet.aux) (./contents/2-production.aux)
 (./contents/3-fournitures_et_livrables.aux) (./contents/4-planning.aux)
 (./contents/5-demarche_qualite.aux) (./contents/6-matrice_tracabilite.aux)
 (./contents/cppConventions.aux) (./contents/references.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
 Package rerunfilecheck Info: File `quality_plan.out' has not changed.
 (rerunfilecheck)             Checksum: 99B2D73ACABCEC96A02E52CA70DFCFD5;1652.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 97.
  ) 
 Here is how much of TeX's memory you used:
- 30537 strings out of 495034
- 540993 string characters out of 6181676
- 717463 words of memory out of 5000000
- 32604 multiletter control sequences out of 15000+600000
+ 30538 strings out of 493328
+ 541099 string characters out of 6140733
+ 721848 words of memory out of 5000000
+ 32852 multiletter control sequences out of 15000+600000
  103705 words of font info for 86 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 56i,15n,67p,10491b,1345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 953 hyphenation exceptions out of 8191
+ 56i,17n,67p,10491b,1989s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -2295,10 +2524,10 @@ lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><
 ive/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/marvosym/marvosym.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/avantgar/uagk8a.pfb>
-Output written on quality_plan.pdf (28 pages, 630900 bytes).
+Output written on quality_plan.pdf (27 pages, 653697 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
- 569 compressed objects within 6 object streams
- 186 named destinations out of 1000 (max. 500000)
- 252 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 638 PDF objects out of 1000 (max. 8388607)
+ 566 compressed objects within 6 object streams
+ 185 named destinations out of 1000 (max. 500000)
+ 257 words of extra memory for PDF output out of 10000 (max. 10000000)
 
