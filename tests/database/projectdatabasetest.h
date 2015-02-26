@@ -18,7 +18,8 @@ private slots:
     void update();
     void selectCustomerNotFound();
     void selectCustomerFound();
-
+    void getNbProjects();
+    void getNbProjectsForACustomer();
 private:
     Models::Project p1;
     int _lastInsert;

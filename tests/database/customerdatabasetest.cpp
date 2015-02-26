@@ -102,19 +102,4 @@ void CustomerDatabaseTest::getCustomerTableException()
 //    }
 //}
 
-void CustomerDatabaseTest::getCustomerException()
-{
-    try {
-        Databases::CustomerDatabase::instance()->getCustomer(999);
-        QFAIL("Exception not thrown");
-    } catch(DbException*) {
-        QVERIFY(true);
-    }
 
-    try {
-        Databases::CustomerDatabase::instance()->getCustomer(1);
-        QVERIFY(true);
-    } catch(DbException*) {
-        QFAIL("Exception not thrown");
-    }
-}

@@ -51,3 +51,14 @@ void ProjectDatabaseTest::selectCustomerFound()
     QVERIFY(p1 == *p2);
 }
 
+void ProjectDatabaseTest::getNbProjects()
+{
+    QCOMPARE(49, Databases::ProjectDatabase::instance()->getNbProjects());
+}
+
+void ProjectDatabaseTest::getNbProjectsForACustomer()
+{
+    QCOMPARE(4, Databases::ProjectDatabase::instance()->getNbProjectsForACustomer(1));
+}
+
+
