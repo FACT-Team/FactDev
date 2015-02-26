@@ -1,51 +1,42 @@
 language: cpp
 
 env:
-- QT_SELECT=qt5
+    - QT_SELECT=qt5
 
 compiler:
-- g++
+    - g++
 
 before_install:
-  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa >> /dev/null
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y >> /dev/null
-  - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2    
-  - sudo apt-get update -qq >> /dev/null
-  - sudo apt-get install python-software-properties  >> /dev/null
+    - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa >> /dev/null
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y >> /dev/null
+    - sudo apt-add-repository -y ppa:libreoffice/libreoffice-4-2    
+    - sudo apt-get update -qq >> /dev/null
+    - sudo apt-get install python-software-properties  >> /dev/null
 
 install:
-  - sudo apt-get install g++-4.8 gdb >> /dev/null
-  - sudo apt-get install doxygen doxygen-latex doxygen-doc >> /dev/null   
-  - sudo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils  >> /dev/null
-  - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 >> /dev/null
-  - mkdir ~/Qt5.2.0 
-  - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
-  - sudo chmod -R 777 ~/Qt5.2.0/
-  - export CXX="g++-4.8"
-  - sudo apt-get install -y lcov >> /dev/null
-  - gem install coveralls-lcov >> /dev/null
-  
+    - sudo apt-get install g++-4.8 gdb >> /dev/null
+    - sudo apt-get install doxygen doxygen-latex doxygen-doc >> /dev/null   
+#  - sudo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils  >> /dev/null
+    - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 >> /dev/null
+    - mkdir ~/Qt5.2.0 
+    - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
+    - sudo chmod -R 777 ~/Qt5.2.0/
+    - export CXX="g++-4.8"
+    - sudo apt-get install -y lcov >> /dev/null
+    - gem install coveralls-lcov >> /dev/null
+
+before_script:
+    - git config --global user.name "Travis FACT"
+    - git config --global user.email ups.fact@gmail.com 
+    - chmod +x scripts/*.sh
+
 script:
-  - ~/Qt5.2.0/5.2.0/gcc_64/bin/qmake FactDev.pro -r -spec linux-g++ CONFIG+=debug >> /dev/null
-  - make -j15 >> /dev/null
-  - LD_LIBRARY_PATH=`pwd`/src
-  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-  - ln -s `pwd`/src/sql `pwd`/tests/sql
-  - cd tests
-  - ./tests
-  - lcov --capture --directory ../src --output-file coverage.info >> /dev/null
-  - lcov -r coverage.info ~/Qt5.2.0/5.2.0/gcc_64/\* /usr/include/\* /home/travis/build/FACT-Team/FactDev/src/gui/\* /home/travis/build/FACT-Team/FactDev/src/moc_\* /home/travis/build/FACT-Team/FactDev/src/ui_\* /home/travis/build/FACT-Team/FactDev/src/qrc_\* /home/travis/build/FACT-Team/FactDev/src/mainwindow.\* -o coverage.info | tail -n3
-  - coveralls-lcov coverage.info >> /dev/null
-  - cd ..
-  - cd fact-team.github.io/
-  - git checkout master
-  - cd ..
-  - doxygen >> /dev/null 2> fact-team.github.io/doc/doxygen.log
-  - cd fact-team.github.io/doc/latex
-  - make 
-  - cd ..
-  - git config --global user.email "ups.fact@gmail.com"
-  - git config --global user.name "Travis FACT"
-  - git add .
-  - git commit -a -m "[Travis] Generate Doxygen"
-  - git push origin master
+    - cd scripts
+    - ./tests.sh
+    - ./coverage.sh
+    - ./doxygen.sh
+    - cd ../
+
+after_success:
+    - cd fact-team.github.io/
+    - git push https://${TOK}@github.com/FACT-Team/fact-team.github.io.git master
