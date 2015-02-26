@@ -169,6 +169,7 @@ void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
 }
+
 QString User::getWorkspaceName() const
 {
     return _workspaceName;
@@ -188,5 +189,16 @@ void User::setWorkspacePath(const QString &workspacePath)
     _workspacePath = workspacePath;
 }
 
+bool User::operator ==(const User &u)
+{
+    return u.getAddress() == getAddress() && u.getCity() == getCity() && u.getCompany() == getCompany() &&
+            u.getEmail() == getEmail() && u.getFirstname() == getFirstname() && u.getLastname() == getLastname()&&
+            u.getMobilePhone() == getMobilePhone() && u.getNoSiret() == getNoSiret() && u.getPhone() == getPhone()&&
+            u.getPostalCode() == getPostalCode() && u.getTitle() == getTitle();
+}
 
+bool User::operator !=(const User &u)
+{
+    return !(*this == u);
+}
 }

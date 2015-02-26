@@ -3,7 +3,6 @@
 #include "QTestRunner/testrunner.h"
 
 #include "models/billing.h"
-
 #include "database/billingdatabase.h"
 
 using namespace Models;
@@ -21,6 +20,7 @@ private slots:
     void commitInsert();
     void hydrat();
     void hydratWithContributories();
+    void commitRemove();
 private:
     Billing* b1;
     Billing* b2;

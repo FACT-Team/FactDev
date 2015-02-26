@@ -189,8 +189,7 @@ int ProjectDatabase::getNbProjects()
                     lastError(q),
                     1.6);
     }
-    q.next();
-
+    q.first();
     return value(q, "nb_p").toInt();
 }
 

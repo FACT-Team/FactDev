@@ -661,6 +661,8 @@ void MainWindow::updateFolders()
     if (user->getWorkspaceName().isEmpty()) {
         user->setWorkspaceName("FactDev");
     }
+    user->commit();
+
     path = user->getWorkspacePath();
     folder = user->getWorkspaceName();
     directory.setPath(path);
@@ -696,7 +698,6 @@ void MainWindow::updateFolders()
         path = user->getWorkspacePath() + "/" + user->getWorkspaceName();
         directory.setPath(path);
     }
-
     delete user;
 }
 

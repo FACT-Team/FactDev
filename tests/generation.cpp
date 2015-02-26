@@ -49,3 +49,12 @@ void Generation::GenerationSimpleBilling() {
     gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
     QVERIFY(QFile("/tmp/test.tex").exists());
 }
+
+
+void Generation::GenerationSimpleBillingWithModel() {
+    QLocale::setDefault(QLocale(QLocale::French));
+
+    Billing b(1);
+    b.generateTex();
+    QVERIFY(QFile("/tmp/test.tex").exists());
+}

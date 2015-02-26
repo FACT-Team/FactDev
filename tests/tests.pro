@@ -27,7 +27,15 @@ database/customerdatabasetest.h \
     database/contributoriesdatabasetest.h \
     generation.h \
     qt-mustache/test_mustache.h \
-    models/ratemodeltest.h
+    models/ratemodeltest.h \
+    database/projectdatabasetest.h \
+    models/projectmodeltest.h \
+    database/userdatabasetest.h \
+    models/usermodeltest.h \
+    utils/stringtest.h \
+    models/contributorymodeltest.h \
+    utils/itemtypetest.h \
+    models/contributorylisttest.h
 
 SOURCES += \
     QTestRunner/main.cpp \
@@ -41,7 +49,15 @@ database/customerdatabasetest.cpp \
     database/contributoriesdatabasetest.cpp \
     generation.cpp \
     qt-mustache/test_mustache.cpp \
-    models/ratemodeltest.cpp
+    models/ratemodeltest.cpp \
+    database/projectdatabasetest.cpp \
+    models/projectmodeltest.cpp \
+    database/userdatabasetest.cpp \
+    models/usermodeltest.cpp \
+    utils/stringtest.cpp \
+    models/contributorymodeltest.cpp \
+    utils/itemtypetest.cpp \
+    models/contributorylisttest.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
 

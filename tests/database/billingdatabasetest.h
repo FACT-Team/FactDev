@@ -21,6 +21,8 @@ private slots:
      void selectBillingFound();
      void addBillingProject();
      void removeBillingProject();
+     void getMaxBillingNumber();
+     void getMaxQuoteNumber();
 private:
      Billing* b1;
      int _lastInsert;

@@ -31,12 +31,6 @@ public:
     static UserDatabase* instance()throw(DbException*);
 
     /**
-     * @brief getUserTable Return an item model of User for QTableView
-     * @return QStandardItemModel an item model
-     */
-    QStandardItemModel* getUserTable() throw(DbException*);
-
-    /**
      * @brief getUser Get informations about the user (identified by 'pId')
      * @param pId user id (1 default)     * 
      * @return the user

@@ -67,3 +67,39 @@ void CustomerDatabaseTest::selectCustomerFound()
 
     QVERIFY(c1 == *c2);
 }
+
+void CustomerDatabaseTest::getCustomerTableException()
+{
+    try {
+        Databases::CustomerDatabase::instance()->getCustomersTable("FROM Billing");
+        QFAIL("Exception not thrown");
+    } catch(DbException*) {
+        QVERIFY(true);
+    }
+
+    try {
+        Databases::CustomerDatabase::instance()->getCustomersTable("");
+        QVERIFY(true);
+    } catch(DbException*) {
+        QFAIL("Exception not thrown");
+    }
+}
+
+//void CustomerDatabaseTest::getCustomerTreeException()
+//{
+//    try {
+//        Databases::CustomerDatabase::instance()->getTree("FROM Billing");
+//        QFAIL("Exception not thrown");
+//    } catch(DbException*) {
+//        QVERIFY(true);
+//    }
+
+//    try {
+//        Databases::CustomerDatabase::instance()->getTree("");
+//        QVERIFY(true);
+//    } catch(DbException*) {
+//        QFAIL("Exception not thrown");
+//    }
+//}
+
+

@@ -220,6 +220,7 @@ int BillingDatabase::getMaxBillingNumber()
             1.5);
     }
 
+    q.first();
     return value(q, "max").toInt();
 }
 

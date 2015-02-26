@@ -111,3 +111,14 @@ void BillingDatabaseTest::removeBillingProject()
             q.isNull(1) &&
             q.isNull(2));
 }
+
+void BillingDatabaseTest::getMaxBillingNumber()
+{
+    QCOMPARE(29, Databases::BillingDatabase::instance()->getMaxBillingNumber());
+}
+
+void BillingDatabaseTest::getMaxQuoteNumber()
+{
+     QCOMPARE(51, Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+}
+
