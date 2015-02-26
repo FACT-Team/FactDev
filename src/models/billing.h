@@ -5,18 +5,21 @@
 #include <QMap>
 #include <QList>
 
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 #include "models/project.h"
 #include "models/contributory.h"
-
+#include "models/user.h"
+#include "models/contributorieslist.h"
 #include "database/contributorydatabase.h"
+
+#include "generator.h"
 
 namespace Models {
 /**
  * @author Cédric Rohaut @Oxynos for the quote part
  * @brief The Billing class : Billing or Quote of a Customer
  */
-class Billing : public IDatabaseModel
+class Billing : public IModel
 {
 public:
     /**
@@ -54,11 +57,22 @@ public:
     void remove();
 
     /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
+
+    /**
+     * @brief generateTex Generate a .tex file for the billing
+     */
+    void generateTex();
+
+    /**
      * @brief Billing::getContributories. Return a map of <b>Contributory</b>
      * for each <b>Project</b> of the <b>Billing</b>
      * @return QMap<Project, QList<Contributory>>
      */
-    QMap<Project *, QList<Contributory> > getContributories() const;
+    ContributoriesList &getContributories();
 
     /**
      * @brief addContributories Add a new contributory for project p
@@ -67,6 +81,8 @@ public:
      */
     void addContributory(Contributory &c);
 
+    double getSumRate();
+    double getSumQuantity();
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>
      * @return title of Billing
@@ -127,6 +143,8 @@ public:
      * @param getDate the new date of the Billing
      */
     void setDate(const QDate &getDate);
+
+
     /**
      * @brief Billing::operator == define the operator "==" to compare two
      * billings and to see if they are the same
@@ -141,16 +159,23 @@ public:
      * @return true if the <b>Billing</b> are different else false
      */
     bool operator !=(const Billing &b);
+    void setContributories(const ContributoriesList &contributories);
+
+    /**
+     * @brief Billing::operator < defines the operator "< to compare two
+     * <b>Billing</b> and to see if the fisrt is anterior to the second
+     * @param b the <b>Billing</b> to compare with the current <b>Billing</b>
+     * @return true if the <b>Billing</b> are different else false
+     */
+    bool operator <(const Billing &b) const;
 
 private:
-    QMap<Project*,QList<Contributory> > _contributories;   //!< List of contributories
+    ContributoriesList _contributories;   //!< List of contributories
     QString _title;                                         //!< Title of billing
     QString _description;                                   //!< Description of a billing
     int _number;                                            //!< Number of billing
     bool _isBilling;                                        //!< Is a billing… Or if a quote
     QDate _date;                                            //!< Date for billing
-
-
 };
 
 }

@@ -1,5 +1,9 @@
 #include "checkfieldsletters.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
+
 CheckFieldsLetters::CheckFieldsLetters(QWidget *w, QPushButton *btn)
     : CheckUntilField (w, btn)
 {
@@ -15,4 +19,8 @@ bool CheckFieldsLetters::check(QString text) {
     txtRgx.setPatternSyntax(QRegExp::RegExp);
 
     return txtRgx.exactMatch(text);
+}
+
+}
+}
 }

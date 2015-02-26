@@ -2,7 +2,7 @@
 #define USER_H
 #include <QString>
 
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 
 #include "utils/log.h"
 
@@ -11,7 +11,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The User class <b>User</b> of it application
  */
-class User : public IDatabaseModel
+class User : public IModel
 {
 public:
     /**
@@ -41,6 +41,12 @@ public:
      * @brief remove Remove the current User
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
 
     /**
      * @brief User::getFirstname Return the user firstname
@@ -84,7 +90,7 @@ public:
     /**
      * @brief User::setTitle Modify the user/company activities
      *  <i>description</i>
-     * @param title Short description on activity(ies) of customer company
+     * @param title Short description on activity(ies) of User company
      */
     void setTitle(const QString &title);
 
@@ -170,18 +176,60 @@ public:
      */
     void setNoSiret(const QString &noSiret);
 
+    /**
+     * @brief User::getWorkspaceName Return the name of the workspace user
+     * @return workspace name
+     */
+    QString getWorkspaceName() const;
+    /**
+     * @brief User::setWorkspaceName Change the current workspace name by the
+     * new <i>workspaceName</i>
+     * @param workspaceName
+     */
+    void setWorkspaceName(const QString &workspaceName);
+
+    /**
+     * @brief User::getWorkspacePath Return the path of the workspace user
+     * @return workspace path
+     */
+    QString getWorkspacePath() const;
+    /**
+     * @brief User::setWorkspacePath Change the current workspace path by the
+     * new <i>workspacePath</i>
+     * @param workspacePath
+     */
+    void setWorkspacePath(const QString &workspacePath);
+
+    /** @brief User::operator == Re-define the operator "==" to compare if
+     * the current User is the same to the other <b>User</b> <i>c</i>
+     * Return TRUE if both Users are the same, else FALSE
+     * @param u User to compare
+     * @return boolean
+     */
+    bool operator ==(const User &u);
+    /**
+     * @brief User::operator == Re-define the operator "!=" to compare if
+     * the current User is differnt to the other <b>User</b> <i>c</i>
+     * Return TRUE if both Users are different, else FALSE
+     * @param u User to compare
+     * @return boolean
+     */
+    bool operator !=(const User &u);
+
 private:
     QString _firstname;     //!< User firstname
     QString _lastname;      //!< User lastname
     QString _company;       //!< Company name of the User
-    QString _title;         //!< Customer/Company description on it activity
+    QString _title;         //!< User/Company description on it activity
     QString _address;       //!< Name and number of street
     QString _postalCode;    //!< Postal code
     QString _city;          //!< City
     QString _email;         //!< Professionnal email of the company
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _phone;         //!< Number of desktop phone
-    QString _noSiret;       //!<  SIRET number (company registration number)
+    QString _noSiret;       //!< SIRET number (company registration number)
+    QString _workspaceName; //!< Workspace name
+    QString _workspacePath; //!< Workspace directory path
 };
 }
 #endif // USER_H

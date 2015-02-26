@@ -2,16 +2,16 @@
 
 #include "database/billingdatabase.h"
 
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
 Billing::Billing()
 {
-
     // TODO :
     // add enum for quote or billing, passed in constructor
     // If quote, line behind, else getMaxBillingNumber.
-    _number = BillingDatabase::instance()->getMaxQuoteNuber()+1;
+    _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
+    _toRemoved = false;
 }
 
 Billing::Billing(int id)
@@ -38,22 +38,9 @@ void Billing::commit()
     } else {
         BillingDatabase::instance()->updateBilling(*this);
     }
-
-    // Commits contributories and projects
-    auto end = _contributories.cend();
-    for (auto it = _contributories.cbegin(); it != end; ++it) {
-        ((Project*)(it.key()))->commit();
-        for(Contributory c : it.value()) {
-            c.commit();
-
-            // Fill trinary legs… :)
-            if(insert) {
-                BillingDatabase::instance()->addBillingProject(((Project*)it.key())->getId(),
-                                                                _id,
-                                                               c.getId());
-            }
-        }
-    }
+    _contributories.setIdBilling(_id);
+    _contributories.setInsert(insert);
+    _contributories.commit();
     Database::Database::instance()->closeTransaction();
 }
 
@@ -62,15 +49,66 @@ void Billing::hydrat(int id)
     _id = id;
     Billing *quote = BillingDatabase::instance()->getBilling(id);
     _title = quote->getTitle();
+    _isBilling = quote->isBilling();
     _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();
+    _toRemoved = false;
     _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
 }
 
 void Billing::remove()
 {
     BillingDatabase::instance()->removeBilling(_id);
+}
+
+QVariantHash Billing::getDataMap()
+{
+    QVariantHash data;
+    QVariantHash billing;
+    billing["no"] = _number;
+    billing["type"] = _isBilling ? "Facture" : "Devis";
+    billing["title"] = _title;
+    billing["description"] = _description;
+    billing["date"] = _date.toString("dddd d MMMM yyyy");
+// TODO daily rate !
+    data["user"]  = Models::User(1).getDataMap();
+    data["customer"] = _contributories.getCustomer()->getDataMap();
+    data["billing"] = billing;//
+
+    QVariantList table;
+    QVariantHash project;
+    for(Project* p : _contributories.getProjects()) {
+        project["nameproject"] = p->getName();
+        project["contributories"] = _contributories.getDataMap();
+
+        table << project;
+        project.clear();
+    }
+    data["totalRate"] = getSumRate();
+    data["totalQuantity"] = getSumQuantity();
+
+    data["table"] = _contributories.getDataMap();
+
+    return data;
+}
+
+void Billing::generateTex()
+{
+    Generator g(":/tpl/billingtpl");
+    QString s,fact;
+    if (isBilling()) {
+        s = "Facture";
+        fact = "Factures";
+    }
+    else {
+        s = "Devis";
+        fact ="Devis";
+    }
+
+    g.generate(getDataMap(), _contributories.getCustomer()->getPath()
+               +"/"+fact
+               +"/"+ s +QString::number(getNumber())+".tex");
 }
 
 bool Billing::operator ==(const Billing &b)
@@ -86,17 +124,35 @@ bool Billing::operator !=(const Billing &b)
     return !(*this == b);
 }
 
-QMap<Project*, QList<Contributory>> Billing::getContributories() const
+void Billing::setContributories(const ContributoriesList &contributories)
+{
+    _contributories = contributories;
+}
+
+
+bool Billing::operator <(const Billing &b) const
+{
+    return getDate() < b.getDate();
+}
+
+ContributoriesList& Billing::getContributories()
 {
     return _contributories;
 }
 
 void Billing::addContributory(Contributory& c)
 {
-    if(_contributories.contains(c.getProject())) {
-        _contributories.insert(c.getProject(), QList<Contributory>());
-    }
-    _contributories[c.getProject()].push_back(c);
+    _contributories.addContributory(c);
+}
+
+double Billing::getSumRate()
+{
+return _contributories.getSumRate();
+}
+
+double Billing::getSumQuantity()
+{
+    return _contributories.getSumQuantity();
 }
 
 QString Billing::getTitle() const

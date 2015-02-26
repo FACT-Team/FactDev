@@ -3,6 +3,9 @@
 
 #include "checkuntilfield.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckPostalCode class Line Edit of postal code with a check icon
  */
@@ -39,5 +42,7 @@ public:
 private :
     QString _country;
 };
-
+}
+}
+}
 #endif // CHECKPOSTALCODE_H

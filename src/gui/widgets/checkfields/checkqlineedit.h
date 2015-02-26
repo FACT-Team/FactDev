@@ -6,6 +6,9 @@
 
 #include "icheckfield.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckQLineEdit class LineEdit custom with a check of text inputed
  */
@@ -61,5 +64,7 @@ private:
 
 
 };
-
+}
+}
+}
 #endif // CHECKQLINEEDIT_H

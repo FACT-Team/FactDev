@@ -19,48 +19,106 @@ void BillingDatabaseTest::setup() {
 void BillingDatabaseTest::insert()
 {
     setup();
-    _lastInsert = Database::BillingDatabase::instance()->addBilling(*b1);
-    Billing* b2 = Database::BillingDatabase::instance()->getBilling(_lastInsert);
-    //qDebug() << "insert" << b1->getDate() << " " << b2->getDate();
+    _lastInsert = Databases::BillingDatabase::instance()->addBilling(*b1);
+    Billing* b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+
     QVERIFY(*b1 == *b2);
 }
 
 void BillingDatabaseTest::remove()
 {
-    /*qDebug() << _lastInsert;
-    BillingDatabase::instance()->removeBilling(_lastInsert);
-    Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b2 == 0);*/
+    Databases::BillingDatabase::instance()->removeBilling(_lastInsert);
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+    QVERIFY(b2 == 0);
 }
 
 void BillingDatabaseTest::update()
 {
-    /*_lastInsert = BillingDatabase::instance()->addBilling(b1);
+    _lastInsert = Databases::BillingDatabase::instance()->addBilling(*b1);
     b1->setId(_lastInsert);
     b1->setTitle("Paladin donut");
     b1->setDescription("Création des donuts platines");
-    BillingDatabase::instance()->updateBilling(b1);
-    Billing *b2 = BillingDatabase::instance()->getBilling(_lastInsert);
-    QVERIFY(b1 == *b2);*/
+    Databases::BillingDatabase::instance()->updateBilling(*b1);
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(_lastInsert);
+    QVERIFY(*b1 == *b2);
 }
 
 void BillingDatabaseTest::selectBillingNotFound()
 {
     setup();
-    QVERIFY(Database::BillingDatabase::instance()->getBilling(321654) == NULL);
+    QVERIFY(Databases::BillingDatabase::instance()->getBilling(321654) == NULL);
 }
 
 void BillingDatabaseTest::selectBillingFound()
 {
-    Billing *b3 = Database::BillingDatabase::instance()->getBilling(1);
+    Billing *b3 = Databases::BillingDatabase::instance()->getBilling(1);
     b1->setId(1);
-    b1->setTitle("fringilla,");
-    b1->setDescription("tempus risus. Donec egestas. "
-                      "Duis ac arcu. Nunc mauris. Morbi");
+    b1->setTitle("Coucou");
+    b1->setDescription("Mon super devis de la mort qui rox du poulet");
     b1->setNumber(1);
-    b1->setIsBilling(true);
-    b1->setDate(QDate(2015,04,24));
+    b1->setIsBilling(false);
+    b1->setDate(QDate(2015,02,13));
 
     QVERIFY(*b1 == *b3);
+}
+
+void BillingDatabaseTest::addBillingProject()
+{
+    int project = 1, billing = 1, contributory = 1;
+    Databases::BillingDatabase::instance()->addBillingProject(project,billing,contributory);
+
+    QSqlQuery q;
+    q.prepare("SELECT * from BillingProject "
+              "WHERE idProject=1 "
+              "AND idBilling=1 "
+              "AND idContributory=1");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de selectionner le BillingProject",
+                    "BddBillingDatabaseTest::addBillingProject",
+                    "Databases::Database::instance()->lastError(q)",
+                    1.3);
+    }
+
+    q.first();
+    qDebug() << q.isNull(0);
+    QVERIFY(q.value("idProject").toInt()==project &&
+            q.value("idBilling").toInt()==billing &&
+            q.value("idContributory").toInt()==contributory);
+}
+
+void BillingDatabaseTest::removeBillingProject()
+{
+    int project = 1, billing = 1, contributory = 1;
+    Databases::BillingDatabase::instance()->removeBillingProject(project,billing,contributory);
+
+    QSqlQuery q;
+    q.prepare("SELECT * from BillingProject "
+              "WHERE idProject=1 "
+              "AND idBilling=1 "
+              "AND idContributory=1");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de selectionner le BillingProject",
+                    "BddBillingDatabaseTest::addBillingProject",
+                    "Databases::Database::instance()->lastError(q)",
+                    1.3);
+    }
+    q.first();
+    QVERIFY(q.isNull(0) &&
+            q.isNull(1) &&
+            q.isNull(2));
+}
+
+void BillingDatabaseTest::getMaxBillingNumber()
+{
+    QCOMPARE(29, Databases::BillingDatabase::instance()->getMaxBillingNumber());
+}
+
+void BillingDatabaseTest::getMaxQuoteNumber()
+{
+     QCOMPARE(51, Databases::BillingDatabase::instance()->getMaxQuoteNumber());
 }
 

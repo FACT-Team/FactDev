@@ -40,7 +40,7 @@ CREATE TABLE Contributory
 (
     idContributory INTEGER PRIMARY KEY AUTOINCREMENT,
     description TEXT,
-    nbDays INTEGER
+    nbHours INTEGER
 );
 
 CREATE TABLE BillingProject
@@ -52,6 +52,16 @@ CREATE TABLE BillingProject
     FOREIGN KEY (idProject) REFERENCES Project (idProject),
     FOREIGN KEY (idBilling) REFERENCES Billing (idBilling),
     FOREIGN KEY (idContributory) REFERENCES Contributory (idContributory)
+);
+
+CREATE TABLE BillingRate
+(
+    idBilling INTEGER,
+    idProject INTEGER,
+    hourlyRate DOUBLE,
+    PRIMARY KEY(idBilling, idProject)
+    FOREIGN KEY (idBilling) REFERENCES Billing(idBilling),
+    FOREIGN KEY (idProject) REFERENCES Project(idProject)
 );
 
 CREATE TABLE User
@@ -67,8 +77,14 @@ CREATE TABLE User
     email VARCHAR(64),
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
-    noSiret VARCHAR(16)
+    noSiret VARCHAR(16),
+    workspaceName VARCHAR(64),
+    workspacePath TEXT
 );
 
-CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC);
+CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC, lastnameReferent);
+CREATE INDEX I_PK_PROJECT ON Project (idProject, name);
+CREATE INDEX I_PK_BILLING ON Billing (idBilling, title, number);
+CREATE INDEX I_PK_CONTRIBUTORY ON Contributory (idContributory ASC);
+CREATE INDEX I_PK_BILLINGPROJECT ON BillingProject (idProject, idBilling, idContributory);
 INSERT INTO User(idUser) VALUES(1);

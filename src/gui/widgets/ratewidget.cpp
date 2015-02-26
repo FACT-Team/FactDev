@@ -18,50 +18,50 @@ RateWidget::~RateWidget()
 }
 
 void RateWidget::initRate() {
-    ui->sbDailyRate->setValue(Project::NB_DAILY_HOURS * Project::LEGAL_RATE);
-    ui->sbHourlyRate->setValue(Project::LEGAL_RATE);
+//    ui->sbDailyRate->setValue(Project::NB_DAILY_HOURS * Project::LEGAL_RATE);
+//    ui->sbHourlyRate->setValue(Project::LEGAL_RATE);
 }
 
 void RateWidget::setWidgetDailyRateValue(double value)
 {
-    ui->sbDailyRate->setValue(value);
-    emit setDailyRate();
+//    ui->sbDailyRate->setValue(value);
+//    emit setDailyRate();
 }
 
 double RateWidget::getDailyRate() {
-    return ui->sbDailyRate->value();
+//    return ui->sbDailyRate->value();
 }
 
 void RateWidget::setDailyRate() {
 
-    if (ui->sbDailyRate->value() > Project::NB_DAILY_HOURS * Project::LEGAL_RATE) {
-        _isDailyRateModified = true;        
-        updateConversionRate();
-    } else {
-       initRate();
-    }
+//    if (ui->sbDailyRate->value() > Project::NB_DAILY_HOURS * Project::LEGAL_RATE) {
+//        _isDailyRateModified = true;
+//        updateConversionRate();
+//    } else {
+//       initRate();
+//    }
 
 }
 
 double RateWidget::getHourlyRate() {
-    return ui->sbHourlyRate->value();
+//    return ui->sbHourlyRate->value();
 }
 
 void RateWidget::setHourlyRate() {
-    if (ui->sbHourlyRate->value() > Project::LEGAL_RATE) {
-        _isDailyRateModified = false;
-        updateConversionRate();
-    } else {
-        initRate();
-    }
+//    if (ui->sbHourlyRate->value() > Project::LEGAL_RATE) {
+//        _isDailyRateModified = false;
+//        updateConversionRate();
+//    } else {
+//        initRate();
+//    }
 }
 
 void RateWidget::updateConversionRate() {
-    if (_isDailyRateModified) {
-        ui->sbHourlyRate->setValue(getDailyRate()/Project::NB_DAILY_HOURS);
-    } else {
-        ui->sbDailyRate->setValue(getHourlyRate()*Project::NB_DAILY_HOURS);
-    }
+//    if (_isDailyRateModified) {
+//        ui->sbHourlyRate->setValue(getDailyRate()/Project::NB_DAILY_HOURS);
+//    } else {
+//        ui->sbDailyRate->setValue(getHourlyRate()*Project::NB_DAILY_HOURS);
+//    }
 }
 }
 }

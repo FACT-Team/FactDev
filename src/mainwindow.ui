@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1237</width>
-    <height>591</height>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -99,6 +99,9 @@
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::SingleSelection</enum>
             </property>
@@ -129,6 +132,12 @@
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
           </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
@@ -150,7 +159,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="Gui::Widgets::ProjectsWidget" name="widget" native="true">
+           <widget class="Gui::Widgets::ProjectsWidget" name="wdgTblProjectsToolBar" native="true">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -191,12 +200,15 @@
       </widget>
       <widget class="QWidget" name="page_3">
        <layout class="QGridLayout" name="gridLayout_10">
-        <item row="0" column="0">
+        <item row="0" column="1">
          <layout class="QGridLayout" name="gridLayout_8">
           <item row="1" column="0">
            <widget class="QTableView" name="tblQuotes">
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
             </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::SingleSelection</enum>
@@ -267,6 +279,56 @@
             </item>
            </layout>
           </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnEditDoc">
+              <property name="text">
+               <string>Éditer le document</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnRemoveDoc">
+              <property name="text">
+               <string>Supprimer le document</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnLatex">
+              <property name="text">
+               <string>Générer en LaTeX</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/convert_to_latex.png</normaloff>:/icons/img/convert_to_latex.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
          </layout>
         </item>
        </layout>
@@ -281,7 +343,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -336,13 +398,13 @@
    <property name="minimumSize">
     <size>
      <width>279</width>
-     <height>161</height>
+     <height>200</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>524287</width>
-     <height>180</height>
+     <height>200</height>
     </size>
    </property>
    <property name="windowTitle">
@@ -382,6 +444,12 @@ border: 1px solid #bbb;</string>
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>150</height>
+        </size>
+       </property>
        <property name="title">
         <string>Filtre de recherche</string>
        </property>
@@ -412,6 +480,42 @@ border: 1px solid #bbb;</string>
           </property>
           <property name="text">
            <string>Nom du référent</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="chkProjectName">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Nom du projet</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QCheckBox" name="chkContributory">
+          <property name="text">
+           <string>Nom de la prestation</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QCheckBox" name="chkBillQuote">
+          <property name="text">
+           <string>N°,Nom du devis/facture</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -494,6 +598,9 @@ border: 1px solid #bbb;</string>
        <property name="expandsOnDoubleClick">
         <bool>false</bool>
        </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
       </widget>
      </item>
     </layout>
@@ -669,7 +776,7 @@ border: 1px solid #bbb;</string>
    <container>1</container>
   </customwidget>
   <customwidget>
-  <class>Gui::Widgets::ProjectsWidget</class>
+   <class>Gui::Widgets::ProjectsWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/projectswidget.h</header>
    <container>1</container>
@@ -691,8 +798,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>540</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -707,8 +814,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>549</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -729,70 +836,6 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>0</x>
      <y>129</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkSearchCompany</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>22</x>
-     <y>241</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>157</x>
-     <y>191</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkReferentName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>35</x>
-     <y>241</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>150</x>
-     <y>225</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkSearchCompany</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>search()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>222</x>
-     <y>191</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>153</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>chkReferentName</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>search()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>221</x>
-     <y>225</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>218</y>
     </hint>
    </hints>
   </connection>
@@ -819,8 +862,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>595</x>
-     <y>549</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -835,8 +878,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>614</x>
-     <y>540</y>
+     <x>397</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -960,21 +1003,21 @@ border: 1px solid #bbb;</string>
    <sender>tblCustomers</sender>
    <signal>doubleClicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>changeProjectsTable()</slot>
+   <slot>customersTableToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>379</x>
+     <x>380</x>
      <y>107</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
-     <y>634</y>
+     <y>584</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>btnBackToCustomers</sender>
-   <signal>clicked()</signal>
+   <signal>released()</signal>
    <receiver>MainWindow</receiver>
    <slot>backToCustomersTable()</slot>
    <hints>
@@ -984,7 +1027,7 @@ border: 1px solid #bbb;</string>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
-     <y>664</y>
+     <y>584</y>
     </hint>
    </hints>
   </connection>
@@ -1008,27 +1051,27 @@ border: 1px solid #bbb;</string>
    <sender>tblProjects</sender>
    <signal>doubleClicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>quotesProject()</slot>
+   <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>678</x>
-     <y>236</y>
+     <x>388</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
-     <y>651</y>
+     <y>584</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>btnBackToProjects</sender>
-   <signal>clicked()</signal>
+   <signal>released()</signal>
    <receiver>MainWindow</receiver>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>359</x>
-     <y>95</y>
+     <x>583</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1037,49 +1080,49 @@ border: 1px solid #bbb;</string>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>addProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
-     <y>824</y>
+     <y>584</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>editProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
-     <y>887</y>
+     <y>584</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>widget</sender>
+   <sender>wdgTblProjectsToolBar</sender>
    <signal>removeProject()</signal>
    <receiver>MainWindow</receiver>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>549</y>
+     <x>488</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-453</x>
+     <x>0</x>
      <y>552</y>
     </hint>
    </hints>
@@ -1107,8 +1150,8 @@ border: 1px solid #bbb;</string>
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>532</x>
-     <y>226</y>
+     <x>380</x>
+     <y>107</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1120,15 +1163,15 @@ border: 1px solid #bbb;</string>
    <sender>tblProjects</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
-   <slot>updateBtn()</slot>
+   <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>471</x>
-     <y>192</y>
+     <x>388</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-131</x>
-     <y>151</y>
+     <x>20</x>
+     <y>20</y>
     </hint>
    </hints>
   </connection>
@@ -1139,12 +1182,268 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>369</x>
-     <y>107</y>
+     <x>330</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
      <x>618</x>
      <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewBill</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addBill()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblQuotes</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeDocsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>698</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>502</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkProjectName</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>17</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>74</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkSearchCompany</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>80</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkReferentName</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkContributory</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkBillQuote</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>97</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>150</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>gpbxSearchFilter</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>30</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkSearchCompany</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>183</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkReferentName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>206</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkProjectName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkContributory</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkBillQuote</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnEditDoc</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editDoc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>528</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>563</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnRemoveDoc</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeDoc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>529</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>609</x>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackCustomersProject</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateButtons()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>774</x>
+     <y>-20</y>
     </hint>
    </hints>
   </connection>
@@ -1163,16 +1462,22 @@ border: 1px solid #bbb;</string>
   <slot>aboutIcons()</slot>
   <slot>changeCustomer()</slot>
   <slot>openProjects()</slot>
-  <slot>changeProjectsTable()</slot>
+  <slot>customersTableToProjectsTable()</slot>
   <slot>backToCustomersTable()</slot>
   <slot>addQuote()</slot>
   <slot>projectsCustomersTableTree()</slot>
-  <slot>quotesProject()</slot>
+  <slot>projectsTableToDocsTable()</slot>
   <slot>backToProjectsTable()</slot>
   <slot>editProject()</slot>
   <slot>removeProject()</slot>
   <slot>changeCustomerTable()</slot>
   <slot>changeTree()</slot>
-  <slot>updateBtn()</slot>
+  <slot>addBill()</slot>
+  <slot>editDoc()</slot>
+  <slot>removeDoc()</slot>
+  <slot>changeProjectsTable()</slot>
+  <slot>changeDocsTable()</slot>
+  <slot>editQuote()</slot>
+  <slot>updateButtons()</slot>
  </slots>
 </ui>

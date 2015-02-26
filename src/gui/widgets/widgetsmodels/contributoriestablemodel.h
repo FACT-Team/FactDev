@@ -1,9 +1,10 @@
-#ifndef CONTRIBUTORIESTABLEMODEL_H
+﻿#ifndef CONTRIBUTORIESTABLEMODEL_H
 #define CONTRIBUTORIESTABLEMODEL_H
 #include <QObject>
 #include <QAbstractTableModel>
 
 #include "models/contributory.h"
+#include "models/rate.h"
 
 #include "utils/log.h"
 
@@ -27,6 +28,7 @@ public:
      * @param parent Parent widget
      */
     ContributoriesTableModel(QObject* parent = 0);
+    ~ContributoriesTableModel();
 
     /**
      * @brief rowCount Number of contributories row
@@ -96,6 +98,9 @@ public:
      * @return The number of contributories
      */
     int count();
+
+    double getSumQuantity() const;
+    void clear();
 private:
     QList<Contributory> _contributories; //!< contributories list
     QList<Contributory> _contributoriesToRemoved; //!< Contributories to removed

@@ -1,6 +1,6 @@
 #include "database/userdatabase.h"
 
-namespace Database {
+namespace Databases {
 
 UserDatabase::UserDatabase() throw(DbException*)  : Database() {
     _instances << this;
@@ -47,6 +47,8 @@ Models::User *UserDatabase::getUser(const int pId)
         user->setMobilePhone(value(q,"mobilePhone").toString());
         user->setPhone(value(q,"phone").toString());
         user->setNoSiret(value(q,"noSiret").toString());
+        user->setWorkspaceName(value(q,"workspaceName").toString());
+        user->setWorkspacePath(value(q,"workspacePath").toString());
     } else {
         user = NULL;
     }
@@ -61,7 +63,8 @@ void UserDatabase::updateUser(const Models::User& pUser) {
                 "firstname = :firstname, lastname = :lastname, company = :company, "
                 "title = :title, address = :address, postalCode = :postalCode, "
                 "city = :city, email = :email, mobilePhone = :mobilePhone, "
-                "phone = :phone, noSiret = :noSiret "
+                "phone = :phone, noSiret = :noSiret, "
+                "workspaceName = :workspaceName, workspacePath = :workspacePath "
                 "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
@@ -77,6 +80,8 @@ void UserDatabase::updateUser(const Models::User& pUser) {
     q.bindValue(":mobilePhone", pUser.getMobilePhone());
     q.bindValue(":phone", pUser.getPhone());
     q.bindValue(":noSiret", pUser.getNoSiret());
+    q.bindValue(":workspaceName", pUser.getWorkspaceName());
+    q.bindValue(":workspacePath", pUser.getWorkspacePath());
 
     if(!q.exec()) {
         throw new DbException(

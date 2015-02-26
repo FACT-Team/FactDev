@@ -1,9 +1,12 @@
 [submodule "tests/QTestRunner"]
 	path = tests/QTestRunner
-	url = git@github.com:FACT-Team/QTestRunner.git
+	url = https://github.com/FACT-Team/QTestRunner.git
 [submodule "documents/LaTexTemplate"]
 	path = documents/LaTexTemplate
-	url = git@github.com:FACT-Team/LaTexTemplate.git
+	url = https://github.com/FACT-Team/LaTexTemplate.git
 [submodule "fact-team.github.io"]
 	path = fact-team.github.io
-	url = git@github.com:FACT-Team/fact-team.github.io.git
+	url = https://github.com/FACT-Team/fact-team.github.io.git
+[submodule "src/libs/qt-mustache"]
+	path = src/libs/qt-mustache
+	url = https://github.com/robertknight/qt-mustache.git

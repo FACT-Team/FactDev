@@ -1,7 +1,7 @@
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
 #include <QString>
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 #include "models/billing.h"
 #include "models/customer.h"
 #include "models/project.h"
@@ -34,12 +34,12 @@ public:
     QString getName() const;
 
     /**
-     * @brief ItemType::getModel Get the databasemodele of the <b>ItemType</b>
+     * @brief ItemType::getModel Get the databasemodel of the <b>ItemType</b>
      * according to this identity <i>id</i>
      * @param id Item type identity
      * @return database model
      */
-    Models::IDatabaseModel* getModel(int id);
+    Models::IModel* getModel(int id);
 
     /**
      * @brief ItemType::setName Modify the item name

@@ -5,6 +5,7 @@
 #include "database/projectdatabase.h"
 
 #include "models/contributory.h"
+#include "models/contributorieslist.h"
 
 #include "utils/log.h"
 #include "utils/string.h"
@@ -12,7 +13,7 @@
 using namespace Exceptions;
 using namespace Utils;
 
-namespace Database {
+namespace Databases {
 
 /**
  * @author Cédric Rohaut @Oxynos
@@ -39,7 +40,7 @@ public:
      */
     Models::Contributory *getContributory(const int idContributory);
 
-    QMap<Models::Project *, QList<Models::Contributory> > getContributoriesByBilling(const int idBilling);
+    Models::ContributoriesList getContributoriesByBilling(const int idBilling);
 
     /**
      * @brief ContributoryDatabase::addContributory Add the Contributory <i>pContributory</i> to

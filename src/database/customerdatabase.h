@@ -2,36 +2,32 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
-
 #include "exceptions/dbexception.h"
-
 #include "models/customer.h"
-
 #include "utils/log.h"
 #include "utils/string.h"
+#include "gui/widgets/widgetsmodels/customerstablemodel.h"
 
 using namespace Exceptions;
 using namespace Utils;
+using namespace Gui::Widgets;
 
-namespace Database {
+namespace Databases {
 /** 
  * @author Antoine de Roquemaurel
+ * @author Manantsoa Razanajatovo
+ * @author Florent Berbie
+ * @author Cédric Rohaut
  * @brief The <b>CustomerDatabase</b> class Customer table database
  * @see Database
  * @see Customer
  */
 class CustomerDatabase : public Database
 {
-private:
-    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
 
-    /**
-     * @brief <b>CustomerDatabase</b> is a singleton
-     */
-    CustomerDatabase() throw(DbException*) ;
 public:
     /**
-     * @brief CustomerDatabase::getInstance Return an instance of
+     * @brief CustomerDatabase::instance Return an instance of
      * <b>CustomerDatabase</b>
      * @see DbException
      * @return Instance of CustomerDatabase
@@ -39,24 +35,23 @@ public:
     static CustomerDatabase* instance()throw(DbException*);
 
     /**
-     * @author Manantsoa Razanajatovo
      * @brief CustomerDatabase::getCustomersTable Return an item model of
      * customers for QTableView
      * @param filter Select only customers who are specified by <i>filter</i>
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    QStandardItemModel* getCustomersTable(QString filter="") throw(DbException*);
+    WdgModels::CustomersTableModel* getCustomersTable(QString filter="") throw(DbException*);
+
 
     /**
-     * @author Manantsoa Razanajatovo
-     * @brief CustomerDatabase::getCustomersTree Return an item model of
-     * customers for QTree
+     * @brief CustomerDatabase::getTree Return an item model of customers
+     * for QTree
      * @param filter Select only customers who are specified by <i>filter</i>
      * @throw DbException
      * @return QStandardItemModel an item model for QTreeView
      */
-    QStandardItemModel *getCustomersTree(QString filter="") throw(DbException*);
+    QStandardItemModel *getTree(QString filter="") throw(DbException*);
 
     /**
      * @brief CustomerDatabase::getCustomer get informations about the customer
@@ -93,6 +88,57 @@ public:
      */
     int getNbCustomers();
 
+    /**
+     * @brief CustomerDatabase::getItemRoot Return the first item
+     * for the QStandardItemModel
+     * @return QStandardItem an item for QTree (level/depth 0)
+     */
+    QStandardItem *getItemRoot();
+
+    /**
+     * @brief CustomerDatabase::getItemCustomer Return the customer item
+     * for the QStandardItemModel
+     * @param q1 the row of the sql query for customers
+     * @return QStandardItem an item for QTree (level/depth 1)
+     */
+    QStandardItem *getItemCustomer(QSqlQuery q1);
+    /**
+     * @brief CustomerDatabase::getItemProject Return the project item
+     * for the QStandardItemModel
+     * @param q2 the row of the sql query for projects
+     * @return QStandardItem an item for QTree (level/depth 2)
+     */
+    QStandardItem *getItemProject(QSqlQuery q2);
+    /**
+     * @brief CustomerDatabase::getItemCustomer Return the bill/quote item
+     * for the QStandardItemModel
+     * @param q3 the first row of the sql query for bills/quotes
+     * @return QStandardItem an item for QTree (level/depth 3)
+     */
+    QStandardItem *getItemBillQuote(QSqlQuery q3);
+
+    /**
+     * @brief CustomerDatabase::getCustomer Add the element of the <i>q</i>
+     * request and return their
+     * @param q SQL request
+     * @return a customer formed according to QSharedPointer
+     */
+    QSharedPointer<Models::Customer> getCustomer(QSqlQuery &q);
+
+    /**
+     * @brief CustomerDatabase::updateCustomer Update customer data according to
+     *  the request <i>q</i>
+     * @param q SQL request
+     */
+    void updateCustomer(QSqlQuery &q, Customer &pCustomer);
+
+private:
+    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
+
+    /**
+     * @brief <b>CustomerDatabase</b> is a singleton
+     */
+    CustomerDatabase() throw(DbException*) ;
 };
 }
 #endif // BDDCUSTOMER_H

@@ -6,87 +6,368 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>590</width>
+    <width>798</width>
     <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="1">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>Ajouter une prestation</string>
+  <layout class="QGridLayout" name="gridLayout_5">
+   <item row="0" column="0">
+    <widget class="QSplitter" name="splitter">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/add_contributory.png</normaloff>:/icons/img/add_contributory.png</iconset>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
      </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="text">
-      <string>Supprimer la prestation</string>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
      </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/remove_contributory.png</normaloff>:/icons/img/remove_contributory.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
+     <property name="opaqueResize">
+      <bool>true</bool>
      </property>
-    </spacer>
-   </item>
-   <item row="0" column="0" colspan="3">
-    <widget class="QTableView" name="tblContributories"/>
+     <property name="childrenCollapsible">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
+       </property>
+       <item row="1" column="0" colspan="2">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMinimumSize</enum>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnAddProject">
+           <property name="text">
+            <string>Ajouter le projet</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnRemoveProject">
+           <property name="text">
+            <string>Supprimer le projet</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/remove_project.png</normaloff>:/icons/img/remove_project.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QTableView" name="tblProjects">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>380</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMaximumSize</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QStackedWidget" name="stack"/>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnAddPrestation">
+           <property name="text">
+            <string>Ajouter une prestation</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/add_contributory.png</normaloff>:/icons/img/add_contributory.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnRmovePrestation">
+           <property name="text">
+            <string>Supprimer la prestation</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../../icons.qrc">
+             <normaloff>:/icons/img/remove_contributory.png</normaloff>:/icons/img/remove_contributory.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Sous-Total</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="sbSubSum">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="specialValueText">
+            <string/>
+           </property>
+           <property name="suffix">
+            <string> €</string>
+           </property>
+           <property name="maximum">
+            <double>100000.990000000005239</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Total:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDoubleSpinBox" name="sbAllSums">
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::NoButtons</enum>
+           </property>
+           <property name="specialValueText">
+            <string/>
+           </property>
+           <property name="suffix">
+            <string> €</string>
+           </property>
+           <property name="maximum">
+            <double>100000.990000000005239</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>tblProjects</tabstop>
+  <tabstop>btnAddProject</tabstop>
+  <tabstop>btnRemoveProject</tabstop>
+  <tabstop>btnAddPrestation</tabstop>
+  <tabstop>btnRmovePrestation</tabstop>
+  <tabstop>sbSubSum</tabstop>
+  <tabstop>sbAllSums</tabstop>
+ </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
  </resources>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>btnAddPrestation</sender>
    <signal>released()</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>add()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>251</x>
-     <y>273</y>
+     <x>580</x>
+     <y>290</y>
     </hint>
     <hint type="destinationlabel">
      <x>238</x>
-     <y>453</y>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
+   <sender>btnRmovePrestation</sender>
    <signal>released()</signal>
    <receiver>ContributoriesWidget</receiver>
    <slot>remove()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>355</x>
-     <y>268</y>
+     <x>788</x>
+     <y>290</y>
     </hint>
     <hint type="destinationlabel">
      <x>421</x>
-     <y>399</y>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAddProject</sender>
+   <signal>released()</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>addProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnRemoveProject</sender>
+   <signal>released()</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>removeProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>286</x>
+     <y>281</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>606</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>editing()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>268</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-110</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>changeProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-396</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>activated(QModelIndex)</signal>
+   <receiver>ContributoriesWidget</receiver>
+   <slot>changeProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>291</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-196</x>
+     <y>116</y>
     </hint>
    </hints>
   </connection>
@@ -94,5 +375,10 @@
  <slots>
   <slot>add()</slot>
   <slot>remove()</slot>
+  <slot>addProject()</slot>
+  <slot>removeProject()</slot>
+  <slot>changeProject()</slot>
+  <slot>editing()</slot>
+  <slot>updateBtn()</slot>
  </slots>
 </ui>

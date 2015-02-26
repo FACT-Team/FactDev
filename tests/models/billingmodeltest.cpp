@@ -1,5 +1,6 @@
 #include "billingmodeltest.h"
-
+#include "gui/dialogs/userdatadialog.h"
+#include "database/billingdatabase.h"
 BillingModelTest::BillingModelTest()
 {
 }
@@ -42,24 +43,33 @@ void BillingModelTest::notEquals()
     QVERIFY(*b1 != *b2);
 }
 
+void BillingModelTest::commitRemove()
+{
+    Billing b1(12);
+    b1.setToRemoved(true);
+    b1.commit();
+    QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
+}
+
 void BillingModelTest::commitUpdate()
 {
-    // TODO implementation
-    /*
-    int id = BillingDatabase::instance()->addBilling(b1);
+    int id = Databases::BillingDatabase::instance()->addBilling(*b1);
     b1->setId(id);
     b1->setDescription("Découpe de poulet");
     b1->commit();
-    Billing *b2 = BillingDatabase::instance()->getBilling(id);
-    QVERIFY(b1 == *b2);*/
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(id);
+    QVERIFY(*b1 == *b2);
 }
 
 void BillingModelTest::commitInsert()
 {
     setup();
     b1->setId(0);
+    ContributoriesList contributories = Billing(1).getContributories();
+    b1->setContributories(contributories);
     b1->commit();
-    Billing *b2 = Database::BillingDatabase::instance()->getBilling(b1->getId());
+    //b1->generateTex();
+    Billing *b2 = Databases::BillingDatabase::instance()->getBilling(b1->getId());
     QVERIFY(*b1 == *b2);
 }
 
@@ -68,56 +78,37 @@ void BillingModelTest::hydrat()
     setup();
     Billing b2 = Billing(1);
     b1->setId(1);
-    b1->setTitle("fringilla,");
-    b1->setDescription("tempus risus. Donec egestas. "
-                      "Duis ac arcu. Nunc mauris. Morbi");
+    b1->setTitle("Coucou");
+    b1->setDescription("Mon super devis de la mort qui rox du poulet");
     b1->setNumber(1);
-    b1->setIsBilling(true);
-    b1->setDate(QDate(2015,04,24));
+    b1->setIsBilling(false);
+    b1->setDate(QDate(2015,02,13));
 
     QVERIFY(*b1 == b2);
 }
 
 void BillingModelTest::hydratWithContributories() {
     setup();
-    QMap<Project *, QList<Contributory> > contributories = Billing(1).getContributories();
-    QVERIFY(contributories.count() == 7);
+    ContributoriesList contributories = Billing(24).getContributories();
+    QCOMPARE(contributories.getNbProjects(), 2);
 
     // we only check id… Remaining are already tested (getProject, getContributory)
-    for(auto i = contributories.begin(); i != contributories.end() ; ++i) {
-        switch(i.key()->getId()) {
-        case 22:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 17);
-            QVERIFY(i.value().at(1).getId() == 108);
-            break;
-        case 29:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 220);
-            QVERIFY(i.value().at(1).getId() == 239);
-            break;
-        case 30:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 24);
-            break;
-        case 32:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 89);
-            break;
-        case 33:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 50);
-            break;
-        case 34:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 276);
-            break;
-        case 40:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 74);
-            break;
-        default:
-            QVERIFY(false);
+    for(Project* p : contributories.getProjects()) {
+        QList<Contributory> list = contributories.getContributories(p);
+            switch(p->getId()) {
+            case 21:
+                QCOMPARE(list.count(), 3);
+                QCOMPARE(list.at(0).getId(), 59);
+                QCOMPARE(list.at(1).getId(), 60);
+                QCOMPARE(list.at(2).getId(), 61);
+                break;
+            case 44:
+                QCOMPARE(list.count(), 1);
+                QCOMPARE(list.at(0).getId(), 62);
+                break;
+            default:
+                QFAIL("Default case");
         }
+
     }
 }

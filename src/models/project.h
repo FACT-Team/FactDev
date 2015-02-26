@@ -5,20 +5,18 @@
 #include <QDate>
 #include <QSharedPointer>
 
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 #include "models/customer.h"
 
 namespace Models {
 /**
  * @author Florent Berbie
  * @brief The Project class : Project linked to a Customer
- * @see IDatabaseModel
+ * @see IModel
  */
-class Project : public IDatabaseModel
+class Project : public IModel
 {
 public:
-    static const double LEGAL_RATE; //!< The Legal hourly Rate
-    static const int NB_DAILY_HOURS; //!< The number of daily hours in a day
 
     /**
      * @brief Project::Project Construct a Project
@@ -57,6 +55,13 @@ public:
      * @brief Project::remove Remove the current project
      */
     void remove();
+
+    /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
+
     /**
      * @brief Project::getName Return the project name
      * @return project name
@@ -94,7 +99,7 @@ public:
      * @brief Project::getEndDate Return the <i>endDate</i> of the <b>Project</b>
      * @return the end date of the project
      */
-    QDate getEndDate();
+    QDate getEndDate() const;
 
     /**
      * @brief Project::setEndDate Modify <i>endDate</i> of <b>Project</b>
@@ -128,6 +133,32 @@ public:
      * @param customer New customer associated to this project
      */
     void setCustomer(QSharedPointer<Customer> customer);
+
+    /**
+     * @brief Project::operator == Re-define the operator "==" to compare if
+     * the current project is the same to the other <b>Project</b> <i>p</i>
+     * Return TRUE if both projects are the same, else FALSE
+     * @param c Project to compare
+     * @return boolean
+     */
+    bool operator ==(const Project &p);
+
+    /**
+     * @brief Project::operator < defines the operator "< to compare two
+     * <b>Project</b> and to see if the fisrt is anterior to the second
+     * @param b the <b>Project</b> to compare with the current <b>Project</b>
+     * @return true if the <b>Project</b> are different else false
+     */
+    bool operator <(const Project &p) const;
+
+    /**
+     * @brief Project::operator == Re-define the operator "!=" to compare if
+     * the current project is differnt to the other <b>Project</b> <i>p</i>
+     * Return TRUE if both projects are different, else FALSE
+     * @param c Project to compare
+     * @return boolean
+     */
+    bool operator !=(const Project &p);
 
 private:
     QString _name;          //!< Project name

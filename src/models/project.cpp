@@ -1,11 +1,9 @@
 #include "project.h"
 
 #include "database/projectdatabase.h"
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
-const double Project::LEGAL_RATE = 9.61;
-const int Project::NB_DAILY_HOURS = 7;
 
 Project::Project()
 {
@@ -59,6 +57,11 @@ void Project::remove()
     ProjectDatabase::instance()->removeProject(_id);
 }
 
+QVariantHash Project::getDataMap()
+{
+
+}
+
 QString Project::getName() const
 {
     return _name;
@@ -88,7 +91,7 @@ void Project::setBeginDate(QDate beginDate)
     _beginDate = beginDate;
 }
 
-QDate Project::getEndDate()
+QDate Project::getEndDate() const
 {
     return _endDate;
 }
@@ -115,6 +118,24 @@ QSharedPointer<Customer> Project::getCustomer() const
 void Project::setCustomer(QSharedPointer<Customer> customer)
 {
     _customer = customer;
+}
+
+bool Project::operator ==(const Project &p)
+{
+    return  getName() == p.getName()
+            && getDescription() == p.getDescription()
+            && getCustomer() == getCustomer();
+}
+
+bool Project::operator <(const Project &p) const
+{
+    return getBeginDate() == p.getBeginDate() && *(getCustomer()) == *(p.getCustomer()) && getDailyRate() == p.getDailyRate() &&
+            getDescription() == p.getDescription() && p.getEndDate() == getEndDate() && p.getName() == getName();
+}
+
+bool Project::operator !=(const Project &p)
+{
+    return !(*this == p);
 }
 
 }

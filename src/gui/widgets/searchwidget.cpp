@@ -31,6 +31,9 @@ void searchWidget::search(QString text)
     s.setGroupFilter(false);
     s.setSearchInCompanies(true);
     s.setSearchInReferentLastname(true);
+    s.setSearchInContributories(false);
+    s.setSearchInProjects(false);
+    s.setSearchInBillsQuotes(false);
     s.setText(text);
     updateTable(s.getFilter());
 
@@ -65,7 +68,7 @@ void searchWidget::getCustomerData() {
 void searchWidget::updateTable(QString filter) {
 
     ui->tblSearch->setModel(
-                Database::CustomerDatabase::instance()->getCustomersTable(filter));
+                Databases::CustomerDatabase::instance()->getCustomersTable(filter));
     ui->tblSearch->hideColumn(0);
     ui->tblSearch->hideColumn(4);
     ui->tblSearch->hideColumn(5);

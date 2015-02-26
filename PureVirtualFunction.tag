@@ -1,9 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
   <compound kind="page">
-    <name>md_tests_QTestRunner_README</name>
+    <name>md__home_florent_Documents_Projet_S8_FactDev_src_libs_qt-mustache_README</name>
+    <title>README</title>
+    <filename>dc/d0f/md__home_florent_Documents_Projet_S8_FactDev_src_libs_qt-mustache_README</filename>
+  </compound>
+  <compound kind="page">
+    <name>md__home_florent_Documents_Projet_S8_FactDev_tests_QTestRunner_README</name>
     <title>QTestRunner</title>
-    <filename>dc/d04/md_tests_QTestRunner_README</filename>
+    <filename>d6/d1f/md__home_florent_Documents_Projet_S8_FactDev_tests_QTestRunner_README</filename>
   </compound>
   <compound kind="class">
     <name>BillingDatabaseTest</name>
@@ -276,12 +281,124 @@
     <filename>d8/df7/classContributoriesDatabaseTest.html</filename>
   </compound>
   <compound kind="class">
+    <name>CounterContext</name>
+    <filename>db/da6/classCounterContext.html</filename>
+    <base>Mustache::QtVariantContext</base>
+    <base>Mustache::QtVariantContext</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>a2b2c8d5bbd329e20ce6e16be72676291</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>a01764884d5bdbe014b8e569c10c82e99</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Mustache::Renderer *renderer)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>adb984d696efcc32abaaf0aaeade4f8b8</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>a2b2c8d5bbd329e20ce6e16be72676291</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>a01764884d5bdbe014b8e569c10c82e99</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Mustache::Renderer *renderer)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>db/da6/classCounterContext.html</anchorfile>
+      <anchor>adb984d696efcc32abaaf0aaeade4f8b8</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isFalse</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>af5f93b6ff7ac3c24928757a2af1b8820</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>listCount</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>aa055fefa606e0958549cb4671e628e9c</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>push</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>aa5164d437812877c96faa833d8ce5eac</anchor>
+      <arglist>(const QString &amp;key, int index=-1)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>pop</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>adfb3067d5cf209e4203a0b1754008efc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Context</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a0a3453e4a263cc9a1d061485c621f74e</anchor>
+      <arglist>(PartialResolver *resolver=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>partialValue</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>ad69c8fa16687f4e8d885821c0c3c25fd</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function">
+      <type>PartialResolver *</type>
+      <name>partialResolver</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>afb65ec991eb184bceeda1a49a193bb1f</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="typedef">
+      <type>QString(*</type>
+      <name>fn_t</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a3b258bcbe77d882a01c53abd1a9425d0</anchor>
+      <arglist>)(const QString &amp;, Mustache::Renderer *, Mustache::Context *)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>CustomerDatabaseTest</name>
     <filename>d2/d63/classCustomerDatabaseTest.html</filename>
   </compound>
   <compound kind="class">
     <name>CustomerModelTest</name>
     <filename>d5/dcd/classCustomerModelTest.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>Generation</name>
+    <filename>d4/df7/classGeneration.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>Generator</name>
+    <filename>d9/d12/classGenerator.html</filename>
   </compound>
   <compound kind="class">
     <name>ICheckField</name>
@@ -326,444 +443,532 @@
     <templarg></templarg>
   </compound>
   <compound kind="class">
+    <name>TestMustache</name>
+    <filename>de/d63/classTestMustache.html</filename>
+  </compound>
+  <compound kind="class">
     <name>TestRunner</name>
     <filename>db/d70/classTestRunner.html</filename>
   </compound>
   <compound kind="namespace">
-    <name>Database</name>
-    <filename>dc/d4f/namespaceDatabase.html</filename>
-    <class kind="class">Database::BillingDatabase</class>
-    <class kind="class">Database::ContributoryDatabase</class>
-    <class kind="class">Database::CustomerDatabase</class>
-    <class kind="class">Database::Database</class>
-    <class kind="class">Database::ProjectDatabase</class>
-    <class kind="class">Database::UserDatabase</class>
+    <name>Databases</name>
+    <filename>df/d31/namespaceDatabases.html</filename>
+    <class kind="class">Databases::BillingDatabase</class>
+    <class kind="class">Databases::ContributoryDatabase</class>
+    <class kind="class">Databases::CustomerDatabase</class>
+    <class kind="class">Databases::Database</class>
+    <class kind="class">Databases::ProjectDatabase</class>
+    <class kind="class">Databases::UserDatabase</class>
   </compound>
   <compound kind="class">
-    <name>Database::BillingDatabase</name>
-    <filename>d2/d86/classDatabase_1_1BillingDatabase.html</filename>
-    <base>Database::Database</base>
+    <name>Databases::BillingDatabase</name>
+    <filename>df/df8/classDatabases_1_1BillingDatabase.html</filename>
+    <base>Databases::Database</base>
     <member kind="function">
       <type>Models::Billing *</type>
       <name>getBilling</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>a3063746cff15d93c4f5f319d53381579</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a835d4ca35a046fe1d0b336a1b8cf8f85</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
-      <type>QStandardItemModel *</type>
+      <type>WdgModels::BillingsTableModel *</type>
       <name>getBillingsTable</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>a3d3aec676ed5f7862197cac63adb18e9</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>ade754e6aa116aa75606cf24474631322</anchor>
       <arglist>(const int idProject)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addBilling</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>aa08b3b4917eb6c447ef513e5aafff38f</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a656c622366884194a6823b679d7d2f63</anchor>
       <arglist>(const Models::Billing &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateBilling</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>a59830561e9573ab3ce463e9dc1b68a0c</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a74643c7e242cfe6fc294985984d6a65f</anchor>
       <arglist>(const Models::Billing &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeBilling</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>af419d6b120523e9c67d5c89bcfcd44dd</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>aa6869fce7290e50723b5db5e125e9a6e</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addBillingProject</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>a38514a0874d27551c67d56b9a7ec340e</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>ab4eb6ce0f1126599012912d4869ad8b8</anchor>
+      <arglist>(const int idProject, const int idBilling, const int idContributory)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeBillingProject</name>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>ad6320bcb8053fc0097939221546f7ecf</anchor>
       <arglist>(const int idProject, const int idBilling, const int idContributory)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getMaxBillingNumber</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>ac00c08641d0f4cc0596430f8e888ee38</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a57e4b68cac145ba400d408698312599b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
-      <name>getMaxQuoteNuber</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>ad9fe39d053a7f8686e1d94bc41eda03e</anchor>
+      <name>getMaxQuoteNumber</name>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a91704d31741279aacf9a9903b7ebcbf5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QSharedPointer&lt; Models::Billing &gt;</type>
+      <name>getBilling</name>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a2e6c6cd8b3b040eeb7fc6ae727e85013</anchor>
+      <arglist>(QSqlQuery &amp;q)</arglist>
+    </member>
+    <member kind="function">
+      <type>QMap&lt; Project *, Billing * &gt;</type>
+      <name>getAllBillingsOfProject</name>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>a44c3e09fbb7d540579f4cceae4d6901f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>QString</type>
       <name>lastError</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>aff2b9057350d618d9f126a0e6ac6be42</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>abda5b1dd4c55bee049e9450a40a7baab</anchor>
       <arglist>(const QSqlQuery &amp;q)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>testCases</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a77460984575eb485e3c6dcfc713e0e67</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a5029595698d889af5089428071c6ecda</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>cleanDatabase</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a474fda5b2ee6cd1391f72ad5fe297ba5</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a52c30975504e35c7c475a52817d66b73</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>executeFile</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a8fa0ebf8b613b8c25f2485dee5c332f3</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a21f6c86f95b149ac7dbf0ffc94021a93</anchor>
       <arglist>(QString pName)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>openTransaction</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a657a65d7c085ef1b3fbc956d5c837ec0</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a64d55cd9452bbf2a6fd1693df004de59</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>closeTransaction</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a7cb02c000e1bc3614aeda31ea6c13069</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a56faa5446bd58e6b3c3a4c503d9309b1</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>close</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>af4d88f98b0ce31369af5bbf4fd167664</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a56127c397e3c424401d59d64cdb8e8fc</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>open</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>aa12f5d991eb4d61ef0c6a0bc653f2580</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a53c4c277c2fbd3532d2bcaa1d47aed40</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>~Database</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a52d0d890cef301f3dfb61121cf2c375b</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a457a2dac579f1ffc743f452a2dcbbd5c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setDatabase</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>acf027fd52b0669b1248cbb75e621c36a</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a88af2050b210c0d829d166f0f6d9e318</anchor>
       <arglist>(QSqlDatabase sql)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>createDatabase</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a4edb5ae1db1def878a728ce284d07871</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a50bde8faf6ab4c5dfdec74dc3ba7bbe7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateBillingNumber</name>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a17b652086514e0a64d0e452a938ac7a5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static BillingDatabase *</type>
       <name>instance</name>
-      <anchorfile>d2/d86/classDatabase_1_1BillingDatabase.html</anchorfile>
-      <anchor>a3ab4bd6cc25a186856aac757d6213aa0</anchor>
+      <anchorfile>df/df8/classDatabases_1_1BillingDatabase.html</anchorfile>
+      <anchor>aee84d7d07ff4a25251c61030019e5abb</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static Database *</type>
       <name>instance</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a90cc546ea663945d6878c4babf10a9f4</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>af75844a67cca710cc2d7edbff95ebe81</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type></type>
       <name>Database</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a7c8f22f12dd131087a37f0b8222a3f63</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a7d14f43864ce19a5e399ea4ed3ce808f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>QVariant</type>
       <name>value</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>aeddc953300288d633881cf9bb6a4264e</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a5d8a99bd2d7b5c77eacb942ed790b12c</anchor>
       <arglist>(const QSqlQuery &amp;q, const QString &amp;champ)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>QSettings *</type>
       <name>_settings</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a2b8055481c0231dab258d0446781a94d</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a1254e2d5f196c9b6143da1cd57df5d31</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>QSqlDatabase</type>
       <name>mDatabase</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a6c63e366e01da448bc43c8a463c6eabd</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a091c36a92c87204f4f63e96e7d34b9f7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>QList&lt; Database * &gt;</type>
       <name>_instances</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>ac57a668c068a49b734c0407235848f54</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>aaed4ecc36468c345c56df78ccb5b56c8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static Database *</type>
       <name>_instance</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a45c615cdb03c353a52dcb1a9fffc2393</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a5f3ca7a29b769615feeac1c8b12f9a7e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static bool</type>
       <name>_dbInstance</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>ae14d34aebe8f014c101d9fdc0cdb0daf</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>a3bf8253398401fac46f74be67181877a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static bool</type>
       <name>isOpen</name>
-      <anchorfile>da/d8e/classDatabase_1_1Database.html</anchorfile>
-      <anchor>a7d0456fa60dffbdf454efdb5288b7a0f</anchor>
+      <anchorfile>dd/db0/classDatabases_1_1Database.html</anchorfile>
+      <anchor>abdde0f6fbef7f4d7353acda867f01ca0</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>Database::ContributoryDatabase</name>
-    <filename>d5/de0/classDatabase_1_1ContributoryDatabase.html</filename>
-    <base>Database::Database</base>
+    <name>Databases::ContributoryDatabase</name>
+    <filename>dc/da5/classDatabases_1_1ContributoryDatabase.html</filename>
+    <base>Databases::Database</base>
     <member kind="function">
       <type>Models::Contributory *</type>
       <name>getContributory</name>
-      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
-      <anchor>afe8913f62dfb75115090650d194a7bc4</anchor>
+      <anchorfile>dc/da5/classDatabases_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>a76b6541c4b770a51b8d1a449631a5ffd</anchor>
       <arglist>(const int idContributory)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addContributory</name>
-      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
-      <anchor>a7612a74e10fc04a5894bf01b6917a42e</anchor>
+      <anchorfile>dc/da5/classDatabases_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>abd7bf49a62d8e267d898936122b5c2a7</anchor>
       <arglist>(const Models::Contributory &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateContributory</name>
-      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
-      <anchor>a7f0abb17daa85b89f1a756a7ee2e482c</anchor>
+      <anchorfile>dc/da5/classDatabases_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>a748062c6793dd80115ded9bffba75b6a</anchor>
       <arglist>(const Models::Contributory &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeContributory</name>
-      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
-      <anchor>aa362a76075ce095410411d7ac26bad5c</anchor>
+      <anchorfile>dc/da5/classDatabases_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>a3c99a1730bce8dbf3cab72896d8f17ff</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>Models::Contributory *</type>
       <name>getContributory</name>
-      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
-      <anchor>af09f192038c786e0f4a2501214667cda</anchor>
+      <anchorfile>dc/da5/classDatabases_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>a6fc0f3eca03c49d919e7dbd2f8290555</anchor>
       <arglist>(QSqlQuery &amp;q)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static ContributoryDatabase *</type>
       <name>instance</name>
-      <anchorfile>d5/de0/classDatabase_1_1ContributoryDatabase.html</anchorfile>
-      <anchor>af454afba7ef6f6e267085db89e5f8da4</anchor>
+      <anchorfile>dc/da5/classDatabases_1_1ContributoryDatabase.html</anchorfile>
+      <anchor>ae0f4e8192dec79685b26e187d3871c4d</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>Database::CustomerDatabase</name>
-    <filename>de/de4/classDatabase_1_1CustomerDatabase.html</filename>
-    <base>Database::Database</base>
+    <name>Databases::CustomerDatabase</name>
+    <filename>d8/d7e/classDatabases_1_1CustomerDatabase.html</filename>
+    <base>Databases::Database</base>
     <member kind="function">
-      <type>QStandardItemModel *</type>
+      <type>WdgModels::CustomersTableModel *</type>
       <name>getCustomersTable</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>a03110432af547dbe5447c51392cae53a</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a9c7ab43d4e219710604e030eb8ab44d8</anchor>
       <arglist>(QString filter=&quot;&quot;)</arglist>
     </member>
     <member kind="function">
       <type>QStandardItemModel *</type>
-      <name>getCustomersTree</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>a158c95d767ccf6f4345dd54854088e4f</anchor>
+      <name>getTree</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>ac611950b0502fbfe129ee1d1b495def4</anchor>
       <arglist>(QString filter=&quot;&quot;)</arglist>
     </member>
     <member kind="function">
       <type>QSharedPointer&lt; Models::Customer &gt;</type>
       <name>getCustomer</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>a997eac5e1a9e4d27a4380d10e8f8d935</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>ab0544439382fb6891cd7d27f67cb120c</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addCustomer</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>a10331f3013c56e9d9140d9c2e6d64b30</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a0f45861747bcb0eef12f432dfe9be30e</anchor>
       <arglist>(const Models::Customer &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateCustomer</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>a8408b97565455420fe062b5d62c19088</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a2ef9838798500e7ad4a09a3ed401fc8b</anchor>
       <arglist>(const Models::Customer &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeCustomer</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>ad19fe8efe5e718aba97c9b1a606553c7</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>acd2d887546a773f4c526796ac384ad53</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getNbCustomers</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>a73d49c62c59c63607d3b1bf9c03328cb</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>ab02a6a2999f6b92d38a3b6d71b940f82</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItem *</type>
+      <name>getItemRoot</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>af35f43c0329b37e88cb4f24783066968</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItem *</type>
+      <name>getItemCustomer</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>abad5bf2b61181f9896404850c4acfb84</anchor>
+      <arglist>(QSqlQuery q1)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItem *</type>
+      <name>getItemProject</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a641001509d0385000b5b831c134c78c4</anchor>
+      <arglist>(QSqlQuery q2)</arglist>
+    </member>
+    <member kind="function">
+      <type>QStandardItem *</type>
+      <name>getItemBillQuote</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>ab9311e006dc1e58486d6e682064912b5</anchor>
+      <arglist>(QSqlQuery q3)</arglist>
+    </member>
+    <member kind="function">
+      <type>QSharedPointer&lt; Models::Customer &gt;</type>
+      <name>getCustomer</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a23017b6db7808fa1d03e55e063418670</anchor>
+      <arglist>(QSqlQuery &amp;q)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateCustomer</name>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>aedb0c575bd9141547e4e084fd260beb7</anchor>
+      <arglist>(QSqlQuery &amp;q, Customer &amp;pCustomer)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static CustomerDatabase *</type>
       <name>instance</name>
-      <anchorfile>de/de4/classDatabase_1_1CustomerDatabase.html</anchorfile>
-      <anchor>adfa3f1c75bedb1b0112c06ddc1418f77</anchor>
+      <anchorfile>d8/d7e/classDatabases_1_1CustomerDatabase.html</anchorfile>
+      <anchor>a564b9978741e84e75d7e20003f7bf515</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>Database::Database</name>
-    <filename>da/d8e/classDatabase_1_1Database.html</filename>
+    <name>Databases::Database</name>
+    <filename>dd/db0/classDatabases_1_1Database.html</filename>
   </compound>
   <compound kind="class">
-    <name>Database::ProjectDatabase</name>
-    <filename>dd/dbf/classDatabase_1_1ProjectDatabase.html</filename>
-    <base>Database::Database</base>
+    <name>Databases::ProjectDatabase</name>
+    <filename>d7/d39/classDatabases_1_1ProjectDatabase.html</filename>
+    <base>Databases::Database</base>
     <member kind="function">
       <type>Models::Project *</type>
       <name>getProject</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>ae656663ce7e517e13815198f66341b2a</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a1bf482f645ba7bea80ed6c52bc013a4d</anchor>
       <arglist>(const int pId)</arglist>
+    </member>
+    <member kind="function">
+      <type>Models::Project *</type>
+      <name>getProject</name>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a165ec8686b565792e01fb79c550e6d4d</anchor>
+      <arglist>(QSqlQuery &amp;q)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addProject</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a904588d19669d5e391518a946fd94ddf</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a270a365c4a9345029447c7a958444dac</anchor>
       <arglist>(const Models::Project &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateProject</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a5a839ed196050cf41a1b0f1073757599</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a0816c768932243906e37045d4640cc8a</anchor>
       <arglist>(const Models::Project &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>removeProject</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a45fb24373d53e060d05cb166cd635370</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>abdd5fcb1913c2d2f375a658f6656c522</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getNbProjects</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a57f293ea89b06e1cefff8189a5dc9444</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>aa486ad21f156a8ba7d08baef29e0aaea</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getNbProjectsForACustomer</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a9d86e98ae77eaef7875c36c84e08722b</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a9e9a1fb58e4e90fcc568d1c171b863ff</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
       <type>QMap&lt; int, Models::Project &gt;</type>
       <name>getProjectsOfCustomer</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a1bbdbcb01b9741800e49902d0783e5f3</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>acf044f95bd4df4e04bff9ef52d326704</anchor>
       <arglist>(QSharedPointer&lt; Models::Customer &gt; c)</arglist>
     </member>
     <member kind="function">
-      <type>QStandardItemModel *</type>
+      <type>WdgModels::ProjectsTableModel *</type>
       <name>getProjectsTable</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>ad2da7cde75b3b84dcdf2771969950ae9</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>ac00628f2d8911298dcb0292f6c4cff66</anchor>
       <arglist>(const int pId)</arglist>
     </member>
     <member kind="function">
-      <type>Models::Project *</type>
-      <name>getProject</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a360d570a10c3e9df38241a650e1a30a6</anchor>
+      <type>QSharedPointer&lt; Project &gt;</type>
+      <name>updateProject</name>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>ab644aeb47d9666e8191cc9bc6ab93417</anchor>
       <arglist>(QSqlQuery &amp;q)</arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; Project * &gt;</type>
+      <name>getAllProjects</name>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>ac2532676aabcc8f304b2a3ddf4892205</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static ProjectDatabase *</type>
       <name>instance</name>
-      <anchorfile>dd/dbf/classDatabase_1_1ProjectDatabase.html</anchorfile>
-      <anchor>a051359f2f1390cbdd3c47b1044ab166f</anchor>
+      <anchorfile>d7/d39/classDatabases_1_1ProjectDatabase.html</anchorfile>
+      <anchor>a75cf81b8d073addcf43a313483dafe65</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
-    <name>Database::UserDatabase</name>
-    <filename>d9/d32/classDatabase_1_1UserDatabase.html</filename>
-    <base>Database::Database</base>
+    <name>Databases::UserDatabase</name>
+    <filename>d0/d33/classDatabases_1_1UserDatabase.html</filename>
+    <base>Databases::Database</base>
     <member kind="function">
       <type>QStandardItemModel *</type>
       <name>getUserTable</name>
-      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
-      <anchor>a1b35f88b06fc54521bb72acd1fbbdc1e</anchor>
+      <anchorfile>d0/d33/classDatabases_1_1UserDatabase.html</anchorfile>
+      <anchor>a7545310accf573181c257861328e07d3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Models::User *</type>
       <name>getUser</name>
-      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
-      <anchor>ad05795be223fef14a114d712aebef2e6</anchor>
+      <anchorfile>d0/d33/classDatabases_1_1UserDatabase.html</anchorfile>
+      <anchor>a476a2b649cc61870a59d6f8df0b376e4</anchor>
       <arglist>(const int pId=1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>updateUser</name>
-      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
-      <anchor>af00cc95c910ab6ca3dbeef591531ae2b</anchor>
+      <anchorfile>d0/d33/classDatabases_1_1UserDatabase.html</anchorfile>
+      <anchor>a79cd7ce66a5dc13f91a59eb106edd871</anchor>
       <arglist>(const Models::User &amp;)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static UserDatabase *</type>
       <name>instance</name>
-      <anchorfile>d9/d32/classDatabase_1_1UserDatabase.html</anchorfile>
-      <anchor>ac8cdf7dc9b0163d832ca473973916952</anchor>
+      <anchorfile>d0/d33/classDatabases_1_1UserDatabase.html</anchorfile>
+      <anchor>ab845a9e43bb6b5c4c169e37185f0ae45</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -789,6 +994,24 @@
       <name>popupMessage</name>
       <anchorfile>d4/de4/classExceptions_1_1DbException.html</anchorfile>
       <anchor>a4c04dbebd510cb3206b0263bc57c9f6d</anchor>
+      <arglist>(QWidget *parent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Exceptions::FileException</name>
+    <filename>d9/d57/classExceptions_1_1FileException.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>FileException</name>
+      <anchorfile>d9/d57/classExceptions_1_1FileException.html</anchorfile>
+      <anchor>a30618a934ca08b2f37066be0b63b5a0e</anchor>
+      <arglist>(const QString userError, const QString fctName, const QString logError, float errorCode)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>popupMessage</name>
+      <anchorfile>d9/d57/classExceptions_1_1FileException.html</anchorfile>
+      <anchor>aba824967d55e0a9a29c23521d87f05dd</anchor>
       <arglist>(QWidget *parent)</arglist>
     </member>
   </compound>
@@ -827,6 +1050,13 @@
       <name>addQuote</name>
       <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
       <anchor>aa7d3f2553b55d74885ad7f19ed403dfd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>addBill</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a4b9d5d9bee4b7a5f7d8cfe04d1222315</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="slot">
@@ -901,10 +1131,24 @@
     </member>
     <member kind="slot">
       <type>void</type>
-      <name>updateBtn</name>
+      <name>updateButtons</name>
       <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
-      <anchor>a39723aa0949414313efad1528a856dfd</anchor>
+      <anchor>ac71b4c99f67e10b31d9855e80a9565b7</anchor>
       <arglist>(void)</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>editDoc</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>a06bc679c41574cb679c6e5e7b673139c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>removeDoc</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>af86458ad953cb70fb7a88245a6047550</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -928,6 +1172,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>int</type>
+      <name>getCurrentQuoteId</name>
+      <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
+      <anchor>aaf5e1b2cb797894207f4c5e86d2d4dcf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>QString</type>
       <name>getCurrentCustomerName</name>
       <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
@@ -942,25 +1193,25 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>isTreeRoot</name>
+      <type>int</type>
+      <name>treeLevel</name>
       <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
-      <anchor>acaf52b97656cc6d69761b065b97a6077</anchor>
+      <anchor>a382370c8f119d99d409b1b5708a3e846</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>isCustomerItemTree</name>
+      <type>QModelIndex</type>
+      <name>rootTree</name>
       <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
-      <anchor>a15f26af9a47e3b7d3dfe961c9dcd57c6</anchor>
+      <anchor>ad2b58d18473d125b431ee0974c905748</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>isProjectItemTree</name>
+      <type>void</type>
+      <name>addDoc</name>
       <anchorfile>d5/d2f/classGui_1_1MainWindow.html</anchorfile>
-      <anchor>a62789c0cd5dfdb3cca34002188648252</anchor>
-      <arglist>()</arglist>
+      <anchor>adf04c63032d4014163797ca73041511f</anchor>
+      <arglist>(bool isBilling)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -1027,14 +1278,21 @@
       <type></type>
       <name>AddQuoteDialog</name>
       <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
-      <anchor>aa2f97eece61cf962621db04d11ea99d7</anchor>
-      <arglist>(int idCustomer=0, int id=0, QWidget *parent=0)</arglist>
+      <anchor>ae6a6d0730d6ec3804ab802821e89ebd5</anchor>
+      <arglist>(bool isBilling, int idCustomer=0, int id=0, QWidget *parent=0)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>fillFields</name>
       <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
       <anchor>a5dd0cca14b1172a7e1dd9019d8fa8ff3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumber</name>
+      <anchorfile>d6/d43/classGui_1_1Dialogs_1_1AddQuoteDialog.html</anchorfile>
+      <anchor>a68b6b01e0818cb6615b2335d486aac09</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -1168,6 +1426,13 @@
       <anchor>a9ab536a7485460c905a8f17be8939f38</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>browseWorkspacePath</name>
+      <anchorfile>d3/d81/classGui_1_1Dialogs_1_1UserDataDialog.html</anchorfile>
+      <anchor>a7516a1eb19fa88dc405c085cefa6a3b6</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>UserDataDialog</name>
@@ -1236,6 +1501,13 @@
       <anchorfile>dc/da3/classGui_1_1Widgets_1_1ContributoriesWidget.html</anchorfile>
       <anchor>a05ddbeb4ffce91003efc1c651d888955</anchor>
       <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>add</name>
+      <anchorfile>dc/da3/classGui_1_1Widgets_1_1ContributoriesWidget.html</anchorfile>
+      <anchor>a745f5a8cac438f645907454117a7872f</anchor>
+      <arglist>(Contributory c)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -1308,6 +1580,13 @@
       <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
       <anchor>a02d9111ae56ff401bc512fa218161d94</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="slot">
+      <type>void</type>
+      <name>updateBtn</name>
+      <anchorfile>dc/d8c/classGui_1_1Widgets_1_1ProjectsWidget.html</anchorfile>
+      <anchor>a3051880516e89826876afdf01fa6637a</anchor>
+      <arglist>(bool b)</arglist>
     </member>
     <member kind="signal">
       <type>void</type>
@@ -1449,6 +1728,87 @@
     <filename>d6/d93/classGui_1_1Widgets_1_1Delegates_1_1ProjectComboDelegate.html</filename>
   </compound>
   <compound kind="class">
+    <name>Gui::Widgets::WdgModels::BillingsTableModel</name>
+    <filename>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>BillingsTableModel</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>a7ac53a3ff1222c15e264cff34b830582</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>aeda0c27a114bab611363cb46c5119b10</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>a361398f7c11d07a2303c4c5236b3c944</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>a2b83574c5ed7a98f1b311e14e4112d13</anchor>
+      <arglist>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>headerData</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>af441051dcb0c702ca9d390405bd8bbc9</anchor>
+      <arglist>(int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setData</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>a5df8b1b23dbd38d2244cabf91e481fd5</anchor>
+      <arglist>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>append</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>aff58949de7e18482ad09bf2635e1997c</anchor>
+      <arglist>(const Billing &amp;billing)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>a0946d335077398f9c35f554340139ba6</anchor>
+      <arglist>(const int i)</arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>ab130d7853a7db8df5d57efc9a2854a4d</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>count</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>accfaef7c494d5c7f8be6b3248160d4b7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; Billing &gt;</type>
+      <name>getBillings</name>
+      <anchorfile>dc/d82/classGui_1_1Widgets_1_1WdgModels_1_1BillingsTableModel.html</anchorfile>
+      <anchor>a9fd40a3339be5a1efbe621f6a1bb89aa</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>Gui::Widgets::WdgModels::ContributoriesTableModel</name>
     <filename>dc/db9/classGui_1_1Widgets_1_1WdgModels_1_1ContributoriesTableModel.html</filename>
     <member kind="function">
@@ -1529,13 +1889,175 @@
       <arglist>()</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::WdgModels::CustomersTableModel</name>
+    <filename>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>CustomersTableModel</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a51344d4c37da74da6527e7a41e9fff6b</anchor>
+      <arglist>(QObject *parent=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a872cf3156efd50f6d03f8700aa502962</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a50a7dd6359eadce3011d86f0aa3b0362</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a56f0da4118917c722bc27eb907e7e5fa</anchor>
+      <arglist>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>headerData</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>ac68af68b991afa792798f7b72c5c7664</anchor>
+      <arglist>(int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setData</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a7045685ee906328da54e25205314175c</anchor>
+      <arglist>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>append</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a823210160956ca5045dff8e796c5abec</anchor>
+      <arglist>(const Customer &amp;customer)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>aa70b783d09916574eeaabfdb5ccc5240</anchor>
+      <arglist>(const int i)</arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a49e82b87cf13a746f4fd1ff1c6252037</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>count</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>a41856382faed49d7be581b167e8bd97d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; Customer &gt;</type>
+      <name>getCustomers</name>
+      <anchorfile>d7/d12/classGui_1_1Widgets_1_1WdgModels_1_1CustomersTableModel.html</anchorfile>
+      <anchor>ab0f2d501867f9085e7536a9c4d8b0cdf</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Gui::Widgets::WdgModels::ProjectsTableModel</name>
+    <filename>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ProjectsTableModel</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>a4e0841b0ef99ec466d9660c39528925a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>rowCount</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>aeb603c6cedf81682234f705c4e51c4d5</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>columnCount</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>a02d2308cf2a4894d57b12e4ab3886c29</anchor>
+      <arglist>(const QModelIndex &amp;) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>data</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>aca598260b807060a5d89f09430d6bd1d</anchor>
+      <arglist>(const QModelIndex &amp;index, int role=Qt::DisplayRole) const </arglist>
+    </member>
+    <member kind="function">
+      <type>QVariant</type>
+      <name>headerData</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>ad984702eada2770507a1507ea9e3e685</anchor>
+      <arglist>(int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const </arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>setData</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>ae5072671b7fb73a4544a0cf913a38e53</anchor>
+      <arglist>(const QModelIndex &amp;index, const QVariant &amp;value, int role=Qt::EditRole)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>append</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>a9ef39bf8d33a49cc9c2ca6f77e41cd56</anchor>
+      <arglist>(const Project &amp;project)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>remove</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>a696b8b328d2e354cb3155ab648ae5067</anchor>
+      <arglist>(const int i)</arglist>
+    </member>
+    <member kind="function">
+      <type>Qt::ItemFlags</type>
+      <name>flags</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>a94739f3784ae7ae93c85b5bebc6f9aa2</anchor>
+      <arglist>(const QModelIndex &amp;index) const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>count</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>a55d77822d184a56c22b7623a78dc2dd1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QList&lt; Project &gt;</type>
+      <name>getProjects</name>
+      <anchorfile>d3/d40/classGui_1_1Widgets_1_1WdgModels_1_1ProjectsTableModel.html</anchorfile>
+      <anchor>ada0246acfaee46e62f31070ffdcd4bd9</anchor>
+      <arglist>() const </arglist>
+    </member>
+  </compound>
   <compound kind="namespace">
     <name>Models</name>
     <filename>dd/d20/namespaceModels.html</filename>
     <class kind="class">Models::Billing</class>
     <class kind="class">Models::Contributory</class>
     <class kind="class">Models::Customer</class>
-    <class kind="class">Models::IDatabaseModel</class>
+    <class kind="class">Models::IModel</class>
     <class kind="class">Models::Project</class>
     <class kind="class">Models::Search</class>
     <class kind="class">Models::User</class>
@@ -1543,7 +2065,7 @@
   <compound kind="class">
     <name>Models::Billing</name>
     <filename>d4/d5c/classModels_1_1Billing.html</filename>
-    <base>Models::IDatabaseModel</base>
+    <base>Models::IModel</base>
     <member kind="function">
       <type></type>
       <name>Billing</name>
@@ -1584,6 +2106,20 @@
       <name>remove</name>
       <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
       <anchor>ada8a7c127a80fa7349fbd6a7d30ca4a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVariantHash</type>
+      <name>getDataMap</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a2363c0b978434c0a835f894a67eb81e1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>generateTex</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a3f835c6f4ea0b66c43bb7fec40c6e075</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -1684,60 +2220,67 @@
       <anchor>ae6ff88e05384718d57be1be38f250a52</anchor>
       <arglist>(const Billing &amp;b)</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>d4/d5c/classModels_1_1Billing.html</anchorfile>
+      <anchor>a6d3f5da2e9a0b7de217dc51220c4c7b7</anchor>
+      <arglist>(const Billing &amp;b) const </arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
-      <name>~IDatabaseModel</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a7dd56f574720919d1703651f5896141f</anchor>
+      <name>~IModel</name>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>ab9c12f5b9ae86e00d0f2f7d8d349c4fa</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getId</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a6a4d1d3c0912c97c61a9d4de7471afee</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>a63087bb34da8c38a11109cd775122d31</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setId</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a6bf2ec005b5d931e58ee8125e92d9722</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>ac99cb8ca4004755b1445fb5f66973341</anchor>
       <arglist>(int id)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isToRemoved</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a058e5b85d95e9424245dc37eb122350c</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>adecabe4161742cfc81ddbadc6706d9e9</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setToRemoved</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>ac399b44ba1178ef6f54da31203e11d9f</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>abfbfbc6c7de50ad4536027a964b2521c</anchor>
       <arglist>(bool toRemoved)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>int</type>
       <name>_id</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a85fbc8298dee2e84f310a21ed935665f</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>ab4fc86e436edeb4875580c4cd9feeb25</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>bool</type>
       <name>_toRemoved</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>acfa9af965e01f44d6ff75226e23e4640</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>a8958f103202a45a8f77b86acebafe69c</anchor>
       <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Models::Contributory</name>
     <filename>d5/dd1/classModels_1_1Contributory.html</filename>
-    <base>Models::IDatabaseModel</base>
+    <base>Models::IModel</base>
     <member kind="function">
       <type></type>
       <name>Contributory</name>
@@ -1778,6 +2321,13 @@
       <name>remove</name>
       <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
       <anchor>ab9971d7867516b488095e63e1179eac8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVariantHash</type>
+      <name>getDataMap</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a692f563f0428866441ea8bc2b9e772ca</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -1822,11 +2372,25 @@
       <anchor>a12d4199fa7175c0b43f62eddf7c3d69e</anchor>
       <arglist>(const QString &amp;getDescription)</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>ad49c8b9cdf7254069e07f2238b42c8f3</anchor>
+      <arglist>(const Contributory &amp;c)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>d5/dd1/classModels_1_1Contributory.html</anchorfile>
+      <anchor>a0808e6453b222f62d3288361dcb56d16</anchor>
+      <arglist>(const Contributory &amp;c)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Models::Customer</name>
     <filename>db/dd7/classModels_1_1Customer.html</filename>
-    <base>Models::IDatabaseModel</base>
+    <base>Models::IModel</base>
     <member kind="function">
       <type></type>
       <name>Customer</name>
@@ -1860,6 +2424,13 @@
       <name>remove</name>
       <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
       <anchor>a0f5dba0d90af0adf5d0aca26195d21b1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVariantHash</type>
+      <name>getDataMap</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ae72b05319056dc482f3f525ef40b8d40</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -2017,6 +2588,13 @@
       <arglist>(const QString &amp;fax)</arglist>
     </member>
     <member kind="function">
+      <type>QString</type>
+      <name>getPath</name>
+      <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
+      <anchor>ac1aec0fb9058333e1a2496b1c29049af</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>operator==</name>
       <anchorfile>db/dd7/classModels_1_1Customer.html</anchorfile>
@@ -2032,34 +2610,41 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Models::IDatabaseModel</name>
-    <filename>df/ddd/classModels_1_1IDatabaseModel.html</filename>
+    <name>Models::IModel</name>
+    <filename>d0/d9c/classModels_1_1IModel.html</filename>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>commit</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a8fcb1587824753cd121a7d961b60a98a</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>ab4bc529739a8d243222212590888be45</anchor>
       <arglist>()=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>hydrat</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>af0814d81fc76a881bc64d9062adf1f6c</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>a7ce6def437f5e1f6a78ee1d67ca028e4</anchor>
       <arglist>(int id)=0</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>remove</name>
-      <anchorfile>df/ddd/classModels_1_1IDatabaseModel.html</anchorfile>
-      <anchor>a6d8eca5b493b57c21feafae75c783b14</anchor>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>a290473739e709321c818f4451e05e619</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual QVariantHash</type>
+      <name>getDataMap</name>
+      <anchorfile>d0/d9c/classModels_1_1IModel.html</anchorfile>
+      <anchor>a9851b0f296aac58353edff22af11cf3c</anchor>
       <arglist>()=0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>Models::Project</name>
     <filename>dd/d3f/classModels_1_1Project.html</filename>
-    <base>Models::IDatabaseModel</base>
+    <base>Models::IModel</base>
     <member kind="function">
       <type></type>
       <name>Project</name>
@@ -2110,6 +2695,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>QVariantHash</type>
+      <name>getDataMap</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a7db5156657a7dbadd024aead14a40182</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>QString</type>
       <name>getName</name>
       <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
@@ -2155,8 +2747,8 @@
       <type>QDate</type>
       <name>getEndDate</name>
       <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
-      <anchor>ae925d3750ebce7b1b30c9dc7c08302b0</anchor>
-      <arglist>()</arglist>
+      <anchor>aaf6792d15dcd65c3708e4a01b80e3108</anchor>
+      <arglist>() const </arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2192,6 +2784,20 @@
       <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
       <anchor>a9d305edf054735b911e144516d3eccba</anchor>
       <arglist>(QSharedPointer&lt; Customer &gt; customer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a2f322e63f6b42273c24093b9df46c2d6</anchor>
+      <arglist>(const Project &amp;p)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>dd/d3f/classModels_1_1Project.html</anchorfile>
+      <anchor>a8e7cc264d433c708323faccae7bdd082</anchor>
+      <arglist>(const Project &amp;p) const </arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static const double</type>
@@ -2233,6 +2839,62 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>filterOnVarcharElements</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a63afd22af898b54b405be45a8a1ff843</anchor>
+      <arglist>(QString &amp;filter, const QStringList list, QString element)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnNumberElements</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ab7c6fc3cf9062848c118ab7e8380726c</anchor>
+      <arglist>(QString &amp;filter, const QStringList list, QString element)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnCompany</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>af5e7f802c53a735915193fd596d45f07</anchor>
+      <arglist>(QString &amp;filter, const QStringList list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnReferentLastname</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a27536d8a999a32164e1ac90bf9d24906</anchor>
+      <arglist>(QString &amp;filter, const QStringList list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnProjects</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a4f5672fa4dc52e3ea7bda9b4c654147f</anchor>
+      <arglist>(QString &amp;filter, const QStringList list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnContributories</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>acb948c15a52305c29cf4c5b9489e9f18</anchor>
+      <arglist>(QString &amp;filter, const QStringList list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnBillsOrQuotes</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ad80f840390720ad3239aa0fc87e483fc</anchor>
+      <arglist>(QString &amp;filter, const QStringList list)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>filterOnCustomersWithoutProject</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>af92c03f00f81edeaf5a209d7b830be3a</anchor>
+      <arglist>(QString &amp;filter, const QStringList list)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>getSearchInCompanies</name>
       <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
@@ -2243,8 +2905,8 @@
       <type>void</type>
       <name>setSearchInCompanies</name>
       <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
-      <anchor>ac32bf6038d77b99a097faee3efa04cc7</anchor>
-      <arglist>(bool getSearchInCompanies)</arglist>
+      <anchor>a3a630b2b2a48fb013b4c8cb9756fa813</anchor>
+      <arglist>(bool searchInCompanies)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2257,8 +2919,50 @@
       <type>void</type>
       <name>setSearchInReferentLastname</name>
       <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
-      <anchor>adf5e7ebfc61b309db1b110de5167b6d5</anchor>
-      <arglist>(bool getSearchInReferentLastname)</arglist>
+      <anchor>a4a897b3e19a0a6ce9e37ae1a73b39240</anchor>
+      <arglist>(bool searchInReferentLastname)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getSearchInProjects</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a6c8f401bb696db96cc57a635d46910dd</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSearchInProjects</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ab84375da3e302c7a871b4ced1c8d69c3</anchor>
+      <arglist>(bool searchInProjects)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>searchInContributories</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>ab799572f484cc01a515b36ea3723ee06</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSearchInContributories</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>af6305e66a5ca5ad5ba29b15397821e58</anchor>
+      <arglist>(bool searchInContributories)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>getSearchInBillsQuotes</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>adf4525d5961793999c191e010a58bb56</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSearchInBillsQuotes</name>
+      <anchorfile>d6/d44/classModels_1_1Search.html</anchorfile>
+      <anchor>a64f82cec524c9bb737e2758445288b43</anchor>
+      <arglist>(bool searchInBillsQuotes)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2292,7 +2996,7 @@
   <compound kind="class">
     <name>Models::User</name>
     <filename>df/d68/classModels_1_1User.html</filename>
-    <base>Models::IDatabaseModel</base>
+    <base>Models::IModel</base>
     <member kind="function">
       <type></type>
       <name>User</name>
@@ -2326,6 +3030,13 @@
       <name>remove</name>
       <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
       <anchor>ae0870269116b5bda3b5f1c8527e300be</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>QVariantHash</type>
+      <name>getDataMap</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>abbc8a3a40b527497872240bf39f21314</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -2482,6 +3193,300 @@
       <anchor>ae751ee06859dffce0cad08005c42c933</anchor>
       <arglist>(const QString &amp;noSiret)</arglist>
     </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getWorkspaceName</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>adf4c52429656a4f44c15d879caee5b10</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWorkspaceName</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ae51aa34e41159fe7e4541a8cfddc50a3</anchor>
+      <arglist>(const QString &amp;workspaceName)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>getWorkspacePath</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>aa9421bda240316f9eebd0145f6dc3eda</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWorkspacePath</name>
+      <anchorfile>df/d68/classModels_1_1User.html</anchorfile>
+      <anchor>ae62b6cc7c6c5f5ab80b9f066b67afc95</anchor>
+      <arglist>(const QString &amp;workspacePath)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::Context</name>
+    <filename>d7/d34/classMustache_1_1Context.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a49d5e75bc9d85b279f620b6557eefd0c</anchor>
+      <arglist>(const QString &amp;key) const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>isFalse</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a8af44c37ffdbdba1e3b93835ea87aff9</anchor>
+      <arglist>(const QString &amp;key) const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual int</type>
+      <name>listCount</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a934c2d632a2f9443d027582032d4ce90</anchor>
+      <arglist>(const QString &amp;key) const =0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>push</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a586f212ab34abacc4859c6bcae1298c3</anchor>
+      <arglist>(const QString &amp;key, int index=-1)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>pop</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>ac5f9a26fafe600ca8134348ecd12ad01</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>a27d9b726c1554653f1783d0eb693662a</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>d7/d34/classMustache_1_1Context.html</anchorfile>
+      <anchor>acded87450182e91cbb0b37e375a4a366</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Renderer *renderer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::QtVariantContext</name>
+    <filename>d5/d8b/classMustache_1_1QtVariantContext.html</filename>
+    <base>Mustache::Context</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>stringValue</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a55b19269efa6924edf21118ab0b49e08</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>canEval</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a2671990a3c9d8d4d7b626fa85b841ab2</anchor>
+      <arglist>(const QString &amp;key) const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>eval</name>
+      <anchorfile>d5/d8b/classMustache_1_1QtVariantContext.html</anchorfile>
+      <anchor>a0602be333afa1d4fa89c2c5820311bf1</anchor>
+      <arglist>(const QString &amp;key, const QString &amp;_template, Mustache::Renderer *renderer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::PartialResolver</name>
+    <filename>d0/dce/classMustache_1_1PartialResolver.html</filename>
+    <member kind="function" virtualness="pure">
+      <type>virtual QString</type>
+      <name>getPartial</name>
+      <anchorfile>d0/dce/classMustache_1_1PartialResolver.html</anchorfile>
+      <anchor>a81e9c5a8b32a52266cd8ea0580c3d3ac</anchor>
+      <arglist>(const QString &amp;name)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::PartialMap</name>
+    <filename>dc/d1a/classMustache_1_1PartialMap.html</filename>
+    <base>Mustache::PartialResolver</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>getPartial</name>
+      <anchorfile>dc/d1a/classMustache_1_1PartialMap.html</anchorfile>
+      <anchor>a676a6f9a77cdd53e91b18216733b2781</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::PartialFileLoader</name>
+    <filename>da/d31/classMustache_1_1PartialFileLoader.html</filename>
+    <base>Mustache::PartialResolver</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual QString</type>
+      <name>getPartial</name>
+      <anchorfile>da/d31/classMustache_1_1PartialFileLoader.html</anchorfile>
+      <anchor>a36ba8b817708a8755293db46bceb0dbb</anchor>
+      <arglist>(const QString &amp;name)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>Mustache::Tag</name>
+    <filename>d5/dc2/structMustache_1_1Tag.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Type</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SectionStart</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472ad1e9af4f164680cdebbdeaef2c0a271c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>InvertedSectionStart</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472a63d4e5150e7c43623bfb976dbba96961</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SectionEnd</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472aa6404ddcd9008449cc61bea039dbb0af</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Partial</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472ae07f1dc49d6e06735f63ec039e7ec77c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>Comment</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472a85c0e87f362943cf0244792873edd478</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SetDelimiter</name>
+      <anchorfile>d5/dc2/structMustache_1_1Tag.html</anchorfile>
+      <anchor>ab702ed1288811f8bb16d76babfdb6472a680bf1878bdfa8c7ed5a594603b638be</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Mustache::Renderer</name>
+    <filename>dc/d58/classMustache_1_1Renderer.html</filename>
+    <member kind="function">
+      <type>QString</type>
+      <name>render</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>ab82d90fe802606145d1f7ed9f2a9cf81</anchor>
+      <arglist>(const QString &amp;_template, Context *context)</arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>error</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>aaea1d06b2883b4f52a1117b7d5c5b75a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>errorPos</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>a35aea613ad6426661a715520fa617cb7</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QString</type>
+      <name>errorPartial</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>aa26c1e3e2444cccd926e1d8a4a50fcef</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setTagMarkers</name>
+      <anchorfile>dc/d58/classMustache_1_1Renderer.html</anchorfile>
+      <anchor>a4b61e7a727926ca21a812f6649488eb6</anchor>
+      <arglist>(const QString &amp;startMarker, const QString &amp;endMarker)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Utils::HierarchicalSystem</name>
+    <filename>d1/de0/classUtils_1_1HierarchicalSystem.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>HierarchicalSystem</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>a55e085ac80ae1640b7fb428f2a5d188c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getAllProjects</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>ae45de757de5b0867d419a4d86e12c94f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getAllBillings</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>a80b20dd898e0c44741cb4e6768342b72</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateData</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>af0881e95aef001ee46d9f83a9e66dca5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addProjectToCustomer</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>a26f07f62ebb50520bc11665e26cedadc</anchor>
+      <arglist>(Project *p, Customer c)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addBillingToProject</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>a4452533b6f536a92ba1a3c5fe3d8c12d</anchor>
+      <arglist>(Billing *b, Project *p)</arglist>
+    </member>
+    <member kind="function">
+      <type>QMap&lt; Project *, Customer &gt;</type>
+      <name>getCustomers</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>aa66210b1d52960ebc9b7b1d827de8564</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>QMap&lt; Billing *, Project * &gt;</type>
+      <name>getProjects</name>
+      <anchorfile>d1/de0/classUtils_1_1HierarchicalSystem.html</anchorfile>
+      <anchor>ae62e86244c20f66c4b741ad3a235e7d1</anchor>
+      <arglist>() const </arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Utils::ItemType</name>
@@ -2501,10 +3506,10 @@
       <arglist>() const </arglist>
     </member>
     <member kind="function">
-      <type>Models::IDatabaseModel *</type>
+      <type>Models::IModel *</type>
       <name>getModel</name>
       <anchorfile>d5/d7c/classUtils_1_1ItemType.html</anchorfile>
-      <anchor>a9341f4f165726aa1e31543d6c7233cd6</anchor>
+      <anchor>aff3b98516a4ee741cf926d9cd7cbd131</anchor>
       <arglist>(int id)</arglist>
     </member>
     <member kind="function">
@@ -2608,9 +3613,9 @@
     </member>
   </compound>
   <compound kind="dir">
-    <name>src/gui/widgets/checkfields</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/checkfields/</path>
-    <filename>dir_0eead514b9ed4592c90e101ed422560f.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/checkfields</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/checkfields/</path>
+    <filename>dir_6e201315ea457949183b7364303165c0.html</filename>
     <file>checkcity.cpp</file>
     <file>checkcity.h</file>
     <file>checkcountry.cpp</file>
@@ -2636,9 +3641,9 @@
     <file>icheckfield.h</file>
   </compound>
   <compound kind="dir">
-    <name>tests/database</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/database/</path>
-    <filename>dir_75d760846aa40227f00e44530a510c90.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/tests/database</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/tests/database/</path>
+    <filename>dir_24bb323c1c81958dd814c7b6fe7c9395.html</filename>
     <file>billingdatabasetest.cpp</file>
     <file>billingdatabasetest.h</file>
     <file>contributoriesdatabasetest.cpp</file>
@@ -2647,9 +3652,9 @@
     <file>customerdatabasetest.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/database</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/database/</path>
-    <filename>dir_803ee67260c130b45d29089798491ab2.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/database</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/database/</path>
+    <filename>dir_b394c8c2cb665e69b5f0039e19e9f942.html</filename>
     <file>billingdatabase.cpp</file>
     <file>billingdatabase.h</file>
     <file>contributorydatabase.cpp</file>
@@ -2664,16 +3669,16 @@
     <file>userdatabase.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/gui/widgets/delegates</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/delegates/</path>
-    <filename>dir_3f5c8b159cea2455682ba166343f1c24.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/delegates</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/delegates/</path>
+    <filename>dir_a31d926b552bc859ddb38d7097a6b009.html</filename>
     <file>projectcombodelegate.cpp</file>
     <file>projectcombodelegate.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/gui/dialogs</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/dialogs/</path>
-    <filename>dir_efbc4204d7eafacd192acb41efadd819.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/gui/dialogs</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/gui/dialogs/</path>
+    <filename>dir_5dd927cc1be9bdbe6437afb3c69fbbcb.html</filename>
     <file>addcontributorydialog.cpp</file>
     <file>addcontributorydialog.h</file>
     <file>addprojectdialog.cpp</file>
@@ -2684,28 +3689,54 @@
     <file>dialogaddcustomer.h</file>
     <file>messagebox.cpp</file>
     <file>messagebox.h</file>
-    <file>messageboxhelp.cpp</file>
     <file>userdatadialog.cpp</file>
     <file>userdatadialog.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/exceptions</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/exceptions/</path>
-    <filename>dir_6e33d6500a76933db4361f663e54ab12.html</filename>
+    <name>/home/florent/Documents</name>
+    <path>/home/florent/Documents/</path>
+    <filename>dir_8f15acdd43684e13a623b9576dcf007e.html</filename>
+    <dir>/home/florent/Documents/Projet_S8</dir>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/exceptions</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/exceptions/</path>
+    <filename>dir_d31c162244321dde40ab603550ca38d1.html</filename>
     <file>dbexception.cpp</file>
     <file>dbexception.h</file>
+    <file>fileexception.cpp</file>
+    <file>fileexception.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/gui</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/</path>
-    <filename>dir_99d0482cf009f9d97a0877749b817f19.html</filename>
-    <dir>src/gui/dialogs</dir>
-    <dir>src/gui/widgets</dir>
+    <name>/home/florent/Documents/Projet_S8/FactDev</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/</path>
+    <filename>dir_3cdce1f891efcdfae7290d4c5e992495.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/tests</dir>
   </compound>
   <compound kind="dir">
-    <name>tests/models</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/models/</path>
-    <filename>dir_c7ec7d3a96f76aec1e8b71e782fe5cbb.html</filename>
+    <name>/home/florent</name>
+    <path>/home/florent/</path>
+    <filename>dir_01536a2b641ff09914428354c1e7be1e.html</filename>
+    <dir>/home/florent/Documents</dir>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/gui</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/gui/</path>
+    <filename>dir_174c047aa1b758fdd7c588154e07d9be.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/gui/dialogs</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets</dir>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/libs</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/libs/</path>
+    <filename>dir_3a61e9d528f8eb92b843db585a0bdb91.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache</dir>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/tests/models</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/tests/models/</path>
+    <filename>dir_da8120d3dc6b8b845e9151c05c73ba46.html</filename>
     <file>billingmodeltest.cpp</file>
     <file>billingmodeltest.h</file>
     <file>customermodeltest.cpp</file>
@@ -2714,16 +3745,16 @@
     <file>searchtest.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/models</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/models/</path>
-    <filename>dir_bdeba5f06b852fec80257c0bf4c3c36e.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/models</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/models/</path>
+    <filename>dir_ca70937b12f3bb074686839608e7d9bf.html</filename>
     <file>billing.cpp</file>
     <file>billing.h</file>
     <file>contributory.cpp</file>
     <file>contributory.h</file>
     <file>customer.cpp</file>
     <file>customer.h</file>
-    <file>idatabasemodel.h</file>
+    <file>imodel.h</file>
     <file>project.cpp</file>
     <file>project.h</file>
     <file>search.cpp</file>
@@ -2732,9 +3763,29 @@
     <file>user.h</file>
   </compound>
   <compound kind="dir">
-    <name>tests/QTestRunner</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/QTestRunner/</path>
-    <filename>dir_2c44b78b8b65d06e29d47a71b2001f3a.html</filename>
+    <name>/home/florent/Documents/Projet_S8</name>
+    <path>/home/florent/Documents/Projet_S8/</path>
+    <filename>dir_12b596b7195a2ba645fd5a3bc7eac442.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev</dir>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/tests/qt-mustache</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/tests/qt-mustache/</path>
+    <filename>dir_012233e90d331616410b483e0705f512.html</filename>
+    <file>test_mustache.cpp</file>
+    <file>test_mustache.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/</path>
+    <filename>dir_2471f4bb891d49b9534bc63c6addd766.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/src</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/tests</dir>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/tests/QTestRunner</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/tests/QTestRunner/</path>
+    <filename>dir_b2ec3b4f80c65c9e1eb88951bac0b842.html</filename>
     <file>main.cpp</file>
     <file>testadder.cpp</file>
     <file>testadder.h</file>
@@ -2742,32 +3793,54 @@
     <file>testrunner.h</file>
   </compound>
   <compound kind="dir">
-    <name>src</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/</path>
-    <filename>dir_68267d1309a1af8e8297ef4c3efbcdba.html</filename>
-    <dir>src/database</dir>
-    <dir>src/exceptions</dir>
-    <dir>src/gui</dir>
-    <dir>src/models</dir>
-    <dir>src/utils</dir>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/src</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/src/</path>
+    <filename>dir_4b8a7b4fe1313baa65066f9d4380b542.html</filename>
+    <file>mustache.cpp</file>
+    <file>mustache.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/src</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/</path>
+    <filename>dir_2cfe326f6814968c72b240c9fc613af5.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/database</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/exceptions</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/gui</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/libs</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/models</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/utils</dir>
+    <file>generator.cpp</file>
+    <file>generator.h</file>
     <file>mainwindow.cpp</file>
     <file>mainwindow.h</file>
     <file>parameters.cpp</file>
     <file>parameters.h</file>
   </compound>
   <compound kind="dir">
-    <name>tests</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/tests/</path>
-    <filename>dir_59425e443f801f1f2fd8bbe4959a3ccf.html</filename>
-    <dir>tests/database</dir>
-    <dir>tests/models</dir>
-    <dir>tests/QTestRunner</dir>
+    <name>/home/florent/Documents/Projet_S8/FactDev/tests</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/tests/</path>
+    <filename>dir_e622ebc774dade5d7d382ec74002464b.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/tests/database</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/tests/models</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/tests/qt-mustache</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/tests/QTestRunner</dir>
+    <file>generation.cpp</file>
+    <file>generation.h</file>
     <file>main.cpp</file>
   </compound>
   <compound kind="dir">
-    <name>src/utils</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/utils/</path>
-    <filename>dir_313caf1132e152dd9b58bea13a4052ca.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/tests</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/libs/qt-mustache/tests/</path>
+    <filename>dir_3488644aede966bd70e60f1bda886925.html</filename>
+    <file>test_mustache.cpp</file>
+    <file>test_mustache.h</file>
+  </compound>
+  <compound kind="dir">
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/utils</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/utils/</path>
+    <filename>dir_a6879dae3120d9b8eaaaf95abc8dde10.html</filename>
+    <file>hierarchicalsystem.cpp</file>
+    <file>hierarchicalsystem.h</file>
     <file>itemtype.cpp</file>
     <file>itemtype.h</file>
     <file>log.cpp</file>
@@ -2776,12 +3849,12 @@
     <file>string.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/gui/widgets</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/</path>
-    <filename>dir_cc657b4ce13702a9d007a200bde234e1.html</filename>
-    <dir>src/gui/widgets/checkfields</dir>
-    <dir>src/gui/widgets/delegates</dir>
-    <dir>src/gui/widgets/widgetsmodels</dir>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/</path>
+    <filename>dir_e9fb79c5d98dde1b65b4989e0122d5e5.html</filename>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/checkfields</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/delegates</dir>
+    <dir>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/widgetsmodels</dir>
     <file>comboboxmodelwidget.cpp</file>
     <file>comboboxmodelwidget.h</file>
     <file>contributorieswidget.cpp</file>
@@ -2800,11 +3873,17 @@
     <file>searchwidget.h</file>
   </compound>
   <compound kind="dir">
-    <name>src/gui/widgets/widgetsmodels</name>
-    <path>/home/aroquemaurel/projets/qt/Fact/FactDev/src/gui/widgets/widgetsmodels/</path>
-    <filename>dir_510d0097101e86f8d90349dc8de0e8e3.html</filename>
+    <name>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/widgetsmodels</name>
+    <path>/home/florent/Documents/Projet_S8/FactDev/src/gui/widgets/widgetsmodels/</path>
+    <filename>dir_2172e438b1bbfd9b41c9fd2d46f165f3.html</filename>
+    <file>billingstablemodel.cpp</file>
+    <file>billingstablemodel.h</file>
     <file>contributoriestablemodel.cpp</file>
     <file>contributoriestablemodel.h</file>
+    <file>customerstablemodel.cpp</file>
+    <file>customerstablemodel.h</file>
+    <file>projectstablemodel.cpp</file>
+    <file>projectstablemodel.h</file>
   </compound>
   <compound kind="page">
     <name>index</name>

@@ -5,11 +5,13 @@
 #include "database.h"
 #include "utils/log.h"
 #include "utils/string.h"
+#include "gui/widgets/widgetsmodels/billingstablemodel.h"
 
 using namespace Exceptions;
 using namespace Utils;
+using namespace Gui::Widgets;
 
-namespace Database {
+namespace Databases {
 /**
  * @author Cédric Rohaut @Oxynos
  * @brief The <b>BillingDatabase</b> class Billing (or Quote) table database
@@ -42,7 +44,8 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    QStandardItemModel* getBillingsTable(const int idProject) throw(DbException*);
+    WdgModels::BillingsTableModel *getBillingsTable(const int idProject)
+        throw(DbException*);
 
     /**
      * @brief BillingDatabase::addBilling Add the billing <i>pBilling</i> to
@@ -70,7 +73,18 @@ public:
      * @param idBilling Billing id
      * @param idContributory Contributory id
      */
-    void addBillingProject(const int idProject, const int idBilling, const int idContributory);
+    void addBillingProject(
+            const int idProject, const int idBilling, const int idContributory);
+
+    /**
+     * @brief BillingDatabase::removeBillingProject remove a link between a
+     * project, a billing and a contributory in the table BillingProject
+     * @param idProject Project id
+     * @param idBilling Billing id
+     * @param idContributory Contributory id
+     */
+    void removeBillingProject(
+            const int idProject, const int idBilling, const int idContributory);
 
     /**
      * @brief getMaxBillingNumber Get the last number of a billing
@@ -79,10 +93,25 @@ public:
     int getMaxBillingNumber();
 
     /**
-     * @brief getMaxQuoteNuber Get the last number of a quote
+     * @brief getMaxQuoteNumber Get the last number of a quote
      * @return  The last number
      */
-    int getMaxQuoteNuber();
+    int getMaxQuoteNumber();
+
+    /**
+     * @brief BillingDatabase::getBilling Add the element of the <i>q</i>
+     * request and return their
+     * @param q SQL request
+     * @return a billing formed according to QSharedPointer
+     */
+    QSharedPointer<Models::Billing> getBilling(QSqlQuery &q);
+
+    /**
+     * @brief BillingDatabase::getAllBillingsOfProject Return a map with the
+     * project id as key linked to the billing
+     * @return Map with projects and Billing
+     */
+    QMap<Project *, Billing *> getAllBillingsOfProject();
 
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase

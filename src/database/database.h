@@ -25,7 +25,7 @@ using namespace Utils;
 /**
  * @brief Class for Database, contains queries
  */
-namespace Database {
+namespace Databases {
 /**
  * @author Antoine de Roquemaurel
  * @brief The <b>Database</b> class Master class for all database access
@@ -44,7 +44,7 @@ public:
      * @param q SQL request
      * @return an error message
      */
-    QString  lastError(const QSqlQuery& q);
+    QString  lastError(const QSqlQuery& q) const;
 
     /**
      * @brief Database::testCases Realise a test cases
@@ -95,9 +95,13 @@ public:
     void setDatabase(QSqlDatabase sql);
 
     /**
-     * @brief Database::creerDatabase Create a new database
+     * @brief Database::createDatabase Create a new database
      */
     void createDatabase();
+
+    /**
+     * @brief Database::updateBillingNumber Update the billing number
+     */
     void updateBillingNumber();
 protected:
     /**
@@ -121,7 +125,7 @@ protected:
      * @param champ Field
      * @return  The value
      */
-    QVariant value(const QSqlQuery& q, const QString& champ);
+    QVariant value(const QSqlQuery& q, const QString& champ) const;
 
 
 };

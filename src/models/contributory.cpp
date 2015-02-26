@@ -1,7 +1,7 @@
 #include "contributory.h"
 
 #include "database/contributorydatabase.h"
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
 Contributory::Contributory()
@@ -45,9 +45,21 @@ void Contributory::hydrat(int id)
     delete c;
 }
 
+
 void Contributory::remove()
 {
     ContributoryDatabase::instance()->removeContributory(_id);
+}
+
+QVariantHash Contributory::getDataMap()
+{
+    QVariantHash data;
+
+    data["project"] = _project->getName();
+    data["nbHours"] = _nbHours;
+    data["contributoryDescription"] = _description;
+
+    return data;
 }
 
 Project* Contributory::getProject() const
@@ -76,6 +88,17 @@ QString Contributory::getDescription() const
 void Contributory::setDescription(const QString &description)
 {
     _description = description;
+}
+
+bool Contributory::operator ==(const Contributory &c)
+{
+    return (getDescription() == c.getDescription() &&
+            getNbHours() == c.getNbHours());
+}
+
+bool Contributory::operator !=(const Contributory &c)
+{
+    return !(*this == c);
 }
 }
 

@@ -1,7 +1,7 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
 
-using namespace Database;
+using namespace Databases;
 
 namespace Models {
 User::User()
@@ -28,6 +28,23 @@ void User::remove()
     Log::instance(WARNING) << "User::remove is not implemented";
 }
 
+QVariantHash User::getDataMap()
+{
+    QVariantHash data;
+
+    data["firstName"] = _firstname;
+    data["lastName"] = _lastname;
+    data["title"] = _title;
+    data["address"] = _address;
+    // TODO user address additions…
+    data["postalCode"] = _postalCode;
+    data["city"] = _city;
+    data["phone"] = _phone;
+    data["email"] = _email;
+
+    return data;
+}
+
 void User::hydrat(int id)
 {
     User* user = UserDatabase::instance()->getUser(id);
@@ -43,6 +60,8 @@ void User::hydrat(int id)
     _mobilePhone = user->getMobilePhone();
     _phone = user->getPhone();
     _noSiret = user->getNoSiret();
+    _workspaceName = user->getWorkspaceName();
+    _workspacePath = user->getWorkspacePath();
 }
 
 
@@ -149,5 +168,37 @@ QString User::getNoSiret() const
 void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
+}
+
+QString User::getWorkspaceName() const
+{
+    return _workspaceName;
+}
+
+void User::setWorkspaceName(const QString &workspaceName)
+{
+    _workspaceName = workspaceName;
+}
+QString User::getWorkspacePath() const
+{
+    return _workspacePath;
+}
+
+void User::setWorkspacePath(const QString &workspacePath)
+{
+    _workspacePath = workspacePath;
+}
+
+bool User::operator ==(const User &u)
+{
+    return u.getAddress() == getAddress() && u.getCity() == getCity() && u.getCompany() == getCompany() &&
+            u.getEmail() == getEmail() && u.getFirstname() == getFirstname() && u.getLastname() == getLastname()&&
+            u.getMobilePhone() == getMobilePhone() && u.getNoSiret() == getNoSiret() && u.getPhone() == getPhone()&&
+            u.getPostalCode() == getPostalCode() && u.getTitle() == getTitle();
+}
+
+bool User::operator !=(const User &u)
+{
+    return !(*this == u);
 }
 }

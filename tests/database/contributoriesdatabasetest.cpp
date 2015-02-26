@@ -1,46 +1,81 @@
 #include "contributoriesdatabasetest.h"
 #include "database/contributorydatabase.h"
+
+ContributoriesDatabaseTest::ContributoriesDatabaseTest()
+{
+    c1 = new Models::Contributory();
+    c1->setId(200);
+    c1->setDescription("Préparer le repas");
+    c1->setNbHours(20.0);
+    c1->setToRemoved(false);
+}
+
 void ContributoriesDatabaseTest::getContributoriesByBilling()
 {
-    QMap<Models::Project *, QList<Models::Contributory> > contributories =
-            Database::ContributoryDatabase::instance()->getContributoriesByBilling(1);
-    QVERIFY(contributories.count() == 7);
+    Models::ContributoriesList contributories = Databases::ContributoryDatabase::instance()->getContributoriesByBilling(24);
+    QCOMPARE(contributories.getNbProjects(), 2);
 
     // we only check id… Remaining are already tested (getProject, getContributory)
-    for(auto i = contributories.begin(); i != contributories.end() ; ++i) {
-        switch(i.key()->getId()) {
-        case 22:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 17);
-            QVERIFY(i.value().at(1).getId() == 108);
-            break;
-        case 29:
-            QVERIFY(i.value().count() == 2);
-            QVERIFY(i.value().at(0).getId() == 220);
-            QVERIFY(i.value().at(1).getId() == 239);
-            break;
-        case 30:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 24);
-            break;
-        case 32:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 89);
-            break;
-        case 33:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 50);
-            break;
-        case 34:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 276);
-            break;
-        case 40:
-            QVERIFY(i.value().count() == 1);
-            QVERIFY(i.value().at(0).getId() == 74);
-            break;
-        default:
-            QVERIFY(false);
+    for(Project* p : contributories.getProjects()) {
+        QList<Contributory> list = contributories.getContributories(p);
+
+            switch(p->getId()) {
+            case 21:
+                QCOMPARE(list.count(), 3);
+                QCOMPARE(list.at(0).getId(), 59);
+                QCOMPARE(list.at(1).getId(), 60);
+                QCOMPARE(list.at(2).getId(), 61);
+                break;
+            case 44:
+                QCOMPARE(list.count(), 1);
+                QCOMPARE(list.at(0).getId(), 62);
+                break;
+            default:
+                QFAIL("Default case");
         }
+
     }
 }
+
+void ContributoriesDatabaseTest::insert()
+{
+    _lastInsert = Databases::ContributoryDatabase::instance()->addContributory(*c1);
+    Contributory* c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+    QVERIFY(*c1 == *c2);
+}
+
+void ContributoriesDatabaseTest::remove()
+{
+    Databases::ContributoryDatabase::instance()->removeContributory(_lastInsert);
+    Contributory *b2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+    QVERIFY(b2 == 0);
+}
+
+void ContributoriesDatabaseTest::update()
+{
+    _lastInsert = Databases::ContributoryDatabase::instance()->addContributory(*c1);
+    c1->setId(_lastInsert);
+    c1->setDescription("Préparer la raclette");
+    c1->setNbHours(15.0);
+    c1->setToRemoved(false);
+    Databases::ContributoryDatabase::instance()->updateContributory(*c1);
+    Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+    QVERIFY(*c1 == *c2);
+}
+
+void ContributoriesDatabaseTest::selectContributoryNotFound()
+{
+    QVERIFY(Databases::ContributoryDatabase::instance()->getContributory(321654) == NULL);
+}
+
+void ContributoriesDatabaseTest::selectContributoryFound()
+{
+    Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(1);
+    c1->setId(1);
+    c1->setDescription("Une descriptoin");
+    c1->setNbHours(42.0);
+    c1->setToRemoved(false);
+
+    QVERIFY(*c1 == *c2);
+}
+

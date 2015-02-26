@@ -3,6 +3,9 @@
 
 #include "checkuntilfield.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckFieldsLetters class Field with only letters (no numbers)
  */
@@ -22,5 +25,7 @@ public:
      */
     bool check(QString text);
 };
-
+}
+}
+}
 #endif // CHECKFIELDSLETTERS_H

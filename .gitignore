@@ -13,4 +13,4 @@ tests/*.user
 **/*.toc
 **/*.synctex.gz
 **/*.out
-
+coverage.cfg

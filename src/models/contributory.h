@@ -1,14 +1,14 @@
 #ifndef CONTRIBUTORY_H
 #define CONTRIBUTORY_H
 #include "models/project.h"
-#include "models/idatabasemodel.h"
+#include "models/imodel.h"
 
 namespace Models {
 /**
  * @author
  * @brief The Contributory class
  */
-class Contributory : public IDatabaseModel
+class Contributory : public IModel
 {
 public:
     /**
@@ -46,6 +46,12 @@ public:
     void remove();
 
     /**
+     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @return Model's data
+     */
+    QVariantHash getDataMap();
+
+    /**
      * @brief Contributory::getProject Return the project linked to this
      * Contributory
      * @return Project linked to this Contributory
@@ -54,7 +60,7 @@ public:
 
     /**
      * @brief Contributory::setProject Modify the identify <i>id</i> of the
-     *  Project linke to this Contributory
+     *  Project linked to this Contributory
      * @param id Project Identify
      */
     void setProject(Project *id);
@@ -82,6 +88,24 @@ public:
      * @param getDescription The new description
      */
     void setDescription(const QString &getDescription);
+
+    /**
+     * @brief operator == define the operator "==" to compare two
+     * <b>Contributory</b>
+     * @param c the <b>Contributory</b> to compare with the current
+     * <b>Contributory</b>
+     * @return true if the <b>Contributory</b> are equals else false
+     */
+    bool operator ==(const Contributory &c);
+
+    /**
+     * @brief operator != define the operator "!=" to compare two
+     * <b>Contributory</b>
+     * @param c the <b>Contributory</b> to compare with the current
+     * <b>Contributory</b>
+     * @return true if the <b>Contributory</b> are different else false
+     */
+    bool operator !=(const Contributory &c);
 
 private:
     Project* _project;    //!< Contributory project

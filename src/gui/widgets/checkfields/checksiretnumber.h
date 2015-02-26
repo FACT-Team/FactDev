@@ -3,6 +3,9 @@
 
 #include "checkqlineedit.h"
 
+namespace Gui {
+namespace Widgets {
+namespace CheckFields {
 /**
  * @brief The CheckSiretNumber class Line Edit with a check icon
  */
@@ -23,5 +26,7 @@ public:
      */
     bool check(QString text);
 };
-
+}
+}
+}
 #endif // CHECKSIRETNUMBER_H

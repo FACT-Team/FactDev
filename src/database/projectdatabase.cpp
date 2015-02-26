@@ -1,5 +1,5 @@
 #include "database/projectdatabase.h"
-namespace Database {
+namespace Databases {
 
 ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
     _instances << this;
@@ -21,19 +21,66 @@ Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
     Models::Project* project = new Models::Project();
     project->setId(value(q, "idProject").toInt());
     project->setName(value(q,"name").toString());
-    project->setDescription(value(q,"description").toString());
+    project->setDescription(value(q,"pdescription").toString());
+    //project->setBeginDate(value(q,"beginDate").toDate());
+    //project->setEndDate(value(q,"endDate").toDate());
     project->setDailyRate(value(q,"dailyRate").toDouble());
-    project->setCustomer(QSharedPointer<Models::Customer>(new Models::Customer(value(q,"idCustomer").toInt())));
+    project->setCustomer(
+                QSharedPointer<Models::Customer>(
+                    new Models::Customer(value(q,"idCustomer").toInt())));
 
     return project;
 }
 
-Models::Project *ProjectDatabase::getProject(const int pId)
+
+QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
+{
+    QSharedPointer<Models::Project> project =
+            QSharedPointer<Models::Project>(new Models::Project());
+    project->setId(value(q, "idProject").toInt());
+    project->setName(value(q,"name").toString());
+    project->setDescription(value(q,"description").toString());
+    project->setBeginDate(value(q,"beginDate").toDate());
+    project->setEndDate(value(q,"endDate").toDate());
+    project->setDailyRate(value(q,"dailyRate").toDouble());
+    project->setCustomer(
+                QSharedPointer<Models::Customer>(
+                    new Models::Customer(value(q,"idCustomer").toInt())));
+
+    return project;
+
+}
+
+QList<Project*> ProjectDatabase::getAllProjects()
+{
+    QList<Project*> list;
+
+    QSqlQuery q;
+    q.prepare("SELECT * FROM Project");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la liste des Projects",
+                    "ProjectDatabase::getAllProjects",
+                    lastError(q),
+                    1.9);
+    }
+
+    while(q.next()) {
+        list << new Project(value(q, "idProject").toInt());
+    }
+    return list;
+}
+
+
+Models::Project* ProjectDatabase::getProject(const int pId)
 {
     QSqlQuery q;
     Models::Project* project;
 
-    q.prepare("SELECT * FROM Project WHERE idProject = :pId");
+    q.prepare("SELECT idProject, name, description as pDescription, beginDate, "
+              "endDate, dailyRate, idCustomer "
+              "FROM Project WHERE idProject = :pId");
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
@@ -142,8 +189,7 @@ int ProjectDatabase::getNbProjects()
                     lastError(q),
                     1.6);
     }
-    q.next();
-
+    q.first();
     return value(q, "nb_p").toInt();
 }
 
@@ -190,24 +236,16 @@ QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer
 
     return ret;
 }
-QStandardItemModel *ProjectDatabase::getProjectsTable(const int pId)
+WdgModels::ProjectsTableModel *ProjectDatabase::getProjectsTable(const int pId)
 throw(DbException*)
 {
-    QStandardItemModel* retour = new QStandardItemModel();
+    WdgModels::ProjectsTableModel* ret
+            = new WdgModels::ProjectsTableModel();
 
-    retour->setColumnCount(3);
-    retour->setHorizontalHeaderLabels(
-                QStringList()
-                << ("Id")
-                << ("Nom")
-                << ("Description")
-                << ("Date de création")
-                << ("Date de fin")
-                );
     QSqlQuery q;
 
-
-    q.prepare("SELECT idProject ,name, description,beginDate,endDate "
+    q.prepare("SELECT idProject, name, description, beginDate, endDate, "
+              "dailyRate, idCustomer "
               "FROM Project "
               "WHERE idCustomer= :pId "
               "ORDER BY UPPER(name), UPPER(description)");
@@ -221,22 +259,10 @@ throw(DbException*)
                     lastError(q),
                     1.1);
     }
-
     while(q.next()) {
-        QList<QStandardItem*> ligne;
-
-        ligne << new QStandardItem(value(q, "idProject").toString());
-        ligne << new QStandardItem(
-                     Utils::String::firstLetterToUpper(value(q,"name").toString()));
-        ligne << new QStandardItem(
-                     value(q, "description").toString());
-        ligne << new QStandardItem(
-                     value(q,"beginDate").toString());
-        ligne << new QStandardItem(
-                     value(q,"endDate").toString());
-        retour->appendRow(ligne);
+        ret->append(*updateProject(q));
     }
 
-    return retour;
+    return ret;
 }
 }

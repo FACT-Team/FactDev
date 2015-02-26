@@ -1,6 +1,7 @@
 #include "database/customerdatabase.h"
+#include <QDebug>
 
-namespace Database {
+namespace Databases {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
     _instances << this;
 }
@@ -18,29 +19,23 @@ CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 }
 
 
-QStandardItemModel* CustomerDatabase::getCustomersTable(QString filter)
-throw(DbException*)
+WdgModels::CustomersTableModel*
+    CustomerDatabase::getCustomersTable(QString filter) throw(DbException*)
 {
-    QStandardItemModel* retour = new QStandardItemModel();
-
-    retour->setColumnCount(5);
-    retour->setHorizontalHeaderLabels(
-                QStringList()
-                << ("Id")
-                << ("Société")
-                << ("Nom")
-                << ("Prénom")
-                << ("Téléphone")
-                << ("EMail")
-                );
+    WdgModels::CustomersTableModel* ret
+            = new WdgModels::CustomersTableModel();
     QSqlQuery q;
 
-
-    q.prepare("SELECT idCustomer ,firstnameReferent, lastnameReferent, company,"
-              " phone, email "
-              "FROM Customer "
-              "WHERE 1 "+filter+" "
-                                "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
+               "c.firstnameReferent as cfirstnameReferent, "
+               "UPPER(c.lastnameReferent) as clastnameReferent, "
+               "c.company as ccompany, "
+               "c.address as caddress, c.postalCode as cpostalcode, "
+               "c.city as ccity, c.country as ccountry, c.email as cemail, "
+               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+               "FROM Customer c "+filter+" "
+               "ORDER BY 4, 3"
+               );
 
     if(!q.exec()) {
         throw new DbException(
@@ -51,95 +46,185 @@ throw(DbException*)
     }
 
     while(q.next()) {
-        QList<QStandardItem*> ligne;
-
-        ligne << new QStandardItem(value(q, "idCustomer").toString());
-        ligne << new QStandardItem(
-                     Utils::String::firstLetterToUpper(value(q,"company").toString()));
-        ligne << new QStandardItem(
-                     value(q, "lastnameReferent").toString().toUpper());
-        ligne << new QStandardItem(Utils::String::firstLetterToUpper(
-                                       value(q, "firstNameReferent").toString()));
-        ligne << new QStandardItem(value(q, "phone").toString());
-        ligne << new QStandardItem(value(q, "email").toString());
-
-        retour->appendRow(ligne);
+        ret->append(*getCustomer(q));
     }
 
-    return retour;
+    return ret;
 }
 
-QStandardItemModel* CustomerDatabase::getCustomersTree(QString filter)
+
+
+QStandardItemModel* CustomerDatabase::getTree(QString filter)
 throw(DbException*)
 {
-    QStandardItemModel* retour = new QStandardItemModel();
+    QStandardItemModel* ret = new QStandardItemModel();
 
     QSqlQuery q;
 
-    q.prepare("SELECT * "
-              "FROM Customer WHERE 1 "+filter+" "
-                                              "ORDER BY UPPER(company), UPPER(lastnameReferent)");
+    q.prepare(  "SELECT DISTINCT c.idCustomer as cidcustomer, "
+                "c.firstnameReferent as cfirstnameReferent, "
+                "UPPER(c.lastnameReferent) as clastnameReferent, "
+                "c.company as ccompany, "
+                "c.address as caddress, c.postalCode as cpostalcode, "
+                "c.city as ccity, c.country as ccountry, c.email as cemail, "
+                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "FROM Customer c "+filter+" "
+                "ORDER BY 4, 3 "
+                );
 
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la liste des Customers",
-                    "CustomerDatabase::getCustomersTree",
+                    "CustomerDatabase::getTree",
                     lastError(q),
                     1.1);
     }
 
-    QStandardItem* item = new QStandardItem("Tous les clients");
-    item->setIcon(QIcon(":icons/customer"));
-    retour->appendRow(item);
+    ret->appendRow(getItemRoot());
 
-    while(q.next()) {
-        QStandardItem* item;
+    // Manage any customer
+    while (q.next()) {
+        QStandardItem *itemCustomer = getItemCustomer(q);
 
-        if(value(q,"company").toString().isEmpty()) {
-            item = new QStandardItem(
-                        value(q, "lastnameReferent").toString().toUpper()
-                        + " "
-                        +Utils::String::firstLetterToUpper(value(q,"firstnameReferent").toString()));
-        } else {
-            item = new
-                QStandardItem(Utils::String::firstLetterToUpper(value(q,"company").toString()));
-        }
-
-        item->setIcon(QIcon(":icons/customer"));
-
-        // Project for a customer
+        // QUERY 2
+        // Query for projects of a customer
         QSqlQuery q2;
 
-        q2.prepare("SELECT *"
-                   "FROM Project WHERE idCustomer = :idCustom "
+        q2.prepare("SELECT * FROM Project "
+                   "WHERE idCustomer = :idCustomer "
                    "ORDER BY UPPER(name), UPPER(description)");
-        q2.bindValue(":idCustom",value(q, "idCustomer").toString());
+        q2.bindValue(":idCustomer",value(q, "cidcustomer").toString());
 
         if(!q2.exec()) {
             throw new DbException(
                         "Impossible d'obtenir la liste des Projects",
-                        "CustomerDatabase::getCustomersTree",
-                        lastError(q),
+                        "CustomerDatabase::getTree",
+                        lastError(q2),
                         1.1);
         }
 
-        while(q2.next()) {
-            QStandardItem *child = new QStandardItem(value(q2,"name").toString());
-            child->setIcon(QIcon(":icons/img/project"));
-            item->appendRow(child);
+        // Manage any project of a customer
+        while (q2.next()) {
+            QStandardItem *itemProject = getItemProject(q2);
+
+            // QUERY 3
+            // Query for bills or quotes of a project of a customer
+            QSqlQuery q3;
+
+            q3.prepare(
+                     "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
+                     "FROM Billing b, BillingProject bp "
+                     "WHERE idProject = :idproject "
+                     "AND b.idBilling = bp.idBilling ORDER BY date DESC");
+            q3.bindValue(":idproject",value(q2, "idProject").toString());
+
+            if(!q3.exec()) {
+                throw new DbException(
+                            "Impossible d'obtenir la liste des Factures/Devis",
+                            "CustomerDatabase::getTree",
+                            lastError(q3),
+                            1.1);
+            }
+
+            // Manage any bill/quote of a project of a customer
+            while (q3.next()) itemProject->appendRow(getItemBillQuote(q3));
+
+            itemCustomer->appendRow(itemProject);
         }
 
-        retour->appendRow(item);
+        ret->appendRow(itemCustomer);
     }
 
-    return retour;
+    return ret;
+}
+
+QStandardItem *CustomerDatabase::getItemRoot() {
+    QStandardItem* itemRoot = new QStandardItem("Tous les clients");
+    itemRoot->setIcon(QIcon(":icons/customer"));
+    return itemRoot;
+}
+
+QStandardItem *CustomerDatabase::getItemCustomer(QSqlQuery q1) {
+    QStandardItem *itemCustomer;
+    if(value(q1,"ccompany").toString().isEmpty()) {
+        itemCustomer =
+                new QStandardItem(value(q1, "clastnameReferent").toString().toUpper()
+                + " "
+                + Utils::String::firstLetterToUpper(value(q1,"cfirstnameReferent").toString()));
+    } else {
+        itemCustomer =
+                new QStandardItem(Utils::String::firstLetterToUpper(value(q1,"ccompany").toString()));
+    }
+    itemCustomer->setIcon(QIcon(":icons/customer"));
+    return itemCustomer;
+}
+
+QStandardItem *CustomerDatabase::getItemProject(QSqlQuery q2) {
+    QStandardItem *itemProject = new QStandardItem(value(q2,"name").toString());
+    itemProject->setIcon(QIcon(":icons/img/project"));
+    return itemProject;
+}
+
+QStandardItem *CustomerDatabase::getItemBillQuote(QSqlQuery q3) {
+    QStandardItem *itemBillQuote =
+            new QStandardItem(value(q3,"date").toString()
+                              + " " + value(q3,"title").toString());
+    if (value(q3,"isBilling").toInt() == 0) {
+        itemBillQuote->setIcon(QIcon(":icons/img/quote"));
+    } else if (value(q3,"isBilling").toInt() == 1) {
+        itemBillQuote->setIcon(QIcon(":icons/img/bill"));
+    }
+
+    return itemBillQuote;
+}
+
+QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
+{
+    QSharedPointer<Models::Customer> customer =
+            QSharedPointer<Models::Customer>(new Models::Customer());
+    customer->setId(value(q, "cidCustomer").toInt());
+    customer->setFirstnameReferent(value(q,"cfirstnameReferent").toString());
+    customer->setLastnameReferent(value(q,"clastnameReferent").toString());
+    customer->setCompany(value(q,"ccompany").toString());
+    customer->setAddress(value(q,"caddress").toString());
+    customer->setPostalCode(value(q,"cpostalCode").toString());
+    customer->setCity(value(q,"ccity").toString());
+    customer->setCountry(value(q,"ccountry").toString());
+    customer->setEmail(value(q,"cemail").toString());
+    customer->setPhone(value(q,"cphone").toString());
+    customer->setMobilePhone(value(q,"cmobilePhone").toString());
+    customer->setFax(value(q,"cfax").toString());
+
+    return customer;
+}
+
+void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
+{
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":company", pCustomer.getCompany());
+    q.bindValue(":address", pCustomer.getAddress());
+    q.bindValue(":postalCode", pCustomer.getPostalCode());
+    q.bindValue(":city", pCustomer.getCity());
+    q.bindValue(":country", pCustomer.getCountry());
+    q.bindValue(":email", (pCustomer.getEmail()));
+    q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
+    q.bindValue(":fax", pCustomer.getFax());
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
     QSharedPointer<Models::Customer> customer;
 
-    q.prepare("SELECT * FROM Customer WHERE idCustomer = :pId");
+    q.prepare("SELECT DISTINCT c.idCustomer as cidcustomer, "
+              "c.firstnameReferent as cfirstnameReferent, "
+              "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
+              "c.address as caddress, c.postalCode as cpostalcode, "
+              "c.city as ccity, c.country as ccountry, c.email as cemail, "
+              "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+              "FROM Customer c "
+              "WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
@@ -151,19 +236,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     }
 
     if(q.first()) {
-        customer = QSharedPointer<Models::Customer>(new Models::Customer());
-        customer->setId(value(q, "idCustomer").toInt());
-        customer->setFirstnameReferent(value(q,"firstnameReferent").toString());
-        customer->setLastnameReferent(value(q,"lastnameReferent").toString());
-        customer->setCompany(value(q,"company").toString());
-        customer->setAddress(value(q,"address").toString());
-        customer->setPostalCode(value(q,"postalCode").toString());
-        customer->setCity(value(q,"city").toString());
-        customer->setCountry(value(q,"country").toString());
-        customer->setEmail(value(q,"email").toString());
-        customer->setMobilePhone(value(q,"mobilePhone").toString());
-        customer->setPhone(value(q,"phone").toString());
-        customer->setFax(value(q,"fax").toString());
+        customer = getCustomer(q);
     }
 
     return customer;
@@ -179,7 +252,7 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
                 "postalCode, city, country, email, mobilePhone, phone, fax)"
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email, :mobilePhone, :phone, :fax)"
+                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
@@ -190,8 +263,8 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
     q.bindValue(":city", pCustomer.getCity());
     q.bindValue(":country", pCustomer.getCountry());
     q.bindValue(":email", pCustomer.getEmail());
-    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":phone", pCustomer.getPhone());
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
 
     if(!q.exec()) {
@@ -209,26 +282,26 @@ void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
     QSqlQuery q;
     q.prepare(
                 "UPDATE Customer SET "
-                "firstnameReferent=:firstname, lastnameReferent=:lastname,"
-                "company=:company, address=:address, postalCode=:postalCode, city=:city,"
-                "country=:country, email=:email, mobilePhone=:mobilePhone, phone=:phone,"
-                "fax=:fax "
+                "firstnameReferent=:firstnameReferent, "
+                "lastnameReferent=:lastnameReferent, company=:company, "
+                "address=:address, postalCode=:postalCode, city=:city, "
+                "country=:country, email=:email, mobilePhone=:mobilePhone, "
+                "phone=:phone, fax=:fax "
                 "WHERE idCustomer=:idCustomer");
 
     q.bindValue(":idCustomer", pCustomer.getId());
-
-    q.bindValue(":firstname", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastname", pCustomer.getLastnameReferent());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
+    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
-    q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
     q.bindValue(":city", pCustomer.getCity());
     q.bindValue(":country", pCustomer.getCountry());
-    q.bindValue(":email", (pCustomer.getEmail()));
+    q.bindValue(":email", pCustomer.getEmail());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":fax", pCustomer.getFax());
+//    updateCustomer(q, pCustomer);
 
     if(!q.exec()) {
         throw new DbException(

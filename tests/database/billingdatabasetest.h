@@ -6,6 +6,7 @@
 #include "models/billing.h"
 
 using namespace Models;
+
 class BillingDatabaseTest : public QObject
 {
     Q_OBJECT
@@ -18,6 +19,10 @@ private slots:
      void update();
      void selectBillingNotFound();
      void selectBillingFound();
+     void addBillingProject();
+     void removeBillingProject();
+     void getMaxBillingNumber();
+     void getMaxQuoteNumber();
 private:
      Billing* b1;
      int _lastInsert;

@@ -13,8 +13,8 @@ DbException::DbException(const QString userError, const QString fctName,
                     "Nous vous conseillons de vous rapprocher auprès de l'"
                     "association avec le code d'erreur inscrit ci-dessous<br/>"
                     "Vous pouvez envoyer un e-mail à "
-                    "<a href=\"mailto:maintenance@fact.fr\">"
-                    "maintenance@fact.fr</a><br/><br/>";
+                    "<a href=\"mailto:ups.fact@gmail.com\">"
+                    "ups.fact@gmail.com</a><br/><br/>";
     _userError += "<b>Erreur n°"+QString::number(errorCode)+"</b></span>";
 }
 

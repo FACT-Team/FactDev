@@ -1,7 +1,24 @@
 \select@language {french}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Description du Projet}{3}{chapter.1}
+\contentsline {xchapter}{Description du Projet}{5}{chapter.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Production}{5}{chapter.2}
+\contentsline {xchapter}{Production}{7}{chapter.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Fonctionnement des \textit {Sprints} et \textit {Releases} de la m\IeC {\'e}thode \textit {Scrum}}}{7}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Principe du \IeC {\guillemotleft } Git Branching Workflow \IeC {\guillemotright }}}{11}{figure.2.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Table des figures}{7}{appendix.A}
+\contentsline {xchapter}{Fournitures et Livrables}{13}{chapter.3}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Planning}{14}{chapter.4}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagramme de Gantt du projet FactDev}}{14}{figure.4.1}
+\addvspace {10\p@ }
+\contentsline {xchapter}{La D\IeC {\'e}marche Qualit\IeC {\'e}}{15}{chapter.5}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Matrice de tra\IeC {\c c}abilit\IeC {\'e}}{17}{chapter.6}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Conventions de programmation en C++}{18}{appendix.A}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Backlog product}{23}{appendix.B}
+\addvspace {10\p@ }
+\contentsline {xchapter}{R\IeC {\'e}f\IeC {\'e}rences}{25}{appendix.C}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Table des figures}{26}{appendix.D}

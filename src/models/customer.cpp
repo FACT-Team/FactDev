@@ -1,7 +1,8 @@
 #include "models/customer.h"
 
 #include "database/customerdatabase.h"
-using namespace Database;
+#include "models/user.h"
+using namespace Databases;
 
 namespace Models {
 Customer::Customer()
@@ -43,6 +44,24 @@ void Customer::hydrat(int id)
 void Customer::remove()
 {
     CustomerDatabase::instance()->removeCustomer(_id);
+}
+
+QVariantHash Customer::getDataMap()
+{
+    QVariantHash data;
+    data["firstname"] = _firstnameReferent;
+    data["lastname"] = _lastnameReferent;
+    data["company"] = _company;
+    data["address"] = _address;
+    data["postalcode"] = _postalCode;
+    data["city"] = _city;
+    data["email"] = _email;
+    data["mobilephone"] = _mobilePhone;
+    data["phone"] = _phone;
+    data["fax"]  = _fax;
+
+    return data;
+
 }
 
 bool Customer::operator==(const Customer &c)
@@ -153,6 +172,22 @@ QString Customer::getFax() const
 void Customer::setFax(const QString &fax)
 {
     _fax = fax;
+}
+
+QString Customer::getPath() const
+{
+   User u(1);
+
+   return   u.getWorkspacePath()
+            + "/" + u.getWorkspaceName() + "/"
+            + getNameFolder();
+}
+
+QString Customer::getNameFolder() const
+{
+    return getCompany().toUpper()
+            + " " + getLastnameReferent()
+           + " " + getFirstnameReferent();
 }
 
 
