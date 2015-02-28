@@ -13,11 +13,10 @@ $make_nbprocess = "-j"+$nb_process
 
 cd $build_path
 
+
+#### COMPILATION ####
 # Create build folder
-$ret = Test-Path "build"
-if (-not $ret) {
-   mkdir build
-} 
+mkdirIfNotExist build
 cd build
 
 # QMake execution
@@ -30,8 +29,35 @@ call ($make_path+" clean")
 cd src
 call ($make_path+ $make_nbprocess)
 
+cp release/FactDev.dll . #Move FactDev.dll in write location
 cd ../app
 call ($make_path+ $make_nbprocess)
+
+#### Copy dll files ####
+cd release
+# Copy plugins folders
+copyPlugin "imageformats"
+copyPlugin "platforms"
+copyPlugin "sqldrivers"
+
+# Copy dll 
+copyQtDll "icudt53"
+copyQtDll "icuin53"
+copyQtDll "icuuc53"
+copyQtDll "libgcc_s_dw2-1"
+copyQtDll "libstdc++-6"
+copyQtDll "libwinpthread-1"
+copyQtDll "Qt5Concurrent"
+copyQtDll "Qt5Core"
+copyQtDll "Qt5Gui"
+copyQtDll "Qt5PrintSupport"
+copyQtDll "Qt5Sql"
+copyQtDll "Qt5Widgets"
+
+call ("cp ../FactDev.dll .") # Copy FactDev.dll
+
+
+
 
 #C:\Qt\5.4\mingw491_32\plugins
 #18:43:51: Débute : "C:\Qt\5.4\mingw491_32\bin\qmake.exe" C:\Users\Aroquemaurel\Documents\FactDev\FactDev.pro -r -spec win32-g++
@@ -52,4 +78,27 @@ call ($make_path+ $make_nbprocess)
 function call
 {
     iex $args[0]  
+}
+
+function mkdirIfNotExist
+{
+    $dir = $args[0]
+    $ret = Test-Path $dir 
+    if (-not $ret) {
+       mkdir $dir
+    } 
+}
+
+function copyPlugin 
+{
+    $plugin_name = $args[0]
+    mkdirIfNotExist $plugin_name
+    call ("cp "+$qt_path+"\plugins\"+$plugin_name+"\*.dll "+$plugin_name)
+    call ("rm """+$plugin_name+"/*d.dll""")
+}
+
+function copyQtDll 
+{
+    $dll_name = $args[0]
+    call ("cp "+$qt_path+"\bin\"+$dll_name+".dll .")
 }
