@@ -4,6 +4,8 @@ $qt_path = "C:\Qt\5.4\mingw491_32"
 $mingw_path = "C:\Qt\Tools\mingw491_32"
 $build_path = "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release"
 $repo_path = "C:\Users\Aroquemaurel\Documents\FactDev"
+$innosetup_path = "& 'C:\Program Files (x86)\Inno Setup 5\ISCC.exe'"
+
 $nb_process = 3
 
 
@@ -45,7 +47,7 @@ function copyPlugin
     $plugin_name = $args[0]
     mkdirIfNotExist $plugin_name
     call ("cp "+$qt_path+"\plugins\"+$plugin_name+"\*.dll "+$plugin_name)
-    #call ("rm """+$plugin_name+"/*d.dll""")
+    call ("rm """+$plugin_name+"/*d.dll""")
 }
 
 function copyQtDll 
@@ -99,10 +101,12 @@ copyQtDll "Qt5Widgets"
 
 rmdirIfExist sql
 call ("cp "+$build_path+"\src\release\FactDev.dll .") # Copy FactDev.dll
-call ("cp "+$repo_path+"\src\sql\* sql") # Copy sql files
+call ("cp -Recurse "+$repo_path+"\src\sql .") # Copy sql files
 call ("cp "+$repo_path+"\fact-team.github.io\doc\usermanual.pdf manuel.pdf") # Copy sql files
 cp app.exe FactDev.exe
 
 
-# Execution de machintruc pour faire un installeur
+# Innosetup execution : creation of installer
+call ("cd "+$repo_path+"\deploy") 
+call ($innosetup_path+" .\setup.iss")
 

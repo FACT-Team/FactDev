@@ -31,7 +31,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\FactDev.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\sql\*"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\sql\*sql"; DestDir: "{app}\sql"; Flags: ignoreversion
 Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\platforms\*"; DestDir: "{app}\platforms"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\sqldrivers\*"; DestDir: "{app}\sqldrivers"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Users\Aroquemaurel\Documents\build-FactDev-Desktop_Qt_5_4_1_MinGW_32bit-Release\app\release\manuel.pdf"; DestDir: "{app}\"; Flags: ignoreversion recursesubdirs createallsubdirs
