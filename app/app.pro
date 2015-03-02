@@ -12,3 +12,6 @@ SOURCES += main.cpp
 
 LIBS += -L../src -lFactDev
 
+macx {
+    ICON = FactDev.icns
+}
