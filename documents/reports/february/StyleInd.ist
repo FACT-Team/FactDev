@@ -1,0 +1,11 @@
+quote '~'
+headings_flag 1
+heading_prefix "\\centerline{\\bfseries "
+heading_suffix "}\\nopagebreak\n"
+symhead_positive "Symbole"
+numhead_positive "Zahlen"
+delim_0 "\\dotfill "
+delim_1 "\\dotfill "
+delim_2 "\\dotfill "
+delim_r "--"
+
