@@ -79,39 +79,41 @@
 	Du 29 Janvier 2014 au 28 Février 2015.
 
 	\section{Résumé des travaux de la période}
-	\subsection{Sprint 0}
-	Début de l'analyse et de la conception du projet
-	Mise en place de l'architecture pour pouvoir débuter les « \textit{Sprints} » suivants. 
-	Choix des technologies (C++ avec Qt, QTest, Git, Génération de \LaTeX{}), choix de la base de données (SQLite)
-	Définition des différentes « \textit{User Stories} »
-
-	\subsection{Planning poker}
-	Une fois le \textit{sprint} 0 terminé, nous avons pu mettre en place la méthode Scrum. L’une des premières choses fut de faire un « Planning Poker » afin
-	de : 
+	\subsection{Sprint 2}
+	Le sprint 2 est composé des \textit{« issues »} préalablement définies et des nouvelles résultant de la première revue de sprint. Ces nouvelles \textit{« issues »} correspondent à des bugs ou des modifications ergonomiques au logiciel. 
+	Au niveau du sprint 1 nous pouvions créer un nouveau Client et le modifier. Dans le sprint2, il doit être possible d'ajouter un nouveau projet à un client particulier ou, si le projet existe, de le modifier. A chaque projet d'un client est associé une facture et/ou devis. Ceci engendre des modifications au niveau de l'interface graphique :
 	\begin{itemize}
-		\item Définir un poids pour l'intégralité des \textit{Users Stories}
-		\item Définir la priorité pour l'intégralité des \textit{Users Stories}
-		\item Répartir les \textit{Users Stories} en différents \textit{sprints} et \textit{releases}. 
+		\item Vue de la liste des clients (existante depuis le sprint 1)
+		\item Vue de la liste des projets pour un client
+		\item Vue de la liste des factures et/ou devis pour un projet d'un client
+		\item Vue hiérarchique avec l'ensemble des clients, ses projets et factures/devis associées
 	\end{itemize}
-
-	\subsection{Sprint 1}
-	L'ensemble des << \textit{issues} >> ou « \textit{User Stories} » sont définis dans GitHub et un document « \textit{BackLog} » (Google Sheets). Dès qu'un membre de l'équipe
-	souhaite développer une nouvelle fonctionnalité, il se l'assigne. Lors du premier \textit{Sprint}, nous avons développé l'interface générale de
-	l'application et créer la base de données et les interactions principales entre nos objets et celle-ci. Nous avons également programmé l'ajout des
-	informations de l'utilisateur et la création d’un nouveau client, sa modification ou suppression. Une barre de recherche fonctionnelle a également
-	été implémenté, ainsi que des filtres (recherche sur les clients ou les sociétés). Enfin, nous avons mis en place des tests unitaires pour assurer
-	le bon fonctionnement de parties du code. 
-	Ce \textit{sprint}, ainsi que ceux qui suivent, fournissent un manuel d’utilisateur à jour des fonctionnalités venant d’être implémentées.  
-	\textit{Sprint} 2 en cours (première semaine du \textit{sprint})
-
-	Durant la première semaine du second \textit{Sprint}, nous avons ajouté la possibilité de créer de nouveaux projets et de les associer à un client. Il est
-	également possible de modifier ou supprimer un projet. L'interface générale de l’application a également été modifié pour répondre aux nouvelles
-	fonctions ajoutées. Lors de l'ajout d’un nouvel élément (projet, client, …), certains champs doivent obligatoirement être renseignés avec une
-	syntaxe correcte pour que cela puisse être sauvegardé. 
-
+	Afin de s'assurer que l'utilisateur saisi des données correctes on lui empêche de sauvegarder si certains champs sont vide ou erronées. Les champs de saisis possède une icône indiquant la validité ou non des informations qu'ils contiennent. 
+	
+	\subsection{Sprint 3}
+	Le sprint 3 est le dernier de notre première « Release ». La fonctionnalité majeure de ce sprint consiste à créer une nouvelle/facture ou devis avec, pour chacune, les informations suivantes:
+	\begin{itemize}
+		\item un \textbf{titre}
+		\item une \textbf{date}
+		\item une \textbf{description}
+		\item la \textbf{liste des projets} concernés avec, pour chacun, un tarif (journalier/horaire)
+		\item la \textbf{liste des prestations} pour chaque projet avec le nombre d'heures/jours consacrés à la réalisation de chaque prestation
+	\end{itemize}
+	
+	Une fois les informations saisies il est possible de générer la facture au format pdf.
+	Dans le cas d'un devis, on doit également pouvoir le modifier ce qui n'est pas le cas d'une facture accessible uniquement en lecture.
+	La barre de recherche s'est également améliorée afin de tenir compte des nouvelles modifications, à savoir la possibilité de rechercher par : 
+	\begin{itemize}
+		\item \textbf{Société} Nom de la société
+		\item \textbf{Client} Nom du client
+		\item \textbf{Projet} Nom du projet
+		\item \textbf{Prestation} Description de la prestation
+		\item \textbf{Facture/Devis} Titre ou numéro de la facture ou du devis
+	\end{itemize}  
+	
 	\section{Travaux effectivement réalisés en fin de période}
-	L'ensemble des « \textit{User} » et « \textit{Technical Stories} » ont été réalisé dans les temps. La réalisation de celles-ci signifie que les considère comme
-	finis, c'est-à-dire que la fonction fait bien ce qu'on lui demande, que le code est facile à lire, peu complexe et correctement documenté. 
+	L'ensemble des « \textit{issues} » ont été réalisé dans les temps. 
+	
 	En plus de ce que nous avions initialement prévu, nous avons également réalisé un site internet présentant l'équipe de développement, le projet et
 	divers liens propres à ce projet :
 	\begin{itemize}
@@ -132,7 +134,7 @@
 			\textbf{Désignation} & \textbf{Fréquence} & \textbf{Total}\\
 			\hline
 			Réunions tuteur & 1h / semaine & 4h\\
-			Réunions de travail & 2.5h / semaine & 10h\\
+			Réunions de travail & 4h / semaine & 10h\\
 			Travail personnel & 8h / semaine & 24h
 		\end{tabular}
 		\caption{Charge de travail constatée}
@@ -145,7 +147,7 @@
 			\textbf{Désignation} & \textbf{Fréquence} & \textbf{Total}\\
 			\hline
 			Réunions tuteur & 1h / semaine & 4h\\
-			Réunions de travail & \textbf{4h / semaine} & \textbf{16h}\\
+			Réunions de travail & 4h / semaine & 16h\\
 			Travail personnel & 8h / semaine & 24h
 		\end{tabular}
 		\caption{Charge de travail estimée}
