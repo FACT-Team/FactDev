@@ -92,6 +92,7 @@
 	
 	\subsection{Sprint 3}
 	Le sprint 3 est le dernier de notre première « Release ». La fonctionnalité majeure de ce sprint consiste à créer une nouvelle/facture ou devis avec, pour chacune, les informations suivantes:
+
 	\begin{itemize}
 		\item un \textbf{titre}
 		\item une \textbf{date}
@@ -153,46 +154,39 @@
 	la plupart, mineurs.
 
 	\section{Problèmes techniques constatés}
-	\begin{itemize}
-		\item Installation de l'outils Sonar
-		\item Choix de l'outil tests : QTest a été adopté plutôt que GTest qui posait des problèmes de compatibilité entre les systèmes 
-		\item Problèmes de compatibilités entre systèmes : Mac / Windows
-		\item Formation sur les technologies
-	\end{itemize}
+	Nous avons eu quelques soucis que nous avons pu résoudre.
+
+	\subsection{Conception de l'interface}
+	Lors du sprint 2, nous avions mal défini l'interface de création de Devis et Factures, ainsi lors de l'ajout des Tarifs pour un devis ou une
+	facture ,nous avons été obligé de refaire toute l'interface des prestations, ce qui nous a fait perdre du temps et prendre du retard sur le
+	sprint.
+
+	\subsection{Fuites de mémoires}
+	Le logiciel comportait un certain nombre de fuites de mémoire qui rendait impossible l'utilisation de la fonction recherche. Afin de régler ce
+	problème, nous avons utilisé l'outil Valgrind, qui détecte les endroit ou une variable n'est pas désaloué, à l'aide de celui-ci, les fuites ont pu
+	être comblées.
+
+	\subsection{Déploiement sous mac}
+	Un certain nombre de problème sont apparu pour le déploiement sous Mac OS sont apparu, principalement du à des erreurs de bibliothèques.
+
 	\section{Décisions prises}
-	Avant de rentrer dans le vif du sujet, l'équipe a tenu à mettre en place des standards afin d’assurer une meilleure gestion du projet, une
-	meilleure cohésion d’équipe et un code plus homogène. 
-	\subsection{La méthode \textit{Scrum}}
-	Pour une bonne utilisation de cette méthode, nous avons choisis : 
+	\subsection{Intégration continue}
+	Afin d'avoir un projet qui soit le plus stable possible, et de limiter au maximum les problèmes d'intégrations, nous avons choisi d'utiliser
+	Travis pour faire de l'intégration continue comme détaillé section \ref{work}.
+
+	Ainsi, lors de la revue de code, notre Pull Request contient les indicatifs de travis, une fonctionnalité ne peut être intégré que si tous les
+	indices sont au vert, soit : 
 	\begin{itemize}
-		\item Le nombre de versions livrables (\textit{Releases}) et le nombre de \textit{Sprints} par \textit{Release}. Dans notre cas nous avons
-			deux \textit{releases} contenant chacune trois \textit{sprints}
-		\item Les \textit{User/Technical stories} pour chaque \textit{sprint}
-		\item De faire réunions quotidiennes (mêlées)
+		\item Le code compile correctement
+		\item Les tests passent
+		\item La couverture de code n'a pas diminué par rapport à la version précédente
+		\item La documentation est correctement générée
 	\end{itemize}
 
-	\subsection{Utilisation de Github}
-	Nous avons rédigés un wiki sur notre compte Github, comprenant :
+	\subsection{Couverture des tests}
+	Afin que notre code soit le mieux testé possible, nous avons pris deux décisions : 
 	\begin{itemize}
-		\item Les conventions d’écritures (normalisation des noms de variables, de méthodes, de l'indentation, \ldots)\newline
-			\Mundus~\url{https://github.com/FACT-Team/Team-Organization/wiki/Conventions-de-codage-en-C--}
-		\item un tutoriel sur Git\newline
-			\Mundus~\url{https://github.com/FACT-Team/Team-Organization/wiki/Mini-Tuto-Git}
-		\item Un cours explicatif sur notre façon de développer sous Git : une user story aura une nouvelle branche \newline
-			\Mundus~\url{https://github.com/FACT-Team/FactDev/wiki/Workflow}
+		\item Ne pas tester l'interface graphique, en raison du temps et de la difficulté que cela nous prendrait.
+		\item Assurer une couverture de code d'au moins 80\%
 	\end{itemize}
-
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=11cm]{BranchingWorkflow.eps}
-		\caption{Principe du « \textit{Git Branching Workflow} »}
-	\end{figure}
-	\subsection{Assurer une revue de code}
-	    Le développeur ayant programmé une nouvelle fonctionnalité (et donc créé une nouvelle branche au projet sur Git) mentionne via une <<
-		\textit{Pull Request} >> qu'il a terminé.  Les autres membres de l'équipe en sont informés. 
-		
-		Un de ses membres se charge de la revue de code, ce qui signifie
-		qu'il devait vérifier que cela fonctionne et que le code est propre, facilement lisible, peu complexe et commenté. Une fois que tous ces
-		éléments ont été revus et jugés valides, la branche est fusionnée à la branche principale (nommée Master) du projet. 
-
 \end{document}
