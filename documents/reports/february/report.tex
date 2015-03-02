@@ -115,7 +115,8 @@
 	\section{Travaux effectivement réalisés en fin de période}
 	L'ensemble des « \textit{issues} » ont été réalisé dans les temps. 
 
-	En plus de ce que nous avions initialement prévu, nous avons ajouté l'outil d'intégration: Travis. Celui-ci exécute les tests unitaires et indique le niveau de couverture de code. 
+	En plus de ce que nous avions initialement prévu, nous avons ajouté l'outil d'intégration continue Travis. Il s'agit d'un outil en ligne qui compile le projet à chaque fois que celui-ci est modifié, s'assure que le code compile, que les tests passent et calcule la couverture de code. De plus, il génère la documentation associé à notre projet (Doxygen, Manuel d'utilisateur).
+	A chaque nouveau \textit{ « commit »}, Travis s'exécute en fond et indique directement sur \textit{GitHub} si les tests passent et si la couverture de code a diminué ou non. Lorsqu'un utilisateur crée une \textit{« Pull Request »} il lui est impossible de fusionné celle-ci si les tests ne passent pas. 
 
 	\section{Charge de travail pour le groupe}
 	\subsection{Charge estimé}
@@ -143,15 +144,9 @@
 		\end{tabular}
 		\caption{Charge de travail estimée}
 	\end{table}
-	Nous avions prévu deux heures et demi de réunions de travail avec tout le groupe. Cependant, au début du projet, trois membres du groupes
-	connaissaient peu les technologies choisies. Il fut donc préférable de travailler dans la même pièce à la manière d’un « \textit{open space} ». 
+	Pour ce second et troisième Sprint nous avons décidé de consacrer le même temps que celui constaté lors du premier compte rendu. 
 	
-	Si un des développeurs avait un problème qu'il ne parvenait pas à résoudre, les autres développeurs lui venaient en aide. Ceci contribue à la cohésion
-	d'équipe, à la réalisation d’un projet homogène et un avancement plus rapide du projet. 
-	
-	Cette démarche a aussi été faite dans le but de faire
-	progresser rapidement les développeurs afin que ces derniers, ne connaissant pas la technologie, ne bloquent pas sur des problèmes qui sont, pour
-	la plupart, mineurs.
+	La partie consacrée à l'entre-aide entre les développeurs a diminué par rapport au mois précédent car les membres maîtrise davantage le langage et les outils. En revanche un temps plus important fut consacré à des choix de conception ou d'ergonomie qui justifie un temps de travail identique à celui du mois précédent.
 
 	\section{Problèmes techniques constatés}
 	Nous avons eu quelques soucis que nous avons pu résoudre.
