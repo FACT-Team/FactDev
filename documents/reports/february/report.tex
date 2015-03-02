@@ -75,20 +75,20 @@
 		\caption{Logo de FactDev}
 	\end{figure}
 
-	\section{Période couverte}
+ 	\section{Période couverte}
 	Du 29 Janvier 2014 au 28 Février 2015.
 
 	\section{Résumé des travaux de la période}
 	\subsection{Sprint 2}
 	Le sprint 2 est composé des \textit{« issues »} préalablement définies et des nouvelles résultant de la première revue de sprint. Ces nouvelles \textit{« issues »} correspondent à des bugs ou des modifications ergonomiques au logiciel. 
-	Au niveau du sprint 1 nous pouvions créer un nouveau Client et le modifier. Dans le sprint2, il doit être possible d'ajouter un nouveau projet à un client particulier ou, si le projet existe, de le modifier. A chaque projet d'un client est associé une facture et/ou devis. Ceci engendre des modifications au niveau de l'interface graphique :
+	Au niveau du sprint 1 nous pouvions créer un nouveau Client et le modifier. Dans le sprint 2, il doit être possible d'ajouter un nouveau projet à un client particulier ou, si le projet existe, de le modifier. A chaque projet d'un client est associé une facture et/ou un devis. Ceci engendre des modifications au niveau de l'interface graphique :
 	\begin{itemize}
 		\item Vue de la liste des clients (existante depuis le sprint 1)
 		\item Vue de la liste des projets pour un client
 		\item Vue de la liste des factures et/ou devis pour un projet d'un client
-		\item Vue hiérarchique avec l'ensemble des clients, ses projets et factures/devis associées
+		\item Vue hiérarchique avec l'ensemble des clients, ses projets et factures/devis associés
 	\end{itemize}
-	Afin de s'assurer que l'utilisateur saisi des données correctes on lui empêche de sauvegarder si certains champs sont vide ou erronées. Les champs de saisis possède une icône indiquant la validité ou non des informations qu'ils contiennent. 
+	Afin de s'assurer que l'utilisateur saisi des données correctes on lui empêche de sauvegarder si certains champs sont vide ou erronées. Les champs de saisie possèdent une icône indiquant la validité ou non des informations qu'ils contiennent. 
 	
 	\subsection{Sprint 3}
 	Le sprint 3 est le dernier de notre première « Release ». La fonctionnalité majeure de ce sprint consiste à créer une nouvelle/facture ou devis avec, pour chacune, les informations suivantes:
@@ -113,10 +113,10 @@
 	\end{itemize}  
 	
 	\section{Travaux effectivement réalisés en fin de période}\label{work}
-	L'ensemble des « \textit{issues} » ont été réalisé dans les temps. 
+	L'ensemble des « \textit{issues} » ont été réalisées dans les temps. 
 
 	En plus de ce que nous avions initialement prévu, nous avons ajouté l'outil d'intégration continue Travis. Il s'agit d'un outil en ligne qui compile le projet à chaque fois que celui-ci est modifié, s'assure que le code compile, que les tests passent et calcule la couverture de code. De plus, il génère la documentation associé à notre projet (Doxygen, Manuel d'utilisateur).
-	A chaque nouveau \textit{ « commit »}, Travis s'exécute en fond et indique directement sur \textit{GitHub} si les tests passent et si la couverture de code a diminué ou non. Lorsqu'un utilisateur crée une \textit{« Pull Request »} il lui est impossible de fusionné celle-ci si les tests ne passent pas. 
+	A chaque nouveau \textit{ « commit »}, Travis s'exécute en fond et indique directement sur \textit{GitHub} si les tests passent et si la couverture de code a diminué ou non. Lorsqu'un utilisateur crée une \textit{« Pull Request »} il lui est impossible de fusionner celle-ci si les tests ne passent pas. 
 
 	\section{Charge de travail pour le groupe}
 	\subsection{Charge estimé}
@@ -146,7 +146,7 @@
 	\end{table}
 	Pour ce second et troisième Sprint nous avons décidé de consacrer le même temps que celui constaté lors du premier compte rendu. 
 	
-	La partie consacrée à l'entre-aide entre les développeurs a diminué par rapport au mois précédent car les membres maîtrise davantage le langage et les outils. En revanche un temps plus important fut consacré à des choix de conception ou d'ergonomie qui justifie un temps de travail identique à celui du mois précédent.
+	La partie consacrée à l'entraide entre les développeurs a diminué par rapport au mois précédent car les membres maîtrise davantage le langage et les outils. En revanche un temps plus important fut consacré à des choix de conception ou d'ergonomie qui justifie un temps de travail identique à celui du mois précédent.
 
 	\section{Problèmes techniques constatés}
 	Nous avons eu quelques soucis que nous avons pu résoudre.
@@ -158,18 +158,18 @@
 
 	\subsection{Fuites de mémoires}
 	Le logiciel comportait un certain nombre de fuites de mémoire qui rendait impossible l'utilisation de la fonction recherche. Afin de régler ce
-	problème, nous avons utilisé l'outil Valgrind, qui détecte les endroit ou une variable n'est pas désaloué, à l'aide de celui-ci, les fuites ont pu
+	problème, nous avons utilisé l'outil Valgrind, qui détecte les endroits où une variable n'est pas désalloué, à l'aide de celui-ci, les fuites ont pu
 	être comblées.
 
-	\subsection{Déploiement sous mac}
-	Un certain nombre de problème sont apparu pour le déploiement sous Mac OS sont apparu, principalement du à des erreurs de bibliothèques.
+	\subsection{Déploiement sous Mac}
+	Un certain nombre de problèmes sont apparus pour le déploiement sous Mac OS, principalement du à des erreurs de bibliothèques.
 
 	\section{Décisions prises}
 	\subsection{Intégration continue}
-	Afin d'avoir un projet qui soit le plus stable possible, et de limiter au maximum les problèmes d'intégrations, nous avons choisi d'utiliser
+	Afin d'avoir un projet qui soit le plus stable possible, et de limiter au maximum les problèmes d'intégration, nous avons choisi d'utiliser
 	Travis pour faire de l'intégration continue comme détaillé section \ref{work}.
 
-	Ainsi, lors de la revue de code, notre Pull Request contient les indicatifs de travis, une fonctionnalité ne peut être intégré que si tous les
+	Ainsi, lors de la revue de code, notre \textit{« Pull Request »} contient les indicatifs de Travis, une fonctionnalité ne peut être intégrée que si tous les
 	indices sont au vert, soit : 
 	\begin{itemize}
 		\item Le code compile correctement
