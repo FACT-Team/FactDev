@@ -160,35 +160,57 @@ Manan\textbf{T}soa
 \section{Le projet}
 \subsection{FactDev ?}
 \begin{frame}{FactDev : Un logiciel de Devis et Facturation}
-\begin{itemize}
-	\item Usage professionnel
+	\begin{block}{Un problème}
+		\begin{itemize}
+			\item Rédaction de factures et devis << à la main >> 
+				\begin{itemize}
+			\item Problème pour le calcul des montants
+			\item Pour retrouver les factures dans les dossiers\\
+				~$\Rightarrow$ Risque d'erreur humaine important
+				\end{itemize}
+		\end{itemize}
+	\end{block}
+	\vfill
+	\begin{block}{Une solution}
+		Un logiciel automatisant ce problème : 
+		\begin{itemize}
 	\item Gestion de 
 		\begin{itemize}
-			\item Clients
-			\item Projets associés
-			\item Tarifs
+			\item Clients, projets associés
+			\item Tarifs calculés
 			\item Génération de documents 
 			\item Recherche
 		\end{itemize}
-	\item Développement itératif
-\end{itemize}
+		\end{itemize}
+	\end{block}
 \end{frame}
 \subsection{Les outils}
 \begin{frame}{Les outils utilisés}
 	\begin{figure}[H]
 		\centering
-	\includegraphics[height=1.5cm]{logos/qt.png}~~
-	\Huge \LaTeX
+		\uncover<1->{
+			\includegraphics[height=1.5cm]{logos/qt.png}~~
+			\Huge \LaTeX
+			\includegraphics[height=0.8cm]{logos/sqlite.png}
+		}
 
-	\includegraphics[height=1.5cm]{logos/travis.png}~~
-	\includegraphics[height=1.3cm]{logos/coveralls.png}
+		\uncover<2->{
+			\includegraphics[height=1.0cm]{logos/git.png}~~
+			\includegraphics[height=0.8cm]{logos/github.png}
+		}
 
-	\includegraphics[height=1.5cm]{logos/git.png}~~
-	\includegraphics[height=1.2cm]{logos/github.png}
+		\uncover<3->{
+			\includegraphics[height=1.3cm]{logos/travis.png}~~
+			\includegraphics[height=1.3cm]{logos/coveralls.png}\\
+			\vspace{-10px}
+			\includegraphics[height=0.5cm]{logos/doxygen.png}
+		}
 
-	\includegraphics[height=0.8cm]{logos/irc.png}~~
-	\includegraphics[height=0.5cm]{logos/doxygen.png}~~ 
-	\includegraphics[height=0.8cm]{logos/sqlite.png}
+		\uncover<4->{
+			\includegraphics[height=0.8cm]{logos/irc.png}~~
+			\includegraphics[height=1.4cm]{logos/drive.png}~~
+		}
+		\vspace{-20px}
 	\caption{Les différents outils}
 \end{figure}
 	%% Valgrind ? 
@@ -199,19 +221,27 @@ Manan\textbf{T}soa
 \begin{frame}{Scrum, une méthodologie de développement}
 	\begin{itemize}
 		\item 
-	\end{itemize}<++>
+	\end{itemize}
 	%% TODO add figure Sprints/user stories
+\end{frame}
+\subsection{Intégration\ldots}
+% Pull Requests	
+% Branching flow
+\begin{frame}
+\end{frame}
+\subsection{\ldots Continue}
+\begin{frame}
+% Travis	
+% Couverture de code
+% Build, 
+% Tests
+% Transition vers la revue de code :)
 \end{frame}
 \subsection{Revue de code}
 \begin{frame}
-%% Pull Requests	
+	
 \end{frame}
-\subsection{Intégration continue}
-\begin{frame}
-% Travis	
-% Couverture, build, test, PR
-\end{frame}
-\section{Les résultats}
+\section{Résultats}
 \subsection{Pour la méthode ?}
 \begin{frame}
 % xx issues, xx PR, xx commits, xx branches, xx builds, xx de couverture, …
