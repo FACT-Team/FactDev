@@ -214,6 +214,14 @@ void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
 }
 
+void MainWindow::generateTex()
+{
+    QModelIndex ls = ui->tblQuotes->selectionModel()->selectedRows().first();
+    int pid = ui->tblQuotes->model()->data(ls,Qt::DisplayRole).toInt();
+    Billing(pid).generateTex();
+
+}
+
 void MainWindow::search(QString text)
 {
     Search s;

@@ -189,6 +189,8 @@ public slots:
      * @brief MainWindow::editQuote Edit the qupte or
      */
     //void editQuote();
+
+    void generateTex();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu

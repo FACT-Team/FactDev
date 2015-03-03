@@ -343,7 +343,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -798,8 +798,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>397</x>
-     <y>125</y>
+     <x>910</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -814,8 +814,8 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>397</x>
-     <y>125</y>
+     <x>823</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -862,8 +862,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>397</x>
-     <y>125</y>
+     <x>595</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -878,8 +878,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>397</x>
-     <y>125</y>
+     <x>725</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -1054,8 +1054,8 @@ border: 1px solid #bbb;</string>
    <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>388</x>
-     <y>116</y>
+     <x>686</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1070,8 +1070,8 @@ border: 1px solid #bbb;</string>
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>583</x>
-     <y>121</y>
+     <x>588</x>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1086,8 +1086,8 @@ border: 1px solid #bbb;</string>
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>488</x>
-     <y>116</y>
+     <x>916</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1102,8 +1102,8 @@ border: 1px solid #bbb;</string>
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>488</x>
-     <y>116</y>
+     <x>916</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1118,8 +1118,8 @@ border: 1px solid #bbb;</string>
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>488</x>
-     <y>116</y>
+     <x>916</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1166,8 +1166,8 @@ border: 1px solid #bbb;</string>
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>388</x>
-     <y>116</y>
+     <x>686</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -1250,8 +1250,8 @@ border: 1px solid #bbb;</string>
      <y>255</y>
     </hint>
     <hint type="destinationlabel">
-     <x>80</x>
-     <y>183</y>
+     <x>92</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
@@ -1282,8 +1282,8 @@ border: 1px solid #bbb;</string>
      <y>255</y>
     </hint>
     <hint type="destinationlabel">
-     <x>127</x>
-     <y>252</y>
+     <x>139</x>
+     <y>249</y>
     </hint>
    </hints>
   </connection>
@@ -1298,8 +1298,8 @@ border: 1px solid #bbb;</string>
      <y>256</y>
     </hint>
     <hint type="destinationlabel">
-     <x>150</x>
-     <y>274</y>
+     <x>162</x>
+     <y>272</y>
     </hint>
    </hints>
   </connection>
@@ -1330,8 +1330,8 @@ border: 1px solid #bbb;</string>
      <y>211</y>
     </hint>
     <hint type="destinationlabel">
-     <x>164</x>
-     <y>183</y>
+     <x>176</x>
+     <y>180</y>
     </hint>
    </hints>
   </connection>
@@ -1346,8 +1346,8 @@ border: 1px solid #bbb;</string>
      <y>211</y>
     </hint>
     <hint type="destinationlabel">
-     <x>164</x>
-     <y>206</y>
+     <x>176</x>
+     <y>203</y>
     </hint>
    </hints>
   </connection>
@@ -1447,6 +1447,22 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnLatex</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>generateTex()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>828</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>827</x>
+     <y>693</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1479,5 +1495,6 @@ border: 1px solid #bbb;</string>
   <slot>changeDocsTable()</slot>
   <slot>editQuote()</slot>
   <slot>updateButtons()</slot>
+  <slot>generateTex()</slot>
  </slots>
 </ui>
