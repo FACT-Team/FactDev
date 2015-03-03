@@ -7,7 +7,7 @@
 #include "models/project.h"
 #include "models/customer.h"
 
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
 
 namespace Ui {
 class AddProjectDialog;
