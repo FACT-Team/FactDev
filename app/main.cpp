@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
 #include "gui/dialogs/userdatadialog.h"
 #include <QApplication>
 #include "database/database.h"
