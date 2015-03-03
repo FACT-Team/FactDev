@@ -1,7 +1,6 @@
 #include <QStandardPaths>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "exceptions/fileexception.h"
 
 using namespace Utils;
 

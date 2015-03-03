@@ -1,6 +1,6 @@
 #include "addquotedialog.h"
-#include "ui_addquotedialog.h"
 
+#include "ui_addquotedialog.h"
 namespace Gui {
 namespace Dialogs {
 

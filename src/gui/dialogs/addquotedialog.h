@@ -5,6 +5,7 @@
 #include "models/billing.h"
 
 #include "gui/widgets/contributorieswidget.h"
+
 using namespace Models;
 
 namespace Ui {

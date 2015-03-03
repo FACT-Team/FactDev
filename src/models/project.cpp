@@ -1,6 +1,7 @@
 #include "project.h"
 
 #include "database/projectdatabase.h"
+
 using namespace Databases;
 
 namespace Models {

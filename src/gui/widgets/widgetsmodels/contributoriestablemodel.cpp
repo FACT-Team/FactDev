@@ -1,4 +1,5 @@
 #include "contributoriestablemodel.h"
+
 namespace Gui {
 namespace Widgets {
 namespace WdgModels {

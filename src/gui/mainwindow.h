@@ -25,6 +25,8 @@
 
 #include "models/search.h"
 
+#include "exceptions/fileexception.h"
+
 using namespace Gui::Dialogs;
 
 namespace Ui {
