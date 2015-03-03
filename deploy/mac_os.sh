@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #### CONFIGURATION ####
-qt_path="/Applications/Qt/5.3/clang_64/"
+qt_path="/Applications/Qt5.4.1/5.4/clang_64/"
 make_path="make"
 build_path="/Users/cedricrohaut/FACT-Team/build-factdev-release"
 repo_path="/Users/cedricrohaut/FACT-Team/FactDev"
@@ -50,7 +50,7 @@ cd app
 eval "cd $build_path/app"
 eval "cp $qt_path/bin/macdeployqt ." 
 ./macdeployqt app.app
-cp libFactDev.*.dylib app.app/Contents/Frameworks/ 
+cp libFactDev.1.dylib app.app/Contents/Frameworks/
 ./macdeployqt app.app
 eval "cp -r $repo_path/src/sql app.app/Contents/MacOS"
 mv app.app FactDev.app
