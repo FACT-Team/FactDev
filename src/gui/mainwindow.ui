@@ -1,0 +1,1500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1237</width>
+    <height>585</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FactDev: Facture &amp; Devis</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="1" column="0">
+         <layout class="QGridLayout" name="gridLayout_12">
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="btnDelCustomer">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Supprimer</string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/img/256/remove_user.png</normaloff>:/icons/img/256/remove_user.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="btnAddCustomer">
+            <property name="text">
+             <string>Nouveau client</string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QPushButton" name="btnEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Modifier </string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="btnNewProject">
+            <property name="text">
+             <string>Nouveau projet</string>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="6">
+           <widget class="QTableView" name="tblCustomers">
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_11">
+        <item row="1" column="0">
+         <widget class="QPushButton" name="btnBackToCustomers">
+          <property name="text">
+           <string>Retour aux clients</string>
+          </property>
+          <property name="icon">
+           <iconset resource="icons.qrc">
+            <normaloff>:/icons/img/customer24.png</normaloff>:/icons/img/customer24.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="3">
+         <widget class="QTableView" name="tblProjects">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="3">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="Gui::Widgets::ProjectsWidget" name="wdgTblProjectsToolBar" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="lblProjects">
+          <property name="maximumSize">
+           <size>
+            <width>300</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="0" column="1">
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="1" column="0">
+           <widget class="QTableView" name="tblQuotes">
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_9">
+            <property name="bottomMargin">
+             <number>10</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btnBackCustomersProject">
+              <property name="text">
+               <string>Retour aux clients</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/customer</normaloff>:/icons/customer</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="lblQuotes">
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>9</pointsize>
+                <italic>false</italic>
+               </font>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="btnBackToProjects">
+              <property name="text">
+               <string>Retour aux projets</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/project.png</normaloff>:/icons/img/project.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnEditDoc">
+              <property name="text">
+               <string>Éditer le document</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnRemoveDoc">
+              <property name="text">
+               <string>Supprimer le document</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnLatex">
+              <property name="text">
+               <string>Générer en LaTeX</string>
+              </property>
+              <property name="icon">
+               <iconset resource="icons.qrc">
+                <normaloff>:/icons/img/convert_to_latex.png</normaloff>:/icons/img/convert_to_latex.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1237</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actSettings"/>
+    <addaction name="actClose"/>
+   </widget>
+   <widget class="QMenu" name="menuClient">
+    <property name="title">
+     <string>Client</string>
+    </property>
+    <addaction name="actNew"/>
+    <addaction name="actResearch"/>
+    <addaction name="actionNewBill"/>
+    <addaction name="actionNewQuote"/>
+    <addaction name="actionPrint"/>
+   </widget>
+   <widget class="QMenu" name="menuA_propos">
+    <property name="title">
+     <string>A propos</string>
+    </property>
+    <addaction name="actQt"/>
+    <addaction name="actFact"/>
+    <addaction name="actFactDev"/>
+    <addaction name="actIcons"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuClient"/>
+   <addaction name="menuA_propos"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="separator"/>
+   <addaction name="actSettings"/>
+   <addaction name="actNew"/>
+   <addaction name="actionNewBill"/>
+   <addaction name="actionNewQuote"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>279</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Recherche</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="leSearch">
+       <property name="styleSheet">
+        <string notr="true">background: url(:/icons/searchMini);
+background-position: right;
+background-repeat: no-repeat;     
+border-radius: 0px;
+height: 23px;
+border: 1px solid #bbb;</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Effectuer une recherche</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QGroupBox" name="gpbxSearchFilter">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Filtre de recherche</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="chkSearchCompany">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Nom de la société</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QCheckBox" name="chkReferentName">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Nom du référent</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="chkProjectName">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Nom du projet</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QCheckBox" name="chkContributory">
+          <property name="text">
+           <string>Nom de la prestation</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QCheckBox" name="chkBillQuote">
+          <property name="text">
+           <string>N°,Nom du devis/facture</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>66</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Données du client</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <property name="minimumSize">
+     <size>
+      <width>300</width>
+      <height>0</height>
+     </size>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="Gui::Widgets::CustomerDataWidget" name="wdgCustomerData" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_3">
+   <property name="minimumSize">
+    <size>
+     <width>250</width>
+     <height>183</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Liste des clients</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_3">
+    <layout class="QGridLayout" name="gridLayout_4">
+     <item row="1" column="0">
+      <widget class="QTreeView" name="trCustomers">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_4">
+   <property name="minimumSize">
+    <size>
+     <width>73</width>
+     <height>200</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Mes données</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <widget class="Gui::Widgets::CustomerDataWidget" name="wdgUserData" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="btnAddProject">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau projet</string>
+   </property>
+  </action>
+  <action name="actSettings">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/settings.png</normaloff>:/icons/img/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paramètres</string>
+   </property>
+  </action>
+  <action name="actClose">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fermer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actNew">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actResearch">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/search.png</normaloff>:/icons/img/search.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rechercher</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionNewBill">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/add_bill.png</normaloff>:/icons/img/add_bill.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouvelle facture</string>
+   </property>
+  </action>
+  <action name="actionNewQuote">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau devis</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/img/customer.png</normaloff>:/icons/img/customer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Afficher</string>
+   </property>
+  </action>
+  <action name="actQt">
+   <property name="text">
+    <string>Qt</string>
+   </property>
+  </action>
+  <action name="actFact">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Fact_square</normaloff>:/icons/Fact_square</iconset>
+   </property>
+   <property name="text">
+    <string>Fact</string>
+   </property>
+  </action>
+  <action name="actFactDev">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
+   </property>
+   <property name="text">
+    <string>FactDev</string>
+   </property>
+  </action>
+  <action name="actIcons">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/img/information.png</normaloff>:/icons/img/information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Icons</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::Widgets::CustomerDataWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/customerdatawidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::ProjectsWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/projectswidget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>editProject()</signal>
+    <signal>removeProject()</signal>
+    <signal>addProject()</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnEdit</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>910</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>764</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDelCustomer</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>823</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>280</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leSearch</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>search(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>search()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAddCustomer</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>595</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnNewProject</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>725</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>720</x>
+     <y>408</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actClose</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actNew</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addCustomer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actQt</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actFactDev</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutFactDev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actIcons</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutIcons()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actFact</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>aboutFact()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actSettings</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editUser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblCustomers</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>customersTableToProjectsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1026</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackToCustomers</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToCustomersTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>336</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewQuote</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addQuote()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>projectsTableToDocsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>686</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>920</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackToProjects</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToProjectsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>588</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>672</x>
+     <y>567</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgTblProjectsToolBar</sender>
+   <signal>addProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>916</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>797</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgTblProjectsToolBar</sender>
+   <signal>editProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>916</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>738</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgTblProjectsToolBar</sender>
+   <signal>removeProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>916</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>552</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>trCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeCustomerTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>415</x>
+     <y>91</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblProjects</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeProjectsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>686</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackCustomersProject</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>backToCustomersTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewBill</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addBill()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblQuotes</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeDocsTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>698</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>502</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkProjectName</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>17</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>74</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkSearchCompany</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkReferentName</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>102</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkContributory</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkBillQuote</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>97</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>162</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>gpbxSearchFilter</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>30</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>163</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkSearchCompany</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>180</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkReferentName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkProjectName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkContributory</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkBillQuote</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>139</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnEditDoc</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>editDoc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>528</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>563</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnRemoveDoc</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>removeDoc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>618</x>
+     <y>529</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>609</x>
+     <y>558</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBackCustomersProject</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateButtons()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>774</x>
+     <y>-20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnLatex</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>generateTex()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>828</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>827</x>
+     <y>693</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addCustomer()</slot>
+  <slot>editCustomer()</slot>
+  <slot>removeCustomer()</slot>
+  <slot>search(QString)</slot>
+  <slot>search()</slot>
+  <slot>editUser()</slot>
+  <slot>newProject()</slot>
+  <slot>aboutQt()</slot>
+  <slot>aboutFact()</slot>
+  <slot>aboutFactDev()</slot>
+  <slot>aboutIcons()</slot>
+  <slot>changeCustomer()</slot>
+  <slot>openProjects()</slot>
+  <slot>customersTableToProjectsTable()</slot>
+  <slot>backToCustomersTable()</slot>
+  <slot>addQuote()</slot>
+  <slot>projectsCustomersTableTree()</slot>
+  <slot>projectsTableToDocsTable()</slot>
+  <slot>backToProjectsTable()</slot>
+  <slot>editProject()</slot>
+  <slot>removeProject()</slot>
+  <slot>changeCustomerTable()</slot>
+  <slot>changeTree()</slot>
+  <slot>addBill()</slot>
+  <slot>editDoc()</slot>
+  <slot>removeDoc()</slot>
+  <slot>changeProjectsTable()</slot>
+  <slot>changeDocsTable()</slot>
+  <slot>editQuote()</slot>
+  <slot>updateButtons()</slot>
+  <slot>generateTex()</slot>
+ </slots>
+</ui>
