@@ -1,6 +1,9 @@
 #ifndef GENERATOR_H
 #define GENERATOR_H
 #include "models/billing.h"
+#include "models/user.h"
+
+#include "libs/qt-mustache/src/mustache.h"
 
 class Generator
 {

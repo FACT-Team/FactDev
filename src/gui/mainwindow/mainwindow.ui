@@ -14,7 +14,7 @@
    <string>FactDev: Facture &amp; Devis</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icons.qrc">
+   <iconset resource="../../icons.qrc">
     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -40,7 +40,7 @@
              <string>Supprimer</string>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../../icons.qrc">
               <normaloff>:/icons/img/256/remove_user.png</normaloff>:/icons/img/256/remove_user.png</iconset>
             </property>
            </widget>
@@ -64,7 +64,7 @@
              <string>Nouveau client</string>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../../icons.qrc">
               <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
             </property>
            </widget>
@@ -78,7 +78,7 @@
              <string>Modifier </string>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../../icons.qrc">
               <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
             </property>
            </widget>
@@ -89,13 +89,16 @@
              <string>Nouveau projet</string>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../../icons.qrc">
               <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
             </property>
            </widget>
           </item>
           <item row="0" column="0" colspan="6">
            <widget class="QTableView" name="tblCustomers">
+            <property name="contextMenuPolicy">
+             <enum>Qt::CustomContextMenu</enum>
+            </property>
             <property name="editTriggers">
              <set>QAbstractItemView::NoEditTriggers</set>
             </property>
@@ -122,7 +125,7 @@
            <string>Retour aux clients</string>
           </property>
           <property name="icon">
-           <iconset resource="icons.qrc">
+           <iconset resource="../../icons.qrc">
             <normaloff>:/icons/img/customer24.png</normaloff>:/icons/img/customer24.png</iconset>
           </property>
          </widget>
@@ -229,7 +232,7 @@
                <string>Retour aux clients</string>
               </property>
               <property name="icon">
-               <iconset resource="icons.qrc">
+               <iconset resource="../../icons.qrc">
                 <normaloff>:/icons/customer</normaloff>:/icons/customer</iconset>
               </property>
              </widget>
@@ -259,7 +262,7 @@
                <string>Retour aux projets</string>
               </property>
               <property name="icon">
-               <iconset resource="icons.qrc">
+               <iconset resource="../../icons.qrc">
                 <normaloff>:/icons/img/project.png</normaloff>:/icons/img/project.png</iconset>
               </property>
              </widget>
@@ -300,7 +303,7 @@
                <string>Éditer le document</string>
               </property>
               <property name="icon">
-               <iconset resource="icons.qrc">
+               <iconset resource="../../icons.qrc">
                 <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
               </property>
              </widget>
@@ -311,7 +314,7 @@
                <string>Supprimer le document</string>
               </property>
               <property name="icon">
-               <iconset resource="icons.qrc">
+               <iconset resource="../../icons.qrc">
                 <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
               </property>
              </widget>
@@ -322,7 +325,7 @@
                <string>Générer en LaTeX</string>
               </property>
               <property name="icon">
-               <iconset resource="icons.qrc">
+               <iconset resource="../../icons.qrc">
                 <normaloff>:/icons/img/convert_to_latex.png</normaloff>:/icons/img/convert_to_latex.png</iconset>
               </property>
              </widget>
@@ -343,7 +346,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>19</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -362,7 +365,6 @@
     <addaction name="actResearch"/>
     <addaction name="actionNewBill"/>
     <addaction name="actionNewQuote"/>
-    <addaction name="actionPrint"/>
    </widget>
    <widget class="QMenu" name="menuA_propos">
     <property name="title">
@@ -373,8 +375,15 @@
     <addaction name="actFactDev"/>
     <addaction name="actIcons"/>
    </widget>
+   <widget class="QMenu" name="menuProjets">
+    <property name="title">
+     <string>Projets</string>
+    </property>
+    <addaction name="actAddProject"/>
+   </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuClient"/>
+   <addaction name="menuProjets"/>
    <addaction name="menuA_propos"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -390,144 +399,11 @@
    <addaction name="separator"/>
    <addaction name="actSettings"/>
    <addaction name="actNew"/>
+   <addaction name="actAddProject"/>
    <addaction name="actionNewBill"/>
    <addaction name="actionNewQuote"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget">
-   <property name="minimumSize">
-    <size>
-     <width>279</width>
-     <height>200</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>524287</width>
-     <height>200</height>
-    </size>
-   </property>
-   <property name="windowTitle">
-    <string>Recherche</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="leSearch">
-       <property name="styleSheet">
-        <string notr="true">background: url(:/icons/searchMini);
-background-position: right;
-background-repeat: no-repeat;     
-border-radius: 0px;
-height: 23px;
-border: 1px solid #bbb;</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Effectuer une recherche</string>
-       </property>
-       <property name="clearButtonEnabled">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QGroupBox" name="gpbxSearchFilter">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>200</width>
-         <height>150</height>
-        </size>
-       </property>
-       <property name="title">
-        <string>Filtre de recherche</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_6">
-        <item row="0" column="0">
-         <widget class="QCheckBox" name="chkSearchCompany">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Nom de la société</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QCheckBox" name="chkReferentName">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Nom du référent</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QCheckBox" name="chkProjectName">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Nom du projet</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QCheckBox" name="chkContributory">
-          <property name="text">
-           <string>Nom de la prestation</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QCheckBox" name="chkBillQuote">
-          <property name="text">
-           <string>N°,Nom du devis/facture</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
@@ -575,7 +451,7 @@ border: 1px solid #bbb;</string>
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidget_3">
+  <widget class="QDockWidget" name="dockCustomers">
    <property name="minimumSize">
     <size>
      <width>250</width>
@@ -592,6 +468,9 @@ border: 1px solid #bbb;</string>
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="1" column="0">
       <widget class="QTreeView" name="trCustomers">
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
        <property name="editTriggers">
         <set>QAbstractItemView::NoEditTriggers</set>
        </property>
@@ -649,7 +528,7 @@ border: 1px solid #bbb;</string>
   </widget>
   <action name="btnAddProject">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
    </property>
    <property name="text">
@@ -658,7 +537,7 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actSettings">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/settings.png</normaloff>:/icons/img/settings.png</iconset>
    </property>
    <property name="text">
@@ -667,7 +546,7 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actClose">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
    </property>
    <property name="text">
@@ -679,11 +558,11 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actNew">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
    </property>
    <property name="text">
-    <string>Nouveau</string>
+    <string>Nouveau client</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -691,7 +570,7 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actResearch">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/search.png</normaloff>:/icons/img/search.png</iconset>
    </property>
    <property name="text">
@@ -706,7 +585,7 @@ border: 1px solid #bbb;</string>
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/add_bill.png</normaloff>:/icons/img/add_bill.png</iconset>
    </property>
    <property name="text">
@@ -718,7 +597,7 @@ border: 1px solid #bbb;</string>
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/add_quote.png</normaloff>:/icons/img/add_quote.png</iconset>
    </property>
    <property name="text">
@@ -741,7 +620,7 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actFact">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/Fact_square</normaloff>:/icons/Fact_square</iconset>
    </property>
    <property name="text">
@@ -750,7 +629,7 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actFactDev">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
    </property>
    <property name="text">
@@ -759,11 +638,20 @@ border: 1px solid #bbb;</string>
   </action>
   <action name="actIcons">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../../icons.qrc">
      <normaloff>:/icons/img/information.png</normaloff>:/icons/img/information.png</iconset>
    </property>
    <property name="text">
     <string>Icons</string>
+   </property>
+  </action>
+  <action name="actAddProject">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau projet</string>
    </property>
   </action>
  </widget>
@@ -788,7 +676,7 @@ border: 1px solid #bbb;</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="../../icons.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -798,8 +686,8 @@ border: 1px solid #bbb;</string>
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>543</y>
+     <x>820</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -814,44 +702,12 @@ border: 1px solid #bbb;</string>
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>543</y>
+     <x>699</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
      <y>325</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leSearch</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>search(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>156</x>
-     <y>128</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>129</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>search()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>74</x>
-     <y>238</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>138</y>
     </hint>
    </hints>
   </connection>
@@ -862,8 +718,8 @@ border: 1px solid #bbb;</string>
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>595</x>
-     <y>543</y>
+     <x>394</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -875,11 +731,11 @@ border: 1px solid #bbb;</string>
    <sender>btnNewProject</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>newProject()</slot>
+   <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>725</x>
-     <y>543</y>
+     <x>546</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -1006,8 +862,8 @@ border: 1px solid #bbb;</string>
    <slot>customersTableToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>380</x>
-     <y>107</y>
+     <x>378</x>
+     <y>108</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -1022,7 +878,7 @@ border: 1px solid #bbb;</string>
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>336</x>
+     <x>332</x>
      <y>106</y>
     </hint>
     <hint type="destinationlabel">
@@ -1054,8 +910,8 @@ border: 1px solid #bbb;</string>
    <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>686</x>
-     <y>240</y>
+     <x>379</x>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1083,11 +939,11 @@ border: 1px solid #bbb;</string>
    <sender>wdgTblProjectsToolBar</sender>
    <signal>addProject()</signal>
    <receiver>MainWindow</receiver>
-   <slot>newProject()</slot>
+   <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>916</x>
-     <y>543</y>
+     <y>539</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1103,7 +959,7 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>916</x>
-     <y>543</y>
+     <y>539</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1119,27 +975,11 @@ border: 1px solid #bbb;</string>
    <hints>
     <hint type="sourcelabel">
      <x>916</x>
-     <y>543</y>
+     <y>539</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
      <y>552</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>trCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>changeTree()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>221</x>
-     <y>393</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>292</x>
-     <y>347</y>
     </hint>
    </hints>
   </connection>
@@ -1150,8 +990,8 @@ border: 1px solid #bbb;</string>
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>380</x>
-     <y>107</y>
+     <x>378</x>
+     <y>108</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1166,8 +1006,8 @@ border: 1px solid #bbb;</string>
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>686</x>
-     <y>240</y>
+     <x>379</x>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -1220,182 +1060,6 @@ border: 1px solid #bbb;</string>
     <hint type="destinationlabel">
      <x>502</x>
      <y>584</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkProjectName</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>17</x>
-     <y>258</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>74</x>
-     <y>224</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkSearchCompany</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>34</x>
-     <y>255</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>92</x>
-     <y>180</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkReferentName</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>86</x>
-     <y>258</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>102</x>
-     <y>201</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkContributory</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>76</x>
-     <y>255</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>139</x>
-     <y>249</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkBillQuote</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>97</x>
-     <y>256</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>162</x>
-     <y>272</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>gpbxSearchFilter</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>30</x>
-     <y>150</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>163</x>
-     <y>154</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkSearchCompany</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>139</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>176</x>
-     <y>180</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkReferentName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>139</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>176</x>
-     <y>203</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkProjectName</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>139</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>139</x>
-     <y>221</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkContributory</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>139</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>139</x>
-     <y>244</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>gpbxSearchFilter</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>chkBillQuote</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>139</x>
-     <y>211</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>139</x>
-     <y>266</y>
     </hint>
    </hints>
   </connection>
@@ -1463,6 +1127,38 @@ border: 1px solid #bbb;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>trCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actAddProject</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1471,7 +1167,7 @@ border: 1px solid #bbb;</string>
   <slot>search(QString)</slot>
   <slot>search()</slot>
   <slot>editUser()</slot>
-  <slot>newProject()</slot>
+  <slot>addProject()</slot>
   <slot>aboutQt()</slot>
   <slot>aboutFact()</slot>
   <slot>aboutFactDev()</slot>

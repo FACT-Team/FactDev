@@ -22,9 +22,11 @@
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "gui/dialogs/addprojectdialog.h"
 #include "gui/dialogs/addquotedialog.h"
+#include "gui/docks/searchdock.h"
 
-#include "models/search.h"
+#include "exceptions/fileexception.h"
 
+#include "utils/pointers.h"
 using namespace Gui::Dialogs;
 
 namespace Ui {
@@ -101,9 +103,6 @@ public:
      */
     void addDoc(bool isBilling);
 
-
-
-    void demo();
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer
@@ -139,14 +138,10 @@ public slots:
      */
     void search(QString s);
     /**
-     * @brief MainWindow:search call search(QString)
-     */
-    void search();
-    /**
-     * @brief MainWindow::newProject Create a new project for a customer
+     * @brief MainWindow::addProject Create a new project for a customer
      * @see AddProjectDialog
      */
-    void newProject();
+    void addProject();
     /**
      * @brief MainWindow::removeProject Remove a project for a customer
      */
@@ -249,7 +244,8 @@ private slots:
     //void quotesProject();
 
 private:
-
+    void setupUi();
+    void setupSignalsSlots();
     /**
      * @brief MainWindow::updateUI Update all components of the
      * <b>MainWindow</b>
@@ -303,35 +299,8 @@ private:
      */
     int getCurrentTableId(QTableView *tbl);
 
-    /**
-     * @brief MainWindow::updateFolders Make directories which contain quotes
-     * and billings. Directories are the same than theirs of the Tree
-     * organisation (without Projects).
-     *
-     * Organisation of folders are formed like this:
-     *  + COMPANY CustomerLastname CustomerFirstname/
-     *      + Quotes/
-     *          - quote1
-     *          ...
-     *      + Billings/
-     *          - billing1
-     *          ...
-     */
-    void updateFolders();
-
-    /**
-     * @brief MainWindow::makeDirectory If not exists make a new directory
-     * <i>folder</i>
-     * @param path Return the path of the folder just created
-     * @param folder Folder name to create
-     * @return Path of the folder just created
-     */
-    QString makeDirectory(QDir &directory,
-                          const QString path, const QString folder);
-
     Ui::MainWindow *ui; //!< ui
-    Utils::HierarchicalSystem _hierarchy;
-
+    Docks::SearchDock* _searchDock;
 };
 }
 #endif // MAINWINDOW_H

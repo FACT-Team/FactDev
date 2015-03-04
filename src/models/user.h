@@ -1,10 +1,15 @@
 #ifndef USER_H
 #define USER_H
 #include <QString>
+#include <QDir>
+#include <QStandardPaths>
 
 #include "models/imodel.h"
+#include "models/project.h"
+#include "models/customer.h"
 
 #include "utils/log.h"
+#include "utils/directories.h"
 
 namespace Models {
 /**
@@ -47,6 +52,23 @@ public:
      * @return Model's data
      */
     QVariantHash getDataMap();
+
+
+    /**
+     * @brief MainWindow::updateFolders Make directories which contain quotes
+     * and billings. Directories are the same than theirs of the Tree
+     * organisation (without Projects).
+     *
+     * Organisation of folders are formed like this:
+     *  + COMPANY CustomerLastname CustomerFirstname/
+     *      + Quotes/
+     *          - quote1
+     *          ...
+     *      + Billings/
+     *          - billing1
+     *          ...
+     */
+    void updateFolders(void);
 
     /**
      * @brief User::getFirstname Return the user firstname

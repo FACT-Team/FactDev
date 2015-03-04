@@ -1,5 +1,4 @@
 #include "comboboxmodelwidget.h"
-#include "ui_comboboxmodelwidget.h"
 
 namespace Gui {
 namespace Widgets {
