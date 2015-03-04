@@ -109,10 +109,7 @@ void MainWindow::addBill()
 void MainWindow::addDoc(bool isBilling) {
     AddQuoteDialog addDocDialog(isBilling, getCurrentCustomerId());
     if (addDocDialog.exec()) {
-        updateUI();
-        changeCustomerTable();
-        ui->trCustomers->expand(ui->trCustomers->currentIndex());
-        ui->stackedWidget->setCurrentIndex(1);
+        updateTableBillings(getCurrentProjectId());
     }
 }
 
@@ -182,10 +179,6 @@ void MainWindow::editDoc()
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
         updateTree();
-        changeCustomerTable();
-        ui->trCustomers->expand(ui->trCustomers->currentIndex());
-        changeProjectsTable();
-        ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
 }
 
@@ -424,7 +417,6 @@ void MainWindow::updateUI(QString filter)
     Utils::pointers::deleteIfNotNull(ui->tblProjects->model());
     updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row());
 
-    Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     updateTableBillings(getCurrentProjectId(), ui->tblQuotes->currentIndex().row());
 
     Utils::pointers::deleteIfNotNull(ui->trCustomers->model());
@@ -494,6 +486,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
 
 void MainWindow::updateTableBillings(const int idProject, const int row)
 {
+    Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     ui->tblQuotes->setModel(
         Databases::BillingDatabase::instance()->getBillingsTable(idProject));
     ui->lblQuotes->setText("<b>Devis du projet: "
