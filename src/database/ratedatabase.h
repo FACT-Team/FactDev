@@ -3,6 +3,7 @@
 #include "exceptions/dbexception.h"
 #include "database.h"
 
+#include "models/rate.h"
 using namespace Exceptions;
 
 namespace Databases {
