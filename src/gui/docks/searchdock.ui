@@ -7,8 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>346</width>
-    <height>313</height>
+    <height>270</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>524287</width>
+    <height>270</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Recherche</string>
@@ -141,8 +147,88 @@ border: 1px solid #bbb;</string>
      <y>48</y>
     </hint>
     <hint type="destinationlabel">
-     <x>504</x>
+     <x>345</x>
      <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkSearchCompany</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>101</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkReferentName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkProjectName</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>76</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>148</x>
+     <y>167</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkContributory</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>88</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gpbxSearchFilter</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>chkBillQuote</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>231</y>
     </hint>
    </hints>
   </connection>
