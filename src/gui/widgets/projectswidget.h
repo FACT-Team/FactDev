@@ -29,7 +29,7 @@ public:
 
 public slots:
     /**
-     * @brief ProjectsWidget::newProject Event which sends a signal to add a new
+     * @brief ProjectsWidget::addProject Event which sends a signal to add a new
      * project
      */
     void newProject();

@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -731,7 +731,7 @@
    <sender>btnNewProject</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>newProject()</slot>
+   <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>546</x>
@@ -939,7 +939,7 @@
    <sender>wdgTblProjectsToolBar</sender>
    <signal>addProject()</signal>
    <receiver>MainWindow</receiver>
-   <slot>newProject()</slot>
+   <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>916</x>
@@ -1147,7 +1147,7 @@
    <sender>actAddProject</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
-   <slot>newProject()</slot>
+   <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1167,7 +1167,7 @@
   <slot>search(QString)</slot>
   <slot>search()</slot>
   <slot>editUser()</slot>
-  <slot>newProject()</slot>
+  <slot>addProject()</slot>
   <slot>aboutQt()</slot>
   <slot>aboutFact()</slot>
   <slot>aboutFactDev()</slot>

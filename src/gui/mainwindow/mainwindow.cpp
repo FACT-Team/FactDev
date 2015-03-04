@@ -84,7 +84,7 @@ void MainWindow::addCustomer()
     }
 }
 
-void MainWindow::newProject()
+void MainWindow::addProject()
 {
     AddProjectDialog *addProjectDialog =
             ui->stackedWidget->currentIndex() == 1 ? new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())

@@ -140,10 +140,10 @@ public slots:
      */
     void search(QString s);
     /**
-     * @brief MainWindow::newProject Create a new project for a customer
+     * @brief MainWindow::addProject Create a new project for a customer
      * @see AddProjectDialog
      */
-    void newProject();
+    void addProject();
     /**
      * @brief MainWindow::removeProject Remove a project for a customer
      */
