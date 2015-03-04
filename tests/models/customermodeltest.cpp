@@ -92,7 +92,8 @@ void CustomerModelTest::remove()
 
 void CustomerModelTest::getPath()
 {
-    QVERIFY(c1.getPath() =="//SIT AMET ORNARE CONSULTING Boyle Jonah");
+    QVERIFY(c1.getPath() ==QDir::homePath() +"/"+QStandardPaths::displayName(QStandardPaths::DocumentsLocation)+
+            "/FactDev/SIT AMET ORNARE CONSULTING Boyle Jonah");
 }
 
 void CustomerModelTest::getNameFolder()
