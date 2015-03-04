@@ -968,22 +968,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>trCustomers</sender>
-   <signal>clicked(QModelIndex)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>changeTree()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>221</x>
-     <y>393</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>292</x>
-     <y>347</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>tblCustomers</sender>
    <signal>clicked(QModelIndex)</signal>
    <receiver>MainWindow</receiver>
@@ -1124,6 +1108,22 @@
     <hint type="destinationlabel">
      <x>827</x>
      <y>693</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>trCustomers</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeTree()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>221</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>292</x>
+     <y>347</y>
     </hint>
    </hints>
   </connection>

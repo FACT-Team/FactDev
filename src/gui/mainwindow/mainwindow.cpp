@@ -35,11 +35,6 @@ void MainWindow::setupSignalsSlots()
         SIGNAL(customContextMenuRequested(const QPoint &)),
         this,
         SLOT(openContextualMenuTable(const QPoint &)));
-    connect(
-        ui->trCustomers,
-        SIGNAL(customContextMenuRequested(const QPoint &)),
-        this,
-        SLOT(openContextupdualMenuTree(const QPoint &)));
     connect(_searchDock, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
 
 }
