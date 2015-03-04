@@ -86,6 +86,7 @@ void MainWindow::addCustomer()
 
 void MainWindow::addProject()
 {
+    int r= ui->tblCustomers->currentIndex().row();
     AddProjectDialog *addProjectDialog =
             ui->stackedWidget->currentIndex() == 1 ? new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())
                                                    : new AddProjectDialog();
@@ -164,7 +165,7 @@ void MainWindow::editCustomer() {
 
 void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
-    AddProjectDialog editProjectDialog(row, getCurrentProjectId());
+    AddProjectDialog editProjectDialog(getCurrentProjectId(), row);
     if (editProjectDialog.exec()) {
         updateTableProjects(getCurrentCustomerId());
         updateTree();
@@ -533,7 +534,8 @@ void MainWindow::updateButtons()
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
 
-    if(!canModify) {
+    if(ui->tblCustomers->currentIndex().row() == -1
+            && !ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->trCustomers->setCurrentIndex(rootTree());
     }
     ui->actionNewQuote->setEnabled(canAdd);

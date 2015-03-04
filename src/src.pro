@@ -80,7 +80,6 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     database/ratedatabase.cpp \
     exceptions/fileexception.cpp \
     utils/hierarchicalsystem.cpp \
-    gui/mainwindow/customers.cpp \
     utils/pointers.cpp \
     utils/directories.cpp \
     gui/docks/searchdock.cpp
@@ -181,7 +180,6 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     exceptions/fileexception.h \
     utils/hierarchicalsystem.h \
     gui/mainwindow/docks/searchdock.h \
-    gui/mainwindow/customers.h \
     utils/pointers.h \
     utils/directories.h \
     gui/docks/searchdock.h
