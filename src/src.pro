@@ -20,7 +20,7 @@ linux-g++ {
 CONFIG += c++11
 
 
-SOURCES += gui/mainwindow.cpp \
+SOURCES += gui/mainwindow/mainwindow.cpp \
         utils/log.cpp\
         # Database files
         database/database.cpp \
@@ -81,7 +81,7 @@ SOURCES += gui/mainwindow.cpp \
     exceptions/fileexception.cpp \
     utils/hierarchicalsystem.cpp
 
-HEADERS  += gui/mainwindow.h \
+HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
         # Database files
         database/database.h \
@@ -175,10 +175,11 @@ HEADERS  += gui/mainwindow.h \
     gui/widgets/widgetsmodels/projectstablemodel.h \
     gui/widgets/widgetsmodels/billingstablemodel.h \
     exceptions/fileexception.h \
-    utils/hierarchicalsystem.h
+    utils/hierarchicalsystem.h \
+    gui/mainwindow/docks/searchdock.h
 
 
-FORMS    += gui/mainwindow.ui \
+FORMS    += gui/mainwindow/mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
     gui/dialogs/userdatadialog.ui \
     gui/dialogs/addprojectdialog.ui \
