@@ -365,7 +365,6 @@
     <addaction name="actResearch"/>
     <addaction name="actionNewBill"/>
     <addaction name="actionNewQuote"/>
-    <addaction name="actionPrint"/>
    </widget>
    <widget class="QMenu" name="menuA_propos">
     <property name="title">
@@ -376,8 +375,15 @@
     <addaction name="actFactDev"/>
     <addaction name="actIcons"/>
    </widget>
+   <widget class="QMenu" name="menuProjets">
+    <property name="title">
+     <string>Projets</string>
+    </property>
+    <addaction name="actAddProject"/>
+   </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuClient"/>
+   <addaction name="menuProjets"/>
    <addaction name="menuA_propos"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -393,6 +399,7 @@
    <addaction name="separator"/>
    <addaction name="actSettings"/>
    <addaction name="actNew"/>
+   <addaction name="actAddProject"/>
    <addaction name="actionNewBill"/>
    <addaction name="actionNewQuote"/>
   </widget>
@@ -555,7 +562,7 @@
      <normaloff>:/icons/addCustomer</normaloff>:/icons/addCustomer</iconset>
    </property>
    <property name="text">
-    <string>Nouveau</string>
+    <string>Nouveau client</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -638,6 +645,15 @@
     <string>Icons</string>
    </property>
   </action>
+  <action name="actAddProject">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/img/add_project.png</normaloff>:/icons/img/add_project.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nouveau projet</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -670,8 +686,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>116</y>
+     <x>820</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -686,8 +702,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>353</x>
-     <y>116</y>
+     <x>699</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -702,8 +718,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>116</y>
+     <x>394</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -718,8 +734,8 @@
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>335</x>
-     <y>116</y>
+     <x>546</x>
+     <y>507</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -863,7 +879,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>332</x>
-     <y>105</y>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -895,7 +911,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>379</x>
-     <y>111</y>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -926,8 +942,8 @@
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>504</x>
-     <y>142</y>
+     <x>916</x>
+     <y>539</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -942,8 +958,8 @@
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>504</x>
-     <y>142</y>
+     <x>916</x>
+     <y>539</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -958,8 +974,8 @@
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>504</x>
-     <y>142</y>
+     <x>916</x>
+     <y>539</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -991,7 +1007,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>379</x>
-     <y>111</y>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -1124,6 +1140,22 @@
     <hint type="destinationlabel">
      <x>292</x>
      <y>347</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actAddProject</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
