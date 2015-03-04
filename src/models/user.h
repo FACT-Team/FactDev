@@ -1,10 +1,15 @@
 #ifndef USER_H
 #define USER_H
 #include <QString>
+#include <QDir>
+#include <QStandardPaths>
 
 #include "models/imodel.h"
+#include "models/project.h"
+#include "models/customer.h"
 
 #include "utils/log.h"
+#include "utils/directories.h"
 
 namespace Models {
 /**
@@ -47,6 +52,9 @@ public:
      * @return Model's data
      */
     QVariantHash getDataMap();
+
+
+    void updateFolders(void);
 
     /**
      * @brief User::getFirstname Return the user firstname

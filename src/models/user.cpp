@@ -1,5 +1,6 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
+#include "utils/hierarchicalsystem.h"
 
 using namespace Databases;
 
@@ -45,9 +46,57 @@ QVariantHash User::getDataMap()
     return data;
 }
 
+void User::updateFolders()
+{
+    Customer customer;
+    Project p1;
+    Project p2;
+    QString path;
+    QString folder;
+    QDir directory;
+    Utils::HierarchicalSystem hierarchy;
+
+    path = getWorkspacePath();
+    folder = getWorkspaceName();
+    directory.setPath(path);
+
+    path = Utils::Directories::makeDirectory(directory, path, folder);
+
+    for (auto c = hierarchy.getCustomers().cbegin();
+         c != hierarchy.getCustomers().cend();
+         ++c ) {
+        customer = c.value();
+        folder = customer.getNameFolder();
+
+        path = Utils::Directories::makeDirectory(directory, path, folder);
+
+        for (auto p = hierarchy.getProjects().cbegin();
+             p != hierarchy.getProjects().cend();
+             ++p ) {
+            p1 = *p.value();
+            p2 = *c.key();
+
+            if (p1 == p2) {
+                if ((*p.key()).isBilling()) {
+                    folder = "Factures";
+                } else {
+                    folder = "Devis";
+                }
+                path  = Utils::Directories::makeDirectory(directory, path, folder);
+            }
+
+            path = customer.getPath();
+            directory.setPath(path);
+        }
+        path = getWorkspacePath() + "/" + getWorkspaceName();
+        directory.setPath(path);
+    }
+}
+
 void User::hydrat(int id)
 {
     User* user = UserDatabase::instance()->getUser(id);
+    bool toCommit = false;
     _id = id;
     _firstname = user->getFirstname();
     _lastname = user->getLastname();
@@ -62,6 +111,23 @@ void User::hydrat(int id)
     _noSiret = user->getNoSiret();
     _workspaceName = user->getWorkspaceName();
     _workspacePath = user->getWorkspacePath();
+
+    if (_workspaceName.isEmpty()) {
+        _workspaceName = "FactDev";
+        toCommit =  true;
+    }
+
+    if (_workspacePath.isEmpty()) {
+        _workspacePath = QDir::homePath() + "/" +
+            QStandardPaths::displayName(QStandardPaths::DocumentsLocation);
+        toCommit = true;
+    }
+
+    if(toCommit) {
+        commit();
+        hydrat(id);
+    }
+    delete user;
 }
 
 
@@ -179,6 +245,7 @@ void User::setWorkspaceName(const QString &workspaceName)
 {
     _workspaceName = workspaceName;
 }
+
 QString User::getWorkspacePath() const
 {
     return _workspacePath;

@@ -79,7 +79,10 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/delegates/comboboxdelegate.cpp \
     database/ratedatabase.cpp \
     exceptions/fileexception.cpp \
-    utils/hierarchicalsystem.cpp
+    utils/hierarchicalsystem.cpp \
+    gui/mainwindow/customers.cpp \
+    utils/pointers.cpp \
+    utils/directories.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -176,7 +179,10 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/widgetsmodels/billingstablemodel.h \
     exceptions/fileexception.h \
     utils/hierarchicalsystem.h \
-    gui/mainwindow/docks/searchdock.h
+    gui/mainwindow/docks/searchdock.h \
+    gui/mainwindow/customers.h \
+    utils/pointers.h \
+    utils/directories.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

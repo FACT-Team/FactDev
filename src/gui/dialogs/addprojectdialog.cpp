@@ -4,26 +4,14 @@
 namespace Gui {
 namespace Dialogs {
 
-AddProjectDialog::AddProjectDialog(int id, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::AddProjectDialog)
+AddProjectDialog::AddProjectDialog(int idProject, int noRowCustomer, QWidget *parent) :
+    QDialog(parent), ui(new Ui::AddProjectDialog)
 {
     ui->setupUi(this);
 
-    if(id != 0) {
-        _project = Project(id);
-        setWindowTitle("Modifier le projet "+_project.getName());
-    } else {
-        _project = Project();
+    if(noRowCustomer != 0) {
+        ui->wdgSearch->selectCustomer(noRowCustomer);
     }
-    emit checkFields();
-}
-
-AddProjectDialog::AddProjectDialog(int noRowCustomer, int idProject,
-    QWidget *parent) : QDialog(parent), ui(new Ui::AddProjectDialog)
-{
-    ui->setupUi(this);
-    ui->wdgSearch->selectCustomer(noRowCustomer);
     ui->leNameProject->setFocus();
     if(idProject != 0) {
         _project = Project(idProject);
