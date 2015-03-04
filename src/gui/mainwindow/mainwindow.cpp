@@ -25,18 +25,14 @@ void MainWindow::setupUi()
     updateTree();
     updateUser();
     updateButtons();
-    updateFolders();
+    User(1).updateFolders();
 }
 
 void MainWindow::setupSignalsSlots()
 {
-    connect(
-        ui->tblCustomers,
-        SIGNAL(customContextMenuRequested(const QPoint &)),
-        this,
-        SLOT(openContextualMenuTable(const QPoint &)));
+    connect(ui->tblCustomers,SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(openContextualMenuTable(const QPoint &)));
     connect(_searchDock, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
-
 }
 
 MainWindow::~MainWindow()
@@ -71,14 +67,12 @@ QString MainWindow::getCurrentCustomerName()
 
 QString MainWindow::getCurrentProjectName()
 {
-    QModelIndex index = ui->tblProjects->currentIndex();
-    return index.data().toString();
+    return ui->tblProjects->currentIndex().data().toString();
 }
 
 void MainWindow::addCustomer()
 {
-    DialogAddCustomer addCustomerDialog;
-    if (addCustomerDialog.exec()) { // accept
+    if (DialogAddCustomer().exec()) { // accept
         ui->stackedWidget->setCurrentIndex(0);
         updateUI();
     }
@@ -86,7 +80,6 @@ void MainWindow::addCustomer()
 
 void MainWindow::addProject()
 {
-    int r= ui->tblCustomers->currentIndex().row();
     AddProjectDialog *addProjectDialog =
             ui->stackedWidget->currentIndex() == 1 ? new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())
                                                    : new AddProjectDialog();
@@ -107,8 +100,7 @@ void MainWindow::addBill()
 }
 
 void MainWindow::addDoc(bool isBilling) {
-    AddQuoteDialog addDocDialog(isBilling, getCurrentCustomerId());
-    if (addDocDialog.exec()) {
+    if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
         updateTableBillings(getCurrentProjectId());
     }
 }
@@ -152,8 +144,7 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 }
 
 void MainWindow::editCustomer() {
-    DialogAddCustomer editCustomerDialog(getCurrentCustomerId());
-    if (editCustomerDialog.exec()) {
+    if (DialogAddCustomer(getCurrentCustomerId()).exec()) {
         updateTableCustomers();
         updateTree();
         ui->trCustomers->setCurrentIndex(rootTree());
@@ -162,8 +153,8 @@ void MainWindow::editCustomer() {
 
 void MainWindow::editProject() {
     int row = ui->tblProjects->currentIndex().row();
-    AddProjectDialog editProjectDialog(getCurrentProjectId(), row);
-    if (editProjectDialog.exec()) {
+
+    if (AddProjectDialog(getCurrentProjectId(), row).exec()) {
         updateTableProjects(getCurrentCustomerId());
         updateTree();
         changeCustomerTable();
@@ -173,8 +164,7 @@ void MainWindow::editProject() {
 
 void MainWindow::editDoc()
 {
-    Billing b(getCurrentQuoteId());
-    AddQuoteDialog editDocDialog(b.isBilling(), getCurrentCustomerId(),getCurrentQuoteId());
+    AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId());
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
@@ -342,8 +332,7 @@ void MainWindow::changeDocsTable()
 void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
-    ui->lblProjects->setText(
-                "<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");
+    ui->lblProjects->setText("<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 150);
     ui->tblProjects->setColumnWidth(2, 200);
@@ -359,8 +348,7 @@ void MainWindow::projectsTableToDocsTable()
 {
     ui->stackedWidget->setCurrentIndex(2);
     updateTableBillings(getCurrentProjectId());
-    QModelIndex index(ui->trCustomers->currentIndex());
-    ui->trCustomers->expand(index);
+    ui->trCustomers->expand(QModelIndex(ui->trCustomers->currentIndex()));
     updateButtons();
 }
 
@@ -424,7 +412,7 @@ void MainWindow::updateUI(QString filter)
 
     updateButtons();
     updateUser();
-    updateFolders();
+    User(1).updateFolders();
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point) {
@@ -557,12 +545,6 @@ void MainWindow::updateButtons()
 void MainWindow::updateUser()
 {
     ui->wdgUserData->printUserData();
-}
-
-void MainWindow::updateFolders()
-{
-    User* user = new User(1);
-    user->updateFolders();
 }
 
 }

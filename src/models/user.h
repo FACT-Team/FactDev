@@ -54,6 +54,20 @@ public:
     QVariantHash getDataMap();
 
 
+    /**
+     * @brief MainWindow::updateFolders Make directories which contain quotes
+     * and billings. Directories are the same than theirs of the Tree
+     * organisation (without Projects).
+     *
+     * Organisation of folders are formed like this:
+     *  + COMPANY CustomerLastname CustomerFirstname/
+     *      + Quotes/
+     *          - quote1
+     *          ...
+     *      + Billings/
+     *          - billing1
+     *          ...
+     */
     void updateFolders(void);
 
     /**

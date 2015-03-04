@@ -103,8 +103,6 @@ public:
      */
     void addDoc(bool isBilling);
 
-
-    void test();
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer
@@ -301,24 +299,7 @@ private:
      */
     int getCurrentTableId(QTableView *tbl);
 
-    /**
-     * @brief MainWindow::updateFolders Make directories which contain quotes
-     * and billings. Directories are the same than theirs of the Tree
-     * organisation (without Projects).
-     *
-     * Organisation of folders are formed like this:
-     *  + COMPANY CustomerLastname CustomerFirstname/
-     *      + Quotes/
-     *          - quote1
-     *          ...
-     *      + Billings/
-     *          - billing1
-     *          ...
-     */
-    void updateFolders();
-
     Ui::MainWindow *ui; //!< ui
-
     Docks::SearchDock* _searchDock;
 };
 }
