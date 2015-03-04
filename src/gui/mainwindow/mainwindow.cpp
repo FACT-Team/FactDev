@@ -9,12 +9,27 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    setupUi();
+    setupSignalsSlots();
+}
+
+void MainWindow::setupUi()
+{
     ui->setupUi(this);
+    _searchDock = new Docks::SearchDock();
+    addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
+    addDockWidget(Qt::LeftDockWidgetArea, ui->dockCustomers);
+
     ui->stackedWidget->setCurrentIndex(0);
     updateTableCustomers();
     updateTree();
-    ui->tblCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
-    ui->trCustomers->setContextMenuPolicy(Qt::CustomContextMenu);
+    updateUser();
+    updateButtons();
+    updateFolders();
+}
+
+void MainWindow::setupSignalsSlots()
+{
     connect(
         ui->tblCustomers,
         SIGNAL(customContextMenuRequested(const QPoint &)),
@@ -25,12 +40,9 @@ MainWindow::MainWindow(QWidget *parent) :
         SIGNAL(customContextMenuRequested(const QPoint &)),
         this,
         SLOT(openContextupdualMenuTree(const QPoint &)));
+    connect(_searchDock, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
 
-    updateUser();
-    updateButtons();
-    updateFolders();
 }
-
 
 MainWindow::~MainWindow()
 {
@@ -202,32 +214,7 @@ void MainWindow::generateTex()
 
 void MainWindow::search(QString text)
 {
-    Search s;
-    QString styleSearchBackground =
-	"background: url(:/icons/searchMini);"
-	"background-position: right;"
-	"background-repeat: no-repeat; "
-	"border-radius: 0px;"
-	"height: 23px;"
-	"border: 1px solid #bbb;";
-    QString styleSearchNoBackground =
-	"border-radius: 0px;"
-	"height: 23px;"
-	"border: 1px solid #bbb;";
-    if(ui->leSearch->text() != "") {
-	ui->leSearch->setStyleSheet(styleSearchNoBackground);
-    } else {
-        ui->leSearch->setStyleSheet(styleSearchBackground);
-    }
-    s.setGroupFilter(ui->gpbxSearchFilter->isChecked());
-    s.setSearchInCompanies(ui->chkSearchCompany->isChecked());
-    s.setSearchInReferentLastname(ui->chkReferentName->isChecked());
-    s.setSearchInProjects(ui->chkProjectName->isChecked());
-    s.setSearchInContributories(ui->chkContributory->isChecked());
-    s.setSearchInBillsQuotes(ui->chkBillQuote->isChecked());
-    s.setText(text);
-
-    updateUI(s.getFilter());
+    updateUI(text);
 }
 
 void MainWindow::editUser()
@@ -321,10 +308,9 @@ void MainWindow::changeTree()
 void MainWindow::changeCustomerTable()
 {
     ui->wdgCustomerData->printInformations(getCurrentCustomerId());
-    int row = ui->tblCustomers->currentIndex().row();
     QModelIndex index(rootTree());
 
-    for (int i = 0 ; i <= row ; ++i) {
+    for (int i = 0 ; i <= ui->tblCustomers->currentIndex().row() ; ++i) {
         index = ui->trCustomers->indexBelow(index);
     }
     ui->trCustomers->setCurrentIndex(index);
@@ -393,6 +379,7 @@ QModelIndex MainWindow::rootTree() {
     QModelIndex root = ui->trCustomers->indexAt(QPoint());
     while (ui->trCustomers->indexAbove(root).isValid())
         root = ui->trCustomers->indexAbove(root);
+
     return root;
 }
 
@@ -450,10 +437,6 @@ void MainWindow::updateUI(QString filter)
     updateButtons();
     updateUser();
     updateFolders();
-}
-
-void MainWindow::search() {
-    emit search(ui->leSearch->text());
 }
 
 void MainWindow::openContextualMenuTable(const QPoint point) {

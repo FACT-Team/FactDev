@@ -82,7 +82,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     utils/hierarchicalsystem.cpp \
     gui/mainwindow/customers.cpp \
     utils/pointers.cpp \
-    utils/directories.cpp
+    utils/directories.cpp \
+    gui/docks/searchdock.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -182,7 +183,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/mainwindow/docks/searchdock.h \
     gui/mainwindow/customers.h \
     utils/pointers.h \
-    utils/directories.h
+    utils/directories.h \
+    gui/docks/searchdock.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -196,7 +198,8 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/widgets/projectswidget.ui \
     gui/dialogs/addquotedialog.ui \
     gui/widgets/contributorieswidget.ui \
-    gui/dialogs/messagebox.ui
+    gui/dialogs/messagebox.ui \
+    gui/docks/searchdock.ui
 
 RESOURCES += \
     icons.qrc \

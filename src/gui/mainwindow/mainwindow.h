@@ -22,8 +22,7 @@
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "gui/dialogs/addprojectdialog.h"
 #include "gui/dialogs/addquotedialog.h"
-
-#include "models/search.h"
+#include "gui/docks/searchdock.h"
 
 #include "exceptions/fileexception.h"
 
@@ -141,10 +140,6 @@ public slots:
      */
     void search(QString s);
     /**
-     * @brief MainWindow:search call search(QString)
-     */
-    void search();
-    /**
      * @brief MainWindow::newProject Create a new project for a customer
      * @see AddProjectDialog
      */
@@ -251,7 +246,8 @@ private slots:
     //void quotesProject();
 
 private:
-
+    void setupUi();
+    void setupSignalsSlots();
     /**
      * @brief MainWindow::updateUI Update all components of the
      * <b>MainWindow</b>
@@ -323,6 +319,7 @@ private:
 
     Ui::MainWindow *ui; //!< ui
 
+    Docks::SearchDock* _searchDock;
 };
 }
 #endif // MAINWINDOW_H
