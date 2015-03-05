@@ -19,7 +19,7 @@ int Gui::Widgets::WdgModels::BillingsTableModel::rowCount(
 int Gui::Widgets::WdgModels::BillingsTableModel::columnCount(
         const QModelIndex &) const
 {
-    return 4;
+    return 6;
 }
 
 QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
@@ -32,9 +32,17 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
     const Billing &billing = _billings[index.row()];
     switch (index.column()) {
     case 0: return billing.getId();
-    case 1: return billing.getTitle();
-    case 2: return billing.getNumber();
-    case 3: return billing.getDate();
+    case 1: return billing.getNumber();
+    case 2: return billing.getTitle();
+    case 3: return billing.getDescription();
+    case 4: return billing.getDate();
+    case 5:
+        if (billing.isPaid()) {
+            return "Payée";
+        } else {
+            return "";
+        }
+        break;
     default: return QVariant();
     };
 }
@@ -52,9 +60,11 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::headerData(
 
     switch (section) {
     case 0: return "ID";
-    case 1: return "Titre";
-    case 2: return "Numéro";
-    case 3: return "Date";
+    case 1: return "N°";
+    case 2: return "Titre";
+    case 3: return "Description";
+    case 4: return "Date";
+    case 5: return "Payée";
     default: return QVariant();
     }
 }

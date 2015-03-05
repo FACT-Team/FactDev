@@ -85,7 +85,7 @@ int BillingDatabase::addBilling(const Models::Billing& pBilling) {
     q.prepare(  "INSERT INTO Billing "
                 "(title, description, number, isBilling, date, isPaid)"
                 " VALUES "
-                "(:title, :description, :number, :isBilling, :date)"
+                "(:title, :description, :number, :isBilling, :date, :isPaid)"
                 );
 
     q.bindValue(":title", pBilling.getTitle());

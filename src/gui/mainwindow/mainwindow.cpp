@@ -106,6 +106,7 @@ void MainWindow::billingIsPaid()
         billing.setIsPaid(true);
         billing.commit();
         updateButtons();
+        updateTableBillings(getCurrentProjectId());
     }
 }
 
@@ -491,10 +492,11 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
                            + getCurrentProjectName()
                            + "</b>");
     ui->tblQuotes->hideColumn(0);
-    ui->tblQuotes->hideColumn(3);
-    ui->tblQuotes->setColumnWidth(1, 200);
-    ui->tblQuotes->setColumnWidth(2, 100);
-    ui->tblQuotes->setColumnWidth(4, 150);
+    ui->tblQuotes->setColumnWidth(1, 50);
+    ui->tblQuotes->setColumnWidth(2, 200);
+    ui->tblQuotes->setColumnWidth(3, 300);
+    ui->tblQuotes->setColumnWidth(4, 100);
+    ui->tblQuotes->setColumnWidth(5, 50);
     if (row > -1) {
         ui->tblQuotes->selectRow(row);
     } else {

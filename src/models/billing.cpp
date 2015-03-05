@@ -8,7 +8,6 @@ namespace Models {
 Billing::Billing()
 {
     _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
-    _isPaid = false;
     _toRemoved = false;
 }
 
@@ -109,10 +108,11 @@ void Billing::generateTex()
 
 bool Billing::operator ==(const Billing &b)
 {
-    return (getDate() == b.getDate() &&
-            getDescription() == b.getDescription() &&
-            getNumber() == b.getNumber() &&
-            getTitle() == b.getTitle());
+    return (getDate() == b.getDate()
+            && getDescription() == b.getDescription()
+            && getNumber() == b.getNumber()
+            && getTitle() == b.getTitle()
+            );
 }
 
 bool Billing::operator !=(const Billing &b)
