@@ -274,7 +274,7 @@
         </spacer>
        </item>
        <item row="4" column="1" colspan="3">
-        <widget class="CheckUntilField" name="leCompany"/>
+        <widget class="QLineEdit" name="leCompany"/>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="lbEmail">
@@ -284,19 +284,19 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="CheckFieldsLetters" name="leLastname"/>
+        <widget class="QLineEdit" name="leLastname"/>
        </item>
        <item row="8" column="1" colspan="3">
-        <widget class="CheckPhone" name="leMobile"/>
+        <widget class="QLineEdit" name="leMobile"/>
        </item>
        <item row="9" column="1" colspan="3">
-        <widget class="CheckSiretNumber" name="leSiretNumber"/>
+        <widget class="QLineEdit" name="leSiretNumber"/>
        </item>
        <item row="7" column="1" colspan="3">
-        <widget class="CheckPhone" name="lePhone"/>
+        <widget class="QLineEdit" name="lePhone"/>
        </item>
        <item row="6" column="1" colspan="3">
-        <widget class="CheckEmail" name="leEmail"/>
+        <widget class="QLineEdit" name="leEmail"/>
        </item>
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="lbTitleWhoAreYou">
@@ -319,7 +319,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="1" column="1">
-           <widget class="CheckPostalCode" name="lePostalCode"/>
+           <widget class="QLineEdit" name="lePostalCode"/>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="lbStreet">
@@ -343,16 +343,16 @@
            </widget>
           </item>
           <item row="1" column="3">
-           <widget class="CheckUntilField" name="leCity"/>
+           <widget class="QLineEdit" name="leCity"/>
           </item>
           <item row="0" column="1" colspan="3">
-           <widget class="CheckUntilField" name="leStreet"/>
+           <widget class="QLineEdit" name="leStreet"/>
           </item>
          </layout>
         </widget>
        </item>
        <item row="2" column="3">
-        <widget class="CheckFieldsLetters" name="leFirstname"/>
+        <widget class="QLineEdit" name="leFirstname"/>
        </item>
        <item row="1" column="1">
         <spacer name="verticalSpacer_2">
@@ -417,38 +417,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>CheckFieldsLetters</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckUntilField</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkuntilfield.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckPostalCode</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkpostalcode.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckEmail</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkemail.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckPhone</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkphone.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckSiretNumber</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checksiretnumber.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
