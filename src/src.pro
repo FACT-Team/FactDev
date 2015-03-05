@@ -30,6 +30,7 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
         database/customerdatabase.cpp \
         database/userdatabase.cpp \
         gui/dialogs/dialogaddcustomer.cpp \
+        gui/dialogs/startedwindowsdialog.cpp \
         models/customer.cpp \
     models/project.cpp \
     models/billing.cpp \
@@ -122,6 +123,7 @@ HEADERS  += gui/mainwindow/mainwindow.h \
         database/billingdatabase.h \
         database/contributorydatabase.h \
         utils/itemtype.h \
+        gui/dialogs/startedwindowsdialog.h \
         gui/widgets/checkfields/icheckfield.h \
         libs/qt-mustache/src/mustache.h \
         generator.h \
@@ -189,6 +191,7 @@ FORMS    += gui/mainwindow/mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
     gui/dialogs/userdatadialog.ui \
     gui/dialogs/addprojectdialog.ui \
+    gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/ratewidget.ui \
     gui/widgets/comboboxmodelwidget.ui \
     gui/widgets/searchwidget.ui \
@@ -197,7 +200,8 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/addquotedialog.ui \
     gui/widgets/contributorieswidget.ui \
     gui/dialogs/messagebox.ui \
-    gui/docks/searchdock.ui
+    gui/docks/searchdock.ui \
+    gui/dialogs/startedwindowsdialog.ui
 
 RESOURCES += \
     icons.qrc \
