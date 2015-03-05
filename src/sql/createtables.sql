@@ -33,7 +33,8 @@ CREATE TABLE Billing
     description TEXT,
     number INTEGER,
     isBilling BOOLEAN,
-    date DATETIME
+    date DATETIME,
+    isPaid BOOLEAN
 );
 
 CREATE TABLE Contributory

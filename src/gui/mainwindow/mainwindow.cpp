@@ -99,6 +99,16 @@ void MainWindow::addBill()
     addDoc(true);
 }
 
+void MainWindow::billingIsPaid()
+{
+    Billing billing(this->getCurrentQuoteId());
+    if (billing.isBilling() && !billing.isPaid()) {
+        billing.setIsPaid(true);
+        billing.commit();
+        updateButtons();
+    }
+}
+
 void MainWindow::addDoc(bool isBilling) {
     if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
         updateTableBillings(getCurrentProjectId());
@@ -507,10 +517,11 @@ void MainWindow::updateButtons()
                     && ui->tblProjects->currentIndex().row() > -1
                     && ui->tblProjects->selectionModel()->hasSelection();
 
-
     bool billingIsSelected = ui->stackedWidget->currentIndex() == 2
             && ui->tblQuotes->currentIndex().row() > -1
             && ui->tblQuotes->selectionModel()->hasSelection();
+
+    bool isBillingPaid = false;
 
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
@@ -523,17 +534,29 @@ void MainWindow::updateButtons()
     ui->actionNewBill->setEnabled(canAdd);
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
-    ui->btnEditDoc->setEnabled(billingIsSelected);
+    ui->btnEditDoc->setEnabled(billingIsSelected);    
     ui->btnLatex->setEnabled(billingIsSelected);
 
     if (billingIsSelected) {
+
         Billing b(getCurrentQuoteId());
         QString textButton = b.isBilling() ? "la facture": "le devis";
         QString iconButton = b.isBilling() ? "bill": "quote";
+        isBillingPaid = b.isBilling() && b.isPaid();
         ui->btnEditDoc->setText("Éditer "+textButton);
         ui->btnEditDoc->setIcon(QIcon(":icons/img/add_"+iconButton));
         ui->btnRemoveDoc->setText("Supprimer "+textButton);
         ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_"+iconButton));
+
+        if ( isBillingPaid || !b.isBilling()) {
+            ui->btnBillingIsPaid->setEnabled(false);
+           if (isBillingPaid) {
+               ui->btnRemoveDoc->setEnabled(false);
+               ui->btnEditDoc->setEnabled(false);
+           }
+        } else {
+            ui->btnBillingIsPaid->setEnabled(true);
+        }
     } else {
         ui->btnEditDoc->setText("Éditer le document");
         ui->btnEditDoc->setIcon(QIcon(":icons/edit"));

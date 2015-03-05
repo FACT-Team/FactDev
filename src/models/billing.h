@@ -143,7 +143,19 @@ public:
      * @param getDate the new date of the Billing
      */
     void setDate(const QDate &getDate);
+    /**
+     * @brief Billing::isPaid Return TRUE if thee current billing is paid else
+     * return FALSE
+     * @return Boolean
+     */
+    bool isPaid() const;
 
+    /**
+     * @brief Billing::setIsPaid Define the current billing according the
+     * argument <i>isPaid</i>
+     * @param isPaid Boolean
+     */
+    void setIsPaid(bool isPaid);
 
     /**
      * @brief Billing::operator == define the operator "==" to compare two
@@ -169,13 +181,16 @@ public:
      */
     bool operator <(const Billing &b) const;
 
+
+
 private:
-    ContributoriesList _contributories;   //!< List of contributories
-    QString _title;                                         //!< Title of billing
-    QString _description;                                   //!< Description of a billing
-    int _number;                                            //!< Number of billing
-    bool _isBilling;                                        //!< Is a billing… Or if a quote
-    QDate _date;                                            //!< Date for billing
+    ContributoriesList _contributories; //!< List of contributories
+    QString _title;                     //!< Title of billing
+    QString _description;               //!< Description of a billing
+    int _number;                        //!< Number of billing
+    bool _isBilling;                    //!< Is a billing… Or if a quote
+    QDate _date;                        //!< Date for billing
+    bool _isPaid;                       //!< Billing is Paid
 };
 
 }

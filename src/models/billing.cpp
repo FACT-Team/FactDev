@@ -8,6 +8,7 @@ namespace Models {
 Billing::Billing()
 {
     _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
+    _isPaid = false;
     _toRemoved = false;
 }
 
@@ -46,8 +47,10 @@ void Billing::hydrat(int id)
     _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();
+    _isPaid = quote->isPaid();
     _toRemoved = false;
-    _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
+    _contributories =
+            ContributoryDatabase::instance()->getContributoriesByBilling(_id);
 }
 
 void Billing::remove()
@@ -64,7 +67,7 @@ QVariantHash Billing::getDataMap()
     billing["title"] = _title;
     billing["description"] = _description;
     billing["date"] = _date.toString("dddd d MMMM yyyy");
-
+    //billing["paid"] = _isPaid ? "Payée" : "";
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
     data["billing"] = billing;//
@@ -127,6 +130,16 @@ bool Billing::operator <(const Billing &b) const
 {
     return getDate() < b.getDate();
 }
+bool Billing::isPaid() const
+{
+    return _isPaid;
+}
+
+void Billing::setIsPaid(bool isPaid)
+{
+    _isPaid = isPaid;
+}
+
 
 ContributoriesList& Billing::getContributories()
 {

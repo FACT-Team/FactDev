@@ -77,6 +77,15 @@ public:
             const int idProject, const int idBilling, const int idContributory);
 
     /**
+     * @brief BillingDatabase::isBillingPaid Return TRUE if the id <i>pId</i>
+     * correspond to a Billing and not quote (isBilling = 1) and if this billing
+     *  is paid (isPaid = 1) else return FALSE.
+     * @param pId Billing id
+     * @return TRUE if billing is paid
+     */
+    bool isBillingPaid(const int pId);
+
+    /**
      * @brief BillingDatabase::removeBillingProject remove a link between a
      * project, a billing and a contributory in the table BillingProject
      * @param idProject Project id
