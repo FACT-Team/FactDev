@@ -320,6 +320,17 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="btnBillingIsPaid">
+              <property name="text">
+               <string>Payée</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../../icons.qrc">
+                <normaloff>:/icons/img/ok_pay.png</normaloff>:/icons/img/ok_pay.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="btnLatex">
               <property name="text">
                <string>Générer en LaTeX</string>

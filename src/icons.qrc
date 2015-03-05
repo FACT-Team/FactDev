@@ -77,6 +77,14 @@
         <file>img/img20/ok_valid20.png</file>
         <file>img/img20/yes_light20.png</file>
         <file>img/img20/yes20.png</file>
+        <file>img/ok_pay.png</file>
+        <file>img/database.png</file>
+        <file>img/coffee_level0.png</file>
+        <file>img/coffee_level1.png</file>
+        <file>img/coffee_level2.png</file>
+        <file>img/coffee_level3.png</file>
+        <file>img/coffee_level4.png</file>
+        <file>img/coffee_ready.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>
