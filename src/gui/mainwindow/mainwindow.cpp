@@ -103,10 +103,22 @@ void MainWindow::billingIsPaid()
 {
     Billing billing(this->getCurrentQuoteId());
     if (billing.isBilling() && !billing.isPaid()) {
-        billing.setIsPaid(true);
-        billing.commit();
-        updateButtons();
-        updateTableBillings(getCurrentProjectId());
+        if (QMessageBox::warning(
+                    this,
+                    "Définir comme payée la facture N°"
+                    + QString::number(billing.getNumber()),
+                    "Attention, si vous validez cette facture comme payée "
+                    "alors elle ne pourra plus être modifier.\n\n"
+                    "Êtes-vous sûr de définir la facture n°"
+                    + QString::number(billing.getNumber()) + " comme payée ?",
+                    "Valider",
+                    "Annuler") == 0)
+        {
+            billing.setIsPaid(true);
+            billing.commit();
+            updateButtons();
+            updateTableBillings(getCurrentProjectId());
+        }
     }
 }
 
