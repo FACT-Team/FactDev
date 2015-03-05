@@ -8,6 +8,7 @@ namespace Models {
 Billing::Billing()
 {
     _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
+    _isPaid = false;
     _toRemoved = false;
 }
 
