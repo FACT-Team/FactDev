@@ -128,6 +128,10 @@ public slots:
      */
     void addBill();
     /**
+     * @brief MainWindow::billingIsPaid Define the current billing as "paid"
+     */
+    void billingIsPaid();
+    /**
      * @brief MainWindow::editUser modify the user
      * @see UserDataDialog
      */

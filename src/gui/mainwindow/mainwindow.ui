@@ -320,6 +320,17 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="btnBillingIsPaid">
+              <property name="text">
+               <string>Payée</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../../icons.qrc">
+                <normaloff>:/icons/img/ok_pay.png</normaloff>:/icons/img/ok_pay.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="btnLatex">
               <property name="text">
                <string>Générer en LaTeX</string>
@@ -689,8 +700,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>820</x>
-     <y>507</y>
+     <x>910</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -705,8 +716,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>699</x>
-     <y>507</y>
+     <x>823</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -721,8 +732,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>394</x>
-     <y>507</y>
+     <x>599</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -737,8 +748,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>546</x>
-     <y>507</y>
+     <x>726</x>
+     <y>543</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -929,8 +940,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>588</x>
-     <y>119</y>
+     <x>578</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1073,8 +1084,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>528</x>
-     <y>538</y>
+     <x>510</x>
+     <y>542</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1162,6 +1173,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnBillingIsPaid</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>billingIsPaid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>742</x>
+     <y>533</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>733</x>
+     <y>755</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1195,5 +1222,6 @@
   <slot>editQuote()</slot>
   <slot>updateButtons()</slot>
   <slot>generateTex()</slot>
+  <slot>billingIsPaid()</slot>
  </slots>
 </ui>

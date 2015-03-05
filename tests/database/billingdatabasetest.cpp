@@ -14,6 +14,7 @@ void BillingDatabaseTest::setup() {
     b1->setTitle("Maître donut");
     b1->setIsBilling(false);
     b1->setToRemoved(false);
+    b1->setIsPaid(false);
 }
 
 void BillingDatabaseTest::insert()

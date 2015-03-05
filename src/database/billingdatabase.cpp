@@ -40,8 +40,8 @@ Models::Billing* BillingDatabase::getBilling(const int pId) {
         billing->setNumber(value(q,"number").toInt());
         billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
         billing->setIsBilling(value(q,"isBilling").toBool());
+        billing->setIsPaid(value(q,"isPaid").toBool());
         billing->setToRemoved(false);
-
     } else {
         billing = NULL;
     }
@@ -56,7 +56,7 @@ WdgModels::BillingsTableModel* BillingDatabase::getBillingsTable(
     QSqlQuery q;
     q.prepare(
              "SELECT DISTINCT b.idBilling, title, description, number, "
-             "isBilling, date "
+             "isBilling, date, isPaid "
              "FROM Billing b, BillingProject bp "
              "WHERE idProject = :idproject "
              "AND b.idBilling = bp.idBilling ORDER BY date DESC");
@@ -83,9 +83,9 @@ int BillingDatabase::addBilling(const Models::Billing& pBilling) {
     QSqlQuery q;
 
     q.prepare(  "INSERT INTO Billing "
-                "(title, description, number, isBilling, date)"
+                "(title, description, number, isBilling, date, isPaid)"
                 " VALUES "
-                "(:title, :description, :number, :isBilling, :date)"
+                "(:title, :description, :number, :isBilling, :date, :isPaid)"
                 );
 
     q.bindValue(":title", pBilling.getTitle());
@@ -93,7 +93,7 @@ int BillingDatabase::addBilling(const Models::Billing& pBilling) {
     q.bindValue(":number", pBilling.getNumber());
     q.bindValue(":isBilling", pBilling.isBilling());
     q.bindValue(":date", pBilling.getDate());
-
+    q.bindValue(":isPaid", pBilling.isPaid());
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'ajouter le Billing",
@@ -124,7 +124,8 @@ void BillingDatabase::addBillingProject(const int idProject, const int idBilling
 
 }
 
-void BillingDatabase::removeBillingProject(const int idProject, const int idBilling, const int idContributory)
+void BillingDatabase::removeBillingProject(
+        const int idProject, const int idBilling, const int idContributory)
 {
     QSqlQuery q;
     QString project;
@@ -156,7 +157,8 @@ void BillingDatabase::updateBilling(const Models::Billing& pBilling)
              "title=:title, "
              "description=:description, "
              "number=:number, "
-             "date=:date "
+             "date=:date, "
+             "isPaid=:isPaid "
              "WHERE idBilling=:idBilling"
              );
 
@@ -166,6 +168,7 @@ void BillingDatabase::updateBilling(const Models::Billing& pBilling)
    //q.bindValue(":isBilling", pBilling.isBilling());
    q.bindValue(":date", pBilling.getDate());
    q.bindValue(":idBilling",pBilling.getId());
+   q.bindValue(":isPaid", pBilling.isPaid());
 
    if(!q.exec()) {
        throw new DbException(
@@ -175,38 +178,66 @@ void BillingDatabase::updateBilling(const Models::Billing& pBilling)
                    1.4);
    }
 }
+bool BillingDatabase::isBillingPaid(const int pId) {
+    QSqlQuery q;
+
+    q.prepare("SELECT count(*) AS nb_b "
+              "FROM Billing "
+              "WHERE idBilling = :pId "
+              "AND isBilling = 1 "
+              "AND isPaid = 1 ");
+
+    q.bindValue(":pId",pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de supprimer le Billing ",
+                    "BddContributory::removeBilling",
+                    lastError(q),
+                    1.5);
+    }
+
+    q.next();
+
+     return value(q, "nb_p").toInt() == 1;
+
+}
 
 void BillingDatabase::removeBilling(const int pId)
 {
     QSqlQuery q;
-    q.prepare("DELETE FROM BillingProject "
-              "WHERE idBilling=:pId");
 
-    q.bindValue(":pId",pId);
+    if (!isBillingPaid(pId)) {
+        q.prepare("DELETE FROM BillingProject "
+                  "WHERE idBilling=:pId");
 
-    if(!q.exec()) {
-        throw new DbException(
-                    "Impossible de supprimer le Billing ",
-                    "BddContributory::removeBilling",
-                    lastError(q),
-                    1.5);
+        q.bindValue(":pId",pId);
+
+        if(!q.exec()) {
+            throw new DbException(
+                        "Impossible de supprimer le Billing ",
+                        "BddContributory::removeBilling",
+                        lastError(q),
+                        1.51);
+        }
+
+        q.clear();
+
+        q.prepare(
+                    "DELETE FROM Billing "
+                    "WHERE idBIlling=:pId");
+
+        q.bindValue(":pId",pId);
+
+        if(!q.exec()) {
+            throw new DbException(
+                        "Impossible de supprimer le Billing ",
+                        "BddContributory::removeBilling",
+                        lastError(q),
+                        1.52);
+        }
     }
 
-    q.clear();
-
-    q.prepare(
-                "DELETE FROM Billing "
-                "WHERE idBIlling=:pId");
-
-    q.bindValue(":pId",pId);
-
-    if(!q.exec()) {
-        throw new DbException(
-                    "Impossible de supprimer le Billing ",
-                    "BddContributory::removeBilling",
-                    lastError(q),
-                    1.5);
-    }
 }
 int BillingDatabase::getMaxBillingNumber()
 {
@@ -249,6 +280,7 @@ QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
     billing->setNumber(value(q,"number").toInt());
     billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
     billing->setIsBilling(value(q,"isBilling").toBool());
+    billing->setIsPaid(value(q,"isPaid").toBool());
     billing->setToRemoved(false);
 
     return billing;

@@ -13,6 +13,7 @@ void BillingModelTest::setup() {
     b1->setNumber(1);
     b1->setDate(QDate(2012,12,21));
     b1->setIsBilling(false);
+    b1->setIsPaid(false);
 
     b2 = new Billing();
     b2->setId(7);
@@ -21,6 +22,7 @@ void BillingModelTest::setup() {
     b2->setNumber(1);
     b2->setDate(QDate(2012,12,21));
     b2->setIsBilling(false);
+    b2->setIsPaid(false);
 }
 
 void BillingModelTest::equals1()
@@ -46,6 +48,8 @@ void BillingModelTest::notEquals()
 void BillingModelTest::commitRemove()
 {
     Billing b1(12);
+    b1.setIsBilling(false);
+    b1.setIsPaid(false);
     b1.setToRemoved(true);
     b1.commit();
     QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
@@ -83,7 +87,7 @@ void BillingModelTest::hydrat()
     b1->setNumber(1);
     b1->setIsBilling(false);
     b1->setDate(QDate(2015,02,13));
-
+    b1->setIsPaid(false);
     QVERIFY(*b1 == b2);
 }
 
