@@ -49,6 +49,9 @@ public:
     void selectCustomer(int id);
 
 
+    int getIdCustomer() const;
+    void setIdCustomer(int getIdCustomer);
+
 public slots:
     /**
      * @brief searchWidget::launch a search
@@ -68,6 +71,7 @@ private:
     Ui::searchWidget *ui;
     void updateTable(QString text="");
     bool _isCustomerSelected;
+    int _idCustomer;
 };
 }
 }

@@ -39,7 +39,7 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
                     1.2);
     }
     if(q2.first()) {
-        contributory->setProject(Databases::ProjectDatabase::instance()->getProject(q2));
+       contributory->setProject(Databases::ProjectDatabase::instance()->getProject(q2));
     } else {
         contributory->setProject(NULL);
     }

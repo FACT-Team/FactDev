@@ -5,6 +5,8 @@
 
 #include "database/customerdatabase.h"
 
+#include "ui_comboboxmodelwidget.h"
+
 namespace Ui {
 class ComboBoxModelWidget;
 }

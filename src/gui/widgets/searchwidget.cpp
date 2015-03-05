@@ -19,10 +19,14 @@ searchWidget::~searchWidget()
 
 int searchWidget::getCurrentCustomerId()
 {
+    if(_idCustomer != 0) {
     QModelIndex idCell = ui->tblSearch->model()->index(
                 ui->tblSearch->currentIndex().row(), 0);
 
-    return ui->tblSearch->model()->itemData(idCell).value(0).toInt();
+        return ui->tblSearch->model()->itemData(idCell).value(0).toInt();
+    } else {
+        return _idCustomer;
+    }
 }
 
 void searchWidget::search(QString text)
@@ -77,9 +81,19 @@ void searchWidget::updateTable(QString filter) {
     ui->tblSearch->setColumnWidth(3, 120);
 
 }
+int searchWidget::getIdCustomer() const
+{
+    return _idCustomer;
+}
+
+void searchWidget::setIdCustomer(int idCustomer)
+{
+    _idCustomer = idCustomer;
+}
+
 bool searchWidget::isCustomerSelected() const
 {
-    return _isCustomerSelected;
+    return _isCustomerSelected || _idCustomer != 0;
 }
 void searchWidget::selectCustomer(int id) {
     ui->tblSearch->selectRow(id);

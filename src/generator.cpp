@@ -1,6 +1,5 @@
 #include "generator.h"
-#include "models/user.h"
-#include "libs/qt-mustache/src/mustache.h"
+
 
 Generator::Generator(QString tpl)
 {

@@ -63,8 +63,8 @@
    <slot>newProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>79</x>
-     <y>252</y>
+     <x>88</x>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
      <x>107</x>
@@ -79,8 +79,8 @@
    <slot>removeSelectedProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>258</y>
+     <x>321</x>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
@@ -95,8 +95,8 @@
    <slot>editSelectedProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>347</x>
-     <y>259</y>
+     <x>470</x>
+     <y>42</y>
     </hint>
     <hint type="destinationlabel">
      <x>347</x>
