@@ -22,9 +22,8 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool edit
                            (Customer(idCustomer).getCompany()));
         }
         else {
-            qDebug("COPY");
             _quote->setId(0);
-            _quote->setNumber(Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+            _quote->setNumber(Databases::BillingDatabase::instance()->getMaxQuoteNumber()+1);
             _quote->commit();
 
             setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
