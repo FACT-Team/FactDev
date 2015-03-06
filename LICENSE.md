@@ -1,6 +1,6 @@
 Team website : fact-team.github.io/
-Project on github : https://github.com/FACT-Team/FactDev
 
+Project on github : https://github.com/FACT-Team/FactDev
 
 GNU GENERAL PUBLIC LICENSE
                        Version 2, June 1991
@@ -9,8 +9,6 @@ GNU GENERAL PUBLIC LICENSE
  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
-
-                            Preamble
 
   The licenses for most software are designed to take away your
 freedom to share and change it.  By contrast, the GNU General Public
@@ -294,8 +292,6 @@ to attach them to the start of each source file to most effectively
 convey the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
-    {description}
-    Copyright (C) {year}  {fullname}
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
