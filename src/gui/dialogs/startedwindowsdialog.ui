@@ -220,14 +220,17 @@
      </widget>
      <widget class="QWidget" name="page_3">
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="9" column="0">
-        <widget class="QLabel" name="lbSiretNumber">
+       <item row="8" column="1" colspan="3">
+        <widget class="QLineEdit" name="lePhone"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="lbNoSiret">
          <property name="text">
           <string>N° Siret</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
+       <item row="9" column="0">
         <widget class="QLabel" name="lbMobile">
          <property name="text">
           <string>Tél. mobile</string>
@@ -241,14 +244,14 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="3">
+       <item row="12" column="3">
         <widget class="QPushButton" name="btnValidate">
          <property name="text">
           <string>Valider</string>
          </property>
          <property name="icon">
-          <iconset>
-           <normaloff>../../img/ok_valid.png</normaloff>../../img/ok_valid.png</iconset>
+          <iconset resource="../../icons.qrc">
+           <normaloff>:/icons/img/ok_valid.png</normaloff>:/icons/img/ok_valid.png</iconset>
          </property>
         </widget>
        </item>
@@ -256,6 +259,16 @@
         <widget class="QLabel" name="lbCompany">
          <property name="text">
           <string>Société</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="3">
+        <widget class="QLineEdit" name="leCompany"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lbPhone">
+         <property name="text">
+          <string>Tél. fixe</string>
          </property>
         </widget>
        </item>
@@ -267,13 +280,13 @@
         </widget>
        </item>
        <item row="7" column="0">
-        <widget class="QLabel" name="lbPhone">
+        <widget class="QLabel" name="lbEmail">
          <property name="text">
-          <string>Tél. fixe</string>
+          <string>Email</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="11" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -286,29 +299,13 @@
          </property>
         </spacer>
        </item>
-       <item row="4" column="1" colspan="3">
-        <widget class="QLineEdit" name="leCompany"/>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="lbEmail">
-         <property name="text">
-          <string>Email</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="leLastname"/>
-       </item>
-       <item row="8" column="1" colspan="3">
+       <item row="9" column="1" colspan="3">
         <widget class="QLineEdit" name="leMobile"/>
        </item>
-       <item row="9" column="1" colspan="3">
-        <widget class="QLineEdit" name="leSiretNumber"/>
+       <item row="10" column="1" colspan="3">
+        <widget class="QLineEdit" name="leNoSiret"/>
        </item>
        <item row="7" column="1" colspan="3">
-        <widget class="QLineEdit" name="lePhone"/>
-       </item>
-       <item row="6" column="1" colspan="3">
         <widget class="QLineEdit" name="leEmail"/>
        </item>
        <item row="0" column="0" colspan="2">
@@ -325,7 +322,7 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="0" colspan="4">
+       <item row="6" column="0" colspan="4">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Adresse</string>
@@ -335,7 +332,7 @@
            <widget class="QLineEdit" name="lePostalCode"/>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="lbStreet">
+           <widget class="QLabel" name="lbAddress">
             <property name="text">
              <string>N°, Rue</string>
             </property>
@@ -349,7 +346,7 @@
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QLabel" name="label_8">
+           <widget class="QLabel" name="lbCity">
             <property name="text">
              <string>Ville</string>
             </property>
@@ -359,13 +356,10 @@
            <widget class="QLineEdit" name="leCity"/>
           </item>
           <item row="0" column="1" colspan="3">
-           <widget class="QLineEdit" name="leStreet"/>
+           <widget class="QLineEdit" name="leAddress"/>
           </item>
          </layout>
         </widget>
-       </item>
-       <item row="2" column="3">
-        <widget class="QLineEdit" name="leFirstname"/>
        </item>
        <item row="1" column="1">
         <spacer name="verticalSpacer_2">
@@ -380,7 +374,7 @@
          </property>
         </spacer>
        </item>
-       <item row="11" column="0" colspan="3">
+       <item row="12" column="0" colspan="3">
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -392,6 +386,22 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lbTitle">
+         <property name="text">
+          <string>Activité</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1" colspan="3">
+        <widget class="QLineEdit" name="leTitle"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname"/>
+       </item>
+       <item row="2" column="3">
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname"/>
        </item>
       </layout>
      </widget>
@@ -421,7 +431,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../img/database.png</pixmap>
+      <pixmap resource="../../icons.qrc">:/icons/img/database.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -430,7 +440,19 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>btnNextTo2</sender>
@@ -439,8 +461,8 @@
    <slot>nextToPage2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>738</x>
-     <y>376</y>
+     <x>355</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>743</x>
@@ -455,8 +477,8 @@
    <slot>nextToPage3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>739</x>
-     <y>369</y>
+     <x>361</x>
+     <y>35</y>
     </hint>
     <hint type="destinationlabel">
      <x>728</x>
@@ -468,15 +490,79 @@
    <sender>btnValidate</sender>
    <signal>clicked()</signal>
    <receiver>StartedWindowsDialog</receiver>
-   <slot>saveSettings()</slot>
+   <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>629</x>
-     <y>366</y>
+     <x>737</x>
+     <y>372</y>
     </hint>
     <hint type="destinationlabel">
-     <x>637</x>
-     <y>464</y>
+     <x>706</x>
+     <y>521</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLastname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>StartedWindowsDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>445</x>
+     <y>67</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>591</x>
+     <y>-18</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leFirstname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>StartedWindowsDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>655</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>665</x>
+     <y>-83</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLastname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leLastname</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>445</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>464</x>
+     <y>70</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leFirstname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leFirstname</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>667</x>
+     <y>67</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -485,5 +571,7 @@
   <slot>nextToPage2()</slot>
   <slot>nextToPage3()</slot>
   <slot>saveSettings()</slot>
+  <slot>checkFields()</slot>
+  <slot>fieldTextChanged(QString)</slot>
  </slots>
 </ui>

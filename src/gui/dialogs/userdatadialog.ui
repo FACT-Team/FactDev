@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>504</height>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,7 +59,7 @@
    <item row="0" column="0" colspan="4">
     <widget class="QTabWidget" name="tabUserData">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab1PersonalData">
       <attribute name="title">
@@ -87,30 +87,16 @@
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>123 123 123 1234</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>06 01 02 03 04</string>
-         </property>
-        </widget>
-       </item>
        <item row="7" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Adresse</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="3">
-           <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity" native="true">
-            <property name="placeholderText" stdset="0">
-             <string>Paris</string>
+          <item row="1" column="2">
+           <widget class="QLabel" name="lbCity">
+            <property name="text">
+             <string>Ville</string>
             </property>
            </widget>
           </item>
@@ -121,26 +107,14 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QLabel" name="lbCity">
-            <property name="text">
-             <string>Ville</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="1">
-           <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode" native="true">
-            <property name="placeholderText" stdset="0">
-             <string>75000</string>
-            </property>
-           </widget>
+           <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode"/>
           </item>
           <item row="0" column="1" colspan="3">
-           <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress" native="true">
-            <property name="placeholderText" stdset="0">
-             <string>42 Avenue de Toulouse</string>
-            </property>
-           </widget>
+           <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress"/>
+          </item>
+          <item row="1" column="3">
+           <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity"/>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="lbPostalCode">
@@ -159,13 +133,6 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>remi.adelin@fiducal.com</string>
-         </property>
-        </widget>
-       </item>
        <item row="9" column="0">
         <widget class="QLabel" name="lbPhone">
          <property name="text">
@@ -173,31 +140,10 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>01 02 03 04 05</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckValidField" name="leTitle" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>Expertise comptable</string>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="0">
         <widget class="QLabel" name="lbCompany">
          <property name="text">
           <string>Société</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckValidField" name="leCompany" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>Fiducal8</string>
          </property>
         </widget>
        </item>
@@ -215,41 +161,48 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckName" name="leFirstname" native="true">
-         <property name="placeholderText" stdset="0">
-          <string>Rémi</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckName" name="leLastname" native="true">
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="placeholderText" stdset="0">
-          <string>ADELIN</string>
-         </property>
-        </widget>
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname"/>
+       </item>
+       <item row="5" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leCompany"/>
+       </item>
+       <item row="6" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle"/>
+       </item>
+       <item row="8" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail"/>
+       </item>
+       <item row="9" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone"/>
+       </item>
+       <item row="10" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone"/>
+       </item>
+       <item row="11" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret"/>
        </item>
       </layout>
       <zorder>lbPhone</zorder>
       <zorder>lbLastname</zorder>
       <zorder>lbCompany</zorder>
-      <zorder>leNoSiret</zorder>
       <zorder>groupBox</zorder>
-      <zorder>lePhone</zorder>
-      <zorder>leCompany</zorder>
-      <zorder>leTitle</zorder>
       <zorder>lbEmail</zorder>
       <zorder>lbNoSiret</zorder>
       <zorder>lbTitle</zorder>
-      <zorder>leMobilePhone</zorder>
       <zorder>lbMobilePhone</zorder>
-      <zorder>leEmail</zorder>
       <zorder>lbFirstname</zorder>
-      <zorder>leFirstname</zorder>
       <zorder>leLastname</zorder>
+      <zorder>leFirstname</zorder>
+      <zorder>leCompany</zorder>
+      <zorder>leTitle</zorder>
+      <zorder>leEmail</zorder>
+      <zorder>lePhone</zorder>
+      <zorder>leMobilePhone</zorder>
+      <zorder>leNoSiret</zorder>
      </widget>
      <widget class="QWidget" name="tab2Workspace">
       <attribute name="title">
@@ -321,283 +274,83 @@
      </widget>
     </widget>
    </item>
+   <item row="1" column="0" colspan="3">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CheckPhone</class>
-   <extends>QWidget</extends>
-   <header>gui/widgets/checkfields/checkphone.h</header>
+   <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
   <customwidget>
-   <class>CheckSiretNumber</class>
-   <extends>QWidget</extends>
-   <header>gui/widgets/checkfields/checksiretnumber.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckValidField</class>
-   <extends>QWidget</extends>
-   <header>gui/widgets/checkfields/checkvalidfield.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckName</class>
-   <extends>QWidget</extends>
-   <header>gui/widgets/checkfields/checkname.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckCity</class>
-   <extends>QWidget</extends>
-   <header>gui/widgets/checkfields/checkcity.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckPostalCode</class>
-   <extends>QWidget</extends>
-   <header>gui/widgets/checkfields/checkpostalcode.h</header>
-  </customwidget>
-  <customwidget>
-   <class>CheckUntilField</class>
-   <extends>QWidget</extends>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
+   <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
   <customwidget>
-   <class>CheckEmail</class>
-   <extends>QWidget</extends>
+   <class>Gui::Widgets::CheckFields::CheckEmail</class>
+   <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkemail.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckPostalCode</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkpostalcode.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckCity</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkcity.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckPhone</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckSiretNumber</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checksiretnumber.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
  </customwidgets>
- <tabstops>
-  <tabstop>leAddress</tabstop>
-  <tabstop>lePostalCode</tabstop>
-  <tabstop>leCity</tabstop>
- </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>leMobilePhone</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leMobilePhone</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>274</x>
-     <y>405</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>316</x>
-     <y>405</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leMobilePhone</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>405</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>721</x>
-     <y>264</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leCompany</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leCompany</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>304</x>
-     <y>159</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>435</x>
-     <y>159</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leCompany</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>159</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>478</x>
-     <y>103</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leNoSiret</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leNoSiret</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>326</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>402</x>
-     <y>445</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leNoSiret</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>445</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>581</x>
-     <y>359</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leEmail</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leEmail</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>330</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>431</x>
-     <y>324</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leEmail</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>443</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>589</x>
-     <y>252</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leLastname</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leLastname</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>303</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>360</x>
-     <y>55</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leLastname</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>47</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>515</x>
-     <y>72</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lePhone</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>lePhone</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>298</x>
-     <y>364</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>447</x>
-     <y>364</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lePhone</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>364</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>661</x>
-     <y>276</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leFirstname</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leFirstname</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>432</x>
-     <y>119</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>447</x>
-     <y>119</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leFirstname</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>113</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>570</x>
-     <y>85</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>btnValid</sender>
    <signal>released()</signal>
@@ -606,7 +359,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>364</x>
-     <y>486</y>
+     <y>419</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
@@ -622,139 +375,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>450</x>
-     <y>486</y>
+     <y>419</y>
     </hint>
     <hint type="destinationlabel">
      <x>389</x>
      <y>375</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lePostalCode</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>lePostalCode</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>230</x>
-     <y>272</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>230</x>
-     <y>272</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leCity</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leCity</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>435</x>
-     <y>272</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>435</x>
-     <y>272</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leAddress</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leAddress</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>243</x>
-     <y>251</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>303</x>
-     <y>251</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leAddress</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>435</x>
-     <y>251</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>508</x>
-     <y>206</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leCity</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>435</x>
-     <y>272</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>595</x>
-     <y>224</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lePostalCode</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>230</x>
-     <y>272</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>617</x>
-     <y>300</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leTitle</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>leTitle</receiver>
-   <slot>fieldTextChanged(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>283</x>
-     <y>200</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>379</x>
-     <y>200</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>leTitle</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>checkFields()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>200</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>472</x>
-     <y>147</y>
     </hint>
    </hints>
   </connection>
@@ -769,8 +394,360 @@
      <y>120</y>
     </hint>
     <hint type="destinationlabel">
-     <x>535</x>
+     <x>467</x>
      <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLastname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>-33</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLastname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leLastname</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>414</x>
+     <y>52</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leFirstname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>-22</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leFirstname</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leFirstname</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>84</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leCompany</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>254</x>
+     <y>-81</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leCompany</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leCompany</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>277</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leTitle</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>431</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>404</x>
+     <y>-36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leTitle</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leTitle</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>140</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>146</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>-26</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leAddress</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>408</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>369</x>
+     <y>206</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePostalCode</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-58</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePostalCode</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePostalCode</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leCity</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>412</x>
+     <y>234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leCity</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leCity</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>233</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leEmail</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>447</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>505</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leEmail</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leEmail</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>213</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>253</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>442</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>539</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePhone</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>305</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leMobilePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>438</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>338</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leMobilePhone</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leMobilePhone</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>278</x>
+     <y>331</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leNoSiret</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>362</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>541</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leNoSiret</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leNoSiret</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>359</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>362</y>
     </hint>
    </hints>
   </connection>
