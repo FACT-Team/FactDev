@@ -25,7 +25,7 @@ int Gui::Widgets::WdgModels::BillingsTableModel::columnCount(
 QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole && role != Qt::EditRole || index.row() == -1) {
+    if (role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::DecorationRole || index.row() == -1) {
         return QVariant();
     }
 
@@ -38,9 +38,9 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
     case 4: return billing.getDate();
     case 5:
         if (billing.isPaid()) {
-            return "Payée";
+            return QImage(":/icons/img/img32/ok_pay.png").scaled(30,30);
         } else {
-            return "";
+            return QVariant();
         }
         break;
     default: return QVariant();

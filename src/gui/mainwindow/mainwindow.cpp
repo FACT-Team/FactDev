@@ -508,7 +508,8 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     ui->tblQuotes->setColumnWidth(2, 200);
     ui->tblQuotes->setColumnWidth(3, 300);
     ui->tblQuotes->setColumnWidth(4, 100);
-    ui->tblQuotes->setColumnWidth(5, 50);
+    ui->tblQuotes->setColumnWidth(5, 100);
+
     if (row > -1) {
         ui->tblQuotes->selectRow(row);
     } else {

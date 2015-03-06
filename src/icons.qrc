@@ -85,6 +85,7 @@
         <file>img/coffee_level3.png</file>
         <file>img/coffee_level4.png</file>
         <file>img/coffee_ready.png</file>
+        <file>img/img32/ok_pay.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>
