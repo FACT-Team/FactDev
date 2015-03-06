@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
+    <width>780</width>
     <height>396</height>
    </rect>
   </property>
@@ -15,7 +15,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="2">
-    <widget class="QStackedWidget" name="stackedWidget">
+    <widget class="QStackedWidget" name="wdgStack">
      <property name="currentIndex">
       <number>2</number>
      </property>
@@ -192,6 +192,19 @@
        </item>
        <item row="1" column="0">
         <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <spacer name="verticalSpacer_7">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -388,14 +401,14 @@
     <widget class="QLabel" name="lbIcon">
      <property name="minimumSize">
       <size>
-       <width>128</width>
-       <height>128</height>
+       <width>256</width>
+       <height>256</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>512</width>
-       <height>512</height>
+       <width>256</width>
+       <height>256</height>
       </size>
      </property>
      <property name="sizeIncrement">
@@ -418,5 +431,59 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnNextTo2</sender>
+   <signal>clicked()</signal>
+   <receiver>StartedWindowsDialog</receiver>
+   <slot>nextToPage2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>738</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>743</x>
+     <y>468</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnNextTo3</sender>
+   <signal>clicked()</signal>
+   <receiver>StartedWindowsDialog</receiver>
+   <slot>nextToPage3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>739</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>728</x>
+     <y>436</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnValidate</sender>
+   <signal>clicked()</signal>
+   <receiver>StartedWindowsDialog</receiver>
+   <slot>saveSettings()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>366</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>637</x>
+     <y>464</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>nextToPage2()</slot>
+  <slot>nextToPage3()</slot>
+  <slot>saveSettings()</slot>
+ </slots>
 </ui>
