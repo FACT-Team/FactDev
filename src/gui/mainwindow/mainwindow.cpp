@@ -207,6 +207,16 @@ void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
 }
 
+void MainWindow::copyDoc()
+{
+    AddQuoteDialog copyDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId());
+
+    if (copyDocDialog.exec()) {
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+    }
+}
+
 void MainWindow::generateTex()
 {
     QModelIndex ls = ui->tblQuotes->selectionModel()->selectedRows().first();
@@ -550,6 +560,7 @@ void MainWindow::updateButtons()
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);    
     ui->btnLatex->setEnabled(billingIsSelected);
+    ui->btnCopyDoc->setEnabled(billingIsSelected);
 
     if (billingIsSelected) {
 
@@ -561,6 +572,7 @@ void MainWindow::updateButtons()
         ui->btnEditDoc->setIcon(QIcon(":icons/img/add_"+iconButton));
         ui->btnRemoveDoc->setText("Supprimer "+textButton);
         ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_"+iconButton));
+        ui->btnCopyDoc->setText("Copier "+textButton);
 
         if ( isBillingPaid || !b.isBilling()) {
             ui->btnBillingIsPaid->setEnabled(false);
