@@ -187,7 +187,7 @@ void MainWindow::editProject() {
 
 void MainWindow::editDoc()
 {
-    AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),false);
+    AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),true);
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
@@ -209,7 +209,7 @@ void MainWindow::removeDoc() {
 
 void MainWindow::copyDoc()
 {
-    AddQuoteDialog copyDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),true);
+    AddQuoteDialog copyDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),false);
 
     if (copyDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());

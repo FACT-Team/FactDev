@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "models/billing.h"
+#include "database/billingdatabase.h"
 
 #include "gui/widgets/contributorieswidget.h"
 

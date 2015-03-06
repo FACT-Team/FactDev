@@ -16,10 +16,21 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool edit
     if (id != 0) {
         _quote = new Billing(id);
         fillFields();
+        if (edit) {
+            setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
+                           QString::number(getNumber())+ " de " +
+                           (Customer(idCustomer).getCompany()));
+        }
+        else {
+            qDebug("COPY");
+            _quote->setId(0);
+            _quote->setNumber(Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+            _quote->commit();
 
-        setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
-                       QString::number(getNumber())+ " de " +
-                       (Customer(idCustomer).getCompany()));
+            setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
+                           QString::number(getNumber())+ " de " +
+                           (Customer(idCustomer).getCompany()));
+        }
     } else {
         _quote = new Billing();
         _quote->setId(id);
