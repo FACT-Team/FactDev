@@ -4,7 +4,7 @@
 namespace Gui {
 namespace Dialogs {
 
-AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, QWidget *parent) :
+AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool edit, QWidget *parent) :
     QDialog(parent),
     _quote(0),
     ui(new Ui::AddQuoteDialog)

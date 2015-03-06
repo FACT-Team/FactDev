@@ -25,10 +25,14 @@ class AddQuoteDialog : public QDialog
 public:
     /**
      * @brief AddQuoteDialog::AddQuoteDialog Construct a windows AddQuoteDialog
+     * @param isBilling displaying of a quote or a Billing
+     * @param idCustomer the id of the Customer
+     * @param id the id of the quote or the billing of the Customer's Project
+     * @param edit if it's an edition or a copy of a quote/Billing
      * @param parent QWidget of the current windows
      */
     explicit AddQuoteDialog(bool isBilling, int idCustomer = 0, int id = 0,
-                            QWidget *parent = 0);
+                            bool edit = true, QWidget *parent = 0);
     ~AddQuoteDialog();
 
     /**
