@@ -22,29 +22,32 @@ public:
     ~StartedWindowsDialog();
 
     /**
-     * @brief UserDataDialog::fillFields Fill line edits with the data of the
+     * @brief StartedWindowsDialog::fillFields Fill line edits with the data of the
      * user
      */
     void fillFields();
 
     /**
-     * @brief accept Valid data inputed by user and add these data in Database
+     * @brief StartedWindowsDialog::accept Valid data inputed by user and add
+     * these data in Database
      */
     void accept();
 
+    /**
+     * @brief StartedWindowsDialog::getImage
+     * @param path
+     * @param width
+     * @param height
+     * @return
+     */
+    QPixmap getImage(QString path, int width = 256, int height = 256);
 
 public slots:
     /**
-     * @brief UserDataDialog::checkFields Check all fields of dialog
+     * @brief StartedWindowsDialog::checkFields Check all fields of dialog
      * components
      */
     void checkFields();
-
-    /**
-     * @brief UserDataDialog::browseWorkspacePath Open a new window to define
-     * the workspace path of the user
-     */
-    void browseWorkspacePath();
 
     /**
      * @brief StartedWindowsDialog::nextToPage2
@@ -56,14 +59,11 @@ public slots:
      */
     void nextToPage3();
 
-    /**
-     * @brief StartedWindowsDialog::saveSettings
-     */
-    void saveSettings();
 
 private:
     Ui::StartedWindowsDialog *ui;
-    User* _user;
+    User* _user;                    //!< User of the software
+    QPixmap _img;
 };
 
 }
