@@ -23,7 +23,7 @@ int Gui::Widgets::WdgModels::ProjectsTableModel::columnCount(const QModelIndex &
 QVariant Gui::Widgets::WdgModels::ProjectsTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole && role != Qt::EditRole || index.row() == -1) {
+    if ((role != Qt::DisplayRole && role != Qt::EditRole) || index.row() == -1) {
         return QVariant();
     }
 

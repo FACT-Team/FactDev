@@ -112,7 +112,7 @@ int ContributoriesTableModel::count() {
 
 double ContributoriesTableModel::getSumQuantity() const
 {
-    double ret;
+    double ret(0);
     for(Contributory c : _contributories) {
         ret += c.getNbHours();
     }

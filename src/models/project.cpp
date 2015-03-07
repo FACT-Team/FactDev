@@ -62,7 +62,7 @@ void Project::remove()
 
 QVariantHash Project::getDataMap()
 {
-
+    return QVariantHash();
 }
 
 QString Project::getName() const
