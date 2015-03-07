@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DatabaseSettingsWidget</class>
+ <widget class="QWidget" name="DatabaseSettingsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>443</width>
+    <height>233</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="grpDbSettings">
+     <property name="title">
+      <string>Paramètres de la base de données</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="4" column="2">
+       <widget class="QLabel" name="lbPort">
+        <property name="text">
+         <string>Port</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="leIpAddress"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbLogin">
+        <property name="text">
+         <string>Mot de passe</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbUser">
+        <property name="text">
+         <string>Utilisateur</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lbIpAddress">
+        <property name="text">
+         <string>Adress IP</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lbLoginRepeat">
+        <property name="text">
+         <string>Mot de passe</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbDbName">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QLineEdit" name="lePort"/>
+      </item>
+      <item row="0" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leDbName"/>
+      </item>
+      <item row="1" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leuser"/>
+      </item>
+      <item row="2" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLogin">
+        <property name="contextMenuPolicy">
+         <enum>Qt::PreventContextMenu</enum>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLoginRepeat">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -10,9 +10,14 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
     ui(new Ui::StartedWindowsDialog)
 {
     ui->setupUi(this);
-    ui->wdgStack->setCurrentIndex(0);
+
     _user = new User(1);
-    //ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));
+
+    ui->wdgStack->setCurrentIndex(0);
+    ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));
+    ui->btnAdvanced->setEnabled(false);
+    ui->wdgDbType->hide();
+
     checkFields();
 }
 
@@ -24,13 +29,28 @@ StartedWindowsDialog::~StartedWindowsDialog()
 void StartedWindowsDialog::nextToPage2()
 {
     ui->wdgStack->setCurrentIndex(1);    
-    //ui->lbIcon->setPixmap(getImage(":/icons/img/database.png"));
+    ui->lbIcon->setPixmap(getImage(":/icons/img/database.png"));
 }
 
 void StartedWindowsDialog::nextToPage3()
 {
     ui->wdgStack->setCurrentIndex(2);
-    //ui->lbIcon->setPixmap(getImage(":/icons/customer"));
+    ui->lbIcon->setPixmap(getImage(":/icons/customer"));
+}
+
+void StartedWindowsDialog::databaseTypeChanged(const int index)
+{
+    if (ui->cbDbType->itemText(index) == "Centralisée") {
+        ui->btnAdvanced->setEnabled(true);
+    } else {
+        ui->btnAdvanced->setEnabled(false);
+        ui->wdgDbType->hide();
+    }
+}
+
+void StartedWindowsDialog::editDatabaseSettings()
+{
+    ui->wdgDbType->setVisible(true);
 }
 
 void StartedWindowsDialog::accept() {
@@ -50,7 +70,7 @@ void StartedWindowsDialog::accept() {
     QDialog::accept();
 }
 
-QPixmap getImage(QString path, int width, int height) {
+QPixmap StartedWindowsDialog::getImage(QString path, int width, int height) {
     QPixmap img(path);
     img.scaled(width,height,Qt::KeepAspectRatio);
 
@@ -70,7 +90,12 @@ void StartedWindowsDialog::checkFields() {
             || (ui->lePhone->text().isEmpty() && ui->leMobile->isValid())
             || (ui->lePhone->isValid() && ui->leMobile->text().isEmpty()) )
                 && ui->leNoSiret->isValid()
-       );
+                );
+}
+
+void StartedWindowsDialog::backToPage2()
+{
+    nextToPage2();
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "models/user.h"
+
 namespace Ui {
 class StartedWindowsDialog;
 }
@@ -28,12 +29,6 @@ public:
     void fillFields();
 
     /**
-     * @brief StartedWindowsDialog::accept Valid data inputed by user and add
-     * these data in Database
-     */
-    void accept();
-
-    /**
      * @brief StartedWindowsDialog::getImage
      * @param path
      * @param width
@@ -50,6 +45,11 @@ public slots:
     void checkFields();
 
     /**
+     * @brief StartedWindowsDialog::backToPage2
+     */
+    void backToPage2();
+
+    /**
      * @brief StartedWindowsDialog::nextToPage2
      */
     void nextToPage2();
@@ -59,11 +59,28 @@ public slots:
      */
     void nextToPage3();
 
+    /**
+     * @brief databaseTypeChanged
+     * @param index
+     */
+    void databaseTypeChanged(const int index);
+
+    /**
+     * @brief editDatabaseSettings
+     */
+    void editDatabaseSettings();
+
+    /**
+     * @brief StartedWindowsDialog::accept Valid data inputed by user and add
+     * these data in Database
+     */
+    void accept();
+
 
 private:
     Ui::StartedWindowsDialog *ui;
     User* _user;                    //!< User of the software
-    QPixmap _img;
+    //QPixmap _img;                   //!< Icon image of the current frame
 };
 
 }
