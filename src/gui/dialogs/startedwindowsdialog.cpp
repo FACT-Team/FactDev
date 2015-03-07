@@ -42,9 +42,33 @@ void StartedWindowsDialog::databaseTypeChanged(const int index)
 {
     if (ui->cbDbType->itemText(index) == "Centralisée") {
         ui->btnAdvanced->setEnabled(true);
+        ui->wdgDbType->show();
+        ui->lbDescriptionDbType->setText(
+            "<html><head/><body> "
+            "<p align='justify'><span style='font-style:italic;'> "
+            "Une base de données "
+            "</span><span style='font-weight:600; font-style:italic;'> "
+            "centralisée</span><span style='font-style:italic;'> est créer "
+            "sur un serveur distant. <br/>Elle est accessible "
+            "depuis n'importe quels postes. <br/> "
+            " </span></p></body></html>"
+            );
     } else {
+        ui->lbDescriptionDbType->setText(
+            "<html><head/><body> "
+            "<p align='justify'><span style='font-style:italic;'> "
+            "Une base de données "
+            "</span><span style='font-weight:600; font-style:italic;'> "
+            "locale</span><span style='font-style:italic;'> est créer "
+            "uniquement sur votre ordinateur. <br/>Elle est accessible "
+            "uniquement depuis ce poste. <br/>Si vous souhaitez pouvoir "
+            "vous connecter depuis un autre ordinateur<br/>et accéder "
+            "aux même données il est recommandé d'utiliser une base "
+            "<br/>de données centralisée. </span></p></body></html>"
+            );
         ui->btnAdvanced->setEnabled(false);
         ui->wdgDbType->hide();
+
     }
 }
 
