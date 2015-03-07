@@ -181,6 +181,8 @@ public:
      */
     bool operator <(const Billing &b) const;
 
+    double getSumRateProject(Project *p);
+
 
 
 private:

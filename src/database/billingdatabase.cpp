@@ -311,22 +311,29 @@ QMap<Project*, Billing*> BillingDatabase::getAllBillingsOfProject()
 QList<Billing*> BillingDatabase::getBillings(int projectId)
 {
     QList<Billing*> bills;
-    /*QSqlQuery q;
-    q.prepare("SELECT idProject, idBilling FROM BillingProject");
+    QSqlQuery q;
+    q.prepare(
+             "SELECT DISTINCT b.idBilling, title, description, number, "
+             "isBilling, date, isPaid "
+             "FROM Billing b, BillingProject bp "
+             "WHERE idProject = :idproject "
+             "AND b.idBilling = bp.idBilling AND b.isBilling = 1 "
+             "ORDER BY date DESC");
+
+    q.bindValue(":idproject",projectId);
 
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible d'obtenir la liste des Billings",
-                    "HierarchicalSystem:getAllBillings",
+                    "Impossible de récupérer les Factures",
+                    "BddCustomer::getBillings",
                     lastError(q),
-                    1.2);
+                    1.3);
     }
 
     while(q.next()) {
-        map.insert(
-                    new Project(value(q,"idProject").toInt()),
-                    new Billing(value(q, "idBilling").toInt()));
-    }*/
+        Billing b = *getBilling(q);
+        bills.append(&b);
+    }
     return bills;
 }
 

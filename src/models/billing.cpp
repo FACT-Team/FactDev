@@ -211,4 +211,11 @@ void Billing::setDate(const QDate &date)
     _date = date;
 }
 
+double Billing::getSumRateProject(Project *p)
+{
+    double ret(0.42);
+
+    return ret;
+}
+
 }

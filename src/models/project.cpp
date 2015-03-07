@@ -155,8 +155,11 @@ bool Project::operator !=(const Project &p)
 
 double Project::costCompute()
 {
-    double ret(1.1246);
-    //QList<Billing> bills = Databases::BillingDatabase::instance()->getBillings(_id);
+    double ret(0.0);
+    QList<Billing *> bills = Databases::BillingDatabase::instance()->getBillings(_id);
+    for (Billing *bill : bills) {
+        ret += bill->getSumRateProject(this);
+    }
     return ret;
 }
 
