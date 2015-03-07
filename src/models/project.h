@@ -108,6 +108,18 @@ public:
     void setEndDate(QDate endDate);
 
     /**
+     * @brief Project::getCost Return the <b>Project</b> <i>cost</i>
+     * @return the project cost
+     */
+    double getCost() const;
+
+    /**
+     * @brief Project::setCost Modify the <b>Project</b> <i>cost</i>
+     * @param cost the projectCost
+     */
+    void setCost(double cost);
+
+    /**
      * @brief Project::getDailyRate Return the daily rate estimated for this
      * project
      * @return the daily rate linket to the current project
@@ -160,11 +172,18 @@ public:
      */
     bool operator !=(const Project &p);
 
+    /**
+     * @brief Project::costCompute compute the <b>Project</b> <i>cost</i>
+     * @return the project cost
+     */
+    double costCompute();
+
 private:
     QString _name;          //!< Project name
     QString _description;   //!< Description on the targets of this project
     QDate _beginDate;       //!< Date of creation of the project
     QDate _endDate;         //!< End date of the project
+    double _cost;            //!< Project cost
     double _dailyRate;      //!< Daily rate linked to this project
     QSharedPointer<Customer> _customer;    //!< Customer linked to this project
 };

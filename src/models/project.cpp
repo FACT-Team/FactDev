@@ -17,6 +17,7 @@ Project::Project(QString name)
     _id = 0;
     _toRemoved = false;
     _name = name;
+    _cost = 0;
 }
 
 Project::Project(int id)
@@ -51,6 +52,7 @@ void Project::hydrat(int id)
     _endDate = p->getEndDate();
     _dailyRate = p->getDailyRate();
     _customer = p->getCustomer();
+    _cost = costCompute();
 }
 
 void Project::remove()
@@ -102,6 +104,16 @@ void Project::setEndDate(QDate endDate)
     _endDate = endDate;
 }
 
+double Project::getCost() const
+{
+    return _cost;
+}
+
+void Project::setCost(double cost)
+{
+    _cost = cost;
+}
+
 double Project::getDailyRate() const
 {
     return _dailyRate;
@@ -136,6 +148,13 @@ bool Project::operator <(const Project &p) const
 bool Project::operator !=(const Project &p)
 {
     return !(*this == p);
+}
+
+double Project::costCompute()
+{
+    double ret(0);
+
+    return ret;
 }
 
 }
