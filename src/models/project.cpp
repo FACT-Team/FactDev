@@ -158,7 +158,8 @@ double Project::costCompute()
     double ret(0.0);
     QList<Billing *> bills = Databases::BillingDatabase::instance()->getBillings(_id);
     for (Billing *bill : bills) {
-        ret += bill->getSumRateProject(this);
+        Models::ContributoriesList cl = Databases::ContributoryDatabase::instance()->getContributoriesByBillingAndProject(bill->getId(), _id);
+        ret += cl.getSumRate();
     }
     return ret;
 }

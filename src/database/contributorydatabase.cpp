@@ -183,4 +183,40 @@ void ContributoryDatabase::removeContributory(const int pId)
                     1.5);
     }
 }
+
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(const int idBilling, const int idProject)
+{
+    QSqlQuery q;
+    Models::ContributoriesList contributories;
+
+    q.prepare(
+                "SELECT DISTINCT project.idProject as idProject,"
+                " project.name as name, project.description as pdescription, "
+                " project.dailyRate as dailyRate, project.idCustomer, "
+                " contributory.idContributory, contributory.description as cdescription, "
+                " billing.idBilling, nbHours "
+                " FROM BillingProject, project, billing, contributory "
+                " WHERE billingProject.idBilling = :idBilling "
+                " AND project.idProject = billingProject.idProject "
+                " AND billing.idBilling = billingProject.idBilling "
+                " AND contributory.idContributory = billingProject.idContributory "
+                " AND project.idProject = :idProject "
+                "ORDER BY project.idProject ");
+    q.bindValue(":idBilling", idBilling);
+    q.bindValue(":idProject", idProject);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la prestation",
+                    "BddContributory::getContributoriesByBillingAndProject",
+                    lastError(q),
+                    1.8);
+    }
+    contributories.setIdBilling(idBilling);
+
+    while(q.next()) {
+        contributories.addContributory(*getContributory(q));
+    }
+
+    return contributories;
+}
 }

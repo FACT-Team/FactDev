@@ -16,7 +16,7 @@ using namespace Utils;
 namespace Databases {
 
 /**
- * @author Cédric Rohaut @Oxynos
+ * @author @Oxynos
  * @brief The <b>ContributoryDatabase</b> class Contributory (or Quote) table database
  * @see Database
  * @see Contributory/Quote
@@ -68,6 +68,14 @@ public:
      * @return The contributory linked to q
      */
     Models::Contributory *getContributory(QSqlQuery &q);
+
+    /**
+     * @brief getContributory Obtain a contributory without new query
+     * @param q The query to use
+     * @return The contributory linked to q
+     */
+    Models::ContributoriesList getContributoriesByBillingAndProject(const int idBilling, const int idProject);
+
 
 private:
     static ContributoryDatabase* _instance;  //!< Singleton instance of ContributoryDatabase
