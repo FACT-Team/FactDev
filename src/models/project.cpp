@@ -1,6 +1,8 @@
 #include "project.h"
 
 #include "database/projectdatabase.h"
+#include "database/billingdatabase.h"
+#include "models/billing.h"
 
 using namespace Databases;
 
@@ -10,6 +12,7 @@ Project::Project()
 {
     _id = 0;
     _toRemoved = false;
+    _cost = 0.0;
 }
 
 Project::Project(QString name)
@@ -17,7 +20,7 @@ Project::Project(QString name)
     _id = 0;
     _toRemoved = false;
     _name = name;
-    _cost = 0;
+    _cost = 0.0;
 }
 
 Project::Project(int id)
@@ -152,8 +155,8 @@ bool Project::operator !=(const Project &p)
 
 double Project::costCompute()
 {
-    double ret(0);
-
+    double ret(1.1246);
+    //QList<Billing> bills = Databases::BillingDatabase::instance()->getBillings(_id);
     return ret;
 }
 

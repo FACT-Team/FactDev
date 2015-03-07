@@ -46,7 +46,7 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
     project->setCustomer(
                 QSharedPointer<Models::Customer>(
                     new Models::Customer(value(q,"idCustomer").toInt())));
-
+    project->setCost(project->costCompute());
     return project;
 
 }

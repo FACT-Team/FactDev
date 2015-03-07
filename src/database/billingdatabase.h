@@ -122,6 +122,8 @@ public:
      */
     QMap<Project *, Billing *> getAllBillingsOfProject();
 
+    QList<Billing*> getBillings(int projectId);
+
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase
 
