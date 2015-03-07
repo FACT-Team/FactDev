@@ -73,7 +73,7 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     return contributory;
 }
 
-Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int billingId)
 {
     QSqlQuery q;
     Models::ContributoriesList contributories;
@@ -90,7 +90,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                 " AND billing.idBilling = billingProject.idBilling "
                 " AND contributory.idContributory = billingProject.idContributory "
                 "ORDER BY project.idProject ");
-    q.bindValue(":idBilling", idBilling);
+    q.bindValue(":idBilling", billingId);
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la prestation",
@@ -98,7 +98,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                     lastError(q),
                     1.8);
     }
-    contributories.setIdBilling(idBilling);
+    contributories.setIdBilling(billingId);
 
     while(q.next()) {
         contributories.addContributory(*getContributory(q));
@@ -184,7 +184,7 @@ void ContributoryDatabase::removeContributory(const int pId)
     }
 }
 
-Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(const int idBilling, const int idProject)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(const int billingId, const int projectId)
 {
     QSqlQuery q;
     Models::ContributoriesList contributories;
@@ -202,8 +202,8 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndPr
                 " AND contributory.idContributory = billingProject.idContributory "
                 " AND project.idProject = :idProject "
                 "ORDER BY project.idProject ");
-    q.bindValue(":idBilling", idBilling);
-    q.bindValue(":idProject", idProject);
+    q.bindValue(":idBilling", billingId);
+    q.bindValue(":idProject", projectId);
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la prestation",
@@ -211,7 +211,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndPr
                     lastError(q),
                     1.8);
     }
-    contributories.setIdBilling(idBilling);
+    contributories.setIdBilling(billingId);
 
     while(q.next()) {
         contributories.addContributory(*getContributory(q));

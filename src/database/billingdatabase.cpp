@@ -308,9 +308,9 @@ QMap<Project*, Billing*> BillingDatabase::getAllBillingsOfProject()
     return map;
 }
 
-QList<Billing*> BillingDatabase::getBillings(int projectId)
+QList<Billing> BillingDatabase::getBillings(const int projectId)
 {
-    QList<Billing*> bills;
+    QList<Billing> bills;
     QSqlQuery q;
     q.prepare(
              "SELECT DISTINCT b.idBilling, title, description, number, "
@@ -331,8 +331,7 @@ QList<Billing*> BillingDatabase::getBillings(int projectId)
     }
 
     while(q.next()) {
-        Billing b = *getBilling(q);
-        bills.append(&b);
+        bills.append(*getBilling(q));
     }
     return bills;
 }

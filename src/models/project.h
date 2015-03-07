@@ -23,7 +23,6 @@ public:
      */
     Project();
 
-
     /**
      * @brief Project::project Construct a project with a name
      */
@@ -45,12 +44,14 @@ public:
      * @brief Project::commit Update project data in the database
      */
     void commit();
+
     /**
      * @brief Project::hydrat Insert project data which is specified by
      * <i>id</i> in the database
      * @param id Project identify
      */
     void hydrat(int id);
+
     /**
      * @brief Project::remove Remove the current project
      */
@@ -67,21 +68,25 @@ public:
      * @return project name
      */
     QString getName() const;
+
     /**
      * @brief Project::setName Modify the project <i>name</i>
      * @param name Project name
      */
     void setName(const QString &name);
+
     /**
      * @brief Project::getDescription Return a project description
      * @return project description
      */
     QString getDescription() const;
+
     /**
      * @brief Project::setDescription Modify the project <i>description</i>
      * @param description New project description
      */
     void setDescription(const QString &description);
+
     /**
      * @brief Project::getBeginDate return the date of creation
      * of the <b>Project</b>
@@ -183,7 +188,7 @@ private:
     QString _description;   //!< Description on the targets of this project
     QDate _beginDate;       //!< Date of creation of the project
     QDate _endDate;         //!< End date of the project
-    double _cost;            //!< Project cost
+    double _cost;           //!< Project cost
     double _dailyRate;      //!< Daily rate linked to this project
     QSharedPointer<Customer> _customer;    //!< Customer linked to this project
 };

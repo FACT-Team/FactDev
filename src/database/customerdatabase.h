@@ -17,7 +17,7 @@ namespace Databases {
  * @author Antoine de Roquemaurel
  * @author Manantsoa Razanajatovo
  * @author Florent Berbie
- * @author Cédric Rohaut
+ * @author @Oxynos
  * @brief The <b>CustomerDatabase</b> class Customer table database
  * @see Database
  * @see Customer

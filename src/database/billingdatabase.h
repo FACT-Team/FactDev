@@ -13,7 +13,7 @@ using namespace Gui::Widgets;
 
 namespace Databases {
 /**
- * @author Cédric Rohaut @Oxynos
+ * @author @Oxynos
  * @brief The <b>BillingDatabase</b> class Billing (or Quote) table database
  * @see Database
  * @see Billing/Quote
@@ -66,6 +66,7 @@ public:
      * @param pId billing id
      */
     void removeBilling(const int pId);
+
     /**
      * @brief BillingDatabase::addBillingProject Link a project, a billing and
      * a contributory in the table BillingProject
@@ -122,7 +123,12 @@ public:
      */
     QMap<Project *, Billing *> getAllBillingsOfProject();
 
-    QList<Billing*> getBillings(int projectId);
+    /**
+     * @brief BillingDatabase::getBillings get bills by project
+     * @param projectId
+     * @return List with bills
+     */
+    QList<Billing> getBillings(const int projectId);
 
 private:
     static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase
