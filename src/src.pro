@@ -84,7 +84,9 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     utils/pointers.cpp \
     utils/directories.cpp \
     gui/docks/searchdock.cpp \
-    gui/widgets/databasesettingswidget.cpp
+    gui/widgets/databasesettingswidget.cpp \
+    gui/widgets/checkfields/checkfieldsnumbers.cpp \
+    gui/widgets/checkfields/checkipaddress.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -186,7 +188,9 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     utils/pointers.h \
     utils/directories.h \
     gui/docks/searchdock.h \
-    gui/widgets/databasesettingswidget.h
+    gui/widgets/databasesettingswidget.h \
+    gui/widgets/checkfields/checkfieldsnumbers.h \
+    gui/widgets/checkfields/checkipaddress.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
