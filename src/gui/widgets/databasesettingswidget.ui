@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>443</width>
-    <height>233</height>
+    <width>414</width>
+    <height>199</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="leIpAddress"/>
+       <widget class="Gui::Widgets::CheckFields::CheckIpAddress" name="leIpAddress"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="lbLogin">
@@ -47,7 +47,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="lbIpAddress">
         <property name="text">
-         <string>Adress IP</string>
+         <string>Adresse IP</string>
         </property>
        </widget>
       </item>
@@ -66,13 +66,13 @@
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="QLineEdit" name="lePort"/>
+       <widget class="Gui::Widgets::CheckFields::CheckFieldsNumbers" name="lePort"/>
       </item>
       <item row="0" column="1" colspan="3">
        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leDbName"/>
       </item>
       <item row="1" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leuser"/>
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leUser"/>
       </item>
       <item row="2" column="1" colspan="3">
        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLogin">
@@ -85,7 +85,7 @@
        </widget>
       </item>
       <item row="3" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLoginRepeat">
+       <widget class="Gui::Widgets::CheckFields::CheckLogin" name="leLoginRepeat">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
@@ -105,7 +105,30 @@
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckFieldsNumbers</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkfieldsnumbers.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckIpAddress</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkipaddress.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckLogin</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checklogin.h</header>
+  </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>leDbName</tabstop>
+  <tabstop>leUser</tabstop>
+  <tabstop>leLogin</tabstop>
+  <tabstop>leLoginRepeat</tabstop>
+  <tabstop>leIpAddress</tabstop>
+  <tabstop>lePort</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

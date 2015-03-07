@@ -8,7 +8,10 @@ namespace Widgets {
 namespace CheckFields {
 
 /**
+ * @author Florent BERBIE
  * @brief The CheckIpAddress class Line Edit of IP address with a check icon
+ * @see CheckQLineEdit
+ * @see CheckUntilField
  */
 class CheckIpAddress : public CheckUntilField
 {

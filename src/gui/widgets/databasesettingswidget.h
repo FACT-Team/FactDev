@@ -10,16 +10,32 @@ namespace Ui {
 namespace Gui {
 namespace Widgets {
 
+/**
+ * @author
+ * @brief The DatabaseSettingsWidget class Windows of database settings
+ */
 class DatabaseSettingsWidget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief DatabaseSettingsWidget::DatabaseSettingsWidget Construct a
+     * DatabaseSettingsWidget
+     * @param parent Parent widget of this windows
+     */
     explicit DatabaseSettingsWidget(QWidget *parent = 0);
     ~DatabaseSettingsWidget();
 
+    /**
+     * @brief DatabaseSettingsWidget::isValid Return TRUE if all fields are
+     * correctly inputed else FALSE
+     * @return boolean
+     */
+    bool isValid();
+
 private:
-    Ui::DatabaseSettingsWidget *ui;
+    Ui::DatabaseSettingsWidget *ui; //!< User interface
 };
 
 }

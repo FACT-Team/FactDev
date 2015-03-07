@@ -8,7 +8,10 @@ namespace Widgets {
 namespace CheckFields {
 
 /**
+ * @author Florent BERBIE
  * @brief The CheckFieldsNumbers class Line Edit of number with a check icon
+ * @see CheckQLineEdit
+ * @see CheckUntilField
  */
 class CheckFieldsNumbers : public CheckUntilField
 {
