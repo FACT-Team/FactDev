@@ -27,12 +27,21 @@ public:
     explicit DatabaseSettingsWidget(QWidget *parent = 0);
     ~DatabaseSettingsWidget();
 
+
+public slots:
+
     /**
      * @brief DatabaseSettingsWidget::isValid Return TRUE if all fields are
      * correctly inputed else FALSE
      * @return boolean
      */
     bool isValid();
+
+    /**
+     * @brief DatabaseSettingsWidget::checkRepeatLogin Check if the second login
+     *  field is the same than the first
+     */
+    void checkRepeatLogin(QString text);
 
 private:
     Ui::DatabaseSettingsWidget *ui; //!< User interface

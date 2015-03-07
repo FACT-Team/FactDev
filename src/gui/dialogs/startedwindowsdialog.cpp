@@ -42,7 +42,6 @@ void StartedWindowsDialog::databaseTypeChanged(const int index)
 {
     if (ui->cbDbType->itemText(index) == "Centralisée") {
         ui->btnAdvanced->setEnabled(true);
-        ui->wdgDbType->show();
         ui->lbDescriptionDbType->setText(
             "<html><head/><body> "
             "<p align='justify'><span style='font-style:italic;'> "
@@ -75,6 +74,7 @@ void StartedWindowsDialog::databaseTypeChanged(const int index)
 void StartedWindowsDialog::editDatabaseSettings()
 {
     ui->wdgDbType->setVisible(true);
+    ui->wdgDbType->show();
 }
 
 void StartedWindowsDialog::accept() {
@@ -114,7 +114,7 @@ void StartedWindowsDialog::checkFields() {
             || (ui->lePhone->text().isEmpty() && ui->leMobile->isValid())
             || (ui->lePhone->isValid() && ui->leMobile->text().isEmpty()) )
                 && ui->leNoSiret->isValid()
-                );
+        );
 }
 
 void StartedWindowsDialog::backToPage2()

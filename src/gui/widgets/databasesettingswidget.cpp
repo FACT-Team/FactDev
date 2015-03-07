@@ -27,5 +27,12 @@ bool DatabaseSettingsWidget::isValid()
             ;
 }
 
+void DatabaseSettingsWidget::checkRepeatLogin(QString text)
+{
+    ui->leLoginRepeat->loginPreviousInputed(ui->leLogin->text());
+    emit ui->leLoginRepeat->fieldTextChanged(text);
+    emit isValid();
+}
+
 }
 }

@@ -23,7 +23,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Démarrage de FactDev</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../icons.qrc">
+    <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -60,17 +64,10 @@
    <item row="0" column="2">
     <widget class="QStackedWidget" name="wdgStack">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="4" column="1">
-        <widget class="QPushButton" name="btnNextTo2">
-         <property name="text">
-          <string>Suivant</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0" colspan="3">
         <widget class="QLabel" name="lbTitleWelcome">
          <property name="font">
@@ -82,6 +79,13 @@
          </property>
          <property name="text">
           <string>Bienvenue</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="3">
+        <widget class="QLabel" name="lbDescriptionWelcome">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Merci d'avoir téléchargé le logiciel FactDev.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Avec FactDev vous allez pouvoir créer des devis et factures et les organiser en&lt;br/&gt;fonction de vos clients et projets. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ce logiciel a été développé par l'équipe de développement FACT et est distribué&lt;br/&gt;sous licence Apache. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -111,10 +115,10 @@
          </property>
         </spacer>
        </item>
-       <item row="2" column="0" colspan="3">
-        <widget class="QLabel" name="lbDescriptionWelcome">
+       <item row="4" column="1">
+        <widget class="QPushButton" name="btnNextTo2">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;FactDev est un logiciel de création de factures et de devis &lt;br/&gt;développé par l'équipe FACT.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>Suivant</string>
          </property>
         </widget>
        </item>
@@ -546,8 +550,8 @@
    <slot>nextToPage3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>647</x>
-     <y>369</y>
+     <x>765</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>728</x>
@@ -946,8 +950,8 @@
    <slot>databaseTypeChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>574</x>
-     <y>78</y>
+     <x>652</x>
+     <y>75</y>
     </hint>
     <hint type="destinationlabel">
      <x>798</x>
@@ -962,8 +966,8 @@
    <slot>editDatabaseSettings()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>702</x>
-     <y>82</y>
+     <x>765</x>
+     <y>75</y>
     </hint>
     <hint type="destinationlabel">
      <x>830</x>

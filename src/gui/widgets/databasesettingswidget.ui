@@ -86,6 +86,9 @@
       </item>
       <item row="3" column="1" colspan="3">
        <widget class="Gui::Widgets::CheckFields::CheckLogin" name="leLoginRepeat">
+        <property name="toolTip">
+         <string>Saisir à nouveau votre mot de passe</string>
+        </property>
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
@@ -109,16 +112,25 @@
    <class>Gui::Widgets::CheckFields::CheckFieldsNumbers</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkfieldsnumbers.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
   <customwidget>
    <class>Gui::Widgets::CheckFields::CheckIpAddress</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkipaddress.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
   <customwidget>
    <class>Gui::Widgets::CheckFields::CheckLogin</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checklogin.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -130,5 +142,187 @@
   <tabstop>lePort</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>leDbName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leDbName</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>245</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>43</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leUser</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leUser</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLogin</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leLogin</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>128</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leIpAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leIpAddress</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>151</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>195</x>
+     <y>171</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePort</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePort</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>340</x>
+     <y>166</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leDbName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>457</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leUser</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>369</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>501</x>
+     <y>75</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLogin</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>371</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>475</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>grpDbSettings</sender>
+   <signal>clicked()</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>155</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leIpAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>172</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLoginRepeat</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>checkRepeatLogin(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>519</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>checkRepeatLogin(QString)</slot>
+  <slot>isValid()</slot>
+  <slot>fieldTextChanged(QString)</slot>
+ </slots>
 </ui>

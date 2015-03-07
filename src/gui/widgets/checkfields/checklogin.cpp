@@ -16,10 +16,9 @@ bool CheckLogin::check(QString text)
     return text.length() != 0 && _login == text;
 }
 
-void CheckLogin::textChanged(const QString &text)
+void CheckLogin::loginPreviousInputed(const QString &text)
 {
     _login = text;
-    fieldTextChanged(_login);
 }
 
 }

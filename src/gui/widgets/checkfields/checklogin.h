@@ -32,7 +32,7 @@ public slots:
      * @brief CheckLogin::fieldTextChanged For each new characater inputed
      * or removed, displays an icon to show if the field is valid or not
      */
-    void textChanged(const QString &text);
+    void loginPreviousInputed(const QString &text);
 
 private :
     QString _login; //!< User login
