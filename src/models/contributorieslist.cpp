@@ -79,7 +79,8 @@ QList<Contributory>& ContributoriesList::getContributories(Project *p)
     return (*this)[key];
 }
 
-QList<Contributory>* ContributoriesList::getAllContributories() {
+QList<Contributory>* ContributoriesList::getAllContributories()
+{
     QList<Contributory>* ret = new QList<Contributory>;
     for(Project* p : getProjects()) {
         ret->append(getContributories(p));
@@ -87,7 +88,8 @@ QList<Contributory>* ContributoriesList::getAllContributories() {
     return ret;
 }
 
-QList<Project*> ContributoriesList::getProjects() {
+QList<Project*> ContributoriesList::getProjects()
+{
     QList<Project*> projects;
 
     for(QPair<Project*, Models::Rate>* pair : keys()) {
@@ -96,7 +98,8 @@ QList<Project*> ContributoriesList::getProjects() {
     return projects;
 }
 
-Models::Rate ContributoriesList::getRate(Models::Project* project) {
+Models::Rate ContributoriesList::getRate(Models::Project* project)
+{
     for(QPair<Project*, Models::Rate>* pair : keys()) {
         if(pair->first->getId() == project->getId()) {
             return pair->second;
@@ -129,7 +132,8 @@ QVariantList ContributoriesList::getDataMap()
     return ret;
 }
 
-int ContributoriesList::getNbProjects() {
+int ContributoriesList::getNbProjects()
+{
     return count();
 }
 
@@ -137,6 +141,18 @@ double ContributoriesList::getSumRate()
 {
     double ret = 0;
 
+    for(QPair<Project*,Models::Rate>* key : keys()) {
+        for(Contributory c : getContributories(key->first)) {
+            ret += c.getNbHours() * key->second.getDailyRate();
+        }
+    }
+
+    return ret;
+}
+
+double ContributoriesList::getSumRateProject(Project *p)
+{
+    double ret(0.0);
     for(QPair<Project*,Models::Rate>* key : keys()) {
         for(Contributory c : getContributories(key->first)) {
             ret += c.getNbHours() * key->second.getDailyRate();
@@ -179,7 +195,5 @@ void ContributoriesList::setInsert(bool insert)
 {
     _insert = insert;
 }
-
-
 
 }

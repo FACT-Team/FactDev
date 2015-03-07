@@ -214,7 +214,7 @@ void Billing::setDate(const QDate &date)
 double Billing::getSumRateProject(Project *p)
 {
     double ret(0.42);
-
+    ret = _contributories.getSumRateProject(p);
     return ret;
 }
 

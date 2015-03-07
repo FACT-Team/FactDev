@@ -29,6 +29,7 @@ public:
 
     int getNbProjects();
     double getSumRate();
+    double getSumRateProject(Project *p);
     double getSumQuantity();
 
     QSharedPointer<Customer> getCustomer();
