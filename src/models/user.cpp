@@ -26,7 +26,6 @@ void User::commit() {
 void User::remove()
 {
     // Not use
-    //Log::instance(WARNING) << "User::remove is not implemented";
 }
 
 QVariantHash User::getDataMap()
