@@ -270,6 +270,55 @@ int BillingDatabase::getMaxQuoteNumber()
     return value(q, "max").toInt();
 }
 
+int BillingDatabase::getMaxBillingNumberOfCustomer(const int idCustomer)
+{
+    QSqlQuery q;
+    q.prepare("SELECT MAX(number) as max FROM customer c, project p, billingproject bp, billing b "
+              "WHERE "
+              "c.idCustomer = p.idCustomer "
+              "AND p.idProject = bp.idProject "
+              "AND bp.idBilling = b.idBilling "
+              "AND isBilling = 1 "
+              "AND c.idCustomer = :idCustomer");
+
+    q.bindValue(":idCustomer",idCustomer);
+
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir le numéro max du devis",
+            "BddContributory::getMaxBillingNumberOfCustomer",
+            lastError(q),
+            1.6);
+    }
+    q.first();
+    return value(q,"max").toInt();
+
+}
+
+int BillingDatabase::getMaxQuoteNumberOfCustomer(const int idCustomer)
+{
+    QSqlQuery q;
+    q.prepare("SELECT MAX(number) as max FROM customer c, project p, billingproject bp, billing b "
+              "WHERE "
+              "c.idCustomer = p.idCustomer "
+              "AND p.idProject = bp.idProject "
+              "AND bp.idBilling = b.idBilling "
+              "AND isBilling = 0 "
+              "AND c.idCustomer = :idCustomer ");
+
+    q.bindValue(":idCustomer",idCustomer);
+
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible d'obtenir le numéro max du devis",
+            "BddContributory::getMaxBillingNumberOfCustomer",
+            lastError(q),
+            1.6);
+    }
+    q.first();
+    return value(q,"max").toInt();
+}
+
 QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
 {
     QSharedPointer<Models::Billing> billing =

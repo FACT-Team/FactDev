@@ -108,6 +108,22 @@ public:
     int getMaxQuoteNumber();
 
     /**
+     * @brief BillingDatabase::getMaxBillingNumberOfCustomer Get the last number
+     * of a <b>Customer</b>'s Billing
+     * @param idCustomer Customer id
+     * @return the last number of the <b>Customer</b>'s Billing
+     */
+    int getMaxBillingNumberOfCustomer(const int idCustomer);
+
+    /**
+     * @brief BillingDatabase::getMaxQuoteNumberOfCustomer Get the last number
+     * of a <b>Customer</b>'s quote
+     * @param idCustomer Customer id
+     * @return the last number of the <b>Customer</b>'s quote
+     */
+    int getMaxQuoteNumberOfCustomer(const int idCustomer);
+
+    /**
      * @brief BillingDatabase::getBilling Add the element of the <i>q</i>
      * request and return their
      * @param q SQL request

@@ -23,8 +23,9 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool edit
         }
         else {
             _quote->setId(0);
-            _quote->setNumber(Databases::BillingDatabase::instance()->getMaxQuoteNumber()+1);
-            _quote->commit();
+            _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
+                                        : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
+            //_quote->commit();
 
             setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                            QString::number(getNumber())+ " de " +
