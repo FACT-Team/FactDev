@@ -19,7 +19,7 @@ int Gui::Widgets::WdgModels::BillingsTableModel::rowCount(
 int Gui::Widgets::WdgModels::BillingsTableModel::columnCount(
         const QModelIndex &) const
 {
-    return 6;
+    return 7;
 }
 
 QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
@@ -32,11 +32,12 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
     const Billing &billing = _billings[index.row()];
     switch (index.column()) {
     case 0: return billing.getId();
-    case 1: return billing.getNumber();
-    case 2: return billing.getTitle();
-    case 3: return billing.getDescription();
-    case 4: return billing.getDate();
-    case 5:
+    case 1: return QImage(":/icons/img/"+QString((billing.isBilling() ? "bill.png"  : "quote.png"))).scaled(25,25);
+    case 2: return billing.getNumber();
+    case 3: return billing.getTitle();
+    case 4: return billing.getDescription();
+    case 5: return billing.getDate();
+    case 6:
         if (billing.isPaid()) {
             return QImage(":/icons/img/img32/ok_pay.png").scaled(30,30);
         } else {
@@ -60,11 +61,12 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::headerData(
 
     switch (section) {
     case 0: return "ID";
-    case 1: return "N°";
-    case 2: return "Titre";
-    case 3: return "Description";
-    case 4: return "Date";
-    case 5: return "Payée";
+    case 1: return "";
+    case 2: return "N°";
+    case 3: return "Titre";
+    case 4: return "Description";
+    case 5: return "Date";
+    case 6: return "Payée";
     default: return QVariant();
     }
 }
@@ -77,13 +79,13 @@ bool Gui::Widgets::WdgModels::BillingsTableModel::setData(
         case 0:
             _billings[index.row()].setId(value.toInt());
             break;
-        case 1:
+        case 2:
             _billings[index.row()].setTitle(value.toString());
             break;
-        case 2:
+        case 3:
             _billings[index.row()].setNumber(value.toInt());
             break;
-        case 3:
+        case 4:
             _billings[index.row()].setDate(value.toDate());
             break;
         default:
