@@ -23,6 +23,12 @@ public:
     QList<Contributory> &getContributories(Project* p);
     int getIdBilling() const;
     void setIdBilling(int getIdBilling);
+    /**
+     * @brief ContributoriesList::setAllIdContributories Change all
+     * Contributory id with the same id
+     * @param idContributory the new Contributory id
+     */
+    void setAllIdContributories(int idContributory);
 
     bool getInsert() const;
     void setInsert(bool getInsert);

@@ -23,6 +23,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool edit
         }
         else {
             _quote->setId(0);
+            _quote->getContributories().setAllIdContributories(0);
             _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
                                         : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
             //_quote->commit();
@@ -70,7 +71,9 @@ void AddQuoteDialog::accept() {
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
 
+    qDebug() << "accept";
     _quote->setContributories(*((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories());
+    //(_quote->getContributories()).setAllIdContributories(0);
 
     _quote->commit();
     _quote->generateTex();

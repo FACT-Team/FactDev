@@ -27,6 +27,7 @@ void Billing::commit()
     bool insert = _id == 0;
     if(insert) {
         _id = BillingDatabase::instance()->addBilling(*this);
+        qDebug() << "INSERTION Billing: " << _id;
     } else if(_toRemoved){
         remove();
     } else {
