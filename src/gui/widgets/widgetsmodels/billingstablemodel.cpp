@@ -38,12 +38,8 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
     case 4: return billing.getDescription();
     case 5: return billing.getDate();
     case 6:
-        if (billing.isPaid()) {
-            return QImage(":/icons/img/img32/ok_pay.png").scaled(30,30);
-        } else {
-            return QVariant();
-        }
-        break;
+        return billing.isPaid() ? QImage(":/icons/img/img32/ok_pay.png").scaled(30,30) :
+                                  QVariant();
     default: return QVariant();
     };
 }
