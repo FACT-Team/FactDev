@@ -8,7 +8,8 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
     QDialog(parent),
     _quote(0),
     ui(new Ui::AddQuoteDialog),
-    _copy(copy)
+    _copy(copy),
+    _idCustomer(idCustomer)
 {
     ui->setupUi(this);
     ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
@@ -107,6 +108,24 @@ void AddQuoteDialog::updateBtn() {
     ui->btnSave->setEnabled(
                 ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->count() > 0
                 && ui->leQuoteTitle->isValid());
+}
+
+void AddQuoteDialog::changeDocType()
+{
+    _quote->setIsBilling(!_quote->isBilling());
+    _quote->setNumber(_quote->isBilling() ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(_idCustomer)+1
+                                : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(_idCustomer)+1);
+
+    if (_quote->isBilling()) {
+        setWindowTitle("Nouvelle facture " +
+                       QString::number(_quote->getNumber())+ " de " +
+                       Customer(_idCustomer).getCompany());
+    } else {
+        setWindowTitle("Nouveau devis " +
+                       QString::number(_quote->getNumber())+ " de "+
+                       Customer(_idCustomer).getCompany());
+    }
+
 }
 }
 }

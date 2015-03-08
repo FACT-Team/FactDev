@@ -65,13 +65,20 @@ public:
      * @param copy
      */
     void setCopy(bool copy);
+    /**
+     * @brief AddQuoteDialog::getIdCustomer get the id of the customer changing his quote/billing
+     * @return the id of the customer
+     */
+    int getIdCustomer() const;
 
 public slots:
     void updateBtn(void);
+    void changeDocType();
 private:
     Billing *_quote;        //!< The quote or billing
     Ui::AddQuoteDialog *ui; //!< User interface of <b>AddQuoteDialog</b>
     bool _copy; //!< if <b>AddQuoteDialog</b> is opened by a Billing/quote copy or not
+    int _idCustomer; //!< the id of the customer
 };
 }
 }
