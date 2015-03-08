@@ -46,8 +46,6 @@ public:
 private:
 
     QString _userError; //!< user error
-
-    int _errorCode;     //!<  Error code
 };
 }
 

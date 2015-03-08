@@ -14,7 +14,7 @@ namespace Gui {
 namespace Dialogs {
 
 /**
- * @author Cédric Rohaut
+ * @author @Oxynos
  * @brief The DialogAddCustomer class Window to add or modify a Customer
  */
 class DialogAddCustomer : public QDialog

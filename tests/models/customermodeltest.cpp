@@ -87,7 +87,6 @@ void CustomerModelTest::remove()
 {
     c1.remove();
     QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
-
 }
 
 void CustomerModelTest::getPath()

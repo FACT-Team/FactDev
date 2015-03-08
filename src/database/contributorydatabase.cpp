@@ -73,7 +73,7 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     return contributory;
 }
 
-Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int billingId)
 {
     QSqlQuery q;
     Models::ContributoriesList contributories;
@@ -90,7 +90,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                 " AND billing.idBilling = billingProject.idBilling "
                 " AND contributory.idContributory = billingProject.idContributory "
                 "ORDER BY project.idProject ");
-    q.bindValue(":idBilling", idBilling);
+    q.bindValue(":idBilling", billingId);
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la prestation",
@@ -98,7 +98,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                     lastError(q),
                     1.8);
     }
-    contributories.setIdBilling(idBilling);
+    contributories.setIdBilling(billingId);
 
     while(q.next()) {
         contributories.addContributory(*getContributory(q));
@@ -182,5 +182,41 @@ void ContributoryDatabase::removeContributory(const int pId)
                     lastError(q),
                     1.5);
     }
+}
+
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(const int billingId, const int projectId)
+{
+    QSqlQuery q;
+    Models::ContributoriesList contributories;
+
+    q.prepare(
+                "SELECT DISTINCT project.idProject as idProject,"
+                " project.name as name, project.description as pdescription, "
+                " project.dailyRate as dailyRate, project.idCustomer, "
+                " contributory.idContributory, contributory.description as cdescription, "
+                " billing.idBilling, nbHours "
+                " FROM BillingProject, project, billing, contributory "
+                " WHERE billingProject.idBilling = :idBilling "
+                " AND project.idProject = billingProject.idProject "
+                " AND billing.idBilling = billingProject.idBilling "
+                " AND contributory.idContributory = billingProject.idContributory "
+                " AND project.idProject = :idProject "
+                "ORDER BY project.idProject ");
+    q.bindValue(":idBilling", billingId);
+    q.bindValue(":idProject", projectId);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la prestation",
+                    "BddContributory::getContributoriesByBillingAndProject",
+                    lastError(q),
+                    1.8);
+    }
+    contributories.setIdBilling(billingId);
+
+    while(q.next()) {
+        contributories.addContributory(*getContributory(q));
+    }
+
+    return contributories;
 }
 }

@@ -154,7 +154,7 @@ void Billing::addContributory(Contributory& c)
 
 double Billing::getSumRate()
 {
-return _contributories.getSumRate();
+    return _contributories.getSumRate();
 }
 
 double Billing::getSumQuantity()

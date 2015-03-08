@@ -308,4 +308,32 @@ QMap<Project*, Billing*> BillingDatabase::getAllBillingsOfProject()
     return map;
 }
 
+QList<Billing> BillingDatabase::getBillings(const int projectId)
+{
+    QList<Billing> bills;
+    QSqlQuery q;
+    q.prepare(
+             "SELECT DISTINCT b.idBilling, title, description, number, "
+             "isBilling, date, isPaid "
+             "FROM Billing b, BillingProject bp "
+             "WHERE idProject = :idproject "
+             "AND b.idBilling = bp.idBilling AND b.isBilling = 1 "
+             "ORDER BY date DESC");
+
+    q.bindValue(":idproject",projectId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer les Factures",
+                    "BddCustomer::getBillings",
+                    lastError(q),
+                    1.3);
+    }
+
+    while(q.next()) {
+        bills.append(*getBilling(q));
+    }
+    return bills;
+}
+
 }

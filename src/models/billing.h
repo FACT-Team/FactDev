@@ -16,7 +16,7 @@
 
 namespace Models {
 /**
- * @author Cédric Rohaut @Oxynos for the quote part
+ * @author
  * @brief The Billing class : Billing or Quote of a Customer
  */
 class Billing : public IModel
@@ -81,8 +81,18 @@ public:
      */
     void addContributory(Contributory &c);
 
+    /**
+     * @brief Billing::getSumRate. return <b>Billing</b> total by money
+     * @return money
+     */
     double getSumRate();
+
+    /**
+     * @brief Billing::getSumQuantity. return <b>Billing</b> total by time
+     * @return time in hours
+     */
     double getSumQuantity();
+
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>
      * @return title of Billing
@@ -180,8 +190,6 @@ public:
      * @return true if the <b>Billing</b> are different else false
      */
     bool operator <(const Billing &b) const;
-
-
 
 private:
     ContributoriesList _contributories; //!< List of contributories

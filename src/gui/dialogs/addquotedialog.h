@@ -15,7 +15,7 @@ namespace Gui {
 namespace Dialogs {
 
 /**
- * @author Cédric Rohaut
+ * @author @Oxynos
  * @brief The AddQuoteDialog class Window to add or modify a Quote
  */
 class AddQuoteDialog : public QDialog

@@ -16,8 +16,8 @@ class CustomerDataWidget;
 namespace Gui {
 namespace Widgets {
 /**
+ * @author @Oxynos
  * @brief Class for display info of a customer
- * @author Cédric Rohaut
  */
 class CustomerDataWidget : public QWidget
 {
