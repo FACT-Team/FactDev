@@ -4,29 +4,30 @@
 namespace Gui {
 namespace Dialogs {
 
-AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool edit, QWidget *parent) :
+AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy, QWidget *parent) :
     QDialog(parent),
     _quote(0),
-    ui(new Ui::AddQuoteDialog)
+    ui(new Ui::AddQuoteDialog),
+    _copy(copy)
 {
     ui->setupUi(this);
     ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
 
+
+    qDebug() << _copy;
     if (id != 0) {
         _quote = new Billing(id);
         fillFields();
-        if (edit) {
+        if (!copy) {
             setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
                            QString::number(getNumber())+ " de " +
                            (Customer(idCustomer).getCompany()));
         }
         else {
             _quote->setId(0);
-            _quote->getContributories().setAllIdContributories(0);
             _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
                                         : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
-            //_quote->commit();
 
             setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                            QString::number(getNumber())+ " de " +
@@ -73,7 +74,12 @@ void AddQuoteDialog::accept() {
 
     qDebug() << "accept";
     _quote->setContributories(*((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories());
-    //(_quote->getContributories()).setAllIdContributories(0);
+    if(_copy) {
+        _quote->getContributories().setAllIdContributories(0);
+        if(_quote->isBilling() && _quote->isPaid()) {
+            _quote->setIsPaid(false);
+        }
+    }
 
     _quote->commit();
     _quote->generateTex();
@@ -82,6 +88,16 @@ void AddQuoteDialog::accept() {
 
 void AddQuoteDialog::reject() {
     QDialog::reject();
+}
+
+bool AddQuoteDialog::getCopy() const
+{
+    return _copy;
+}
+
+void AddQuoteDialog::setCopy(bool copy)
+{
+    _copy = copy;
 }
 
 void AddQuoteDialog::updateBtn() {

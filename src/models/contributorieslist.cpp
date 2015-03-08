@@ -77,7 +77,6 @@ QList<Contributory>& ContributoriesList::getContributories(Project *p)
         }
     }
 
-    //(*this)[key].first().setId(0);
     return (*this)[key];
 }
 
@@ -175,32 +174,12 @@ void ContributoriesList::setIdBilling(int idBilling)
 
 void ContributoriesList::setAllIdContributories(int idContributory)
 {
-    /*for (auto it = getAllContributories()->begin();
-         it != getAllContributories()->end();++it) {
-
-        qDebug() << "setAllIdContributories" << (*it).getId();
-        //(Models::Contributory(*it)).setId(idContributory);
-    }*/
-    /*for(Contributory &c: *getAllContributories()) {
-        c.setId(idContributory);
-    }*/
-
-    /*for (auto it = cbegin(); it != cend(); ++it) {
-        for(Contributory c : it.value()) {
-            c.setId(idContributory);
-        }
-    }
-
-    for(Contributory &c: *getAllContributories()) {
-        qDebug() << "setAllIdContributories: "<< c.getId();
-    }*/
-
     for(QPair<Project*, Models::Rate>* pair : keys()) {
         for (Contributory &c : (*this)[pair])
             c.setId(idContributory);
     }
 
-    for(Contributory &c: *getAllContributories()) {
+    for(Contributory c: *getAllContributories()) {
         qDebug() << "setAllIdContributories 2 : "<< c.getId();
     }
 }

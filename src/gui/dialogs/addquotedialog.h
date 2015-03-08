@@ -33,7 +33,7 @@ public:
      * @param parent QWidget of the current windows
      */
     explicit AddQuoteDialog(bool isBilling, int idCustomer = 0, int id = 0,
-                            bool edit = true, QWidget *parent = 0);
+                            bool copy = true, QWidget *parent = 0);
     ~AddQuoteDialog();
 
     /**
@@ -53,12 +53,25 @@ public:
      * @brief AddQuoteDialog::reject Cancel the operation and close the windows
      */
     void reject();
+    /**
+     * @brief AddQuoteDialog::getCopy return if <b>AddQuoteDialog</b> is a copy of
+     * Billing/quote or if it's edition and add of Billing/quote
+     * @return if it's a copy or not
+     */
+    bool getCopy() const;
+    /**
+     * @brief AddQuoteDialog::setCopy Change the <i>_copy</i> value to define if it's
+     * a copy of a Billing/quote or if it's a new Billing or a Billing edition
+     * @param copy
+     */
+    void setCopy(bool copy);
 
 public slots:
     void updateBtn(void);
 private:
     Billing *_quote;        //!< The quote or billing
     Ui::AddQuoteDialog *ui; //!< User interface of <b>AddQuoteDialog</b>
+    bool _copy; //!< if <b>AddQuoteDialog</b> is opened by a Billing/quote copy or not
 };
 }
 }
