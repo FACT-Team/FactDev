@@ -25,6 +25,7 @@ private slots:
      void getMaxQuoteNumber();
      void getMaxBillingNumberOfCustomer();
      void getMaxQuoteNumberOfCustomer();
+     void getBilling();
 private:
      Billing* b1;
      int _lastInsert;
