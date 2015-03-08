@@ -25,8 +25,10 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
             setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                            QString::number(getNumber())+ " de " +
                            (Customer(idCustomer).getCompany()));
+            ui->btnDocChange->setText(isBilling ? "Changer en devis" : "Changer en facture");
         }
         else {
+            ui->btnDocChange->hide();
             setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
                            QString::number(getNumber())+ " de " +
                            (Customer(idCustomer).getCompany()));
@@ -38,6 +40,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
                                     : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
 
         ui->dateEditQuote->setDate(QDate::currentDate());
+        ui->btnDocChange->hide();
 
         setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                        QString::number(getNumber())+ " de " +
