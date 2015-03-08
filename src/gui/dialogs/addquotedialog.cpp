@@ -14,17 +14,10 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
     ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
     connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
 
-
-    qDebug() << _copy;
     if (id != 0) {
         _quote = new Billing(id);
         fillFields();
-        if (!copy) {
-            setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
-                           QString::number(getNumber())+ " de " +
-                           (Customer(idCustomer).getCompany()));
-        }
-        else {
+        if (copy) {
             _quote->setId(0);
             _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
                                         : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
@@ -33,9 +26,17 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
                            QString::number(getNumber())+ " de " +
                            (Customer(idCustomer).getCompany()));
         }
+        else {
+            setWindowTitle((isBilling ? "Modifier la facture " : "Modifier le devis ")+
+                           QString::number(getNumber())+ " de " +
+                           (Customer(idCustomer).getCompany()));
+        }
     } else {
         _quote = new Billing();
         _quote->setId(id);
+        _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
+                                    : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
+
         ui->dateEditQuote->setDate(QDate::currentDate());
 
         setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
@@ -72,7 +73,6 @@ void AddQuoteDialog::accept() {
     _quote->setDescription(ui->leDescription->toPlainText());
     _quote->setDate(ui->dateEditQuote->date());
 
-    qDebug() << "accept";
     _quote->setContributories(*((Widgets::ContributoriesWidget*)ui->wdgContributories)->getContributories());
     if(_copy) {
         _quote->getContributories().setAllIdContributories(0);

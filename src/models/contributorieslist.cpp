@@ -30,7 +30,6 @@ void ContributoriesList::commit()
                                                      getRate(it.key()->first).getHourlyRate());
         }
         for(Contributory c : it.value()) {
-            qDebug() << "ContributoriesList::commit: " << c.getId();
             // Fill trinary legs… :)
             bool insertBillingProject = c.getId() == 0;
             c.commit();
@@ -177,10 +176,6 @@ void ContributoriesList::setAllIdContributories(int idContributory)
     for(QPair<Project*, Models::Rate>* pair : keys()) {
         for (Contributory &c : (*this)[pair])
             c.setId(idContributory);
-    }
-
-    for(Contributory c: *getAllContributories()) {
-        qDebug() << "setAllIdContributories 2 : "<< c.getId();
     }
 }
 

@@ -33,7 +33,7 @@ public:
      * @param parent QWidget of the current windows
      */
     explicit AddQuoteDialog(bool isBilling, int idCustomer = 0, int id = 0,
-                            bool copy = true, QWidget *parent = 0);
+                            bool copy = false, QWidget *parent = 0);
     ~AddQuoteDialog();
 
     /**
@@ -54,8 +54,8 @@ public:
      */
     void reject();
     /**
-     * @brief AddQuoteDialog::getCopy return if <b>AddQuoteDialog</b> is a copy of
-     * Billing/quote or if it's edition and add of Billing/quote
+     * @brief AddQuoteDialog::getCopy return if <b>AddQuoteDialog</b> is an add by
+     * copy of Billing/quote or if it's edition or add of Billing/quote
      * @return if it's a copy or not
      */
     bool getCopy() const;
