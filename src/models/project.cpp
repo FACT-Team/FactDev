@@ -13,6 +13,7 @@ Project::Project()
     _id = 0;
     _toRemoved = false;
     _cost = 0.0;
+
 }
 
 Project::Project(QString name)

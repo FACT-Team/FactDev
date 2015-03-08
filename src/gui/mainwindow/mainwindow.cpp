@@ -67,7 +67,9 @@ QString MainWindow::getCurrentCustomerName()
 
 QString MainWindow::getCurrentProjectName()
 {
-    return ui->tblProjects->currentIndex().data().toString();
+    QModelIndex index =
+        ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(),1);
+     return index.model()->itemData(index).value(0).toString();
 }
 
 void MainWindow::addCustomer()
@@ -85,7 +87,9 @@ void MainWindow::addProject()
                                                    : new AddProjectDialog();
 
     if (addProjectDialog->exec()) {
-        updateUI();
+        updateTableProjects(getCurrentCustomerId());
+        updateTree();
+        changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
 }
@@ -97,6 +101,21 @@ void MainWindow::addQuote() {
 void MainWindow::addBill()
 {
     addDoc(true);
+}
+
+void MainWindow::addDoc(bool isBilling) {
+    if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+
+        // For security and crash of the application
+        // if we remove a project in a doc and we save it
+        // or if we are in a project and we associate the doc with an other project
+        // go back to the panel projectsTable
+        ui->stackedWidget->setCurrentIndex(1);
+    }
 }
 
 void MainWindow::billingIsPaid()
@@ -119,12 +138,6 @@ void MainWindow::billingIsPaid()
             updateButtons();
             updateTableBillings(getCurrentProjectId());
         }
-    }
-}
-
-void MainWindow::addDoc(bool isBilling) {
-    if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
-        updateTableBillings(getCurrentProjectId());
     }
 }
 
@@ -192,6 +205,14 @@ void MainWindow::editDoc()
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
         updateTree();
+        changeCustomerTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
+
+        // For security and crash of the application
+        // if we remove a project in a doc and we save it
+        // or if we are in a project and we associate the doc with an other project
+        // go back to the panel projectsTable
+        ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
@@ -355,7 +376,7 @@ void MainWindow::changeDocsTable()
 void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
-    ui->lblProjects->setText("<b>Projet(s) de: " + getCurrentCustomerName()+"</b>");
+    ui->lblProjects->setText("Projets de <b>" + getCurrentCustomerName()+"</b>");
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 150);
     ui->tblProjects->setColumnWidth(2, 200);
@@ -500,7 +521,7 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     ui->tblQuotes->setModel(
         Databases::BillingDatabase::instance()->getBillingsTable(idProject));
-    ui->lblQuotes->setText("<b>Devis du projet: "
+    ui->lblDocs->setText("Documents concernant le projet <b>"
                            + getCurrentProjectName()
                            + "</b>");
     ui->tblQuotes->hideColumn(0);

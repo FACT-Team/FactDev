@@ -41,7 +41,7 @@
       <item row="1" column="4">
        <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity">
         <property name="placeholderText">
-         <string>TOULOUSE</string>
+         <string>Toulouse</string>
         </property>
        </widget>
       </item>
@@ -76,7 +76,7 @@
       <item row="2" column="1" colspan="4">
        <widget class="Gui::Widgets::CheckFields::CheckCountry" name="leCountry">
         <property name="placeholderText">
-         <string>FRANCE</string>
+         <string>France</string>
         </property>
        </widget>
       </item>
@@ -110,7 +110,7 @@
    <item row="4" column="1">
     <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail">
      <property name="placeholderText">
-      <string>roger.waters@ag42plus.com</string>
+      <string>roger.balaka@ag42plus.com</string>
      </property>
     </widget>
    </item>
@@ -235,7 +235,7 @@
    </slots>
   </customwidget>
   <customwidget>
-  <class>Gui::Widgets::CheckFields::CheckEmail</class>
+   <class>Gui::Widgets::CheckFields::CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkemail.h</header>
    <slots>
@@ -243,7 +243,7 @@
    </slots>
   </customwidget>
   <customwidget>
-  <class>Gui::Widgets::CheckFields::CheckCity</class>
+   <class>Gui::Widgets::CheckFields::CheckCity</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcity.h</header>
    <slots>

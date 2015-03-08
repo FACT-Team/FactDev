@@ -87,13 +87,13 @@ void CustomerModelTest::remove()
 {
     c1.remove();
     QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
-
 }
 
 void CustomerModelTest::getPath()
 {
     QVERIFY(c1.getPath() ==QDir::homePath() +"/"+QStandardPaths::displayName(QStandardPaths::DocumentsLocation)+
             "/FactDev/SIT AMET ORNARE CONSULTING Boyle Jonah");
+    qDebug() << "ok";
 }
 
 void CustomerModelTest::getNameFolder()
