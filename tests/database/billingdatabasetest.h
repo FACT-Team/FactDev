@@ -23,6 +23,8 @@ private slots:
      void removeBillingProject();
      void getMaxBillingNumber();
      void getMaxQuoteNumber();
+     void getMaxBillingNumberOfCustomer();
+     void getMaxQuoteNumberOfCustomer();
 private:
      Billing* b1;
      int _lastInsert;

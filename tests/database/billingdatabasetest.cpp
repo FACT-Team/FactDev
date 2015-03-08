@@ -120,6 +120,18 @@ void BillingDatabaseTest::getMaxBillingNumber()
 
 void BillingDatabaseTest::getMaxQuoteNumber()
 {
-     QCOMPARE(51, Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+    QCOMPARE(51, Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+}
+
+void BillingDatabaseTest::getMaxBillingNumberOfCustomer()
+{
+    //client 17
+    QCOMPARE(5, Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(17));
+}
+
+void BillingDatabaseTest::getMaxQuoteNumberOfCustomer()
+{
+    QCOMPARE(4, Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(17));
+
 }
 
