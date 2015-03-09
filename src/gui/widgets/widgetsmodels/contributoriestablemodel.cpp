@@ -17,7 +17,7 @@ int ContributoriesTableModel::rowCount(const QModelIndex &) const {
 }
 
 int ContributoriesTableModel::columnCount(const QModelIndex &) const {
-    return 3;
+    return 4;
 }
 
 QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) const {
@@ -29,8 +29,9 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
     const Contributory & contributory = _contributories[index.row()];
     switch (index.column()) {
     case 0: return contributory.getDescription();
-    case 1: return contributory.getNbHours()/r.getNbDailyHours();
-    case 2: return 0; // TODO unit
+    case 1: return contributory.getLongDescription();
+    case 2: return contributory.getNbHours()/r.getNbDailyHours();
+    case 3: return 0; // TODO unit
     default: return QVariant();
     };
 }
@@ -46,9 +47,10 @@ QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orien
     }
 
     switch (section) {
-    case 0: return "Description";
-    case 1: return "Quantité";
-    case 2: return "Unité";
+    case 0: return "Description courte";
+    case 1: return "Description longue";
+    case 2: return "Quantité";
+    case 3: return "Unité";
     default: return QVariant();
     }
 }
@@ -62,9 +64,12 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
             _contributories[index.row()].setDescription(value.toString());
             break;
         case 1:
-            _contributories[index.row()].setNbHours(value.toDouble()*r.getNbDailyHours());
+            _contributories[index.row()].setDescription(value.toString());
             break;
         case 2:
+            _contributories[index.row()].setNbHours(value.toDouble()*r.getNbDailyHours());
+            break;
+        case 3:
             // TODO unit.
             break;
         default:

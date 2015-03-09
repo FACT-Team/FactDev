@@ -93,11 +93,13 @@ void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
     _modelsContributories << new WdgModels::ContributoriesTableModel();
     view->setModel(_modelsContributories.last());
     view->setEditTriggers(QAbstractItemView::DoubleClicked);
-    view->setItemDelegateForColumn(1, new Delegates::DoubleSpinBoxDelegate());
-    view->setItemDelegateForColumn(2, new Delegates::UnitComboDelegate());
-    view->setColumnWidth(0, 450);
-    view->setColumnWidth(1, 100);
-    view->setColumnWidth(2, 100);
+    view->setItemDelegateForColumn(2, new Delegates::DoubleSpinBoxDelegate());
+    view->setItemDelegateForColumn(3, new Delegates::UnitComboDelegate());
+    view->setColumnWidth(0, 300);
+    view->setColumnWidth(1, 450);
+    view->setColumnWidth(2, 80);
+    view->setColumnWidth(3, 80);
+
     connect(view->itemDelegateForColumn(2), SIGNAL(closeEditor(QWidget*)), SLOT(updatePrice()));
     connect(view->itemDelegateForColumn(1), SIGNAL(closeEditor(QWidget*)), SLOT(updatePrice()));
     ui->stack->insertWidget(ui->stack->count(), view);

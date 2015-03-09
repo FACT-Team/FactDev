@@ -179,7 +179,6 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/widgetsmodels/billingstablemodel.h \
     exceptions/fileexception.h \
     utils/hierarchicalsystem.h \
-    gui/mainwindow/docks/searchdock.h \
     utils/pointers.h \
     utils/directories.h \
     gui/docks/searchdock.h
