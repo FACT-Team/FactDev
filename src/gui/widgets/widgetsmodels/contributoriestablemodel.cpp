@@ -64,7 +64,7 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
             _contributories[index.row()].setDescription(value.toString());
             break;
         case 1:
-            _contributories[index.row()].setDescription(value.toString());
+            _contributories[index.row()].setLongDescription(value.toString());
             break;
         case 2:
             _contributories[index.row()].setNbHours(value.toDouble()*r.getNbDailyHours());
