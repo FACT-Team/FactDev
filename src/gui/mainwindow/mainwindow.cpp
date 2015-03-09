@@ -212,7 +212,9 @@ void MainWindow::openPdf()
     QModelIndex ls = ui->tblQuotes->selectionModel()->selectedRows().first();
     int pid = ui->tblQuotes->model()->data(ls, Qt::DisplayRole).toInt();
     Billing bill(pid);
-    bill.generatePdf();
+    if(!QFile(bill.getPath()+".pdf").exists()) {
+        bill.generatePdf();
+    }
     QFileInfo pdf(bill.getPath()+".pdf");
 
     QDesktopServices::openUrl(QUrl("file:///"+pdf.absoluteFilePath()));
