@@ -120,10 +120,12 @@ void AddQuoteDialog::changeDocType()
         setWindowTitle("Nouvelle facture " +
                        QString::number(_quote->getNumber())+ " de " +
                        Customer(_idCustomer).getCompany());
+        ui->btnDocChange->setText("Changer en devis");
     } else {
         setWindowTitle("Nouveau devis " +
                        QString::number(_quote->getNumber())+ " de "+
                        Customer(_idCustomer).getCompany());
+        ui->btnDocChange->setText("Changer en facture");
     }
 
 }
