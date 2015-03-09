@@ -48,6 +48,19 @@ public slots:
      */
     void checkRepeatLogin(QString text);
 
+    /**
+     * @brief DatabaseSettingsWidget::userInterfaceChanged User interface has
+     * changed
+     */
+    void userInterfaceChanged();
+
+signals:
+    /**
+     * @brief DatabaseSettingsWidget::textfieldChanged Signal which indicates if
+     *  a fieldtext has changed
+     */
+    void textfieldChanged();
+
 private:
     Ui::DatabaseSettingsWidget *ui; //!< User interface
 };

@@ -37,6 +37,20 @@ public:
      */
     QPixmap getImage(QString path, int width = 256, int height = 256);
 
+    /**
+     * @brief StartedWindowsDialog::isDatabaseTypeValid Return TRUE if settings
+     * of database type is valid else return FALSE
+     * @return boolean on the database type validity
+     */
+    bool isDatabaseTypeValid();
+
+    /**
+     * @brief StartedWindowsDialog::isDatabaseCentralized Return TRUE if the
+     * current type of database is centralized else FALSE
+     * @return boolean
+     */
+    bool isDatabaseCentralized();
+
 public slots:
     /**
      * @brief StartedWindowsDialog::checkFields Check all fields of dialog
@@ -67,18 +81,10 @@ public slots:
     void databaseTypeChanged(const int index);
 
     /**
-     * @brief StartedWindowsDialog::isDatabaseTypeValid Return TRUE if settings
-     * of database type is valid else return FALSE
-     * @return boolean on the database type validity
+     * @brief StartedWindowsDialog::updateNextButton Check if the next button is
+     *  enabled
      */
-    bool isDatabaseTypeValid();
-
-    /**
-     * @brief StartedWindowsDialog::isDatabaseCentralized Return TRUE if the
-     * current type of database is centralized else FALSE
-     * @return boolean
-     */
-    bool isDatabaseCentralized();
+    void updateNextButton();
 
     /**
      * @brief StartedWindowsDialog::accept Valid data inputed by user and add

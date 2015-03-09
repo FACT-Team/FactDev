@@ -35,7 +35,8 @@ void StartedWindowsDialog::nextToPage3()
 {
 
     ui->wdgStack->setCurrentIndex(2);
-    ui->lbIcon->setPixmap(getImage(":/icons/customer"));
+    //ui->lbIcon->setPixmap(getImage(":/icons/customer"));
+    ui->lbIcon->setPixmap(getImage(":/icons/img/company.png"));
 }
 
 void StartedWindowsDialog::databaseTypeChanged(const int index)
@@ -85,7 +86,12 @@ bool StartedWindowsDialog::isDatabaseTypeValid()
 
 bool StartedWindowsDialog::isDatabaseCentralized()
 {
-    return ui->cbDbType->currentText() == "Centralisée";
+    return ui->cbDbType->currentIndex() == 1;
+}
+
+void StartedWindowsDialog::updateNextButton()
+{
+    ui->btnNextTo3->setEnabled(isDatabaseTypeValid());
 }
 
 

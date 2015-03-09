@@ -32,8 +32,13 @@ void DatabaseSettingsWidget::fillFields()
     emit isValid();
 }
 
-bool DatabaseSettingsWidget::isValid()
+void DatabaseSettingsWidget::userInterfaceChanged()
 {
+    emit textfieldChanged();
+}
+
+bool DatabaseSettingsWidget::isValid()
+{    
     return  ui->leDbName->isValid()
             && ui->leUser->isValid()
             && (ui->leLogin->isValid() && ui->leLoginRepeat->isValid())

@@ -232,7 +232,7 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>305</x>
+     <x>299</x>
      <y>177</y>
     </hint>
     <hint type="destinationlabel">
@@ -328,8 +328,8 @@
    <slot>isValid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>179</x>
-     <y>175</y>
+     <x>299</x>
+     <y>177</y>
     </hint>
     <hint type="destinationlabel">
      <x>172</x>
@@ -353,10 +353,107 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>leDbName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>43</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>561</x>
+     <y>46</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leUser</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>345</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLogin</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>530</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLoginRepeat</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>587</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leIpAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>262</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePort</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>checkRepeatLogin(QString)</slot>
   <slot>isValid()</slot>
   <slot>fieldTextChanged(QString)</slot>
+  <slot>userInterfaceChanged()</slot>
  </slots>
 </ui>
