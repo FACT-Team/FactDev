@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>480</height>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -114,10 +114,10 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="label_8">
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_10">
      <property name="text">
-      <string>Tél. mobile</string>
+      <string>Fax</string>
      </property>
     </widget>
    </item>
@@ -128,10 +128,10 @@
      </property>
     </widget>
    </item>
-   <item row="8" column="0">
-    <widget class="QLabel" name="label_10">
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_8">
      <property name="text">
-      <string>Fax</string>
+      <string>Tél. mobile</string>
      </property>
     </widget>
    </item>
@@ -170,7 +170,14 @@
      </property>
     </widget>
    </item>
-   <item row="9" column="0" colspan="2">
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_9">
+     <property name="text">
+      <string>Tél. fixe</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
@@ -209,19 +216,25 @@
      </item>
     </layout>
    </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="label_9">
-     <property name="text">
-      <string>Tél. fixe</string>
-     </property>
-    </widget>
-   </item>
    <item row="5" column="1">
     <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
      <property name="placeholderText">
       <string>05 01 02 03 04</string>
      </property>
     </widget>
+   </item>
+   <item row="9" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
@@ -243,6 +256,22 @@
    </slots>
   </customwidget>
   <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckPostalCode</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkpostalcode.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckValidField</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkvalidfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckCity</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcity.h</header>
@@ -259,25 +288,9 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckValidField</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkvalidfield.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckPostalCode</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkpostalcode.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>

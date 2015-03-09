@@ -30,6 +30,7 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
         database/customerdatabase.cpp \
         database/userdatabase.cpp \
         gui/dialogs/dialogaddcustomer.cpp \
+        gui/dialogs/startedwindowsdialog.cpp \
         models/customer.cpp \
     models/project.cpp \
     models/billing.cpp \
@@ -83,7 +84,12 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     utils/directories.cpp \
     gui/docks/searchdock.cpp \
     generator/texgenerator.cpp \
-    generator/pdfgenerator.cpp
+    generator/pdfgenerator.cpp \
+    gui/widgets/databasesettingswidget.cpp \
+    gui/widgets/checkfields/checkfieldsnumbers.cpp \
+    gui/widgets/checkfields/checkipaddress.cpp \
+    gui/widgets/checkfields/checklogin.cpp \
+    gui/widgets/checkfields/checkportnumber.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -123,6 +129,7 @@ HEADERS  += gui/mainwindow/mainwindow.h \
         database/billingdatabase.h \
         database/contributorydatabase.h \
         utils/itemtype.h \
+        gui/dialogs/startedwindowsdialog.h \
         gui/widgets/checkfields/icheckfield.h \
         libs/qt-mustache/src/mustache.h \
         models/imodel.h \
@@ -182,13 +189,19 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     utils/directories.h \
     gui/docks/searchdock.h \
     generator/texgenerator.h \
-    generator/pdfgenerator.h
+    generator/pdfgenerator.h \
+    gui/widgets/databasesettingswidget.h \
+    gui/widgets/checkfields/checkfieldsnumbers.h \
+    gui/widgets/checkfields/checkipaddress.h \
+    gui/widgets/checkfields/checklogin.h \
+    gui/widgets/checkfields/checkportnumber.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
     gui/dialogs/userdatadialog.ui \
     gui/dialogs/addprojectdialog.ui \
+    gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/ratewidget.ui \
     gui/widgets/comboboxmodelwidget.ui \
     gui/widgets/searchwidget.ui \
@@ -197,7 +210,9 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/addquotedialog.ui \
     gui/widgets/contributorieswidget.ui \
     gui/dialogs/messagebox.ui \
-    gui/docks/searchdock.ui
+    gui/docks/searchdock.ui \
+    gui/dialogs/startedwindowsdialog.ui \
+    gui/widgets/databasesettingswidget.ui
 
 RESOURCES += \
     icons.qrc \

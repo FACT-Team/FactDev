@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DatabaseSettingsWidget</class>
+ <widget class="QWidget" name="DatabaseSettingsWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>414</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="grpDbSettings">
+     <property name="title">
+      <string>Paramètres de la base de données</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leDbName">
+        <property name="text">
+         <string>FactDev</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="lbPort">
+        <property name="text">
+         <string>Port</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="Gui::Widgets::CheckFields::CheckIpAddress" name="leIpAddress">
+        <property name="text">
+         <string>127.0.0.1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbPassword">
+        <property name="text">
+         <string>Mot de passe*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbLogin">
+        <property name="text">
+         <string>Utilisateur*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lbIpAddress">
+        <property name="text">
+         <string>Nom de domaine/IP*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="Gui::Widgets::CheckFields::CheckPortNumber" name="lePort">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>3306</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbDbName">
+        <property name="text">
+         <string>Nom de la base*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lbPasswordRepeat">
+        <property name="text">
+         <string>Confirmez mot de passe*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLogin">
+        <property name="text">
+         <string>FactDev</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="lePassword">
+        <property name="contextMenuPolicy">
+         <enum>Qt::PreventContextMenu</enum>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckLogin" name="lePasswordRepeat">
+        <property name="toolTip">
+         <string>Saisir à nouveau votre mot de passe</string>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="text">
+         <string>* Champs obligatoires</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkuntilfield.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckIpAddress</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkipaddress.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckLogin</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checklogin.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckPortNumber</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkportnumber.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>leDbName</tabstop>
+  <tabstop>leLogin</tabstop>
+  <tabstop>lePassword</tabstop>
+  <tabstop>lePasswordRepeat</tabstop>
+  <tabstop>leIpAddress</tabstop>
+  <tabstop>lePort</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>leDbName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leDbName</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>245</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>43</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLogin</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leLogin</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePassword</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePassword</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>298</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leIpAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leIpAddress</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>195</x>
+     <y>171</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePort</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>lePort</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>392</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>392</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leDbName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>457</x>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLogin</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>369</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>501</x>
+     <y>75</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePassword</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>371</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>475</x>
+     <y>122</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>grpDbSettings</sender>
+   <signal>clicked()</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>155</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leIpAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>isValid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>172</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leDbName</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>366</x>
+     <y>43</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>561</x>
+     <y>46</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leLogin</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>345</x>
+     <y>88</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePassword</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>530</x>
+     <y>107</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePasswordRepeat</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>587</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leIpAddress</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>262</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePort</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>userInterfaceChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lePasswordRepeat</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>checkRepeatPassword(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>253</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>checkRepeatPassword(QString)</slot>
+  <slot>isValid()</slot>
+  <slot>fieldTextChanged(QString)</slot>
+  <slot>userInterfaceChanged()</slot>
+ </slots>
+</ui>

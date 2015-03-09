@@ -1,7 +1,7 @@
 #include <QStandardPaths>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "gui/dialogs/startedwindowsdialog.h"
 using namespace Utils;
 
 namespace Gui {
@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     setupUi();
     setupSignalsSlots();
+    StartedWindowsDialog w;
+    w.exec();
 }
 
 void MainWindow::setupUi()
