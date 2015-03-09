@@ -27,6 +27,8 @@ void Generation::testTemplate()
 }
 
 void Generation::testFileTemplate() {
+    User(1).updateFolders();
+
     QFile file(":/tpl/generation");
     QVERIFY(file.open(QFile::ReadOnly|QFile::Text));
     QTextStream stream(&file);
