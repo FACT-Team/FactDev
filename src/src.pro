@@ -87,7 +87,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/databasesettingswidget.cpp \
     gui/widgets/checkfields/checkfieldsnumbers.cpp \
     gui/widgets/checkfields/checkipaddress.cpp \
-    gui/widgets/checkfields/checklogin.cpp
+    gui/widgets/checkfields/checklogin.cpp \
+    gui/widgets/checkfields/checkportnumber.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -192,7 +193,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/databasesettingswidget.h \
     gui/widgets/checkfields/checkfieldsnumbers.h \
     gui/widgets/checkfields/checkipaddress.h \
-    gui/widgets/checkfields/checklogin.h
+    gui/widgets/checkfields/checklogin.h \
+    gui/widgets/checkfields/checkportnumber.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

@@ -33,6 +33,38 @@ public:
      */
     void fillFields();
 
+    /**
+     * @brief DatabaseSettingsWidget::getDatabaseName Return the database name
+     * @return Database name
+     */
+    QString getDatabaseName();
+
+    /**
+     * @brief DatabaseSettingsWidget::getLogin Return the login of the user
+     * @return Login of the user
+     */
+    QString getLogin();
+
+    /**
+     * @brief DatabaseSettingsWidget::getPassword Return the password of the
+     * user
+     * @return User password
+     */
+    QString getPassword();
+
+    /**
+     * @brief DatabaseSettingsWidget::getDomainNameOrIP Return the domain name
+     * or IP address on the machine where is the database
+     * @return Domain name or IP address
+     */
+    QString getDomainNameOrIP();
+
+    /**
+     * @brief DatabaseSettingsWidget::getPort Return the port of the database
+     * @return Database port
+     */
+    QString getPort();
+
 public slots:
 
     /**
@@ -46,7 +78,7 @@ public slots:
      * @brief DatabaseSettingsWidget::checkRepeatLogin Check if the second login
      *  field is the same than the first
      */
-    void checkRepeatLogin(QString text);
+    void checkRepeatPassword(QString text);
 
     /**
      * @brief DatabaseSettingsWidget::userInterfaceChanged User interface has

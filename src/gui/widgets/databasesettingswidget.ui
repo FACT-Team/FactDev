@@ -42,14 +42,14 @@
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="lbLogin">
+       <widget class="QLabel" name="lbPassword">
         <property name="text">
          <string>Mot de passe*</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="lbUser">
+       <widget class="QLabel" name="lbLogin">
         <property name="text">
          <string>Utilisateur*</string>
         </property>
@@ -63,7 +63,7 @@
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="Gui::Widgets::CheckFields::CheckFieldsNumbers" name="lePort">
+       <widget class="Gui::Widgets::CheckFields::CheckPortNumber" name="lePort">
         <property name="maximumSize">
          <size>
           <width>60</width>
@@ -83,21 +83,21 @@
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QLabel" name="lbLoginRepeat">
+       <widget class="QLabel" name="lbPasswordRepeat">
         <property name="text">
          <string>Confirmez mot de passe*</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leUser">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLogin">
         <property name="text">
          <string>FactDev</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLogin">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="lePassword">
         <property name="contextMenuPolicy">
          <enum>Qt::PreventContextMenu</enum>
         </property>
@@ -107,7 +107,7 @@
        </widget>
       </item>
       <item row="3" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckLogin" name="leLoginRepeat">
+       <widget class="Gui::Widgets::CheckFields::CheckLogin" name="lePasswordRepeat">
         <property name="toolTip">
          <string>Saisir à nouveau votre mot de passe</string>
         </property>
@@ -143,14 +143,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckFieldsNumbers</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkfieldsnumbers.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckIpAddress</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkipaddress.h</header>
@@ -166,12 +158,17 @@
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckPortNumber</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkportnumber.h</header>
+  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>leDbName</tabstop>
-  <tabstop>leUser</tabstop>
   <tabstop>leLogin</tabstop>
-  <tabstop>leLoginRepeat</tabstop>
+  <tabstop>lePassword</tabstop>
+  <tabstop>lePasswordRepeat</tabstop>
   <tabstop>leIpAddress</tabstop>
   <tabstop>lePort</tabstop>
  </tabstops>
@@ -194,9 +191,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>leUser</sender>
+   <sender>leLogin</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>leUser</receiver>
+   <receiver>leLogin</receiver>
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -210,9 +207,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>leLogin</sender>
+   <sender>lePassword</sender>
    <signal>textChanged(QString)</signal>
-   <receiver>leLogin</receiver>
+   <receiver>lePassword</receiver>
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -274,7 +271,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>leUser</sender>
+   <sender>leLogin</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DatabaseSettingsWidget</receiver>
    <slot>isValid()</slot>
@@ -290,7 +287,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>leLogin</sender>
+   <sender>lePassword</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DatabaseSettingsWidget</receiver>
    <slot>isValid()</slot>
@@ -338,22 +335,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>leLoginRepeat</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>DatabaseSettingsWidget</receiver>
-   <slot>checkRepeatLogin(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>342</x>
-     <y>132</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>519</x>
-     <y>142</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>leDbName</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DatabaseSettingsWidget</receiver>
@@ -370,7 +351,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>leUser</sender>
+   <sender>leLogin</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DatabaseSettingsWidget</receiver>
    <slot>userInterfaceChanged()</slot>
@@ -386,7 +367,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>leLogin</sender>
+   <sender>lePassword</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DatabaseSettingsWidget</receiver>
    <slot>userInterfaceChanged()</slot>
@@ -402,7 +383,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>leLoginRepeat</sender>
+   <sender>lePasswordRepeat</sender>
    <signal>textChanged(QString)</signal>
    <receiver>DatabaseSettingsWidget</receiver>
    <slot>userInterfaceChanged()</slot>
@@ -449,9 +430,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>lePasswordRepeat</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>DatabaseSettingsWidget</receiver>
+   <slot>checkRepeatPassword(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>253</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>checkRepeatLogin(QString)</slot>
+  <slot>checkRepeatPassword(QString)</slot>
   <slot>isValid()</slot>
   <slot>fieldTextChanged(QString)</slot>
   <slot>userInterfaceChanged()</slot>

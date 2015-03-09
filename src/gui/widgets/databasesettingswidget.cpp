@@ -21,15 +21,43 @@ DatabaseSettingsWidget::~DatabaseSettingsWidget()
 void DatabaseSettingsWidget::fillFields()
 {
     ui->leDbName->setText("FactDev");
-    ui->leUser->setText("FactDev");
+    ui->leLogin->setText("FactDev");
     ui->leIpAddress->setText("127.0.0.1");
     ui->lePort->setText("3306");
 
     emit ui->leDbName->fieldTextChanged(ui->leDbName->text());
-    emit ui->leUser->fieldTextChanged(ui->leUser->text());
+    emit ui->leLogin->fieldTextChanged(ui->leUser->text());
     emit ui->leIpAddress->fieldTextChanged(ui->leIpAddress->text());
     emit ui->lePort->fieldTextChanged(ui->lePort->text());
     emit isValid();
+}
+
+QString DatabaseSettingsWidget::getDatabaseName()
+{
+    return ui->leDbName->text();
+}
+
+QString DatabaseSettingsWidget::getLogin()
+{
+    return ui->leLogin->text();
+}
+
+QString DatabaseSettingsWidget::getPassword()
+{
+    return ui->lePassword->text();
+}
+
+QString DatabaseSettingsWidget::getDomainNameOrIP()
+{
+    return ui->leIpAddress->text();
+}
+
+QString DatabaseSettingsWidget::getPort()
+{
+    if (ui->lePort->text().isEmpty()) {
+        return "3306";
+    }
+    return ui->lePort->text();
 }
 
 void DatabaseSettingsWidget::userInterfaceChanged()
@@ -38,17 +66,18 @@ void DatabaseSettingsWidget::userInterfaceChanged()
 }
 
 bool DatabaseSettingsWidget::isValid()
-{    
-    return  ui->leDbName->isValid()
-            && ui->leUser->isValid()
-            && (ui->leLogin->isValid() && ui->leLoginRepeat->isValid())
+{
+   return  ui->leDbName->isValid()
+            && ui->leLogin->isValid()
+            && (ui->lePassword->isValid() && ui->lePasswordRepeat->isValid())
             && ui->leIpAddress->isValid()
+            && ui->lePort->isValid()
             ;
 }
 
-void DatabaseSettingsWidget::checkRepeatLogin(QString text)
+void DatabaseSettingsWidget::checkRepeatPassword(QString text)
 {
-    ui->leLoginRepeat->loginPreviousInputed(ui->leLogin->text());
+    ui->lePasswordRepeat->loginPreviousInputed(ui->leLogin->text());
     emit ui->leLoginRepeat->fieldTextChanged(text);
     emit isValid();
 }
