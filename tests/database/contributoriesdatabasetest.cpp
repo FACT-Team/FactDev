@@ -60,6 +60,7 @@ void ContributoriesDatabaseTest::update()
     c1->setToRemoved(false);
     Databases::ContributoryDatabase::instance()->updateContributory(*c1);
     Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+
     QVERIFY(*c1 == *c2);
 }
 

@@ -107,10 +107,14 @@ public:
      */
     bool operator !=(const Contributory &c);
 
+    QString getLongDescription() const;
+    void setLongDescription(const QString &getLongDescription);
+
 private:
     Project* _project;    //!< Contributory project
     double _nbHours; //!< Nb of work hours of this contribution
     QString _description; //!< Description
+    QString _longDescription;
 };
 }
 #endif // CONTRIBUTORY_H

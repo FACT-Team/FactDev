@@ -21,6 +21,7 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbHours").toDouble());
     contributory->setDescription(value(q, "cdescription").toString());
+    contributory->setLongDescription(value(q, "clongdescription").toString());
 
     QSqlQuery q2;
     q2.prepare("SELECT p.idProject, name,  p.description as pdescription, "
@@ -52,7 +53,7 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     QSqlQuery q;
     Models::Contributory* contributory;
 
-    q.prepare("SELECT idContributory, description as cdescription, nbhours "
+    q.prepare("SELECT idContributory, description as cdescription, longdescription as clongdescription, nbhours "
               "FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
 
@@ -83,6 +84,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                 " project.name as name, project.description as pdescription, "
                 " project.dailyRate as dailyRate, project.idCustomer, "
                 " contributory.idContributory, contributory.description as cdescription, "
+                "contributory.longdescription as clongdescription, "
                 " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "
@@ -112,14 +114,14 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO Contributory "
-                "(description, nbHours)"
+                "(description, longdescription, nbHours)"
                 " VALUES "
-                "(:description, :nbHours)"
+                "(:description, :longdescription, :nbHours)"
                 );
 
     q.bindValue(":description", pContributory.getDescription());
     q.bindValue(":nbHours", pContributory.getNbHours());
-
+    q.bindValue(":longdescription", pContributory.getLongDescription());
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'ajouter la Contributory",
@@ -134,12 +136,13 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
 void ContributoryDatabase::updateContributory(const Models::Contributory& pContributory) {
     QSqlQuery q;
     q.prepare("UPDATE Contributory SET "
-              "description=:description, "
-              "nbHours =:nbHours "
+              "description=:description, longdescription=:longdescription,"
+              "nbHours=:nbHours "
               "WHERE idContributory=:idContributory"
               );
 
     q.bindValue(":description", pContributory.getDescription());
+    q.bindValue(":longdescription", pContributory.getLongDescription());
     q.bindValue(":nbHours", pContributory.getNbHours());
     q.bindValue(":idContributory",pContributory.getId());
 
@@ -193,7 +196,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndPr
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
                 " project.dailyRate as dailyRate, project.idCustomer, "
-                " contributory.idContributory, contributory.description as cdescription, "
+                " contributory.idContributory, contributory.description as cdescription, contributory.longdescription as clongdescription, "
                 " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "

@@ -199,7 +199,7 @@ bool BillingDatabase::isBillingPaid(const int pId) {
 
     q.next();
 
-     return value(q, "nb_p").toInt() == 1;
+     return value(q, "nb_b").toInt() == 1;
 
 }
 

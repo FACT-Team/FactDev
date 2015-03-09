@@ -41,6 +41,7 @@ CREATE TABLE Contributory
 (
     idContributory INTEGER PRIMARY KEY AUTOINCREMENT,
     description TEXT,
+    longdescription TEXT,
     nbHours INTEGER
 );
 
