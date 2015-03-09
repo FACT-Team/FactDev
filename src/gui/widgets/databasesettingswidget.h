@@ -27,6 +27,11 @@ public:
     explicit DatabaseSettingsWidget(QWidget *parent = 0);
     ~DatabaseSettingsWidget();
 
+    /**
+     * @brief DatabaseSettingsWidget::fillFields Complete fields with a default
+     * value for field Database name, Username, IP address and port
+     */
+    void fillFields();
 
 public slots:
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>784</width>
+    <width>740</width>
     <height>420</height>
    </rect>
   </property>
@@ -64,7 +64,7 @@
    <item row="0" column="2">
     <widget class="QStackedWidget" name="wdgStack">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -85,7 +85,7 @@
        <item row="2" column="0" colspan="3">
         <widget class="QLabel" name="lbDescriptionWelcome">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Merci d'avoir téléchargé le logiciel FactDev.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Avec FactDev vous allez pouvoir créer des devis et factures et les organiser en&lt;br/&gt;fonction de vos clients et projets. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ce logiciel a été développé par l'équipe de développement FACT et est distribué&lt;br/&gt;sous licence Apache. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Merci d'avoir téléchargé le logiciel FactDev.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Avec FactDev vous allez pouvoir créer des devis et factures et les&lt;br/&gt;organiser en fonction de vos clients et projets. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ce logiciel a été développé par l'équipe de développement FACT&lt;br/&gt;et est distribué sous licence Apache. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -139,13 +139,6 @@
      </widget>
      <widget class="QWidget" name="page_2">
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="3">
-        <widget class="QPushButton" name="btnAdvanced">
-         <property name="text">
-          <string>Avancée</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="lbDbType">
          <property name="text">
@@ -164,20 +157,6 @@
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Une base de données &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;locale&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; est créer uniquement sur votre ordinateur. &lt;br/&gt;Elle accessible uniquement depuis ce poste. &lt;br/&gt;Si vous souhaitez pouvoir vous connecter depuis un autre ordinateur&lt;br/&gt;et accéder aux même données il est recommandé d'utiliser une base&lt;br/&gt;de données centralisée.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
-        </widget>
-       </item>
-       <item row="1" column="1" colspan="2">
-        <widget class="QComboBox" name="cbDbType">
-         <item>
-          <property name="text">
-           <string>Locale</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Centralisée</string>
-          </property>
-         </item>
         </widget>
        </item>
        <item row="5" column="3">
@@ -236,6 +215,20 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="1" column="1" colspan="3">
+        <widget class="QComboBox" name="cbDbType">
+         <item>
+          <property name="text">
+           <string>Locale</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Centralisée</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -521,7 +514,6 @@
   <tabstop>cbDbType</tabstop>
   <tabstop>btnNextTo3</tabstop>
   <tabstop>btnNextTo2</tabstop>
-  <tabstop>btnAdvanced</tabstop>
  </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
@@ -534,8 +526,8 @@
    <slot>nextToPage2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>355</x>
-     <y>33</y>
+     <x>715</x>
+     <y>387</y>
     </hint>
     <hint type="destinationlabel">
      <x>739</x>
@@ -550,7 +542,7 @@
    <slot>nextToPage3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>765</x>
+     <x>721</x>
      <y>401</y>
     </hint>
     <hint type="destinationlabel">
@@ -650,7 +642,7 @@
      <y>100</y>
     </hint>
     <hint type="destinationlabel">
-     <x>805</x>
+     <x>739</x>
      <y>97</y>
     </hint>
    </hints>
@@ -698,7 +690,7 @@
      <y>129</y>
     </hint>
     <hint type="destinationlabel">
-     <x>786</x>
+     <x>739</x>
      <y>128</y>
     </hint>
    </hints>
@@ -714,7 +706,7 @@
      <y>189</y>
     </hint>
     <hint type="destinationlabel">
-     <x>777</x>
+     <x>739</x>
      <y>189</y>
     </hint>
    </hints>
@@ -762,7 +754,7 @@
      <y>220</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-189</x>
+     <x>0</x>
      <y>228</y>
     </hint>
    </hints>
@@ -778,7 +770,7 @@
      <y>210</y>
     </hint>
     <hint type="destinationlabel">
-     <x>818</x>
+     <x>739</x>
      <y>219</y>
     </hint>
    </hints>
@@ -810,7 +802,7 @@
      <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>783</x>
+     <x>739</x>
      <y>254</y>
     </hint>
    </hints>
@@ -842,7 +834,7 @@
      <y>287</y>
     </hint>
     <hint type="destinationlabel">
-     <x>803</x>
+     <x>739</x>
      <y>278</y>
     </hint>
    </hints>
@@ -874,7 +866,7 @@
      <y>322</y>
     </hint>
     <hint type="destinationlabel">
-     <x>812</x>
+     <x>739</x>
      <y>322</y>
     </hint>
    </hints>
@@ -906,7 +898,7 @@
      <y>342</y>
     </hint>
     <hint type="destinationlabel">
-     <x>792</x>
+     <x>739</x>
      <y>342</y>
     </hint>
    </hints>
@@ -939,7 +931,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>522</x>
-     <y>521</y>
+     <y>419</y>
     </hint>
    </hints>
   </connection>
@@ -954,24 +946,8 @@
      <y>75</y>
     </hint>
     <hint type="destinationlabel">
-     <x>798</x>
+     <x>739</x>
      <y>52</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnAdvanced</sender>
-   <signal>clicked()</signal>
-   <receiver>StartedWindowsDialog</receiver>
-   <slot>editDatabaseSettings()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>765</x>
-     <y>75</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>830</x>
-     <y>82</y>
     </hint>
    </hints>
   </connection>

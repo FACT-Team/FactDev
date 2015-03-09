@@ -12,11 +12,15 @@ CheckIpAddress::CheckIpAddress(QWidget* w, QPushButton *btn)
 
 bool CheckIpAddress::check(QString text)
 {
-    QRegExp numberRgx("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}");
-    numberRgx.setCaseSensitivity(Qt::CaseInsensitive);
-    numberRgx.setPatternSyntax(QRegExp::RegExp);
+    QRegExp ipAddessRgx("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}");
+    ipAddessRgx.setCaseSensitivity(Qt::CaseInsensitive);
+    ipAddessRgx.setPatternSyntax(QRegExp::RegExp);
 
-    return numberRgx.exactMatch(text);
+    QRegExp domainName("\\b[A-Z0-9._%+-]+\\.[A-Z]{2,4}\\b");
+    domainName.setCaseSensitivity(Qt::CaseInsensitive);
+    domainName.setPatternSyntax(QRegExp::RegExp);
+
+    return ipAddessRgx.exactMatch(text) || domainName.exactMatch(text);
 }
 
 }

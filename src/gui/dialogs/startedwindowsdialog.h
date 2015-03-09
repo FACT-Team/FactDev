@@ -45,30 +45,40 @@ public slots:
     void checkFields();
 
     /**
-     * @brief StartedWindowsDialog::backToPage2
+     * @brief StartedWindowsDialog::backToPage2 Return to the second page
      */
     void backToPage2();
 
     /**
-     * @brief StartedWindowsDialog::nextToPage2
+     * @brief StartedWindowsDialog::nextToPage2 Go to the second page
      */
     void nextToPage2();
 
     /**
-     * @brief StartedWindowsDialog::nextToPage3
+     * @brief StartedWindowsDialog::nextToPage3 Go to the third page
      */
     void nextToPage3();
 
     /**
-     * @brief databaseTypeChanged
-     * @param index
+     * @brief StartedWindowsDialog::databaseTypeChanged Listener on the
+     * Database type combobox
+     * @param index Current index selected
      */
     void databaseTypeChanged(const int index);
 
     /**
-     * @brief editDatabaseSettings
+     * @brief StartedWindowsDialog::isDatabaseTypeValid Return TRUE if settings
+     * of database type is valid else return FALSE
+     * @return boolean on the database type validity
      */
-    void editDatabaseSettings();
+    bool isDatabaseTypeValid();
+
+    /**
+     * @brief StartedWindowsDialog::isDatabaseCentralized Return TRUE if the
+     * current type of database is centralized else FALSE
+     * @return boolean
+     */
+    bool isDatabaseCentralized();
 
     /**
      * @brief StartedWindowsDialog::accept Valid data inputed by user and add
@@ -80,7 +90,6 @@ public slots:
 private:
     Ui::StartedWindowsDialog *ui;
     User* _user;                    //!< User of the software
-    //QPixmap _img;                   //!< Icon image of the current frame
 };
 
 }

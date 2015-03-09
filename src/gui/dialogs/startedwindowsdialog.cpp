@@ -15,7 +15,6 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
 
     ui->wdgStack->setCurrentIndex(0);
     ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));
-    ui->btnAdvanced->setEnabled(false);
     ui->wdgDbType->hide();
 
     checkFields();
@@ -34,6 +33,7 @@ void StartedWindowsDialog::nextToPage2()
 
 void StartedWindowsDialog::nextToPage3()
 {
+
     ui->wdgStack->setCurrentIndex(2);
     ui->lbIcon->setPixmap(getImage(":/icons/customer"));
 }
@@ -41,7 +41,6 @@ void StartedWindowsDialog::nextToPage3()
 void StartedWindowsDialog::databaseTypeChanged(const int index)
 {
     if (ui->cbDbType->itemText(index) == "Centralisée") {
-        ui->btnAdvanced->setEnabled(true);
         ui->lbDescriptionDbType->setText(
             "<html><head/><body> "
             "<p align='justify'><span style='font-style:italic;'> "
@@ -52,6 +51,14 @@ void StartedWindowsDialog::databaseTypeChanged(const int index)
             "depuis n'importe quels postes. <br/> "
             " </span></p></body></html>"
             );
+        ui->wdgDbType->show();
+
+        if (isDatabaseTypeValid()) {
+            ui->btnNextTo3->setEnabled(true);
+        } else {
+            ui->btnNextTo3->setEnabled(false);
+        }
+
     } else {
         ui->lbDescriptionDbType->setText(
             "<html><head/><body> "
@@ -65,17 +72,23 @@ void StartedWindowsDialog::databaseTypeChanged(const int index)
             "aux même données il est recommandé d'utiliser une base "
             "<br/>de données centralisée. </span></p></body></html>"
             );
-        ui->btnAdvanced->setEnabled(false);
         ui->wdgDbType->hide();
-
+        ui->btnNextTo3->setEnabled(true);
     }
 }
 
-void StartedWindowsDialog::editDatabaseSettings()
+bool StartedWindowsDialog::isDatabaseTypeValid()
 {
-    ui->wdgDbType->setVisible(true);
-    ui->wdgDbType->show();
+    return  (isDatabaseCentralized() && ui->wdgDbType->isValid())
+            || ui->cbDbType->currentText() == "Locale";
 }
+
+bool StartedWindowsDialog::isDatabaseCentralized()
+{
+    return ui->cbDbType->currentText() == "Centralisée";
+}
+
+
 
 void StartedWindowsDialog::accept() {
     _user->setFirstname(ui->leFirstname->text());
@@ -91,6 +104,7 @@ void StartedWindowsDialog::accept() {
     _user->setNoSiret(ui->leNoSiret->text());
 
     _user->commit();
+
     QDialog::accept();
 }
 
@@ -113,7 +127,8 @@ void StartedWindowsDialog::checkFields() {
         && ((ui->lePhone->isValid() && ui->leMobile->isValid())
             || (ui->lePhone->text().isEmpty() && ui->leMobile->isValid())
             || (ui->lePhone->isValid() && ui->leMobile->text().isEmpty()) )
-                && ui->leNoSiret->isValid()
+        && ui->leNoSiret->isValid()
+        && isDatabaseTypeValid()
         );
 }
 

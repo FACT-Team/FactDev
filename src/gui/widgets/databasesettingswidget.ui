@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>414</width>
-    <height>199</height>
+    <height>220</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,13 @@
       <string>Paramètres de la base de données</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1" colspan="3">
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leDbName">
+        <property name="text">
+         <string>FactDev</string>
+        </property>
+       </widget>
+      </item>
       <item row="4" column="2">
        <widget class="QLabel" name="lbPort">
         <property name="text">
@@ -28,51 +35,66 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="Gui::Widgets::CheckFields::CheckIpAddress" name="leIpAddress"/>
+       <widget class="Gui::Widgets::CheckFields::CheckIpAddress" name="leIpAddress">
+        <property name="text">
+         <string>127.0.0.1</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="lbLogin">
         <property name="text">
-         <string>Mot de passe</string>
+         <string>Mot de passe*</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lbUser">
         <property name="text">
-         <string>Utilisateur</string>
+         <string>Utilisateur*</string>
         </property>
        </widget>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="lbIpAddress">
         <property name="text">
-         <string>Adresse IP</string>
+         <string>Nom de domaine/IP*</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="lbLoginRepeat">
+      <item row="4" column="3">
+       <widget class="Gui::Widgets::CheckFields::CheckFieldsNumbers" name="lePort">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="text">
-         <string>Mot de passe</string>
+         <string>3306</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="lbDbName">
         <property name="text">
-         <string>Nom</string>
+         <string>Nom de la base*</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="3">
-       <widget class="Gui::Widgets::CheckFields::CheckFieldsNumbers" name="lePort"/>
-      </item>
-      <item row="0" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leDbName"/>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lbLoginRepeat">
+        <property name="text">
+         <string>Confirmez mot de passe*</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1" colspan="3">
-       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leUser"/>
+       <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leUser">
+        <property name="text">
+         <string>FactDev</string>
+        </property>
+       </widget>
       </item>
       <item row="2" column="1" colspan="3">
        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leLogin">
@@ -91,6 +113,18 @@
         </property>
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="text">
+         <string>* Champs obligatoires</string>
         </property>
        </widget>
       </item>
@@ -182,12 +216,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>120</x>
-     <y>111</y>
+     <x>298</x>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
-     <x>128</x>
-     <y>110</y>
+     <x>306</x>
+     <y>119</y>
     </hint>
    </hints>
   </connection>
@@ -198,8 +232,8 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>151</x>
-     <y>169</y>
+     <x>305</x>
+     <y>177</y>
     </hint>
     <hint type="destinationlabel">
      <x>195</x>
@@ -214,12 +248,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>297</x>
-     <y>171</y>
+     <x>392</x>
+     <y>177</y>
     </hint>
     <hint type="destinationlabel">
-     <x>340</x>
-     <y>166</y>
+     <x>392</x>
+     <y>177</y>
     </hint>
    </hints>
   </connection>
