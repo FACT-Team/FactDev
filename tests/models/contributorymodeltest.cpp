@@ -45,7 +45,6 @@ void ContributoryModelTest::commitUpdate()
     c1.setDescription("New description");
     c1.commit();
     c2 = *(Databases::ContributoryDatabase::instance()->getContributory(3));
-    qDebug() << (c1.getProject() == c2.getProject());
 
     QVERIFY(c1 == c2);
 }

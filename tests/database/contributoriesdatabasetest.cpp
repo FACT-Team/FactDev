@@ -61,8 +61,7 @@ void ContributoriesDatabaseTest::update()
     Databases::ContributoryDatabase::instance()->updateContributory(*c1);
     Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
 
-    bool ret = *c1 == *c2;
-    QVERIFY(ret);
+    QVERIFY(*c1 == *c2);
 }
 
 void ContributoriesDatabaseTest::selectContributoryNotFound()
