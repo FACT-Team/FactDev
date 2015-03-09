@@ -69,7 +69,7 @@ void Generation::GenerationBillingPdf() {
     b.generateTex();
     QVERIFY(QFile("/tmp/test.tex").exists());
     Generator::PdfGenerator gen;
-    gen.generate("/tmp/", "test.tex");
+    gen.generate("/tmp/", "test");
     QVERIFY(QFile("/tmp/test.pdf").exists());
     QVERIFY(!QFile("/tmp/test.aux").exists());
     QVERIFY(!QFile("/tmp/test.log").exists());

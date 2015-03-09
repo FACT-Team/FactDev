@@ -2,6 +2,7 @@
 #define PDFGENERATOR_H
 #include <QString>
 #include <QProcess>
+#include <QFile>
 
 namespace Generator {
 class PdfGenerator

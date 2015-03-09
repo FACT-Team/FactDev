@@ -100,7 +100,7 @@ void Billing::generatePdf()
 {
     generateTex();
     Generator::PdfGenerator g;
-    g.generate(getFolder(), getFilename()+".tex");
+    g.generate(getFolder(), getFilename());
 }
 
 QString Billing::getFolder() {
