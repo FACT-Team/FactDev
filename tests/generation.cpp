@@ -2,7 +2,8 @@
 
 #include "libs/qt-mustache/src/mustache.h"
 #include <QTextStream>
-#include "generator.h"
+
+#include "generator/texgenerator.h"
 
 Generation::Generation()
 {
@@ -45,7 +46,7 @@ void Generation::testFileTemplate() {
 void Generation::GenerationSimpleBilling() {
     QLocale::setDefault(QLocale(QLocale::French));
 
-    Generator gen(":/tpl/billingtpl");
+    Generator::TexGenerator gen(":/tpl/billingtpl");
     gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
     QVERIFY(QFile("/tmp/test.tex").exists());
 }

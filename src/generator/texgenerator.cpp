@@ -1,17 +1,17 @@
-#include "generator.h"
+#include "generator/texgenerator.h"
 
-
-Generator::Generator(QString tpl)
+namespace Generator {
+TexGenerator::TexGenerator(QString tpl)
 {
     _tplFile = tpl;
 }
 
-Generator::~Generator()
+TexGenerator::~TexGenerator()
 {
 
 }
 
-void Generator::generate(QVariantHash data, QString path)
+void TexGenerator::generate(QVariantHash data, QString path)
 {
     QString ret;
 
@@ -36,4 +36,4 @@ void Generator::generate(QVariantHash data, QString path)
     }
 }
 
-
+}

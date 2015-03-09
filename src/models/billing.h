@@ -12,7 +12,7 @@
 #include "models/contributorieslist.h"
 #include "database/contributorydatabase.h"
 
-#include "generator.h"
+#include "generator/texgenerator.h"
 
 namespace Models {
 /**

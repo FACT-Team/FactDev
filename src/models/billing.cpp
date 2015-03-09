@@ -91,7 +91,7 @@ QVariantHash Billing::getDataMap()
 
 void Billing::generateTex()
 {
-    Generator g(":/tpl/billingtpl");
+    Generator::TexGenerator g(":/tpl/billingtpl");
     QString s,fact;
     if (isBilling()) {
         s = "Facture";
