@@ -82,7 +82,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     utils/pointers.cpp \
     utils/directories.cpp \
     gui/docks/searchdock.cpp \
-    generator/texgenerator.cpp
+    generator/texgenerator.cpp \
+    generator/pdfgenerator.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -181,7 +182,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     utils/pointers.h \
     utils/directories.h \
     gui/docks/searchdock.h \
-    generator/texgenerator.h
+    generator/texgenerator.h \
+    generator/pdfgenerator.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

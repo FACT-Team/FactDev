@@ -14,8 +14,10 @@ private slots:
     void testTemplate();
     void testFileTemplate();
     void GenerationSimpleBilling();
-    void GenerationSimpleBillingWithModel();
+    void GenerationSimpleTexBillingWithModel();
+    void GenerationSimplePdfBillingWithModel();
 
+    void GenerationBillingPdf();
 };
 
 DECLARE_TEST(Generation)
