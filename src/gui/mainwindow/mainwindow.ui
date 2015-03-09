@@ -331,13 +331,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btnLatex">
+             <widget class="QPushButton" name="btnPdf">
               <property name="text">
-               <string>Générer en LaTeX</string>
+               <string>Ouvrir le PDF</string>
               </property>
               <property name="icon">
                <iconset resource="../../icons.qrc">
-                <normaloff>:/icons/img/convert_to_latex.png</normaloff>:/icons/img/convert_to_latex.png</iconset>
+                <normaloff>:/icons/img/convert_to_pdf.png</normaloff>:/icons/img/convert_to_pdf.png</iconset>
               </property>
              </widget>
             </item>
@@ -357,7 +357,7 @@
      <x>0</x>
      <y>0</y>
      <width>1237</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -700,8 +700,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>910</x>
-     <y>543</y>
+     <x>367</x>
+     <y>104</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -716,8 +716,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>823</x>
-     <y>543</y>
+     <x>348</x>
+     <y>104</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -732,8 +732,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>599</x>
-     <y>543</y>
+     <x>311</x>
+     <y>104</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -748,8 +748,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>726</x>
-     <y>543</y>
+     <x>330</x>
+     <y>104</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -876,8 +876,8 @@
    <slot>customersTableToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>378</x>
-     <y>108</y>
+     <x>373</x>
+     <y>96</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -892,8 +892,8 @@
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>332</x>
-     <y>106</y>
+     <x>327</x>
+     <y>93</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -924,8 +924,8 @@
    <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>379</x>
-     <y>146</y>
+     <x>374</x>
+     <y>99</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -940,8 +940,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>121</y>
+     <x>583</x>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -956,8 +956,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>539</y>
+     <x>499</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -972,8 +972,8 @@
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>539</y>
+     <x>499</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -988,8 +988,8 @@
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>916</x>
-     <y>539</y>
+     <x>499</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1004,8 +1004,8 @@
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>378</x>
-     <y>108</y>
+     <x>373</x>
+     <y>96</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1020,8 +1020,8 @@
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>379</x>
-     <y>146</y>
+     <x>374</x>
+     <y>99</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -1126,10 +1126,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>btnLatex</sender>
+   <sender>btnPdf</sender>
    <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>generateTex()</slot>
+   <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>828</x>
@@ -1221,7 +1221,7 @@
   <slot>changeDocsTable()</slot>
   <slot>editQuote()</slot>
   <slot>updateButtons()</slot>
-  <slot>generateTex()</slot>
+  <slot>openPdf()</slot>
   <slot>billingIsPaid()</slot>
  </slots>
 </ui>

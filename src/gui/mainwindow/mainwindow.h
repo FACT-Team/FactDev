@@ -6,6 +6,8 @@
 #include <QModelIndex>
 #include <QTableView>
 #include <QDir>
+#include <QDesktopServices>
+#include <QUrl>
 
 #include "utils/itemtype.h"
 #include "utils/log.h"
@@ -189,7 +191,7 @@ public slots:
      */
     //void editQuote();
 
-    void generateTex();
+    void openPdf();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu
