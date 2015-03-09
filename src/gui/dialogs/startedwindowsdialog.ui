@@ -64,7 +64,7 @@
    <item row="0" column="2">
     <widget class="QStackedWidget" name="wdgStack">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -85,7 +85,7 @@
        <item row="1" column="0" colspan="3">
         <widget class="QLabel" name="lbDescriptionWelcome">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Merci d'avoir téléchargé le logiciel FactDev.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Avec FactDev vous allez pouvoir créer des devis et factures et les&lt;br/&gt;organiser en fonction de vos clients et projets. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ce logiciel a été développé par l'équipe de développement FACT&lt;br/&gt;et est distribué sous licence Apache. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Merci d'avoir téléchargé le logiciel FactDev.&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Avec FactDev vous allez pouvoir créer des devis, des factures et les&lt;br/&gt;organiser en fonction de vos clients et projets. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Ce logiciel a été développé par l'équipe de développement FACT&lt;br/&gt;et est distribué sous licence GPL. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
