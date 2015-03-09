@@ -573,6 +573,7 @@ void MainWindow::updateButtons()
         ui->btnRemoveDoc->setText("Supprimer "+textButton);
         ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_"+iconButton));
         ui->btnCopyDoc->setText("Copier "+textButton);
+        ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png" : ":icons/img/copy_quote"));
 
         if ( isBillingPaid || !b.isBilling()) {
             ui->btnBillingIsPaid->setEnabled(false);

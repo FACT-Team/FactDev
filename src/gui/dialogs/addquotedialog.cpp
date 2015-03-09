@@ -35,9 +35,9 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         ui->btnDocChange->hide();
         fillQuoteBilling(isBilling);
 
-        setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
+        /*setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                        QString::number(getNumber())+ " de " +
-                       (Customer(idCustomer).getCompany()));
+                       (Customer(idCustomer).getCompany()));*/
     }
     _quote->setIsBilling(isBilling);
 
