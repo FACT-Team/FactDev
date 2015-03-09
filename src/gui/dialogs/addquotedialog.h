@@ -71,6 +71,25 @@ public:
      */
     int getIdCustomer() const;
 
+    /**
+     * @brief AddQuoteDialog::fillQuoteBilling fill fields for a Billing or a quote
+     * @param isBilling if it's a quote or a Billing
+     */
+    void fillQuoteBilling(bool isBilling);
+    /**
+     * @brief AddQuoteDialog::fillQuoteBilling fill fields if it's a Billing or a quote
+     * for a copy
+     */
+    void fillQuoteBillingCopy(bool isBilling);
+
+    /**
+     * @brief AddQuoteDialog::setQuoteIdNumber set id and number of the <i>_quote</i>
+     * @param id the id of the Billing
+     * @param idCustomer the id of the customer to set the <i>number</i>
+     * @param isBilling if it's a quote or a Billing
+     */
+    void setQuoteIdNumber(int id, int idCustomer, bool isBilling);
+
 public slots:
     void updateBtn(void);
     void changeDocType();

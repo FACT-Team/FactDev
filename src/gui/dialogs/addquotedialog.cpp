@@ -19,14 +19,8 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         _quote = new Billing(id);
         fillFields();
         if (copy) {
-            _quote->setId(0);
-            _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
-                                        : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
-
-            setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
-                           QString::number(getNumber())+ " de " +
-                           (Customer(idCustomer).getCompany()));
-            ui->btnDocChange->setText(isBilling ? "Changer en devis" : "Changer en facture");
+            setQuoteIdNumber(0,idCustomer,isBilling);
+            fillQuoteBillingCopy(isBilling);
         }
         else {
             ui->btnDocChange->hide();
@@ -36,12 +30,10 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         }
     } else {
         _quote = new Billing();
-        _quote->setId(id);
-        _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
-                                    : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
-
+        setQuoteIdNumber(id,idCustomer,isBilling);
         ui->dateEditQuote->setDate(QDate::currentDate());
         ui->btnDocChange->hide();
+        fillQuoteBilling(isBilling);
 
         setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
                        QString::number(getNumber())+ " de " +
@@ -104,6 +96,44 @@ void AddQuoteDialog::setCopy(bool copy)
     _copy = copy;
 }
 
+void AddQuoteDialog::fillQuoteBilling(bool isBilling)
+{
+    if (isBilling) {
+        setWindowTitle("Nouvelle facture " +
+                       QString::number(_quote->getNumber())+ " de " +
+                       Customer(_idCustomer).getCompany());
+    } else {
+        setWindowTitle("Nouveau devis " +
+                       QString::number(_quote->getNumber())+ " de "+
+                       Customer(_idCustomer).getCompany());
+    }
+}
+
+void AddQuoteDialog::fillQuoteBillingCopy(bool isBilling)
+{
+    if (isBilling) {
+        setWindowTitle("Nouvelle facture " +
+                       QString::number(_quote->getNumber())+ " de " +
+                       Customer(_idCustomer).getCompany());
+        ui->btnDocChange->setText("Changer en devis");
+        ui->btnDocChange->setIcon(QIcon(":icons/img/bill_to_quote.png"));
+
+    } else {
+        setWindowTitle("Nouveau devis " +
+                       QString::number(_quote->getNumber())+ " de "+
+                       Customer(_idCustomer).getCompany());
+        ui->btnDocChange->setText("Changer en facture");
+        ui->btnDocChange->setIcon(QIcon(":icons/img/quote_to_bill.png"));
+    }
+}
+
+void AddQuoteDialog::setQuoteIdNumber(int id, int idCustomer, bool isBilling)
+{
+    _quote->setId(id);
+    _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(idCustomer)+1
+                                : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(idCustomer)+1);
+}
+
 void AddQuoteDialog::updateBtn() {
     ui->btnSave->setEnabled(
                 ((Gui::Widgets::ContributoriesWidget*)ui->wdgContributories)->count() > 0
@@ -115,19 +145,7 @@ void AddQuoteDialog::changeDocType()
     _quote->setIsBilling(!_quote->isBilling());
     _quote->setNumber(_quote->isBilling() ? Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(_idCustomer)+1
                                 : Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(_idCustomer)+1);
-
-    if (_quote->isBilling()) {
-        setWindowTitle("Nouvelle facture " +
-                       QString::number(_quote->getNumber())+ " de " +
-                       Customer(_idCustomer).getCompany());
-        ui->btnDocChange->setText("Changer en devis");
-    } else {
-        setWindowTitle("Nouveau devis " +
-                       QString::number(_quote->getNumber())+ " de "+
-                       Customer(_idCustomer).getCompany());
-        ui->btnDocChange->setText("Changer en facture");
-    }
-
+    fillQuoteBillingCopy(_quote->isBilling());
 }
 }
 }
