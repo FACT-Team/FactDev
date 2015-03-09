@@ -26,7 +26,7 @@ void DatabaseSettingsWidget::fillFields()
     ui->lePort->setText("3306");
 
     emit ui->leDbName->fieldTextChanged(ui->leDbName->text());
-    emit ui->leLogin->fieldTextChanged(ui->leUser->text());
+    emit ui->leLogin->fieldTextChanged(ui->leLogin->text());
     emit ui->leIpAddress->fieldTextChanged(ui->leIpAddress->text());
     emit ui->lePort->fieldTextChanged(ui->lePort->text());
     emit isValid();
@@ -77,8 +77,8 @@ bool DatabaseSettingsWidget::isValid()
 
 void DatabaseSettingsWidget::checkRepeatPassword(QString text)
 {
-    ui->lePasswordRepeat->loginPreviousInputed(ui->leLogin->text());
-    emit ui->leLoginRepeat->fieldTextChanged(text);
+    ui->lePasswordRepeat->passwordPreviousInputed(ui->lePassword->text());
+    emit ui->lePasswordRepeat->fieldTextChanged(text);
     emit isValid();
 }
 
