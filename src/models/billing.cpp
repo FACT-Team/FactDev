@@ -91,8 +91,21 @@ QVariantHash Billing::getDataMap()
 
 void Billing::generateTex()
 {
-    Generator g(":/tpl/billingtpl");
+    Generator::TexGenerator g(":/tpl/billingtpl");
+
+    g.generate(getDataMap(), getPath()+".tex");
+}
+
+void Billing::generatePdf()
+{
+    generateTex();
+    Generator::PdfGenerator g;
+    g.generate(getFolder(), getFilename());
+}
+
+QString Billing::getFolder() {
     QString s,fact;
+
     if (isBilling()) {
         s = "Facture";
         fact = "Factures";
@@ -102,9 +115,17 @@ void Billing::generateTex()
         fact ="Devis";
     }
 
-    g.generate(getDataMap(), _contributories.getCustomer()->getPath()
-               +"/"+fact
-               +"/"+ s +QString::number(getNumber())+".tex");
+    return _contributories.getCustomer()->getPath()
+            +"/"+fact;
+}
+QString Billing::getPath() {
+    return getFolder()+"/"+getFilename();
+}
+
+QString Billing::getFilename()
+{
+
+    return QString::number(getNumber());
 }
 
 bool Billing::operator ==(const Billing &b)

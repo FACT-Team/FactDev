@@ -2,7 +2,9 @@
 
 #include "libs/qt-mustache/src/mustache.h"
 #include <QTextStream>
-#include "generator.h"
+
+#include "generator/texgenerator.h"
+#include "generator/pdfgenerator.h"
 
 Generation::Generation()
 {
@@ -45,16 +47,40 @@ void Generation::testFileTemplate() {
 void Generation::GenerationSimpleBilling() {
     QLocale::setDefault(QLocale(QLocale::French));
 
-    Generator gen(":/tpl/billingtpl");
+    Generator::TexGenerator gen(":/tpl/billingtpl");
     gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
     QVERIFY(QFile("/tmp/test.tex").exists());
 }
 
 
-void Generation::GenerationSimpleBillingWithModel() {
+void Generation::GenerationSimpleTexBillingWithModel() {
+    QLocale::setDefault(QLocale(QLocale::French));
+
+    Billing b(1);
+    b.generateTex();
+//    QVERIFY(QFile(b.getPath()+".tex").exists());
+
+}
+
+void Generation::GenerationBillingPdf() {
     QLocale::setDefault(QLocale(QLocale::French));
 
     Billing b(1);
     b.generateTex();
     QVERIFY(QFile("/tmp/test.tex").exists());
+    Generator::PdfGenerator gen;
+    gen.generate("/tmp/", "test");
+    QVERIFY(QFile("/tmp/test.pdf").exists());
+    QVERIFY(!QFile("/tmp/test.aux").exists());
+    QVERIFY(!QFile("/tmp/test.log").exists());
+}
+
+void Generation::GenerationSimplePdfBillingWithModel() {
+    QLocale::setDefault(QLocale(QLocale::French));
+
+    Billing b(1);
+    b.generatePdf();
+//    QVERIFY(QFile(b.getPath()+".pdf").exists());
+//    QVERIFY(!QFile(b.getPath()+".log").exists());
+//    QVERIFY(!QFile(b.getPath()+".aux").exists());
 }

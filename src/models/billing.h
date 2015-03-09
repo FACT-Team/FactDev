@@ -12,7 +12,8 @@
 #include "models/contributorieslist.h"
 #include "database/contributorydatabase.h"
 
-#include "generator.h"
+#include "generator/texgenerator.h"
+#include "generator/pdfgenerator.h"
 
 namespace Models {
 /**
@@ -67,6 +68,28 @@ public:
      */
     void generateTex();
 
+    /**
+     * @brief generatePdf Generate a .pdf file for the billing
+     */
+    void generatePdf();
+
+    /**
+     * @brief getPath Return the path of billing filename (without extension)
+     * @return
+     */
+    QString getPath();
+
+    /**
+     * @brief getFolder Return the directory of billing
+     * @return
+     */
+    QString getFolder();
+
+    /**
+     * @brief getFilename Return the filename of billing (without extension)
+     * @return
+     */
+    QString getFilename();
     /**
      * @brief Billing::getContributories. Return a map of <b>Contributory</b>
      * for each <b>Project</b> of the <b>Billing</b>

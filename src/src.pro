@@ -67,7 +67,6 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     utils/itemtype.cpp \
     gui/dialogs/messagebox.cpp \
     libs/qt-mustache/src/mustache.cpp \
-    generator.cpp \
     gui/widgets/widgetsmodels/customerstablemodel.cpp \
     gui/widgets/widgetsmodels/projectstablemodel.cpp \
     gui/widgets/widgetsmodels/billingstablemodel.cpp \
@@ -82,7 +81,9 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     utils/hierarchicalsystem.cpp \
     utils/pointers.cpp \
     utils/directories.cpp \
-    gui/docks/searchdock.cpp
+    gui/docks/searchdock.cpp \
+    generator/texgenerator.cpp \
+    generator/pdfgenerator.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -124,7 +125,6 @@ HEADERS  += gui/mainwindow/mainwindow.h \
         utils/itemtype.h \
         gui/widgets/checkfields/icheckfield.h \
         libs/qt-mustache/src/mustache.h \
-        generator.h \
         models/imodel.h \
         gui/widgets/widgetsmodels/customerstablemodel.h \
         gui/widgets/widgetsmodels/projectstablemodel.h \
@@ -172,7 +172,6 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/dialogs/messagebox.h \
     gui/widgets/checkfields/icheckfield.h \
     libs/qt-mustache/src/mustache.h \
-    generator.h \
     models/imodel.h \
     gui/widgets/widgetsmodels/customerstablemodel.h \
     gui/widgets/widgetsmodels/projectstablemodel.h \
@@ -181,7 +180,9 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     utils/hierarchicalsystem.h \
     utils/pointers.h \
     utils/directories.h \
-    gui/docks/searchdock.h
+    gui/docks/searchdock.h \
+    generator/texgenerator.h \
+    generator/pdfgenerator.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

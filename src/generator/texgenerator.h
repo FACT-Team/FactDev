@@ -1,15 +1,17 @@
-#ifndef GENERATOR_H
-#define GENERATOR_H
+#ifndef TEXGENERATOR_H
+#define TEXGENERATOR_H
+
 #include "models/billing.h"
 #include "models/user.h"
 
 #include "libs/qt-mustache/src/mustache.h"
 
-class Generator
+namespace Generator {
+class TexGenerator
 {
 public:
-    Generator(QString tpl);
-    ~Generator();
+    TexGenerator(QString tpl);
+    ~TexGenerator();
 
     void generate(QVariantHash data, QString path);
 
@@ -17,4 +19,5 @@ private:
     QString _tplFile;
 };
 
-#endif // GENERATOR_H
+}
+#endif // TEXGENERATOR_H

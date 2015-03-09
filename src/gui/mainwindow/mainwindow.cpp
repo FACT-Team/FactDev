@@ -228,11 +228,18 @@ void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
 }
 
-void MainWindow::generateTex()
+void MainWindow::openPdf()
 {
     QModelIndex ls = ui->tblQuotes->selectionModel()->selectedRows().first();
     int pid = ui->tblQuotes->model()->data(ls, Qt::DisplayRole).toInt();
-    Billing(pid).generateTex();
+    Billing bill(pid);
+    if(!QFile(bill.getPath()+".pdf").exists()) {
+        bill.generatePdf();
+    }
+    QFileInfo pdf(bill.getPath()+".pdf");
+
+    QDesktopServices::openUrl(QUrl("file:///"+pdf.absoluteFilePath()));
+
 }
 
 void MainWindow::search(QString text)
@@ -572,7 +579,7 @@ void MainWindow::updateButtons()
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);    
-    ui->btnLatex->setEnabled(billingIsSelected);
+    ui->btnPdf->setEnabled(billingIsSelected);
 
     if (billingIsSelected) {
 

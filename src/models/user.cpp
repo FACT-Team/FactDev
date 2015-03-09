@@ -54,7 +54,7 @@ void User::updateFolders()
     QString folder;
     QDir directory;
     Utils::HierarchicalSystem hierarchy;
-/*
+
     path = getWorkspacePath();
     folder = getWorkspaceName();
     directory.setPath(path);
@@ -89,7 +89,7 @@ void User::updateFolders()
         }
         path = getWorkspacePath() + "/" + getWorkspaceName();
         directory.setPath(path);
-    }*/
+    }
 }
 
 void User::hydrat(int id)

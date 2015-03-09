@@ -72,7 +72,6 @@ void BillingModelTest::commitInsert()
     ContributoriesList contributories = Billing(1).getContributories();
     b1->setContributories(contributories);
     b1->commit();
-    //b1->generateTex();
     Billing *b2 = Databases::BillingDatabase::instance()->getBilling(b1->getId());
     QVERIFY(*b1 == *b2);
 }
