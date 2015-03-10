@@ -200,6 +200,13 @@ void MainWindow::editProject() {
     }
 }
 
+void MainWindow::editUser()
+{
+    if (UserDataDialog().exec()) {
+        updateUser();
+    }
+}
+
 void MainWindow::editDoc()
 {
     AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),false);
@@ -257,15 +264,6 @@ void MainWindow::openPdf()
 void MainWindow::search(QString text)
 {
     updateUI(text);
-}
-
-void MainWindow::editUser()
-{
-    UserDataDialog userdialog;
-    if (userdialog.exec()) {
-        updateUser();
-    }
-    updateUI();
 }
 
 void MainWindow::aboutQt()
