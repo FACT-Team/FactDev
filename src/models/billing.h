@@ -17,7 +17,8 @@
 
 namespace Models {
 /**
- * @author
+ * @author Antoine de Roquemaurel
+ * @author Florent Berbie
  * @brief The Billing class : Billing or Quote of a Customer
  */
 class Billing : public IModel
@@ -35,8 +36,8 @@ public:
     Billing(int id);
 
     /**
-      * @brief destruct a billing object
-    */
+     * @brief destruct a billing object
+     */
     ~Billing();
 
     /**
@@ -58,35 +59,36 @@ public:
     void remove();
 
     /**
-     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @brief Billing::getDataMap Get all data of model with a HashMap key/value
      * @return Model's data
      */
     QVariantHash getDataMap();
 
     /**
-     * @brief generateTex Generate a .tex file for the billing
+     * @brief Billing::generateTex Generate a .tex file for the billing
      */
     void generateTex();
 
     /**
-     * @brief generatePdf Generate a .pdf file for the billing
+     * @brief Billing::generatePdf Generate a .pdf file for the billing
      */
     void generatePdf();
 
     /**
-     * @brief getPath Return the path of billing filename (without extension)
-     * @return
+     * @brief Billing::getPath Return the path of billing filename (without
+     * extension)
+     * @return billing path
      */
     QString getPath();
 
     /**
-     * @brief getFolder Return the directory of billing
+     * @brief Billing::getFolder Return the directory of billing
      * @return
      */
     QString getFolder();
 
     /**
-     * @brief getFilename Return the filename of billing (without extension)
+     * @brief Billing::getFilename Return the filename of billing (without extension)
      * @return
      */
     QString getFilename();
@@ -98,7 +100,7 @@ public:
     ContributoriesList &getContributories();
 
     /**
-     * @brief addContributories Add a new contributory for project p
+     * @brief Billing::addContributories Add a new contributory for project p
      * @param p The Project who contain Contributory
      * @param c The new Contributory
      */
