@@ -96,7 +96,7 @@ public slots:
 private:
     Ui::StartedWindowsDialog *ui;
     User* _user;                    //!< User of the software
-    Database::AccessDatabase* _dbAccess;
+    Databases::AccessDatabase* _dbAccess;
 };
 
 }

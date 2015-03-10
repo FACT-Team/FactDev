@@ -12,7 +12,7 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     _user = new User(1);
-    _dbAccess = new Database::AccessDatabase();
+    _dbAccess = new Databases::AccessDatabase();
 
     ui->wdgStack->setCurrentIndex(0);
     ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));

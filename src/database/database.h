@@ -18,6 +18,7 @@
 #include "exceptions/dbexception.h"
 #include "utils/log.h"
 #include "parameters.h"
+#include "database/accessdatabase.h"
 
 using namespace Exceptions;
 using namespace Utils;

@@ -40,6 +40,7 @@ Database::~Database() {
 }
 
 void Database::open() {
+    AccessDatabase dbAccess;
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
 

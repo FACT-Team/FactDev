@@ -1,6 +1,6 @@
 #include "accessdatabase.h"
 
-namespace Database {
+namespace Databases {
 AccessDatabase::AccessDatabase()
 {
     QSettings settings("FACT Team", "FactDev");
@@ -35,12 +35,12 @@ void AccessDatabase::setAddress(const QString &address)
 {
     _address = address;
 }
-int AccessDatabase::getPort() const
+QString AccessDatabase::getPort() const
 {
     return _port;
 }
 
-void AccessDatabase::setPort(int port)
+void AccessDatabase::setPort(QString port)
 {
     _port = port;
 }

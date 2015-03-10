@@ -4,7 +4,7 @@
 #include <QString>
 #include <QSettings>
 
-namespace Database {
+namespace Databases {
 class AccessDatabase
 {
 public:
@@ -15,8 +15,8 @@ public:
     QString getAddress() const;
     void setAddress(const QString &getAddress);
 
-    int getPort() const;
-    void setPort(int getPort);
+    QString getPort() const;
+    void setPort(QString getPort);
 
     QString getUserDb() const;
     void setUserDb(const QString &getUserDb);
@@ -32,7 +32,7 @@ public:
 
 private:
     QString _address;
-    int _port;
+    QString _port;
     QString _userDb;
     QString _password;
     QString _dbName;
