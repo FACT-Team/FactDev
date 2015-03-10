@@ -197,6 +197,19 @@ public:
     QString getNameFolder() const;
 
     /**
+     * @brief Customer::getTurnover Return the turnover of the customer
+     * money that customer pay, revenue sales
+     * @return turnover
+     */
+    double getTurnover() const;
+    /**
+     * @brief Customer::setTurnover Replace the current turnover by <i>turnover</i>
+     * @param turnover new revenue sales of a customer
+     */
+    void setTurnover(const double &turnover);
+
+
+    /**
      * @brief Customer::operator == Re-define the operator "==" to compare if
      * the current customer is the same to the other <b>Customer</b> <i>c</i>
      * Return TRUE if both customers are the same, else FALSE
@@ -227,6 +240,7 @@ private:
     QString _mobilePhone;       //!< Mobile phone number of the customer
     QString _phone;             //!< Phone number of the customer
     QString _fax;               //!< Fax number of the customer
+    double  _turnover;          //!< Turnover/revenue of the customer
 };
 }
 #endif // CUSTOMER_H

@@ -27,13 +27,11 @@ public:
      * @brief Billing::Billing. Construct a Billing.
      */
     Billing();
-
     /**
      * @brief Billing::Billing. Construct a Billing or quote.
      * @param int id
      */
     Billing(int id);
-
     /**
       * @brief destruct a billing object
     */

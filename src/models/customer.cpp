@@ -201,4 +201,13 @@ void Customer::setCountry(const QString &country)
     _country = country;
 }
 
+double Customer::getTurnover() const
+{
+    return _turnover;
+}
+
+void Customer::setTurnover(const double &turnover)
+{
+    _turnover = turnover;
+}
 }
