@@ -32,8 +32,8 @@ QVariant Gui::Widgets::WdgModels::CustomersTableModel::data(
     switch (index.column()) {
     case 0: return customer.getId();
     case 1: return customer.getCompany();
-    case 2: return customer.getLastnameReferent();
-    case 3: return customer.getFirstnameReferent();
+    case 2: return customer.getLastname();
+    case 3: return customer.getFirstname();
     case 4: return customer.getPhone();
     case 5: return customer.getEmail();
     default: return QVariant();
@@ -74,10 +74,10 @@ bool Gui::Widgets::WdgModels::CustomersTableModel::setData(
             _customers[index.row()].setCompany(value.toString());
             break;
         case 2:
-            _customers[index.row()].setLastnameReferent(value.toString());
+            _customers[index.row()].setLastname(value.toString());
             break;
         case 3:
-            _customers[index.row()].setFirstnameReferent(value.toString());
+            _customers[index.row()].setFirstname(value.toString());
             break;
         case 4:
             _customers[index.row()].setPhone(value.toString());

@@ -10,8 +10,8 @@ CustomerModelTest::CustomerModelTest()
     c1.setCountry("France");
     c1.setEmail("coucou@truc.fr");
     c1.setFax("0102030405");
-    c1.setFirstnameReferent("John");
-    c1.setLastnameReferent("Doe");
+    c1.setFirstname("John");
+    c1.setLastname("Doe");
     c1.setId(42);
     c1.setMobilePhone("02030405");
     c1.setPhone("03040506");
@@ -23,8 +23,8 @@ CustomerModelTest::CustomerModelTest()
     c2.setCountry("France");
     c2.setEmail("coucou@truc.fr");
     c2.setFax("0102030405");
-    c2.setFirstnameReferent("John");
-    c2.setLastnameReferent("Doe");
+    c2.setFirstname("John");
+    c2.setLastname("Doe");
     c2.setId(42);
     c2.setMobilePhone("02030405");
     c2.setPhone("03040506");
@@ -68,8 +68,8 @@ void CustomerModelTest::commitUpdate()
 void CustomerModelTest::hydrat()
 {
     Customer c2 = Customer(1);
-    c1.setFirstnameReferent("Jonah");
-    c1.setLastnameReferent("Boyle");
+    c1.setFirstname("Jonah");
+    c1.setLastname("Boyle");
     c1.setCompany("Sit Amet Ornare Consulting");
     c1.setAddress("P.O. Box 592, 3094 Vel Rd.");
     c1.setPostalCode("9924BN");

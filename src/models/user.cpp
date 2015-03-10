@@ -32,14 +32,14 @@ QVariantHash User::getDataMap()
 {
     QVariantHash data;
 
-    data["firstName"] = getFirstname();
-    data["lastName"] = getLastname();
-    data["title"] = getTitle();
-    data["address"] = getAddress();
-    data["postalCode"] = getPostalCode();
-    data["city"] = getCity();
-    data["phone"] = getPhone();
-    data["email"] = getEmail();
+    data["firstName"]   = getFirstname();
+    data["lastName"]    = getLastname();
+    data["title"]       = getTitle();
+    data["address"]     = getAddress();
+    data["postalCode"]  = getPostalCode();
+    data["city"]        = getCity();
+    data["phone"]       = getPhone();
+    data["email"]       = getEmail();
 
     return data;
 }

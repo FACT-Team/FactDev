@@ -22,8 +22,8 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
 }
 
 void DialogAddCustomer::fillFields() {
-    ui->leLastNameReferent->setText(_custom->getLastnameReferent());
-    ui->leFirstNameReferent->setText(_custom->getFirstnameReferent());
+    ui->leLastNameReferent->setText(_custom->getLastname());
+    ui->leFirstNameReferent->setText(_custom->getFirstname());
     ui->leCompany->setText(_custom->getCompany());
     ui->leAddress->setText(_custom->getAddress());
     ui->leCity->setText(_custom->getCity());
@@ -37,8 +37,8 @@ void DialogAddCustomer::fillFields() {
 
 void DialogAddCustomer::accept() {
 
-    _custom->setLastnameReferent(ui->leLastNameReferent->text());
-    _custom->setFirstnameReferent(ui->leFirstNameReferent->text());
+    _custom->setLastname(ui->leLastNameReferent->text());
+    _custom->setFirstname(ui->leFirstNameReferent->text());
     _custom->setCompany(ui->leCompany->text());
     _custom->setAddress(ui->leAddress->text());
     _custom->setCity(ui->leCity->text());

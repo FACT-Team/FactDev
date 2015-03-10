@@ -78,7 +78,7 @@ void MainWindow::addCustomer()
 {
     if (DialogAddCustomer().exec()) { // accept
         ui->stackedWidget->setCurrentIndex(0);
-        updateUI();
+        updateTableCustomers();
     }
 }
 
@@ -466,6 +466,7 @@ void MainWindow::updateUI(QString filter)
     Utils::pointers::deleteIfNotNull(ui->tblProjects->model());
     updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row());
 
+    Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     updateTableBillings(getCurrentProjectId(), ui->tblQuotes->currentIndex().row());
 
     Utils::pointers::deleteIfNotNull(ui->trCustomers->model());

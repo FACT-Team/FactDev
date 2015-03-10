@@ -183,8 +183,8 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
     QSharedPointer<Models::Customer> customer =
             QSharedPointer<Models::Customer>(new Models::Customer());
     customer->setId(value(q, "cidCustomer").toInt());
-    customer->setFirstnameReferent(value(q,"cfirstnameReferent").toString());
-    customer->setLastnameReferent(value(q,"clastnameReferent").toString());
+    customer->setFirstname(value(q,"cfirstnameReferent").toString());
+    customer->setLastname(value(q,"clastnameReferent").toString());
     customer->setCompany(value(q,"ccompany").toString());
     customer->setAddress(value(q,"caddress").toString());
     customer->setPostalCode(value(q,"cpostalCode").toString());
@@ -200,8 +200,8 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 
 void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
 {
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstname());
+    q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
@@ -255,8 +255,8 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
                 ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
                 );
 
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstname());
+    q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
@@ -290,8 +290,8 @@ void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
                 "WHERE idCustomer=:idCustomer");
 
     q.bindValue(":idCustomer", pCustomer.getId());
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstname());
+    q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
