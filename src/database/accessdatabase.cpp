@@ -4,14 +4,14 @@ namespace Databases {
 AccessDatabase::AccessDatabase()
 {
     QSettings settings("FACT Team", "FactDev");
-    if(!settings.value("externalDbExists", false)) {
+    if(!settings.value("externalDbExists", false).toBool()) {
         _exists = false;
     } else {
-        _address = settings.value("address");
-        _port = settings.value("port");
-        _userDb = settings.value("userDb");
-        _password = settings.value("password");
-        _dbName = settings.value("dbName");
+        _address = settings.value("address").toString();
+        _port = settings.value("port").toInt();
+        _userDb = settings.value("userDb").toString();
+        _password = settings.value("password").toString();
+        _dbName = settings.value("dbName").toString();
     }
 }
 
@@ -35,12 +35,12 @@ void AccessDatabase::setAddress(const QString &address)
 {
     _address = address;
 }
-QString AccessDatabase::getPort() const
+int AccessDatabase::getPort() const
 {
     return _port;
 }
 
-void AccessDatabase::setPort(QString port)
+void AccessDatabase::setPort(int port)
 {
     _port = port;
 }

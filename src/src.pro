@@ -222,15 +222,16 @@ RESOURCES += \
 
 OTHER_FILES += \
         sql/removetable.sql \
-        sql/createtables.sql\
+        sql/sqlite/createtables.sql\
+        sql/mysql/createtables.sql\
         sql/tests/customers.sql \
-    sql/tests/user.sql \
-    sql/tests/billings.sql \
-    sql/tests/billingsprojects.sql \
-    sql/tests/contributories.sql \
-    sql/tests/projects.sql \
-    main.dox \
-    billing.tpl\
+        sql/tests/user.sql \
+        sql/tests/billings.sql \
+        sql/tests/billingsprojects.sql \
+        sql/tests/contributories.sql \
+        sql/tests/projects.sql \
+        main.dox \
+        billing.tpl\
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql \

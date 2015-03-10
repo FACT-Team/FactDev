@@ -115,7 +115,7 @@ void StartedWindowsDialog::accept() {
     _dbAccess->setAddress(ui->wdgDbType->getDomainNameOrIP());
     _dbAccess->setDbName(ui->wdgDbType->getDatabaseName());
     _dbAccess->setPassword(ui->wdgDbType->getPassword());
-    _dbAccess->setPort(ui->wdgDbType->getPort());
+    _dbAccess->setPort(ui->wdgDbType->getPort().toInt());
     _dbAccess->setUserDb(ui->wdgDbType->getLogin());
     _dbAccess->setExists(true);
     _user->commit();

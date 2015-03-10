@@ -1,3 +1,11 @@
+DROP TABLE Users;
+DROP TABLE BillingProject;
+DROP TABLE Billing;
+DROP TABLE Contributory;
+DROP TABLE Project;
+DROP TABLE Customers;
+DROP TABLE BillingRate;
+
 CREATE TABLE Customer
 (
     idCustomer INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -61,7 +69,7 @@ CREATE TABLE BillingRate
     idBilling INTEGER,
     idProject INTEGER,
     hourlyRate DOUBLE,
-    PRIMARY KEY(idBilling, idProject)
+    PRIMARY KEY(idBilling, idProject),
     FOREIGN KEY (idBilling) REFERENCES Billing(idBilling),
     FOREIGN KEY (idProject) REFERENCES Project(idProject)
 );

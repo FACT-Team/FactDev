@@ -24,8 +24,13 @@ void Database::close() {
 }
 
 Database::Database() throw(DbException*) {
+    AccessDatabase dbAccess;
     if(!isOpen) {
-        mDatabase = QSqlDatabase::addDatabase("QSQLITE");
+        if(dbAccess.exists() || true) {
+            mDatabase = QSqlDatabase::addDatabase("QMYSQL");
+        } else {
+            mDatabase = QSqlDatabase::addDatabase("QSQLITE");
+        }
         open();
         isOpen = true;
     }
@@ -44,43 +49,63 @@ void Database::open() {
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
 
-    _settings = new QSettings("FACT", "FactDev");
-    _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
-
-    if(!QFile::exists(
-                _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
+    if(!dbAccess.exists() && false)
     {
-        creerStructure = true;
-        _settings->setValue("version", 0);
-    }
-    Database::mDatabase.setDatabaseName(
-                _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+        _settings = new QSettings("FACT", "FactDev");
+        _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
 
-    if(!Database::mDatabase.open()) {
-        mDatabase.close();
-        mDatabase = QSqlDatabase::database();
-        Database::mDatabase.setDatabaseName(
-                    _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+        if(!QFile::exists(
+                    _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
+        {
+            creerStructure = true;
+            _settings->setValue("version", 0);
+        }
+        Database::mDatabase.setDatabaseName(_settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
 
         if(!Database::mDatabase.open()) {
-            throw new DbException(
-                        "Impossible d'ouvrir la base de données",
-                        "Database::Database",
-                        "Impossible d'ouvrir la base de données",
-                        22.1);
-            exit(22);
+            mDatabase.close();
+            mDatabase = QSqlDatabase::database();
+            Database::mDatabase.setDatabaseName(
+                        _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME);
+
+            if(!Database::mDatabase.open()) {
+                throw new DbException(
+                            "Impossible d'ouvrir la base de données",
+                            "Database::Database",
+                            "Impossible d'ouvrir la base de données",
+                            22.1);
+                exit(22);
+            }
         }
+
+        QSqlQuery query;
+        query.exec("PRAGMA auto_vacuum=FULL");
+        query.exec("PRAGMA synchronous=OFF");
+        query.exec("PRAGMA journal_mode=MEMORY");
+        query.exec("PRAGMA default_cache_size=10000");
+        query.exec("PRAGMA locking_mode=EXCLUSIVE");
+        executeFile(QCoreApplication::applicationDirPath()+"/sql/mysql/createtables.sql");
+    } else {
+        mDatabase.setHostName(dbAccess.getAddress());
+        mDatabase.setDatabaseName(dbAccess.getDbName());
+        mDatabase.setUserName(dbAccess.getUserDb());
+        mDatabase.setPassword(dbAccess.getPassword());
+        mDatabase.setPort(dbAccess.getPort());
+        if(!Database::mDatabase.open()) {
+            if(!Database::mDatabase.open()) {
+                throw new DbException(
+                            "Impossible d'ouvrir la base de données",
+                            "Database::Database",
+                            "Impossible d'ouvrir la base de données",
+                            22.1);
+                exit(22);
+            }
+
+        }
+        executeFile(QCoreApplication::applicationDirPath()+"/sql/mysql/createtables.sql");
+        creerStructure = true;
     }
-
-    QSqlQuery query;
-    query.exec("PRAGMA auto_vacuum=FULL");
-    query.exec("PRAGMA synchronous=OFF");
-    query.exec("PRAGMA journal_mode=MEMORY");
-    query.exec("PRAGMA default_cache_size=10000");
-    query.exec("PRAGMA locking_mode=EXCLUSIVE");
     if(creerStructure) {
-        createDatabase();
-
 #ifndef QT_NO_DEBUG
         testCases();
 #endif
@@ -90,7 +115,7 @@ void Database::open() {
 void Database::updateBillingNumber()
 {
     QSqlQuery q;
-    q.prepare("UPDATE billing set number=:number, isBilling=:isBilling where idBilling=:id");
+    q.prepare("UPDATE Billing set number=:number, isBilling=:isBilling where idBilling=:id");
     for(int i = 1 ; i < 60 ; ++i) {
         q.bindValue(":id", i);
         q.bindValue(":number", i%(60/2));
@@ -116,10 +141,6 @@ inline void Database::testCases() {
 
 inline void Database::cleanDatabase() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/cleardatabase.sql");
-}
-
-inline void Database::createDatabase() {
-    executeFile(QCoreApplication::applicationDirPath()+"/sql/createtables.sql");
 }
 
 void Database::executeFile(QString pName) {

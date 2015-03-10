@@ -15,8 +15,8 @@ public:
     QString getAddress() const;
     void setAddress(const QString &getAddress);
 
-    QString getPort() const;
-    void setPort(QString getPort);
+    int getPort() const;
+    void setPort(int getPort);
 
     QString getUserDb() const;
     void setUserDb(const QString &getUserDb);
@@ -32,7 +32,7 @@ public:
 
 private:
     QString _address;
-    QString _port;
+    int _port;
     QString _userDb;
     QString _password;
     QString _dbName;
