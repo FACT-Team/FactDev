@@ -324,6 +324,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="btnCopyDoc">
+              <property name="text">
+               <string>Copier le document</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="btnBillingIsPaid">
               <property name="text">
                <string>Payée</string>
@@ -1088,7 +1095,7 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>510</x>
+     <x>411</x>
      <y>542</y>
     </hint>
     <hint type="destinationlabel">
@@ -1104,7 +1111,7 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>618</x>
+     <x>525</x>
      <y>529</y>
     </hint>
     <hint type="destinationlabel">
@@ -1193,6 +1200,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnCopyDoc</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>copyDoc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>645</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>666</x>
+     <y>643</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addCustomer()</slot>
@@ -1227,5 +1250,6 @@
   <slot>updateButtons()</slot>
   <slot>openPdf()</slot>
   <slot>billingIsPaid()</slot>
+  <slot>copyDoc()</slot>
  </slots>
 </ui>

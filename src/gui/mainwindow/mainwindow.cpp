@@ -200,7 +200,7 @@ void MainWindow::editProject() {
 
 void MainWindow::editDoc()
 {
-    AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId());
+    AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),false);
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
@@ -226,6 +226,16 @@ void MainWindow::removeProject() {
 
 void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
+}
+
+void MainWindow::copyDoc()
+{
+    AddQuoteDialog copyDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),true);
+
+    if (copyDocDialog.exec()) {
+        updateTableBillings(getCurrentProjectId());
+        updateTree();
+    }
 }
 
 void MainWindow::openPdf()
@@ -580,6 +590,7 @@ void MainWindow::updateButtons()
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);    
     ui->btnPdf->setEnabled(billingIsSelected);
+    ui->btnCopyDoc->setEnabled(billingIsSelected);
 
     if (billingIsSelected) {
 
@@ -591,6 +602,8 @@ void MainWindow::updateButtons()
         ui->btnEditDoc->setIcon(QIcon(":icons/img/add_"+iconButton));
         ui->btnRemoveDoc->setText("Supprimer "+textButton);
         ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_"+iconButton));
+        ui->btnCopyDoc->setText("Copier "+textButton);
+        ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png" : ":icons/img/copy_quote"));
 
         if ( isBillingPaid || !b.isBilling()) {
             ui->btnBillingIsPaid->setEnabled(false);
