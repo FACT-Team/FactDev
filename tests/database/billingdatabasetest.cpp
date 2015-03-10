@@ -1,6 +1,7 @@
 #include "billingdatabasetest.h"
 #include "database/billingdatabase.h"
 
+
 BillingDatabaseTest::BillingDatabaseTest()
 {
 }
@@ -120,6 +121,51 @@ void BillingDatabaseTest::getMaxBillingNumber()
 
 void BillingDatabaseTest::getMaxQuoteNumber()
 {
-     QCOMPARE(51, Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+    QCOMPARE(51, Databases::BillingDatabase::instance()->getMaxQuoteNumber());
+}
+
+void BillingDatabaseTest::getMaxBillingNumberOfCustomer()
+{
+    //client 17
+    QCOMPARE(5, Databases::BillingDatabase::instance()->getMaxBillingNumberOfCustomer(17));
+}
+
+void BillingDatabaseTest::getMaxQuoteNumberOfCustomer()
+{
+    QCOMPARE(4, Databases::BillingDatabase::instance()->getMaxQuoteNumberOfCustomer(17));
+
+}
+
+void BillingDatabaseTest::getBilling()
+{
+    QSqlQuery q;
+
+    q.prepare("SELECT idBilling, title, description, number,"
+              "isBilling, date, isPaid "
+              "FROM Billing "
+              "WHERE idBilling = :idBilling ");
+
+    q.bindValue(":idBilling",1);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer les Factures/Devis",
+                    "BddCustomer::getBillingsTable",
+                    "Databases::Database::lastError(q)",
+                    1.3);
+    }
+
+    q.first();
+
+    Billing b = *Databases::BillingDatabase::instance()->getBilling(q);
+
+    QVERIFY(b.getId() == 1
+            && b.getTitle() == "Coucou"
+            && b.getDescription() == "Mon super devis de la mort qui rox du poulet"
+            && b.getNumber() == 1
+            && b.getDate().year() == 2015
+            && b.getDate().day() == 13
+            && b.getDate().month() == 2
+            && b.isPaid() == 1);
+
 }
 

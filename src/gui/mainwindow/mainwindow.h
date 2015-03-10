@@ -187,6 +187,12 @@ public slots:
     void removeDoc();
 
     /**
+     * @brief MainWindow::copyDoc Copy all elements of a quote or a bill and
+     * Display these elements in a new quote or bill
+     */
+    void copyDoc();
+
+    /**
      * @brief MainWindow::editQuote Edit the qupte or
      */
     //void editQuote();

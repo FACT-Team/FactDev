@@ -140,7 +140,7 @@ throw(DbException*)
 
 QStandardItem *CustomerDatabase::getItemRoot() {
     QStandardItem* itemRoot = new QStandardItem("Tous les clients");
-    itemRoot->setIcon(QIcon(":icons/customer"));
+    itemRoot->setIcon(QIcon(":icons/img/all_customers.png"));
     return itemRoot;
 }
 

@@ -21,6 +21,16 @@
    <item row="9" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
+      <widget class="QPushButton" name="btnDocChange">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Changer</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -153,8 +163,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1034</x>
-     <y>584</y>
+     <x>1051</x>
+     <y>576</y>
     </hint>
     <hint type="destinationlabel">
      <x>1211</x>
@@ -170,7 +180,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1137</x>
-     <y>584</y>
+     <y>576</y>
     </hint>
     <hint type="destinationlabel">
      <x>1490</x>
@@ -178,9 +188,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnDocChange</sender>
+   <signal>released()</signal>
+   <receiver>AddQuoteDialog</receiver>
+   <slot>changeDocType()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>561</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>contributoriesChanged()</signal>
   <slot>updateBtn()</slot>
+  <slot>changeDocType()</slot>
  </slots>
 </ui>

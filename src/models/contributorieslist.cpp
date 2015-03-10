@@ -174,6 +174,15 @@ void ContributoriesList::setIdBilling(int idBilling)
 {
     _idBilling = idBilling;
 }
+
+void ContributoriesList::setAllIdContributories(int idContributory)
+{
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
+        for (Contributory &c : (*this)[pair])
+            c.setId(idContributory);
+    }
+}
+
 bool ContributoriesList::getInsert() const
 {
     return _insert;

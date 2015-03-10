@@ -86,6 +86,11 @@
         <file>img/coffee_level4.png</file>
         <file>img/coffee_ready.png</file>
         <file>img/img32/ok_pay.png</file>
+        <file>img/bill_to_quote.png</file>
+        <file>img/all_customers.png</file>
+        <file>img/copy_bill.png</file>
+        <file>img/copy_quote.png</file>
+        <file>img/quote_to_bill.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>
