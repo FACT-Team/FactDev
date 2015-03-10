@@ -4,6 +4,7 @@
 #include <QString>
 #include <QSettings>
 
+namespace Database {
 class AccessDatabase
 {
 public:
@@ -39,5 +40,5 @@ private:
     bool _exists;
 
 };
-
+}
 #endif // ACCESSDATABASE_H

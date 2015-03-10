@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "models/user.h"
-
+#include "database/accessdatabase.h"
 namespace Ui {
 class StartedWindowsDialog;
 }
@@ -96,6 +96,7 @@ public slots:
 private:
     Ui::StartedWindowsDialog *ui;
     User* _user;                    //!< User of the software
+    Database::AccessDatabase* _dbAccess;
 };
 
 }

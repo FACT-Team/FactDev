@@ -12,6 +12,7 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     _user = new User(1);
+    _dbAccess = new Database::AccessDatabase();
 
     ui->wdgStack->setCurrentIndex(0);
     ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));
@@ -22,6 +23,8 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
 
 StartedWindowsDialog::~StartedWindowsDialog()
 {
+    delete _user;
+    delete _dbAccess;
     delete ui;
 }
 
@@ -109,7 +112,14 @@ void StartedWindowsDialog::accept() {
     _user->setMobilePhone(ui->leMobile->text());
     _user->setNoSiret(ui->leNoSiret->text());
 
+    _dbAccess->setAddress(ui->wdgDbType->getDomainNameOrIP());
+    _dbAccess->setDbName(ui->wdgDbType->getDatabaseName());
+    _dbAccess->setPassword(ui->wdgDbType->getPassword());
+    _dbAccess->setPort(ui->wdgDbType->getPort());
+    _dbAccess->setUserDb(ui->wdgDbType->getLogin());
+    _dbAccess->setExists(true);
     _user->commit();
+    _dbAccess->commit();
 
     QDialog::accept();
 }

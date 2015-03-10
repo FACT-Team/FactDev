@@ -1,5 +1,6 @@
 #include "accessdatabase.h"
 
+namespace Database {
 AccessDatabase::AccessDatabase()
 {
     QSettings settings("FACT Team", "FactDev");
@@ -17,7 +18,7 @@ AccessDatabase::AccessDatabase()
 void AccessDatabase::commit()
 {
     QSettings settings("FACT Team", "FactDev");
-    settings.setValue("externalDbExists", true);
+    settings.setValue("externalDbExists", _exists);
     settings.setValue("address", _address);
     settings.setValue("port", _port);
     settings.setValue("userDb", _userDb);
@@ -80,7 +81,7 @@ void AccessDatabase::setExists(bool exists)
     _exists = exists;
 }
 
-
+}
 
 
 
