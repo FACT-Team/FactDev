@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>780</width>
-    <height>420</height>
+    <height>456</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -64,7 +64,7 @@
    <item row="0" column="2">
     <widget class="QStackedWidget" name="wdgStack">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -439,14 +439,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkemail.h</header>
@@ -482,6 +474,14 @@
    <class>Gui::Widgets::CheckFields::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
