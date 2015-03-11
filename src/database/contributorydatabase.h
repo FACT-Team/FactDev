@@ -17,7 +17,8 @@ namespace Databases {
 
 /**
  * @author @Oxynos
- * @brief The <b>ContributoryDatabase</b> class Contributory (or Quote) table database
+ * @brief The <b>ContributoryDatabase</b> class Contributory (or Quote) table
+ * database
  * @see Database
  * @see Contributory/Quote
  */
@@ -81,12 +82,13 @@ public:
      * @param projectId
      * @return The contributories list by project and billing
      */
-    Models::ContributoriesList getContributoriesByBillingAndProject(const int billingId,
-                                                                    const int projectId);
+    Models::ContributoriesList getContributoriesByBillingAndProject(
+            const int billingId, const int projectId);
 
 
 private:
-    static ContributoryDatabase* _instance;  //!< Singleton instance of ContributoryDatabase
+    //!< Singleton instance of ContributoryDatabase
+    static ContributoryDatabase* _instance;
 
     /**
      * @brief <b>ContributoryDatabase</b> is a singleton

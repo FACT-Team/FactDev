@@ -68,8 +68,9 @@ public:
      * @param txt Text inside the current window
      */
     void setText(QString txt);
+
 private:
-    Ui::MessageBox *ui;
+    Ui::MessageBox *ui; //!< User interface
 };
 }
 }
