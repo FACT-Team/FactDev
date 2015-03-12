@@ -193,11 +193,11 @@ public slots:
     void copyDoc();
 
     /**
-     * @brief MainWindow::editQuote Edit the qupte or
+     * @brief MainWindow::openPdf Open the PDF file of the current Quote or
+     * Billing selected in the TableView
      */
-    //void editQuote();
-
     void openPdf();
+
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu
@@ -253,10 +253,17 @@ private slots:
      * @return QModelIndex
      */
     QModelIndex findParent();
-    //void quotesProject();
 
 private:
+    /**
+     * @brief MainWindow::setupUi Set up of the User interface
+     */
     void setupUi();
+
+    /**
+     * @brief MainWindow::setupSignalsSlots Set up Signals slots of the User
+     * interface
+     */
     void setupSignalsSlots();
     /**
      * @brief MainWindow::updateUI Update all components of the
@@ -311,8 +318,8 @@ private:
      */
     int getCurrentTableId(QTableView *tbl);
 
-    Ui::MainWindow *ui; //!< ui
-    Docks::SearchDock* _searchDock;
+    Ui::MainWindow *ui;             //!< User interface
+    Docks::SearchDock* _searchDock; //!< Search dock of the user interface
 };
 }
 #endif // MAINWINDOW_H

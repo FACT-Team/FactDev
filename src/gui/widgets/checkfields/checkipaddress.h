@@ -23,9 +23,10 @@ public:
     CheckIpAddress(QWidget* w = 0, QPushButton* btn=0);
 
     /**
-     * @brief CheckFieldsNumbers::check Check if the field contains only numbers
-     * @param text
-     * @return boolean
+     * @brief CheckIpAddress::check Check if the field contains an IP address
+     * or domain name valid
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(QString text);
 };

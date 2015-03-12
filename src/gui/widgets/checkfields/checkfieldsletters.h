@@ -20,8 +20,8 @@ public:
 
     /**
      * @brief CheckFieldsLetters::check Check if the field contains only letters
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(QString text);
 };
