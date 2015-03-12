@@ -8,16 +8,40 @@ namespace Gui {
 namespace Widgets {
 namespace Delegates {
 
+/**
+ * @brief The UnitComboDelegate class
+ */
 class UnitComboDelegate : public ComboBoxDelegate
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief UnitComboDelegate::UnitComboDelegate
+     * @param parent
+     */
     UnitComboDelegate(QObject* parent=0);
 
+    /**
+     * @brief UnitComboDelegate::createEditor
+     * @param parent
+     * @param option
+     * @param index
+     * @return
+     */
+    QWidget *createEditor(QWidget *parent,
+                          const QStyleOptionViewItem &option,
+                          const QModelIndex &index) const;
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    /**
+     * @brief UnitComboDelegate::paint
+     * @param painter
+     * @param option
+     * @param index
+     */
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const;
 
 };
 

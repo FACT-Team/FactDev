@@ -38,7 +38,7 @@ public:
     void setCountry(const QString &country);
 
 private :
-    QString _country;
+    QString _country;   //!< Country of the textfield
 };
 }
 }

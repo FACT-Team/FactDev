@@ -19,8 +19,8 @@ public:
 
     /**
      * @brief CheckValidField::check Return TRUE : the field is not required
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(QString text);
 };
