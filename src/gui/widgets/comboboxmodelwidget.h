@@ -17,19 +17,23 @@ namespace Gui {
  */
 namespace Widgets {
 /**
- * @brief The ComboBoxModelWidget class
+ * @brief The ComboBoxModelWidget class Model of ComboBox
  */
 class ComboBoxModelWidget : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief ComboBoxModelWidget::ComboBoxModelWidget Construct a
+     * ComboBoxModelWidget
+     * @param parent QWidget parent
+     */
     explicit ComboBoxModelWidget(QWidget *parent = 0);
     ~ComboBoxModelWidget();
 
 private:
-    //CustomerDatabase customerData;
-    Ui::ComboBoxModelWidget *ui;
+    Ui::ComboBoxModelWidget *ui;    //!< User interface
 };
 }
 }

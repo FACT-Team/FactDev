@@ -22,51 +22,102 @@ class ContributoriesWidget;
 
 namespace Gui {
 namespace Widgets {
+/**
+ * @brief The ContributoriesWidget class Widget of Contributories
+ */
 class ContributoriesWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ContributoriesWidget(QSharedPointer<Customer> c, QWidget *parent = 0);
+    /**
+     * @brief ContributoriesWidget::ContributoriesWidget Construct a
+     * ContributoriesWidget
+     * @param c Customer
+     * @param parent Widget parent
+     */
+    explicit ContributoriesWidget(
+            QSharedPointer<Customer> c, QWidget *parent = 0);
     ~ContributoriesWidget();
 
     /**
-     * @brief getContributories Get contributories List
-     * @return
+     * @brief ContributoriesWidget::getContributories Get contributories List
+     * @return ContributoriesList
      */
     ContributoriesList* getContributories() const;
+    /**
+     * @brief ContributoriesWidget::count Numbers of contributories
+     * @return Numbers of contributories
+     */
     int count();
 
     /**
-     * @brief add Add the Contributory <i>c</i> in the model
-     * @param c the <b>Contributory</b>
+     * @brief ContributoriesWidget::add Add contributorieslist <i>list</i> in
+     * the model
+     * @param list the <b>ContributoriesList</b>
      */
     void add(ContributoriesList &list);
 public slots:
     /**
-     * @brief add Add a new empty contributory
+     * @brief ContributoriesWidget::add Add a new empty contributory
      */
     void add(void);
 
     /**
-     * @brief remove Remove the current contributory
+     * @brief ContributoriesWidget::remove Remove the current contributory
      */
     void remove(void);
 
+    /**
+     * @brief ContributoriesWidget::addProject Add a Projet and it rate <i>p</i>
+     * @param p Rate linked to Project
+     */
     void addProject(QPair<Project *, Rate> *p=0);
+
+    /**
+     * @brief ContributoriesWidget::removeProject Remove the current Project
+     */
     void removeProject(void);
+
+    /**
+     * @brief ContributoriesWidget::changeProject Change the current Project
+     */
     void changeProject(void);
+
+    /**
+     * @brief ContributoriesWidget::editing Remove the current Project in the
+     * combobox not used
+     */
     void editing(void);
+
+    /**
+     * @brief ContributoriesWidget::updateUi Update the User Interface
+     */
     void updateUi(void);
+
+    /**
+     * @brief ContributoriesWidget::updatePrice Update total price
+     */
     void updatePrice(void);
 
 signals:
+    /**
+     * @brief ContributoriesWidget::contributoryChanged Signal that a
+     * contributory has changed
+     */
     void contributoryChanged();
 private:
-    Ui::ContributoriesWidget *ui;
+    Ui::ContributoriesWidget *ui;   //!< User interface
+    //!< Model of contributories
     QList<WdgModels::ContributoriesTableModel*> _modelsContributories;
+
+    //!< Model of contributories to removed
     QList<WdgModels::ContributoriesTableModel*> _modelsContributoriesToRemoved;
-    Gui::Widgets::WdgModels::ProjectContributoriesTableModel* _modelProjects;
+
+    //!< Model of Projects
+    WdgModels::ProjectContributoriesTableModel* _modelProjects;
+
+    //!< Customer
     QSharedPointer<Customer> _customer;
 };
 }
