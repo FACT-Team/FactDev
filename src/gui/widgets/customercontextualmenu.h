@@ -13,13 +13,14 @@ class CustomerContextualMenu : public QMenu
 {
 public:
     /**
-     * @brief CustomerContextualMenu Construct a new contextual menu
+     * @brief CustomerContextualMenu::CustomerContextualMenu Construct a new
+     * contextual menu
      * @param w Parent
      */
     CustomerContextualMenu(QWidget* w=0);
 
     /**
-      @brief Destruct the contextual menu
+      @brief CustomerContextualMenu::Destruct the contextual menu
       */
     ~CustomerContextualMenu();
 

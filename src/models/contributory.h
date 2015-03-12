@@ -17,7 +17,8 @@ public:
     Contributory();
 
     /**
-     * @brief Contributory::Contributory Contruct a Contributory and get data in database
+     * @brief Contributory::Contributory Contruct a Contributory and get data in
+     *  database
      * @param id Contributory's id
      */
     Contributory(int id);

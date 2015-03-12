@@ -17,7 +17,8 @@ class Popup
 {
 public:
     /**
-     * @brief Popup::toImplement Method to display a critical message : feature is not implemented now.
+     * @brief Popup::toImplement Method to display a critical message : feature
+     * is not implemented now.
      */
     static void toImplement(QString, QWidget*);
 };

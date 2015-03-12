@@ -40,7 +40,9 @@ void CustomerDataWidget::printInformations(int id)
     show();
     Customer *custom = new Customer(id);
     setLabel(ui->lbCompany, custom->getCompany());
-    setLabel(ui->lbName, custom->getLastnameReferent()+ " " + custom->getFirstnameReferent());
+    setLabel(ui->lbName,
+             custom->getLastnameReferent()
+             + " " + custom->getFirstnameReferent());
     setLabel(ui->lbPhone, custom->getPhone(), ui->lbTitlePhone);
     setLabel(ui->lbMobilePhone, custom->getMobilePhone(), ui->lbTitleMobile);
     setLabel(ui->lbEmail, "<a href=\"mailto:" + custom->getEmail() + "\">"
