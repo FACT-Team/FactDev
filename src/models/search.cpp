@@ -54,7 +54,8 @@ QString Search::getFilter()
     return filter;
 }
 
-void Search::filterOnVarcharElements(QString &filter, const QStringList list, QString element)
+void Search::filterOnVarcharElements(
+        QString &filter, const QStringList list, QString element)
 {
     filter += "OR "+ element + " LIKE '%";
         for (QString str: list) {
@@ -66,7 +67,8 @@ void Search::filterOnVarcharElements(QString &filter, const QStringList list, QS
 
 }
 
-void Search::filterOnNumberElements(QString &filter, const QStringList list, QString element)
+void Search::filterOnNumberElements(
+        QString &filter, const QStringList list, QString element)
 {
     QRegExp numberRgx("[0-9]{1,}");
     numberRgx.setCaseSensitivity(Qt::CaseInsensitive);
@@ -116,7 +118,8 @@ void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)
     filter +=   ")";
 }
 
-void Search::filterOnCustomersWithoutProject(QString &filter, const QStringList list)
+void Search::filterOnCustomersWithoutProject(
+        QString &filter, const QStringList list)
 {
     filter +=
         " UNION "

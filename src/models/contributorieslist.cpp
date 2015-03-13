@@ -189,7 +189,7 @@ void ContributoriesList::setAllIdContributories(int idContributory)
     }
 }
 
-bool ContributoriesList::getInsert() const
+bool ContributoriesList::isInsert() const
 {
     return _insert;
 }

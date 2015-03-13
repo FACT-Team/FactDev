@@ -101,7 +101,8 @@ public:
     void setBeginDate(QDate beginDate);
 
     /**
-     * @brief Project::getEndDate Return the <i>endDate</i> of the <b>Project</b>
+     * @brief Project::getEndDate Return the <i>endDate</i> of the
+     * <b>Project</b>
      * @return the end date of the project
      */
     QDate getEndDate() const;

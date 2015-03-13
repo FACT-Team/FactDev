@@ -112,10 +112,10 @@ public:
     void setLongDescription(const QString &getLongDescription);
 
 private:
-    Project* _project;    //!< Contributory project
-    double _nbHours; //!< Nb of work hours of this contribution
-    QString _description; //!< Description
-    QString _longDescription;
+    Project* _project;          //!< Contributory project
+    double _nbHours;            //!< Number of work hours of this contribution
+    QString _description;       //!< Contributory description
+    QString _longDescription;   //!< Long contributory description
 };
 }
 #endif // CONTRIBUTORY_H

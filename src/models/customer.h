@@ -219,7 +219,7 @@ private:
     QString _lastnameReferent;  //!< Lastname of the referent customer
     QString _company;           //!< Company name of the customer
     QString _address;           //!< Company address (Name and number of street)
-                                //!< of the CUstomer
+                                //!< of the Customer
     QString _postalCode;        //!< Postal code of the company
     QString _city;              //!< City of the company
     QString _country;           //!< Country of the company

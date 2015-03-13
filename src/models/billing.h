@@ -83,13 +83,14 @@ public:
 
     /**
      * @brief Billing::getFolder Return the directory of billing
-     * @return
+     * @return Billing directory
      */
     QString getFolder();
 
     /**
-     * @brief Billing::getFilename Return the filename of billing (without extension)
-     * @return
+     * @brief Billing::getFilename Return the filename of billing (without
+     * extension)
+     * @return Filename of Bulling
      */
     QString getFilename();
     /**
@@ -108,7 +109,7 @@ public:
 
     /**
      * @brief Billing::getSumRate. return <b>Billing</b> total by money
-     * @return money
+     * @return Total Billing
      */
     double getSumRate();
 
