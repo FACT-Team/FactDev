@@ -1,5 +1,4 @@
 #include "database/customerdatabase.h"
-#include <QDebug>
 
 namespace Databases {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
@@ -46,7 +45,9 @@ WdgModels::CustomersTableModel*
     }
 
     while(q.next()) {
-        ret->append(*getCustomer(q));
+        Customer c = *getCustomer(q);
+        c.setTurnover(c.turnoverCompute());
+        ret->append(c);
     }
 
     return ret;
@@ -211,6 +212,9 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
     q.bindValue(":fax", pCustomer.getFax());
+
+
+
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
@@ -243,7 +247,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
 }
 
 
-int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
+int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     QSqlQuery q;
 
     q.prepare(

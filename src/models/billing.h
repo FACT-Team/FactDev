@@ -103,8 +103,8 @@ public:
     void addContributory(Contributory &c);
 
     /**
-     * @brief Billing::getSumRate. return <b>Billing</b> total by money
-     * @return money
+     * @brief Billing::getSumRate. return <b>Billing</b> Rate
+     * @return
      */
     double getSumRate();
 

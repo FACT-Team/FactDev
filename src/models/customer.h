@@ -91,6 +91,12 @@ public:
      */
     bool operator !=(const Customer &c);
 
+    /**
+     * @brief Customer::turnoverCompute calculates the customer turnover
+     * @return double turnover
+     */
+    double turnoverCompute();
+
 private:
     double  _turnover;          //!< Turnover/revenue of the customer
 };

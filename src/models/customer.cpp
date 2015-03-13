@@ -1,7 +1,10 @@
 #include "models/customer.h"
 
 #include "database/customerdatabase.h"
+#include "database/billingdatabase.h"
 #include "models/user.h"
+#include "models/billing.h"
+
 using namespace Databases;
 
 namespace Models {
@@ -98,5 +101,15 @@ double Customer::getTurnover() const
 void Customer::setTurnover(const double &turnover)
 {
     _turnover = turnover;
+}
+
+double Customer::turnoverCompute()
+{
+    double ret(0.0);
+    QList<Project> projects = Databases::ProjectDatabase::instance()->getProjects(getId());
+    for (Project project : projects) {
+        ret += project.getCost();
+    }
+    return ret;
 }
 }

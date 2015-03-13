@@ -18,7 +18,7 @@ int Gui::Widgets::WdgModels::CustomersTableModel::rowCount(const QModelIndex &) 
 
 int Gui::Widgets::WdgModels::CustomersTableModel::columnCount(const QModelIndex &) const
 {
-    return 6;
+    return 7;
 }
 
 QVariant Gui::Widgets::WdgModels::CustomersTableModel::data(
@@ -36,6 +36,7 @@ QVariant Gui::Widgets::WdgModels::CustomersTableModel::data(
     case 3: return customer.getFirstname();
     case 4: return customer.getPhone();
     case 5: return customer.getEmail();
+    case 6: return QString::number(customer.getTurnover(), 'f', 2) + " €";
     default: return QVariant();
     };
 }
@@ -58,6 +59,7 @@ QVariant Gui::Widgets::WdgModels::CustomersTableModel::headerData(int section,
     case 3: return "Prénom";
     case 4: return "Téléphone";
     case 5: return "E-mail";
+    case 6: return "Chiffre d'affaire";
     default: return QVariant();
     }
 }
@@ -84,6 +86,9 @@ bool Gui::Widgets::WdgModels::CustomersTableModel::setData(
             break;
         case 5:
             _customers[index.row()].setEmail(value.toString());
+            break;
+        case 6:
+            _customers[index.row()].setTurnover(value.toDouble());
             break;
         default:
             Log::instance(WARNING) << "Error, in default case of CustomersTableModel::setData";

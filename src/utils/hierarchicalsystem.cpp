@@ -2,7 +2,6 @@
 #include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
 #include "hierarchicalsystem.h"
-#include <QDebug>
 
 namespace Utils {
 HierarchicalSystem::HierarchicalSystem() {

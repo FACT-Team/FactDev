@@ -1,5 +1,6 @@
 #include "search.h"
 #include <QDebug>
+
 namespace Models {
 Search::Search()
 {

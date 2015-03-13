@@ -1,5 +1,4 @@
 #include "projectcontributoriestablemodel.h"
-#include <QDebug>
 #include "utils/log.h"
 namespace Gui {
 namespace Widgets {

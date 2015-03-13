@@ -594,6 +594,7 @@ void MainWindow::updateButtons()
             && !ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->trCustomers->setCurrentIndex(rootTree());
     }
+
     ui->actionNewQuote->setEnabled(canAdd);
     ui->actionNewBill->setEnabled(canAdd);
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);

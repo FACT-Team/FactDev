@@ -89,6 +89,13 @@ public:
     QMap<int, Models::Project> getProjectsOfCustomer(QSharedPointer<Models::Customer> c);
 
     /**
+     * @brief getProjects Return all projects of a customer
+     * @param customerId The customer id
+     * @return List with all projects of customer
+     */
+    QList<Models::Project> getProjects(const int customerId);
+
+    /**
       * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
       * @param filter Select only projects who are specified by <i>filter</i>
       * @return QStandardItemModel an item model for QTableView
