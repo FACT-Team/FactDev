@@ -12,7 +12,7 @@ UserModelTest::UserModelTest()
     u1.setEmail("jean.bonneau@fleury-migeon.com");
     u1.setMobilePhone("0616641337");
     u1.setPhone("0836656565");
-    u1.setNoSiret("1234567891234");
+    u1.setNoSiret("12345678912340");
 
     u2.setFirstname("Jean");
     u2.setLastname("Bonneau");
@@ -24,7 +24,7 @@ UserModelTest::UserModelTest()
     u2.setEmail("jean.bonneau@fleury-migeon.com");
     u2.setMobilePhone("0616641337");
     u2.setPhone("0836656565");
-    u2.setNoSiret("1234567891234");
+    u2.setNoSiret("12345678912340");
 
 }
 
@@ -51,6 +51,7 @@ void UserModelTest::commitUpdate()
     u1.setFirstname("TESTOUILLE");
     u1.commit();
     u2 = *(Databases::UserDatabase::instance()->getUser(1));
+
     QVERIFY(u1 == u2);
 }
 
@@ -67,7 +68,7 @@ void UserModelTest::hydrat()
     u2.setEmail("jean.bonneau@fleury-migeon.com");
     u2.setMobilePhone("0616641337");
     u2.setPhone("0836656565");
-    u2.setNoSiret("1234567891234");
+    u2.setNoSiret("12345678912340");
 
     QVERIFY(u1 == u2);
 }

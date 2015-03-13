@@ -22,8 +22,11 @@ void UserDatabaseTest::getUserTest()
     u2.setEmail("jean.bonneau@fleury-migeon.com");
     u2.setMobilePhone("0616641337");
     u2.setPhone("0836656565");
-    u2.setNoSiret("1234567891234");
+    u2.setNoSiret("12345678912340");
+    u2.setFax("");
+    u1->setFax("");
 
+    bool b = *u1 == u2;
     QVERIFY(*u1 == u2);
 }
 
@@ -50,7 +53,7 @@ void UserDatabaseTest::updateUserTest()
     u2->setEmail("jean.bonneau@fleury-migeon.com");
     u2->setMobilePhone("0616641337");
     u2->setPhone("0836656565");
-    u2->setNoSiret("1234567891234");
+    u2->setNoSiret("12345678912340");
 
     QVERIFY(*u1 == *u2);
 }

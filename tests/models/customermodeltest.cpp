@@ -64,6 +64,16 @@ void CustomerModelTest::commitUpdate()
     QVERIFY(*c2 == c1);
 }
 
+void CustomerModelTest::commitRemove()
+{
+    int id = Databases::CustomerDatabase::instance()->addCustomer(c1);
+    c1.setAddress("NEW ADDRESS");
+    c1.setId(id);
+    c1.setToRemoved(true);
+    c1.commit();
+    QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
+}
+
 
 void CustomerModelTest::hydrat()
 {
@@ -79,6 +89,8 @@ void CustomerModelTest::hydrat()
     c1.setPhone("01 02 03 04 05");
     c1.setMobilePhone("02 03 04 05 06");
     c1.setFax("05 35 11 79 67");
+    c1.setTurnover(42.42);
+    c2.setTurnover(42.42);
 
     QVERIFY(c1 == c2);
 }
@@ -98,4 +110,9 @@ void CustomerModelTest::getPath()
 void CustomerModelTest::getNameFolder()
 {
     QVERIFY(c1.getNameFolder() == "SIT AMET ORNARE CONSULTING Boyle Jonah");
+}
+
+void CustomerModelTest::getTurnover()
+{
+    QVERIFY(c1.getTurnover() == 42.42);
 }

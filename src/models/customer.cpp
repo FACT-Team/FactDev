@@ -11,6 +11,7 @@ namespace Models {
 Customer::Customer()
 {
     setId(0);
+    setTurnover(0.0);
 }
 
 Customer::Customer(int id) {
@@ -69,7 +70,8 @@ QVariantHash Customer::getDataMap()
 
 bool Customer::operator==(const Customer &c)
 {
-    return *this == c;
+    return People::operator == (c)
+            && getTurnover() == c.getTurnover();
 }
 
 bool Customer::operator!=(const Customer &c)

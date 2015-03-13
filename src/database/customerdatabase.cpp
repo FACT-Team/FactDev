@@ -1,4 +1,5 @@
 #include "database/customerdatabase.h"
+#include <QDebug>
 
 namespace Databases {
 CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {

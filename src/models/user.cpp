@@ -124,7 +124,7 @@ void User::hydrat(int id)
 
     if(toCommit) {
         commit();
-        hydrat(id);
+        //hydrat(id);
     }
 
     delete user;
@@ -172,18 +172,9 @@ void User::setWorkspacePath(const QString &workspacePath)
 
 bool User::operator ==(const User &u)
 {
-    return  u.getFirstname() == getFirstname()
-            && u.getLastname() == getLastname()
-            && u.getCompany() == getCompany()
-            && u.getAddress() == getAddress()
-            && u.getPostalCode() == getPostalCode()
-            && u.getCity() == getCity()
-            && u.getCountry() == getCountry()
-            && u.getEmail() == getEmail()
-            && u.getPhone() == getPhone()
-            && u.getMobilePhone() == getMobilePhone()
-            && u.getTitle() == getTitle()
-            && u.getNoSiret() == getNoSiret();
+    return  People::operator == (u)
+            && getNoSiret() == u.getNoSiret()
+            && getTitle() == u.getTitle();
 }
 
 bool User::operator !=(const User &u)
