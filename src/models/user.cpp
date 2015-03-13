@@ -179,6 +179,8 @@ bool User::operator ==(const User &u)
 
 bool User::operator !=(const User &u)
 {
-    return !(*this == u);
+    return People::operator !=(u)
+            || getNoSiret() == u.getNoSiret()
+            ||  getTitle() == u.getTitle();
 }
 }
