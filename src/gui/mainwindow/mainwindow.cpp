@@ -34,7 +34,10 @@ void MainWindow::setupSignalsSlots()
 {
     connect(ui->tblCustomers,SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(openContextualMenuTable(const QPoint &)));
-    connect(_searchDock, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
+    connect(_searchDock,
+            SIGNAL(textChanged(QString)),
+            this,
+            SLOT(search(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -63,7 +66,8 @@ int MainWindow::getCurrentQuoteId()
 QString MainWindow::getCurrentCustomerName()
 {
     QModelIndex index =
-        ui->tblCustomers->model()->index(ui->tblCustomers->currentIndex().row(),1);
+        ui->tblCustomers->model()->index(
+                ui->tblCustomers->currentIndex().row(), 1);
     return index.model()->itemData(index).value(0).toString();
 }
 
@@ -85,8 +89,9 @@ void MainWindow::addCustomer()
 void MainWindow::addProject()
 {
     AddProjectDialog *addProjectDialog =
-            ui->stackedWidget->currentIndex() == 1 ? new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())
-                                                   : new AddProjectDialog();
+            ui->stackedWidget->currentIndex() == 1 ?
+                new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())
+              : new AddProjectDialog();
 
     if (addProjectDialog->exec()) {
         updateTableProjects(getCurrentCustomerId());
@@ -112,10 +117,6 @@ void MainWindow::addDoc(bool isBilling) {
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
 
-        // For security and crash of the application
-        // if we remove a project in a doc and we save it
-        // or if we are in a project and we associate the doc with an other project
-        // go back to the panel projectsTable
         ui->stackedWidget->setCurrentIndex(1);
     }
 }
@@ -202,7 +203,11 @@ void MainWindow::editProject() {
 
 void MainWindow::editDoc()
 {
-    AddQuoteDialog editDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),false);
+    AddQuoteDialog editDocDialog(
+                Billing(getCurrentQuoteId()).isBilling(),
+                                 getCurrentCustomerId(),
+                                 getCurrentQuoteId(),
+                                 false);
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
@@ -210,10 +215,6 @@ void MainWindow::editDoc()
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
 
-        // For security and crash of the application
-        // if we remove a project in a doc and we save it
-        // or if we are in a project and we associate the doc with an other project
-        // go back to the panel projectsTable
         ui->stackedWidget->setCurrentIndex(1);
     }
 }
@@ -232,7 +233,11 @@ void MainWindow::removeDoc() {
 
 void MainWindow::copyDoc()
 {
-    AddQuoteDialog copyDocDialog(Billing(getCurrentQuoteId()).isBilling(), getCurrentCustomerId(),getCurrentQuoteId(),true);
+    AddQuoteDialog copyDocDialog(
+                Billing(getCurrentQuoteId()).isBilling(),
+                getCurrentCustomerId(),
+                getCurrentQuoteId(),
+                true);
 
     if (copyDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
@@ -342,7 +347,8 @@ void MainWindow::changeTree()
         ui->stackedWidget->setCurrentIndex(2);
         break;
     default:        // Other
-        Log::instance(WARNING) << "MainWindow::changeTree – I don't know what I'm doing here… ";
+        Log::instance(WARNING) << "MainWindow::changeTree – "
+                                  "I don't know what I'm doing here… ";
     }
     updateButtons();
 }
@@ -395,7 +401,8 @@ void MainWindow::changeDocsTable()
 void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
-    ui->lblProjects->setText("Projets de <b>" + getCurrentCustomerName()+"</b>");
+    ui->lblProjects->setText("Projets de <b>"
+                             + getCurrentCustomerName()+"</b>");
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 150);
     ui->tblProjects->setColumnWidth(2, 200);
@@ -435,7 +442,8 @@ QModelIndex MainWindow::findParent() {
             parent = ui->trCustomers->indexAbove(parent);
         break;
     default:
-        Log::instance(WARNING) << "MainWindow::findParent – I don't know what I'm doing here… ";
+        Log::instance(WARNING) << "MainWindow::findParent – "
+                                  "I don't know what I'm doing here… ";
     }
 
     return parent;
@@ -466,9 +474,11 @@ void MainWindow::updateUI(QString filter)
     updateTableCustomers(filter, ui->tblCustomers->currentIndex().row());
 
     Utils::pointers::deleteIfNotNull(ui->tblProjects->model());
-    updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row());
+    updateTableProjects(getCurrentCustomerId(),
+                        ui->tblProjects->currentIndex().row());
 
-    updateTableBillings(getCurrentProjectId(), ui->tblQuotes->currentIndex().row());
+    updateTableBillings(getCurrentProjectId(),
+                        ui->tblQuotes->currentIndex().row());
 
     Utils::pointers::deleteIfNotNull(ui->trCustomers->model());
     updateTree(filter);
@@ -560,7 +570,8 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
 
 void MainWindow::updateTree(QString filter)
 {
-    ui->trCustomers->setModel(Databases::CustomerDatabase::instance()->getTree(filter));
+    ui->trCustomers->setModel(
+                Databases::CustomerDatabase::instance()->getTree(filter));
 }
 
 void MainWindow::updateButtons()
@@ -605,7 +616,8 @@ void MainWindow::updateButtons()
         ui->btnRemoveDoc->setText("Supprimer "+textButton);
         ui->btnRemoveDoc->setIcon(QIcon(":icons/img/remove_"+iconButton));
         ui->btnCopyDoc->setText("Copier "+textButton);
-        ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png" : ":icons/img/copy_quote"));
+        ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png"
+                                                    : ":icons/img/copy_quote"));
 
         if ( isBillingPaid || !b.isBilling()) {
             ui->btnBillingIsPaid->setEnabled(false);

@@ -16,8 +16,11 @@ public:
      * @param folder Folder name to create
      * @return Path of the folder just created
      */
-    static QString makeDirectory(QDir &directory,
-                          const QString path, const QString folder) throw(Exceptions::FileException*);
+    static QString makeDirectory(
+            QDir &directory,
+            const QString path,
+            const QString folder)
+    throw(Exceptions::FileException*);
 };
 }
 #endif // DIRECTORIES_H
