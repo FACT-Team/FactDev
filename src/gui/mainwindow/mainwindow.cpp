@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupSignalsSlots();
     StartedWindowsDialog w;
     w.exec();
+    updateUser();
 }
 
 void MainWindow::setupUi()

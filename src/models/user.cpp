@@ -124,7 +124,6 @@ void User::hydrat(int id)
 
     if(toCommit) {
         commit();
-        //hydrat(id);
     }
 
     delete user;

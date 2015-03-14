@@ -11,6 +11,10 @@ ProjectModelTest::ProjectModelTest()
     p2.setName("vehicula");
     p2.setDescription("a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in consequat enim diam");
     p2.setDailyRate(13);
+
+    Project p3("Nom");
+    QVariantHash q = p3.getDataMap();
+    bool b = p3 < p2;
 }
 
 void ProjectModelTest::equals1()
@@ -73,7 +77,8 @@ void ProjectModelTest::hydrat()
 
 void ProjectModelTest::remove()
 {
-    p1.remove();
+    p1.setToRemoved(true);
+    p1.commit();
     QVERIFY(Databases::ProjectDatabase::instance()->getProject(p1.getId()) == NULL);
 }
 void ProjectModelTest::getProjectsTable(void) {
