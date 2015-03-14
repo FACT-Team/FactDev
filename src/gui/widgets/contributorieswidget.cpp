@@ -151,7 +151,7 @@ void ContributoriesWidget::updateUi()
             _modelProjects->getSelectedProjects().count()
             < ((Delegates::ProjectComboDelegate*)
                ui->tblProjects->itemDelegateForColumn(0))->getProjects().count()
-               && _modelProjects->allProjectsChose());
+               && _modelProjects->allProjectsChosen());
 
     ui->btnRemoveProject->setEnabled(
                 ui->tblProjects->currentIndex().row() != -1);

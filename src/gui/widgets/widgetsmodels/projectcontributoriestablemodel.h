@@ -96,7 +96,7 @@ public:
      * all projects have been selected else FALSE
      * @return boolean All projects selected
      */
-    bool allProjectsChose();
+    bool allProjectsChosen();
 
     /**
      * @brief ProjectContributoriesTableModel::getSelectedProjects Return the

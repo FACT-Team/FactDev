@@ -138,7 +138,7 @@ public:
 
 private:
     int _idBilling; //!< Billing ID
-    bool _insert;   //!< an element is inserting
+    bool _insert;   //!< an element is inserted
 };
 }
 #endif // CONTRIBUTORIESLIST_H
