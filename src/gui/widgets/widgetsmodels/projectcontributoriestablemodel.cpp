@@ -106,7 +106,7 @@ void ProjectContributoriesTableModel::append(
     endInsertRows();
 }
 
-bool ProjectContributoriesTableModel::allProjectsChose()
+bool ProjectContributoriesTableModel::allProjectsChosen()
 {
     for(QPair<Models::Project*, Models::Rate> key : _projects) {
         if(key.first->getId() == 0) {

@@ -92,7 +92,7 @@ public:
     void append();
 
     /**
-     * @brief ProjectContributoriesTableModel::allProjectsChose Return TRUE if
+     * @brief ProjectContributoriesTableModel::allProjectsChosen Return TRUE if
      * all projects have been selected else FALSE
      * @return boolean All projects selected
      */
