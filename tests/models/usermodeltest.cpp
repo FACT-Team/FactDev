@@ -73,3 +73,9 @@ void UserModelTest::hydrat()
     QVERIFY(u1 == u2);
 }
 
+void UserModelTest::commitRemove()
+{
+    u1.setToRemoved(true);
+    u1.commit();
+    QVERIFY(*Databases::UserDatabase::instance()->getUser() == u1);
+}
