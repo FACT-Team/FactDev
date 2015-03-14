@@ -24,7 +24,7 @@ class UserDataDialog : public QDialog
 
 public:
     /**
-     * @brief UserDataDialog: Construct a window with user data
+     * @brief UserDataDialog::UserDataDialog Construct a window with user data
      * @param parent
      */
     explicit UserDataDialog(QWidget *parent = 0);
@@ -37,12 +37,13 @@ public:
     void fillFields();
 
     /**
-     * @brief accept Valid data inputed by user and add these data in Database
+     * @brief UserDataDialog::accept Valid data inputed by user and add these
+     * data in Database
      */
     void accept();
 
     /**
-     * @brief reject Cancel the operation and close the windows
+     * @brief UserDataDialog::reject Cancel the operation and close the windows
      */
     void reject();
 
@@ -60,8 +61,8 @@ public slots:
     void browseWorkspacePath();
 
 private:
-    User* _user; //!< The user of this appication
-    Ui::UserDataDialog *ui;
+    User* _user;            //!< The user of this appication
+    Ui::UserDataDialog *ui; //!< User Interface
 
 };
 }

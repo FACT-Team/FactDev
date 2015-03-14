@@ -19,16 +19,16 @@ class CheckPortNumber : public CheckQLineEdit
 public:
     /**
      * @brief CheckPortNumber
-     * @param w
-     * @param btn
+     * @param w Widget parent
+     * @param btn Button parretn
      */
     CheckPortNumber(QWidget* w = 0, QPushButton* btn=0);
 
     /**
      * @brief CheckPortNumber::check Check if the field contains only numbers or
      * an empty text
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(QString text);
 };

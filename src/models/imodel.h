@@ -52,7 +52,7 @@ public:
 
     /**
      * @brief toRemoved return if object must be removed.
-     * @return
+     * @return boolean
      */
     bool isToRemoved() const
     {
@@ -69,8 +69,8 @@ public:
     }
 
 protected:
-    int _id;    //!< Element identify
-    bool _toRemoved; //!< Flag to know if the object must be removed
+    int _id;            //!< Element identify
+    bool _toRemoved;    //!< Flag to know if the object must be removed
 };
 }
 #endif // IModel_H

@@ -2,7 +2,11 @@
 
 namespace Utils {
 
-QString Directories::makeDirectory(QDir &directory, const QString path, const QString folder) throw(Exceptions::FileException*)
+QString Directories::makeDirectory(
+        QDir &directory,
+        const QString path,
+        const QString folder)
+throw(Exceptions::FileException*)
 {
     if (!directory.cd(path + "/" + folder)) {
         if (!directory.mkdir(folder)) {

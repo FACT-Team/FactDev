@@ -25,20 +25,28 @@ int Gui::Widgets::WdgModels::BillingsTableModel::columnCount(
 QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::DecorationRole || index.row() == -1) {
+    if (role != Qt::DisplayRole
+            && role != Qt::EditRole
+            && role != Qt::DecorationRole || index.row() == -1)
+    {
         return QVariant();
     }
 
     const Billing &billing = _billings[index.row()];
     switch (index.column()) {
     case 0: return billing.getId();
-    case 1: return QImage(":/icons/img/"+QString((billing.isBilling() ? "bill.png"  : "quote.png"))).scaled(25,25);
+    case 1: return QImage(
+                    ":/icons/img/"
+                    + QString((billing.isBilling() ? "bill.png"  : "quote.png"))
+                    ).scaled(25,25);
     case 2: return billing.getNumber();
     case 3: return billing.getTitle();
     case 4: return billing.getDescription();
     case 5: return billing.getDate();
     case 6:
-        return billing.isPaid() ? QImage(":/icons/img/img32/ok_pay.png").scaled(30,30) :
+        return billing.isPaid() ? QImage(
+                                      ":/icons/img/img32/ok_pay.png"
+                                      ).scaled(30,30) :
                                   QVariant();
     default: return QVariant();
     };

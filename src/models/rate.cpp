@@ -11,7 +11,8 @@ Rate::Rate(double hourly)
 
 Rate::Rate(int idBilling, int idProject)
 {
-    setHourlyRate(Databases::RateDatabase::instance()->getRate(idBilling, idProject));
+    setHourlyRate(Databases::RateDatabase::instance()->getRate(idBilling,
+                                                               idProject));
 }
 
 Rate::Rate()
@@ -21,7 +22,8 @@ Rate::Rate()
 
 void Rate::setDailyRate(const double& value)
 {
-    _hourly = value >= getLegalRate() * getNbDailyHours() ? value / getNbDailyHours() : getLegalRate();
+    _hourly = value >= getLegalRate() * getNbDailyHours() ?
+                value / getNbDailyHours() : getLegalRate();
 }
 
 void Rate::setHourlyRate(const double& value)

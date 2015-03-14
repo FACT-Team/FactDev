@@ -4,7 +4,8 @@ namespace Gui {
 namespace Widgets {
 namespace WdgModels {
 
-ContributoriesTableModel::ContributoriesTableModel(QObject *parent) : QAbstractTableModel(parent)
+ContributoriesTableModel::ContributoriesTableModel(QObject *parent)
+    : QAbstractTableModel(parent)
 {
 }
 
@@ -20,7 +21,9 @@ int ContributoriesTableModel::columnCount(const QModelIndex &) const {
     return 4;
 }
 
-QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) const {
+QVariant ContributoriesTableModel::data(
+        const QModelIndex &index, int role) const
+{
     if (role != Qt::DisplayRole && role != Qt::EditRole) {
         return QVariant();
     }
@@ -37,7 +40,9 @@ QVariant ContributoriesTableModel::data(const QModelIndex &index, int role) cons
 }
 
 
-QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orientation, int role) const {
+QVariant ContributoriesTableModel::headerData(
+        int section, Qt::Orientation orientation, int role) const
+{
     if (orientation != Qt::Horizontal) {
         return QVariant();
     }
@@ -55,7 +60,8 @@ QVariant ContributoriesTableModel::headerData(int section, Qt::Orientation orien
     }
 }
 
-bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool ContributoriesTableModel::setData(
+        const QModelIndex &index, const QVariant &value, int role)
 {
     Models::Rate r;
     if (role == Qt::EditRole) {
@@ -67,13 +73,15 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
             _contributories[index.row()].setLongDescription(value.toString());
             break;
         case 2:
-            _contributories[index.row()].setNbHours(value.toDouble()*r.getNbDailyHours());
+            _contributories[index.row()].setNbHours(
+                        value.toDouble()*r.getNbDailyHours());
             break;
         case 3:
             // TODO unit.
             break;
         default:
-            Log::instance(WARNING) << "Error, in default case of ContributoriesTableModel::setData";
+            Log::instance(WARNING) << "Error, in default case of "
+                                      "ContributoriesTableModel::setData";
         }
     }
 
@@ -81,7 +89,9 @@ bool ContributoriesTableModel::setData(const QModelIndex &index, const QVariant 
 }
 
 void ContributoriesTableModel::append(const Contributory &contributory) {
-    beginInsertRows(QModelIndex(), _contributories.count(), _contributories.count());
+    beginInsertRows(QModelIndex(),
+                    _contributories.count(),
+                    _contributories.count());
     _contributories.append(contributory);
     endInsertRows();
 }
@@ -97,7 +107,9 @@ void ContributoriesTableModel::remove(const int a)
     _contributoriesToRemoved << _contributories[a];
     _contributoriesToRemoved.last().setToRemoved(true);
     _contributories.removeAt(a);
-    beginRemoveRows(QModelIndex(), _contributories.count(), _contributories.count());
+    beginRemoveRows(QModelIndex(),
+                    _contributories.count(),
+                    _contributories.count());
     endRemoveRows();
 }
 

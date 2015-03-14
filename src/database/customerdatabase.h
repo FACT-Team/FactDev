@@ -41,7 +41,8 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    WdgModels::CustomersTableModel* getCustomersTable(QString filter="") throw(DbException*);
+    WdgModels::CustomersTableModel* getCustomersTable(QString filter="")
+        throw(DbException*);
 
 
     /**
@@ -133,7 +134,8 @@ public:
     void updateCustomer(QSqlQuery &q, Customer &pCustomer);
 
 private:
-    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
+    //!< Singleton instance of CustomerDatabase
+    static CustomerDatabase* _instance;
 
     /**
      * @brief <b>CustomerDatabase</b> is a singleton

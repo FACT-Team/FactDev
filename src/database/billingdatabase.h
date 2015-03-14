@@ -147,7 +147,7 @@ public:
     QList<Billing> getBillings(const int projectId);
 
 private:
-    static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase
+    static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase
 
     /**
      * @brief <b>BillingDatabase</b> is a singleton

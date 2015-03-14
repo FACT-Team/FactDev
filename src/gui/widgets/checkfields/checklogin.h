@@ -22,8 +22,8 @@ public:
     CheckLogin(QWidget* w = 0, QPushButton* btn=0);
     /**
      * @brief CheckLogin::check Check if the field contains only numbers
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(QString text);
 

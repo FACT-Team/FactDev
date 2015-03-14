@@ -29,8 +29,8 @@ public:
      *     before the character <i>.</i>
      *     - 1 character [A-Z] or [a-z]  minimum afer the character <i>.</i>
      * Return TRUE if email address is valid, else FALSE
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(const QString text);
 };

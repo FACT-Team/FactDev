@@ -157,10 +157,14 @@ bool Project::operator !=(const Project &p)
 double Project::costCompute()
 {
     double ret(0.0);
-    QList<Billing> bills = Databases::BillingDatabase::instance()->getBillings(_id);
+    QList<Billing> bills =
+            Databases::BillingDatabase::instance()->getBillings(_id);
     for (Billing bill : bills) {
-        Models::ContributoriesList cl = Databases::ContributoryDatabase::instance()->getContributoriesByBillingAndProject(bill.getId(), _id);
-        Models::Rate rate = Databases::RateDatabase::instance()->getRate(bill.getId(), _id);
+        ContributoriesList cl =
+                Databases::ContributoryDatabase::instance()
+                ->getContributoriesByBillingAndProject(bill.getId(), _id);
+        Rate rate = Databases::RateDatabase::instance()->getRate(bill.getId(),
+                                                                 _id);
         ret += (cl.getSumQuantity()) * rate.getHourlyRate();
     }
     return ret;

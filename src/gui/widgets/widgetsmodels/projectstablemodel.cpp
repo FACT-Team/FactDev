@@ -10,12 +10,14 @@ Gui::Widgets::WdgModels::ProjectsTableModel::~ProjectsTableModel()
 
 }
 
-int Gui::Widgets::WdgModels::ProjectsTableModel::rowCount(const QModelIndex &) const
+int Gui::Widgets::WdgModels::ProjectsTableModel::rowCount(
+        const QModelIndex &) const
 {
     return _projects.count();
 }
 
-int Gui::Widgets::WdgModels::ProjectsTableModel::columnCount(const QModelIndex &) const
+int Gui::Widgets::WdgModels::ProjectsTableModel::columnCount(
+        const QModelIndex &) const
 {
     return 6;
 }
@@ -23,7 +25,9 @@ int Gui::Widgets::WdgModels::ProjectsTableModel::columnCount(const QModelIndex &
 QVariant Gui::Widgets::WdgModels::ProjectsTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if ((role != Qt::DisplayRole && role != Qt::EditRole) || index.row() == -1) {
+    if (    (role != Qt::DisplayRole && role != Qt::EditRole)
+            || index.row() == -1)
+    {
         return QVariant();
     }
 

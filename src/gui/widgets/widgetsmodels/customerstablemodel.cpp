@@ -1,30 +1,39 @@
 #include "customerstablemodel.h"
 
-Gui::Widgets::WdgModels::CustomersTableModel::CustomersTableModel(QObject *parent)
-    : QAbstractTableModel(parent)
+namespace Gui {
+namespace Widgets {
+namespace WdgModels {
+
+
+CustomersTableModel::CustomersTableModel(
+        QObject *parent) : QAbstractTableModel(parent)
 {
 
 }
 
-Gui::Widgets::WdgModels::CustomersTableModel::~CustomersTableModel()
+CustomersTableModel::~CustomersTableModel()
 {
 
 }
 
-int Gui::Widgets::WdgModels::CustomersTableModel::rowCount(const QModelIndex &) const
+int CustomersTableModel::rowCount(
+        const QModelIndex &) const
 {
     return _customers.count();
 }
 
-int Gui::Widgets::WdgModels::CustomersTableModel::columnCount(const QModelIndex &) const
+int CustomersTableModel::columnCount(
+        const QModelIndex &) const
 {
     return 6;
 }
 
-QVariant Gui::Widgets::WdgModels::CustomersTableModel::data(
+QVariant CustomersTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if ((role != Qt::DisplayRole && role != Qt::EditRole) || index.row() == -1) {
+    if ((role != Qt::DisplayRole
+         && role != Qt::EditRole) || index.row() == -1)
+    {
         return QVariant();
     }
 
@@ -40,8 +49,9 @@ QVariant Gui::Widgets::WdgModels::CustomersTableModel::data(
     };
 }
 
-QVariant Gui::Widgets::WdgModels::CustomersTableModel::headerData(int section,
-    Qt::Orientation orientation, int role) const
+QVariant CustomersTableModel::headerData(int section,
+                                         Qt::Orientation orientation,
+                                         int role) const
 {
     if (orientation != Qt::Horizontal) {
         return QVariant();
@@ -62,7 +72,7 @@ QVariant Gui::Widgets::WdgModels::CustomersTableModel::headerData(int section,
     }
 }
 
-bool Gui::Widgets::WdgModels::CustomersTableModel::setData(
+bool CustomersTableModel::setData(
         const QModelIndex &index, const QVariant &value, int role)
 {
     if (role == Qt::EditRole) {
@@ -86,14 +96,15 @@ bool Gui::Widgets::WdgModels::CustomersTableModel::setData(
             _customers[index.row()].setEmail(value.toString());
             break;
         default:
-            Log::instance(WARNING) << "Error, in default case of CustomersTableModel::setData";
+            Log::instance(WARNING) << "Error, in default case of "
+                                      "CustomersTableModel::setData";
         }
     }
 
     return true;
 }
 
-void Gui::Widgets::WdgModels::CustomersTableModel::append(
+void CustomersTableModel::append(
         const Customer &customer)
 {
     beginInsertRows(QModelIndex(), _customers.count(), _customers.count());
@@ -101,23 +112,27 @@ void Gui::Widgets::WdgModels::CustomersTableModel::append(
     endInsertRows();
 }
 
-void Gui::Widgets::WdgModels::CustomersTableModel::remove(const int i)
+void CustomersTableModel::remove(const int i)
 {
 
 }
 
-Qt::ItemFlags Gui::Widgets::WdgModels::CustomersTableModel::flags(
+Qt::ItemFlags CustomersTableModel::flags(
         const QModelIndex &index) const
 {
     return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled ;
 }
 
-int Gui::Widgets::WdgModels::CustomersTableModel::count()
+int CustomersTableModel::count()
 {
     return _customers.count();
 }
 
-QList<Customer> Gui::Widgets::WdgModels::CustomersTableModel::getCustomers() const
+QList<Customer> CustomersTableModel::getCustomers() const
 {
     return _customers;
+}
+
+}
+}
 }

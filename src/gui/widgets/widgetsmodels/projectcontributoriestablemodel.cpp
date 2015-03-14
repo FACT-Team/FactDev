@@ -5,7 +5,8 @@ namespace Gui {
 namespace Widgets {
 namespace WdgModels {
 
-ProjectContributoriesTableModel::ProjectContributoriesTableModel(QObject *parent)
+ProjectContributoriesTableModel::ProjectContributoriesTableModel(
+        QObject *parent)
 {
 
 }
@@ -20,7 +21,8 @@ int ProjectContributoriesTableModel::columnCount(const QModelIndex &) const
     return 3;
 }
 
-QVariant ProjectContributoriesTableModel::data(const QModelIndex &index, int role) const
+QVariant ProjectContributoriesTableModel::data(
+        const QModelIndex &index, int role) const
 {
     if (role != Qt::DisplayRole && role != Qt::EditRole) {
         return QVariant();
@@ -34,7 +36,8 @@ QVariant ProjectContributoriesTableModel::data(const QModelIndex &index, int rol
     };
 }
 
-QVariant ProjectContributoriesTableModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant ProjectContributoriesTableModel::headerData(
+        int section, Qt::Orientation orientation, int role) const
 {
     if (orientation != Qt::Horizontal) {
         return QVariant();
@@ -53,7 +56,8 @@ QVariant ProjectContributoriesTableModel::headerData(int section, Qt::Orientatio
 
 }
 
-bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool ProjectContributoriesTableModel::setData(
+        const QModelIndex &index, const QVariant &value, int role)
 {
     Models::Rate r;
     if (role == Qt::EditRole) {
@@ -70,14 +74,17 @@ bool ProjectContributoriesTableModel::setData(const QModelIndex &index, const QV
             _projects[index.row()].second = r;
             break;
         default:
-        Utils::Log::instance(Utils::WARNING) << "Error, in default case of ContributoriesTableModel::setData";
+            Utils::Log::instance(Utils::WARNING) <<
+                "Error, in default case of "
+                "ContributoriesTableModel::setData";
         }
     }
 
     return true;
 }
 
-Qt::ItemFlags ProjectContributoriesTableModel::flags(const QModelIndex &index) const
+Qt::ItemFlags ProjectContributoriesTableModel::flags(
+        const QModelIndex &index) const
 {
     return Qt::ItemIsSelectable |  Qt::ItemIsEditable | Qt::ItemIsEnabled;
 }
@@ -85,11 +92,13 @@ Qt::ItemFlags ProjectContributoriesTableModel::flags(const QModelIndex &index) c
 void ProjectContributoriesTableModel::append()
 {
     beginInsertRows(QModelIndex(), _projects.count(), _projects.count());
-    _projects.append(QPair<Models::Project*, Models::Rate>(new Models::Project, 0));
+    _projects.append(
+                QPair<Models::Project*, Models::Rate>(new Models::Project, 0));
     endInsertRows();
 }
 
-void ProjectContributoriesTableModel::append(QPair<Models::Project*, Models::Rate> p)
+void ProjectContributoriesTableModel::append(
+        QPair<Models::Project*, Models::Rate> p)
 {
     beginInsertRows(QModelIndex(), _projects.count(), _projects.count());
     _projects.append(p);;
@@ -97,7 +106,7 @@ void ProjectContributoriesTableModel::append(QPair<Models::Project*, Models::Rat
     endInsertRows();
 }
 
-bool ProjectContributoriesTableModel::allProjectsChose()
+bool ProjectContributoriesTableModel::allProjectsChosen()
 {
     for(QPair<Models::Project*, Models::Rate> key : _projects) {
         if(key.first->getId() == 0) {
@@ -114,12 +123,14 @@ void ProjectContributoriesTableModel::remove(int index) {
     endRemoveRows();
 }
 
-QPair<Models::Project *, Models::Rate> ProjectContributoriesTableModel::getProject(const int row)
+QPair<Models::Project *, Models::Rate>
+    ProjectContributoriesTableModel::getProject(const int row)
 {
     return _projects[row];
 }
 
-QList<QPair<Models::Project *, Models::Rate>> ProjectContributoriesTableModel::getProjects()
+QList<QPair<Models::Project *, Models::Rate>>
+    ProjectContributoriesTableModel::getProjects()
 {
     return _projects;
 }

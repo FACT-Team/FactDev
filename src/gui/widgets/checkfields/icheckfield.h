@@ -13,9 +13,9 @@ class ICheckField {
 
 public:
     /**
-     * @brief check Check if the field (line edit) is valid
+     * @brief ICheckField::check Check if the field (line edit) is valid
      * Return TRUE if the field is valid, else FALSE
-     * @return boolean
+     * @return boolean Validity of the text
      */
     virtual bool check(QString text) = 0;
 

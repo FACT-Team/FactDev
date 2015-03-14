@@ -57,7 +57,9 @@ public:
      * @param role
      * @return The Title header of column
      */
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    QVariant headerData(int section,
+                        Qt::Orientation orientation,
+                        int role = Qt::DisplayRole) const;
 
     /**
       * @brief CustomersTableModel::setData Change data of a cell

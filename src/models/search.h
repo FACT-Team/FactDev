@@ -95,7 +95,8 @@ public:
      * @param filter Text inputed in searchbar
      * @param list List of bills or quotes
      */
-    void filterOnCustomersWithoutProject(QString &filter, const QStringList list);
+    void filterOnCustomersWithoutProject(
+            QString &filter, const QStringList list);
 
     /**
      * @brief Search::getSearchInCompanies Return if we search a company

@@ -21,8 +21,8 @@ public:
     /**
      * @brief CheckSiretNumber::check Check if the field noSiret is valid.
      * To be valid, a SIRET number should be composed of numbers
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validy of the text
      */
     bool check(QString text);
 };

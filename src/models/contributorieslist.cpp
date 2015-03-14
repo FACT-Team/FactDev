@@ -21,22 +21,23 @@ void ContributoriesList::commit()
     // Commits contributories
     for (auto it = cbegin(); it != cend(); ++it) {
         if(_insert) {
-            RateDatabase::instance()->addRateProject(it.key()->first->getId(),
-                                                     _idBilling,
-                                                     getRate(it.key()->first).getHourlyRate());
+            RateDatabase::instance()->addRateProject(
+                        it.key()->first->getId(),
+                        _idBilling,
+                        getRate(it.key()->first).getHourlyRate());
         } else {
-            RateDatabase::instance()->updateRateProject(it.key()->first->getId(),
-                                                     _idBilling,
-                                                     getRate(it.key()->first).getHourlyRate());
+            RateDatabase::instance()->updateRateProject(
+                        it.key()->first->getId(),
+                        _idBilling,
+                        getRate(it.key()->first).getHourlyRate());
         }
         for(Contributory c : it.value()) {
             // Fill trinary legs… :)
             bool insertBillingProject = c.getId() == 0;
             c.commit();
             if(insertBillingProject) {
-                BillingDatabase::instance()->addBillingProject(c.getProject()->getId(),
-                                                                _idBilling,
-                                                               c.getId());
+                BillingDatabase::instance()->addBillingProject(
+                            c.getProject()->getId(), _idBilling, c.getId());
             }
         }
     }
@@ -54,7 +55,10 @@ void ContributoriesList::addContributory(Contributory &contributory)
         }
     }
     if(toInsert) {
-        key = new QPair<Project*, Models::Rate>(contributory.getProject(), Models::Rate(_idBilling, contributory.getProject()->getId()));
+        key = new QPair<Project*, Models::Rate>(
+                    contributory.getProject(),
+                    Models::Rate(
+                        _idBilling, contributory.getProject()->getId()));
         insert(key, QList<Contributory>());
     }
 
@@ -63,7 +67,8 @@ void ContributoriesList::addContributory(Contributory &contributory)
 
 void ContributoriesList::addProject(Project *p, Models::Rate rate)
 {
-    insert(new QPair<Project*, Models::Rate>(p, rate), QList<Models::Contributory>());
+    insert(new QPair<Project*, Models::Rate>(p, rate),
+           QList<Models::Contributory>());
 }
 
 QList<Contributory>& ContributoriesList::getContributories(Project *p)
@@ -119,7 +124,8 @@ QVariantList ContributoriesList::getDataMap()
         project["nameproject"] = key->first->getName();
         for(Contributory c : getContributories(key->first)) {
             buff = c.getDataMap();
-            buff["price"] = key->second.getDailyRate() * buff["nbHours"].toDouble();
+            buff["price"] = key->second.getDailyRate()
+                            * buff["nbHours"].toDouble();
             contributories << buff;
             buff.clear();
         }
@@ -183,7 +189,7 @@ void ContributoriesList::setAllIdContributories(int idContributory)
     }
 }
 
-bool ContributoriesList::getInsert() const
+bool ContributoriesList::isInsert() const
 {
     return _insert;
 }
