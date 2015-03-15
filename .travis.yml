@@ -16,9 +16,9 @@ before_install:
 install:
     - sudo apt-get install g++-4.8 gdb 
     - sudo apt-get install doxygen doxygen-latex doxygen-doc
-    - sudo apt-get install -y lcov 
-    - sudo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils  >> /dev/null
-    - sudo apt-get install mysql-server mysql-client mysql-dev libqt5sql5-mysql libmysqlclient-dev libmysql++-dev
+    - sudo apt-get install lcov 
+    - sudo apt-get install texlive texlive-fonts-extra latex-xcolor texlive-extra-utils texlive-font-utils
+    - sudo apt-get install mysql-server mysql-client libmysqld-dev libmysqlclient-dev libqt5sql5-mysql libmysqlclient-dev libmysql++-dev
     - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 
     - mkdir ~/Qt5.2.0 
     - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
