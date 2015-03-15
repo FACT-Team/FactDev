@@ -9,6 +9,7 @@ class CustomerModelTest : public QObject
     Q_OBJECT
 public:
     CustomerModelTest();
+    void setup();
 private slots:
     void equals1();
     void equals2();

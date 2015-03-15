@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     setupUi();
     setupSignalsSlots();
+    Databases::AccessDatabase dbAccess;
+    dbAccess.commit();
+
     StartedWindowsDialog w;
     w.exec();
 }

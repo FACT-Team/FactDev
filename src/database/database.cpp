@@ -25,9 +25,8 @@ void Database::close() {
 }
 
 Database::Database() throw(DbException*) {
-    AccessDatabase dbAccess;
     if(!isOpen) {
-        if(dbAccess.exists() || true) {
+        if(AccessDatabase::_exists) {
             _isMysql = true;
             mDatabase = QSqlDatabase::addDatabase("QMYSQL");
         } else {
@@ -43,16 +42,34 @@ Database::~Database() {
     mDatabase.close();
     _instance = 0;
     _dbInstance = 0;
-
+    isOpen = false;
     delete _instance;
 }
 
+void Database::changeDatabase(DbType dbType)
+{
+    if(isOpen) {
+    close();
+    switch(dbType) {
+    case SQLITE:
+        _isMysql = false;
+        QSqlDatabase::removeDatabase("QMYSQL");
+        mDatabase = QSqlDatabase::addDatabase("QSQLITE");
+        break;
+    case MYSQL:
+        _isMysql = true;
+        QSqlDatabase::removeDatabase("QSQLITE");
+        mDatabase = QSqlDatabase::addDatabase("QMYSQL");
+        break;
+    }
+    open();
+    }
+}
 void Database::open() {
-    AccessDatabase dbAccess;
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
 
-    if(!dbAccess.exists() && false)
+    if(!AccessDatabase::_exists)
     {
         _settings = new QSettings("FACT", "FactDev");
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
@@ -87,13 +104,13 @@ void Database::open() {
         query.exec("PRAGMA journal_mode=MEMORY");
         query.exec("PRAGMA default_cache_size=10000");
         query.exec("PRAGMA locking_mode=EXCLUSIVE");
-        executeFile(QCoreApplication::applicationDirPath()+"/sql/mysql/createtables.sql");
+        executeFile(QCoreApplication::applicationDirPath()+"/sql/sqlite/createtables.sql");
     } else {
-        mDatabase.setHostName(dbAccess.getAddress());
-        mDatabase.setDatabaseName(dbAccess.getDbName());
-        mDatabase.setUserName(dbAccess.getUserDb());
-        mDatabase.setPassword(dbAccess.getPassword());
-        mDatabase.setPort(dbAccess.getPort());
+        mDatabase.setHostName(AccessDatabase::_address);
+        mDatabase.setDatabaseName(AccessDatabase::_dbName);
+        mDatabase.setUserName(AccessDatabase::_userDb);
+        mDatabase.setPassword(AccessDatabase::_password);
+        mDatabase.setPort(AccessDatabase::_port);
         _isMysql = true;
         if(!Database::mDatabase.open()) {
             if(!Database::mDatabase.open()) {
@@ -130,11 +147,6 @@ void Database::updateBillingNumber()
     }
 }
 
-void Database::clearDatabase()
-{
-    executeFile(QCoreApplication::applicationDirPath()+"/sql/removetables.sql");
-}
-
 inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/customers.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/projects.sql");
@@ -148,8 +160,8 @@ inline void Database::testCases() {
     updateBillingNumber();
 }
 
-inline void Database::cleanDatabase() {
-    executeFile(QCoreApplication::applicationDirPath()+"/sql/cleardatabase.sql");
+void Database::cleanDatabase() {
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/removetables.sql");
 }
 
 void Database::executeFile(QString pName) {

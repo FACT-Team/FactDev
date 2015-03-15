@@ -67,7 +67,7 @@ QVariantHash Customer::getDataMap()
 bool Customer::operator==(const Customer &c)
 {
     // all fields are the same.
-    return  getAddress() == c.getAddress()
+    bool ret= getAddress() == c.getAddress()
             && getFirstnameReferent() == c.getFirstnameReferent()
             && getCity() == c.getCity() && getCompany() == c.getCompany()
             && getCountry() == c.getCountry() && getEmail() == c.getEmail()
@@ -76,6 +76,7 @@ bool Customer::operator==(const Customer &c)
             && getMobilePhone() == c.getMobilePhone()
             && getPhone() == c.getPhone()
             && getPostalCode() == c.getPostalCode();
+    return ret;
 }
 
 bool Customer::operator!=(const Customer &c)

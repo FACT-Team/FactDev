@@ -15,6 +15,7 @@
 
 #include "database/projectdatabase.h"
 #include "database/billingdatabase.h"
+#include "database/accessdatabase.h"
 
 #include "gui/widgets/popup.h"
 #include "gui/widgets/customercontextualmenu.h"

@@ -2,7 +2,7 @@
 #include "database/customerdatabase.h"
 #include "database/userdatabase.h"
 
-CustomerModelTest::CustomerModelTest()
+void CustomerModelTest::setup()
 {
     c1.setAddress("Address");
     c1.setCity("Toulouse");
@@ -31,8 +31,14 @@ CustomerModelTest::CustomerModelTest()
     c2.setPostalCode("31500");
 }
 
+CustomerModelTest::CustomerModelTest()
+{
+}
+
 void CustomerModelTest::equals1()
 {
+    setup();
+
     QVERIFY(c1 == c2);
 }
 void CustomerModelTest::equals2()

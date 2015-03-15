@@ -38,7 +38,7 @@ database/customerdatabasetest.h \
     models/contributorylisttest.h
 
 SOURCES += \
-    QTestRunner/main.cpp \
+    #QTestRunner/main.cpp \
 database/customerdatabasetest.cpp \
     QTestRunner/testrunner.cpp \
     QTestRunner/testadder.cpp \
@@ -57,7 +57,8 @@ database/customerdatabasetest.cpp \
     utils/stringtest.cpp \
     models/contributorymodeltest.cpp \
     utils/itemtypetest.cpp \
-    models/contributorylisttest.cpp
+    models/contributorylisttest.cpp \
+    main.cpp
   #  CustomTestPrinter.cpp \
    # database/customerdatabasetest.cpp
 

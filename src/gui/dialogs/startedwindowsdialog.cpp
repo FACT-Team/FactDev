@@ -112,14 +112,14 @@ void StartedWindowsDialog::accept() {
     _user->setMobilePhone(ui->leMobile->text());
     _user->setNoSiret(ui->leNoSiret->text());
 
-    _dbAccess->setAddress(ui->wdgDbType->getDomainNameOrIP());
-    _dbAccess->setDbName(ui->wdgDbType->getDatabaseName());
-    _dbAccess->setPassword(ui->wdgDbType->getPassword());
-    _dbAccess->setPort(ui->wdgDbType->getPort().toInt());
-    _dbAccess->setUserDb(ui->wdgDbType->getLogin());
-    _dbAccess->setExists(true);
+    Databases::AccessDatabase::_address = ui->wdgDbType->getDomainNameOrIP();
+    Databases::AccessDatabase::_dbName = ui->wdgDbType->getDatabaseName();
+    Databases::AccessDatabase::_userDb = ui->wdgDbType->getLogin();
+    Databases::AccessDatabase::_exists = true;
+    Databases::AccessDatabase::_port = ui->wdgDbType->getPort().toInt();
+
     _user->commit();
-    _dbAccess->commit();
+    Databases::AccessDatabase::commit();
 
     QDialog::accept();
 }

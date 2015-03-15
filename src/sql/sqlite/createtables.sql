@@ -1,11 +1,3 @@
-DROP TABLE Users;
-DROP TABLE BillingProject;
-DROP TABLE Billing;
-DROP TABLE Contributory;
-DROP TABLE Project;
-DROP TABLE Customers;
-DROP TABLE BillingRate;
-
 CREATE TABLE Customer
 (
     idCustomer INTEGER PRIMARY KEY AUTOINCREMENT,
