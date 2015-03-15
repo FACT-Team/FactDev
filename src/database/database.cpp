@@ -130,6 +130,11 @@ void Database::updateBillingNumber()
     }
 }
 
+void Database::clearDatabase()
+{
+    executeFile(QCoreApplication::applicationDirPath()+"/sql/removetables.sql");
+}
+
 inline void Database::testCases() {
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/customers.sql");
     executeFile(QCoreApplication::applicationDirPath()+"/sql/tests/projects.sql");

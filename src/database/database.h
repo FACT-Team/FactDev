@@ -99,6 +99,12 @@ public:
      * @brief Database::updateBillingNumber Update the billing number
      */
     void updateBillingNumber();
+
+    /**
+     * @brief Database::clearDatabase Drop alls tables of Database
+     * WARNING: We can't restore data after.
+     */
+    void clearDatabase();
 protected:
     /**
      * @brief Database::Database Database is a singleton

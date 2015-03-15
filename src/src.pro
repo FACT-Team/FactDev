@@ -221,7 +221,6 @@ RESOURCES += \
     utilsfiles.qrc
 
 OTHER_FILES += \
-        sql/removetable.sql \
         sql/sqlite/createtables.sql\
         sql/mysql/createtables.sql\
         sql/tests/customers.sql \
@@ -235,5 +234,6 @@ OTHER_FILES += \
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql \
-    sql/tests/billingrate.sql
+    sql/tests/billingrate.sql \
+    sql/removetables.sql
 
