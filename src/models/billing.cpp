@@ -130,11 +130,12 @@ QString Billing::getFilename()
 
 bool Billing::operator ==(const Billing &b)
 {
-    return (getDate() == b.getDate()
-            && getDescription() == b.getDescription()
-            && getNumber() == b.getNumber()
-            && getTitle() == b.getTitle()
-            );
+    bool ret = (getDate() == b.getDate()
+                && getDescription() == b.getDescription()
+                && getNumber() == b.getNumber()
+                && getTitle() == b.getTitle()
+                );
+    return ret;
 }
 
 bool Billing::operator !=(const Billing &b)

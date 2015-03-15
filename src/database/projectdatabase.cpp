@@ -196,7 +196,7 @@ int ProjectDatabase::getNbProjects()
 int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     QSqlQuery q;
 
-    q.prepare("SELECT count(*) AS nb_p FROM PROJECT WHERE idCustomer = :pId");
+    q.prepare("SELECT count(*) AS nb_p FROM Project WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
     if(!q.exec()) {
         throw new DbException(
@@ -214,7 +214,7 @@ QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer
     QSqlQuery q;
     QMap<int, Models::Project> ret;
     Models::Project project;
-    q.prepare("SELECT * FROM PROJECT WHERE idCustomer = :pId ORDER BY UPPER(name)");
+    q.prepare("SELECT * FROM Project WHERE idCustomer = :pId ORDER BY UPPER(name)");
     q.bindValue(":pId", c->getId());
     if(!q.exec()) {
         throw new DbException(

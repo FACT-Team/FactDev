@@ -38,7 +38,7 @@ Models::Billing* BillingDatabase::getBilling(const int pId) {
         billing->setTitle(value(q, "title").toString());
         billing->setDescription(value(q,"description").toString());
         billing->setNumber(value(q,"number").toInt());
-        billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+        billing->setDate(value(q,"date").toDate());
         billing->setIsBilling(value(q,"isBilling").toBool());
         billing->setIsPaid(value(q,"isPaid").toBool());
         billing->setToRemoved(false);
@@ -327,7 +327,7 @@ QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
     billing->setTitle(value(q, "title").toString());
     billing->setDescription(value(q,"description").toString());
     billing->setNumber(value(q,"number").toInt());
-    billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+    billing->setDate(value(q,"date").toDate());
     billing->setIsBilling(value(q,"isBilling").toBool());
     billing->setIsPaid(value(q,"isPaid").toBool());
     billing->setToRemoved(false);
