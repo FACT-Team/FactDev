@@ -9,10 +9,9 @@ AddProjectDialog::AddProjectDialog(int idProject, int noRowCustomer, QWidget *pa
 {
     ui->setupUi(this);
 
-    if(noRowCustomer != 0) {
-        ui->wdgSearch->selectCustomer(noRowCustomer);
-    }
+    ui->wdgSearch->selectCustomer(noRowCustomer);
     ui->leNameProject->setFocus();
+    ui->wdgRate->hide();
     if(idProject != 0) {
         _project = Project(idProject);
         ui->wdgSearch->setIdCustomer(_project.getCustomer()->getId());
@@ -33,11 +32,12 @@ void AddProjectDialog::accept() {
 
     _project.setName(ui->leNameProject->text());
     _project.setDescription(ui->leDescription->toPlainText());
-    _project.setDailyRate(ui->wdgRate->getDailyRate());
     _project.setBeginDate(QDate::currentDate());
 
     if(_project.getCustomer() == 0) {
-        _project.setCustomer(QSharedPointer<Customer>(new Customer(ui->wdgSearch->getCurrentCustomerId())));
+        _project.setCustomer(
+                    QSharedPointer<Customer>(
+                        new Customer(ui->wdgSearch->getCurrentCustomerId())));
     }
 
     _project.commit();

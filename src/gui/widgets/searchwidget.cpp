@@ -19,14 +19,10 @@ searchWidget::~searchWidget()
 
 int searchWidget::getCurrentCustomerId()
 {
-    if(_idCustomer != 0) {
     QModelIndex idCell = ui->tblSearch->model()->index(
                 ui->tblSearch->currentIndex().row(), 0);
 
-        return ui->tblSearch->model()->itemData(idCell).value(0).toInt();
-    } else {
-        return _idCustomer;
-    }
+        return ui->tblSearch->model()->itemData(idCell).value(0).toInt();    
 }
 
 void searchWidget::search(QString text)

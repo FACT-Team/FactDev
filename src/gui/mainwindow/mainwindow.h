@@ -89,12 +89,14 @@ public:
     QString getCurrentProjectName();
 
     /**
-     * @brief MainWindow::treeLevel return the level of the node selected in the tree
+     * @brief MainWindow::treeLevel return the level of the node selected in the
+     *  tree
      * @return integer, depth of the item in tree
      */
     int treeLevel();
     /**
-     * @brief MainWindow::rootTree return the root of the tree "Tous les clients"
+     * @brief MainWindow::rootTree return the root of the tree "Tous les
+     * clients"
      * @return QModelIndex
      */
     QModelIndex rootTree();
@@ -165,7 +167,8 @@ public slots:
      */
     void aboutFact();
     /**
-     * @brief MainWindow::aboutFactDev() show FactDev's details (FactDev Software)
+     * @brief MainWindow::aboutFactDev() show FactDev's details (FactDev
+     * Software)
      */
     void aboutFactDev();
     /**
@@ -231,7 +234,8 @@ private slots:
      */
     void changeDocsTable();
     /**
-     * @brief MainWindow::customersTableToProjectsTable changes projects with the <i>index</i>
+     * @brief MainWindow::customersTableToProjectsTable changes projects with
+     * the <i>index</i>
      * of the customer in table of customers
      */
     void customersTableToProjectsTable();
@@ -244,7 +248,8 @@ private slots:
      */
     void backToProjectsTable();
     /**
-     * @brief MainWindow::projectsTableToDocsTable displays quotes of a project with the <i>index</i>
+     * @brief MainWindow::projectsTableToDocsTable displays quotes of a project
+     * with the <i>index</i>
      * of the project in the table of projects
      */
     void projectsTableToDocsTable();
@@ -303,6 +308,12 @@ private:
      * @param row optional parameter for select the row in table
      */
     void updateTableBillings(const int idProject, const int row = -1);
+
+    /**
+     * @brief MainWindow::updateCostAndTurnover Update for the cost and turnover
+     */
+    void updateCostAndTurnover();
+
     /**
      * @brief MainWindow::removeItem Remove the <i>item</i> selected in the
      * table <i>tbl</i>
