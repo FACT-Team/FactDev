@@ -5,6 +5,7 @@ namespace Databases {
 Database* Database::_instance = 0;
 bool Database::_dbInstance = 0;
 bool Database::isOpen = false;
+bool Database::_isMysql = false;
 
 Database* Database::instance() throw(DbException*) {
     if (_instance==0) {
@@ -27,8 +28,10 @@ Database::Database() throw(DbException*) {
     AccessDatabase dbAccess;
     if(!isOpen) {
         if(dbAccess.exists() || true) {
+            _isMysql = true;
             mDatabase = QSqlDatabase::addDatabase("QMYSQL");
         } else {
+            _isMysql = false;
             mDatabase = QSqlDatabase::addDatabase("QSQLITE");
         }
         open();
@@ -53,7 +56,7 @@ void Database::open() {
     {
         _settings = new QSettings("FACT", "FactDev");
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
-
+        _isMysql = false;
         if(!QFile::exists(
                     _settings->value("dbPath").toString()+"/"+Parameters::DB_FILENAME))
         {
@@ -91,6 +94,7 @@ void Database::open() {
         mDatabase.setUserName(dbAccess.getUserDb());
         mDatabase.setPassword(dbAccess.getPassword());
         mDatabase.setPort(dbAccess.getPort());
+        _isMysql = true;
         if(!Database::mDatabase.open()) {
             if(!Database::mDatabase.open()) {
                 throw new DbException(
@@ -172,8 +176,10 @@ void Database::openTransaction()
 {
     QSqlQuery q;
 
-    q.prepare("BEGIN TRANSACTION");
+    q.prepare((!_isMysql ? "BEGIN" : "START")+QString(" TRANSACTION"));
     if(!q.exec()) {
+        qDebug() << _isMysql;
+        Log::instance(WARNING) << (_isMysql==false ? "321BEGIN" : "START");
         Log::instance(WARNING) << "Erreur d'ouverture de la transaction";
         Log::instance(WARNING) << lastError(q);
 
@@ -185,7 +191,7 @@ void Database::closeTransaction()
 {
     QSqlQuery q;
 
-    q.prepare("END TRANSACTION");
+    q.prepare(!_isMysql ? "END TRANSACTION" : "COMMIT");
 
     if(!q.exec()) {
         Log::instance(WARNING) << "Erreur de fermeture de la transaction";

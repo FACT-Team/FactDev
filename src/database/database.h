@@ -123,6 +123,7 @@ protected:
      */
     QVariant value(const QSqlQuery& q, const QString& champ) const;
 
+    static bool _isMysql;
 
 };
 }

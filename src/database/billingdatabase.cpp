@@ -273,7 +273,7 @@ int BillingDatabase::getMaxQuoteNumber()
 int BillingDatabase::getMaxBillingNumberOfCustomer(const int idCustomer)
 {
     QSqlQuery q;
-    q.prepare("SELECT MAX(number) as max FROM customer c, project p, billingproject bp, billing b "
+    q.prepare("SELECT MAX(number) as max FROM Customer c, Project p, BillingProject bp, Billing b "
               "WHERE "
               "c.idCustomer = p.idCustomer "
               "AND p.idProject = bp.idProject "
@@ -298,7 +298,7 @@ int BillingDatabase::getMaxBillingNumberOfCustomer(const int idCustomer)
 int BillingDatabase::getMaxQuoteNumberOfCustomer(const int idCustomer)
 {
     QSqlQuery q;
-    q.prepare("SELECT MAX(number) as max FROM customer c, project p, billingproject bp, billing b "
+    q.prepare("SELECT MAX(number) as max FROM Customer c, Project p, BillingProject bp, Billing b "
               "WHERE "
               "c.idCustomer = p.idCustomer "
               "AND p.idProject = bp.idProject "
