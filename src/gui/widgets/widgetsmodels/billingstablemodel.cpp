@@ -25,10 +25,7 @@ int Gui::Widgets::WdgModels::BillingsTableModel::columnCount(
 QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole
-            && role != Qt::EditRole
-            && role != Qt::DecorationRole || index.row() == -1)
-    {
+    if ((role != Qt::DisplayRole && role != Qt::EditRole && role != Qt::DecorationRole) || index.row() == -1) {
         return QVariant();
     }
 

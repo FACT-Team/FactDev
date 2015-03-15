@@ -16,10 +16,12 @@ private slots:
 
     void commitUpdate();
     void commitInsert();
+    void commitRemove();
     void hydrat();
     void remove();
     void getPath();
     void getNameFolder();
+    void getTurnover();
 private:
     Customer c1;
     Customer c2;

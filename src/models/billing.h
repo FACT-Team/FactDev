@@ -28,13 +28,11 @@ public:
      * @brief Billing::Billing. Construct a Billing.
      */
     Billing();
-
     /**
      * @brief Billing::Billing. Construct a Billing or quote.
      * @param int id
      */
     Billing(int id);
-
     /**
      * @brief destruct a billing object
      */
@@ -108,8 +106,8 @@ public:
     void addContributory(Contributory &c);
 
     /**
-     * @brief Billing::getSumRate. return <b>Billing</b> total by money
-     * @return Total Billing
+     * @brief Billing::getSumRate. return <b>Billing</b> Rate
+     * @return
      */
     double getSumRate();
 

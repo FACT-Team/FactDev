@@ -67,13 +67,13 @@ public:
      * the database
      * @return customer id
      */
-    int addCustomer(const Models::Customer&);
+    int addCustomer(const Models::Customer &);
 
     /**
      * @brief CustomerDatabase::updateCustomer Update informations about the
      * customer <i>pCustomer</i>
      */
-    void updateCustomer(const Models::Customer&);
+    void updateCustomer(const Models::Customer &);
 
     /**
      * @brief CustomerDatabase::removeCustomer Remove the customer with the id

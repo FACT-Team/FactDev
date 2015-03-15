@@ -1,13 +1,17 @@
 #include "models/customer.h"
 
 #include "database/customerdatabase.h"
+#include "database/billingdatabase.h"
 #include "models/user.h"
+#include "models/billing.h"
+
 using namespace Databases;
 
 namespace Models {
 Customer::Customer()
 {
-    _id = 0;
+    setId(0);
+    setTurnover(0.0);
 }
 
 Customer::Customer(int id) {
@@ -26,19 +30,20 @@ void Customer::commit() {
 
 void Customer::hydrat(int id)
 {
-    QSharedPointer<Customer> c = CustomerDatabase::instance()->getCustomer(id);
-    _id = id;
-    _address = c->getAddress();
-    _city = c->getCity();
-    _company = c->getCompany();
-    _country = c->getCountry();
-    _email = c->getEmail();
-    _fax = c->getFax();
-    _firstnameReferent = c->getFirstnameReferent();
-    _lastnameReferent = c->getLastnameReferent();
-    _phone = c->getPhone();
-    _mobilePhone = c->getMobilePhone();
-    _postalCode = c->getPostalCode();
+    QSharedPointer<Customer> customer = CustomerDatabase::instance()->getCustomer(id);
+
+    setId(id);
+    setFirstname(           customer->getFirstname());
+    setLastname(            customer->getLastname());
+    setCompany(             customer->getCompany());
+    setAddress(             customer->getAddress());
+    setPostalCode(          customer->getPostalCode());
+    setCity(                customer->getCity());
+    setCountry(             customer->getCountry());
+    setEmail(               customer->getEmail());
+    setPhone(               customer->getPhone());
+    setMobilePhone(         customer->getMobilePhone());
+    setFax(                 customer->getFax());
 }
 
 void Customer::remove()
@@ -49,129 +54,29 @@ void Customer::remove()
 QVariantHash Customer::getDataMap()
 {
     QVariantHash data;
-    data["firstname"] = _firstnameReferent;
-    data["lastname"] = _lastnameReferent;
-    data["company"] = _company;
-    data["address"] = _address;
-    data["postalcode"] = _postalCode;
-    data["city"] = _city;
-    data["email"] = _email;
-    data["mobilephone"] = _mobilePhone;
-    data["phone"] = _phone;
-    data["fax"]  = _fax;
+    data["firstname"]   = getFirstname();
+    data["lastname"]    = getLastname();
+    data["company"]     = getCompany();
+    data["address"]     = getAddress();
+    data["postalcode"]  = getPostalCode();
+    data["city"]        = getCity();
+    data["email"]       = getEmail();
+    data["mobilephone"] = getMobilePhone();
+    data["phone"]       = getPhone();
+    data["fax"]         = getFax();
 
     return data;
-
 }
 
 bool Customer::operator==(const Customer &c)
 {
-    // all fields are the same.
-    return  getAddress() == c.getAddress()
-            && getFirstnameReferent() == c.getFirstnameReferent()
-            && getCity() == c.getCity() && getCompany() == c.getCompany()
-            && getCountry() == c.getCountry() && getEmail() == c.getEmail()
-            && getFax() == c.getFax()
-            && getLastnameReferent() == c.getLastnameReferent()
-            && getMobilePhone() == c.getMobilePhone()
-            && getPhone() == c.getPhone()
-            && getPostalCode() == c.getPostalCode();
+    return People::operator == (c)
+            && getTurnover() == c.getTurnover();
 }
 
 bool Customer::operator!=(const Customer &c)
 {
-    return !(*this == c); // not equals
-}
-
-QString Customer::getFirstnameReferent() const
-{
-    return _firstnameReferent;
-}
-
-void Customer::setFirstnameReferent(const QString &firstnameReferent)
-{
-    _firstnameReferent = firstnameReferent;
-}
-QString Customer::getLastnameReferent() const
-{
-    return _lastnameReferent;
-}
-
-void Customer::setLastnameReferent(const QString &lastnameReferent)
-{
-    _lastnameReferent = lastnameReferent;
-}
-QString Customer::getCompany() const
-{
-    return _company;
-}
-
-void Customer::setCompany(const QString &company)
-{
-    _company = company;
-}
-QString Customer::getAddress() const
-{
-    return _address;
-}
-
-void Customer::setAddress(const QString &address)
-{
-    _address = address;
-}
-QString Customer::getPostalCode() const
-{
-    return _postalCode;
-}
-
-void Customer::setPostalCode(const QString &postalCode)
-{
-    _postalCode = postalCode;
-}
-QString Customer::getCity() const
-{
-    return _city;
-}
-
-void Customer::setCity(const QString &city)
-{
-    _city = city;
-}
-QString Customer::getEmail() const
-{
-    return _email;
-}
-
-void Customer::setEmail(const QString &email)
-{
-    _email = email;
-}
-QString Customer::getMobilePhone() const
-{
-    return _mobilePhone;
-}
-
-void Customer::setMobilePhone(const QString &mobilePhone)
-{
-    _mobilePhone = mobilePhone;
-}
-QString Customer::getPhone() const
-{
-    return _phone;
-}
-
-void Customer::setPhone(const QString &phone)
-{
-    _phone = phone;
-}
-QString Customer::getFax() const
-{
-    return _fax;
-}
-
-void Customer::setFax(const QString &fax)
-{
-    _fax = fax;
+    return !(*this == c);
 }
 
 QString Customer::getPath() const
@@ -185,20 +90,28 @@ QString Customer::getPath() const
 
 QString Customer::getNameFolder() const
 {
-    return getCompany().toUpper()
-            + " " + getLastnameReferent()
-           + " " + getFirstnameReferent();
+    return  getCompany().toUpper()
+            + " " + getLastname()
+            + " " + getFirstname();
 }
 
-
-QString Customer::getCountry() const
+double Customer::getTurnover() const
 {
-    return _country;
+    return _turnover;
 }
 
-void Customer::setCountry(const QString &country)
+void Customer::setTurnover(const double &turnover)
 {
-    _country = country;
+    _turnover = turnover;
 }
 
+double Customer::turnoverCompute()
+{
+    double ret(0.0);
+    QList<Project> projects = Databases::ProjectDatabase::instance()->getProjects(getId());
+    for (Project project : projects) {
+        ret += project.getCost();
+    }
+    return ret;
+}
 }

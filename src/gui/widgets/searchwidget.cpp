@@ -64,8 +64,8 @@ void searchWidget::getCustomerData() {
     _isCustomerSelected = true;
     Models::Customer customer = Models::Customer(getCurrentCustomerId());
 
-    ui->leCustomer->setText( customer.getFirstnameReferent() + " "
-                            + customer.getLastnameReferent());
+    ui->leCustomer->setText( customer.getFirstname() + " "
+                            + customer.getLastname());
     emit selectCustomer();
 }
 

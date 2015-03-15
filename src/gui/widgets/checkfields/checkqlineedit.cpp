@@ -31,7 +31,7 @@ void CheckQLineEdit::displayCheckValidFieldIcon()
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"
-            "height: 24px;"
+            "height: 22px;"
             "border: 1px solid #bbb;";
 
     this->setStyleSheet(styleValid);
@@ -44,7 +44,7 @@ void CheckQLineEdit::displayCheckNoValidFieldIcon()
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"
-            "height: 24px;"
+            "height: 22px;"
             "border: 1px solid #bbb;";
 
     this->setStyleSheet(styleNoValid);

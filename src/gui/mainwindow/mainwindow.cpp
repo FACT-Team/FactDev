@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setupSignalsSlots();
     StartedWindowsDialog w;
     w.exec();
+    updateUser();
 }
 
 void MainWindow::setupUi()
@@ -82,7 +83,8 @@ void MainWindow::addCustomer()
 {
     if (DialogAddCustomer().exec()) { // accept
         ui->stackedWidget->setCurrentIndex(0);
-        updateUI();
+        updateTableCustomers();
+        updateTree();
     }
 }
 
@@ -108,16 +110,25 @@ void MainWindow::addQuote() {
 void MainWindow::addBill()
 {
     addDoc(true);
+
 }
 
 void MainWindow::addDoc(bool isBilling) {
     if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
         updateTableBillings(getCurrentProjectId());
+        updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row()); // For project Cost
+        updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        changeProjectsTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
 
-        ui->stackedWidget->setCurrentIndex(1);
+        // For security and crash of the application
+        // if we remove a project in a doc and we save it
+        // or if we are in a project and we associate the doc with an other project
+        // go back to the panel projectsTable
+        // ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
@@ -167,11 +178,14 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
             break;
         case ItemType::PROJECT:
             updateTableProjects();
+            updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
             changeCustomerTable();
             ui->trCustomers->expand(ui->trCustomers->currentIndex());
             break;
         case ItemType::BILLING:
             updateTableBillings(getCurrentProjectId());
+            updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row()); // For project Cost
+            updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
             changeCustomerTable();
             ui->trCustomers->expand(ui->trCustomers->currentIndex());
             changeProjectsTable();
@@ -201,6 +215,13 @@ void MainWindow::editProject() {
     }
 }
 
+void MainWindow::editUser()
+{
+    if (UserDataDialog().exec()) {
+        updateUser();
+    }
+}
+
 void MainWindow::editDoc()
 {
     AddQuoteDialog editDocDialog(
@@ -211,11 +232,19 @@ void MainWindow::editDoc()
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
+        updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row()); // For project Cost
+        updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
+        changeProjectsTable();
+        ui->trCustomers->expand(ui->trCustomers->currentIndex());
 
-        ui->stackedWidget->setCurrentIndex(1);
+        // For security and crash of the application
+        // if we remove a project in a doc and we save it
+        // or if we are in a project and we associate the doc with an other project
+        // go back to the panel projectsTable
+        // ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
@@ -262,15 +291,6 @@ void MainWindow::openPdf()
 void MainWindow::search(QString text)
 {
     updateUI(text);
-}
-
-void MainWindow::editUser()
-{
-    UserDataDialog userdialog;
-    if (userdialog.exec()) {
-        updateUser();
-    }
-    updateUI();
 }
 
 void MainWindow::aboutQt()
@@ -470,17 +490,12 @@ void MainWindow::backToProjectsTable()
 
 void MainWindow::updateUI(QString filter)
 {
-    Utils::pointers::deleteIfNotNull(ui->tblCustomers->model());
+    updateTableBillings(getCurrentProjectId());
+
+    updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row());
+
     updateTableCustomers(filter, ui->tblCustomers->currentIndex().row());
 
-    Utils::pointers::deleteIfNotNull(ui->tblProjects->model());
-    updateTableProjects(getCurrentCustomerId(),
-                        ui->tblProjects->currentIndex().row());
-
-    updateTableBillings(getCurrentProjectId(),
-                        ui->tblQuotes->currentIndex().row());
-
-    Utils::pointers::deleteIfNotNull(ui->trCustomers->model());
     updateTree(filter);
 
     updateButtons();
@@ -597,6 +612,7 @@ void MainWindow::updateButtons()
             && !ui->tblCustomers->selectionModel()->hasSelection()) {
         ui->trCustomers->setCurrentIndex(rootTree());
     }
+
     ui->actionNewQuote->setEnabled(canAdd);
     ui->actionNewBill->setEnabled(canAdd);
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);
@@ -619,7 +635,7 @@ void MainWindow::updateButtons()
         ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png"
                                                     : ":icons/img/copy_quote"));
 
-        if ( isBillingPaid || !b.isBilling()) {
+        if (isBillingPaid || !b.isBilling()) {
             ui->btnBillingIsPaid->setEnabled(false);
            if (isBillingPaid) {
                ui->btnRemoveDoc->setEnabled(false);

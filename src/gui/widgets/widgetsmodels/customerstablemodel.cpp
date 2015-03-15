@@ -25,7 +25,7 @@ int CustomersTableModel::rowCount(
 int CustomersTableModel::columnCount(
         const QModelIndex &) const
 {
-    return 6;
+    return 7;
 }
 
 QVariant CustomersTableModel::data(
@@ -41,10 +41,11 @@ QVariant CustomersTableModel::data(
     switch (index.column()) {
     case 0: return customer.getId();
     case 1: return customer.getCompany();
-    case 2: return customer.getLastnameReferent();
-    case 3: return customer.getFirstnameReferent();
+    case 2: return customer.getLastname();
+    case 3: return customer.getFirstname();
     case 4: return customer.getPhone();
     case 5: return customer.getEmail();
+    case 6: return QString::number(customer.getTurnover(), 'f', 2) + " €";
     default: return QVariant();
     };
 }
@@ -68,6 +69,7 @@ QVariant CustomersTableModel::headerData(int section,
     case 3: return "Prénom";
     case 4: return "Téléphone";
     case 5: return "E-mail";
+    case 6: return "Chiffre d'affaire";
     default: return QVariant();
     }
 }
@@ -84,16 +86,19 @@ bool CustomersTableModel::setData(
             _customers[index.row()].setCompany(value.toString());
             break;
         case 2:
-            _customers[index.row()].setLastnameReferent(value.toString());
+            _customers[index.row()].setLastname(value.toString());
             break;
         case 3:
-            _customers[index.row()].setFirstnameReferent(value.toString());
+            _customers[index.row()].setFirstname(value.toString());
             break;
         case 4:
             _customers[index.row()].setPhone(value.toString());
             break;
         case 5:
             _customers[index.row()].setEmail(value.toString());
+            break;
+        case 6:
+            _customers[index.row()].setTurnover(value.toDouble());
             break;
         default:
             Log::instance(WARNING) << "Error, in default case of "

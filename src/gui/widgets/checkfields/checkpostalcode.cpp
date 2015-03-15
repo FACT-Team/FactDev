@@ -1,5 +1,4 @@
 #include "checkpostalcode.h"
-#include <QDebug>
 
 namespace Gui {
 namespace Widgets {
