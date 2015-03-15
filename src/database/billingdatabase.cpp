@@ -220,6 +220,18 @@ void BillingDatabase::removeBilling(const int pId)
                         lastError(q),
                         1.51);
         }
+        q.prepare("DELETE FROM BillingRate "
+                  "WHERE idBilling=:pId");
+
+        q.bindValue(":pId",pId);
+
+        if(!q.exec()) {
+            throw new DbException(
+                        "Impossible de supprimer le Billing ",
+                        "BddContributory::removeBilling",
+                        lastError(q),
+                        1.51);
+        }
 
         q.clear();
 
