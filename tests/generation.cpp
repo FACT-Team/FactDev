@@ -45,11 +45,15 @@ void Generation::testFileTemplate() {
 }
 
 void Generation::GenerationSimpleBilling() {
-    QLocale::setDefault(QLocale(QLocale::French));
+    try {
+        QLocale::setDefault(QLocale(QLocale::French));
 
-    Generator::TexGenerator gen(":/tpl/billingtpl");
-    gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
-    QVERIFY(QFile("/tmp/test.tex").exists());
+        Generator::TexGenerator gen(":/tpl/billingtpl");
+        gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
+        QVERIFY(QFile("/tmp/test.tex").exists());
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 
@@ -58,21 +62,25 @@ void Generation::GenerationSimpleTexBillingWithModel() {
 
     Billing b(1);
     b.generateTex();
-//    QVERIFY(QFile(b.getPath()+".tex").exists());
+    //    QVERIFY(QFile(b.getPath()+".tex").exists());
 
 }
 
 void Generation::GenerationBillingPdf() {
     QLocale::setDefault(QLocale(QLocale::French));
 
-    Billing b(1);
-    b.generateTex();
-    QVERIFY(QFile("/tmp/test.tex").exists());
-    Generator::PdfGenerator gen;
-    gen.generate("/tmp/", "test");
-    QVERIFY(QFile("/tmp/test.pdf").exists());
-    QVERIFY(!QFile("/tmp/test.aux").exists());
-    QVERIFY(!QFile("/tmp/test.log").exists());
+    try {
+        Billing b(1);
+        b.generateTex();
+        QVERIFY(QFile("/tmp/test.tex").exists());
+        Generator::PdfGenerator gen;
+        gen.generate("/tmp/", "test");
+        QVERIFY(QFile("/tmp/test.pdf").exists());
+        QVERIFY(!QFile("/tmp/test.aux").exists());
+        QVERIFY(!QFile("/tmp/test.log").exists());
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void Generation::GenerationSimplePdfBillingWithModel() {
@@ -80,7 +88,7 @@ void Generation::GenerationSimplePdfBillingWithModel() {
 
     Billing b(1);
     b.generatePdf();
-//    QVERIFY(QFile(b.getPath()+".pdf").exists());
-//    QVERIFY(!QFile(b.getPath()+".log").exists());
-//    QVERIFY(!QFile(b.getPath()+".aux").exists());
+    //    QVERIFY(QFile(b.getPath()+".pdf").exists());
+    //    QVERIFY(!QFile(b.getPath()+".log").exists());
+    //    QVERIFY(!QFile(b.getPath()+".aux").exists());
 }

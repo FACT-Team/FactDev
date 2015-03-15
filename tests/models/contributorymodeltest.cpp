@@ -43,26 +43,38 @@ void ContributoryModelTest::commitUpdate()
     setup();
     c1.setId(3);
     c1.setDescription("New description");
-    c1.commit();
-    c2 = *(Databases::ContributoryDatabase::instance()->getContributory(3));
+    try {
+        c1.commit();
+        c2 = *(Databases::ContributoryDatabase::instance()->getContributory(3));
 
-    QVERIFY(c1 == c2);
+        QVERIFY(c1 == c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoryModelTest::commitInsert()
 {
     setup();
     c1.setId(0);
-    c1.commit();
-    c2 = *(Databases::ContributoryDatabase::instance()->getContributory(c1.getId()));
-    QVERIFY(c1 == c2);
+    try {
+        c1.commit();
+        c2 = *(Databases::ContributoryDatabase::instance()->getContributory(c1.getId()));
+        QVERIFY(c1 == c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoryModelTest::hydrat()
 {
     setup();
-    Contributory c(1);
-    QVERIFY(c == c1);
+    try {
+        Contributory c(1);
+        QVERIFY(c == c1);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoryModelTest::commitRemove()
@@ -70,7 +82,11 @@ void ContributoryModelTest::commitRemove()
     setup();
     c1.setToRemoved(true);
     c1.setId(23);
-    c1.commit();
-    Contributory* c = Databases::ContributoryDatabase::instance()->getContributory(23);
-    QVERIFY(c == 0);
+    try {
+        c1.commit();
+        Contributory* c = Databases::ContributoryDatabase::instance()->getContributory(23);
+        QVERIFY(c == 0);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }

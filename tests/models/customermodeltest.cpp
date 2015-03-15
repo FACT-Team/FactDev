@@ -49,9 +49,13 @@ void CustomerModelTest::notEquals()
 void CustomerModelTest::commitInsert()
 {
     c1.setId(0);
-    c1.commit();
-    QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(c1.getId());
-    QVERIFY(*c2 == c1);
+    try {
+        c1.commit();
+        QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(c1.getId());
+        QVERIFY(*c2 == c1);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::commitUpdate()
@@ -59,34 +63,46 @@ void CustomerModelTest::commitUpdate()
     int id = Databases::CustomerDatabase::instance()->addCustomer(c1);
     c1.setAddress("NEW ADDRESS");
     c1.setId(id);
-    c1.commit();
-    QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(id);
-    QVERIFY(*c2 == c1);
+    try {
+        c1.commit();
+        QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(id);
+        QVERIFY(*c2 == c1);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 
 void CustomerModelTest::hydrat()
 {
-    Customer c2 = Customer(1);
-    c1.setFirstnameReferent("Jonah");
-    c1.setLastnameReferent("Boyle");
-    c1.setCompany("Sit Amet Ornare Consulting");
-    c1.setAddress("P.O. Box 592, 3094 Vel Rd.");
-    c1.setPostalCode("9924BN");
-    c1.setCity("Miraj");
-    c1.setCountry("Greece");
-    c1.setEmail("pede.ultrices@atnisiCum.org");
-    c1.setPhone("01 02 03 04 05");
-    c1.setMobilePhone("02 03 04 05 06");
-    c1.setFax("05 35 11 79 67");
+    try {
+        Customer c2 = Customer(1);
+        c1.setFirstnameReferent("Jonah");
+        c1.setLastnameReferent("Boyle");
+        c1.setCompany("Sit Amet Ornare Consulting");
+        c1.setAddress("P.O. Box 592, 3094 Vel Rd.");
+        c1.setPostalCode("9924BN");
+        c1.setCity("Miraj");
+        c1.setCountry("Greece");
+        c1.setEmail("pede.ultrices@atnisiCum.org");
+        c1.setPhone("01 02 03 04 05");
+        c1.setMobilePhone("02 03 04 05 06");
+        c1.setFax("05 35 11 79 67");
 
-    QVERIFY(c1 == c2);
+        QVERIFY(c1 == c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::remove()
 {
-    c1.remove();
-    QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
+    try {
+        c1.remove();
+        QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::getPath()
