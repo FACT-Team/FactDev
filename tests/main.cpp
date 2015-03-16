@@ -32,6 +32,11 @@ int main(int argc, char *argv[])
         ret = 1;
     }
 
+    if(ret == 0) {
+        qDebug() << "All tests passed ! \\o/";
+    } else {
+        qDebug() << "Some tests failed…";
+    }
     return  ret;
 }
 
