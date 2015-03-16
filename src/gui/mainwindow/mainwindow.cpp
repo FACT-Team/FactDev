@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QSettings settings("FACT", "FactDev");
+    Databases::AccessDatabase::init();
 
     if(!Databases::AccessDatabase::_exists && !QFile(settings.value("dbPath").toString()+"/"+Parameters::DB_FILENAME).exists()) {
         StartedWindowsDialog w;

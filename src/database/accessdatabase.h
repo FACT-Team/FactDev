@@ -9,7 +9,7 @@ class AccessDatabase
 {
 public:
     AccessDatabase();
-
+    static void init();
     static void commit();
 
     static QString _address;

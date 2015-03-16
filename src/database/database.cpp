@@ -123,8 +123,13 @@ void Database::open() {
             }
 
         }
-        executeFile(QCoreApplication::applicationDirPath()+"/sql/mysql/createtables.sql");
-        creerStructure = true;
+        QSqlQuery q;
+        q.prepare("SELECT * FROM User");
+        if(!q.exec()) {
+            creerStructure = true;
+            executeFile(QCoreApplication::applicationDirPath()+"/sql/mysql/createtables.sql");
+        }
+
     }
     if(creerStructure) {
 #ifndef QT_NO_DEBUG

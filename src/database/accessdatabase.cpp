@@ -11,6 +11,11 @@ bool AccessDatabase::_exists;
 
 AccessDatabase::AccessDatabase()
 {
+    init();
+}
+
+void AccessDatabase::init()
+{
     QSettings settings("FACT Team", "FactDev");
     if(!settings.value("externalDbExists", false).toBool()) {
         _exists = false;
@@ -20,6 +25,7 @@ AccessDatabase::AccessDatabase()
         _userDb = settings.value("userDb").toString();
         _password = settings.value("password").toString();
         _dbName = settings.value("dbName").toString();
+        _exists = true;
     }
 }
 
