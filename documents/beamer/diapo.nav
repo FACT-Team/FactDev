@@ -10,39 +10,38 @@
 \headcommand {\beamer@subsectionpages {1}{3}}
 \headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{FactDev ?}}\headcommand {\beamer@subsectionpages {4}{4}}
-\headcommand {\slideentry {1}{1}{1}{5/5}{FactDev ?}{0}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Le logiciel FactDev}}\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\slideentry {1}{1}{1}{5/5}{Le logiciel FactDev}{0}}
 \headcommand {\beamer@framepages {5}{5}}
 \headcommand {\beamer@subsectionentry {0}{1}{2}{6}{Les outils}}\headcommand {\beamer@subsectionpages {5}{5}}
 \headcommand {\slideentry {1}{2}{1}{6/9}{Les outils}{0}}
 \headcommand {\beamer@framepages {6}{9}}
-\headcommand {\sectionentry {2}{M\IeC {\'e}thodologie}{10}{M\IeC {\'e}thodologie}{0}}
+\headcommand {\sectionentry {2}{La m\IeC {\'e}thodologie}{10}{La m\IeC {\'e}thodologie}{0}}
 \headcommand {\beamer@sectionpages {4}{9}}
 \headcommand {\beamer@subsectionpages {6}{9}}
 \headcommand {\slideentry {2}{0}{2}{10/10}{}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{11}{Scrum}}\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\slideentry {2}{1}{1}{11/11}{Scrum}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{11}{La m\IeC {\'e}thode Scrum}}\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\slideentry {2}{1}{1}{11/11}{La m\IeC {\'e}thode Scrum}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{12}{Int\IeC {\'e}gration\ldots }}\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\slideentry {2}{2}{1}{12/12}{Int\IeC {\'e}gration\ldots }{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{12}{L'int\IeC {\'e}gration continue}}\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\slideentry {2}{2}{1}{12/12}{L'int\IeC {\'e}gration continue}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{13}{\ldots Continue}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {2}{3}{1}{13/13}{\ldots Continue}{0}}
+\headcommand {\slideentry {2}{2}{2}{13/13}{L'int\IeC {\'e}gration continue}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{14}{Revue de code}}\headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\slideentry {2}{4}{1}{14/14}{Revue de code}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{14}{La revue de code}}\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\slideentry {2}{3}{1}{14/14}{La revue de code}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\sectionentry {3}{R\IeC {\'e}sultats}{15}{R\IeC {\'e}sultats}{0}}
+\headcommand {\sectionentry {3}{Les r\IeC {\'e}sultats}{15}{Les r\IeC {\'e}sultats}{0}}
 \headcommand {\beamer@sectionpages {10}{14}}
 \headcommand {\beamer@subsectionpages {14}{14}}
 \headcommand {\slideentry {3}{0}{2}{15/15}{}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{16}{Pour la m\IeC {\'e}thode ?}}\headcommand {\beamer@subsectionpages {15}{15}}
-\headcommand {\slideentry {3}{1}{1}{16/16}{Pour la m\IeC {\'e}thode ?}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{16}{La m\IeC {\'e}thodologie}}\headcommand {\beamer@subsectionpages {15}{15}}
+\headcommand {\slideentry {3}{1}{1}{16/16}{La m\IeC {\'e}thodologie}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{17}{Et le logiciel ?}}\headcommand {\beamer@subsectionpages {16}{16}}
-\headcommand {\slideentry {3}{2}{1}{17/17}{Et le logiciel ?}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{17}{Le logiciel}}\headcommand {\beamer@subsectionpages {16}{16}}
+\headcommand {\slideentry {3}{2}{1}{17/17}{Le logiciel}{0}}
 \headcommand {\beamer@framepages {17}{17}}
 \headcommand {\sectionentry {4}{Conclusion}{18}{Conclusion}{0}}
 \headcommand {\beamer@sectionpages {15}{17}}
