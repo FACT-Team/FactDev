@@ -1,6 +1,7 @@
 #include "log.h"
 
 namespace Utils {
+const int LOG_QDEBUG_LEVEL = 2;
 Log* Log::_instance = 0;
 TypeLog Log::_type = INFO;
 
@@ -40,7 +41,9 @@ void Log::write(const QString text) {
     QTextStream out(_file);
     QString ret = head() + text + "\n";
     out << ret;
-    qDebug() << ret;
+    if(LOG_QDEBUG_LEVEL < 2) {
+        qDebug() << ret;
+    }
 }
 
 inline QString Log::head() {

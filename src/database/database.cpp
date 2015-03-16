@@ -126,6 +126,7 @@ void Database::open() {
         QSqlQuery q;
         q.prepare("SELECT * FROM User");
         if(!q.exec()) {
+            qDebug() << "--- Création of database";
             creerStructure = true;
             executeFile(QCoreApplication::applicationDirPath()+"/sql/mysql/createtables.sql");
         }
