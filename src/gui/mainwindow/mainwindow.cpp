@@ -424,6 +424,7 @@ void MainWindow::customersTableToProjectsTable()
     updateTableProjects(getCurrentCustomerId());
     ui->lblProjects->setText("Projets de <b>"
                              + getCurrentCustomerName()+"</b>");
+
     ui->tblProjects->setColumnWidth(0, 100);
     ui->tblProjects->setColumnWidth(1, 150);
     ui->tblProjects->setColumnWidth(2, 200);
