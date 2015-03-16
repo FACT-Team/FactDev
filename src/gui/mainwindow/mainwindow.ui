@@ -183,7 +183,7 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="text">
@@ -252,7 +252,7 @@
               </property>
               <property name="font">
                <font>
-                <pointsize>11</pointsize>
+                <pointsize>10</pointsize>
                </font>
               </property>
               <property name="text">
@@ -368,7 +368,7 @@
      <x>0</x>
      <y>0</y>
      <width>1413</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -436,6 +436,13 @@
      <height>66</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="windowTitle">
     <string>Données du client</string>
    </property>
@@ -448,6 +455,13 @@
       <width>300</width>
       <height>0</height>
      </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="0" column="0">
@@ -483,6 +497,13 @@
      <height>183</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="windowTitle">
     <string>Liste des clients</string>
    </property>
@@ -490,6 +511,13 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_3">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="1" column="0">
       <widget class="QTreeView" name="trCustomers">
@@ -517,6 +545,13 @@
      <height>200</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="windowTitle">
     <string>Mes données</string>
    </property>
@@ -524,6 +559,13 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_4">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <layout class="QGridLayout" name="gridLayout_7">
      <item row="0" column="0">
       <widget class="Gui::Widgets::CustomerDataWidget" name="wdgUserData" native="true">

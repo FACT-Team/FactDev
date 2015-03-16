@@ -23,6 +23,7 @@ ContributoriesWidget::ContributoriesWidget(
     ui->tblProjects->setModel(_modelProjects);
     ui->btnAddPrestation->hide();
     ui->btnRmovePrestation->hide();
+    ui->lbContributoriesProject->hide();
     connect(ui->tblProjects->itemDelegateForColumn(0),
             SIGNAL(closeEditor(QWidget*)),
             SLOT(editing()));
@@ -159,9 +160,11 @@ void ContributoriesWidget::updateUi()
     if(_modelProjects->getSelectedProjects().count() > 0) {
         ui->btnAddPrestation->show();
         ui->btnRmovePrestation->show();
+        ui->lbContributoriesProject->show();
     } else {
         ui->btnAddPrestation->hide();
         ui->btnRmovePrestation->hide();
+        ui->lbContributoriesProject->hide();
     }
     updatePrice();
 }
