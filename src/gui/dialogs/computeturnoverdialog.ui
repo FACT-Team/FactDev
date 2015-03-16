@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>441</width>
-    <height>365</height>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>30</y>
+     <x>10</x>
+     <y>10</y>
      <width>431</width>
      <height>201</height>
     </rect>
@@ -31,7 +31,24 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QDateEdit" name="dtBeginPeriod"/>
+     <widget class="QDateEdit" name="dtBeginPeriod">
+      <property name="time">
+       <time>
+        <hour>0</hour>
+        <minute>0</minute>
+        <second>0</second>
+       </time>
+      </property>
+      <property name="currentSection">
+       <enum>QDateTimeEdit::DaySection</enum>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+      <property name="timeSpec">
+       <enum>Qt::LocalTime</enum>
+      </property>
+     </widget>
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
@@ -41,7 +58,11 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QDateEdit" name="dtEndPeriod"/>
+     <widget class="QDateEdit" name="dtEndPeriod">
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
     <item row="0" column="2">
      <spacer name="horizontalSpacer">
@@ -61,8 +82,8 @@
   <widget class="QPushButton" name="btnCompute">
    <property name="geometry">
     <rect>
-     <x>285</x>
-     <y>310</y>
+     <x>280</x>
+     <y>300</y>
      <width>141</width>
      <height>22</height>
     </rect>
@@ -74,10 +95,10 @@
   <widget class="QLabel" name="lbCompute">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>18</x>
      <y>250</y>
-     <width>59</width>
-     <height>14</height>
+     <width>401</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -86,5 +107,25 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnCompute</sender>
+   <signal>released()</signal>
+   <receiver>ComputeTurnoverDialog</receiver>
+   <slot>computeTurnover()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>335</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>361</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>computeTurnover()</slot>
+ </slots>
 </ui>

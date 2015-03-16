@@ -23,6 +23,13 @@ public:
     explicit ComputeTurnoverDialog(QWidget *parent = 0);
     ~ComputeTurnoverDialog();
 
+public slots:
+    /**
+     * @brief ComputeTurnoverDialog::computeTurnover compute
+     * the turnover between chosen dates in the window
+     */
+    void computeTurnover();
+
 private:
     Ui::ComputeTurnoverDialog *ui;
 };
