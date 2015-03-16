@@ -229,6 +229,7 @@ OTHER_FILES += \
         sql/tests/billingsprojects.sql \
         sql/tests/contributories.sql \
         sql/tests/projects.sql \
+        sql/tests/removeuselessdata.sql \
         main.dox \
         billing.tpl\
 
