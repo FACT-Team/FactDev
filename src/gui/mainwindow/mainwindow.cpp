@@ -116,8 +116,7 @@ void MainWindow::addBill()
 void MainWindow::addDoc(bool isBilling) {
     if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
         updateTableBillings(getCurrentProjectId());
-        updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row()); // For project Cost
-        updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
+        updateCostAndTurnover();
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
@@ -178,14 +177,15 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
             break;
         case ItemType::PROJECT:
             updateTableProjects();
-            updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
+            // For turnover customer
+            updateTableCustomers("",
+                                 ui->tblCustomers->currentIndex().row());
             changeCustomerTable();
             ui->trCustomers->expand(ui->trCustomers->currentIndex());
             break;
         case ItemType::BILLING:
             updateTableBillings(getCurrentProjectId());
-            updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row()); // For project Cost
-            updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
+            updateCostAndTurnover();
             changeCustomerTable();
             ui->trCustomers->expand(ui->trCustomers->currentIndex());
             changeProjectsTable();
@@ -232,19 +232,12 @@ void MainWindow::editDoc()
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
-        updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row()); // For project Cost
-        updateTableCustomers("", ui->tblCustomers->currentIndex().row()); // For turnover customer
+        updateCostAndTurnover();
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
         changeProjectsTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
-
-        // For security and crash of the application
-        // if we remove a project in a doc and we save it
-        // or if we are in a project and we associate the doc with an other project
-        // go back to the panel projectsTable
-        // ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
@@ -290,7 +283,9 @@ void MainWindow::openPdf()
 
 void MainWindow::search(QString text)
 {
-    updateUI(text);
+    ui->stackedWidget->setCurrentIndex(0);
+    updateTableCustomers(text, ui->tblCustomers->currentIndex().row());
+    updateTree(text);
 }
 
 void MainWindow::aboutQt()
@@ -490,11 +485,12 @@ void MainWindow::backToProjectsTable()
 
 void MainWindow::updateUI(QString filter)
 {
-    updateTableBillings(getCurrentProjectId());
-
-    updateTableProjects(getCurrentCustomerId(), ui->tblProjects->currentIndex().row());
-
     updateTableCustomers(filter, ui->tblCustomers->currentIndex().row());
+
+    updateTableProjects(getCurrentCustomerId(),
+                        ui->tblProjects->currentIndex().row());
+
+    updateTableBillings(getCurrentProjectId());
 
     updateTree(filter);
 
@@ -583,8 +579,23 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     }
 }
 
+void MainWindow::updateCostAndTurnover()
+{
+    // For project Cost
+    updateTableProjects(
+                getCurrentCustomerId(),
+                ui->tblProjects->currentIndex().row());
+    // For turnover customer
+    updateTableCustomers(
+                "",
+                ui->tblCustomers->currentIndex().row());
+}
+
 void MainWindow::updateTree(QString filter)
 {
+    if (ui->trCustomers->model() != NULL) {
+        delete ui->trCustomers->model();
+    }
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
 }

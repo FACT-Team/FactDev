@@ -53,7 +53,8 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     QSqlQuery q;
     Models::Contributory* contributory;
 
-    q.prepare("SELECT idContributory, description as cdescription, longdescription as clongdescription, nbhours "
+    q.prepare("SELECT idContributory, description as cdescription, "
+              "longdescription as clongdescription, nbhours "
               "FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
 
@@ -74,7 +75,8 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     return contributory;
 }
 
-Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int billingId)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(
+        const int billingId)
 {
     QSqlQuery q;
     Models::ContributoriesList contributories;
@@ -83,7 +85,8 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
                 " project.dailyRate as dailyRate, project.idCustomer, "
-                " contributory.idContributory, contributory.description as cdescription, "
+                " contributory.idContributory, "
+                "contributory.description as cdescription, "
                 "contributory.longdescription as clongdescription, "
                 " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
@@ -110,7 +113,9 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
 }
 
 
-int ContributoryDatabase::addContributory(const Models::Contributory& pContributory) {
+int ContributoryDatabase::addContributory(
+        const Models::Contributory& pContributory)
+{
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO Contributory "
@@ -133,7 +138,8 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
     return q.lastInsertId().toInt();
 }
 
-void ContributoryDatabase::updateContributory(const Models::Contributory& pContributory) {
+void ContributoryDatabase::updateContributory(
+        const Models::Contributory& pContributory) {
     QSqlQuery q;
     q.prepare("UPDATE Contributory SET "
               "description=:description, longdescription=:longdescription,"
@@ -187,7 +193,8 @@ void ContributoryDatabase::removeContributory(const int pId)
     }
 }
 
-Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(const int billingId, const int projectId)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(
+        const int billingId, const int projectId)
 {
     QSqlQuery q;
     Models::ContributoriesList contributories;
@@ -196,7 +203,9 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndPr
                 "SELECT DISTINCT project.idProject as idProject,"
                 " project.name as name, project.description as pdescription, "
                 " project.dailyRate as dailyRate, project.idCustomer, "
-                " contributory.idContributory, contributory.description as cdescription, contributory.longdescription as clongdescription, "
+                " contributory.idContributory, "
+                "contributory.description as cdescription, "
+                "contributory.longdescription as clongdescription, "
                 " billing.idBilling, nbHours "
                 " FROM BillingProject, project, billing, contributory "
                 " WHERE billingProject.idBilling = :idBilling "

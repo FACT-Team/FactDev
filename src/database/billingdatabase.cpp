@@ -38,7 +38,8 @@ Models::Billing* BillingDatabase::getBilling(const int pId) {
         billing->setTitle(value(q, "title").toString());
         billing->setDescription(value(q,"description").toString());
         billing->setNumber(value(q,"number").toInt());
-        billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+        billing->setDate(
+                    QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
         billing->setIsBilling(value(q,"isBilling").toBool());
         billing->setIsPaid(value(q,"isPaid").toBool());
         billing->setToRemoved(false);
@@ -104,7 +105,9 @@ int BillingDatabase::addBilling(const Models::Billing& pBilling) {
     return q.lastInsertId().toInt();
 }
 
-void BillingDatabase::addBillingProject(const int idProject, const int idBilling, const int idContributory) {
+void BillingDatabase::addBillingProject(
+        const int idProject, const int idBilling, const int idContributory)
+{
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO BillingProject "
@@ -130,7 +133,8 @@ void BillingDatabase::removeBillingProject(
     QSqlQuery q;
     QString project;
 
-    (idProject == 0) ? project="" : project="idProject= "+ QString::number(idProject) +" AND ";
+    (idProject == 0) ? project="" :
+            project="idProject= "+ QString::number(idProject) +" AND ";
 
     q.prepare(
                 "DELETE FROM BillingProject "
@@ -273,7 +277,8 @@ int BillingDatabase::getMaxQuoteNumber()
 int BillingDatabase::getMaxBillingNumberOfCustomer(const int idCustomer)
 {
     QSqlQuery q;
-    q.prepare("SELECT MAX(number) as max FROM customer c, project p, billingproject bp, billing b "
+    q.prepare("SELECT MAX(number) as max FROM customer c, "
+              "project p, billingproject bp, billing b "
               "WHERE "
               "c.idCustomer = p.idCustomer "
               "AND p.idProject = bp.idProject "
@@ -298,7 +303,8 @@ int BillingDatabase::getMaxBillingNumberOfCustomer(const int idCustomer)
 int BillingDatabase::getMaxQuoteNumberOfCustomer(const int idCustomer)
 {
     QSqlQuery q;
-    q.prepare("SELECT MAX(number) as max FROM customer c, project p, billingproject bp, billing b "
+    q.prepare("SELECT MAX(number) as max FROM customer c, project p, "
+              "billingproject bp, billing b "
               "WHERE "
               "c.idCustomer = p.idCustomer "
               "AND p.idProject = bp.idProject "
@@ -327,7 +333,8 @@ QSharedPointer<Billing> BillingDatabase::getBilling(QSqlQuery &q)
     billing->setTitle(value(q, "title").toString());
     billing->setDescription(value(q,"description").toString());
     billing->setNumber(value(q,"number").toInt());
-    billing->setDate(QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
+    billing->setDate(
+                QDate::fromString(value(q,"date").toString(),"yyyy-MM-dd"));
     billing->setIsBilling(value(q,"isBilling").toBool());
     billing->setIsPaid(value(q,"isPaid").toBool());
     billing->setToRemoved(false);
