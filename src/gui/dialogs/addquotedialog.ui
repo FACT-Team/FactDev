@@ -19,9 +19,21 @@
   </property>
   <layout class="QGridLayout" name="_2">
    <item row="4" column="0" colspan="2">
-    <widget class="QLabel" name="label_4">
+    <widget class="QLabel" name="lbProjectsContributories">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>Prestations</string>
+      <string>Projets et prestations de la facture</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -29,14 +41,14 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="lbDate">
      <property name="text">
       <string>Date</string>
      </property>
     </widget>
    </item>
    <item row="0" column="0">
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="lbTitle">
      <property name="text">
       <string>Titre</string>
      </property>
@@ -44,7 +56,7 @@
    </item>
    <item row="5" column="0" colspan="2">
     <widget class="QWidget" name="wdgContributories" native="true">
-     <zorder>label_4</zorder>
+     <zorder>lbProjectsContributories</zorder>
     </widget>
    </item>
    <item row="0" column="1">
@@ -77,7 +89,7 @@
     </widget>
    </item>
    <item row="3" column="0">
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="lbDescription">
      <property name="text">
       <string>Description</string>
      </property>
