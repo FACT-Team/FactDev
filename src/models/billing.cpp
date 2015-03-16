@@ -104,19 +104,15 @@ void Billing::generatePdf()
 }
 
 QString Billing::getFolder() {
-    QString s,fact;
+    QString fact;
 
     if (isBilling()) {
-        s = "Facture";
         fact = "Factures";
-    }
-    else {
-        s = "Devis";
+    } else {
         fact ="Devis";
     }
-
-    return _contributories.getCustomer()->getPath()
-            +"/"+fact;
+    qDebug() << _contributories.getCustomer()->getPath() + "/" + fact;
+    return _contributories.getCustomer()->getPath() + "/" + fact;
 }
 QString Billing::getPath() {
     return getFolder()+"/"+getFilename();
