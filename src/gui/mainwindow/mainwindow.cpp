@@ -288,6 +288,13 @@ void MainWindow::openPdf()
 
 }
 
+void MainWindow::computeTurnover()
+{
+    ComputeTurnoverDialog cp;
+
+    cp.exec();
+}
+
 void MainWindow::search(QString text)
 {
     updateUI(text);

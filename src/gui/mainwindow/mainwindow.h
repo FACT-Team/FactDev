@@ -24,7 +24,9 @@
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "gui/dialogs/addprojectdialog.h"
 #include "gui/dialogs/addquotedialog.h"
+#include "gui/dialogs/computeturnoverdialog.h"
 #include "gui/docks/searchdock.h"
+
 
 #include "exceptions/fileexception.h"
 
@@ -197,6 +199,12 @@ public slots:
      * Billing selected in the TableView
      */
     void openPdf();
+
+    /**
+     * @brief MainWindow::computeTurnover open window to allow computation
+     * of a period turnover
+     */
+    void computeTurnover();
 
 private slots:
     /**

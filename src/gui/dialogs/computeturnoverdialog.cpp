@@ -1,6 +1,9 @@
 #include "computeturnoverdialog.h"
 #include "ui_computeturnoverdialog.h"
 
+
+namespace Gui {
+namespace Dialogs {
 ComputeTurnoverDialog::ComputeTurnoverDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ComputeTurnoverDialog)
@@ -11,4 +14,6 @@ ComputeTurnoverDialog::ComputeTurnoverDialog(QWidget *parent) :
 ComputeTurnoverDialog::~ComputeTurnoverDialog()
 {
     delete ui;
+}
+}
 }
