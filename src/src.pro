@@ -90,7 +90,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/checkfields/checkipaddress.cpp \
     gui/widgets/checkfields/checklogin.cpp \
     gui/widgets/checkfields/checkportnumber.cpp \
-    models/people.cpp
+    models/people.cpp \
+    gui/dialogs/computeturnoverdialog.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -196,7 +197,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/checkfields/checkipaddress.h \
     gui/widgets/checkfields/checklogin.h \
     gui/widgets/checkfields/checkportnumber.h \
-    models/people.h
+    models/people.h \
+    gui/dialogs/computeturnoverdialog.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -214,7 +216,8 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/messagebox.ui \
     gui/docks/searchdock.ui \
     gui/dialogs/startedwindowsdialog.ui \
-    gui/widgets/databasesettingswidget.ui
+    gui/widgets/databasesettingswidget.ui \
+    gui/dialogs/computeturnoverdialog.ui
 
 RESOURCES += \
     icons.qrc \
