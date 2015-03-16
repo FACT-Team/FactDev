@@ -111,7 +111,7 @@ QString Billing::getFolder() {
     } else {
         fact ="Devis";
     }
-    qDebug() << _contributories.getCustomer()->getPath() + "/" + fact;
+
     return _contributories.getCustomer()->getPath() + "/" + fact;
 }
 QString Billing::getPath() {
