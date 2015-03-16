@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>747</width>
+    <width>936</width>
     <height>307</height>
    </rect>
   </property>
@@ -68,6 +68,12 @@
          </property>
          <item>
           <widget class="QPushButton" name="btnAddProject">
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>Ajouter le projet</string>
            </property>
@@ -79,6 +85,18 @@
          </item>
          <item>
           <widget class="QPushButton" name="btnRemoveProject">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>180</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>Supprimer le projet</string>
            </property>

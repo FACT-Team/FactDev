@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gui/dialogs/startedwindowsdialog.h"
+#include <QDesktopWidget>
 using namespace Utils;
 
 namespace Gui {
@@ -12,13 +13,18 @@ MainWindow::MainWindow(QWidget *parent) :
     setupUi();
     setupSignalsSlots();
     StartedWindowsDialog w;
-    w.exec();
+    w.exec();        
     updateUser();
+    showMaximized();
 }
 
 void MainWindow::setupUi()
 {
     ui->setupUi(this);
+
+    QDesktopWidget screen;
+    setMaximumSize(screen.width(), screen.height());
+
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
     addDockWidget(Qt::LeftDockWidgetArea, ui->dockCustomers);

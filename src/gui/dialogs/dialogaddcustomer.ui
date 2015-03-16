@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>431</height>
+    <height>372</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -306,17 +306,17 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckName</class>
+   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
    <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkname.h</header>
+   <header>gui/widgets/checkfields/checkuntilfield.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckUntilField</class>
+   <class>Gui::Widgets::CheckFields::CheckName</class>
    <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkuntilfield.h</header>
+   <header>gui/widgets/checkfields/checkname.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>

@@ -123,6 +123,12 @@
     </item>
     <item row="0" column="0">
      <widget class="QLineEdit" name="leSearch">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>22</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">background: url(:/icons/searchMini);
 background-position: right;

@@ -432,8 +432,14 @@
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>300</width>
-     <height>66</height>
+     <width>280</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>524287</height>
     </size>
    </property>
    <property name="font">
@@ -541,8 +547,14 @@
   <widget class="QDockWidget" name="dockWidget_4">
    <property name="minimumSize">
     <size>
-     <width>73</width>
+     <width>280</width>
      <height>200</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>524287</height>
     </size>
    </property>
    <property name="font">
