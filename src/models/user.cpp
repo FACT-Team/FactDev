@@ -47,12 +47,12 @@ QVariantHash User::getDataMap()
 void User::updateFolders()
 {
     Customer customer;
-    Project p1;
-    Project p2;
     QString path;
     QString folder;
     QDir directory;
     Utils::HierarchicalSystem hierarchy;
+
+    hierarchy.updateData();
 
     path = getWorkspacePath();
     folder = getWorkspaceName();
@@ -68,26 +68,14 @@ void User::updateFolders()
 
         path = Utils::Directories::makeDirectory(directory, path, folder);
 
-        for (auto p = hierarchy.getProjects().cbegin();
-             p != hierarchy.getProjects().cend();
-             ++p ) {
-            p1 = *p.value();
-            p2 = *c.key();
+        path  = Utils::Directories::makeDirectory(directory, path, "Devis");
+        path = customer.getPath();
+        directory.setPath(path);
 
-            if (p1 == p2) {
-                if ((*p.key()).isBilling()) {
-                    folder = "Factures";
-                } else {
-                    folder = "Devis";
-                }
-                path  = Utils::Directories::makeDirectory(directory,
-                                                          path,
-                                                          folder);
-            }
+        path  = Utils::Directories::makeDirectory(directory, path, "Factures");
+        path = customer.getPath();
+        directory.setPath(path);
 
-            path = customer.getPath();
-            directory.setPath(path);
-        }
         path = getWorkspacePath() + "/" + getWorkspaceName();
         directory.setPath(path);
     }

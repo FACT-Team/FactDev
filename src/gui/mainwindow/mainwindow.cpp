@@ -84,7 +84,7 @@ void MainWindow::addCustomer()
     if (DialogAddCustomer().exec()) { // accept
         ui->stackedWidget->setCurrentIndex(0);
         updateTableCustomers();
-        updateTree();
+        updateTree();        
     }
 }
 
@@ -99,6 +99,7 @@ void MainWindow::addProject()
         updateTableProjects(getCurrentCustomerId());
         updateTree();
         changeCustomerTable();
+        User(1).updateFolders();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
 }
@@ -110,7 +111,6 @@ void MainWindow::addQuote() {
 void MainWindow::addBill()
 {
     addDoc(true);
-
 }
 
 void MainWindow::addDoc(bool isBilling) {
