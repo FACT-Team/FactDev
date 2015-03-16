@@ -42,5 +42,19 @@ void ComputeTurnoverDialog::computeTurnover()
                            " est de " + QString::number(turnover));
 
 }
+
+void ComputeTurnoverDialog::endDateControl(QDate end)
+{
+    if (end < ui->dtBeginPeriod->date()) {
+        ui->dtBeginPeriod->setDate(ui->dtEndPeriod->date());
+    }
+}
+
+void ComputeTurnoverDialog::beginDateControl(QDate begin)
+{
+    if (begin > ui->dtEndPeriod->date()) {
+        ui->dtEndPeriod->setDate(ui->dtBeginPeriod->date());
+    }
+}
 }
 }

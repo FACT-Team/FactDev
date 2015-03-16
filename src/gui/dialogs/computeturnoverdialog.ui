@@ -124,8 +124,42 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>dtEndPeriod</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>ComputeTurnoverDialog</receiver>
+   <slot>endDateControl(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>124</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dtBeginPeriod</sender>
+   <signal>dateChanged(QDate)</signal>
+   <receiver>ComputeTurnoverDialog</receiver>
+   <slot>beginDateControl(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>208</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>310</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>computeTurnover()</slot>
+  <slot>endDateControl(QDate)</slot>
+  <slot>beginDateControl(QDate)</slot>
  </slots>
 </ui>

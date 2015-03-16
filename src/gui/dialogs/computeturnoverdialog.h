@@ -32,6 +32,20 @@ public slots:
      */
     void computeTurnover();
 
+    /**
+     * @brief ComputeTurnoverDialog::endDateControl controls if
+     * the <i>end</i> date field is valid
+     * @param end
+     */
+    void endDateControl(QDate end);
+
+    /**
+     * @brief ComputeTurnoverDialog::beginDateControl controls
+     * if the <i>begin</i> date field is valid
+     * @param begin
+     */
+    void beginDateControl(QDate begin);
+
 private:
     Ui::ComputeTurnoverDialog *ui;
 };
