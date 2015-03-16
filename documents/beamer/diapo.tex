@@ -216,43 +216,109 @@ Manan\textbf{T}soa
 \section{La méthodologie} %  Méthodo = 8'
 \subsection{La méthode Scrum}
 \begin{frame}{\large Scrum, une méthodologie de développement}
+			\only<2>{
+			\vspace{15px}
+			}
 	\begin{block}{Scrum : méthode agile}
 		\begin{itemize}
 			\item Incrémental
 			\item Absence d'effet tunnel
-			\item 
 		\end{itemize}
+		\begin{figure}[H]
+			\centering
+			\vspace{-15px}
+			\only<2>{
+			\includegraphics[width=5.8cm]{images/Scrum_process.eps}
+			}
+			\only<3->{
+			\includegraphics[width=2.8cm]{images/Scrum_process.eps}
+			}
+			\only<2->{
+			\vspace{-10px}
+			\caption{Processus de développement Scrum}
+			}
+		\end{figure}
 	\end{block}
-	\vfill
+	\uncover<3->{
 	\begin{block}{User Stories}
 		\begin{itemize}
 			\item Fonctionnalités
 			\item Finie
 				\begin{itemize}
-					\item Couverture de code > 80\% % TODO image
-					\item Build passing % TODO image 
+					\item \includegraphics[height=7px]{images/coverage.png}~~Couverture de code > 80\% % TODO image
+					\item \includegraphics[height=7px]{images/build.png}~~Build passing % TODO image 
 					\item Code documenté
 					\item Code relu et validé par une tierce personne
 				\end{itemize}
 		\end{itemize}
 	\end{block}
+	}
 \end{frame}
 \begin{frame}{\large Scrum, une méthodologie de développement}
 	\begin{block}{Organisation}
-\begin{itemize}
-	\item Backlog
-	\item Planning Poker
-	\item Mêlées
-\end{itemize}
-	\end{block}
-	\begin{block}{Les différents rôles}
+		\begin{tabular}{cc}
+		\begin{minipage}{0.36\textwidth}
+	\setbeamercovered{transparent}{
 		\begin{itemize}
-			\item Scrum Master
-			\item Product Owner
-			\item Responsable technique
-			\item Équipe de développement
+			\item<1,4-> Backlog
+			\item<2,4-> Planning Poker
+			\item<3,4-> Mêlées
 		\end{itemize}
+}
+	\end{minipage}&
+	\begin{minipage}{0.6\textwidth}
+		\begin{figure}[H]
+			\only<1>{
+			\includegraphics[height=2.5cm]{images/backlog.jpg}
+			}
+			\only<2>{
+			\includegraphics[height=2.5cm]{images/cards-planning-poker.png}
+			}
+			\only<3>{
+			\includegraphics[height=2.5cm]{images/melees.png}
+			}
+			\only<4->{
+			\includegraphics[height=1.2cm]{images/backlog.jpg}~
+			\includegraphics[height=1.2cm]{images/cards-planning-poker.png}~
+			\includegraphics[height=1.2cm]{images/melees.png}
+			}
+		\end{figure}
+	\end{minipage}
+\end{tabular}
 	\end{block}
+	\uncover<4->{
+	\begin{block}{Les différents rôles}
+		\begin{tabular}{cc}
+		\begin{minipage}{0.36\textwidth}
+	\setbeamercovered{transparent}{
+		\begin{itemize}
+			\item<5> Scrum Master
+			\item<6> Product Owner
+			\item<7> Responsable technique
+			\item<8> Équipe de développement
+		\end{itemize}
+		}
+	\end{minipage}&
+	\begin{minipage}{0.6\textwidth}
+		\begin{figure}[H]
+			\centering
+			\only<5>{
+			\includegraphics[height=2.5cm]{images/photos/kratux.png}
+			}
+			\only<6-7>{
+			\includegraphics[height=2.5cm]{images/photos/satenske.png}
+			}
+			\only<8>{
+			\includegraphics[height=1.5cm]{images/photos/kratux.png}~
+			\includegraphics[height=1.5cm]{images/photos/satenske.png}\newline
+			\includegraphics[height=1.5cm]{images/photos/oxynos.png}~
+			\includegraphics[height=1.5cm]{images/photos/tsoo.png}
+			}
+		\end{figure}
+	\end{minipage}
+\end{tabular}
+	\end{block}
+	}
 \end{frame}
 % Pull Requests	
 % Branching flow
