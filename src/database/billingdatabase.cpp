@@ -415,4 +415,15 @@ QList<Billing> BillingDatabase::getAllBillingsOnly(const int idProject)
     return bills;
 }
 
+QList<Billing> BillingDatabase::getBillingsBetweenDates(QList<Billing> bills, QDate begin, QDate end)
+{
+    QList<Billing> billings;
+    for (Billing b : bills) {
+        if (b.getDate()>=begin) {
+            billings.append(b);
+        }
+    }
+    return billings;
+}
+
 }
