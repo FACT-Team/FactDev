@@ -146,6 +146,14 @@ public:
      */
     QList<Billing> getBillings(const int projectId);
 
+    /**
+     * @brief BillingDatabase::getAllBillingsOnly get all billings which aren't
+     * quotes for the project <i>p</i>
+     * @param p
+     * @return the list of <b>Billing</b>
+     */
+    QList<Billing> getAllBillingsOnly(const int idProject);
+
 private:
     static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase
 
