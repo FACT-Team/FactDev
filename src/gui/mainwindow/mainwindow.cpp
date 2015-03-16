@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::setupUi()
 {
     ui->setupUi(this);
-    ui->tblCustomers->selectRow(0);
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
     addDockWidget(Qt::LeftDockWidgetArea, ui->dockCustomers);
