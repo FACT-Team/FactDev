@@ -118,13 +118,21 @@ public:
     QList<Project*> getAllProjects();
 
     /**
-     * @brief Project::getAllProjectsBetweenDates Return the list of
+     * @brief ProjectDatabase::getAllProjectsBetweenDates Return the list of
      * projects between a <i>begin</i> date and an <i>end</i> date
      * @param begin the beginning date where projects can start
      * @param end the end date until where the projects can finish
      * @return the list of <b>Project</b> in the set
      */
     QList<Project*> getAllProjectsBetweenDates(QDate begin, QDate end);
+
+    /**
+     * @brief ProjectDatabase::getCostProjects compute the cost of
+     * the project list given in parameter
+     * @param projects the list of projects
+     * @return the cost of the list given
+     */
+    double getCostProjects(QList<Project*> projects);
 
 private:
     static ProjectDatabase* _instance;//!< Singleton instance of ProjectDatabase

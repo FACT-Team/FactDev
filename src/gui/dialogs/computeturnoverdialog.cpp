@@ -25,12 +25,12 @@ void ComputeTurnoverDialog::computeTurnover()
             ->getAllProjectsBetweenDates(
                 ui->dtBeginPeriod->date(),ui->dtEndPeriod->date());
 
-    for (Project *p: projects) {
-        turnover+= p->getCost();
-    }
+    turnover = Databases::ProjectDatabase::instance()->getCostProjects(projects);
 
     ui->lbCompute->setAlignment(Qt::AlignCenter);
-    ui->lbCompute->setText("Le CA est de " + QString::number(turnover));
+    ui->lbCompute->setText("Votre CA du "+ui->dtBeginPeriod->date().toString("dd/MM/yyyy") +
+                           " au " + ui->dtEndPeriod->date().toString("dd/MM/yyyy") +
+                           " est de " + QString::number(turnover));
 
 }
 }

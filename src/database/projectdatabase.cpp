@@ -77,11 +77,20 @@ QList<Project *> ProjectDatabase::getAllProjectsBetweenDates(QDate begin, QDate 
     QList<Project*> list;
 
     for (Project *p: getAllProjects()) {
-        if (p->getBeginDate() < begin) {
+        if (p->getBeginDate() >= begin) {
             list.append(p);
         }
     }
     return list;
+}
+
+double ProjectDatabase::getCostProjects(QList<Project *> projects)
+{
+    double cost = 0;
+    for (Project *p: projects) {
+        cost+= p->getCost();
+    }
+    return cost;
 }
 
 
