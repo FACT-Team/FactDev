@@ -27,6 +27,6 @@ private slots:
 private:
     Search _search;
 };
-//DECLARE_TEST(searchTest)
+DECLARE_TEST(searchTest)
 
 #endif // SEARCHTEST_H
