@@ -105,6 +105,19 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="lbBillingNb">
+   <property name="geometry">
+    <rect>
+     <x>18</x>
+     <y>230</y>
+     <width>401</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>

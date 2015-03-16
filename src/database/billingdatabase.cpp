@@ -419,7 +419,7 @@ QList<Billing> BillingDatabase::getBillingsBetweenDates(QList<Billing> bills, QD
 {
     QList<Billing> billings;
     for (Billing b : bills) {
-        if (b.getDate()>=begin) {
+        if (b.getDate() >= begin && b.getDate() <= end) {
             billings.append(b);
         }
     }
