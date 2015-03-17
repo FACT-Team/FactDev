@@ -137,6 +137,26 @@ void MainWindow::addDoc(bool isBilling) {
     }
 }
 
+void MainWindow::responsiveTable(QTableView &tbl, const int min, QString...columns)
+{
+    int h = tbl.height();
+    int i = 0;
+    int value = 0;
+    if (h > min) {
+        for (QString c : columns) {
+            if (c.contains("%")) {
+                c = c.replace("%","");
+                value = c.toInt()*h/100;
+            } else {
+                value = c.toInt();
+            }
+
+            tbl.setColumnWidth(i,value);
+            i++;
+        }
+    }
+}
+
 void MainWindow::billingIsPaid()
 {
     Billing billing(this->getCurrentQuoteId());
