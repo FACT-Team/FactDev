@@ -34,30 +34,30 @@
 \headcommand {\slideentry {2}{2}{3}{25/29}{L'int\IeC {\'e}gration continue}{0}}
 \headcommand {\beamer@framepages {25}{29}}
 \headcommand {\beamer@subsectionentry {0}{2}{3}{30}{La revue de code}}\headcommand {\beamer@subsectionpages {22}{29}}
-\headcommand {\slideentry {2}{3}{1}{30/30}{La revue de code}{0}}
-\headcommand {\beamer@framepages {30}{30}}
-\headcommand {\sectionentry {3}{Les r\IeC {\'e}sultats}{31}{Les r\IeC {\'e}sultats}{0}}
-\headcommand {\beamer@sectionpages {10}{30}}
-\headcommand {\beamer@subsectionpages {30}{30}}
-\headcommand {\slideentry {3}{0}{2}{31/31}{}{0}}
-\headcommand {\beamer@framepages {31}{31}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{32}{La m\IeC {\'e}thodologie}}\headcommand {\beamer@subsectionpages {31}{31}}
-\headcommand {\slideentry {3}{1}{1}{32/32}{La m\IeC {\'e}thodologie}{0}}
+\headcommand {\slideentry {2}{3}{1}{30/31}{La revue de code}{0}}
+\headcommand {\beamer@framepages {30}{31}}
+\headcommand {\sectionentry {3}{Les r\IeC {\'e}sultats}{32}{Les r\IeC {\'e}sultats}{0}}
+\headcommand {\beamer@sectionpages {10}{31}}
+\headcommand {\beamer@subsectionpages {30}{31}}
+\headcommand {\slideentry {3}{0}{2}{32/32}{}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {3}{1}{2}{33/33}{La m\IeC {\'e}thodologie}{0}}
-\headcommand {\beamer@framepages {33}{33}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{34}{Le logiciel}}\headcommand {\beamer@subsectionpages {32}{33}}
-\headcommand {\slideentry {3}{2}{1}{34/34}{Le logiciel}{0}}
-\headcommand {\beamer@framepages {34}{34}}
-\headcommand {\sectionentry {4}{Conclusion}{35}{Conclusion}{0}}
-\headcommand {\beamer@sectionpages {31}{34}}
-\headcommand {\beamer@subsectionpages {34}{34}}
-\headcommand {\slideentry {4}{0}{2}{35/35}{}{0}}
-\headcommand {\beamer@framepages {35}{35}}
-\headcommand {\slideentry {4}{0}{3}{36/36}{}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{33}{La m\IeC {\'e}thodologie}}\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\slideentry {3}{1}{1}{33/35}{La m\IeC {\'e}thodologie}{0}}
+\headcommand {\beamer@framepages {33}{35}}
+\headcommand {\slideentry {3}{1}{2}{36/36}{La m\IeC {\'e}thodologie}{0}}
 \headcommand {\beamer@framepages {36}{36}}
-\headcommand {\beamer@partpages {1}{36}}
-\headcommand {\beamer@subsectionpages {35}{36}}
-\headcommand {\beamer@sectionpages {35}{36}}
-\headcommand {\beamer@documentpages {36}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{37}{Le logiciel}}\headcommand {\beamer@subsectionpages {33}{36}}
+\headcommand {\slideentry {3}{2}{1}{37/37}{Le logiciel}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\sectionentry {4}{Conclusion}{38}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {32}{37}}
+\headcommand {\beamer@subsectionpages {37}{37}}
+\headcommand {\slideentry {4}{0}{2}{38/38}{}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {4}{0}{3}{39/39}{}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\beamer@partpages {1}{39}}
+\headcommand {\beamer@subsectionpages {38}{39}}
+\headcommand {\beamer@sectionpages {38}{39}}
+\headcommand {\beamer@documentpages {39}}
 \headcommand {\def \inserttotalframenumber {19}}
