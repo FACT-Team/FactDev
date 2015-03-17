@@ -97,7 +97,7 @@ Manan\textbf{T}soa
 % \`a supprimer si vous ne voulez pas que la table des mati\`eres apparaisse
 % au d\'ebut de chaque sous-section : 
 \AtBeginSection[] {
-  \begin{frame}<beamer>{Ligne directrice}
+  \begin{frame}<beamer>{Plan}
     \tableofcontents[currentsection]
   \end{frame}
 }
@@ -362,15 +362,57 @@ Manan\textbf{T}soa
 \end{frame}
 
 \begin{frame}{\ldots Continue}
-% Travis	
+	\begin{figure}[H]
+		\centering
+		\only<1>{
+			\includegraphics[width=9cm]{images/Travis/travis1_compil.eps}
+		}
+		\only<2>{
+			\includegraphics[width=9cm]{images/Travis/travis2_tests.eps}
+		}		
+		\only<3>{
+			\includegraphics[width=9cm]{images/Travis/travis3_coverage.eps}
+		}	
+		\only<4>{
+			\includegraphics[width=9cm]{images/Travis/travis4_doxygen.eps}
+			\newline 
+			\includegraphics[height=8px]{images/build.png} 
+		}	
+		\only<5>{
+			\includegraphics[width=9cm]{images/Travis/travis5_fail.eps}
+			\newline 
+			\includegraphics[height=8px]{images/build_failing.png} 
+		}
+		
+		\caption{Intégration continue avec Travis CI}
+	\end{figure}
+
 % Couverture de code
 % Build, 
 % Tests
 % Transition vers la revue de code :)
+
 \end{frame}
 \subsection{La revue de code}
-\begin{frame}
-	
+\begin{frame}{Vers 100\% de revue de code}
+\begin{itemize}
+\item Toutes intégrations nécessitent une \textbf{Pull Request}
+\end{itemize}
+
+\begin{block}{\normalsize Validation d'une Pull Request par une tierce personne}
+	\begin{itemize}
+		\item Le code
+			\begin{itemize}
+				\item Est lisible
+				\item Est compréhensible
+				\item Respecte les conventions d'écriture
+			\end{itemize}
+		\item Les tests fonctionnels sont validés
+		\item Le code est documenté
+		\item Le build passe
+		\item Pas de régression de la couverture de code
+	\end{itemize}
+\end{block}	
 \end{frame}
 \section{Les résultats} % Résultats = 5'
 \subsection{La méthodologie}
