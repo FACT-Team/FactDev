@@ -25,6 +25,14 @@ public:
     explicit ComputeTurnoverDialog(QWidget *parent = 0);
     ~ComputeTurnoverDialog();
 
+    /**
+     * @brief ComputeTurnoverDialog::fillLabels Fills the
+     * labels with <i>nbBillings</i> and <i>turnover</i>
+     * @param nbBillings the number of Billings
+     * @param turnover the turnover computed
+     */
+    void fillLabels(const int nbBillings,const int turnover);
+
 public slots:
     /**
      * @brief ComputeTurnoverDialog::computeTurnover compute

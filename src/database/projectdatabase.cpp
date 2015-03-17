@@ -72,18 +72,6 @@ QList<Project*> ProjectDatabase::getAllProjects()
     return list;
 }
 
-QList<Project *> ProjectDatabase::getAllProjectsBetweenDates(QDate begin, QDate end)
-{
-    QList<Project*> list;
-
-    for (Project *p: getAllProjects()) {
-        if (p->getBeginDate() >= begin) {
-            list.append(p);
-        }
-    }
-    return list;
-}
-
 double ProjectDatabase::getCostProjects(QList<Project *> projects)
 {
     double cost = 0;

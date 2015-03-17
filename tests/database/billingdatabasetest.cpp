@@ -169,3 +169,38 @@ void BillingDatabaseTest::getBilling()
 
 }
 
+void BillingDatabaseTest::getAllBillingsOnly()
+{
+ bool billing = true;
+
+ for (Billing b : Databases::BillingDatabase::instance()->getAllBillingsOnly(1)) {
+     if (!b.isBilling()) {
+         billing = false;
+     }
+ }
+
+ QVERIFY(billing);
+
+}
+
+void BillingDatabaseTest::getBillingsBetweenDates()
+{
+    QList<Billing> bills;
+    QList<Billing> bills2;
+    bills.append(Billing(1));
+    bills.append(Billing(2));
+
+    bills2 = Databases::BillingDatabase::instance()
+            ->getBillingsBetweenDates(bills,QDate(2015,2,13),QDate(2035,2,13));
+
+
+    QVERIFY(bills2.count() == 2
+            && bills2.first().getDate() == QDate(2015,2,13)
+            && bills2.first().getTitle() == "Coucou"
+            && bills2.first().getDescription() == "Mon super devis de la "
+                                                  "mort qui rox du poulet"
+            && bills2.last().getDate() == QDate(2015,2,13)
+            && bills2.last().getTitle() == "Bonjour"
+            && bills2.last().getDescription() == "Manger du poney");
+}
+

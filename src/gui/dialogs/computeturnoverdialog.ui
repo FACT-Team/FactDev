@@ -104,6 +104,9 @@
    <property name="text">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="lbBillingNb">
    <property name="geometry">
@@ -116,6 +119,9 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

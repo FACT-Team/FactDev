@@ -16,6 +16,14 @@ ComputeTurnoverDialog::~ComputeTurnoverDialog()
     delete ui;
 }
 
+void ComputeTurnoverDialog::fillLabels(const int nbBillings, const int turnover)
+{
+    ui->lbCompute->setText("Votre CA du "+ui->dtBeginPeriod->date().toString("dd/MM/yyyy") +
+                           " au " + ui->dtEndPeriod->date().toString("dd/MM/yyyy") +
+                           " est de " + QString::number(turnover) + " euro(s)");
+    ui->lbBillingNb->setText(QString::number(nbBillings) + " Facture(s) trouvée(s)");
+}
+
 void ComputeTurnoverDialog::computeTurnover()
 {
     QList<Project*> projects;
@@ -34,13 +42,7 @@ void ComputeTurnoverDialog::computeTurnover()
             ++nbBillings;
          }
      }
-    ui->lbCompute->setAlignment(Qt::AlignCenter);
-    ui->lbCompute->setText("Votre CA du "+ui->dtBeginPeriod->date().toString("dd/MM/yyyy") +
-                           " au " + ui->dtEndPeriod->date().toString("dd/MM/yyyy") +
-                           " est de " + QString::number(turnover) + " euro(s)");
-    ui->lbBillingNb->setAlignment(Qt::AlignCenter);
-    ui->lbBillingNb->setText(QString::number(nbBillings) + " Facture(s) trouvée(s)");
-
+    fillLabels(nbBillings,turnover);
 }
 
 void ComputeTurnoverDialog::endDateControl(QDate end)
