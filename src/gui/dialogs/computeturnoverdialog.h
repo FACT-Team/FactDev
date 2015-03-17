@@ -45,14 +45,14 @@ public slots:
      * the <i>end</i> date field is valid
      * @param end
      */
-    void endDateControl(QDate end);
+    void endDateControl(const QDate end);
 
     /**
      * @brief ComputeTurnoverDialog::beginDateControl controls
      * if the <i>begin</i> date field is valid
      * @param begin
      */
-    void beginDateControl(QDate begin);
+    void beginDateControl(const QDate begin);
 
 private:
     Ui::ComputeTurnoverDialog *ui;
