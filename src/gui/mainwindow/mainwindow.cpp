@@ -137,21 +137,42 @@ void MainWindow::addDoc(bool isBilling) {
     }
 }
 
-void MainWindow::responsiveTable(QTableView &tbl, const int min, QString...columns)
+void MainWindow::responsiveTable(QTableView *tbl, const int min, QString columns...)
 {
-    int h = tbl.height();
+    int h = tbl->height();
     int i = 0;
     int value = 0;
+//#include<stdarg.h>
+
+//int maxof(int n_args, ...)
+//{
+//    va_list ap;
+//    va_start(ap, n_args);
+//    int max = va_arg(ap, int);
+//    for(int i = 2; i <= n_args; i++) {
+//        int a = va_arg(ap, int);
+//        if(a > max) max = a;
+//    }
+//    va_end(ap);
+//    return max;
+//}
+
+
+
+
+
     if (h > min) {
         for (QString c : columns) {
+
             if (c.contains("%")) {
-                c = c.replace("%","");
+                //c = c.replace("%","");
+
                 value = c.toInt()*h/100;
             } else {
                 value = c.toInt();
             }
-
-            tbl.setColumnWidth(i,value);
+            qDebug() << "["<<h<<"]" << i << "- " << c << value;
+            tbl->setColumnWidth(i,value);
             i++;
         }
     }
@@ -445,11 +466,12 @@ void MainWindow::customersTableToProjectsTable()
     ui->lblProjects->setText("Projets de <b>"
                              + getCurrentCustomerName()+"</b>");
 
-    ui->tblProjects->setColumnWidth(0, 100);
-    ui->tblProjects->setColumnWidth(1, 150);
-    ui->tblProjects->setColumnWidth(2, 200);
-    ui->tblProjects->setColumnWidth(3, 122);
-    ui->tblProjects->setColumnWidth(4, 122);
+    responsiveTable(ui->tblProjects,400,"60", "10", "10", "10", "10");
+//    ui->tblProjects->setColumnWidth(0, 100);
+//    ui->tblProjects->setColumnWidth(1, 150);
+//    ui->tblProjects->setColumnWidth(2, 200);
+//    ui->tblProjects->setColumnWidth(3, 122);
+//    ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
     QModelIndex index(ui->trCustomers->currentIndex());
     ui->trCustomers->expand(index);
@@ -581,6 +603,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
     } else {
         ui->tblProjects->clearSelection();
     }
+
 }
 
 void MainWindow::updateTableBillings(const int idProject, const int row)
@@ -625,10 +648,12 @@ void MainWindow::updateTree(QString filter)
     }
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
+    responsiveTable(ui->tblProjects,400,"60", "120", "180", "240", "300");
 }
 
 void MainWindow::updateButtons()
 {
+
     bool canModify = ui->stackedWidget->currentIndex() == 0
             && ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection();

@@ -107,7 +107,7 @@ public:
      */
     void addDoc(bool isBilling);
 
-    void responsiveTable(QTableView &tbl, const int min, QString...columns);
+    void responsiveTable(QTableView* tbl, const int min, QString columns...);
 
 public slots:
     /**
