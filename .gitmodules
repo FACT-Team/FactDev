@@ -10,3 +10,6 @@
 [submodule "src/libs/qt-mustache"]
 	path = src/libs/qt-mustache
 	url = https://github.com/robertknight/qt-mustache.git
+[submodule "documents/beamer-theme"]
+	path = documents/beamer-theme
+	url = git@github.com:aroquemaurel/beamer-theme.git
