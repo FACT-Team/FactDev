@@ -368,7 +368,7 @@
      <x>0</x>
      <y>0</y>
      <width>1413</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -384,9 +384,9 @@
      <string>Client</string>
     </property>
     <addaction name="actNew"/>
-    <addaction name="actResearch"/>
     <addaction name="actionNewBill"/>
     <addaction name="actionNewQuote"/>
+    <addaction name="actResearch"/>
    </widget>
    <widget class="QMenu" name="menuA_propos">
     <property name="title">
@@ -403,9 +403,16 @@
     </property>
     <addaction name="actAddProject"/>
    </widget>
+   <widget class="QMenu" name="menuStatistiques">
+    <property name="title">
+     <string>Statistiques</string>
+    </property>
+    <addaction name="actComputeTurnover"/>
+   </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuClient"/>
    <addaction name="menuProjets"/>
+   <addaction name="menuStatistiques"/>
    <addaction name="menuA_propos"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -677,6 +684,11 @@
    </property>
    <property name="text">
     <string>Nouveau projet</string>
+   </property>
+  </action>
+  <action name="actComputeTurnover">
+   <property name="text">
+    <string>Calculer CA d'une période</string>
    </property>
   </action>
  </widget>
@@ -967,8 +979,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>130</y>
+     <x>483</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -983,8 +995,8 @@
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>130</y>
+     <x>483</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -999,8 +1011,8 @@
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>130</y>
+     <x>483</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1095,8 +1107,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>542</y>
+     <x>576</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1111,8 +1123,8 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>525</x>
-     <y>529</y>
+     <x>756</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>609</x>
@@ -1143,8 +1155,8 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>828</x>
-     <y>522</y>
+     <x>1091</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>827</x>
@@ -1191,8 +1203,8 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>742</x>
-     <y>533</y>
+     <x>978</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1207,12 +1219,28 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>645</x>
-     <y>527</y>
+     <x>892</x>
+     <y>676</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
      <y>643</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actComputeTurnover</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>computeTurnover()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>359</y>
     </hint>
    </hints>
   </connection>
@@ -1251,5 +1279,6 @@
   <slot>openPdf()</slot>
   <slot>billingIsPaid()</slot>
   <slot>copyDoc()</slot>
+  <slot>computeTurnover()</slot>
  </slots>
 </ui>

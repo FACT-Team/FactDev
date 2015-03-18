@@ -26,6 +26,8 @@ private slots:
      void getMaxBillingNumberOfCustomer();
      void getMaxQuoteNumberOfCustomer();
      void getBilling();
+     void getAllBillingsOnly();
+     void getBillingsBetweenDates();
 private:
      Billing* b1;
      int _lastInsert;

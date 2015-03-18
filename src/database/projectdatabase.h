@@ -117,6 +117,14 @@ public:
      */
     QList<Project*> getAllProjects();
 
+    /**
+     * @brief ProjectDatabase::getCostProjects compute the cost of
+     * the project list given in parameter
+     * @param projects the list of projects
+     * @return the cost of the list given
+     */
+    double getCostProjects(QList<Project*> projects);
+
 private:
     static ProjectDatabase* _instance;//!< Singleton instance of ProjectDatabase
 

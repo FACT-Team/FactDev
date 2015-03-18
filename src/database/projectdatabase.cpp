@@ -72,6 +72,15 @@ QList<Project*> ProjectDatabase::getAllProjects()
     return list;
 }
 
+double ProjectDatabase::getCostProjects(QList<Project *> projects)
+{
+    double cost = 0;
+    for (Project *p: projects) {
+        cost+= p->getCost();
+    }
+    return cost;
+}
+
 
 Models::Project* ProjectDatabase::getProject(const int pId)
 {
