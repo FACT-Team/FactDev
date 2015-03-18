@@ -9,6 +9,8 @@ ComputeTurnoverDialog::ComputeTurnoverDialog(QWidget *parent) :
     ui(new Ui::ComputeTurnoverDialog)
 {
     ui->setupUi(this);
+    ui->dtBeginPeriod->setDate(QDate(QDate::currentDate().year(),1,1));
+    ui->dtEndPeriod->setDate(QDate::currentDate());
 }
 
 ComputeTurnoverDialog::~ComputeTurnoverDialog()
@@ -26,6 +28,7 @@ void ComputeTurnoverDialog::fillLabels(const int nbBillings, const int turnover)
                            QString::number(turnover) + " euro(s)");
     ui->lbBillingNb->setText(QString::number(nbBillings) +
                              " Facture(s) trouvée(s)");
+    ui->leTurnover->setText(QString::number(turnover));
 }
 
 void ComputeTurnoverDialog::computeTurnover()
