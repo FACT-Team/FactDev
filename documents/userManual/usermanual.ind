@@ -1,0 +1,63 @@
+\begin{theindex}
+
+  \item Barre d'outils, \hyperpage{8}
+    \subitem Nouveau client, \hyperpage{8}
+    \subitem Param\IeC {\`e}tres, \hyperpage{8}, \hyperpage{11}
+
+  \indexspace
+
+  \item Client
+    \subitem \IeC {\'E}diter, \hyperpage{13}
+    \subitem Ajouter, \hyperpage{8}, \hyperpage{13}
+    \subitem Informations d\IeC {\'e}taill\IeC {\'e}es, \hyperpage{8}
+    \subitem Liste, \hyperpage{12}
+    \subitem Rechercher, \hyperpage{8}
+
+  \indexspace
+
+  \item Devis, \hyperpage{17}
+    \subitem Ajouter, \hyperpage{18, 19}
+    \subitem Editer, \hyperpage{19}
+    \subitem Liste, \hyperpage{17}
+    \subitem Prestation, \hyperpage{19}
+
+  \indexspace
+
+  \item Facture
+    \subitem \IeC {\'E}diter, \hyperpage{21}
+    \subitem Ajouter, \hyperpage{20}
+    \subitem Liste, \hyperpage{20}
+    \subitem Prestation, \hyperpage{21}
+
+  \indexspace
+
+  \item Menus, \hyperpage{7}
+    \subitem \IeC {\`A} propos, \hyperpage{8}
+    \subitem Client, \hyperpage{8}
+    \subitem Fichier, \hyperpage{8}
+
+  \indexspace
+
+  \item Panneau, \hyperpage{8, 9}
+    \subitem Client, \hyperpage{8}
+    \subitem Hi\IeC {\'e}rarchie, \hyperpage{9}, \hyperpage{14}
+    \subitem Recherche, \hyperpage{10}
+    \subitem Utilisateur, \hyperpage{9}
+  \item Projet
+    \subitem \IeC {\'E}diter, \hyperpage{16}
+    \subitem Ajouter, \hyperpage{15}
+    \subitem Liste, \hyperpage{14}
+
+  \indexspace
+
+  \item Statistiques
+    \subitem Chiffre d'affaire, \hyperpage{22}
+
+  \indexspace
+
+  \item Utilisateur
+    \subitem \IeC {\'E}diter, \hyperpage{8}
+    \subitem Afficher, \hyperpage{8}
+    \subitem Informations d\IeC {\'e}taill\IeC {\'e}es, \hyperpage{9}
+
+\end{theindex}
