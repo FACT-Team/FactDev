@@ -51,6 +51,7 @@ int mysqlExecution(int argc, char**argv)
         Databases::AccessDatabase::_password = argv[3];
         Databases::AccessDatabase::_dbName = "FactDev";
         Databases::AccessDatabase::_exists = true;
+        Databases::AccessDatabase::_dbType = Databases::MYSQL;
         Databases::Database::instance();
     } else {
         std::cerr << "Bad parameters ! "<< std::endl;
@@ -68,6 +69,7 @@ int sqliteExecution(QCoreApplication& a)
     std::cout << "=== Execution des tests de FactDev v"+QString::number(Parameters::VERSION).toStdString()+" avec SQLite ===" << std::endl;
     QFile f(QString(a.applicationDirPath()+"/"+Parameters::DB_FILENAME));
     f.remove();
+    Databases::AccessDatabase::_dbType = Databases::SQLITE;
     Databases::AccessDatabase::_exists = false;
 
     int ret = RUN_ALL_TESTS();
