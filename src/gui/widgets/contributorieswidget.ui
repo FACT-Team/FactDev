@@ -111,7 +111,7 @@
        <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="lbProjects">
          <property name="text">
-          <string>List des projets</string>
+          <string>Liste des projets</string>
          </property>
         </widget>
        </item>

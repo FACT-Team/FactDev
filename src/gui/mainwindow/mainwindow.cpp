@@ -659,7 +659,7 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     ui->tblQuotes->setModel(
         Databases::BillingDatabase::instance()->getBillingsTable(idProject));
-    ui->lblDocs->setText("Documents concernant le projet <b>"
+    ui->lblDocs->setText("Factures et Devis du projet <b>"
                            + getCurrentProjectName()
                            + "</b>");
 
