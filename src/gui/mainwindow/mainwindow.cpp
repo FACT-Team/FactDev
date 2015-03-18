@@ -606,7 +606,6 @@ void MainWindow::updateTree(QString filter)
     }
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-    responsiveTable(ui->tblProjects,400,"60", "120", "180", "240", "300");
 }
 
 void MainWindow::updateButtons()
