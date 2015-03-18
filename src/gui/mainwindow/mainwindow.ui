@@ -1005,8 +1005,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>583</x>
-     <y>119</y>
+     <x>578</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1021,8 +1021,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>130</y>
+     <x>483</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1037,8 +1037,8 @@
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>130</y>
+     <x>483</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1053,8 +1053,8 @@
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>130</y>
+     <x>483</x>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1149,8 +1149,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>411</x>
-     <y>542</y>
+     <x>604</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1165,8 +1165,8 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>525</x>
-     <y>529</y>
+     <x>780</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>609</x>
@@ -1197,8 +1197,8 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>828</x>
-     <y>522</y>
+     <x>1111</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>827</x>
@@ -1245,8 +1245,8 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>742</x>
-     <y>533</y>
+     <x>998</x>
+     <y>677</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1261,8 +1261,8 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>645</x>
-     <y>527</y>
+     <x>912</x>
+     <y>676</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>

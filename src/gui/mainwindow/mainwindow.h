@@ -107,6 +107,30 @@ public:
      */
     void addDoc(bool isBilling);
 
+    /**
+     * @brief MainWindow::resizeEvent Resize central TableView when you resize
+     * the <b>MainWindow</b>
+     * @param event Resize event
+     */
+    void resizeEvent(QResizeEvent *event);
+
+    /**
+     * @brief MainWindow::responsiveCustomerTable Resize the Customer TableView
+     * according it resolution
+     */
+    void responsiveCustomerTable();
+    /**
+     * @brief MainWindow::responsiveProjectTable Resize the Project TableView
+     * according it resolution
+     */
+    void responsiveProjectTable();
+
+    /**
+     * @brief MainWindow::responsiveBillingTable Resize the Billing TableView
+     * according it resolution
+     */
+    void responsiveBillingTable();
+
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer
