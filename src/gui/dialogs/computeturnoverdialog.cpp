@@ -9,8 +9,8 @@ ComputeTurnoverDialog::ComputeTurnoverDialog(QWidget *parent) :
     ui(new Ui::ComputeTurnoverDialog)
 {
     ui->setupUi(this);
-    ui->dtBeginPeriod->setDate(QDate(QDate::currentDate().year(),1,1));
-    ui->dtEndPeriod->setDate(QDate::currentDate());
+    ui->clBeginPeriod->setSelectedDate(QDate(QDate::currentDate().year(),1,1));
+    ui->clEndPeriod->setSelectedDate(QDate::currentDate());
 }
 
 ComputeTurnoverDialog::~ComputeTurnoverDialog()
@@ -21,9 +21,9 @@ ComputeTurnoverDialog::~ComputeTurnoverDialog()
 void ComputeTurnoverDialog::fillLabels(const int nbBillings, const int turnover)
 {
     ui->lbCompute->setText("Votre CA du "+
-                           ui->dtBeginPeriod->date().toString("dd/MM/yyyy") +
+                           ui->clBeginPeriod->selectedDate().toString("dd/MM/yyyy") +
                            " au " +
-                           ui->dtEndPeriod->date().toString("dd/MM/yyyy") +
+                           ui->clEndPeriod->selectedDate().toString("dd/MM/yyyy") +
                            " est de " +
                            QString::number(turnover) + " euro(s)");
     ui->lbBillingNb->setText(QString::number(nbBillings) +
@@ -45,8 +45,8 @@ void ComputeTurnoverDialog::computeTurnover()
                  ->getAllBillingsOnly(p->getId());
         for (Billing b  : Databases::BillingDatabase::instance()
              ->getBillingsBetweenDates(bills,
-                                     ui->dtBeginPeriod->date(),
-                                     ui->dtEndPeriod->date())) {
+                                     ui->clBeginPeriod->selectedDate(),
+                                     ui->clEndPeriod->selectedDate())) {
             ContributoriesList cl = Databases::ContributoryDatabase::instance()
                     ->getContributoriesByBillingAndProject(b.getId(),
                                                          p->getId());
@@ -61,15 +61,15 @@ void ComputeTurnoverDialog::computeTurnover()
 
 void ComputeTurnoverDialog::endDateControl(const QDate end)
 {
-    if (end < ui->dtBeginPeriod->date()) {
-        ui->dtBeginPeriod->setDate(ui->dtEndPeriod->date());
+    if (end < ui->clBeginPeriod->selectedDate()) {
+        ui->clBeginPeriod->setSelectedDate(ui->clEndPeriod->selectedDate());
     }
 }
 
 void ComputeTurnoverDialog::beginDateControl(const QDate begin)
 {
-    if (begin > ui->dtEndPeriod->date()) {
-        ui->dtEndPeriod->setDate(ui->dtBeginPeriod->date());
+    if (begin > ui->clEndPeriod->selectedDate()) {
+        ui->clEndPeriod->setSelectedDate(ui->clBeginPeriod->selectedDate());
     }
 }
 }

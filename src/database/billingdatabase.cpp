@@ -395,6 +395,7 @@ QList<Billing> BillingDatabase::getAllBillingsOnly(const int idProject)
              "FROM Billing b, BillingProject bp "
              "WHERE idProject=:idProject "
              "AND b.idBilling = bp.idBilling "
+             "AND isPaid = 1 "
              "AND isBilling = 1 "
              );
 

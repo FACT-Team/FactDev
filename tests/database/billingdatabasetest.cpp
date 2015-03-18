@@ -173,7 +173,7 @@ void BillingDatabaseTest::getAllBillingsOnly()
 {
  bool billing = true;
 
- for (Billing b : Databases::BillingDatabase::instance()->getAllBillingsOnly(1)) {
+ for (Billing b : Databases::BillingDatabase::instance()->getAllBillingsOnly(23)) {
      if (!b.isBilling()) {
          billing = false;
      }

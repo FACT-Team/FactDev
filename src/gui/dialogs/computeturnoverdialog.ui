@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>200</height>
+    <width>700</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>500</width>
-    <height>200</height>
+    <width>650</width>
+    <height>340</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>250</height>
+    <width>700</width>
+    <height>350</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -75,37 +75,10 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QDateEdit" name="dtBeginPeriod">
-          <property name="time">
-           <time>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-           </time>
-          </property>
-          <property name="currentSection">
-           <enum>QDateTimeEdit::DaySection</enum>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-          <property name="timeSpec">
-           <enum>Qt::LocalTime</enum>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label">
           <property name="text">
            <string>Début</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QDateEdit" name="dtEndPeriod">
-          <property name="calendarPopup">
-           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -121,6 +94,12 @@
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="1" column="0">
+         <widget class="QCalendarWidget" name="clBeginPeriod"/>
+        </item>
+        <item row="1" column="3">
+         <widget class="QCalendarWidget" name="clEndPeriod"/>
         </item>
        </layout>
       </item>
@@ -201,12 +180,44 @@
    <slot>computeTurnover()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>335</x>
-     <y>311</y>
+     <x>610</x>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>361</x>
      <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clBeginPeriod</sender>
+   <signal>clicked(QDate)</signal>
+   <receiver>ComputeTurnoverDialog</receiver>
+   <slot>beginDateControl(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>184</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>503</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clEndPeriod</sender>
+   <signal>clicked(QDate)</signal>
+   <receiver>ComputeTurnoverDialog</receiver>
+   <slot>endDateControl(QDate)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>411</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>580</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
