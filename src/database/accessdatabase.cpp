@@ -7,6 +7,7 @@ QString AccessDatabase::_userDb;
 QString AccessDatabase::_password;
 int AccessDatabase::_port;
 bool AccessDatabase::_exists;
+DbType AccessDatabase::_dbType;
 
 
 AccessDatabase::AccessDatabase()
@@ -26,6 +27,7 @@ void AccessDatabase::init()
         _password = settings.value("password").toString();
         _dbName = settings.value("dbName").toString();
         _exists = true;
+        _dbType = (DbType)settings.value("dbType").toInt();
     }
 }
 
@@ -38,6 +40,7 @@ void AccessDatabase::commit()
     settings.setValue("userDb", _userDb);
     settings.setValue("password", _password);
     settings.setValue("dbName", _dbName);
+    settings.setValue("dbType", _dbType);
 
 }
 

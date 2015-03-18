@@ -26,7 +26,7 @@ void Database::close() {
 
 Database::Database() throw(DbException*) {
     if(!isOpen) {
-        if(AccessDatabase::_exists) {
+        if(AccessDatabase::_exists && AccessDatabase::_dbType == MYSQL) {
             _isMysql = true;
             mDatabase = QSqlDatabase::addDatabase("QMYSQL");
         } else {
@@ -69,7 +69,7 @@ void Database::open() {
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
 
-    if(!AccessDatabase::_exists)
+    if(!AccessDatabase::_exists || AccessDatabase::_dbType == SQLITE)
     {
         _settings = new QSettings("FACT", "FactDev");
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());

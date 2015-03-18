@@ -102,6 +102,7 @@ void StartedWindowsDialog::accept() {
     Databases::AccessDatabase::_exists = true;
     Databases::AccessDatabase::_port = ui->wdgDbType->getPort().toInt();
     Databases::AccessDatabase::_password = ui->wdgDbType->getPassword();
+    Databases::AccessDatabase::_dbType = (Databases::DbType)ui->cbDbType->currentIndex();
     Databases::AccessDatabase::commit();
 
     _user = new User(1);

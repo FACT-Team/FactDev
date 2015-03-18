@@ -5,6 +5,8 @@
 #include <QSettings>
 
 namespace Databases {
+enum DbType {SQLITE, MYSQL};
+
 class AccessDatabase
 {
 public:
@@ -17,6 +19,7 @@ public:
     static QString _userDb;
     static QString _password;
     static QString _dbName;
+    static Databases::DbType _dbType;
 
     static bool _exists;
 

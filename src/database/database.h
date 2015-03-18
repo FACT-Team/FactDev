@@ -27,7 +27,6 @@ using namespace Utils;
  * @brief Class for Database, contains queries
  */
 namespace Databases {
-enum DbType {SQLITE, MYSQL};
 /**
  * @author Antoine de Roquemaurel
  * @brief The <b>Database</b> class Master class for all database access
@@ -106,7 +105,7 @@ public:
      * @brief changeDatabase Change the current database : mysql to sqlite or sqlite to mysql
      * @param dbType : The new database type, Sqlite or Mysql
      */
-    void changeDatabase(DbType dbType);
+    void changeDatabase(Databases::DbType dbType);
 protected:
     /**
      * @brief Database::Database Database is a singleton
