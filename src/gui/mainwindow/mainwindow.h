@@ -107,8 +107,6 @@ public:
      */
     void addDoc(bool isBilling);
 
-    void responsiveTable(QTableView* tbl, const int min, QString columns...);
-
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer

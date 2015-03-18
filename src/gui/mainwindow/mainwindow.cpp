@@ -137,47 +137,6 @@ void MainWindow::addDoc(bool isBilling) {
     }
 }
 
-void MainWindow::responsiveTable(QTableView *tbl, const int min, QString columns...)
-{
-    int h = tbl->height();
-    int i = 0;
-    int value = 0;
-//#include<stdarg.h>
-
-//int maxof(int n_args, ...)
-//{
-//    va_list ap;
-//    va_start(ap, n_args);
-//    int max = va_arg(ap, int);
-//    for(int i = 2; i <= n_args; i++) {
-//        int a = va_arg(ap, int);
-//        if(a > max) max = a;
-//    }
-//    va_end(ap);
-//    return max;
-//}
-
-
-
-
-
-    if (h > min) {
-        for (QString c : columns) {
-
-            if (c.contains("%")) {
-                //c = c.replace("%","");
-
-                value = c.toInt()*h/100;
-            } else {
-                value = c.toInt();
-            }
-            qDebug() << "["<<h<<"]" << i << "- " << c << value;
-            tbl->setColumnWidth(i,value);
-            i++;
-        }
-    }
-}
-
 void MainWindow::billingIsPaid()
 {
     Billing billing(this->getCurrentQuoteId());
@@ -466,12 +425,11 @@ void MainWindow::customersTableToProjectsTable()
     ui->lblProjects->setText("Projets de <b>"
                              + getCurrentCustomerName()+"</b>");
 
-    responsiveTable(ui->tblProjects,400,"60", "10", "10", "10", "10");
-//    ui->tblProjects->setColumnWidth(0, 100);
-//    ui->tblProjects->setColumnWidth(1, 150);
-//    ui->tblProjects->setColumnWidth(2, 200);
-//    ui->tblProjects->setColumnWidth(3, 122);
-//    ui->tblProjects->setColumnWidth(4, 122);
+    ui->tblProjects->setColumnWidth(0, 100);
+    ui->tblProjects->setColumnWidth(1, 150);
+    ui->tblProjects->setColumnWidth(2, 200);
+    ui->tblProjects->setColumnWidth(3, 122);
+    ui->tblProjects->setColumnWidth(4, 122);
     ui->stackedWidget->setCurrentIndex(1);
     QModelIndex index(ui->trCustomers->currentIndex());
     ui->trCustomers->expand(index);
@@ -580,7 +538,7 @@ void MainWindow::updateTableCustomers(QString filter, const int row) {
     ui->tblCustomers->setColumnWidth(2, 100);
     ui->tblCustomers->setColumnWidth(3, 150);
     ui->tblCustomers->setColumnWidth(4, 150);
-    ui->tblCustomers->setColumnWidth(5, 250);
+    ui->tblCustomers->setColumnWidth(5, 280);
     if (row > -1) {
         ui->tblCustomers->selectRow(row);
     } else {
@@ -648,7 +606,6 @@ void MainWindow::updateTree(QString filter)
     }
     ui->trCustomers->setModel(
                 Databases::CustomerDatabase::instance()->getTree(filter));
-    responsiveTable(ui->tblProjects,400,"60", "120", "180", "240", "300");
 }
 
 void MainWindow::updateButtons()
