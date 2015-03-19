@@ -175,19 +175,25 @@
         </item>
         <item row="1" column="2">
          <widget class="QLabel" name="lblProjects">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>300</width>
+            <width>400</width>
             <height>16777215</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Projets&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -244,19 +250,25 @@
             </item>
             <item row="0" column="3">
              <widget class="QLabel" name="lblDocs">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
-                <width>300</width>
+                <width>400</width>
                 <height>16777215</height>
                </size>
               </property>
               <property name="font">
                <font>
-                <pointsize>11</pointsize>
+                <pointsize>10</pointsize>
                </font>
               </property>
               <property name="text">
-               <string/>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Factures&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
@@ -439,9 +451,22 @@
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>300</width>
-     <height>66</height>
+     <width>280</width>
+     <height>70</height>
     </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="windowTitle">
     <string>Données du client</string>
@@ -455,6 +480,13 @@
       <width>300</width>
       <height>0</height>
      </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="0" column="0">
@@ -490,6 +522,13 @@
      <height>183</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="windowTitle">
     <string>Liste des clients</string>
    </property>
@@ -497,6 +536,13 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_3">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="1" column="0">
       <widget class="QTreeView" name="trCustomers">
@@ -520,9 +566,22 @@
   <widget class="QDockWidget" name="dockWidget_4">
    <property name="minimumSize">
     <size>
-     <width>73</width>
+     <width>280</width>
      <height>200</height>
     </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>280</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="windowTitle">
     <string>Mes données</string>
@@ -531,6 +590,13 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_4">
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
     <layout class="QGridLayout" name="gridLayout_7">
      <item row="0" column="0">
       <widget class="Gui::Widgets::CustomerDataWidget" name="wdgUserData" native="true">
@@ -963,8 +1029,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>583</x>
-     <y>119</y>
+     <x>578</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -980,7 +1046,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>483</x>
-     <y>114</y>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -996,7 +1062,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>483</x>
-     <y>114</y>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1012,7 +1078,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>483</x>
-     <y>114</y>
+     <y>116</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1123,7 +1189,7 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>756</x>
+     <x>780</x>
      <y>677</y>
     </hint>
     <hint type="destinationlabel">
@@ -1155,7 +1221,7 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1091</x>
+     <x>1111</x>
      <y>677</y>
     </hint>
     <hint type="destinationlabel">
@@ -1203,7 +1269,7 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>978</x>
+     <x>998</x>
      <y>677</y>
     </hint>
     <hint type="destinationlabel">
@@ -1219,7 +1285,7 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>892</x>
+     <x>912</x>
      <y>676</y>
     </hint>
     <hint type="destinationlabel">

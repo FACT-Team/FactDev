@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gui/dialogs/startedwindowsdialog.h"
+#include <QDesktopWidget>
 using namespace Utils;
 
 namespace Gui {
@@ -12,13 +13,19 @@ MainWindow::MainWindow(QWidget *parent) :
     setupUi();
     setupSignalsSlots();
     StartedWindowsDialog w;
-    w.exec();
+    w.exec();        
     updateUser();
+    showMaximized();
+    responsiveCustomerTable();
 }
 
 void MainWindow::setupUi()
 {
     ui->setupUi(this);
+
+    QDesktopWidget screen;
+    setMaximumSize(screen.width(), screen.height());
+
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
     addDockWidget(Qt::LeftDockWidgetArea, ui->dockCustomers);
@@ -130,6 +137,97 @@ void MainWindow::addDoc(bool isBilling) {
         // ui->stackedWidget->setCurrentIndex(1);
     }
 }
+
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    switch (ui->stackedWidget->currentIndex()) {
+        case 0:
+            responsiveCustomerTable();
+            break;
+        case 1:
+            responsiveProjectTable();
+            break;
+        case 2:
+            responsiveBillingTable();
+            break;
+        default:
+            responsiveCustomerTable();
+    }
+
+
+}
+
+void MainWindow::responsiveCustomerTable()
+{
+    int w = ui->tblCustomers->width();
+
+    if (w > 650) {
+        ui->tblCustomers->hideColumn(0);
+        ui->tblCustomers->setColumnWidth(0, w*0.0);
+        ui->tblCustomers->setColumnWidth(1, w*0.15);
+        ui->tblCustomers->setColumnWidth(2, w*0.15);
+        ui->tblCustomers->setColumnWidth(3, w*0.15);
+        ui->tblCustomers->setColumnWidth(4, w*0.15);
+        ui->tblCustomers->setColumnWidth(5, w*0.25);
+        ui->tblCustomers->setColumnWidth(6, w*0.145);
+    } else {
+        ui->tblCustomers->hideColumn(0);
+        ui->tblCustomers->setColumnWidth(0, 0);
+        ui->tblCustomers->setColumnWidth(1, 200);
+        ui->tblCustomers->setColumnWidth(2, 100);
+        ui->tblCustomers->setColumnWidth(3, 150);
+        ui->tblCustomers->setColumnWidth(4, 150);
+        ui->tblCustomers->setColumnWidth(5, 280);
+        ui->tblCustomers->setColumnWidth(6, 100);
+    }
+}
+
+
+void MainWindow::responsiveProjectTable()
+{
+    int w = ui->tblProjects->width();
+
+    if (w > 400) {
+        ui->tblProjects->setColumnWidth(0, w*0.1);
+        ui->tblProjects->setColumnWidth(1,w*0.15);
+        ui->tblProjects->setColumnWidth(2, w*0.5);
+        ui->tblProjects->setColumnWidth(3, w*0.125);
+        ui->tblProjects->setColumnWidth(4, w*0.125);
+        ui->tblProjects->setColumnWidth(5,w*0.095);
+    } else {
+        ui->tblProjects->setColumnWidth(0, 100);
+        ui->tblProjects->setColumnWidth(1, 150);
+        ui->tblProjects->setColumnWidth(2, 200);
+        ui->tblProjects->setColumnWidth(3, 122);
+        ui->tblProjects->setColumnWidth(4, 122);
+        ui->tblProjects->setColumnWidth(5, 100);
+    }
+}
+
+void MainWindow::responsiveBillingTable()
+{
+    int w = ui->tblQuotes->width();
+
+    if (w > 700) {
+        ui->tblQuotes->hideColumn(0);
+        ui->tblQuotes->setColumnWidth(1, w*0.045);
+        ui->tblQuotes->setColumnWidth(2, w*0.045);
+        ui->tblQuotes->setColumnWidth(3, w*0.2);
+        ui->tblQuotes->setColumnWidth(4, w*0.5);
+        ui->tblQuotes->setColumnWidth(5, w*0.15);
+        ui->tblQuotes->setColumnWidth(6, w*0.05);
+    } else {
+        ui->tblQuotes->hideColumn(0);
+        ui->tblQuotes->setColumnWidth(1, 40);
+        ui->tblQuotes->setColumnWidth(2, 40);
+        ui->tblQuotes->setColumnWidth(3, 200);
+        ui->tblQuotes->setColumnWidth(4, 250);
+        ui->tblQuotes->setColumnWidth(5, 130);
+        ui->tblQuotes->setColumnWidth(6, 50);
+    }
+}
+
+
 
 void MainWindow::billingIsPaid()
 {
@@ -337,6 +435,7 @@ void MainWindow::changeTree()
         ui->tblCustomers->clearSelection();
         ui->wdgCustomerData->hide();
         ui->trCustomers->collapseAll();
+        responsiveCustomerTable();
         break;
     case 1:         // Customer
         ui->tblCustomers->selectRow(idRow-1);
@@ -345,6 +444,7 @@ void MainWindow::changeTree()
         ui->trCustomers->expand(index);
         customersTableToProjectsTable();
         ui->stackedWidget->setCurrentIndex(1);
+        responsiveCustomerTable();
         break;
     case 2:         // Project
         // Need to verify if the current customer is the father
@@ -372,7 +472,7 @@ void MainWindow::changeTree()
         Log::instance(WARNING) << "MainWindow::changeTree – "
                                   "I don't know what I'm doing here… ";
     }
-    updateButtons();
+    updateButtons();    
 }
 
 void MainWindow::changeCustomerTable()
@@ -384,6 +484,7 @@ void MainWindow::changeCustomerTable()
         index = ui->trCustomers->indexBelow(index);
     }
     ui->trCustomers->setCurrentIndex(index);
+    responsiveCustomerTable();
     updateButtons();
 }
 
@@ -400,6 +501,7 @@ void MainWindow::changeProjectsTable()
     }
 
     ui->trCustomers->setCurrentIndex(index);
+    responsiveProjectTable();
     updateButtons();
 }
 
@@ -417,6 +519,7 @@ void MainWindow::changeDocsTable()
     }
 
     ui->trCustomers->setCurrentIndex(index);
+    responsiveBillingTable();
     updateButtons();
 }
 
@@ -425,14 +528,11 @@ void MainWindow::customersTableToProjectsTable()
     updateTableProjects(getCurrentCustomerId());
     ui->lblProjects->setText("Projets de <b>"
                              + getCurrentCustomerName()+"</b>");
-    ui->tblProjects->setColumnWidth(0, 100);
-    ui->tblProjects->setColumnWidth(1, 150);
-    ui->tblProjects->setColumnWidth(2, 200);
-    ui->tblProjects->setColumnWidth(3, 122);
-    ui->tblProjects->setColumnWidth(4, 122);
+
     ui->stackedWidget->setCurrentIndex(1);
     QModelIndex index(ui->trCustomers->currentIndex());
     ui->trCustomers->expand(index);
+    responsiveProjectTable();
     updateButtons();
 }
 
@@ -441,6 +541,7 @@ void MainWindow::projectsTableToDocsTable()
     ui->stackedWidget->setCurrentIndex(2);
     updateTableBillings(getCurrentProjectId());
     ui->trCustomers->expand(QModelIndex(ui->trCustomers->currentIndex()));
+    responsiveBillingTable();
     updateButtons();
 }
 
@@ -476,6 +577,7 @@ void MainWindow::backToCustomersTable()
     ui->stackedWidget->setCurrentIndex(0);
     ui->trCustomers->collapseAll();
     changeCustomerTable();
+    responsiveCustomerTable();
     updateButtons();
 }
 
@@ -488,6 +590,7 @@ void MainWindow::backToProjectsTable()
     }
     ui->trCustomers->collapse(index);
     ui->trCustomers->setCurrentIndex(index);
+    responsiveProjectTable();
 }
 
 void MainWindow::updateUI(QString filter)
@@ -530,20 +633,14 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 void MainWindow::updateTableCustomers(QString filter, const int row) {
     ui->tblCustomers->setModel(
-        Databases::CustomerDatabase::instance()->getCustomersTable(filter));
+        Databases::CustomerDatabase::instance()->getCustomersTable(filter));    
 
-    ui->tblCustomers->hideColumn(0);
-    ui->tblCustomers->setColumnWidth(0, 100);
-    ui->tblCustomers->setColumnWidth(1, 200);
-    ui->tblCustomers->setColumnWidth(2, 100);
-    ui->tblCustomers->setColumnWidth(3, 150);
-    ui->tblCustomers->setColumnWidth(4, 150);
-    ui->tblCustomers->setColumnWidth(5, 250);
     if (row > -1) {
         ui->tblCustomers->selectRow(row);
     } else {
         ui->tblCustomers->clearSelection();
     }
+    responsiveCustomerTable();
 }
 
 void MainWindow::updateTableProjects(const int pId, const int row)
@@ -561,6 +658,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
     } else {
         ui->tblProjects->clearSelection();
     }
+    responsiveProjectTable();
 }
 
 void MainWindow::updateTableBillings(const int idProject, const int row)
@@ -568,22 +666,17 @@ void MainWindow::updateTableBillings(const int idProject, const int row)
     Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     ui->tblQuotes->setModel(
         Databases::BillingDatabase::instance()->getBillingsTable(idProject));
-    ui->lblDocs->setText("Documents concernant le projet <b>"
+    ui->lblDocs->setText("Factures et Devis du projet <b>"
                            + getCurrentProjectName()
                            + "</b>");
-    ui->tblQuotes->hideColumn(0);
-    ui->tblQuotes->setColumnWidth(1, 40);
-    ui->tblQuotes->setColumnWidth(2, 40);
-    ui->tblQuotes->setColumnWidth(3, 200);
-    ui->tblQuotes->setColumnWidth(4, 250);
-    ui->tblQuotes->setColumnWidth(5, 130);
-    ui->tblQuotes->setColumnWidth(6, 50);
+
 
     if (row > -1) {
         ui->tblQuotes->selectRow(row);
     } else {
         ui->tblQuotes->clearSelection();
     }
+    responsiveBillingTable();
 }
 
 void MainWindow::updateCostAndTurnover()
@@ -609,6 +702,7 @@ void MainWindow::updateTree(QString filter)
 
 void MainWindow::updateButtons()
 {
+
     bool canModify = ui->stackedWidget->currentIndex() == 0
             && ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection();

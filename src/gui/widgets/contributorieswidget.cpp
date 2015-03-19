@@ -23,6 +23,7 @@ ContributoriesWidget::ContributoriesWidget(
     ui->tblProjects->setModel(_modelProjects);
     ui->btnAddPrestation->hide();
     ui->btnRmovePrestation->hide();
+    ui->lbContributoriesProject->hide();
     connect(ui->tblProjects->itemDelegateForColumn(0),
             SIGNAL(closeEditor(QWidget*)),
             SLOT(editing()));
@@ -104,10 +105,10 @@ void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
     view->setEditTriggers(QAbstractItemView::DoubleClicked);
     view->setItemDelegateForColumn(2, new Delegates::DoubleSpinBoxDelegate());
     view->setItemDelegateForColumn(3, new Delegates::UnitComboDelegate());
-    view->setColumnWidth(0, 300);
+    view->setColumnWidth(0, 200);
     view->setColumnWidth(1, 450);
-    view->setColumnWidth(2, 80);
-    view->setColumnWidth(3, 80);
+    view->setColumnWidth(2, 70);
+    view->setColumnWidth(3, 70);
 
     connect(view->itemDelegateForColumn(2),
             SIGNAL(closeEditor(QWidget*)),
@@ -159,9 +160,11 @@ void ContributoriesWidget::updateUi()
     if(_modelProjects->getSelectedProjects().count() > 0) {
         ui->btnAddPrestation->show();
         ui->btnRmovePrestation->show();
+        ui->lbContributoriesProject->show();
     } else {
         ui->btnAddPrestation->hide();
         ui->btnRmovePrestation->hide();
+        ui->lbContributoriesProject->hide();
     }
     updatePrice();
 }

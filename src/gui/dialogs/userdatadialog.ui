@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>492</height>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,6 +58,9 @@
    </item>
    <item row="0" column="0" colspan="4">
     <widget class="QTabWidget" name="tabUserData">
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -108,13 +111,34 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode"/>
+           <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="0" column="1" colspan="3">
-           <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress"/>
+           <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="1" column="3">
-           <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity"/>
+           <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="lbPostalCode">
@@ -162,28 +186,84 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname"/>
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="1" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname"/>
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="5" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leCompany"/>
+        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leCompany">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="6" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle"/>
+        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="8" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail"/>
+        <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="9" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone"/>
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="10" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone"/>
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item row="11" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret"/>
+        <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
        </item>
       </layout>
       <zorder>lbPhone</zorder>
@@ -291,14 +371,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
@@ -334,6 +406,14 @@
    <class>Gui::Widgets::CheckFields::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkfieldsletters.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
