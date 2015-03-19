@@ -431,15 +431,36 @@ QList<Billing> BillingDatabase::getAllBillingsOnly(const int idProject)
     return bills;
 }
 
-QList<Billing> BillingDatabase::getBillingsBetweenDates(QList<Billing> bills, QDate begin, QDate end)
+QList<Billing> BillingDatabase::getBillingsBetweenDates(QDate begin, QDate end)
 {
-    QList<Billing> billings;
-    for (Billing b : bills) {
-        if (b.getDate() >= begin && b.getDate() <= end) {
-            billings.append(b);
-        }
+    // select * from billing where date between '2015-01-01' and '2015-03-19' and isBilling=1 ;
+    QList<Billing> bills;
+    QSqlQuery q;
+    q.prepare(
+             "SELECT DISTINCT b.idBilling, title, description, number, "
+             "isBilling, date, isPaid "
+             "FROM Billing b "
+             "WHERE "
+              " date BETWEEN :begin and :end "
+              "AND isPaid = 1 "
+              "AND isBilling = 1 "
+             );
+    q.bindValue(":begin", begin);
+    q.bindValue(":end", end);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer les Factures",
+                    "BddCustomer::getBillings",
+                    lastError(q),
+                    1.3);
     }
-    return billings;
+
+    while(q.next()) {
+        bills << *getBilling(q);
+    }
+
+    return bills;
+
 }
 
 }

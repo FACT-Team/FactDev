@@ -161,7 +161,7 @@ public:
      * @param end
      * @return the list of <b>Billing</b>
      */
-    QList<Billing> getBillingsBetweenDates(QList<Billing> bills, QDate begin, QDate end);
+    QList<Billing> getBillingsBetweenDates(QDate begin, QDate end);
 
 private:
     static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase

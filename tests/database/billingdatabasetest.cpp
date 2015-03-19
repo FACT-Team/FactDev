@@ -244,22 +244,25 @@ void BillingDatabaseTest::getAllBillingsOnly()
 
 void BillingDatabaseTest::getBillingsBetweenDates()
 {
+    try {
     QList<Billing> bills;
     QList<Billing> bills2;
     bills.append(Billing(1));
     bills.append(Billing(2));
 
     bills2 = Databases::BillingDatabase::instance()
-            ->getBillingsBetweenDates(bills,QDate(2015,2,13),QDate(2035,2,13));
+            ->getBillingsBetweenDates(QDate(2015,2,13),QDate(2035,2,13));
 
 
-    QVERIFY(bills2.count() == 2
-            && bills2.first().getDate() == QDate(2015,2,13)
-            && bills2.first().getTitle() == "Coucou"
-            && bills2.first().getDescription() == "Mon super devis de la "
-                                                  "mort qui rox du poulet"
-            && bills2.last().getDate() == QDate(2015,2,13)
-            && bills2.last().getTitle() == "Bonjour"
-            && bills2.last().getDescription() == "Manger du poney");
+    QCOMPARE(bills2.count(), 1);
+    QVERIFY(bills2.first().getDate() == QDate(2015,2,13));
+    QVERIFY(bills2.first().getTitle() == "Coucou");
+    QVERIFY(bills2.first().getDescription() == "Mon super devis de la mort qui rox du poulet");
+//    QVERIFY(bills2.last().getDate() == QDate(2015,2,13));
+//    QVERIFY(bills2.last().getTitle() == "Bonjour");
+//    QVERIFY(bills2.last().getDescription() == "Manger du poney");
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
