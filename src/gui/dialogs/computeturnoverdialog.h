@@ -1,10 +1,14 @@
 #ifndef COMPUTETURNOVERDIALOG_H
 #define COMPUTETURNOVERDIALOG_H
 
+#include <QDialog>
+
 #include "database/billingdatabase.h"
 #include "database/contributorydatabase.h"
 #include "database/ratedatabase.h"
-#include <QDialog>
+
+#include "models/statistics.h"
+
 
 namespace Ui {
 class ComputeTurnoverDialog;
