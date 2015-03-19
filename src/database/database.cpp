@@ -7,9 +7,9 @@ bool Database::_dbInstance = 0;
 bool Database::isOpen = false;
 bool Database::_isMysql = false;
 
-Database* Database::instance() throw(DbException*) {
+Database* Database::instance(bool tests) throw(DbException*) {
     if (_instance==0) {
-        _instance = new Database();
+        _instance = new Database(tests);
     }
 
     _instance->setDatabase(QSqlDatabase::database());
@@ -24,8 +24,12 @@ void Database::close() {
     mDatabase.close();    
 }
 
-Database::Database() throw(DbException*) {
+Database::Database(bool tests) throw(DbException*) {
     if(!isOpen) {
+        if(!tests) {
+            AccessDatabase::init();
+        }
+
         if(AccessDatabase::_exists && AccessDatabase::_dbType == MYSQL) {
             _isMysql = true;
             mDatabase = QSqlDatabase::addDatabase("QMYSQL");

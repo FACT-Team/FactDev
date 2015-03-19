@@ -37,7 +37,7 @@ public:
      * @brief Database::getInstance Return an instance of Database
      * @return Instance of Database
      */
-    static Database* instance() throw(DbException*);
+    static Database* instance(bool tests=false) throw(DbException*);
 
     /**
      * @brief Database::lastError Return an error message on the last error
@@ -110,7 +110,7 @@ protected:
     /**
      * @brief Database::Database Database is a singleton
      */
-    Database()throw(DbException*);
+    Database(bool tests=false)throw(DbException*);
 
     static Database* _instance; //!< Instance
     static bool _dbInstance; //!< an instance of db is open

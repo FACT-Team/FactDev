@@ -52,7 +52,7 @@ int mysqlExecution(int argc, char**argv)
         Databases::AccessDatabase::_dbName = "FactDev";
         Databases::AccessDatabase::_exists = true;
         Databases::AccessDatabase::_dbType = Databases::MYSQL;
-        Databases::Database::instance();
+        Databases::Database::instance(true);
     } else {
         std::cerr << "Bad parameters ! "<< std::endl;
         return EXIT_FAILURE;
@@ -71,7 +71,7 @@ int sqliteExecution(QCoreApplication& a)
     f.remove();
     Databases::AccessDatabase::_dbType = Databases::SQLITE;
     Databases::AccessDatabase::_exists = true;
-
+    Databases::Database::instance(true);
     int ret = RUN_ALL_TESTS();
     std::cout << "-- Clean of database" << std::endl;
     Databases::Database::instance()->cleanDatabase();
