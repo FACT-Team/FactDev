@@ -73,24 +73,6 @@ public:
      */
     void setTurnover(const double &turnover);
 
-
-    /**
-     * @brief Customer::operator == Re-define the operator "==" to compare if
-     * the current customer is the same to the other <b>Customer</b> <i>c</i>
-     * Return TRUE if both customers are the same, else FALSE
-     * @param c Customer to compare
-     * @return boolean
-     */
-    bool operator ==(const Customer &c);
-    /**
-     * @brief Customer::operator == Re-define the operator "!=" to compare if
-     * the current customer is differnt to the other <b>Customer</b> <i>c</i>
-     * Return TRUE if both customers are different, else FALSE
-     * @param c Customer to compare
-     * @return boolean
-     */
-    bool operator !=(const Customer &c);
-
     /**
      * @brief Customer::turnoverCompute calculates the customer turnover
      * @return double turnover

@@ -82,19 +82,19 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(
     Models::ContributoriesList contributories;
 
     q.prepare(
-                "SELECT DISTINCT project.idProject as idProject,"
-                " project.name as name, project.description as pdescription, "
-                " project.dailyRate as dailyRate, project.idCustomer, "
-                " contributory.idContributory, "
-                "contributory.description as cdescription, "
-                "contributory.longdescription as clongdescription, "
-                " billing.idBilling, nbHours "
-                " FROM BillingProject, project, billing, contributory "
-                " WHERE billingProject.idBilling = :idBilling "
-                " AND project.idProject = billingProject.idProject "
-                " AND billing.idBilling = billingProject.idBilling "
-                " AND contributory.idContributory = billingProject.idContributory "
-                "ORDER BY project.idProject ");
+                "SELECT DISTINCT Project.idProject as idProject,"
+                " Project.name as name, Project.description as pdescription, "
+                " Project.dailyRate as dailyRate, Project.idCustomer, "
+                " Contributory.idContributory, Contributory.description as cdescription, "
+                "Contributory.longdescription as clongdescription, "
+                " Billing.idBilling, nbHours "
+                " FROM BillingProject, Project, Billing, Contributory "
+                " WHERE BillingProject.idBilling = :idBilling "
+                " AND Project.idProject = BillingProject.idProject "
+                " AND Billing.idBilling = BillingProject.idBilling "
+                " AND Contributory.idContributory = BillingProject.idContributory "
+                "ORDER BY Project.idProject ");
+
     q.bindValue(":idBilling", billingId);
     if(!q.exec()) {
         throw new DbException(
@@ -200,20 +200,20 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndPr
     Models::ContributoriesList contributories;
 
     q.prepare(
-                "SELECT DISTINCT project.idProject as idProject,"
-                " project.name as name, project.description as pdescription, "
-                " project.dailyRate as dailyRate, project.idCustomer, "
-                " contributory.idContributory, "
-                "contributory.description as cdescription, "
-                "contributory.longdescription as clongdescription, "
-                " billing.idBilling, nbHours "
-                " FROM BillingProject, project, billing, contributory "
-                " WHERE billingProject.idBilling = :idBilling "
-                " AND project.idProject = billingProject.idProject "
-                " AND billing.idBilling = billingProject.idBilling "
-                " AND contributory.idContributory = billingProject.idContributory "
-                " AND project.idProject = :idProject "
-                "ORDER BY project.idProject ");
+                "SELECT DISTINCT Project.idProject as idProject,"
+                " Project.name as name, Project.description as pdescription, "
+                " Project.dailyRate as dailyRate, Project.idCustomer, "
+                " Contributory.idContributory, Contributory.description as cdescription, "
+                " Contributory.longdescription as clongdescription, "
+                " Billing.idBilling, nbHours "
+                " FROM BillingProject, Project, Billing, Contributory "
+                " WHERE BillingProject.idBilling = :idBilling "
+                " AND Project.idProject = BillingProject.idProject "
+                " AND Billing.idBilling = BillingProject.idBilling "
+                " AND Contributory.idContributory = BillingProject.idContributory "
+                " AND Project.idProject = :idProject "
+                "ORDER BY Project.idProject ");
+
     q.bindValue(":idBilling", billingId);
     q.bindValue(":idProject", projectId);
     if(!q.exec()) {

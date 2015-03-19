@@ -91,7 +91,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/checkfields/checklogin.cpp \
     gui/widgets/checkfields/checkportnumber.cpp \
     models/people.cpp \
-    gui/dialogs/computeturnoverdialog.cpp
+    gui/dialogs/computeturnoverdialog.cpp\
+    database/accessdatabase.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -198,7 +199,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/checkfields/checklogin.h \
     gui/widgets/checkfields/checkportnumber.h \
     models/people.h \
-    gui/dialogs/computeturnoverdialog.h
+    gui/dialogs/computeturnoverdialog.h \
+    database/accessdatabase.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -224,18 +226,20 @@ RESOURCES += \
     utilsfiles.qrc
 
 OTHER_FILES += \
-        sql/removetable.sql \
-        sql/createtables.sql\
+        sql/sqlite/createtables.sql\
+        sql/mysql/createtables.sql\
         sql/tests/customers.sql \
-    sql/tests/user.sql \
-    sql/tests/billings.sql \
-    sql/tests/billingsprojects.sql \
-    sql/tests/contributories.sql \
-    sql/tests/projects.sql \
-    main.dox \
-    billing.tpl\
+        sql/tests/user.sql \
+        sql/tests/billings.sql \
+        sql/tests/billingsprojects.sql \
+        sql/tests/contributories.sql \
+        sql/tests/projects.sql \
+        sql/tests/removeuselessdata.sql \
+        main.dox \
+        billing.tpl\
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql \
-    sql/tests/billingrate.sql
+    sql/tests/billingrate.sql \
+    sql/removetables.sql
 

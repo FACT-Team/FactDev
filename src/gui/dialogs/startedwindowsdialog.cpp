@@ -11,8 +11,6 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    _user = new User(1);
-
     ui->wdgStack->setCurrentIndex(0);
     ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));
     ui->wdgDbType->hide();
@@ -22,6 +20,7 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
 
 StartedWindowsDialog::~StartedWindowsDialog()
 {
+    delete _user;
     delete ui;
 }
 
@@ -97,6 +96,16 @@ void StartedWindowsDialog::updateNextButton()
 
 
 void StartedWindowsDialog::accept() {
+    Databases::AccessDatabase::_address = ui->wdgDbType->getDomainNameOrIP();
+    Databases::AccessDatabase::_dbName = ui->wdgDbType->getDatabaseName();
+    Databases::AccessDatabase::_userDb = ui->wdgDbType->getLogin();
+    Databases::AccessDatabase::_exists = true;
+    Databases::AccessDatabase::_port = ui->wdgDbType->getPort().toInt();
+    Databases::AccessDatabase::_password = ui->wdgDbType->getPassword();
+    Databases::AccessDatabase::_dbType = (Databases::DbType)ui->cbDbType->currentIndex();
+    Databases::AccessDatabase::commit();
+
+    _user = new User(1);
     _user->setFirstname(ui->leFirstname->text());
     _user->setLastname(ui->leLastname->text());
     _user->setCompany(ui->leCompany->text());

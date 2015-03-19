@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "models/user.h"
-
+#include "database/accessdatabase.h"
 namespace Ui {
 class StartedWindowsDialog;
 }

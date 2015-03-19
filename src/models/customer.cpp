@@ -68,17 +68,6 @@ QVariantHash Customer::getDataMap()
     return data;
 }
 
-bool Customer::operator==(const Customer &c)
-{
-    return People::operator == (c)
-            && getTurnover() == c.getTurnover();
-}
-
-bool Customer::operator!=(const Customer &c)
-{
-    return !(*this == c);
-}
-
 QString Customer::getPath() const
 {
    User u(1);

@@ -12,8 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     setupUi();
     setupSignalsSlots();
-    StartedWindowsDialog w;
-    w.exec();        
+    QSettings settings("FACT Team", "FactDev");
+    Databases::AccessDatabase::init();
+    if(!Databases::AccessDatabase::_exists/* | !QFile(settings.value("dbPath").toString()+"/"+Parameters::DB_FILENAME).exists()*/) {
+        StartedWindowsDialog w;
+        w.exec();
+    }
     updateUser();
     showMaximized();
     responsiveCustomerTable();
@@ -59,7 +63,7 @@ int MainWindow::getCurrentTableId(QTableView *tbl) {
 }
 
 int MainWindow::getCurrentCustomerId() {
-   return getCurrentTableId(ui->tblCustomers);
+    return getCurrentTableId(ui->tblCustomers);
 }
 
 int MainWindow::getCurrentProjectId() {
@@ -76,14 +80,15 @@ QString MainWindow::getCurrentCustomerName()
     QModelIndex index =
         ui->tblCustomers->model()->index(
                 ui->tblCustomers->currentIndex().row(), 1);
+
     return index.model()->itemData(index).value(0).toString();
 }
 
 QString MainWindow::getCurrentProjectName()
 {
     QModelIndex index =
-        ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(),1);
-     return index.model()->itemData(index).value(0).toString();
+            ui->tblProjects->model()->index(ui->tblProjects->currentIndex().row(),1);
+    return index.model()->itemData(index).value(0).toString();
 }
 
 void MainWindow::addCustomer()
@@ -255,14 +260,14 @@ void MainWindow::billingIsPaid()
 void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
 {
     if (QMessageBox::warning(this,"Suppression d'"
-                + QString((itemType.getType() == ItemType::BILLING ?
-                           "une " : "un ")) + itemType.getName(),
-        "Voulez vous supprimer " +
-        (itemType.getType() == ItemType::BILLING ?
-        "la " +itemType.getName()+" séléctionnée" :
-        "le "+itemType.getName()+" sélectionné") + " ?",
-        "Supprimer",
-        "Annuler") == 0)
+                             + QString((itemType.getType() == ItemType::BILLING ?
+                                        "une " : "un ")) + itemType.getName(),
+                             "Voulez vous supprimer " +
+                             (itemType.getType() == ItemType::BILLING ?
+                              "la " +itemType.getName()+" séléctionnée" :
+                              "le "+itemType.getName()+" sélectionné") + " ?",
+                             "Supprimer",
+                             "Annuler") == 0)
     {
         QModelIndex ls = tbl->selectionModel()->selectedRows().first();
         int pid = tbl->model()->data(ls,Qt::DisplayRole).toInt();
@@ -650,7 +655,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
         lastId = pId;
     }
     ui->tblProjects->setModel(
-        Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
+                Databases::ProjectDatabase::instance()->getProjectsTable(lastId));
     ui->tblProjects->hideColumn(0);
 
     if (row > -1) {
@@ -708,8 +713,8 @@ void MainWindow::updateButtons()
             && ui->tblCustomers->selectionModel()->hasSelection();
     bool canAdd =  (ui->stackedWidget->currentIndex() == 1
                     || ui->stackedWidget->currentIndex() == 2)
-                    && ui->tblProjects->currentIndex().row() > -1
-                    && ui->tblProjects->selectionModel()->hasSelection();
+            && ui->tblProjects->currentIndex().row() > -1
+            && ui->tblProjects->selectionModel()->hasSelection();
 
     bool billingIsSelected = ui->stackedWidget->currentIndex() == 2
             && ui->tblQuotes->currentIndex().row() > -1
@@ -729,7 +734,7 @@ void MainWindow::updateButtons()
     ui->actionNewBill->setEnabled(canAdd);
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
-    ui->btnEditDoc->setEnabled(billingIsSelected);    
+    ui->btnEditDoc->setEnabled(billingIsSelected);
     ui->btnPdf->setEnabled(billingIsSelected);
     ui->btnCopyDoc->setEnabled(billingIsSelected);
 
@@ -749,10 +754,10 @@ void MainWindow::updateButtons()
 
         if (isBillingPaid || !b.isBilling()) {
             ui->btnBillingIsPaid->setEnabled(false);
-           if (isBillingPaid) {
-               ui->btnRemoveDoc->setEnabled(false);
-               ui->btnEditDoc->setEnabled(false);
-           }
+            if (isBillingPaid) {
+                ui->btnRemoveDoc->setEnabled(false);
+                ui->btnEditDoc->setEnabled(false);
+            }
         } else {
             ui->btnBillingIsPaid->setEnabled(true);
         }

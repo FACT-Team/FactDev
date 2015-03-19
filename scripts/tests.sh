@@ -7,4 +7,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
 ln -s `pwd`/src/sql `pwd`/tests/sql
 echo "### TESTS EXECUTION"
 cd tests
-./tests
+./tests 127.0.0.1 FactDev FactDev

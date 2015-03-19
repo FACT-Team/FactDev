@@ -2,7 +2,7 @@
 #include "database/customerdatabase.h"
 #include "database/userdatabase.h"
 
-CustomerModelTest::CustomerModelTest()
+void CustomerModelTest::setup()
 {
     c1.setAddress("Address");
     c1.setCity("Toulouse");
@@ -31,8 +31,14 @@ CustomerModelTest::CustomerModelTest()
     c2.setPostalCode("31500");
 }
 
+CustomerModelTest::CustomerModelTest()
+{
+}
+
 void CustomerModelTest::equals1()
 {
+    setup();
+
     QVERIFY(c1 == c2);
 }
 void CustomerModelTest::equals2()
@@ -49,19 +55,32 @@ void CustomerModelTest::notEquals()
 void CustomerModelTest::commitInsert()
 {
     c1.setId(0);
-    c1.commit();
-    QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(c1.getId());
-    QVERIFY(*c2 == c1);
+    try {
+        c1.commit();
+        QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(c1.getId());
+        QVERIFY(*c2 == c1);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::commitUpdate()
 {
-    int id = Databases::CustomerDatabase::instance()->addCustomer(c1);
-    c1.setAddress("NEW ADDRESS");
-    c1.setId(id);
-    c1.commit();
-    QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(id);
-    QVERIFY(*c2 == c1);
+    try {
+        int id = Databases::CustomerDatabase::instance()->addCustomer(c1);
+        c1.setAddress("NEW ADDRESS");
+        c1.setId(id);
+        c1.setToRemoved(false);
+        c1.commit();
+        QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(id);
+
+        QVERIFY(c2 != 0);
+        QVERIFY(*c2 == c1);
+        c1.setToRemoved(true);
+        c1.commit();
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::commitRemove()
@@ -77,28 +96,36 @@ void CustomerModelTest::commitRemove()
 
 void CustomerModelTest::hydrat()
 {
-    Customer c2 = Customer(1);
-    c1.setFirstname("Jonah");
-    c1.setLastname("Boyle");
-    c1.setCompany("Sit Amet Ornare Consulting");
-    c1.setAddress("P.O. Box 592, 3094 Vel Rd.");
-    c1.setPostalCode("9924BN");
-    c1.setCity("Miraj");
-    c1.setCountry("Greece");
-    c1.setEmail("pede.ultrices@atnisiCum.org");
-    c1.setPhone("01 02 03 04 05");
-    c1.setMobilePhone("02 03 04 05 06");
-    c1.setFax("05 35 11 79 67");
-    c1.setTurnover(42.42);
-    c2.setTurnover(42.42);
+    try {
+        Customer c2 = Customer(1);
+        c1.setFirstname("Jonah");
+        c1.setLastname("Boyle");
+        c1.setCompany("Sit Amet Ornare Consulting");
+        c1.setAddress("P.O. Box 592, 3094 Vel Rd.");
+        c1.setPostalCode("9924BN");
+        c1.setCity("Miraj");
+        c1.setCountry("Greece");
+        c1.setEmail("pede.ultrices@atnisiCum.org");
+        c1.setPhone("01 02 03 04 05");
+        c1.setMobilePhone("02 03 04 05 06");
+        c1.setFax("05 35 11 79 67");
+        c1.setTurnover(42.42);
+        c2.setTurnover(42.42);
 
-    QVERIFY(c1 == c2);
+        QVERIFY(c1 == c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::remove()
 {
-    c1.remove();
-    QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
+    try {
+        c1.remove();
+        QVERIFY(Databases::CustomerDatabase::instance()->getCustomer(c1.getId()) == NULL);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void CustomerModelTest::getPath()

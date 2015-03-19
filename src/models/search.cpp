@@ -105,7 +105,7 @@ void Search::filterOnContributories(QString &filter, const QStringList list)
                     "SELECT idContributory FROM Contributory "
                     "WHERE 0 ";
     filterOnVarcharElements(filter, list, "description");
-    filter +=   ")";
+    filter +=   "LIMIT 1)";
 }
 
 void Search::filterOnBillsOrQuotes(QString &filter, const QStringList list)

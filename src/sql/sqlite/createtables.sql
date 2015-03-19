@@ -61,7 +61,7 @@ CREATE TABLE BillingRate
     idBilling INTEGER,
     idProject INTEGER,
     hourlyRate DOUBLE,
-    PRIMARY KEY(idBilling, idProject)
+    PRIMARY KEY(idBilling, idProject),
     FOREIGN KEY (idBilling) REFERENCES Billing(idBilling),
     FOREIGN KEY (idProject) REFERENCES Project(idProject)
 );

@@ -161,6 +161,7 @@ void User::setWorkspacePath(const QString &workspacePath)
 
 bool User::operator ==(const User &u)
 {
+    bool b = People::operator == (u);
     return  People::operator == (u)
             && getNoSiret() == u.getNoSiret()
             && getTitle() == u.getTitle();
