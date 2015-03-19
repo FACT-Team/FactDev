@@ -56,7 +56,7 @@ void Project::hydrat(int id)
     _endDate = p->getEndDate();
     _dailyRate = p->getDailyRate();
     _customer = p->getCustomer();
-    _cost = costCompute();
+    _cost = getCost();
 }
 
 void Project::remove()
@@ -154,7 +154,7 @@ bool Project::operator !=(const Project &p)
     return !(*this == p);
 }
 
-double Project::costCompute()
+double Project::getCost()
 {
     double ret(0.0);
     QList<Billing> bills =

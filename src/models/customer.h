@@ -67,17 +67,6 @@ public:
      * @return turnover
      */
     double getTurnover() const;
-    /**
-     * @brief Customer::setTurnover Replace the current turnover by <i>turnover</i>
-     * @param turnover new revenue sales of a customer
-     */
-    void setTurnover(const double &turnover);
-
-    /**
-     * @brief Customer::turnoverCompute calculates the customer turnover
-     * @return double turnover
-     */
-    double turnoverCompute();
 
 private:
     double  _turnover;          //!< Turnover/revenue of the customer

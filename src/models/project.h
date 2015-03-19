@@ -179,7 +179,7 @@ public:
      * @brief Project::costCompute compute the <b>Project</b> <i>cost</i>
      * @return the project cost
      */
-    double costCompute();
+    double getCost();
 
 private:
     QString _name;          //!< Project name

@@ -24,6 +24,7 @@ private slots:
     void remove();
 
     void getProjectsTable();
+    void turnoverComputeTest();
 private:
     Project p1;
     Project p2;

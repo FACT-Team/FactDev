@@ -47,7 +47,6 @@ WdgModels::CustomersTableModel*
 
     while(q.next()) {
         Customer c = *getCustomer(q);
-        c.setTurnover(c.turnoverCompute());
         ret->append(c);
     }
 
