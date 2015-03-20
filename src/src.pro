@@ -92,7 +92,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/checkfields/checkportnumber.cpp \
     models/people.cpp \
     gui/dialogs/computeturnoverdialog.cpp\
-    database/accessdatabase.cpp
+    database/accessdatabase.cpp \
+    models/statistics.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -200,7 +201,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/checkfields/checkportnumber.h \
     models/people.h \
     gui/dialogs/computeturnoverdialog.h \
-    database/accessdatabase.h
+    database/accessdatabase.h \
+    models/statistics.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

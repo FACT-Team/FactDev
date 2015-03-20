@@ -109,8 +109,6 @@ void CustomerModelTest::hydrat()
         c1.setPhone("01 02 03 04 05");
         c1.setMobilePhone("02 03 04 05 06");
         c1.setFax("05 35 11 79 67");
-        c1.setTurnover(42.42);
-        c2.setTurnover(42.42);
 
         QVERIFY(c1 == c2);
     } catch(DbException* e) {
@@ -139,7 +137,9 @@ void CustomerModelTest::getNameFolder()
     QVERIFY(c1.getNameFolder() == "SIT AMET ORNARE CONSULTING Boyle Jonah");
 }
 
-void CustomerModelTest::getTurnover()
-{
-    QVERIFY(c1.getTurnover() == 42.42);
+void CustomerModelTest::turnoverComputeTest() {
+    Customer c(17);
+    QCOMPARE(c.getTurnover(), 812.076);
+    Customer c2(8);
+    QCOMPARE(c2.getTurnover(), 339.99);
 }

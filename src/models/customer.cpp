@@ -11,7 +11,6 @@ namespace Models {
 Customer::Customer()
 {
     setId(0);
-    setTurnover(0.0);
 }
 
 Customer::Customer(int id) {
@@ -84,18 +83,7 @@ QString Customer::getNameFolder() const
             + " " + getFirstname();
 }
 
-double Customer::getTurnover() const
-{
-    return _turnover;
-}
-
-void Customer::setTurnover(const double &turnover)
-{
-    _turnover = turnover;
-}
-
-double Customer::turnoverCompute()
-{
+double Customer::getTurnover() const {
     double ret(0.0);
     QList<Project> projects = Databases::ProjectDatabase::instance()->getProjects(getId());
     for (Project project : projects) {
@@ -103,4 +91,5 @@ double Customer::turnoverCompute()
     }
     return ret;
 }
+
 }

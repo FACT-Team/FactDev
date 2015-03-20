@@ -22,7 +22,7 @@ private slots:
     void remove();
     void getPath();
     void getNameFolder();
-    void getTurnover();
+    void turnoverComputeTest();
 private:
     Customer c1;
     Customer c2;

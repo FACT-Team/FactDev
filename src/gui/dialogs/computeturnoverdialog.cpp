@@ -33,30 +33,9 @@ void ComputeTurnoverDialog::fillLabels(const int nbBillings, const int turnover)
 
 void ComputeTurnoverDialog::computeTurnover()
 {
-    QList<Project*> projects;
-    QList<Billing> bills;
-    double turnover = 0;
-    int nbBillings = 0;
-
-    projects = Databases::ProjectDatabase::instance()->getAllProjects();
-
-     for (Project *p : projects) {
-         bills = Databases::BillingDatabase::instance()
-                 ->getAllBillingsOnly(p->getId());
-        for (Billing b  : Databases::BillingDatabase::instance()
-             ->getBillingsBetweenDates(bills,
-                                     ui->clBeginPeriod->selectedDate(),
-                                     ui->clEndPeriod->selectedDate())) {
-            ContributoriesList cl = Databases::ContributoryDatabase::instance()
-                    ->getContributoriesByBillingAndProject(b.getId(),
-                                                         p->getId());
-            Rate rate = Databases::RateDatabase::instance()->getRate(b.getId(),
-                                                                   p->getId());
-            turnover += (cl.getSumQuantity()) * rate.getHourlyRate();
-            ++nbBillings;
-         }
-     }
-    fillLabels(nbBillings,turnover);
+    QPair<int, double> turnover =
+            Models::Statistics::getTurnoverBetweenDates(ui->clBeginPeriod->selectedDate(), ui->clEndPeriod->selectedDate());
+    fillLabels(turnover.first, turnover.second);
 }
 
 void ComputeTurnoverDialog::endDateControl(const QDate end)

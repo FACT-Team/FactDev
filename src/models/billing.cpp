@@ -149,6 +149,16 @@ bool Billing::operator <(const Billing &b) const
 {
     return getDate() < b.getDate();
 }
+
+QStandardItem *Billing::getItem()
+{
+    QStandardItem *itemBillQuote =
+            new QStandardItem(_date.toString("MM-yyyy")+ " " + _title);
+    itemBillQuote->setIcon(QIcon(":icons/img/"+QString((_isBilling == 0 ? "quote" : "bill"))));
+
+    return itemBillQuote;
+
+}
 bool Billing::isPaid() const
 {
     return _isPaid;

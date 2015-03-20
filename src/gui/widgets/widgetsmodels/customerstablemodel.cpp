@@ -98,7 +98,6 @@ bool CustomersTableModel::setData(
             _customers[index.row()].setEmail(value.toString());
             break;
         case 6:
-            _customers[index.row()].setTurnover(value.toDouble());
             break;
         default:
             Log::instance(WARNING) << "Error, in default case of "

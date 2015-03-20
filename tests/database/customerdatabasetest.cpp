@@ -83,6 +83,7 @@ void CustomerDatabaseTest::selectCustomerFound()
         c1.setMobilePhone("02 03 04 05 06");
         c1.setFax("05 35 11 79 67");
 
+        QVERIFY(c2 != 0);
         QVERIFY(c1 == *c2);
     } catch(DbException* e) {
         QFAIL(e->what());
@@ -106,21 +107,27 @@ void CustomerDatabaseTest::getCustomerTableException()
     }
 }
 
-//void CustomerDatabaseTest::getCustomerTreeException()
-//{
-//    try {
-//        Databases::CustomerDatabase::instance()->getTree("FROM Billing");
-//        QFAIL("Exception not thrown");
-//    } catch(DbException*) {
-//        QVERIFY(true);
-//    }
+void CustomerDatabaseTest::getCustomerTreeException()
+{
+    try {
+        Databases::CustomerDatabase::instance()->getTree("FROM Billing");
+        QFAIL("Exception not thrown");
+    } catch(DbException*) {
+        QVERIFY(true);
+    }
 
-//    try {
-//        Databases::CustomerDatabase::instance()->getTree("");
-//        QVERIFY(true);
-//    } catch(DbException*) {
-//        QFAIL("Exception not thrown");
-//    }
-//}
+    try {
+        Databases::CustomerDatabase::instance()->getTree("");
+        QVERIFY(true);
+    } catch(DbException*) {
+        QFAIL("Exception not thrown");
+    }
+}
 
-
+void CustomerDatabaseTest::getNbCustomersTest() {
+    try {
+        QCOMPARE(Databases::CustomerDatabase::instance()->getNbCustomers(), 22);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}
