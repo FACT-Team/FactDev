@@ -91,4 +91,5 @@ double Customer::getTurnover() const {
     }
     return ret;
 }
+
 }

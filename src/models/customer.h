@@ -1,6 +1,8 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <QString>
+#include <QStandardItem>
+
 #include "models/imodel.h"
 #include "models/people.h"
 
@@ -67,7 +69,6 @@ public:
      * @return turnover
      */
     double getTurnover() const;
-
 private:
     double  _turnover;          //!< Turnover/revenue of the customer
 };

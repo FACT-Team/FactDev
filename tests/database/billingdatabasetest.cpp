@@ -258,11 +258,19 @@ void BillingDatabaseTest::getBillingsBetweenDates()
     QVERIFY(bills2.first().getDate() == QDate(2015,2,13));
     QVERIFY(bills2.first().getTitle() == "Coucou");
     QVERIFY(bills2.first().getDescription() == "Mon super devis de la mort qui rox du poulet");
-//    QVERIFY(bills2.last().getDate() == QDate(2015,2,13));
-//    QVERIFY(bills2.last().getTitle() == "Bonjour");
-//    QVERIFY(bills2.last().getDescription() == "Manger du poney");
     } catch(DbException* e) {
         QFAIL(e->what());
     }
 }
 
+void BillingDatabaseTest::getAllBillingsOfProjectTest() {
+    try  {
+        QMap<Models::Project*, Models::Billing*> projets =
+                Databases::BillingDatabase::instance()->getAllBillingsOfProject();
+        QCOMPARE(projets.count(), 77);
+        QCOMPARE(projets.values().count(), 77);
+        // TODO others tests ? I don't want… Tired ! And I want a cofee ! =)
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}

@@ -215,6 +215,13 @@ public:
      */
     bool operator <(const Billing &b) const;
 
+
+    /**
+     * @brief Billing::getItem Return the bill/quote item
+     * @return QStandardItem an item for QTree (level/depth 3)
+     */
+    QStandardItem* getItem();
+
 private:
     ContributoriesList _contributories; //!< List of contributories
     QString _title;                     //!< Title of billing

@@ -2,8 +2,10 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
+#include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
 #include "models/customer.h"
+#include "models/billing.h"
 #include "utils/log.h"
 #include "utils/string.h"
 #include "gui/widgets/widgetsmodels/customerstablemodel.h"
@@ -73,7 +75,7 @@ public:
      * @brief CustomerDatabase::updateCustomer Update informations about the
      * customer <i>pCustomer</i>
      */
-    void updateCustomer(const Models::Customer &);
+    void updateCustomer(Customer &);
 
     /**
      * @brief CustomerDatabase::removeCustomer Remove the customer with the id
@@ -110,13 +112,6 @@ public:
      * @return QStandardItem an item for QTree (level/depth 2)
      */
     QStandardItem *getItemProject(QSqlQuery q2);
-    /**
-     * @brief CustomerDatabase::getItemCustomer Return the bill/quote item
-     * for the QStandardItemModel
-     * @param q3 the first row of the sql query for bills/quotes
-     * @return QStandardItem an item for QTree (level/depth 3)
-     */
-    QStandardItem *getItemBillQuote(QSqlQuery q3);
 
     /**
      * @brief CustomerDatabase::getCustomer Add the element of the <i>q</i>
