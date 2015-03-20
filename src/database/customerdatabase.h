@@ -2,8 +2,10 @@
 #define BDDCUSTOMER_H
 
 #include "database/database.h"
+#include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
 #include "models/customer.h"
+#include "models/billing.h"
 #include "utils/log.h"
 #include "utils/string.h"
 #include "gui/widgets/widgetsmodels/customerstablemodel.h"
@@ -17,7 +19,7 @@ namespace Databases {
  * @author Antoine de Roquemaurel
  * @author Manantsoa Razanajatovo
  * @author Florent Berbie
- * @author Cédric Rohaut
+ * @author @Oxynos
  * @brief The <b>CustomerDatabase</b> class Customer table database
  * @see Database
  * @see Customer
@@ -41,7 +43,8 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    WdgModels::CustomersTableModel* getCustomersTable(QString filter="") throw(DbException*);
+    WdgModels::CustomersTableModel* getCustomersTable(QString filter="")
+        throw(DbException*);
 
 
     /**
@@ -66,13 +69,13 @@ public:
      * the database
      * @return customer id
      */
-    int addCustomer(const Models::Customer&);
+    int addCustomer(const Models::Customer &);
 
     /**
      * @brief CustomerDatabase::updateCustomer Update informations about the
      * customer <i>pCustomer</i>
      */
-    void updateCustomer(const Models::Customer&);
+    void updateCustomer(Customer &);
 
     /**
      * @brief CustomerDatabase::removeCustomer Remove the customer with the id
@@ -109,13 +112,6 @@ public:
      * @return QStandardItem an item for QTree (level/depth 2)
      */
     QStandardItem *getItemProject(QSqlQuery q2);
-    /**
-     * @brief CustomerDatabase::getItemCustomer Return the bill/quote item
-     * for the QStandardItemModel
-     * @param q3 the first row of the sql query for bills/quotes
-     * @return QStandardItem an item for QTree (level/depth 3)
-     */
-    QStandardItem *getItemBillQuote(QSqlQuery q3);
 
     /**
      * @brief CustomerDatabase::getCustomer Add the element of the <i>q</i>
@@ -133,7 +129,8 @@ public:
     void updateCustomer(QSqlQuery &q, Customer &pCustomer);
 
 private:
-    static CustomerDatabase* _instance;  //!< Singleton instance of CustomerDatabase
+    //!< Singleton instance of CustomerDatabase
+    static CustomerDatabase* _instance;
 
     /**
      * @brief <b>CustomerDatabase</b> is a singleton

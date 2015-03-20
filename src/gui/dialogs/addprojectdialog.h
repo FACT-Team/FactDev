@@ -7,7 +7,7 @@
 #include "models/project.h"
 #include "models/customer.h"
 
-#include "mainwindow.h"
+#include "gui/mainwindow/mainwindow.h"
 
 namespace Ui {
 class AddProjectDialog;
@@ -26,21 +26,13 @@ class AddProjectDialog : public QDialog
 
 public:
     /**
-     * @brief AddProjectDialog::AddProjectDialog Construct a windows
-     * AddProjectDialog
-     * @param id Project identity
-     * @param parent QWidget of the current windows
-     */
-    explicit AddProjectDialog(int id = 0, QWidget *parent = 0);
-
-    /**
      * @brief AddProjectDialogAddProjectDialog  Construct a windows according an
      *  <i>idCustomer</i> and, optionnaly, an <i>idProject</i>
      * @param noRowCustomer Row number of the Customer
      * @param idProject Project identify
      * @param parent QWidget of the current windows
      */
-    explicit AddProjectDialog(int noRowCustomer, int idProject = 0,
+    explicit AddProjectDialog(int idProject=0, int noRowCustomer=0,
         QWidget *parent = 0);
     ~AddProjectDialog();
 

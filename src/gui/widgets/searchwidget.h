@@ -40,14 +40,31 @@ public:
 
 
     /**
-     * @brief isCustomerSelected Return TRUE if a customer is selected, else
-     * FALSE
+     * @brief searchWidget::isCustomerSelected Return TRUE if a customer is
+     * selected, else FALSE
      * @return boolean
      */
     bool isCustomerSelected() const;
 
+    /**
+     * @brief searchWidget::selectCustomer Select the Customer with it <i>id</i>
+     * @param id Customer ID
+     */
     void selectCustomer(int id);
 
+    /**
+     * @brief searchWidget::getIdCustomer Return the Customer id of the Customer
+     *  line selected
+     * @return The Customer ID
+     */
+    int getIdCustomer() const;
+
+    /**
+     * @brief searchWidget::setIdCustomer Change the customer id by the new
+     * <i>idCustomer</i>
+     * @param idCustomer Customer id
+     */
+    void setIdCustomer(int idCustomer);
 
 public slots:
     /**
@@ -63,11 +80,24 @@ public slots:
     void getCustomerData();
 
 signals:
+    /**
+     * @brief searchWidget::selectCustomer Signal that the Customer selected has
+     * changed
+     */
     void selectCustomer();
+
 private:
-    Ui::searchWidget *ui;
+    Ui::searchWidget *ui;               //!< User interface
+
+    /**
+     * @brief searchWidget::updateTable Update the table according the
+     * <i>text</i> inputed
+     * @param text Text inputed
+     */
     void updateTable(QString text="");
-    bool _isCustomerSelected;
+
+    bool _isCustomerSelected;   //!< if Custumer is selected
+    int _idCustomer;            //!< Customer ID
 };
 }
 }

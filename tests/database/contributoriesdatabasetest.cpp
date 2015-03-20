@@ -12,12 +12,13 @@ ContributoriesDatabaseTest::ContributoriesDatabaseTest()
 
 void ContributoriesDatabaseTest::getContributoriesByBilling()
 {
-    Models::ContributoriesList contributories = Databases::ContributoryDatabase::instance()->getContributoriesByBilling(24);
-    QCOMPARE(contributories.getNbProjects(), 2);
+    try {
+        Models::ContributoriesList contributories = Databases::ContributoryDatabase::instance()->getContributoriesByBilling(24);
+        QCOMPARE(contributories.getNbProjects(), 2);
 
-    // we only check id… Remaining are already tested (getProject, getContributory)
-    for(Project* p : contributories.getProjects()) {
-        QList<Contributory> list = contributories.getContributories(p);
+        // we only check id… Remaining are already tested (getProject, getContributory)
+        for(Project* p : contributories.getProjects()) {
+            QList<Contributory> list = contributories.getContributories(p);
 
             switch(p->getId()) {
             case 21:
@@ -32,50 +33,74 @@ void ContributoriesDatabaseTest::getContributoriesByBilling()
                 break;
             default:
                 QFAIL("Default case");
-        }
+            }
 
+        }
+    } catch(DbException* e) {
+        QFAIL(e->what());
     }
 }
 
 void ContributoriesDatabaseTest::insert()
 {
-    _lastInsert = Databases::ContributoryDatabase::instance()->addContributory(*c1);
-    Contributory* c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
-    QVERIFY(*c1 == *c2);
+    try {
+        _lastInsert = Databases::ContributoryDatabase::instance()->addContributory(*c1);
+        Contributory* c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+        QVERIFY(*c1 == *c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoriesDatabaseTest::remove()
 {
-    Databases::ContributoryDatabase::instance()->removeContributory(_lastInsert);
-    Contributory *b2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
-    QVERIFY(b2 == 0);
+    try {
+        Databases::ContributoryDatabase::instance()->removeContributory(_lastInsert);
+        Contributory *b2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+        QVERIFY(b2 == 0);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoriesDatabaseTest::update()
 {
-    _lastInsert = Databases::ContributoryDatabase::instance()->addContributory(*c1);
-    c1->setId(_lastInsert);
-    c1->setDescription("Préparer la raclette");
-    c1->setNbHours(15.0);
-    c1->setToRemoved(false);
-    Databases::ContributoryDatabase::instance()->updateContributory(*c1);
-    Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
-    QVERIFY(*c1 == *c2);
+    try {
+        _lastInsert = Databases::ContributoryDatabase::instance()->addContributory(*c1);
+        c1->setId(_lastInsert);
+        c1->setDescription("Préparer la raclette");
+        c1->setNbHours(15.0);
+        c1->setToRemoved(false);
+        Databases::ContributoryDatabase::instance()->updateContributory(*c1);
+        Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(_lastInsert);
+
+        QVERIFY(*c1 == *c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoriesDatabaseTest::selectContributoryNotFound()
 {
-    QVERIFY(Databases::ContributoryDatabase::instance()->getContributory(321654) == NULL);
+    try {
+        QVERIFY(Databases::ContributoryDatabase::instance()->getContributory(321654) == NULL);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void ContributoriesDatabaseTest::selectContributoryFound()
 {
-    Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(1);
-    c1->setId(1);
-    c1->setDescription("Une descriptoin");
-    c1->setNbHours(42.0);
-    c1->setToRemoved(false);
+    try {
+        Contributory *c2 = Databases::ContributoryDatabase::instance()->getContributory(1);
+        c1->setId(1);
+        c1->setDescription("Une descriptoin");
+        c1->setNbHours(42.0);
+        c1->setToRemoved(false);
 
-    QVERIFY(*c1 == *c2);
+        QVERIFY(*c1 == *c2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 

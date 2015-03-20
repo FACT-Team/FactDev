@@ -1,6 +1,6 @@
 FactDev
 =======
-[![Build Status](https://travis-ci.org/FACT-Team/FactDev.svg)](https://travis-ci.org/FACT-Team/FactDev)
+[![Build Status](https://api.travis-ci.org/FACT-Team/FactDev.svg?branch=S4)](https://travis-ci.org/FACT-Team/FactDev)
  <a href='https://coveralls.io/r/FACT-Team/FactDev'><img src='https://coveralls.io/repos/FACT-Team/FactDev/badge.svg' alt='Coverage Status' /></a> 
 
 # Team

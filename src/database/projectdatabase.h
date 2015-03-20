@@ -86,14 +86,23 @@ public:
      * @param c The customer
      * @return All projects of c with id in key
      */
-    QMap<int, Models::Project> getProjectsOfCustomer(QSharedPointer<Models::Customer> c);
+    QMap<int, Models::Project> getProjectsOfCustomer(
+            QSharedPointer<Models::Customer> c);
+
+    /**
+     * @brief getProjects Return all projects of a customer
+     * @param customerId The customer id
+     * @return List with all projects of customer
+     */
+    QList<Models::Project> getProjects(const int customerId);
 
     /**
       * @brief getProjectsTable Return all projects of a customer in QStandardItemModel
       * @param filter Select only projects who are specified by <i>filter</i>
       * @return QStandardItemModel an item model for QTableView
       */
-    WdgModels::ProjectsTableModel* getProjectsTable(const int pId) throw(DbException*);
+    WdgModels::ProjectsTableModel* getProjectsTable(const int pId)
+        throw(DbException*);
 
     /**
      * @brief getProject Obtain a project without new query
@@ -108,8 +117,16 @@ public:
      */
     QList<Project*> getAllProjects();
 
+    /**
+     * @brief ProjectDatabase::getCostProjects compute the cost of
+     * the project list given in parameter
+     * @param projects the list of projects
+     * @return the cost of the list given
+     */
+    double getCostProjects(QList<Project*> projects);
+
 private:
-    static ProjectDatabase* _instance; //!< Singleton instance of ProjectDatabase
+    static ProjectDatabase* _instance;//!< Singleton instance of ProjectDatabase
 
     /**
      * @brief ProjectDatabase: is a singleton

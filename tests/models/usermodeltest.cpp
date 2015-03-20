@@ -12,7 +12,7 @@ UserModelTest::UserModelTest()
     u1.setEmail("jean.bonneau@fleury-migeon.com");
     u1.setMobilePhone("0616641337");
     u1.setPhone("0836656565");
-    u1.setNoSiret("1234567891234");
+    u1.setNoSiret("12345678912340");
 
     u2.setFirstname("Jean");
     u2.setLastname("Bonneau");
@@ -24,7 +24,7 @@ UserModelTest::UserModelTest()
     u2.setEmail("jean.bonneau@fleury-migeon.com");
     u2.setMobilePhone("0616641337");
     u2.setPhone("0836656565");
-    u2.setNoSiret("1234567891234");
+    u2.setNoSiret("12345678912340");
 
 }
 
@@ -49,26 +49,43 @@ void UserModelTest::commitUpdate()
 {
     u1.setId(1);
     u1.setFirstname("TESTOUILLE");
-    u1.commit();
-    u2 = *(Databases::UserDatabase::instance()->getUser(1));
-    QVERIFY(u1 == u2);
+
+    try {
+        QString a = u1.getFirstname();
+        u1.setToRemoved(false);
+        u1.commit();
+        QString b = u1.getFirstname();
+        u2 = *(Databases::UserDatabase::instance()->getUser(u1.getId()));
+        QVERIFY(u1 == u2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void UserModelTest::hydrat()
 {
-    User u1(1);
-    u2.setFirstname("TESTOUILLE");
-    u2.setLastname("Bonneau");
-    u2.setCompany("FleuryMigeon");
-    u2.setTitle("Artisan Développeur");
-    u2.setAddress("42 Route de bayonne");
-    u2.setPostalCode("31000");
-    u2.setCity("Toulouse");
-    u2.setEmail("jean.bonneau@fleury-migeon.com");
-    u2.setMobilePhone("0616641337");
-    u2.setPhone("0836656565");
-    u2.setNoSiret("1234567891234");
-
-    QVERIFY(u1 == u2);
+    try {
+        User u1(1);
+        u2.setFirstname("TESTOUILLE");
+        u2.setLastname("Bonneau");
+        u2.setCompany("FleuryMigeon");
+        u2.setTitle("Artisan Développeur");
+        u2.setAddress("42 Route de bayonne");
+        u2.setPostalCode("31000");
+        u2.setCity("Toulouse");
+        u2.setEmail("jean.bonneau@fleury-migeon.com");
+        u2.setMobilePhone("0616641337");
+        u2.setPhone("0836656565");
+        u2.setNoSiret("12345678912340");
+        QVERIFY(u1 == u2);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
+void UserModelTest::commitRemove()
+{
+    u1.setToRemoved(true);
+    u1.commit();
+    QVERIFY(*Databases::UserDatabase::instance()->getUser() == u1);
+}

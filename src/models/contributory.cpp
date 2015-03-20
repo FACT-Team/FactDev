@@ -100,5 +100,15 @@ bool Contributory::operator !=(const Contributory &c)
 {
     return !(*this == c);
 }
+QString Contributory::getLongDescription() const
+{
+    return _longDescription;
+}
+
+void Contributory::setLongDescription(const QString &longDescription)
+{
+    _longDescription = longDescription;
+}
+
 }
 

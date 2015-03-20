@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1148</width>
-    <height>654</height>
+    <width>898</width>
+    <height>498</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,95 @@
     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <layout class="QGridLayout" name="_2">
+   <item row="4" column="0" colspan="2">
+    <widget class="QLabel" name="lbProjectsContributories">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Projets et prestations de la facture</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="lbDate">
+     <property name="text">
+      <string>Date</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="lbTitle">
+     <property name="text">
+      <string>Titre</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QWidget" name="wdgContributories" native="true">
+     <zorder>lbProjectsContributories</zorder>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leQuoteTitle"/>
+   </item>
+   <item row="2" column="1">
+    <widget class="QDateEdit" name="dateEditQuote">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="calendarPopup">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QTextEdit" name="leDescription">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>80</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="lbDescription">
+     <property name="text">
+      <string>Description</string>
+     </property>
+    </widget>
+   </item>
    <item row="9" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="btnDocChange">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Changer</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -60,69 +147,6 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>Description</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="text">
-      <string>Date</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Titre</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QTextEdit" name="leDescription">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>80</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QDateEdit" name="dateEditQuote">
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="calendarPopup">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QWidget" name="wdgContributories" native="true"/>
-   </item>
-   <item row="4" column="0" colspan="2">
-    <widget class="QLabel" name="label_4">
-     <property name="text">
-      <string>Prestations</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leQuoteTitle"/>
-   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -153,8 +177,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1034</x>
-     <y>584</y>
+     <x>1051</x>
+     <y>576</y>
     </hint>
     <hint type="destinationlabel">
      <x>1211</x>
@@ -170,7 +194,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1137</x>
-     <y>584</y>
+     <y>576</y>
     </hint>
     <hint type="destinationlabel">
      <x>1490</x>
@@ -178,9 +202,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnDocChange</sender>
+   <signal>released()</signal>
+   <receiver>AddQuoteDialog</receiver>
+   <slot>changeDocType()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>561</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>contributoriesChanged()</signal>
   <slot>updateBtn()</slot>
+  <slot>changeDocType()</slot>
  </slots>
 </ui>

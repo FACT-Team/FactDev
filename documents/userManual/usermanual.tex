@@ -22,7 +22,7 @@
 \usepackage{graphicx} % Required for box manipulation
 \usepackage{makeidx}
 
-\newcommand{\titre}{FactDev -- V0.3}
+\newcommand{\titre}{FactDev -- V0.4}
 \newcommand{\subtitle}{Manuel Utilisateur}
 \newcommand{\auteur}{Équipe FACT}
 \newcommand{\semestre}{~}
@@ -46,13 +46,14 @@
 \makeatother
 \includeonly {
 contents/intro,
-%contents/1-1erLancement,
+contents/1-1erLancement,
 contents/2-ihm,
 contents/3-donneesUtilisateur,
 contents/4-clients,
 contents/5-projets,
 contents/6-devis,
-contents/7-factures
+contents/7-factures,
+contents/8-statistiques
 }
 \begin{document}
 	\thispagestyle{empty} % Removes page numbers
@@ -68,13 +69,14 @@ contents/7-factures
 	
 	\include{contents/intro}
 
-%	\include{contents/1-1erLancement}
+	\include{contents/1-1erLancement}
 	\include{contents/2-ihm}
 	\include{contents/3-donneesUtilisateur}
 	\include{contents/4-clients}
 	\include{contents/5-projets}
 	\include{contents/6-devis}
 	\include{contents/7-factures}
+	\include{contents/8-statistiques}
 	\appendix
 	\listoffigures
 	\printindex

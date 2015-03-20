@@ -1,6 +1,9 @@
 #include "project.h"
 
 #include "database/projectdatabase.h"
+#include "database/billingdatabase.h"
+#include "models/billing.h"
+
 using namespace Databases;
 
 namespace Models {
@@ -9,6 +12,8 @@ Project::Project()
 {
     _id = 0;
     _toRemoved = false;
+    _cost = 0.0;
+
 }
 
 Project::Project(QString name)
@@ -16,6 +21,7 @@ Project::Project(QString name)
     _id = 0;
     _toRemoved = false;
     _name = name;
+    _cost = 0.0;
 }
 
 Project::Project(int id)
@@ -50,6 +56,7 @@ void Project::hydrat(int id)
     _endDate = p->getEndDate();
     _dailyRate = p->getDailyRate();
     _customer = p->getCustomer();
+    _cost = getCost();
 }
 
 void Project::remove()
@@ -59,7 +66,7 @@ void Project::remove()
 
 QVariantHash Project::getDataMap()
 {
-
+    return QVariantHash();
 }
 
 QString Project::getName() const
@@ -101,6 +108,16 @@ void Project::setEndDate(QDate endDate)
     _endDate = endDate;
 }
 
+double Project::getCost() const
+{
+    return _cost;
+}
+
+void Project::setCost(double cost)
+{
+    _cost = cost;
+}
+
 double Project::getDailyRate() const
 {
     return _dailyRate;
@@ -129,13 +146,28 @@ bool Project::operator ==(const Project &p)
 
 bool Project::operator <(const Project &p) const
 {
-    return getBeginDate() == p.getBeginDate() && *(getCustomer()) == *(p.getCustomer()) && getDailyRate() == p.getDailyRate() &&
-            getDescription() == p.getDescription() && p.getEndDate() == getEndDate() && p.getName() == getName();
+    return getBeginDate() < p.getBeginDate();
 }
 
 bool Project::operator !=(const Project &p)
 {
     return !(*this == p);
+}
+
+double Project::getCost()
+{
+    double ret(0.0);
+    QList<Billing> bills =
+            Databases::BillingDatabase::instance()->getBillings(_id);
+    for (Billing bill : bills) {
+        ContributoriesList cl =
+                Databases::ContributoryDatabase::instance()
+                ->getContributoriesByBillingAndProject(bill.getId(), _id);
+        Rate rate = Databases::RateDatabase::instance()->getRate(bill.getId(),
+                                                                 _id);
+        ret += (cl.getSumQuantity()) * rate.getHourlyRate();
+    }
+    return ret;
 }
 
 }

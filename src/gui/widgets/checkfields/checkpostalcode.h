@@ -21,15 +21,15 @@ public:
     /**
      * @brief CheckPostalCode::check Check if the field  is valid.
      * To be valid, a name should be composed of a character
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check(QString text);
 
     /**
      * @brief CheckPostalCode::getCountry Return the country linked to current
      * field
-     * @return country
+     * @return country Country of the field
      */
     QString getCountry() const;
     /**
@@ -40,7 +40,7 @@ public:
     void setCountry(const QString &country);
 
 private :
-    QString _country;
+    QString _country;   //!< Country of the field
 };
 }
 }

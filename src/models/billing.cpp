@@ -7,10 +7,8 @@ using namespace Databases;
 namespace Models {
 Billing::Billing()
 {
-    // TODO :
-    // add enum for quote or billing, passed in constructor
-    // If quote, line behind, else getMaxBillingNumber.
     _number = BillingDatabase::instance()->getMaxQuoteNumber() + 1;
+    _isPaid = false;
     _toRemoved = false;
 }
 
@@ -21,10 +19,6 @@ Billing::Billing(int id)
 
 Billing::~Billing()
 {
-//    auto end = _contributories.cend();
-//    for (auto it = _contributories.cbegin(); it != end; ++it) {
-//        it.value().reset;
-//    }
 }
 
 void Billing::commit()
@@ -53,8 +47,10 @@ void Billing::hydrat(int id)
     _description = quote->getDescription();
     _number = quote->getNumber();
     _date = quote ->getDate();
+    _isPaid = quote->isPaid();
     _toRemoved = false;
-    _contributories = ContributoryDatabase::instance()->getContributoriesByBilling(_id);
+    _contributories =
+            ContributoryDatabase::instance()->getContributoriesByBilling(_id);
 }
 
 void Billing::remove()
@@ -71,7 +67,7 @@ QVariantHash Billing::getDataMap()
     billing["title"] = _title;
     billing["description"] = _description;
     billing["date"] = _date.toString("dddd d MMMM yyyy");
-// TODO daily rate !
+    //billing["paid"] = _isPaid ? "Payée" : "";
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
     data["billing"] = billing;//
@@ -95,28 +91,47 @@ QVariantHash Billing::getDataMap()
 
 void Billing::generateTex()
 {
-    Generator g(":/tpl/billingtpl");
-    QString s,fact;
+    Generator::TexGenerator g(":/tpl/billingtpl");
+
+    g.generate(getDataMap(), getPath()+".tex");
+}
+
+void Billing::generatePdf()
+{
+    generateTex();
+    Generator::PdfGenerator g;
+    g.generate(getFolder(), getFilename());
+}
+
+QString Billing::getFolder() {
+    QString fact;
+
     if (isBilling()) {
-        s = "Facture";
         fact = "Factures";
-    }
-    else {
-        s = "Devis";
+    } else {
         fact ="Devis";
     }
 
-    g.generate(getDataMap(), _contributories.getCustomer()->getPath()
-               +"/"+fact
-               +"/"+ s +QString::number(getNumber())+".tex");
+    return _contributories.getCustomer()->getPath() + "/" + fact;
+}
+QString Billing::getPath() {
+    return getFolder()+"/"+getFilename();
+}
+
+QString Billing::getFilename()
+{
+
+    return QString::number(getNumber());
 }
 
 bool Billing::operator ==(const Billing &b)
 {
-    return (getDate() == b.getDate() &&
-            getDescription() == b.getDescription() &&
-            getNumber() == b.getNumber() &&
-            getTitle() == b.getTitle());
+    bool ret = (getDate() == b.getDate()
+                && getDescription() == b.getDescription()
+                && getNumber() == b.getNumber()
+                && getTitle() == b.getTitle()
+                );
+    return ret;
 }
 
 bool Billing::operator !=(const Billing &b)
@@ -135,6 +150,26 @@ bool Billing::operator <(const Billing &b) const
     return getDate() < b.getDate();
 }
 
+QStandardItem *Billing::getItem()
+{
+    QStandardItem *itemBillQuote =
+            new QStandardItem(_date.toString("MM-yyyy")+ " " + _title);
+    itemBillQuote->setIcon(QIcon(":icons/img/"+QString((_isBilling == 0 ? "quote" : "bill"))));
+
+    return itemBillQuote;
+
+}
+bool Billing::isPaid() const
+{
+    return _isPaid;
+}
+
+void Billing::setIsPaid(bool isPaid)
+{
+    _isPaid = isPaid;
+}
+
+
 ContributoriesList& Billing::getContributories()
 {
     return _contributories;
@@ -147,7 +182,7 @@ void Billing::addContributory(Contributory& c)
 
 double Billing::getSumRate()
 {
-return _contributories.getSumRate();
+    return _contributories.getSumRate();
 }
 
 double Billing::getSumQuantity()

@@ -46,7 +46,8 @@ WdgModels::CustomersTableModel*
     }
 
     while(q.next()) {
-        ret->append(*getCustomer(q));
+        Customer c = *getCustomer(q);
+        ret->append(c);
     }
 
     return ret;
@@ -112,7 +113,7 @@ throw(DbException*)
             QSqlQuery q3;
 
             q3.prepare(
-                     "SELECT DISTINCT b.idBilling,title,number,isBilling,date "
+                     "SELECT DISTINCT b.isPaid, b.description, b.idBilling,title,number,isBilling,date "
                      "FROM Billing b, BillingProject bp "
                      "WHERE idProject = :idproject "
                      "AND b.idBilling = bp.idBilling ORDER BY date DESC");
@@ -125,9 +126,10 @@ throw(DbException*)
                             lastError(q3),
                             1.1);
             }
-
             // Manage any bill/quote of a project of a customer
-            while (q3.next()) itemProject->appendRow(getItemBillQuote(q3));
+            while (q3.next()) {
+                itemProject->appendRow(Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
+            }
 
             itemCustomer->appendRow(itemProject);
         }
@@ -140,7 +142,7 @@ throw(DbException*)
 
 QStandardItem *CustomerDatabase::getItemRoot() {
     QStandardItem* itemRoot = new QStandardItem("Tous les clients");
-    itemRoot->setIcon(QIcon(":icons/customer"));
+    itemRoot->setIcon(QIcon(":icons/img/all_customers.png"));
     return itemRoot;
 }
 
@@ -165,26 +167,13 @@ QStandardItem *CustomerDatabase::getItemProject(QSqlQuery q2) {
     return itemProject;
 }
 
-QStandardItem *CustomerDatabase::getItemBillQuote(QSqlQuery q3) {
-    QStandardItem *itemBillQuote =
-            new QStandardItem(value(q3,"date").toString()
-                              + " " + value(q3,"title").toString());
-    if (value(q3,"isBilling").toInt() == 0) {
-        itemBillQuote->setIcon(QIcon(":icons/img/quote"));
-    } else if (value(q3,"isBilling").toInt() == 1) {
-        itemBillQuote->setIcon(QIcon(":icons/img/bill"));
-    }
-
-    return itemBillQuote;
-}
-
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 {
     QSharedPointer<Models::Customer> customer =
             QSharedPointer<Models::Customer>(new Models::Customer());
     customer->setId(value(q, "cidCustomer").toInt());
-    customer->setFirstnameReferent(value(q,"cfirstnameReferent").toString());
-    customer->setLastnameReferent(value(q,"clastnameReferent").toString());
+    customer->setFirstname(value(q,"cfirstnameReferent").toString());
+    customer->setLastname(value(q,"clastnameReferent").toString());
     customer->setCompany(value(q,"ccompany").toString());
     customer->setAddress(value(q,"caddress").toString());
     customer->setPostalCode(value(q,"cpostalCode").toString());
@@ -200,8 +189,9 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 
 void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
 {
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":idCustomer", pCustomer.getId());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstname());
+    q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
@@ -243,7 +233,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
 }
 
 
-int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
+int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     QSqlQuery q;
 
     q.prepare(
@@ -255,8 +245,8 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
                 ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
                 );
 
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
+    q.bindValue(":firstnameReferent", pCustomer.getFirstname());
+    q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
@@ -278,7 +268,7 @@ int CustomerDatabase::addCustomer(const Models::Customer& pCustomer) {
     return q.lastInsertId().toInt();
 }
 
-void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
+void CustomerDatabase::updateCustomer(Models::Customer &pCustomer) {
     QSqlQuery q;
     q.prepare(
                 "UPDATE Customer SET "
@@ -288,20 +278,7 @@ void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
                 "country=:country, email=:email, mobilePhone=:mobilePhone, "
                 "phone=:phone, fax=:fax "
                 "WHERE idCustomer=:idCustomer");
-
-    q.bindValue(":idCustomer", pCustomer.getId());
-    q.bindValue(":firstnameReferent", pCustomer.getFirstnameReferent());
-    q.bindValue(":lastnameReferent", pCustomer.getLastnameReferent());
-    q.bindValue(":company", pCustomer.getCompany());
-    q.bindValue(":address", pCustomer.getAddress());
-    q.bindValue(":postalCode", pCustomer.getPostalCode());
-    q.bindValue(":city", pCustomer.getCity());
-    q.bindValue(":country", pCustomer.getCountry());
-    q.bindValue(":email", pCustomer.getEmail());
-    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
-    q.bindValue(":phone", pCustomer.getPhone());
-    q.bindValue(":fax", pCustomer.getFax());
-//    updateCustomer(q, pCustomer);
+    updateCustomer(q, pCustomer);
 
     if(!q.exec()) {
         throw new DbException(
@@ -316,10 +293,7 @@ void CustomerDatabase::updateCustomer(const Models::Customer &pCustomer) {
 void CustomerDatabase::removeCustomer(const int pId)
 {
     QSqlQuery q;
-    q.prepare(
-                "DELETE FROM Customer "
-                "WHERE idCustomer=:pId"
-                );
+    q.prepare("DELETE FROM Customer WHERE idCustomer=:pId");
 
     q.bindValue(":pId", pId);
 

@@ -1,15 +1,16 @@
 #include "models/user.h"
 #include "database/userdatabase.h"
+#include "utils/hierarchicalsystem.h"
 
 using namespace Databases;
 
 namespace Models {
-User::User()
+User::User() : People()
 {
 
 }
 
-User::User(int id)
+User::User(int id) : People()
 {
     hydrat(id);
 }
@@ -25,74 +26,97 @@ void User::commit() {
 void User::remove()
 {
     // Not use
-    Log::instance(WARNING) << "User::remove is not implemented";
 }
 
 QVariantHash User::getDataMap()
 {
     QVariantHash data;
 
-    data["firstName"] = _firstname;
-    data["lastName"] = _lastname;
-    data["title"] = _title;
-    data["address"] = _address;
-    // TODO user address additions…
-    data["postalCode"] = _postalCode;
-    data["city"] = _city;
-    data["phone"] = _phone;
-    data["email"] = _email;
+    data["firstName"]   = getFirstname();
+    data["lastName"]    = getLastname();
+    data["title"]       = getTitle();
+    data["address"]     = getAddress();
+    data["postalCode"]  = getPostalCode();
+    data["city"]        = getCity();
+    data["phone"]       = getPhone();
+    data["email"]       = getEmail();
 
     return data;
+}
+
+void User::updateFolders()
+{
+    Customer customer;
+    QString path;
+    QString folder;
+    QDir directory;
+    Utils::HierarchicalSystem hierarchy;
+
+    hierarchy.updateData();
+
+    path = getWorkspacePath();
+    folder = getWorkspaceName();
+    directory.setPath(path);
+
+    path = Utils::Directories::makeDirectory(directory, path, folder);
+
+    for (auto c = hierarchy.getCustomers().cbegin();
+         c != hierarchy.getCustomers().cend();
+         ++c ) {
+        customer = c.value();
+        folder = customer.getNameFolder();
+
+        path = Utils::Directories::makeDirectory(directory, path, folder);
+
+        path  = Utils::Directories::makeDirectory(directory, path, "Devis");
+        path = customer.getPath();
+        directory.setPath(path);
+
+        path  = Utils::Directories::makeDirectory(directory, path, "Factures");
+        path = customer.getPath();
+        directory.setPath(path);
+
+        path = getWorkspacePath() + "/" + getWorkspaceName();
+        directory.setPath(path);
+    }
 }
 
 void User::hydrat(int id)
 {
     User* user = UserDatabase::instance()->getUser(id);
-    _id = id;
-    _firstname = user->getFirstname();
-    _lastname = user->getLastname();
-    _company = user->getCompany();
-    _title = user->getTitle();
-    _address = user->getAddress();
-    _postalCode = user->getPostalCode();
-    _city = user->getCity();
-    _email = user->getEmail();
-    _mobilePhone = user->getMobilePhone();
-    _phone = user->getPhone();
-    _noSiret = user->getNoSiret();
-    _workspaceName = user->getWorkspaceName();
-    _workspacePath = user->getWorkspacePath();
-}
+    bool toCommit = false;
 
+    setId(id);
+    setFirstname(           user->getFirstname());
+    setLastname(            user->getLastname());
+    setCompany(             user->getCompany());
+    setTitle(               user->getTitle());
+    setAddress(             user->getAddress());
+    setPostalCode(          user->getPostalCode());
+    setCity(                user->getCity());
+    setEmail(               user->getEmail());
+    setPhone(               user->getPhone());
+    setMobilePhone(         user->getMobilePhone());
+    setNoSiret(             user->getNoSiret());
+    setWorkspaceName(       user->getWorkspaceName());
+    setWorkspacePath(       user->getWorkspacePath());
 
-QString User::getFirstname() const
-{
-    return _firstname;
-}
+    if (getWorkspaceName().isEmpty()) {
+        setWorkspaceName("FactDev");
+        toCommit =  true;
+    }
 
-void User::setFirstname(const QString &firstname)
-{
-    _firstname = firstname;
-}
+    if (getWorkspacePath().isEmpty()) {
+        setWorkspacePath(QDir::homePath() + "/" +
+            QStandardPaths::displayName(QStandardPaths::DocumentsLocation));
+        toCommit = true;
+    }
 
-QString User::getLastname() const
-{
-    return _lastname;
-}
+    if(toCommit) {
+        commit();
+    }
 
-void User::setLastname(const QString &lastname)
-{
-    _lastname = lastname;
-}
-
-QString User::getCompany() const
-{
-    return _company;
-}
-
-void User::setCompany(const QString &company)
-{
-    _company = company;
+    delete user;
 }
 
 QString User::getTitle() const
@@ -105,61 +129,6 @@ void User::setTitle(const QString &title)
     _title = title;
 }
 
-QString User::getAddress() const
-{
-    return _address;
-}
-
-void User::setAddress(const QString &address)
-{
-    _address = address;
-}
-QString User::getPostalCode() const
-{
-    return _postalCode;
-}
-
-void User::setPostalCode(const QString &postalCode)
-{
-    _postalCode = postalCode;
-}
-QString User::getCity() const
-{
-    return _city;
-}
-
-void User::setCity(const QString &city)
-{
-    _city = city;
-}
-
-QString User::getEmail() const
-{
-    return _email;
-}
-
-void User::setEmail(const QString &email)
-{
-    _email = email;
-}
-QString User::getMobilePhone() const
-{
-    return _mobilePhone;
-}
-
-void User::setMobilePhone(const QString &mobilePhone)
-{
-    _mobilePhone = mobilePhone;
-}
-QString User::getPhone() const
-{
-    return _phone;
-}
-
-void User::setPhone(const QString &phone)
-{
-    _phone = phone;
-}
 QString User::getNoSiret() const
 {
     return _noSiret;
@@ -179,6 +148,7 @@ void User::setWorkspaceName(const QString &workspaceName)
 {
     _workspaceName = workspaceName;
 }
+
 QString User::getWorkspacePath() const
 {
     return _workspacePath;
@@ -191,14 +161,16 @@ void User::setWorkspacePath(const QString &workspacePath)
 
 bool User::operator ==(const User &u)
 {
-    return u.getAddress() == getAddress() && u.getCity() == getCity() && u.getCompany() == getCompany() &&
-            u.getEmail() == getEmail() && u.getFirstname() == getFirstname() && u.getLastname() == getLastname()&&
-            u.getMobilePhone() == getMobilePhone() && u.getNoSiret() == getNoSiret() && u.getPhone() == getPhone()&&
-            u.getPostalCode() == getPostalCode() && u.getTitle() == getTitle();
+    bool b = People::operator == (u);
+    return  People::operator == (u)
+            && getNoSiret() == u.getNoSiret()
+            && getTitle() == u.getTitle();
 }
 
 bool User::operator !=(const User &u)
 {
-    return !(*this == u);
+    return People::operator !=(u)
+            || getNoSiret() == u.getNoSiret()
+            ||  getTitle() == u.getTitle();
 }
 }

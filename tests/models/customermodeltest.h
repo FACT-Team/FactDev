@@ -9,6 +9,7 @@ class CustomerModelTest : public QObject
     Q_OBJECT
 public:
     CustomerModelTest();
+    void setup();
 private slots:
     void equals1();
     void equals2();
@@ -16,10 +17,12 @@ private slots:
 
     void commitUpdate();
     void commitInsert();
+    void commitRemove();
     void hydrat();
     void remove();
     void getPath();
     void getNameFolder();
+    void turnoverComputeTest();
 private:
     Customer c1;
     Customer c2;

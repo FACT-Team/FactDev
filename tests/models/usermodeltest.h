@@ -18,6 +18,7 @@ private slots:
     void notEquals();
     void commitUpdate();
     void hydrat();
+    void commitRemove();
 
 private:
     User u1;

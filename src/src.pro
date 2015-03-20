@@ -20,7 +20,7 @@ linux-g++ {
 CONFIG += c++11
 
 
-SOURCES += mainwindow.cpp \
+SOURCES += gui/mainwindow/mainwindow.cpp \
         utils/log.cpp\
         # Database files
         database/database.cpp \
@@ -30,6 +30,7 @@ SOURCES += mainwindow.cpp \
         database/customerdatabase.cpp \
         database/userdatabase.cpp \
         gui/dialogs/dialogaddcustomer.cpp \
+        gui/dialogs/startedwindowsdialog.cpp \
         models/customer.cpp \
     models/project.cpp \
     models/billing.cpp \
@@ -67,7 +68,6 @@ SOURCES += mainwindow.cpp \
     utils/itemtype.cpp \
     gui/dialogs/messagebox.cpp \
     libs/qt-mustache/src/mustache.cpp \
-    generator.cpp \
     gui/widgets/widgetsmodels/customerstablemodel.cpp \
     gui/widgets/widgetsmodels/projectstablemodel.cpp \
     gui/widgets/widgetsmodels/billingstablemodel.cpp \
@@ -79,9 +79,23 @@ SOURCES += mainwindow.cpp \
     gui/widgets/delegates/comboboxdelegate.cpp \
     database/ratedatabase.cpp \
     exceptions/fileexception.cpp \
-    utils/hierarchicalsystem.cpp
+    utils/hierarchicalsystem.cpp \
+    utils/pointers.cpp \
+    utils/directories.cpp \
+    gui/docks/searchdock.cpp \
+    generator/texgenerator.cpp \
+    generator/pdfgenerator.cpp \
+    gui/widgets/databasesettingswidget.cpp \
+    gui/widgets/checkfields/checkfieldsnumbers.cpp \
+    gui/widgets/checkfields/checkipaddress.cpp \
+    gui/widgets/checkfields/checklogin.cpp \
+    gui/widgets/checkfields/checkportnumber.cpp \
+    models/people.cpp \
+    gui/dialogs/computeturnoverdialog.cpp\
+    database/accessdatabase.cpp \
+    models/statistics.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
         # Database files
         database/database.h \
@@ -97,19 +111,13 @@ HEADERS  += mainwindow.h \
         models/contributory.h \
         database/userdatabase.h \
         models/user.h \
-        gui/dialogs/userdatadialog.h \
         gui/widgets/customercontextualmenu.h \
         models/search.h \
         gui/widgets/popup.h \
-        gui/dialogs/addprojectdialog.h \
         gui/widgets/ratewidget.h \
         database/projectdatabase.h \
-        gui/widgets/comboboxmodelwidget.h \
         utils/string.h \
-        gui/widgets/searchwidget.h \
-        gui/widgets/customerdatawidget.h \
         gui/widgets/projectswidget.h \
-        gui/dialogs/addquotedialog.h \
         gui/widgets/checkfields/checkqlineedit.h \
         gui/widgets/checkfields/checkemail.h \
         gui/widgets/checkfields/checkphone.h \
@@ -121,16 +129,13 @@ HEADERS  += mainwindow.h \
         gui/widgets/checkfields/checkuntilfield.h \
         gui/widgets/checkfields/checkvalidfield.h \
         gui/widgets/checkfields/checkfieldsletters.h \
-        gui/widgets/contributorieswidget.h \
         gui/widgets/widgetsmodels/contributoriestablemodel.h \
-        gui/widgets/delegates/projectcombodelegate.h \
         database/billingdatabase.h \
         database/contributorydatabase.h \
         utils/itemtype.h \
-        gui/dialogs/messagebox.h \
+        gui/dialogs/startedwindowsdialog.h \
         gui/widgets/checkfields/icheckfield.h \
         libs/qt-mustache/src/mustache.h \
-        generator.h \
         models/imodel.h \
         gui/widgets/widgetsmodels/customerstablemodel.h \
         gui/widgets/widgetsmodels/projectstablemodel.h \
@@ -152,16 +157,13 @@ HEADERS  += mainwindow.h \
     models/search.h \
     gui/widgets/popup.h \
     gui/dialogs/addprojectdialog.h \
-    gui/widgets/ratewidget.h \
     database/projectdatabase.h \
     gui/dialogs/addcontributorydialog.h \
     gui/widgets/comboboxmodelwidget.h \
     utils/string.h \
     gui/widgets/searchwidget.h \
     gui/widgets/customerdatawidget.h \
-    gui/widgets/projectswidget.h \
     gui/dialogs/addquotedialog.h \
-    gui/widgets/checkfields/checkqlineedit.h \
     gui/widgets/checkfields/checkemail.h \
     gui/widgets/checkfields/checkphone.h \
     gui/widgets/checkfields/checkpostalcode.h \
@@ -181,19 +183,33 @@ HEADERS  += mainwindow.h \
     gui/dialogs/messagebox.h \
     gui/widgets/checkfields/icheckfield.h \
     libs/qt-mustache/src/mustache.h \
-    generator.h \
     models/imodel.h \
     gui/widgets/widgetsmodels/customerstablemodel.h \
     gui/widgets/widgetsmodels/projectstablemodel.h \
     gui/widgets/widgetsmodels/billingstablemodel.h \
     exceptions/fileexception.h \
-    utils/hierarchicalsystem.h
+    utils/hierarchicalsystem.h \
+    utils/pointers.h \
+    utils/directories.h \
+    gui/docks/searchdock.h \
+    generator/texgenerator.h \
+    generator/pdfgenerator.h \
+    gui/widgets/databasesettingswidget.h \
+    gui/widgets/checkfields/checkfieldsnumbers.h \
+    gui/widgets/checkfields/checkipaddress.h \
+    gui/widgets/checkfields/checklogin.h \
+    gui/widgets/checkfields/checkportnumber.h \
+    models/people.h \
+    gui/dialogs/computeturnoverdialog.h \
+    database/accessdatabase.h \
+    models/statistics.h
 
 
-FORMS    += mainwindow.ui \
+FORMS    += gui/mainwindow/mainwindow.ui \
         gui/dialogs/dialogaddcustomer.ui \
     gui/dialogs/userdatadialog.ui \
     gui/dialogs/addprojectdialog.ui \
+    gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/ratewidget.ui \
     gui/widgets/comboboxmodelwidget.ui \
     gui/widgets/searchwidget.ui \
@@ -201,25 +217,31 @@ FORMS    += mainwindow.ui \
     gui/widgets/projectswidget.ui \
     gui/dialogs/addquotedialog.ui \
     gui/widgets/contributorieswidget.ui \
-    gui/dialogs/messagebox.ui
+    gui/dialogs/messagebox.ui \
+    gui/docks/searchdock.ui \
+    gui/dialogs/startedwindowsdialog.ui \
+    gui/widgets/databasesettingswidget.ui \
+    gui/dialogs/computeturnoverdialog.ui
 
 RESOURCES += \
     icons.qrc \
     utilsfiles.qrc
 
 OTHER_FILES += \
-        sql/removetable.sql \
-        sql/createtables.sql\
+        sql/sqlite/createtables.sql\
+        sql/mysql/createtables.sql\
         sql/tests/customers.sql \
-    sql/tests/user.sql \
-    sql/tests/billings.sql \
-    sql/tests/billingsprojects.sql \
-    sql/tests/contributories.sql \
-    sql/tests/projects.sql \
-    main.dox \
-    billing.tpl\
+        sql/tests/user.sql \
+        sql/tests/billings.sql \
+        sql/tests/billingsprojects.sql \
+        sql/tests/contributories.sql \
+        sql/tests/projects.sql \
+        sql/tests/removeuselessdata.sql \
+        main.dox \
+        billing.tpl\
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql \
-    sql/tests/billingrate.sql
+    sql/tests/billingrate.sql \
+    sql/removetables.sql
 

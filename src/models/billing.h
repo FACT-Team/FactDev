@@ -12,11 +12,13 @@
 #include "models/contributorieslist.h"
 #include "database/contributorydatabase.h"
 
-#include "generator.h"
+#include "generator/texgenerator.h"
+#include "generator/pdfgenerator.h"
 
 namespace Models {
 /**
- * @author Cédric Rohaut @Oxynos for the quote part
+ * @author Antoine de Roquemaurel
+ * @author Florent Berbie
  * @brief The Billing class : Billing or Quote of a Customer
  */
 class Billing : public IModel
@@ -26,16 +28,14 @@ public:
      * @brief Billing::Billing. Construct a Billing.
      */
     Billing();
-
     /**
      * @brief Billing::Billing. Construct a Billing or quote.
      * @param int id
      */
     Billing(int id);
-
     /**
-      * @brief destruct a billing object
-    */
+     * @brief destruct a billing object
+     */
     ~Billing();
 
     /**
@@ -57,16 +57,40 @@ public:
     void remove();
 
     /**
-     * @brief getDataMap Get all data of model with a HashMap key/value
+     * @brief Billing::getDataMap Get all data of model with a HashMap key/value
      * @return Model's data
      */
     QVariantHash getDataMap();
 
     /**
-     * @brief generateTex Generate a .tex file for the billing
+     * @brief Billing::generateTex Generate a .tex file for the billing
      */
     void generateTex();
 
+    /**
+     * @brief Billing::generatePdf Generate a .pdf file for the billing
+     */
+    void generatePdf();
+
+    /**
+     * @brief Billing::getPath Return the path of billing filename (without
+     * extension)
+     * @return billing path
+     */
+    QString getPath();
+
+    /**
+     * @brief Billing::getFolder Return the directory of billing
+     * @return Billing directory
+     */
+    QString getFolder();
+
+    /**
+     * @brief Billing::getFilename Return the filename of billing (without
+     * extension)
+     * @return Filename of Bulling
+     */
+    QString getFilename();
     /**
      * @brief Billing::getContributories. Return a map of <b>Contributory</b>
      * for each <b>Project</b> of the <b>Billing</b>
@@ -75,14 +99,24 @@ public:
     ContributoriesList &getContributories();
 
     /**
-     * @brief addContributories Add a new contributory for project p
+     * @brief Billing::addContributories Add a new contributory for project p
      * @param p The Project who contain Contributory
      * @param c The new Contributory
      */
     void addContributory(Contributory &c);
 
+    /**
+     * @brief Billing::getSumRate. return <b>Billing</b> Rate
+     * @return
+     */
     double getSumRate();
+
+    /**
+     * @brief Billing::getSumQuantity. return <b>Billing</b> total by time
+     * @return time in hours
+     */
     double getSumQuantity();
+
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>
      * @return title of Billing
@@ -143,7 +177,19 @@ public:
      * @param getDate the new date of the Billing
      */
     void setDate(const QDate &getDate);
+    /**
+     * @brief Billing::isPaid Return TRUE if thee current billing is paid else
+     * return FALSE
+     * @return Boolean
+     */
+    bool isPaid() const;
 
+    /**
+     * @brief Billing::setIsPaid Define the current billing according the
+     * argument <i>isPaid</i>
+     * @param isPaid Boolean
+     */
+    void setIsPaid(bool isPaid);
 
     /**
      * @brief Billing::operator == define the operator "==" to compare two
@@ -169,13 +215,21 @@ public:
      */
     bool operator <(const Billing &b) const;
 
+
+    /**
+     * @brief Billing::getItem Return the bill/quote item
+     * @return QStandardItem an item for QTree (level/depth 3)
+     */
+    QStandardItem* getItem();
+
 private:
-    ContributoriesList _contributories;   //!< List of contributories
-    QString _title;                                         //!< Title of billing
-    QString _description;                                   //!< Description of a billing
-    int _number;                                            //!< Number of billing
-    bool _isBilling;                                        //!< Is a billing… Or if a quote
-    QDate _date;                                            //!< Date for billing
+    ContributoriesList _contributories; //!< List of contributories
+    QString _title;                     //!< Title of billing
+    QString _description;               //!< Description of a billing
+    int _number;                        //!< Number of billing
+    bool _isBilling;                    //!< Is a billing… Or if a quote
+    QDate _date;                        //!< Date for billing
+    bool _isPaid;                       //!< Billing is Paid
 };
 
 }

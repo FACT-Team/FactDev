@@ -37,16 +37,16 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
 {
     QSharedPointer<Models::Project> project =
             QSharedPointer<Models::Project>(new Models::Project());
-    project->setId(value(q, "idProject").toInt());
-    project->setName(value(q,"name").toString());
-    project->setDescription(value(q,"description").toString());
-    project->setBeginDate(value(q,"beginDate").toDate());
-    project->setEndDate(value(q,"endDate").toDate());
-    project->setDailyRate(value(q,"dailyRate").toDouble());
+    project->setId(         value(q, "idProject").toInt());
+    project->setName(       value(q, "name").toString());
+    project->setDescription(value(q, "description").toString());
+    project->setBeginDate(  value(q, "beginDate").toDate());
+    project->setEndDate(    value(q, "endDate").toDate());
+    project->setDailyRate(  value(q, "dailyRate").toDouble());
     project->setCustomer(
                 QSharedPointer<Models::Customer>(
-                    new Models::Customer(value(q,"idCustomer").toInt())));
-
+                    new Models::Customer(value(q, "idCustomer").toInt())));
+    project->setCost(project->getCost());
     return project;
 
 }
@@ -70,6 +70,15 @@ QList<Project*> ProjectDatabase::getAllProjects()
         list << new Project(value(q, "idProject").toInt());
     }
     return list;
+}
+
+double ProjectDatabase::getCostProjects(QList<Project *> projects)
+{
+    double cost = 0;
+    for (Project *p: projects) {
+        cost+= p->getCost();
+    }
+    return cost;
 }
 
 
@@ -196,7 +205,7 @@ int ProjectDatabase::getNbProjects()
 int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     QSqlQuery q;
 
-    q.prepare("SELECT count(*) AS nb_p FROM PROJECT WHERE idCustomer = :pId");
+    q.prepare("SELECT count(*) AS nb_p FROM Project WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
     if(!q.exec()) {
         throw new DbException(
@@ -214,7 +223,7 @@ QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer
     QSqlQuery q;
     QMap<int, Models::Project> ret;
     Models::Project project;
-    q.prepare("SELECT * FROM PROJECT WHERE idCustomer = :pId ORDER BY UPPER(name)");
+    q.prepare("SELECT * FROM Project WHERE idCustomer = :pId ORDER BY UPPER(name)");
     q.bindValue(":pId", c->getId());
     if(!q.exec()) {
         throw new DbException(
@@ -230,12 +239,46 @@ QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer
         project.setDescription(value(q,"description").toString());
         project.setDailyRate(value(q,"dailyRate").toDouble());
         project.setCustomer(c);
-
         ret.insert(project.getId(), project);
     }
 
     return ret;
 }
+
+QList<Project> ProjectDatabase::getProjects(const int customerId) {
+    QList<Project> ret;
+    Models::Project project;
+
+    QSqlQuery q;
+
+    q.prepare("SELECT idProject, name, description, beginDate, endDate, "
+              "dailyRate, idCustomer "
+              "FROM Project "
+              "WHERE idCustomer= :pId "
+              "ORDER BY UPPER(name), UPPER(description)");
+
+    q.bindValue(":pId",customerId);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir les informations du projet",
+                    "ProjectDatabase::getProjects(const int customerId)",
+                    lastError(q),
+                    1.7);
+    }
+    while(q.next()) {
+        project = Models::Project();
+        project.setId(value(q, "idProject").toInt());
+        project.setName(value(q,"name").toString());
+        project.setDescription(value(q,"description").toString());
+        project.setDailyRate(value(q,"dailyRate").toDouble());
+        project.setCost(project.getCost());
+        //project.setCustomer(c);
+        ret.append(project);
+    }
+
+    return ret;
+}
+
 WdgModels::ProjectsTableModel *ProjectDatabase::getProjectsTable(const int pId)
 throw(DbException*)
 {

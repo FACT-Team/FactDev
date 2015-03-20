@@ -17,18 +17,14 @@ namespace Models {
 class Project : public IModel
 {
 public:
-
     /**
      * @brief Project::Project Construct a Project
      */
     Project();
-
-
     /**
      * @brief Project::project Construct a project with a name
      */
     Project(QString name);
-
     /**
      * @brief Project::Project Construct a Project which is specified by an
      * <i>id</i>
@@ -45,12 +41,14 @@ public:
      * @brief Project::commit Update project data in the database
      */
     void commit();
+
     /**
      * @brief Project::hydrat Insert project data which is specified by
      * <i>id</i> in the database
      * @param id Project identify
      */
     void hydrat(int id);
+
     /**
      * @brief Project::remove Remove the current project
      */
@@ -67,21 +65,25 @@ public:
      * @return project name
      */
     QString getName() const;
+
     /**
      * @brief Project::setName Modify the project <i>name</i>
      * @param name Project name
      */
     void setName(const QString &name);
+
     /**
      * @brief Project::getDescription Return a project description
      * @return project description
      */
     QString getDescription() const;
+
     /**
      * @brief Project::setDescription Modify the project <i>description</i>
      * @param description New project description
      */
     void setDescription(const QString &description);
+
     /**
      * @brief Project::getBeginDate return the date of creation
      * of the <b>Project</b>
@@ -96,7 +98,8 @@ public:
     void setBeginDate(QDate beginDate);
 
     /**
-     * @brief Project::getEndDate Return the <i>endDate</i> of the <b>Project</b>
+     * @brief Project::getEndDate Return the <i>endDate</i> of the
+     * <b>Project</b>
      * @return the end date of the project
      */
     QDate getEndDate() const;
@@ -106,6 +109,18 @@ public:
      * @param endDate the new end date of the project
      */
     void setEndDate(QDate endDate);
+
+    /**
+     * @brief Project::getCost Return the <b>Project</b> <i>cost</i>
+     * @return the project cost
+     */
+    double getCost() const;
+
+    /**
+     * @brief Project::setCost Modify the <b>Project</b> <i>cost</i>
+     * @param cost the projectCost
+     */
+    void setCost(double cost);
 
     /**
      * @brief Project::getDailyRate Return the daily rate estimated for this
@@ -160,11 +175,18 @@ public:
      */
     bool operator !=(const Project &p);
 
+    /**
+     * @brief Project::costCompute compute the <b>Project</b> <i>cost</i>
+     * @return the project cost
+     */
+    double getCost();
+
 private:
     QString _name;          //!< Project name
     QString _description;   //!< Description on the targets of this project
     QDate _beginDate;       //!< Date of creation of the project
     QDate _endDate;         //!< End date of the project
+    double _cost;           //!< Project cost
     double _dailyRate;      //!< Daily rate linked to this project
     QSharedPointer<Customer> _customer;    //!< Customer linked to this project
 };

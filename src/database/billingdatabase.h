@@ -13,7 +13,7 @@ using namespace Gui::Widgets;
 
 namespace Databases {
 /**
- * @author Cédric Rohaut @Oxynos
+ * @author @Oxynos
  * @brief The <b>BillingDatabase</b> class Billing (or Quote) table database
  * @see Database
  * @see Billing/Quote
@@ -66,6 +66,7 @@ public:
      * @param pId billing id
      */
     void removeBilling(const int pId);
+
     /**
      * @brief BillingDatabase::addBillingProject Link a project, a billing and
      * a contributory in the table BillingProject
@@ -75,6 +76,15 @@ public:
      */
     void addBillingProject(
             const int idProject, const int idBilling, const int idContributory);
+
+    /**
+     * @brief BillingDatabase::isBillingPaid Return TRUE if the id <i>pId</i>
+     * correspond to a Billing and not quote (isBilling = 1) and if this billing
+     *  is paid (isPaid = 1) else return FALSE.
+     * @param pId Billing id
+     * @return TRUE if billing is paid
+     */
+    bool isBillingPaid(const int pId);
 
     /**
      * @brief BillingDatabase::removeBillingProject remove a link between a
@@ -99,6 +109,22 @@ public:
     int getMaxQuoteNumber();
 
     /**
+     * @brief BillingDatabase::getMaxBillingNumberOfCustomer Get the last number
+     * of a <b>Customer</b>'s Billing
+     * @param idCustomer Customer id
+     * @return the last number of the <b>Customer</b>'s Billing
+     */
+    int getMaxBillingNumberOfCustomer(const int idCustomer);
+
+    /**
+     * @brief BillingDatabase::getMaxQuoteNumberOfCustomer Get the last number
+     * of a <b>Customer</b>'s quote
+     * @param idCustomer Customer id
+     * @return the last number of the <b>Customer</b>'s quote
+     */
+    int getMaxQuoteNumberOfCustomer(const int idCustomer);
+
+    /**
      * @brief BillingDatabase::getBilling Add the element of the <i>q</i>
      * request and return their
      * @param q SQL request
@@ -113,8 +139,32 @@ public:
      */
     QMap<Project *, Billing *> getAllBillingsOfProject();
 
+    /**
+     * @brief BillingDatabase::getBillings get bills by project
+     * @param projectId
+     * @return List with bills
+     */
+    QList<Billing> getBillings(const int projectId);
+
+    /**
+     * @brief BillingDatabase::getAllBillingsOnly get all billings which aren't
+     * quotes for the project <i>p</i>
+     * @param p
+     * @return the list of <b>Billing</b>
+     */
+    QList<Billing> getAllBillingsOnly(const int idProject);
+
+    /**
+     * @brief BillingDatabase::getBillingsBetweenDates get billings in the list
+     * between <i>begin</i> and <i>end</i> dates
+     * @param begin
+     * @param end
+     * @return the list of <b>Billing</b>
+     */
+    QList<Billing> getBillingsBetweenDates(QDate begin, QDate end);
+
 private:
-    static BillingDatabase* _instance;  //!< Singleton instance of BillingDatabase
+    static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase
 
     /**
      * @brief <b>BillingDatabase</b> is a singleton

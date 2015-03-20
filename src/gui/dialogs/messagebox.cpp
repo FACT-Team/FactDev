@@ -62,7 +62,7 @@ void MessageBox::aboutFactDev()
         "l'équipe FACT dans le cadre de l'UE Projet pour l'Université <br/>"
         "Toulouse III - Paul  Sabatier.<br/></p>"
         "<p>"
-       // "Ce logiciel est libre et sous license *****. "
+        "Ce logiciel est libre et sous licence GPL. "
         "<br/>Le code source est disponible sur Github :"
         "<br/><a href=\"https://github.com/FACT-Team/FactDev\">"
         "https://github.com/FACT-Team/FactDev</a></p>");
@@ -73,7 +73,7 @@ void MessageBox::aboutIcons()
     setWindowTitle("À propos des icones");
     setImage(":/icons/FactDev");
     setText(
-        "Le pack d'icons à été développé par Florent Berbie pour l'usage <br/>"
+        "Le pack d'icônes à été développé par Florent Berbie pour l'usage <br/>"
         "du logiciel FactDev.");
 }
 

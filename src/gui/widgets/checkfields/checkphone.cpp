@@ -1,6 +1,5 @@
 #include "checkqlineedit.h"
 #include "checkphone.h"
-#include <QDebug>
 #include <QStringRef>
 
 namespace Gui {

@@ -10,20 +10,24 @@ Gui::Widgets::WdgModels::ProjectsTableModel::~ProjectsTableModel()
 
 }
 
-int Gui::Widgets::WdgModels::ProjectsTableModel::rowCount(const QModelIndex &) const
+int Gui::Widgets::WdgModels::ProjectsTableModel::rowCount(
+        const QModelIndex &) const
 {
     return _projects.count();
 }
 
-int Gui::Widgets::WdgModels::ProjectsTableModel::columnCount(const QModelIndex &) const
+int Gui::Widgets::WdgModels::ProjectsTableModel::columnCount(
+        const QModelIndex &) const
 {
-    return 5;
+    return 6;
 }
 
 QVariant Gui::Widgets::WdgModels::ProjectsTableModel::data(
         const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole && role != Qt::EditRole || index.row() == -1) {
+    if (    (role != Qt::DisplayRole && role != Qt::EditRole)
+            || index.row() == -1)
+    {
         return QVariant();
     }
 
@@ -34,6 +38,7 @@ QVariant Gui::Widgets::WdgModels::ProjectsTableModel::data(
     case 2: return project.getDescription();
     case 3: return project.getBeginDate();
     case 4: return project.getEndDate();
+    case 5: return QString::number(project.getCost(), 'f', 2) + " €";
     default: return QVariant();
     };
 }
@@ -55,6 +60,7 @@ QVariant Gui::Widgets::WdgModels::ProjectsTableModel::headerData(
     case 2: return "Description";
     case 3: return "Date début";
     case 4: return "Date fin";
+    case 5: return "Coût";
     default: return QVariant();
     }
 }
@@ -78,6 +84,9 @@ bool Gui::Widgets::WdgModels::ProjectsTableModel::setData(
             break;
         case 4:
             _projects[index.row()].setEndDate(value.toDate());
+            break;
+        case 5:
+            _projects[index.row()].setCost(value.toDouble());
             break;
         default:
             Log::instance(WARNING)

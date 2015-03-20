@@ -21,8 +21,8 @@ public:
     /**
      * @brief CheckUntilField::check Check if the field  is valid.
      * To be valid, a name should be composed of a character
-     * @param text
-     * @return boolean
+     * @param text Text to check
+     * @return boolean Validity of the text
      */
     bool check (QString text);
 };

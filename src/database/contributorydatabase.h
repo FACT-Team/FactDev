@@ -16,8 +16,9 @@ using namespace Utils;
 namespace Databases {
 
 /**
- * @author Cédric Rohaut @Oxynos
- * @brief The <b>ContributoryDatabase</b> class Contributory (or Quote) table database
+ * @author @Oxynos
+ * @brief The <b>ContributoryDatabase</b> class Contributory (or Quote) table
+ * database
  * @see Database
  * @see Contributory/Quote
  */
@@ -33,18 +34,24 @@ public:
     static ContributoryDatabase* instance()throw(DbException*);
 
     /**
-     * @brief ContributoryDatabase::getCustomer get informations about the Contributory
-     * identified by <i>pId</i>
+     * @brief ContributoryDatabase::getCustomer get informations
+     * about the Contributory identified by <i>pId</i>
      * @param idContributory Contributory id
      * @return the Contributory
      */
     Models::Contributory *getContributory(const int idContributory);
 
-    Models::ContributoriesList getContributoriesByBilling(const int idBilling);
+    /**
+     * @brief ContributoryDatabase::getContributoriesByBilling get informations
+     * about the Contributory identified by <i>Billing</i>
+     * @param idBilling Contributory id
+     * @return the Contributory
+     */
+    Models::ContributoriesList getContributoriesByBilling(const int billingId);
 
     /**
-     * @brief ContributoryDatabase::addContributory Add the Contributory <i>pContributory</i> to
-     * the database
+     * @brief ContributoryDatabase::addContributory
+     * Add the Contributory <i>pContributory</i> to the database
      * @return Contributory id
      */
     int addContributory(const Models::Contributory&);
@@ -56,8 +63,8 @@ public:
     void updateContributory(const Models::Contributory&);
 
     /**
-     * @brief ContributoryDatabase::removeCustomer Remove the Contributory with the id
-     * <i>pId</i>
+     * @brief ContributoryDatabase::removeCustomer Remove the Contributory
+     * with the id <i>pId</i>
      * @param pId Contributory id
      */
     void removeContributory(const int pId);
@@ -69,8 +76,19 @@ public:
      */
     Models::Contributory *getContributory(QSqlQuery &q);
 
+    /**
+     * @brief getContributory Get contributories list  by project and billing
+     * @param billingId
+     * @param projectId
+     * @return The contributories list by project and billing
+     */
+    Models::ContributoriesList getContributoriesByBillingAndProject(
+            const int billingId, const int projectId);
+
+
 private:
-    static ContributoryDatabase* _instance;  //!< Singleton instance of ContributoryDatabase
+    //!< Singleton instance of ContributoryDatabase
+    static ContributoryDatabase* _instance;
 
     /**
      * @brief <b>ContributoryDatabase</b> is a singleton

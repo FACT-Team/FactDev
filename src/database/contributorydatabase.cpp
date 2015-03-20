@@ -21,6 +21,7 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     contributory->setId(value(q, "idContributory").toInt());
     contributory->setNbHours(value(q, "nbHours").toDouble());
     contributory->setDescription(value(q, "cdescription").toString());
+    contributory->setLongDescription(value(q, "clongdescription").toString());
 
     QSqlQuery q2;
     q2.prepare("SELECT p.idProject, name,  p.description as pdescription, "
@@ -39,7 +40,7 @@ Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
                     1.2);
     }
     if(q2.first()) {
-        contributory->setProject(Databases::ProjectDatabase::instance()->getProject(q2));
+       contributory->setProject(Databases::ProjectDatabase::instance()->getProject(q2));
     } else {
         contributory->setProject(NULL);
     }
@@ -52,7 +53,8 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     QSqlQuery q;
     Models::Contributory* contributory;
 
-    q.prepare("SELECT idContributory, description as cdescription, nbhours "
+    q.prepare("SELECT idContributory, description as cdescription, "
+              "longdescription as clongdescription, nbhours "
               "FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
 
@@ -73,24 +75,27 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     return contributory;
 }
 
-Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(const int idBilling)
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(
+        const int billingId)
 {
     QSqlQuery q;
     Models::ContributoriesList contributories;
 
     q.prepare(
-                "SELECT DISTINCT project.idProject as idProject,"
-                " project.name as name, project.description as pdescription, "
-                " project.dailyRate as dailyRate, project.idCustomer, "
-                " contributory.idContributory, contributory.description as cdescription, "
-                " billing.idBilling, nbHours "
-                " FROM BillingProject, project, billing, contributory "
-                " WHERE billingProject.idBilling = :idBilling "
-                " AND project.idProject = billingProject.idProject "
-                " AND billing.idBilling = billingProject.idBilling "
-                " AND contributory.idContributory = billingProject.idContributory "
-                "ORDER BY project.idProject ");
-    q.bindValue(":idBilling", idBilling);
+                "SELECT DISTINCT Project.idProject as idProject,"
+                " Project.name as name, Project.description as pdescription, "
+                " Project.dailyRate as dailyRate, Project.idCustomer, "
+                " Contributory.idContributory, Contributory.description as cdescription, "
+                "Contributory.longdescription as clongdescription, "
+                " Billing.idBilling, nbHours "
+                " FROM BillingProject, Project, Billing, Contributory "
+                " WHERE BillingProject.idBilling = :idBilling "
+                " AND Project.idProject = BillingProject.idProject "
+                " AND Billing.idBilling = BillingProject.idBilling "
+                " AND Contributory.idContributory = BillingProject.idContributory "
+                "ORDER BY Project.idProject ");
+
+    q.bindValue(":idBilling", billingId);
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'obtenir la prestation",
@@ -98,7 +103,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
                     lastError(q),
                     1.8);
     }
-    contributories.setIdBilling(idBilling);
+    contributories.setIdBilling(billingId);
 
     while(q.next()) {
         contributories.addContributory(*getContributory(q));
@@ -108,18 +113,20 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(cons
 }
 
 
-int ContributoryDatabase::addContributory(const Models::Contributory& pContributory) {
+int ContributoryDatabase::addContributory(
+        const Models::Contributory& pContributory)
+{
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO Contributory "
-                "(description, nbHours)"
+                "(description, longdescription, nbHours)"
                 " VALUES "
-                "(:description, :nbHours)"
+                "(:description, :longdescription, :nbHours)"
                 );
 
     q.bindValue(":description", pContributory.getDescription());
     q.bindValue(":nbHours", pContributory.getNbHours());
-
+    q.bindValue(":longdescription", pContributory.getLongDescription());
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'ajouter la Contributory",
@@ -131,15 +138,17 @@ int ContributoryDatabase::addContributory(const Models::Contributory& pContribut
     return q.lastInsertId().toInt();
 }
 
-void ContributoryDatabase::updateContributory(const Models::Contributory& pContributory) {
+void ContributoryDatabase::updateContributory(
+        const Models::Contributory& pContributory) {
     QSqlQuery q;
     q.prepare("UPDATE Contributory SET "
-              "description=:description, "
-              "nbHours =:nbHours "
+              "description=:description, longdescription=:longdescription,"
+              "nbHours=:nbHours "
               "WHERE idContributory=:idContributory"
               );
 
     q.bindValue(":description", pContributory.getDescription());
+    q.bindValue(":longdescription", pContributory.getLongDescription());
     q.bindValue(":nbHours", pContributory.getNbHours());
     q.bindValue(":idContributory",pContributory.getId());
 
@@ -182,5 +191,44 @@ void ContributoryDatabase::removeContributory(const int pId)
                     lastError(q),
                     1.5);
     }
+}
+
+Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndProject(
+        const int billingId, const int projectId)
+{
+    QSqlQuery q;
+    Models::ContributoriesList contributories;
+
+    q.prepare(
+                "SELECT DISTINCT Project.idProject as idProject,"
+                " Project.name as name, Project.description as pdescription, "
+                " Project.dailyRate as dailyRate, Project.idCustomer, "
+                " Contributory.idContributory, Contributory.description as cdescription, "
+                " Contributory.longdescription as clongdescription, "
+                " Billing.idBilling, nbHours "
+                " FROM BillingProject, Project, Billing, Contributory "
+                " WHERE BillingProject.idBilling = :idBilling "
+                " AND Project.idProject = BillingProject.idProject "
+                " AND Billing.idBilling = BillingProject.idBilling "
+                " AND Contributory.idContributory = BillingProject.idContributory "
+                " AND Project.idProject = :idProject "
+                "ORDER BY Project.idProject ");
+
+    q.bindValue(":idBilling", billingId);
+    q.bindValue(":idProject", projectId);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'obtenir la prestation",
+                    "BddContributory::getContributoriesByBillingAndProject",
+                    lastError(q),
+                    1.8);
+    }
+    contributories.setIdBilling(billingId);
+
+    while(q.next()) {
+        contributories.addContributory(*getContributory(q));
+    }
+
+    return contributories;
 }
 }

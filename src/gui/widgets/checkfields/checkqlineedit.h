@@ -60,7 +60,7 @@ public slots:
     void fieldTextChanged(const QString &text);
 
 private:
-    QPushButton* _btnValid;
+    QPushButton* _btnValid; //!< Button of validation
 
 
 };

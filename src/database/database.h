@@ -18,6 +18,7 @@
 #include "exceptions/dbexception.h"
 #include "utils/log.h"
 #include "parameters.h"
+#include "database/accessdatabase.h"
 
 using namespace Exceptions;
 using namespace Utils;
@@ -36,7 +37,7 @@ public:
      * @brief Database::getInstance Return an instance of Database
      * @return Instance of Database
      */
-    static Database* instance() throw(DbException*);
+    static Database* instance(bool tests=false) throw(DbException*);
 
     /**
      * @brief Database::lastError Return an error message on the last error
@@ -50,11 +51,6 @@ public:
      * @brief Database::testCases Realise a test cases
      */
     void testCases();
-
-    /**
-     * @brief Database::viderDatabase Clear database
-     */
-    void cleanDatabase();
 
     /**
      * @brief Database::executerFichier Exeute a specified file named
@@ -95,19 +91,26 @@ public:
     void setDatabase(QSqlDatabase sql);
 
     /**
-     * @brief Database::createDatabase Create a new database
-     */
-    void createDatabase();
-
-    /**
      * @brief Database::updateBillingNumber Update the billing number
      */
     void updateBillingNumber();
+
+    /**
+     * @brief Database::clearDatabase Drop alls tables of Database
+     * WARNING: We can't restore data after.
+     */
+    void cleanDatabase();
+
+    /**
+     * @brief changeDatabase Change the current database : mysql to sqlite or sqlite to mysql
+     * @param dbType : The new database type, Sqlite or Mysql
+     */
+    void changeDatabase(Databases::DbType dbType);
 protected:
     /**
      * @brief Database::Database Database is a singleton
      */
-    Database()throw(DbException*);
+    Database(bool tests=false)throw(DbException*);
 
     static Database* _instance; //!< Instance
     static bool _dbInstance; //!< an instance of db is open
@@ -127,7 +130,9 @@ protected:
      */
     QVariant value(const QSqlQuery& q, const QString& champ) const;
 
+    static bool _isMysql;
 
 };
+
 }
 #endif // Database_H
