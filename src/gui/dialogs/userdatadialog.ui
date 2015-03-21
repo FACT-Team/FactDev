@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>468</width>
-    <height>437</height>
+    <width>504</width>
+    <height>421</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>420</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Renseigner les données vous concernant</string>
@@ -18,6 +24,33 @@
     <normaloff>:/icons/FactDev</normaloff>:/icons/FactDev</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
+   <item row="1" column="0" colspan="3">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="3">
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="btnCancel">
+     <property name="text">
+      <string>Annuler</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../icons.qrc">
+       <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
+     </property>
+    </widget>
+   </item>
    <item row="2" column="1">
     <widget class="QPushButton" name="btnValid">
      <property name="text">
@@ -42,20 +75,6 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="3">
-    <layout class="QHBoxLayout" name="horizontalLayout"/>
-   </item>
-   <item row="2" column="2">
-    <widget class="QPushButton" name="btnCancel">
-     <property name="text">
-      <string>Annuler</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/img/cancel.png</normaloff>:/icons/img/cancel.png</iconset>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0" colspan="4">
     <widget class="QTabWidget" name="tabUserData">
      <property name="tabShape">
@@ -69,6 +88,37 @@
        <string>Données personnelles</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="10" column="0">
+        <widget class="QLabel" name="lbEmail">
+         <property name="text">
+          <string>Email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="lbPhone">
+         <property name="text">
+          <string>Tél. fixe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lbFirstname">
+         <property name="text">
+          <string>Prénom</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="lbLastname">
          <property name="text">
@@ -76,21 +126,38 @@
          </property>
         </widget>
        </item>
-       <item row="10" column="0">
+       <item row="3" column="0">
+        <widget class="QLabel" name="lbTitle">
+         <property name="text">
+          <string>Activité</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lbCompany">
+         <property name="text">
+          <string>Société</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="2">
         <widget class="QLabel" name="lbMobilePhone">
          <property name="text">
           <string>Tél. mobile</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="0">
-        <widget class="QLabel" name="lbNoSiret">
-         <property name="text">
-          <string>N° Siret</string>
+       <item row="11" column="3">
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
          </property>
         </widget>
        </item>
-       <item row="7" column="0" colspan="2">
+       <item row="9" column="0" colspan="4">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Adresse</string>
@@ -150,42 +217,7 @@
          </layout>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="lbEmail">
-         <property name="text">
-          <string>Email</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="lbPhone">
-         <property name="text">
-          <string>Tél. fixe</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="lbCompany">
-         <property name="text">
-          <string>Société</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="lbTitle">
-         <property name="text">
-          <string>Activité</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="lbFirstname">
-         <property name="text">
-          <string>Prénom</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
+       <item row="0" column="1" colspan="2">
         <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname">
          <property name="minimumSize">
           <size>
@@ -195,7 +227,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="1" column="1" colspan="2">
         <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname">
          <property name="minimumSize">
           <size>
@@ -205,7 +237,7 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="2" column="1" colspan="2">
         <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leCompany">
          <property name="minimumSize">
           <size>
@@ -215,7 +247,7 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
+       <item row="3" column="1" colspan="2">
         <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle">
          <property name="minimumSize">
           <size>
@@ -225,7 +257,7 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="10" column="1" colspan="3">
         <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail">
          <property name="minimumSize">
           <size>
@@ -235,27 +267,14 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>24</height>
-          </size>
+       <item row="4" column="0">
+        <widget class="QLabel" name="lbNoSiret">
+         <property name="text">
+          <string>N° Siret</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>24</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="1">
+       <item row="4" column="1" colspan="2">
         <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret">
          <property name="minimumSize">
           <size>
@@ -265,23 +284,34 @@
          </property>
         </widget>
        </item>
+       <item row="0" column="3" rowspan="6">
+        <widget class="Gui::Widgets::BrowseImageWidget" name="widget" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
       </layout>
       <zorder>lbPhone</zorder>
-      <zorder>lbLastname</zorder>
-      <zorder>lbCompany</zorder>
       <zorder>groupBox</zorder>
       <zorder>lbEmail</zorder>
-      <zorder>lbNoSiret</zorder>
-      <zorder>lbTitle</zorder>
-      <zorder>lbMobilePhone</zorder>
-      <zorder>lbFirstname</zorder>
-      <zorder>leLastname</zorder>
-      <zorder>leFirstname</zorder>
-      <zorder>leCompany</zorder>
-      <zorder>leTitle</zorder>
       <zorder>leEmail</zorder>
       <zorder>lePhone</zorder>
+      <zorder>leLastname</zorder>
+      <zorder>lbLastname</zorder>
+      <zorder>leFirstname</zorder>
+      <zorder>lbFirstname</zorder>
+      <zorder>leCompany</zorder>
+      <zorder>lbCompany</zorder>
+      <zorder>leTitle</zorder>
+      <zorder>lbTitle</zorder>
+      <zorder>lbMobilePhone</zorder>
       <zorder>leMobilePhone</zorder>
+      <zorder>widget</zorder>
+      <zorder>lbNoSiret</zorder>
       <zorder>leNoSiret</zorder>
      </widget>
      <widget class="QWidget" name="tab2Workspace">
@@ -354,19 +384,6 @@
      </widget>
     </widget>
    </item>
-   <item row="1" column="0" colspan="3">
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -426,19 +443,19 @@
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::BrowseImageWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/browseimagewidget.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>leLastname</tabstop>
-  <tabstop>leFirstname</tabstop>
-  <tabstop>leCompany</tabstop>
-  <tabstop>leTitle</tabstop>
   <tabstop>leAddress</tabstop>
   <tabstop>lePostalCode</tabstop>
   <tabstop>leCity</tabstop>
   <tabstop>leEmail</tabstop>
   <tabstop>lePhone</tabstop>
-  <tabstop>leMobilePhone</tabstop>
-  <tabstop>leNoSiret</tabstop>
   <tabstop>btnValid</tabstop>
   <tabstop>btnCancel</tabstop>
   <tabstop>tabUserData</tabstop>

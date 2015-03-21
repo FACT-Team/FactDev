@@ -93,7 +93,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     models/people.cpp \
     gui/dialogs/computeturnoverdialog.cpp\
     database/accessdatabase.cpp \
-    models/statistics.cpp
+    models/statistics.cpp \
+    gui/widgets/browseimagewidget.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -202,7 +203,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     models/people.h \
     gui/dialogs/computeturnoverdialog.h \
     database/accessdatabase.h \
-    models/statistics.h
+    models/statistics.h \
+    gui/widgets/browseimagewidget.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -221,7 +223,8 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/docks/searchdock.ui \
     gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/databasesettingswidget.ui \
-    gui/dialogs/computeturnoverdialog.ui
+    gui/dialogs/computeturnoverdialog.ui \
+    gui/widgets/browseimagewidget.ui
 
 RESOURCES += \
     icons.qrc \
