@@ -238,10 +238,10 @@ OTHER_FILES += \
         sql/tests/projects.sql \
         sql/tests/removeuselessdata.sql \
         main.dox \
-        billing.tpl\
 
 DISTFILES += \
     sql/tests/removeuselessdata.sql \
     sql/tests/billingrate.sql \
-    sql/removetables.sql
+    sql/removetables.sql \
+    billing.tpl
 

@@ -58,7 +58,7 @@ QVariantHash Contributory::getDataMap()
     data["project"] = _project->getName();
     data["nbHours"] = _nbHours;
     data["contributoryDescription"] = _description;
-
+    data["contributoryLongDescription"] = _longDescription;
     return data;
 }
 

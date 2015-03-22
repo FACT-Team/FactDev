@@ -154,7 +154,8 @@ QStandardItem *Billing::getItem()
 {
     QStandardItem *itemBillQuote =
             new QStandardItem(_date.toString("MM-yyyy")+ " " + _title);
-    itemBillQuote->setIcon(QIcon(":icons/img/"+QString((_isBilling == 0 ? "quote" : "bill"))));
+
+    itemBillQuote->setIcon(QIcon("icons/"+QString(_isBilling == 0 ? "quote" : "bill")));
 
     return itemBillQuote;
 
