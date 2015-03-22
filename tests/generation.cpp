@@ -50,9 +50,11 @@ void Generation::GenerationSimpleBilling() {
 
         Generator::TexGenerator gen(":/tpl/billingtpl");
         gen.generate(Models::Billing(1).getDataMap(), "/tmp/test1.tex");
-        QVERIFY(QFile("/tmp/test.tex").exists());
+        QVERIFY(QFile("/tmp/test1.tex").exists());
         gen.generate(Models::Billing(10).getDataMap(), "/tmp/test10.tex");
+        QVERIFY(QFile("/tmp/test10.tex").exists());
         gen.generate(Models::Billing(11).getDataMap(), "/tmp/test11.tex");
+        QVERIFY(QFile("/tmp/test11.tex").exists());
     } catch(DbException* e) {
         QFAIL(e->what());
     }

@@ -27,8 +27,10 @@
 \fancypagestyle{firststyle}
 {
 \fancyhf{}
+{{#billing}}
+
 \rfoot{Page \thepage{} sur \pageref{LastPage}}
-\lfoot{Devis{{type}} \no{}{{no}} du {{date}}}
+\lfoot{ {{type}} \no{}{{no}} du {{date}} }
 \renewcommand{\headrulewidth}{0.0pt}
 }
 
@@ -36,9 +38,10 @@
 {
 \pagestyle{fancy}
 \rfoot{Page \thepage{} sur \pageref{LastPage}}
-\lfoot{Devis \no{}8 du \today}
+\lfoot{ {{type}} \no{}{{no}} du {{date}} }
 \cfoot{}
 }
+{{/billing}}
 
 \lhead{\leftmark}
 \rhead{%
