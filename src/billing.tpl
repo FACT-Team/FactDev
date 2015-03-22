@@ -12,6 +12,7 @@
 \usepackage{eurosym}
 \usepackage{float}
 \usepackage{fancyhdr}
+\usepackage{lastpage}
 
 \ifpdf
 \usepackage[pdftex]{graphicx}
@@ -107,12 +108,12 @@
                 {{#firstcontributory}}
                 \cline{0-4}
                     \multirow{ {{ nbcontributories }} }{*}{\texttt{[{{indexproject}}]} {{ nameproject }} } &
-                    \multirow{ {{ nbcontributories }} }{*}{ {{rateproject}} }
+                    \multirow{ {{ nbcontributories }} }{*}{ \begin{minipage}{1.8cm}\begin{flushright} {{rateproject}}~\euro{} \end{flushright}\end{minipage} }
                 {{/firstcontributory}}
                 {{^firstcontributory}}
                 &
                 {{/firstcontributory}}
-                    & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} & {{ nbHours }} & {{ price }}\euro{}\\
+                    & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} & \begin{minipage}{1.6cm}\begin{flushright} {{ nbHours }} \end{flushright}\end{minipage}& {{ price }}\euro{}\\
                 \cline{3-5}
                 {{/contributories}}
 
