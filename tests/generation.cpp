@@ -49,8 +49,10 @@ void Generation::GenerationSimpleBilling() {
         QLocale::setDefault(QLocale(QLocale::French));
 
         Generator::TexGenerator gen(":/tpl/billingtpl");
-        gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
+        gen.generate(Models::Billing(1).getDataMap(), "/tmp/test1.tex");
         QVERIFY(QFile("/tmp/test.tex").exists());
+        gen.generate(Models::Billing(10).getDataMap(), "/tmp/test10.tex");
+        gen.generate(Models::Billing(11).getDataMap(), "/tmp/test11.tex");
     } catch(DbException* e) {
         QFAIL(e->what());
     }

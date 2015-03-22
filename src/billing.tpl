@@ -95,20 +95,30 @@
     \textbf{ {{title}} }\\
     {{description}}\\~\\
     {{/billing}}
+
     \begin{table}[H]
         \centering
-        \begin{tabular}{|p{4.2cm}|p{8cm}|p{2cm}|r|}
+        \begin{tabular}{|p{4.2cm}|p{1.8cm}|p{7cm}|p{1.6cm}|r|}
             \hline
-            \textbf{Application} &\textbf{Prestation} & \textbf{Nombre de jours} & \textbf{Tarif\footnotemark}\\
-            \hline
+            \textbf{Application} & \textbf{Tarif journalier} &\textbf{Prestation} & \textbf{Nombre de jours} & \textbf{Tarif\footnotemark}\\
             {{#table}}
                 {{#contributories}}
-                    \texttt{[{{indexproject}}]} {{ nameproject }} &  \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} & {{ nbHours }} & {{ price }}\euro{}\\
-                    \hline
+
+                {{#firstcontributory}}
+                \cline{0-4}
+                    \multirow{ {{ nbcontributories }} }{*}{\texttt{[{{indexproject}}]} {{ nameproject }} } &
+                    \multirow{ {{ nbcontributories }} }{*}{ {{rateproject}} }
+                {{/firstcontributory}}
+                {{^firstcontributory}}
+                &
+                {{/firstcontributory}}
+                    & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} & {{ nbHours }} & {{ price }}\euro{}\\
+                \cline{3-5}
                 {{/contributories}}
+
             {{/table}}
             \hline
-            \textbf{Total}& &\textbf{ {{ totalQuantity }} } & \textbf{ {{totalRate }} ~\euro}\\
+            \textbf{Total}& & &\textbf{ {{ totalQuantity }} } & \textbf{ {{totalRate }} ~\euro}\\
             \hline
         \end{tabular}
         \caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}

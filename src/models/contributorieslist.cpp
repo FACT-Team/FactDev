@@ -123,12 +123,16 @@ QVariantList ContributoriesList::getDataMap()
     int j = 1;
     for(QPair<Project*,Models::Rate>* key : keys()) {
         project["nameproject"] = key->first->getName();
+        project["rateproject"] = key->second.getDailyRate();
+
         project["descriptionproject"] = key->first->getDescription();
         project["indexproject"] = i++;
         for(Contributory c : getContributories(key->first)) {
             buff = c.getDataMap();
             buff["price"] = key->second.getDailyRate()
                             * buff["nbHours"].toDouble();
+            buff["firstcontributory"] = j == 1;
+            buff["nbcontributories"] = getContributories(key->first).count();
             buff["indexcontributory"] = j++;
             contributories << buff;
             buff.clear();
