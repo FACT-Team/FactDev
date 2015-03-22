@@ -74,14 +74,12 @@ void Generation::GenerationBillingPdf() {
     QLocale::setDefault(QLocale(QLocale::French));
 
     try {
-        Billing b(1);
-        b.generateTex();
-        QVERIFY(QFile("/tmp/test.tex").exists());
+        QVERIFY(QFile("/tmp/test11.tex").exists());
         Generator::PdfGenerator gen;
-        gen.generate("/tmp/", "test");
-        QVERIFY(QFile("/tmp/test.pdf").exists());
-        QVERIFY(!QFile("/tmp/test.aux").exists());
-        QVERIFY(!QFile("/tmp/test.log").exists());
+        gen.generate("/tmp/", "test11");
+        QVERIFY(QFile("/tmp/test11.pdf").exists());
+        QVERIFY(!QFile("/tmp/test11.aux").exists());
+        QVERIFY(!QFile("/tmp/test11.log").exists());
     } catch(DbException* e) {
         QFAIL(e->what());
     }
