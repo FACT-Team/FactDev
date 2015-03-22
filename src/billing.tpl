@@ -115,11 +115,17 @@
                 {{/firstcontributory}}
                     & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} & \begin{minipage}{1.6cm}\begin{flushright} {{ nbHours }} \end{flushright}\end{minipage}& {{ price }}\euro{}\\
                 \cline{3-5}
+
+                {{#lastcontributory}}
+                \cline{0-2}
+                \multicolumn{3}{|r|}{\textbf{Sous-Total} } & \begin{minipage}{1.6cm}\begin{flushright} \textbf{ {{ subdays }} } \end{flushright}\end{minipage}& \textbf{ {{subtotal}} ~\euro{}}\\
+                {{/lastcontributory}}
                 {{/contributories}}
 
             {{/table}}
             \hline
-            \textbf{Total}& & &\textbf{ {{ totalQuantity }} } & \textbf{ {{totalRate }} ~\euro}\\
+            \hline
+            \multicolumn{3}{|r|}{\textbf{Total} } & \begin{minipage}{1.6cm}\begin{flushright} \textbf{ {{ totalQuantity }} } \end{flushright}\end{minipage}& \textbf{ {{ totalRate}}~\euro{}}\\
             \hline
         \end{tabular}
         \caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
