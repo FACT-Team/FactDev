@@ -109,14 +109,14 @@ void CustomerDatabaseTest::getCustomerTableException()
 
 void CustomerDatabaseTest::getCustomerTreeException()
 {
-   /* try {
+    try {
         Databases::CustomerDatabase::instance()->getTree("FROM Billing");
         QFAIL("Exception not thrown");
     } catch(DbException*) {
         QVERIFY(true);
     }
 
-    try {
+    /*try {
         Databases::CustomerDatabase::instance()->getTree("");
         QVERIFY(true);
     } catch(DbException*) {
