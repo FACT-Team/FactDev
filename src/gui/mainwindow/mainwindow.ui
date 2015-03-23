@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -380,7 +380,7 @@
      <x>0</x>
      <y>0</y>
      <width>1413</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -451,14 +451,8 @@
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>280</width>
+     <width>270</width>
      <height>70</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>280</width>
-     <height>524287</height>
     </size>
    </property>
    <property name="font">
@@ -475,12 +469,6 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
-    <property name="minimumSize">
-     <size>
-      <width>300</width>
-      <height>0</height>
-     </size>
-    </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
@@ -566,14 +554,8 @@
   <widget class="QDockWidget" name="dockWidget_4">
    <property name="minimumSize">
     <size>
-     <width>280</width>
+     <width>270</width>
      <height>200</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>280</width>
-     <height>524287</height>
     </size>
    </property>
    <property name="font">

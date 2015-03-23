@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>372</height>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -314,14 +314,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckName</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkname.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckEmail</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkemail.h</header>
@@ -357,6 +349,14 @@
    <class>Gui::Widgets::CheckFields::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckName</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkname.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>

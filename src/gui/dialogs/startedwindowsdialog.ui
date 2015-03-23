@@ -249,7 +249,7 @@
        <item row="2" column="0">
         <widget class="QLabel" name="lbLastname">
          <property name="text">
-          <string>NOM</string>
+          <string>Nom</string>
          </property>
         </widget>
        </item>
