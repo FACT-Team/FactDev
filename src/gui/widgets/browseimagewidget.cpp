@@ -10,7 +10,6 @@ BrowseImageWidget::BrowseImageWidget(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    ui->lbIcon->setPixmap(getImage(":/icons/img/company.png"));
 }
 
 BrowseImageWidget::~BrowseImageWidget()
@@ -18,26 +17,28 @@ BrowseImageWidget::~BrowseImageWidget()
     delete ui;
 }
 
-QPixmap BrowseImageWidget::getImage(QString path, int width, int height)
+void BrowseImageWidget::setImageScaled(QString path, int width, int height)
 {
-    QPixmap img(path);
-    img.scaled(width,height,Qt::KeepAspectRatio);
-
-    return img;
+    _img.load(path);
+    _img.scaled(width,height,Qt::KeepAspectRatio);
 }
 
-void BrowseImageWidget::browseImagePath()
+QPixmap BrowseImageWidget::getImage()
 {
-    QDir path;
-    QFileDialog fileWindow( this,
-                            "Rechercher une image",
-                            "",
-                            "*");
-    fileWindow.exec();
-    path = fileWindow.directory();
+    return _img;
+}
 
-    qDebug() << path.currentPath();
-    ui->lbIcon->setPixmap(getImage(path.currentPath()));
+
+void BrowseImageWidget::browseImagePath()
+{    
+    QString file = QFileDialog::getOpenFileName(
+                this,
+                tr("Ouvrir une image"),
+                "",
+                tr("Images (*.png *.xpm *.jpg *.eps)"));
+    QFileInfo fileInfo(file);
+    setImageScaled(fileInfo.filePath());
+    ui->lbIcon->setPixmap(_img);
 }
 
 }

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>468</width>
-    <height>372</height>
+    <width>480</width>
+    <height>564</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>480</width>
+    <height>50</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Ajouter un client</string>
@@ -289,18 +295,32 @@
      </property>
     </widget>
    </item>
-   <item row="9" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+   <item row="9" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="Gui::Widgets::BrowseImageWidget" name="wgtLogo" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>128</width>
+         <height>150</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -309,14 +329,6 @@
    <class>Gui::Widgets::CheckFields::CheckUntilField</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkuntilfield.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckName</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkname.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>
@@ -338,14 +350,6 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckValidField</class>
-   <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkvalidfield.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
-  </customwidget>
-  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckCity</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkcity.h</header>
@@ -357,6 +361,28 @@
    <class>Gui::Widgets::CheckFields::CheckPhone</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkphone.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::BrowseImageWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/browseimagewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckName</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkname.h</header>
+   <slots>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckValidField</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkvalidfield.h</header>
    <slots>
     <slot>fieldTextChanged(QString)</slot>
    </slots>

@@ -117,6 +117,16 @@ void People::setFax(const QString &fax)
     _fax = fax;
 }
 
+QPixmap People::getImage() const
+{
+    return _image;
+}
+
+void People::setImage(const QPixmap &image)
+{
+    _image = image;
+}
+
 bool People::operator ==(const People &p)
 {
     return  p.getFirstname() == getFirstname()
@@ -136,5 +146,7 @@ bool People::operator !=(const People &u)
 {
     return !(*this == u);
 }
+
+
 }
 

@@ -1,6 +1,7 @@
 #ifndef PEOPLE_H
 #define PEOPLE_H
 #include <QString>
+#include <QPixmap>
 
 namespace Models {
 /**
@@ -139,6 +140,17 @@ public:
     void setFax(const QString &fax);
 
     /**
+     * @brief People::getImage Return the compagny image
+     * @return compagny image
+     */
+    QPixmap getImage() const;
+    /**
+     * @brief People::setImage Modify the current compagny image by <i>image</i>
+     * @param image Compagny image
+     */
+    void setImage(const QPixmap &image);
+
+    /**
      * @brief People::operator == Re-define the operator "==" to compare if
      * the current People is the same to the other <b>People</b> <i>c</i>
      * Return TRUE if both Peoples are the same, else FALSE
@@ -155,6 +167,8 @@ public:
      */
     bool operator !=(const People &c);
 
+
+
 private:
     QString _firstname;     //!< People firstname
     QString _lastname;      //!< People lastname
@@ -167,6 +181,7 @@ private:
     QString _phone;         //!< Number of desktop phone
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _fax;           //!< Fax number of the people
+    QPixmap _image;         //!< Compagny image
 };
 }
 

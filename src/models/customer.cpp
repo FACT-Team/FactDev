@@ -29,7 +29,8 @@ void Customer::commit() {
 
 void Customer::hydrat(int id)
 {
-    QSharedPointer<Customer> customer = CustomerDatabase::instance()->getCustomer(id);
+    QSharedPointer<Customer> customer =
+            CustomerDatabase::instance()->getCustomer(id);
 
     setId(id);
     setFirstname(           customer->getFirstname());
@@ -43,6 +44,7 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
+
 }
 
 void Customer::remove()
@@ -85,11 +87,24 @@ QString Customer::getNameFolder() const
 
 double Customer::getTurnover() const {
     double ret(0.0);
-    QList<Project> projects = Databases::ProjectDatabase::instance()->getProjects(getId());
+    QList<Project> projects =
+            Databases::ProjectDatabase::instance()->getProjects(getId());
     for (Project project : projects) {
         ret += project.getCost();
     }
     return ret;
+}
+
+QPixmap Customer::getImage() const
+{
+    QPixmap img;
+
+    if (getImage().isNull()) {
+        img = CustomerDatabase::instance()->getCustomerImage(getId());
+    } else {
+        img = getImage();
+    }
+    return img;
 }
 
 }

@@ -49,6 +49,7 @@ void DialogAddCustomer::accept() {
     _custom->setMobilePhone(ui->leMobilePhone->text());
     _custom->setFax(ui->leFax->text());
 
+
     _custom->commit();
     QDialog::accept();
 }

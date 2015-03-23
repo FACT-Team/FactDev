@@ -100,6 +100,7 @@ void User::hydrat(int id)
     setNoSiret(             user->getNoSiret());
     setWorkspaceName(       user->getWorkspaceName());
     setWorkspacePath(       user->getWorkspacePath());
+    setImage(               user->getImage());
 
     if (getWorkspaceName().isEmpty()) {
         setWorkspaceName("FactDev");

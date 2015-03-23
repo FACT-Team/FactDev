@@ -69,6 +69,14 @@ public:
      * @return turnover
      */
     double getTurnover() const;
+
+    /**
+     * @brief Customer::getImage Return the compagny image
+     * @return compagny image
+     */
+    QPixmap getImage() const;
+
+
 private:
     double  _turnover;          //!< Turnover/revenue of the customer
 };

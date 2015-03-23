@@ -1,6 +1,7 @@
 #ifndef BDDCUSTOMER_H
 #define BDDCUSTOMER_H
 
+#include <QPixmap>
 #include "database/database.h"
 #include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
@@ -127,6 +128,13 @@ public:
      * @param q SQL request
      */
     void updateCustomer(QSqlQuery &q, Customer &pCustomer);
+
+    /**
+     * @brief CustomerDatabase::getCustomerImage Return a Customer image
+     * @param pId Customer id
+     * @return Customer image
+     */
+    QPixmap getCustomerImage(const int pId);
 
 private:
     //!< Singleton instance of CustomerDatabase

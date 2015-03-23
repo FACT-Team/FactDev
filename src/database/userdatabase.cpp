@@ -1,4 +1,5 @@
 #include "database/userdatabase.h"
+#include <QBuffer>
 
 namespace Databases {
 
@@ -21,7 +22,6 @@ Models::User *UserDatabase::getUser(const int pId)
 {
     QSqlQuery q;
     Models::User* user;
-
     q.prepare("SELECT * FROM User WHERE idUser = :pId");
     q.bindValue(":pId", pId);
 
@@ -49,6 +49,9 @@ Models::User *UserDatabase::getUser(const int pId)
         user->setNoSiret(value(q,"noSiret").toString());
         user->setWorkspaceName(value(q,"workspaceName").toString());
         user->setWorkspacePath(value(q,"workspacePath").toString());
+//        user->setImage(
+//                    QPixmap::fromImage(
+//                        QImage::fromData(q.value("image").toByteArray())));
     } else {
         user = NULL;
     }

@@ -32,7 +32,8 @@ WdgModels::CustomersTableModel*
                "c.company as ccompany, "
                "c.address as caddress, c.postalCode as cpostalcode, "
                "c.city as ccity, c.country as ccountry, c.email as cemail, "
-               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+               "c.phone as cphone, c.mobilephone as cmobilephone, "
+               "c.fax as cfax "
                "FROM Customer c "+filter+" "
                "ORDER BY 4, 3"
                );
@@ -68,7 +69,8 @@ throw(DbException*)
                 "c.company as ccompany, "
                 "c.address as caddress, c.postalCode as cpostalcode, "
                 "c.city as ccity, c.country as ccountry, c.email as cemail, "
-                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "c.phone as cphone, c.mobilephone as cmobilephone, "
+                "c.fax as cfax "
                 "FROM Customer c "+filter+" "
                 "ORDER BY 4, 3 "
                 );
@@ -113,7 +115,8 @@ throw(DbException*)
             QSqlQuery q3;
 
             q3.prepare(
-                     "SELECT DISTINCT b.isPaid, b.description, b.idBilling,title,number,isBilling,date "
+                     "SELECT DISTINCT b.isPaid, b.description, "
+                     "b.idBilling,title,number,isBilling,date "
                      "FROM Billing b, BillingProject bp "
                      "WHERE idProject = :idproject "
                      "AND b.idBilling = bp.idBilling ORDER BY date DESC");
@@ -128,7 +131,8 @@ throw(DbException*)
             }
             // Manage any bill/quote of a project of a customer
             while (q3.next()) {
-                itemProject->appendRow(Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
+                itemProject->appendRow(
+                            Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
             }
 
             itemCustomer->appendRow(itemProject);
@@ -203,6 +207,30 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":fax", pCustomer.getFax());
 }
 
+QPixmap CustomerDatabase::getCustomerImage(const int pId)
+{
+    QPixmap imgCustomer;
+    QSqlQuery q;
+    q.prepare("SELECT image  FROM Customer WHERE idCustomer = :pId");
+    q.bindValue(":pId", pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer l'image du Customer ",
+                    "BddCustomer::getCustomerImage",
+                    lastError(q),
+                    1.9);
+    }
+
+    if(q.first()) {
+        imgCustomer =
+                QPixmap::fromImage(
+                    QImage::fromData(q.value("image").toByteArray()));
+    }
+
+    return imgCustomer;
+}
+
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
     QSharedPointer<Models::Customer> customer;
@@ -239,10 +267,11 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.prepare(
                 "INSERT INTO Customer "
                 "(firstnameReferent, lastnameReferent, company, address, "
-                "postalCode, city, country, email, mobilePhone, phone, fax)"
+                "postalCode, city, country, email, mobilePhone, phone, fax) "
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
+                ":postalCode, :city, :country, :email,:mobilePhone, :phone,"
+                ":fax)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
@@ -256,6 +285,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
+    //q.bindValue(":image", pCustomer.getImage());
 
     if(!q.exec()) {
         throw new DbException(
@@ -294,7 +324,6 @@ void CustomerDatabase::removeCustomer(const int pId)
 {
     QSqlQuery q;
     q.prepare("DELETE FROM Customer WHERE idCustomer=:pId");
-
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
