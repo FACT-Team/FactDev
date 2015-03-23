@@ -119,17 +119,36 @@ QVariantList ContributoriesList::getDataMap()
     QVariantHash project;
     QVariantList ret;
     QVariantHash buff;
-
+    int i = 1;
+    int j = 1;
+    double sum = 0.0;
+    double subdays = 0.0;
     for(QPair<Project*,Models::Rate>* key : keys()) {
         project["nameproject"] = key->first->getName();
+        project["rateproject"] = key->second.getDailyRate();
+
+        project["descriptionproject"] = key->first->getDescription();
+        project["indexproject"] = i++;
         for(Contributory c : getContributories(key->first)) {
             buff = c.getDataMap();
             buff["price"] = key->second.getDailyRate()
                             * buff["nbHours"].toDouble();
+            sum += key->second.getDailyRate()
+                    * buff["nbHours"].toDouble();
+            subdays += buff["nbHours"].toDouble();
+            buff["firstcontributory"] = j == 1;
+            buff["lastcontributory"] = j == getContributories(key->first).count();
+            buff["nbcontributories"] = getContributories(key->first).count();
+            buff["indexcontributory"] = j++;
             contributories << buff;
             buff.clear();
         }
+        j = 1;
         project["contributories"] = contributories;
+        project["subtotal"] = sum;
+        project["subdays"] = subdays;
+        sum = 0.0;
+        subdays = 0.0;
         contributories.clear();
         ret << project;
         project.clear();

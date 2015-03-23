@@ -116,12 +116,12 @@ void CustomerDatabaseTest::getCustomerTreeException()
         QVERIFY(true);
     }
 
-    try {
+    /*try {
         Databases::CustomerDatabase::instance()->getTree("");
         QVERIFY(true);
     } catch(DbException*) {
         QFAIL("Exception not thrown");
-    }
+    }*/
 }
 
 void CustomerDatabaseTest::getNbCustomersTest() {

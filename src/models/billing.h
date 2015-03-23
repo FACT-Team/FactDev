@@ -4,6 +4,7 @@
 #include <QDate>
 #include <QMap>
 #include <QList>
+#include <QIcon>
 
 #include "models/imodel.h"
 #include "models/project.h"

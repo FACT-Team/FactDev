@@ -49,8 +49,12 @@ void Generation::GenerationSimpleBilling() {
         QLocale::setDefault(QLocale(QLocale::French));
 
         Generator::TexGenerator gen(":/tpl/billingtpl");
-        gen.generate(Models::Billing(1).getDataMap(), "/tmp/test.tex");
-        QVERIFY(QFile("/tmp/test.tex").exists());
+        gen.generate(Models::Billing(1).getDataMap(), "/tmp/test1.tex");
+        QVERIFY(QFile("/tmp/test1.tex").exists());
+        gen.generate(Models::Billing(10).getDataMap(), "/tmp/test10.tex");
+        QVERIFY(QFile("/tmp/test10.tex").exists());
+        gen.generate(Models::Billing(11).getDataMap(), "/tmp/test11.tex");
+        QVERIFY(QFile("/tmp/test11.tex").exists());
     } catch(DbException* e) {
         QFAIL(e->what());
     }
@@ -70,14 +74,12 @@ void Generation::GenerationBillingPdf() {
     QLocale::setDefault(QLocale(QLocale::French));
 
     try {
-        Billing b(1);
-        b.generateTex();
-        QVERIFY(QFile("/tmp/test.tex").exists());
+        QVERIFY(QFile("/tmp/test11.tex").exists());
         Generator::PdfGenerator gen;
-        gen.generate("/tmp/", "test");
-        QVERIFY(QFile("/tmp/test.pdf").exists());
-        QVERIFY(!QFile("/tmp/test.aux").exists());
-        QVERIFY(!QFile("/tmp/test.log").exists());
+        gen.generate("/tmp/", "test11");
+        QVERIFY(QFile("/tmp/test11.pdf").exists());
+        QVERIFY(!QFile("/tmp/test11.aux").exists());
+        QVERIFY(!QFile("/tmp/test11.log").exists());
     } catch(DbException* e) {
         QFAIL(e->what());
     }
