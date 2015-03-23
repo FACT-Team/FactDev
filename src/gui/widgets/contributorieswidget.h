@@ -12,9 +12,11 @@
 
 #include "gui/widgets/widgetsmodels/contributoriestablemodel.h"
 #include "gui/widgets/widgetsmodels/projectcontributoriestablemodel.h"
+
 #include "gui/widgets/delegates/projectcombodelegate.h"
 #include "gui/widgets/delegates/doublespinboxdelegate.h"
 #include "gui/widgets/delegates/unitcombodelegate.h"
+#include "gui/widgets/delegates/textareadelegate.h"
 
 namespace Ui {
 class ContributoriesWidget;
