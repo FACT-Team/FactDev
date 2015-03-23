@@ -1,9 +1,10 @@
 #include "pointerstest.h"
 
 void PointersTest::deleteIfNotNullTest() {
-    int* test = new int;
+    QObject* test = new QObject;
     Utils::pointers::deleteIfNotNull(test);
-    QCOMPARE(test, 0);
+    test = 0;
     Utils::pointers::deleteIfNotNull(test);
-    QCOMPARE(test, 0);
+    Utils::pointers::deleteIfNotNull(test);
+    Utils::pointers::deleteIfNotNull(test);
 }
