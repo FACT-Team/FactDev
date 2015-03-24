@@ -28,6 +28,11 @@ QPixmap BrowseImageWidget::getImage()
     return _img;
 }
 
+void BrowseImageWidget::setImage(const QPixmap &img)
+{
+    _img = img;
+}
+
 
 void BrowseImageWidget::browseImagePath()
 {    

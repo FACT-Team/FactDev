@@ -108,6 +108,7 @@ void Customer::setImage(const QPixmap image)
 {
     _image = image;
     CustomerDatabase::instance()->setCustomerImage(*this);
+    commit();
 }
 
 }

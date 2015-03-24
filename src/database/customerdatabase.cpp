@@ -234,29 +234,39 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
 void CustomerDatabase::setCustomerImage(const Models::Customer &pCustomer) {
     QSqlQuery q;
 
-    QImage image(pCustomer.getImage().toImage());
-    qDebug() << image.size();
+    //QImage image(pCustomer.getImage().toImage());
+    //qDebug() << image.size();
     QByteArray byteArray;
+
     QBuffer buffer(&byteArray);
     buffer.open(QIODevice::WriteOnly);
-    image.save(&buffer);
 
-    q.prepare(
-                "UPDATE Customer "
-                "SET image = :image "
-                "WHERE idCustomer = :id ");
+    if (pCustomer.getImage().save(&buffer,"PNG")) {
+        qDebug() << byteArray.size();
+        qDebug() << "saving...";
 
-    q.bindValue(":id", pCustomer.getId());
-    q.bindValue(":image", byteArray);
-    //q.addBindValue(byteArray);
+        q.prepare("UPDATE Customer "
+                  "SET image = :image "
+                  "WHERE idCustomer = :id ");
 
-    if(!q.exec()) {
-        throw new DbException(
-                    "Impossible de modifier l'image du Customer",
-                    "BddCustomer::setCustomerImage",
-                    lastError(q),
-                    1.3);
+        q.bindValue(":id", pCustomer.getId());
+        q.bindValue(":image", byteArray);
+
+
+        if(!q.exec()) {
+            throw new DbException(
+                        "Impossible de modifier l'image du Customer",
+                        "BddCustomer::setCustomerImage",
+                        lastError(q),
+                        1.3);
+        }
+        qDebug() << byteArray.size();
+    } else {
+        qDebug() << "save FAILED";
     }
+
+
+
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {

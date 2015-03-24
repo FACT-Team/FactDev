@@ -33,6 +33,9 @@ void DialogAddCustomer::fillFields() {
     ui->lePhone->setText(_custom->getPhone());
     ui->leMobilePhone->setText(_custom->getMobilePhone());
     ui->leFax->setText(_custom->getFax());
+    if (!ui->wgtLogo->getImage().isNull()) {
+        ui->wgtLogo->setImage(_custom->getImage());
+    }
 }
 
 void DialogAddCustomer::accept() {
@@ -47,10 +50,13 @@ void DialogAddCustomer::accept() {
     _custom->setEmail(ui->leEmail->text());
     _custom->setPhone(ui->lePhone->text());
     _custom->setMobilePhone(ui->leMobilePhone->text());
-    _custom->setFax(ui->leFax->text());
-
+    _custom->setFax(ui->leFax->text());    
 
     _custom->commit();
+
+    if (!ui->wgtLogo->getImage().isNull()) {
+        _custom->setImage(ui->wgtLogo->getImage());
+    }
     QDialog::accept();
 }
 

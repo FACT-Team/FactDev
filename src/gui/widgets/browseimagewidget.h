@@ -42,6 +42,13 @@ public:
      */
     QPixmap getImage();
 
+    /**
+     * @brief BrowseImageWidget::setImgage Change the current image by the new
+     * <i>img</i>
+     * @param img New image
+     */
+    void setImage(const QPixmap &img);
+
 public slots:
 
     /**

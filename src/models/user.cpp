@@ -143,6 +143,7 @@ void User::setImage(const QPixmap image)
 {
     _image = image;
     UserDatabase::instance()->setUserImage(*this);
+    commit();
 }
 
 QString User::getWorkspaceName() const
