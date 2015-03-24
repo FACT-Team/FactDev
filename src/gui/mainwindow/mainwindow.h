@@ -26,6 +26,7 @@
 #include "gui/dialogs/addprojectdialog.h"
 #include "gui/dialogs/addquotedialog.h"
 #include "gui/dialogs/computeturnoverdialog.h"
+#include "gui/dialogs/statisticsdialog.h"
 #include "gui/docks/searchdock.h"
 
 
@@ -180,11 +181,11 @@ public slots:
     /**
      * @brief MainWindow::removeProject Remove a project for a customer
      */
-    void removeProject(void);
+    void removeProject();
     /**
      * @brief MainWindow::editProject Modify the customer project
      */
-    void editProject(void);
+    void editProject();
     /**
      * @brief MainWindow::aboutQt show Qt's details
      */
@@ -205,7 +206,7 @@ public slots:
     /**
      * @brief updateButton Update all button to disable or enabled its
      */
-    void updateButtons(void);
+    void updateButtons();
 
     /**
      * @brief MainWindow::editDoc Edit the quote or bill of the project
@@ -233,6 +234,16 @@ public slots:
      * of a period turnover
      */
     void computeTurnover();
+
+    /**
+     * @brief MainWindow::globalStatistics
+     */
+    void globalStatistics();
+
+    /**
+     * @brief MainWindow::customerStatistics
+     */
+    void customerStatistics();
 
 private slots:
     /**

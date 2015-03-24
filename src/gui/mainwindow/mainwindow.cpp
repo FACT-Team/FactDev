@@ -166,6 +166,8 @@ void MainWindow::responsiveCustomerTable()
 {
     int w = ui->tblCustomers->width();
 
+    ui->tblCustomers->resizeColumnsToContents();
+
     if (w > 650) {
         ui->tblCustomers->hideColumn(0);
         ui->tblCustomers->setColumnWidth(0, w*0.0);
@@ -389,6 +391,18 @@ void MainWindow::computeTurnover()
     ComputeTurnoverDialog cp;
 
     cp.exec();
+}
+
+void MainWindow::globalStatistics()
+{
+    StatisticsDialog d;
+
+    d.exec();
+}
+
+void MainWindow::customerStatistics()
+{
+
 }
 
 void MainWindow::search(QString text)

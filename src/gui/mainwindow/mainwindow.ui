@@ -96,6 +96,12 @@
           </item>
           <item row="0" column="0" colspan="6">
            <widget class="QTableView" name="tblCustomers">
+            <property name="minimumSize">
+             <size>
+              <width>811</width>
+              <height>526</height>
+             </size>
+            </property>
             <property name="contextMenuPolicy">
              <enum>Qt::CustomContextMenu</enum>
             </property>
@@ -786,8 +792,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>367</x>
-     <y>104</y>
+     <x>1108</x>
+     <y>674</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -802,8 +808,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>348</x>
-     <y>104</y>
+     <x>990</x>
+     <y>674</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -818,8 +824,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>311</x>
-     <y>104</y>
+     <x>704</x>
+     <y>674</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -834,8 +840,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>330</x>
-     <y>104</y>
+     <x>862</x>
+     <y>674</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -962,8 +968,8 @@
    <slot>customersTableToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>373</x>
-     <y>96</y>
+     <x>667</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -978,8 +984,8 @@
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>327</x>
-     <y>93</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -1026,8 +1032,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>578</x>
-     <y>121</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1090,8 +1096,8 @@
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>373</x>
-     <y>96</y>
+     <x>667</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1154,8 +1160,8 @@
    <slot>changeDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>698</x>
-     <y>274</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>502</x>
@@ -1170,8 +1176,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>576</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1186,8 +1192,8 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>780</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>609</x>
@@ -1218,8 +1224,8 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1111</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>827</x>
@@ -1266,8 +1272,8 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>998</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1282,8 +1288,8 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>912</x>
-     <y>676</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1296,6 +1302,38 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>computeTurnover()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actGlobalStatistics</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>globalStatistics()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCustomerStatistics</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>customerStatistics()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1343,5 +1381,7 @@
   <slot>billingIsPaid()</slot>
   <slot>copyDoc()</slot>
   <slot>computeTurnover()</slot>
+  <slot>globalStatistics()</slot>
+  <slot>customerStatistics()</slot>
  </slots>
 </ui>

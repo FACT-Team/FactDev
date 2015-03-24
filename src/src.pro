@@ -94,7 +94,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/dialogs/computeturnoverdialog.cpp\
     database/accessdatabase.cpp \
     models/statistics.cpp \
-    gui/widgets/delegates/textareadelegate.cpp
+    gui/widgets/delegates/textareadelegate.cpp \
+    gui/dialogs/statisticsdialog.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -204,7 +205,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/dialogs/computeturnoverdialog.h \
     database/accessdatabase.h \
     models/statistics.h \
-    gui/widgets/delegates/textareadelegate.h
+    gui/widgets/delegates/textareadelegate.h \
+    gui/dialogs/statisticsdialog.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -223,7 +225,8 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/docks/searchdock.ui \
     gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/databasesettingswidget.ui \
-    gui/dialogs/computeturnoverdialog.ui
+    gui/dialogs/computeturnoverdialog.ui \
+    gui/dialogs/statisticsdialog.ui
 
 RESOURCES += \
     icons.qrc \
