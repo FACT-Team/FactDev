@@ -499,7 +499,7 @@ int BillingDatabase::getNbBillsPaid()
     return count;
 }
 
-int BillingDatabase::getNBQuotes()
+int BillingDatabase::getNbQuotes()
 {
     int count = -1;
     QSqlQuery q;

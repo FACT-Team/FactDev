@@ -15,18 +15,20 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
     ui->setupUi(this);
     //setWindowTitle("Statistiques");
 
-    int nbBills, nbBillsPaid, nbQuotes, turnover;
+    int nbBills, nbBillsPaid, nbQuotes, turnover, nbProjects;
 
     if (global) {
         ui->lblTitle->setText("Statistiques globales");
         nbBills = BillingDatabase::instance()->getNbBills();
         nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid();
-        nbQuotes = BillingDatabase::instance()->getNBQuotes();
+        nbQuotes = BillingDatabase::instance()->getNbQuotes();
+        nbProjects = ProjectDatabase::instance()->getNbProjects();
     } else {
         ui->lblTitle->setText("Statistiques du client");
         nbBills = BillingDatabase::instance()->getNbBills();
         nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid();
-        nbQuotes = BillingDatabase::instance()->getNBQuotes();
+        nbQuotes = BillingDatabase::instance()->getNbQuotes();
+        nbProjects = ProjectDatabase::instance()->getNbProjects();
     }
 
     QString txt = QString::number(nbBills);
@@ -41,6 +43,16 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
         txt = " payées.";
     }
     ui->lblBills->setText(txt);
+    ui->lblQuotes->setText(QString::number(nbQuotes) + " devis.");
+
+    txt = QString::number(nbProjects);
+    if (nbProjects == 0 || nbProjects == 1) {
+        txt += " projet.";
+    } else if (nbProjects > 1) {
+        txt += " projets.";
+    }
+    ui->lblProject->setText(txt);
+
 }
 
 StatisticsDialog::~StatisticsDialog()

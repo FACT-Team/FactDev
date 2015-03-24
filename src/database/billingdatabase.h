@@ -165,7 +165,7 @@ public:
 
     int getNbBills();
     int getNbBillsPaid();
-    int getNBQuotes();
+    int getNbQuotes();
     int getNbDocs();
 
 private:
