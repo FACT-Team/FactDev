@@ -94,4 +94,57 @@ void UserDatabase::updateUser(const Models::User& pUser) {
                     1.4);
     }
 }
+
+QPixmap UserDatabase::getUserImage(const int pId)
+{
+    QPixmap imgUser;
+    QSqlQuery q;
+    q.prepare("SELECT image  FROM User WHERE idUser = :pId");
+    q.bindValue(":pId", pId);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer l'image de l'utilisateur' ",
+                    "BddCustomer::getUserImage",
+                    lastError(q),
+                    1.5);
+    }
+
+    if(q.first()) {
+        imgUser =
+                QPixmap::fromImage(
+                    QImage::fromData(q.value("image").toByteArray()));
+    }
+
+    return imgUser;
+}
+
+void UserDatabase::setUserImage(const Models::User& pUser)
+{
+    QSqlQuery q;
+
+    QImage image(pUser.getImage().toImage());
+    qDebug() << image.size();
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    image.save(&buffer);
+
+    q.prepare(
+                "UPDATE User "
+                "SET image = :image "
+                "WHERE idUser = :id ");
+
+    q.bindValue(":id", pUser.getId());
+    q.bindValue(":image", byteArray);
+    //q.addBindValue(byteArray);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de modifier l'image de l'utilisateur",
+                    "BddUser::setUserImage",
+                    lastError(q),
+                    1.6);
+    }
+}
 }

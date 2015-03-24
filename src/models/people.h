@@ -167,7 +167,8 @@ public:
      */
     bool operator !=(const People &c);
 
-
+protected:
+    QPixmap _image;         //!< Compagny image
 
 private:
     QString _firstname;     //!< People firstname
@@ -181,7 +182,7 @@ private:
     QString _phone;         //!< Number of desktop phone
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _fax;           //!< Fax number of the people
-    QPixmap _image;         //!< Compagny image
+
 };
 }
 

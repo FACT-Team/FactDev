@@ -100,7 +100,6 @@ void User::hydrat(int id)
     setNoSiret(             user->getNoSiret());
     setWorkspaceName(       user->getWorkspaceName());
     setWorkspacePath(       user->getWorkspacePath());
-    setImage(               user->getImage());
 
     if (getWorkspaceName().isEmpty()) {
         setWorkspaceName("FactDev");
@@ -138,6 +137,12 @@ QString User::getNoSiret() const
 void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
+}
+
+void User::setImage(const QPixmap image)
+{
+    _image = image;
+    UserDatabase::instance()->setUserImage(*this);
 }
 
 QString User::getWorkspaceName() const

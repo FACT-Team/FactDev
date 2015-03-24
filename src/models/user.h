@@ -98,6 +98,12 @@ public:
     void setNoSiret(const QString &noSiret);
 
     /**
+     * @brief User::setImage Change the current image by the new <i>image</i>
+     * @param image New image
+     */
+    void setImage(const QPixmap image);
+
+    /**
      * @brief User::getWorkspaceName Return the name of the workspace user
      * @return workspace name
      */

@@ -2,6 +2,7 @@
 #define BDDCUSTOMER_H
 
 #include <QPixmap>
+#include <QBuffer>
 #include "database/database.h"
 #include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
@@ -135,6 +136,13 @@ public:
      * @return Customer image
      */
     QPixmap getCustomerImage(const int pId);
+
+    /**
+     * @brief CustomerDatabase::setCustomerImage Change the image of the
+     * customer <i>pCustomer</i>
+     * @param pCustomer Customer
+     */
+    void setCustomerImage(const Models::Customer &pCustomer);
 
 private:
     //!< Singleton instance of CustomerDatabase

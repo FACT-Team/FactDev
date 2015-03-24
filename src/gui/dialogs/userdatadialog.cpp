@@ -123,5 +123,6 @@ void UserDataDialog::browseWorkspacePath()
     ui->leWorkspacePath->setText(path.absolutePath());
 }
 
+
 }
 }

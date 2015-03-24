@@ -231,6 +231,34 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
     return imgCustomer;
 }
 
+void CustomerDatabase::setCustomerImage(const Models::Customer &pCustomer) {
+    QSqlQuery q;
+
+    QImage image(pCustomer.getImage().toImage());
+    qDebug() << image.size();
+    QByteArray byteArray;
+    QBuffer buffer(&byteArray);
+    buffer.open(QIODevice::WriteOnly);
+    image.save(&buffer);
+
+    q.prepare(
+                "UPDATE Customer "
+                "SET image = :image "
+                "WHERE idCustomer = :id ");
+
+    q.bindValue(":id", pCustomer.getId());
+    q.bindValue(":image", byteArray);
+    //q.addBindValue(byteArray);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de modifier l'image du Customer",
+                    "BddCustomer::setCustomerImage",
+                    lastError(q),
+                    1.3);
+    }
+}
+
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
     QSharedPointer<Models::Customer> customer;
@@ -285,7 +313,6 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
-    //q.bindValue(":image", pCustomer.getImage());
 
     if(!q.exec()) {
         throw new DbException(

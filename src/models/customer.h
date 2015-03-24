@@ -76,6 +76,13 @@ public:
      */
     QPixmap getImage() const;
 
+    /**
+     * @brief Customer::setImage Change the current image by the new
+     * <i>image</i>
+     * @param image New image
+     */
+    void setImage(const QPixmap image);
+
 
 private:
     double  _turnover;          //!< Turnover/revenue of the customer
