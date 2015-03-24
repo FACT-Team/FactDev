@@ -10,12 +10,21 @@ class StatisticsDialog;
 namespace Gui {
 namespace Dialogs {
 
+/**
+ * @brief The StatisticsDialog class window
+ * to have global informations or about a customer
+ */
 class StatisticsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit StatisticsDialog(QWidget *parent = 0);
+    /**
+     * @brief StatisticsDialog::StatisticsDialog Construct a windows StatisticsDialog
+     * @param global if is the global stats or customer stats
+     * @param idCustomer the id of the Customer
+     */
+    explicit StatisticsDialog(bool global = true, int idCustomer = 0, QWidget *parent = 0);
     ~StatisticsDialog();
 
 private:

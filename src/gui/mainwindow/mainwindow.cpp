@@ -395,9 +395,7 @@ void MainWindow::computeTurnover()
 
 void MainWindow::globalStatistics()
 {
-    StatisticsDialog d;
-
-    d.exec();
+    StatisticsDialog(true).exec();
 }
 
 void MainWindow::customerStatistics()
