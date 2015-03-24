@@ -24,6 +24,12 @@ public:
      * @return A Qpair who contains the number of billing and their costs
      */
     static QPair<int, double> getTurnoverBetweenDates(QDate begin, QDate end);
+
+    /**
+     * @brief getGlobalTurnover get the global turnover
+     * @return double with global turnover
+     */
+    static double getGlobalTurnover();
 };
 }
 #endif // STATISTICS_H

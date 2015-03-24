@@ -1,5 +1,9 @@
 #include "statistics.h"
 
+#include "database/customerdatabase.h"
+
+using namespace Databases;
+
 Statistics::Statistics()
 {
 }
@@ -22,4 +26,13 @@ QPair<int, double>  Statistics::getTurnoverBetweenDates(QDate begin, QDate end)
     }
 
     return QPair<int, double>(billsBetweenDates.count(), turnover);
+}
+
+double Statistics::getGlobalTurnover() {
+    double ret(0.0);
+    QList<Customer> customers = Databases::CustomerDatabase::instance()->getCustomers();
+    for (Customer customer : customers) {
+        ret += customer.getTurnover();
+    }
+    return ret;
 }

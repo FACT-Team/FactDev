@@ -2,6 +2,7 @@
 #include "ui_statisticsdialog.h"
 
 #include "database/billingdatabase.h"
+#include "models/statistics.h"
 
 using namespace Databases;
 
@@ -15,7 +16,8 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
     ui->setupUi(this);
     //setWindowTitle("Statistiques");
 
-    int nbBills, nbBillsPaid, nbQuotes, turnover, nbProjects;
+    int nbBills, nbBillsPaid, nbQuotes, nbProjects;
+    double turnover;
 
     if (global) {
         ui->lblTitle->setText("Statistiques globales");
@@ -23,6 +25,7 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
         nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid();
         nbQuotes = BillingDatabase::instance()->getNbQuotes();
         nbProjects = ProjectDatabase::instance()->getNbProjects();
+        turnover = Models::Statistics::getGlobalTurnover();
     } else {
         ui->lblTitle->setText("Statistiques du client");
         nbBills = BillingDatabase::instance()->getNbBills();
@@ -52,6 +55,8 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
         txt += " projets.";
     }
     ui->lblProject->setText(txt);
+    ui->lblTurnover->setText(QString::number(turnover, 'f', 2) + " € de chiffre d'affaire généré.");
+
 
 }
 
