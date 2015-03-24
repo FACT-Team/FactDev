@@ -715,12 +715,12 @@ void MainWindow::updateButtons()
                     || ui->stackedWidget->currentIndex() == 2)
             && ui->tblProjects->currentIndex().row() > -1
             && ui->tblProjects->selectionModel()->hasSelection();
-
     bool billingIsSelected = ui->stackedWidget->currentIndex() == 2
             && ui->tblQuotes->currentIndex().row() > -1
             && ui->tblQuotes->selectionModel()->hasSelection();
-
     bool isBillingPaid = false;
+    bool customerSelected = ui->tblCustomers->currentIndex().row() > -1
+            && ui->tblCustomers->selectionModel()->hasSelection();
 
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
@@ -732,6 +732,7 @@ void MainWindow::updateButtons()
 
     ui->actionNewQuote->setEnabled(canAdd);
     ui->actionNewBill->setEnabled(canAdd);
+    ui->actCustomerStatistics->setEnabled(customerSelected);
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);

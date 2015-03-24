@@ -420,6 +420,8 @@
      <string>Statistiques</string>
     </property>
     <addaction name="actComputeTurnover"/>
+    <addaction name="actCustomerStatistics"/>
+    <addaction name="actGlobalStatistics"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuClient"/>
@@ -737,6 +739,19 @@
   <action name="actComputeTurnover">
    <property name="text">
     <string>Calculer CA d'une période</string>
+   </property>
+  </action>
+  <action name="actCustomerStatistics">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Statistiques du client</string>
+   </property>
+  </action>
+  <action name="actGlobalStatistics">
+   <property name="text">
+    <string>Statistiques globales</string>
    </property>
   </action>
  </widget>
