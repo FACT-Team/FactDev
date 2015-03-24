@@ -30,7 +30,7 @@ public:
     static BillingDatabase* instance()throw(DbException*);
 
     /**
-     * @brief BillingDatabase::getCustomer get informations about the billing
+     * @brief BillingDatabase::getBilling get informations about the billing
      * identified by <i>pId</i>
      * @param pId billing id
      * @return the Billing
@@ -162,6 +162,11 @@ public:
      * @return the list of <b>Billing</b>
      */
     QList<Billing> getBillingsBetweenDates(QDate begin, QDate end);
+
+    int getNbBills();
+    int getNbBillsPaid();
+    int getNBQuotes();
+    int getNbDocs();
 
 private:
     static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase

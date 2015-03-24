@@ -463,4 +463,76 @@ QList<Billing> BillingDatabase::getBillingsBetweenDates(QDate begin, QDate end)
 
 }
 
+int BillingDatabase::getNbBills()
+{
+    int count = -1;
+    QSqlQuery q;
+    q.prepare("select count(*) from Billing where isBilling == 1");
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Factures",
+                    "BddCustomer::getNbBills",
+                    lastError(q),
+                    1.3);
+    }
+    if (q.next()) {
+            count = q.value(0).toInt();
+    }
+    return count;
+}
+
+int BillingDatabase::getNbBillsPaid()
+{
+    int count = -1;
+    QSqlQuery q;
+    q.prepare("select count(*) from Billing where isBilling == 1 and isPaid == 1");
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Factures",
+                    "BddCustomer::getNbBills",
+                    lastError(q),
+                    1.3);
+    }
+    if (q.next()) {
+            count = q.value(0).toInt();
+    }
+    return count;
+}
+
+int BillingDatabase::getNBQuotes()
+{
+    int count = -1;
+    QSqlQuery q;
+    q.prepare("select count(*) from Billing where isBilling == 0");
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Devis",
+                    "BddCustomer::getNBQuotes",
+                    lastError(q),
+                    1.3);
+    }
+    if (q.next()) {
+            count = q.value(0).toInt();
+    }
+    return count;
+}
+
+int BillingDatabase::getNbDocs()
+{
+    int count = -1;
+    QSqlQuery q;
+    q.prepare("select count(*) from Billing");
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Documents",
+                    "BddCustomer::getNbDocs",
+                    lastError(q),
+                    1.3);
+    }
+    if (q.next()) {
+            count = q.value(0).toInt();
+    }
+    return count;
+}
+
 }
