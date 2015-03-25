@@ -48,6 +48,7 @@ void DialogAddCustomer::accept() {
     _custom->setPhone(ui->lePhone->text());
     _custom->setMobilePhone(ui->leMobilePhone->text());
     _custom->setFax(ui->leFax->text());
+    _custom->setIsArchived(false);
 
     _custom->commit();
     QDialog::accept();

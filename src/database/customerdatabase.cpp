@@ -244,7 +244,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.prepare(
                 "INSERT INTO Customer "
                 "(firstnameReferent, lastnameReferent, company, address, "
-                "postalCode, city, country, email, mobilePhone, phone, fax)"
+                "postalCode, city, country, email, mobilePhone, phone, fax, isArchived)"
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
                 ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax,:isArchived)"
