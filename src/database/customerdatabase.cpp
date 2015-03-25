@@ -32,7 +32,8 @@ WdgModels::CustomersTableModel*
                "c.company as ccompany, "
                "c.address as caddress, c.postalCode as cpostalcode, "
                "c.city as ccity, c.country as ccountry, c.email as cemail, "
-               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+               "c.isArchived as cisArchived"
                "FROM Customer c "+filter+" "
                "ORDER BY 4, 3"
                );

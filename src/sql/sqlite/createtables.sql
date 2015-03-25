@@ -11,7 +11,8 @@ CREATE TABLE Customer
     email VARCHAR(64),
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
-    fax VARCHAR(16)
+    fax VARCHAR(16),
+    isArchived BOOLEAN
 );
 
 CREATE TABLE Project
