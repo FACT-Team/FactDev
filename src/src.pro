@@ -94,7 +94,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/dialogs/computeturnoverdialog.cpp\
     database/accessdatabase.cpp \
     models/statistics.cpp \
-    gui/widgets/browseimagewidget.cpp
+    gui/widgets/browseimagewidget.cpp \
+    utils/image.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -204,7 +205,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/dialogs/computeturnoverdialog.h \
     database/accessdatabase.h \
     models/statistics.h \
-    gui/widgets/browseimagewidget.h
+    gui/widgets/browseimagewidget.h \
+    utils/image.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

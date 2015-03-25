@@ -226,6 +226,9 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
         imgCustomer =
                 QPixmap::fromImage(
                     QImage::fromData(q.value("image").toByteArray()));
+        //QImage buffImage;
+        //buffImage.loadFromData(valeur(q, "diagramme").toByteArray());
+        //seance->setDiagramme(buffImage)
     }
 
     return imgCustomer;
@@ -236,18 +239,19 @@ void CustomerDatabase::setCustomerImage(const Models::Customer &pCustomer) {
 
     //QImage image(pCustomer.getImage().toImage());
     //qDebug() << image.size();
-    QByteArray byteArray;
+    QByteArray byteArray = Utils::Image::pixmapToBytes(pCustomer.getImage());
 
-    QBuffer buffer(&byteArray);
-    buffer.open(QIODevice::WriteOnly);
+//    QBuffer buffer(&byteArray);
+//    buffer.open(QIODevice::WriteOnly);
 
-    if (pCustomer.getImage().save(&buffer,"PNG")) {
+//    if (pCustomer.getImage().save(&buffer,"PNG")) {
         qDebug() << byteArray.size();
+        for (int i=0; i < byteArray.length(); i++) {
+            qDebug() << byteArray[i];
+        }
         qDebug() << "saving...";
 
-        q.prepare("UPDATE Customer "
-                  "SET image = :image "
-                  "WHERE idCustomer = :id ");
+        q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");
 
         q.bindValue(":id", pCustomer.getId());
         q.bindValue(":image", byteArray);
@@ -260,10 +264,11 @@ void CustomerDatabase::setCustomerImage(const Models::Customer &pCustomer) {
                         lastError(q),
                         1.3);
         }
+
         qDebug() << byteArray.size();
-    } else {
-        qDebug() << "save FAILED";
-    }
+//    } else {
+//        qDebug() << "save FAILED";
+//    }
 
 
 

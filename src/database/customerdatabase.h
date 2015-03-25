@@ -10,6 +10,7 @@
 #include "models/billing.h"
 #include "utils/log.h"
 #include "utils/string.h"
+#include "utils/image.h"
 #include "gui/widgets/widgetsmodels/customerstablemodel.h"
 
 using namespace Exceptions;
