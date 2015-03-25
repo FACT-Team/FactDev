@@ -137,7 +137,16 @@ public:
      */
     bool operator !=(const User &u);
 
+    /**
+     * @brief getPdflatexPath The path of pdflatex
+     * @return The pdflatex path
+     */
     QString getPdflatexPath() const;
+
+    /**
+     * @brief setPdflatexPath Change the pdflatex command path.
+     * @param getPdflatexPath The new command
+     */
     void setPdflatexPath(const QString &getPdflatexPath);
 
 private:

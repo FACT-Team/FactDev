@@ -15,10 +15,6 @@ ChosePathWidget::~ChosePathWidget()
     delete ui;
 }
 
-void ChosePathWidget::updateBtn()
-{
-    emit textChanged();
-}
 
 void ChosePathWidget::setField(QString text) {
     ui->url->setText(text);
