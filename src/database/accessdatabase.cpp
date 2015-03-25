@@ -17,7 +17,15 @@ AccessDatabase::AccessDatabase()
 
 void AccessDatabase::init()
 {
-    QSettings settings("FACT Team", "FactDev");
+    QString environment;
+#if QT_NO_DEBUG
+    environment = "release";
+#else
+    environment = "debug";
+#endif
+
+    QSettings settings("FACT Team", "FactDev-"+environment);
+
     if(!settings.value("externalDbExists", false).toBool()) {
         _exists = false;
     } else {
@@ -33,7 +41,15 @@ void AccessDatabase::init()
 
 void AccessDatabase::commit()
 {
-    QSettings settings("FACT Team", "FactDev");
+    QString environment;
+
+#if QT_NO_DEBUG
+    environment = "release";
+#else
+    environment = "debug";
+#endif
+
+    QSettings settings("FACT Team", "FactDev-"+environment);
     settings.setValue("externalDbExists", _exists);
     settings.setValue("address", _address);
     settings.setValue("port", _port);
