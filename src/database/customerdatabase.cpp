@@ -69,7 +69,8 @@ throw(DbException*)
                 "c.company as ccompany, "
                 "c.address as caddress, c.postalCode as cpostalcode, "
                 "c.city as ccity, c.country as ccountry, c.email as cemail, "
-                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+                "c.isArchived as cisArchived "
                 "FROM Customer c "+filter+" "
                 "ORDER BY 4, 3 "
                 );
@@ -184,6 +185,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
     customer->setPhone(value(q,"cphone").toString());
     customer->setMobilePhone(value(q,"cmobilePhone").toString());
     customer->setFax(value(q,"cfax").toString());
+    customer->setIsArchived(value(q,"cisArchived").toBool());
 
     return customer;
 }
@@ -202,6 +204,7 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
     q.bindValue(":fax", pCustomer.getFax());
+    q.bindValue(":isArchived",pCustomer.isArchived());
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
@@ -213,7 +216,8 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
               "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
               "c.address as caddress, c.postalCode as cpostalcode, "
               "c.city as ccity, c.country as ccountry, c.email as cemail, "
-              "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+              "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+              "c.isArchived as cisArchived "
               "FROM Customer c "
               "WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -243,7 +247,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
                 "postalCode, city, country, email, mobilePhone, phone, fax)"
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
+                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax,:isArchived)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
@@ -257,6 +261,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
+    q.bindValue(":isArchived",pCustomer.isArchived());
 
     if(!q.exec()) {
         throw new DbException(
@@ -277,7 +282,7 @@ void CustomerDatabase::updateCustomer(Models::Customer &pCustomer) {
                 "lastnameReferent=:lastnameReferent, company=:company, "
                 "address=:address, postalCode=:postalCode, city=:city, "
                 "country=:country, email=:email, mobilePhone=:mobilePhone, "
-                "phone=:phone, fax=:fax "
+                "phone=:phone, fax=:fax, isArchived=:isArchived "
                 "WHERE idCustomer=:idCustomer");
     updateCustomer(q, pCustomer);
 
