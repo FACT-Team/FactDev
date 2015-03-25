@@ -43,6 +43,7 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
+    setIsArchived(          customer->isArchived());
 }
 
 void Customer::remove()
@@ -90,6 +91,16 @@ double Customer::getTurnover() const {
         ret += project.getCost();
     }
     return ret;
+}
+
+bool Customer::isArchived() const
+{
+    return _isArchived;
+}
+
+void Customer::setIsArchived(const bool isArchived)
+{
+    _isArchived = isArchived;
 }
 
 }
