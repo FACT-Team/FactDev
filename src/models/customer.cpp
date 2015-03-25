@@ -65,6 +65,9 @@ QVariantHash Customer::getDataMap()
     data["mobilephone"] = getMobilePhone();
     data["phone"]       = getPhone();
     data["fax"]         = getFax();
+    data["website"]     = getWebsite();
+    data["hasWebsite"] = !getWebsite().isEmpty();
+    data["complement"]     = getAddressComplement();
 
     return data;
 }

@@ -13,6 +13,7 @@
 \usepackage{float}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{hyperref}
 
 \ifpdf
 \usepackage[pdftex]{graphicx}
@@ -65,11 +66,19 @@
     %
     \small
     {{ address }}\\
+    {{ complement }}\\
     {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
     \Telefon~{{ phone }}\\
     \Letter\texttt{%
     {{ email }}
     }
+    {{#hasWebsite}}
+    \newline\Mundus~\texttt{%
+    \href{%
+    {{website}}
+    }% machin
+    }
+    {{/hasWebsite}}
     {{/user}}
     \end{minipage}\\[1em]
     %
@@ -84,6 +93,14 @@
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
     \Telefon~{{ phone }}\\
     \Letter\texttt{ {{ email }} }
+    {{#hasWebsite}}
+    \newline\Mundus~\texttt{%
+    \href{%
+    {{website}}
+    }% machin
+    }
+    {{/hasWebsite}}
+
     {{/customer}}
     }
     \end{minipage}

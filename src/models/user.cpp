@@ -40,6 +40,9 @@ QVariantHash User::getDataMap()
     data["city"]        = getCity();
     data["phone"]       = getPhone();
     data["email"]       = getEmail();
+    data["website"]     = getWebsite();
+    data["complement"]     = getAddressComplement();
+    data["hasWebsite"] = !getWebsite().isEmpty();
 
     return data;
 }
