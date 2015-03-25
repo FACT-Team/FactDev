@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChosePathWidget</class>
+ <widget class="QWidget" name="ChosePathWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>51</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QLineEdit" name="url"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn">
+     <property name="text">
+      <string>Parcourir</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../../icons.qrc">
+       <normaloff>:/icons/img/folder.png</normaloff>:/icons/img/folder.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../../icons.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btn</sender>
+   <signal>released()</signal>
+   <receiver>ChosePathWidget</receiver>
+   <slot>fillField()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>fillField()</slot>
+ </slots>
+</ui>
