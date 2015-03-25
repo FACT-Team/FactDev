@@ -400,7 +400,7 @@ void MainWindow::globalStatistics()
 
 void MainWindow::customerStatistics()
 {
-
+    StatisticsDialog(false, getCurrentCustomerId()).exec();
 }
 
 void MainWindow::search(QString text)

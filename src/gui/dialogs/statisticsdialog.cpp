@@ -19,6 +19,11 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
     int nbBills, nbBillsPaid, nbQuotes, nbProjects;
     double turnover;
 
+    Customer *c;
+    if (idCustomer != 0) {
+        c = new Customer(idCustomer);
+    }
+
     if (global) {
         ui->lblTitle->setText("Statistiques globales");
         nbBills = BillingDatabase::instance()->getNbBills();
@@ -27,7 +32,7 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
         nbProjects = ProjectDatabase::instance()->getNbProjects();
         turnover = Models::Statistics::getGlobalTurnover();
     } else {
-        ui->lblTitle->setText("Statistiques du client");
+        ui->lblTitle->setText("Statistiques du client " + c->getCompany());
         nbBills = BillingDatabase::instance()->getNbBills();
         nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid();
         nbQuotes = BillingDatabase::instance()->getNbQuotes();
