@@ -99,7 +99,7 @@ void Billing::generateTex()
 void Billing::generatePdf()
 {
     generateTex();
-    Generator::PdfGenerator g;
+    Generator::PdfGenerator g(User(1).getPdflatexPath());
     g.generate(getFolder(), getFilename());
 }
 
