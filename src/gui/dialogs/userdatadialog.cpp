@@ -41,13 +41,14 @@ void UserDataDialog::fillFields() {
     } else {
         ui->leWorkspaceName->setText(_user->getWorkspaceName());
     }
-    if (ui->leWorkspacePath->text().isEmpty()) {
+
+    if (ui->wdgWorkspacePath->getField().isEmpty()) {
         _user->setWorkspacePath(
             QDir::homePath() + "/" +
             QStandardPaths::displayName(QStandardPaths::DocumentsLocation));
-        ui->leWorkspacePath->setText(_user->getWorkspacePath());
+        ui->wdgWorkspacePath->setField(_user->getWorkspacePath());
     } else {
-        ui->leWorkspacePath->setText(_user->getWorkspacePath());
+        ui->wdgWorkspacePath->setField(_user->getWorkspacePath());
     }
 
 }
@@ -71,12 +72,12 @@ void UserDataDialog::accept() {
         _user->setWorkspaceName(ui->leWorkspaceName->text());
     }
 
-    if (ui->leWorkspacePath->text().isEmpty()) {
+    if (ui->wdgWorkspacePath->getField().isEmpty()) {
         _user->setWorkspacePath(
             QDir::homePath() + "/" +
             QStandardPaths::displayName(QStandardPaths::DocumentsLocation));
     } else {
-        _user->setWorkspacePath(ui->leWorkspacePath->text());
+        _user->setWorkspacePath(ui->wdgWorkspacePath->getField());
     }
 
     _user->commit();
@@ -102,19 +103,6 @@ void UserDataDialog::checkFields() {
             || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
                 && ui->leNoSiret->isValid()
        );
-}
-
-void UserDataDialog::browseWorkspacePath()
-{
-    QDir path;
-    QFileDialog fileWindow( this,
-                            "Espace de travail",
-                            ui->leWorkspaceName->text(),
-                            "*");
-    fileWindow.exec();
-    path = fileWindow.directory();
-
-    ui->leWorkspacePath->setText(path.absolutePath());
 }
 
 }

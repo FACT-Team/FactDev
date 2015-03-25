@@ -54,11 +54,6 @@ public slots:
      */
     void checkFields();
 
-    /**
-     * @brief UserDataDialog::browseWorkspacePath Open a new window to define
-     * the workspace path of the user
-     */
-    void browseWorkspacePath();
 
 private:
     User* _user;            //!< The user of this appication

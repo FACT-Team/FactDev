@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>437</height>
+    <height>458</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab1PersonalData">
       <attribute name="title">
@@ -302,28 +302,10 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QPushButton" name="btnBrowseWorkspace">
-            <property name="text">
-             <string>Parcourir</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../../icons.qrc">
-              <normaloff>:/icons/img/folder.png</normaloff>:/icons/img/folder.png</iconset>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0">
            <widget class="QLabel" name="lbWorkspacePath">
             <property name="text">
              <string>Chemin</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="leWorkspacePath">
-            <property name="placeholderText">
-             <string/>
             </property>
            </widget>
           </item>
@@ -333,6 +315,9 @@
              <string>FactDev</string>
             </property>
            </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="Gui::Widgets::Path::ChoseDirectoryWidget" name="wdgWorkspacePath" native="true"/>
           </item>
          </layout>
         </widget>
@@ -426,6 +411,12 @@
     <slot>fieldTextChanged(QString)</slot>
    </slots>
   </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::Path::ChoseDirectoryWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/path/chosedirectorywidget.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>leLastname</tabstop>
@@ -443,8 +434,6 @@
   <tabstop>btnCancel</tabstop>
   <tabstop>tabUserData</tabstop>
   <tabstop>leWorkspaceName</tabstop>
-  <tabstop>leWorkspacePath</tabstop>
-  <tabstop>btnBrowseWorkspace</tabstop>
  </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
@@ -479,22 +468,6 @@
     <hint type="destinationlabel">
      <x>389</x>
      <y>375</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnBrowseWorkspace</sender>
-   <signal>clicked()</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>browseWorkspacePath()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>405</x>
-     <y>121</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>467</x>
-     <y>121</y>
     </hint>
    </hints>
   </connection>
