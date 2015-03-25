@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>780</width>
-    <height>465</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>780</width>
-    <height>420</height>
+    <height>550</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>820</width>
-    <height>580</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -64,7 +64,7 @@
    <item row="0" column="2">
     <widget class="QStackedWidget" name="wdgStack">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -130,33 +130,10 @@
      </widget>
      <widget class="QWidget" name="page_2">
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
+       <item row="3" column="0">
         <widget class="QLabel" name="lbDbType">
          <property name="text">
           <string>Type de base de données</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="5">
-        <widget class="QLabel" name="lbDescriptionDbType">
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Une base de données &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;locale&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; est créer uniquement sur votre ordinateur. &lt;br/&gt;Elle accessible uniquement depuis ce poste. &lt;br/&gt;Si vous souhaitez pouvoir vous connecter depuis un autre ordinateur&lt;br/&gt;et accéder aux même données il est recommandé d'utiliser une base&lt;br/&gt;de données centralisée.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="5">
-        <widget class="Gui::Widgets::DatabaseSettingsWidget" name="wdgDbType" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>150</height>
-          </size>
          </property>
         </widget>
        </item>
@@ -174,34 +151,14 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="0" colspan="5">
-        <spacer name="verticalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Emplacement de pdflatex</string>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="1" colspan="4">
-        <widget class="QComboBox" name="cbDbType">
-         <item>
-          <property name="text">
-           <string>Locale</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Centralisée</string>
-          </property>
-         </item>
         </widget>
        </item>
-       <item row="5" column="0" colspan="5">
+       <item row="7" column="0" colspan="5">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <spacer name="horizontalSpacer">
@@ -224,6 +181,69 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item row="6" column="0" colspan="5">
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="5" column="0" colspan="5">
+        <widget class="Gui::Widgets::DatabaseSettingsWidget" name="wdgDbType" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>150</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="5">
+        <widget class="QLabel" name="lbDescriptionDbType">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Une base de données &lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;locale&lt;/span&gt;&lt;span style=&quot; font-style:italic;&quot;&gt; est créer uniquement sur votre ordinateur. &lt;br/&gt;Elle accessible uniquement depuis ce poste. &lt;br/&gt;Si vous souhaitez pouvoir vous connecter depuis un autre ordinateur&lt;br/&gt;et accéder aux même données il est recommandé d'utiliser une base&lt;br/&gt;de données centralisée.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="4">
+        <widget class="Gui::Widgets::Path::ChoseFileWidget" name="widget" native="true"/>
+       </item>
+       <item row="3" column="1" colspan="4">
+        <widget class="QComboBox" name="cbDbType">
+         <item>
+          <property name="text">
+           <string>Locale</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Centralisée</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="5">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;FactDev utilise le logiciel LaTeX afin de pouvoir générer des devis et des factures au format PDF.&lt;br/&gt;Si vous ne possédez pas LaTeX, veuillez l'installer avant de configurer le logiciel. &lt;br/&gt;LaTeX est fourni avec le programme pdflatex, c'est le chemin vers ce fichier que vous devez fournir&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -580,6 +600,12 @@
     <signal>textfieldChanged()</signal>
     <slot>updateNextButton()</slot>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::Path::ChoseFileWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/path/chosefilewidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>
