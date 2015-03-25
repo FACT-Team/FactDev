@@ -175,6 +175,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="btnNextTo3">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Suivant</string>
            </property>
@@ -219,7 +222,7 @@
         </widget>
        </item>
        <item row="1" column="1" colspan="4">
-        <widget class="Gui::Widgets::Path::ChoseFileWidget" name="widget" native="true"/>
+        <widget class="Gui::Widgets::Path::ChoseFileWidget" name="wdgPdflatex" native="true"/>
        </item>
        <item row="3" column="1" colspan="4">
         <widget class="QComboBox" name="cbDbType">
@@ -606,6 +609,9 @@
    <extends>QWidget</extends>
    <header>gui/widgets/path/chosefilewidget.h</header>
    <container>1</container>
+   <slots>
+    <signal>textChanged()</signal>
+   </slots>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -649,8 +655,8 @@
    <slot>nextToPage3()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>721</x>
-     <y>401</y>
+     <x>760</x>
+     <y>530</y>
     </hint>
     <hint type="destinationlabel">
      <x>728</x>
@@ -937,8 +943,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>736</x>
-     <y>319</y>
+     <x>761</x>
+     <y>318</y>
     </hint>
     <hint type="destinationlabel">
      <x>739</x>
@@ -953,12 +959,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>736</x>
-     <y>319</y>
+     <x>761</x>
+     <y>318</y>
     </hint>
     <hint type="destinationlabel">
-     <x>736</x>
-     <y>319</y>
+     <x>761</x>
+     <y>318</y>
     </hint>
    </hints>
   </connection>
@@ -969,8 +975,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>736</x>
-     <y>353</y>
+     <x>761</x>
+     <y>346</y>
     </hint>
     <hint type="destinationlabel">
      <x>739</x>
@@ -985,12 +991,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>736</x>
-     <y>353</y>
+     <x>761</x>
+     <y>346</y>
     </hint>
     <hint type="destinationlabel">
-     <x>736</x>
-     <y>353</y>
+     <x>761</x>
+     <y>346</y>
     </hint>
    </hints>
   </connection>
@@ -1001,8 +1007,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>736</x>
-     <y>387</y>
+     <x>761</x>
+     <y>374</y>
     </hint>
     <hint type="destinationlabel">
      <x>739</x>
@@ -1017,12 +1023,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>736</x>
-     <y>387</y>
+     <x>761</x>
+     <y>374</y>
     </hint>
     <hint type="destinationlabel">
-     <x>736</x>
-     <y>387</y>
+     <x>761</x>
+     <y>374</y>
     </hint>
    </hints>
   </connection>
@@ -1049,8 +1055,8 @@
    <slot>databaseTypeChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>652</x>
-     <y>75</y>
+     <x>761</x>
+     <y>244</y>
     </hint>
     <hint type="destinationlabel">
      <x>739</x>
@@ -1065,12 +1071,28 @@
    <slot>updateNextButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>517</x>
-     <y>271</y>
+     <x>761</x>
+     <y>511</y>
     </hint>
     <hint type="destinationlabel">
      <x>779</x>
      <y>360</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgPdflatex</sender>
+   <signal>textChanged()</signal>
+   <receiver>StartedWindowsDialog</receiver>
+   <slot>databaseTypeChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>670</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>817</x>
+     <y>74</y>
     </hint>
    </hints>
   </connection>
@@ -1085,5 +1107,6 @@
   <slot>databaseTypeChanged(int)</slot>
   <slot>editDatabaseSettings()</slot>
   <slot>updateNextButton()</slot>
+  <slot>databaseTypeChanged()</slot>
  </slots>
 </ui>

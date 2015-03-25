@@ -27,7 +27,7 @@ public:
     virtual QString getDefaultLocation();
 
 public slots:
-    virtual void fillField() = 0;
+    virtual void fillField();
     void updateBtn();
 
 signals:

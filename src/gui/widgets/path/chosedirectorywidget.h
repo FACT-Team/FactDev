@@ -12,7 +12,7 @@ class ChoseDirectoryWidget : public ChosePathWidget
     Q_OBJECT
 
 public:
-    ChoseDirectoryWidget(QWidget *parent);
+    explicit ChoseDirectoryWidget(QWidget *parent=0);
 
 public slots:
     void fillField();

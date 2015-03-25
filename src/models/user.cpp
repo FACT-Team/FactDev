@@ -100,7 +100,7 @@ void User::hydrat(int id)
     setNoSiret(             user->getNoSiret());
     setWorkspaceName(       user->getWorkspaceName());
     setWorkspacePath(       user->getWorkspacePath());
-
+    setPdflatexPath( user->getPdflatexPath());
     if (getWorkspaceName().isEmpty()) {
         setWorkspaceName("FactDev");
         toCommit =  true;
@@ -173,4 +173,14 @@ bool User::operator !=(const User &u)
             || getNoSiret() == u.getNoSiret()
             ||  getTitle() == u.getTitle();
 }
+QString User::getPdflatexPath() const
+{
+    return _pdflatexPath;
+}
+
+void User::setPdflatexPath(const QString &pdflatexPath)
+{
+    _pdflatexPath = pdflatexPath;
+}
+
 }

@@ -137,11 +137,15 @@ public:
      */
     bool operator !=(const User &u);
 
+    QString getPdflatexPath() const;
+    void setPdflatexPath(const QString &getPdflatexPath);
+
 private:
     QString _title;         //!< User/Company description on it activity
     QString _noSiret;       //!< SIRET number (company registration number)
     QString _workspaceName; //!< Workspace name
     QString _workspacePath; //!< Workspace directory path
+    QString _pdflatexPath; //!< Path to pdflatex command
 };
 }
 #endif // USER_H

@@ -22,6 +22,7 @@ void ChosePathWidget::updateBtn()
 
 void ChosePathWidget::setField(QString text) {
     ui->url->setText(text);
+    emit textChanged();
 }
 
 QString ChosePathWidget::getField(void) {
@@ -31,6 +32,11 @@ QString ChosePathWidget::getField(void) {
 QString ChosePathWidget::getDefaultLocation()
 {
     return QDir::homePath();
+}
+
+void ChosePathWidget::fillField()
+{
+    emit textChanged();
 }
 
 }

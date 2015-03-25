@@ -81,7 +81,8 @@ CREATE TABLE User
     phone VARCHAR(16),
     noSiret VARCHAR(16),
     workspaceName VARCHAR(64),
-    workspacePath TEXT
+    workspacePath TEXT,
+    pdflatexcommand VARCHAR(256)
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC, lastnameReferent);
