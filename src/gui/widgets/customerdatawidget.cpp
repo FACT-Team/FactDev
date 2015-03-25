@@ -32,7 +32,8 @@ void CustomerDataWidget::printUserData()
     setLabel(ui->lbAddress, user->getAddress());
     setLabel(ui->lbPostalCodeCityCountry,user->getPostalCode()
              + " " + user->getCity());
-
+    setLabel(ui->website, "<a href=\""+user->getWebsite()+"\">"+user->getWebsite()+"</a>");
+    setLabel(ui->complement, user->getAddressComplement());
 }
 
 void CustomerDataWidget::printInformations(int id)
@@ -49,6 +50,8 @@ void CustomerDataWidget::printInformations(int id)
     setLabel(ui->lbPostalCodeCityCountry,custom->getPostalCode()
              + " " + custom->getCity());
     setLabel(ui->lbFax, custom->getFax(), ui->lbTitleFax);
+    setLabel(ui->website, "<a href=\""+custom->getWebsite()+"\">"+custom->getWebsite()+"</a>");
+    setLabel(ui->complement, custom->getAddressComplement());
 
 }
 

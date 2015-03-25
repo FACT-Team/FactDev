@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>245</width>
+    <width>250</width>
     <height>228</height>
    </rect>
   </property>
@@ -20,24 +20,35 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="1">
-    <widget class="QLabel" name="lbPhone">
-     <property name="text">
-      <string>Phone +33674801256</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QLabel" name="lbFax">
-     <property name="text">
-      <string>Fax +33674801256</string>
-     </property>
-    </widget>
-   </item>
    <item row="4" column="1">
     <widget class="QLabel" name="lbMobilePhone">
      <property name="text">
       <string>Mobile Phone +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0" colspan="2">
+    <widget class="QLabel" name="lbAddress">
+     <property name="text">
+      <string>1 rue du trou du cul </string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="lbCompany">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: url(:/icons/customer24) 100% 100% no-repeat;
+background-position:left;
+font-weight: bold;</string>
+     </property>
+     <property name="text">
+      <string>&lt;b&gt;Organisation A&lt;/b&gt;</string>
      </property>
     </widget>
    </item>
@@ -60,16 +71,31 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="lbTitleMobile">
-     <property name="maximumSize">
-      <size>
-       <width>50</width>
-       <height>16777215</height>
-      </size>
-     </property>
+   <item row="3" column="1">
+    <widget class="QLabel" name="lbPhone">
      <property name="text">
-      <string>Mobile</string>
+      <string>Phone +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLabel" name="lbFax">
+     <property name="text">
+      <string>Fax +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="0" colspan="2">
+    <widget class="QLabel" name="lbPostalCodeCityCountry">
+     <property name="text">
+      <string>12345 MACHINCHOSE</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="lbName">
+     <property name="text">
+      <string>Monsieur a A</string>
      </property>
     </widget>
    </item>
@@ -86,31 +112,6 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QLabel" name="lbName">
-     <property name="text">
-      <string>Monsieur a A</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="lbCompany">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: url(:/icons/customer24) 100% 100% no-repeat;
-background-position:left;
-font-weight: bold;</string>
-     </property>
-     <property name="text">
-      <string>&lt;b&gt;Organisation A&lt;/b&gt;</string>
-     </property>
-    </widget>
-   </item>
    <item row="6" column="0" colspan="2">
     <widget class="QLabel" name="lbEmail">
      <property name="text">
@@ -118,17 +119,30 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="0" colspan="2">
-    <widget class="QLabel" name="lbAddress">
+   <item row="9" column="0" colspan="2">
+    <widget class="QLabel" name="complement">
      <property name="text">
-      <string>1 rue du trou du cul </string>
+      <string>TextLabel</string>
      </property>
     </widget>
    </item>
-   <item row="8" column="0" colspan="2">
-    <widget class="QLabel" name="lbPostalCodeCityCountry">
+   <item row="4" column="0">
+    <widget class="QLabel" name="lbTitleMobile">
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <property name="text">
-      <string>12345 MACHINCHOSE</string>
+      <string>Mobile</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="website">
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </item>
