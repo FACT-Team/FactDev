@@ -204,7 +204,7 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
     q.bindValue(":fax", pCustomer.getFax());
-    q.bindValue(":isArchived",pCustomer.isArchived());
+    q.bindValue(":isArchived", pCustomer.isArchived());
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
@@ -232,6 +232,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
 
     if(q.first()) {
         customer = getCustomer(q);
+        qDebug() << customer->getId();
     }
 
     return customer;
@@ -247,7 +248,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
                 "postalCode, city, country, email, mobilePhone, phone, fax, isArchived)"
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax,:isArchived)"
+                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax, :isArchived)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
@@ -261,7 +262,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
-    q.bindValue(":isArchived",pCustomer.isArchived());
+    q.bindValue(":isArchived", pCustomer.isArchived());
 
     if(!q.exec()) {
         throw new DbException(

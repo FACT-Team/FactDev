@@ -348,6 +348,20 @@ void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
 }
 
+void MainWindow::archiveCustomer()
+{
+    if (QMessageBox::warning(this,"Archivage d'un client",
+                             "Voulez vous archiver le client ?",
+                             "Archiver",
+                             "Annuler") == 0) {
+        Customer c(getCurrentCustomerId());
+        c.setIsArchived(true);
+        c.commit();
+        updateTableCustomers();
+        updateTree();
+    }
+}
+
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
 }

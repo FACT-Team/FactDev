@@ -149,6 +149,11 @@ public slots:
      */
     void removeCustomer();
     /**
+     * @brief MainWindow::archiveCustomer open a pop-up to confirm the
+     * archiving of the customer, if ok archive the customer
+     */
+    void archiveCustomer();
+    /**
      * @brief MainWindow::addQuote open window to add a new quote
      * @see AddQuoteDialog
      */
