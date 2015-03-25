@@ -323,7 +323,7 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="Gui::Widgets::CheckFields::CheckIpAddress" name="leWebsite">
+    <widget class="Gui::Widgets::CheckFields::CheckWebsite" name="leWebsite">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -410,12 +410,9 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckIpAddress</class>
+   <class>Gui::Widgets::CheckFields::CheckWebsite</class>
    <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkipaddress.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
+   <header>gui/widgets/checkfields/checkwebsite.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

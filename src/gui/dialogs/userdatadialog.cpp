@@ -105,7 +105,7 @@ void UserDataDialog::checkFields() {
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
             || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
             || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
-                && ui->leNoSiret->isValid()
+                && ui->leNoSiret->isValid() && ui->leWebsite->isValid()
        );
 }
 

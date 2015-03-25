@@ -191,14 +191,6 @@
            </widget>
           </item>
          </layout>
-         <zorder>leAddressComplement</zorder>
-         <zorder>lbCity</zorder>
-         <zorder>lbAddress</zorder>
-         <zorder>lePostalCode</zorder>
-         <zorder>leAddress</zorder>
-         <zorder>leCity</zorder>
-         <zorder>lbPostalCode</zorder>
-         <zorder>label_2</zorder>
         </widget>
        </item>
        <item row="1" column="0">
@@ -298,7 +290,7 @@
         </widget>
        </item>
        <item row="9" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckIpAddress" name="leWebsite">
+        <widget class="Gui::Widgets::CheckFields::CheckWebsite" name="leWebsite">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -471,12 +463,9 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::CheckFields::CheckIpAddress</class>
+   <class>Gui::Widgets::CheckFields::CheckWebsite</class>
    <extends>QLineEdit</extends>
-   <header>gui/widgets/checkfields/checkipaddress.h</header>
-   <slots>
-    <slot>fieldTextChanged(QString)</slot>
-   </slots>
+   <header>gui/widgets/checkfields/checkwebsite.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -906,15 +895,15 @@
    <sender>leWebsite</sender>
    <signal>textChanged(QString)</signal>
    <receiver>UserDataDialog</receiver>
-   <slot>fieldTextChanged(QString)</slot>
+   <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>152</x>
-     <y>348</y>
+     <x>116</x>
+     <y>356</y>
     </hint>
     <hint type="destinationlabel">
-     <x>569</x>
-     <y>375</y>
+     <x>639</x>
+     <y>356</y>
     </hint>
    </hints>
   </connection>
@@ -925,12 +914,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>117</x>
-     <y>354</y>
+     <x>158</x>
+     <y>346</y>
     </hint>
     <hint type="destinationlabel">
-     <x>136</x>
-     <y>352</y>
+     <x>214</x>
+     <y>349</y>
     </hint>
    </hints>
   </connection>

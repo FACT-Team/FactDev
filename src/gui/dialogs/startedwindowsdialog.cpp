@@ -117,7 +117,8 @@ void StartedWindowsDialog::accept() {
     _user->setPhone(ui->lePhone->text());
     _user->setMobilePhone(ui->leMobile->text());
     _user->setNoSiret(ui->leNoSiret->text());
-
+    _user->setWebsite(ui->leWebsite->text());
+    _user->setAddressComplement(ui->leComplement->text());
     _user->commit();
 
     QDialog::accept();
@@ -143,7 +144,7 @@ void StartedWindowsDialog::checkFields() {
             || (ui->lePhone->text().isEmpty() && ui->leMobile->isValid())
             || (ui->lePhone->isValid() && ui->leMobile->text().isEmpty()) )
         && ui->leNoSiret->isValid()
-        && isDatabaseTypeValid()
+        && isDatabaseTypeValid() && ui->leWebsite->isValid()
         );
 }
 

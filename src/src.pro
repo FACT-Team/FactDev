@@ -94,7 +94,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/dialogs/computeturnoverdialog.cpp\
     database/accessdatabase.cpp \
     models/statistics.cpp \
-    gui/widgets/delegates/textareadelegate.cpp
+    gui/widgets/delegates/textareadelegate.cpp \
+    gui/widgets/checkfields/checkwebsite.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -204,7 +205,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/dialogs/computeturnoverdialog.h \
     database/accessdatabase.h \
     models/statistics.h \
-    gui/widgets/delegates/textareadelegate.h
+    gui/widgets/delegates/textareadelegate.h \
+    gui/widgets/checkfields/checkwebsite.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
