@@ -147,7 +147,7 @@ public:
      * @brief setAddressComplement Change the address complement
      * @param addressComplement The new complement
      */
-    void getAddressComplement(const QString &addressComplement);
+    void setAddressComplement(const QString &addressComplement);
 
     /**
      * @brief getWebsite Website of People

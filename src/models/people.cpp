@@ -141,7 +141,7 @@ QString People::getAddressComplement() const
     return _addressComplement;
 }
 
-void People::getAddressComplement(const QString &complementAddress)
+void People::setAddressComplement(const QString &complementAddress)
 {
     _addressComplement = complementAddress;
 }

@@ -43,6 +43,8 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
+    setWebsite(             customer->getWebsite());
+    setAddressComplement(   customer->getAddressComplement());
 }
 
 void Customer::remove()

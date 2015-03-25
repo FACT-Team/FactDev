@@ -35,6 +35,9 @@ void UserDataDialog::fillFields() {
     ui->lePhone->setText(_user->getPhone());
     ui->leMobilePhone->setText(_user->getMobilePhone());
     ui->leNoSiret->setText(_user->getNoSiret());
+    ui->leWebsite->setText(_user->getWebsite());
+    ui->leAddressComplement->setText(_user->getAddressComplement());
+
     if (ui->leWorkspaceName->text().isEmpty()) {
         _user->setWorkspaceName("FactDev");
         ui->leWorkspaceName->setText(_user->getWorkspaceName());
@@ -64,6 +67,8 @@ void UserDataDialog::accept() {
     _user->setPhone(ui->lePhone->text());
     _user->setMobilePhone(ui->leMobilePhone->text());
     _user->setNoSiret(ui->leNoSiret->text());
+    _user->setWebsite(ui->leWebsite->text());
+    _user->setAddressComplement(ui->leAddressComplement->text());
 
     if (ui->leWorkspaceName->text().isEmpty()) {
         _user->setWorkspaceName("FactDev");
