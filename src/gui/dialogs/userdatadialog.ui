@@ -289,12 +289,34 @@
        <string>Environnement de travail</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_4">
+       <item row="1" column="1">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>LaTeX</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0" rowspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Chemin vers pdflatex</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="2" colspan="2">
+           <widget class="Gui::Widgets::Path::ChoseFileWidget" name="wdgPdflatex" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="0" column="1">
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
           <string>Répertoire</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <item row="1" column="1" colspan="2">
+           <widget class="Gui::Widgets::Path::ChoseDirectoryWidget" name="wdgWorkspacePath" native="true"/>
+          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="lbWorkspaceName">
             <property name="text">
@@ -316,13 +338,10 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1" colspan="2">
-           <widget class="Gui::Widgets::Path::ChoseDirectoryWidget" name="wdgWorkspacePath" native="true"/>
-          </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="3" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -334,6 +353,16 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;FactDev utilise le logiciel LaTeX afin de pouvoir générer des devis et des factures au format PDF.&lt;br/&gt;Si vous ne possédez pas LaTeX, veuillez l'installer avant de configurer le logiciel. &lt;br/&gt;LaTeX est fourni avec le programme pdflatex, c'est le chemin vers ce fichier que vous devez fournir&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -412,6 +441,15 @@
    </slots>
   </customwidget>
   <customwidget>
+   <class>Gui::Widgets::Path::ChoseFileWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/path/chosefilewidget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>textChanged()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>Gui::Widgets::Path::ChoseDirectoryWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/path/chosedirectorywidget.h</header>
@@ -446,8 +484,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>334</x>
-     <y>471</y>
+     <x>347</x>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
@@ -462,8 +500,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>445</x>
-     <y>471</y>
+     <x>450</x>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
      <x>389</x>
@@ -498,8 +536,8 @@
      <y>57</y>
     </hint>
     <hint type="destinationlabel">
-     <x>414</x>
-     <y>52</y>
+     <x>447</x>
+     <y>76</y>
     </hint>
    </hints>
   </connection>
@@ -574,8 +612,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>431</x>
-     <y>141</y>
+     <x>447</x>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>404</x>
@@ -590,8 +628,8 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>412</x>
-     <y>140</y>
+     <x>447</x>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>422</x>
@@ -606,8 +644,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>168</x>
-     <y>196</y>
+     <x>283</x>
+     <y>221</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -658,8 +696,8 @@
      <y>239</y>
     </hint>
     <hint type="destinationlabel">
-     <x>250</x>
-     <y>227</y>
+     <x>260</x>
+     <y>252</y>
     </hint>
    </hints>
   </connection>
@@ -702,8 +740,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>297</y>
+     <x>447</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -718,8 +756,8 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>271</x>
-     <y>297</y>
+     <x>315</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>253</x>
@@ -734,8 +772,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>328</y>
+     <x>447</x>
+     <y>323</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -750,12 +788,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>328</y>
+     <x>447</x>
+     <y>323</y>
     </hint>
     <hint type="destinationlabel">
-     <x>432</x>
-     <y>328</y>
+     <x>447</x>
+     <y>323</y>
     </hint>
    </hints>
   </connection>
@@ -766,8 +804,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>359</y>
+     <x>447</x>
+     <y>353</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -782,12 +820,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>336</x>
-     <y>359</y>
+     <x>380</x>
+     <y>353</y>
     </hint>
     <hint type="destinationlabel">
-     <x>358</x>
-     <y>359</y>
+     <x>402</x>
+     <y>353</y>
     </hint>
    </hints>
   </connection>
@@ -798,8 +836,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>390</y>
+     <x>447</x>
+     <y>383</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -814,12 +852,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>390</y>
+     <x>447</x>
+     <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>260</x>
-     <y>390</y>
+     <x>304</x>
+     <y>383</y>
     </hint>
    </hints>
   </connection>
