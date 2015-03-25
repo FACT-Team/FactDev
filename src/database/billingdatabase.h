@@ -147,12 +147,11 @@ public:
     QList<Billing> getBillings(const int projectId);
 
     /**
-     * @brief BillingDatabase::getAllBillingsOnly get all billings which aren't
-     * quotes for the project <i>p</i>
-     * @param p
-     * @return the list of <b>Billing</b>
+     * @brief BillingDatabase::getBillsPaid get the bills paid for a project
+     * @param idProject
+     * @return the list of <b>bills</b>
      */
-    QList<Billing> getAllBillingsOnly(const int idProject);
+    QList<Billing> getBillsPaid(const int idProject);
 
     /**
      * @brief BillingDatabase::getBillingsBetweenDates get billings in the list

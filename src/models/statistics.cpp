@@ -16,7 +16,7 @@ QPair<int, double>  Statistics::getTurnoverBetweenDates(QDate begin, QDate end)
     QList<Billing> billsBetweenDates = BillingDatabase::instance()->getBillingsBetweenDates(begin, end);
 
     for (Project *p : projects) {
-        bills = BillingDatabase::instance()->getAllBillingsOnly(p->getId());
+        bills = BillingDatabase::instance()->getBillsPaid(p->getId());
         for (Billing b  : billsBetweenDates) {
             ContributoriesList cl = ContributoryDatabase::instance()->getContributoriesByBillingAndProject(b.getId(),
                                                                                                            p->getId());

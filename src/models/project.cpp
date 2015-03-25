@@ -158,7 +158,7 @@ double Project::getCost()
 {
     double ret(0.0);
     QList<Billing> bills =
-            Databases::BillingDatabase::instance()->getBillings(_id);
+            Databases::BillingDatabase::instance()->getBillsPaid(_id);
     for (Billing bill : bills) {
         ContributoriesList cl =
                 Databases::ContributoryDatabase::instance()

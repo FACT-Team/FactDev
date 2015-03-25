@@ -388,8 +388,8 @@ QList<Billing> BillingDatabase::getBillings(const int projectId)
 
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible de récupérer les Factures",
-                    "BddCustomer::getBillings",
+                    "Impossible de récupérer les Factures du projet",
+                    "BillingDatabase::getBillings",
                     lastError(q),
                     1.3);
     }
@@ -400,7 +400,7 @@ QList<Billing> BillingDatabase::getBillings(const int projectId)
     return bills;
 }
 
-QList<Billing> BillingDatabase::getAllBillingsOnly(const int idProject)
+QList<Billing> BillingDatabase::getBillsPaid(const int idProject)
 {
     QList<Billing> bills;
     QSqlQuery q;
@@ -408,7 +408,7 @@ QList<Billing> BillingDatabase::getAllBillingsOnly(const int idProject)
              "SELECT DISTINCT b.idBilling, title, description, number, "
              "isBilling, date, isPaid "
              "FROM Billing b, BillingProject bp "
-             "WHERE idProject=:idProject "
+             "WHERE idProject = :idProject "
              "AND b.idBilling = bp.idBilling "
              "AND isPaid = 1 "
              "AND isBilling = 1 "
@@ -419,8 +419,8 @@ QList<Billing> BillingDatabase::getAllBillingsOnly(const int idProject)
 
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible de récupérer les Factures",
-                    "BddCustomer::getBillings",
+                    "Impossible de récupérer les Factures payées du projet",
+                    "BillingDatabase::getBillingsPaid",
                     lastError(q),
                     1.3);
     }
@@ -467,11 +467,12 @@ int BillingDatabase::getNbBills()
 {
     int count = -1;
     QSqlQuery q;
-    q.prepare("select count(*) from Billing where isBilling == 1");
+    q.prepare("SELECT DISTINCT count(*) "
+              "FROM Billing WHERE isBilling = 1");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Factures",
-                    "BddCustomer::getNbBills",
+                    "BillingDatabase::getNbBills",
                     lastError(q),
                     1.3);
     }
@@ -485,7 +486,7 @@ int BillingDatabase::getNbBillsPaid()
 {
     int count = -1;
     QSqlQuery q;
-    q.prepare("select count(*) from Billing where isBilling == 1 and isPaid == 1");
+    q.prepare("select count(*) from Billing where isBilling = 1 and isPaid = 1");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Factures",
