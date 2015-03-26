@@ -72,9 +72,6 @@
             {{#mobilePhone}}
             \Mobilefone~{{ mobilePhone }}\\
             {{/mobilePhone}}
-            {{#fax}}
-            \Faxmachine~{{ fax }}\\
-            {{/fax}}
             \Letter\texttt{%
             {{ email }}
             }
