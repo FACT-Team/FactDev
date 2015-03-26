@@ -68,6 +68,7 @@ QVariantHash Customer::getDataMap()
     data["website"]     = getWebsite();
     data["hasWebsite"] = !getWebsite().isEmpty();
     data["complement"]     = getAddressComplement();
+    data["hasComplement"] = !getAddressComplement().isEmpty();
 
     return data;
 }

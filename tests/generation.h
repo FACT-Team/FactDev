@@ -20,6 +20,6 @@ private slots:
     void GenerationBillingPdf();
 };
 
-//DECLARE_TEST(Generation)
+DECLARE_TEST(Generation)
 
 #endif // GENERATION_H

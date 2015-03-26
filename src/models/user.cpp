@@ -43,6 +43,7 @@ QVariantHash User::getDataMap()
     data["website"]     = getWebsite();
     data["complement"]     = getAddressComplement();
     data["hasWebsite"] = !getWebsite().isEmpty();
+    data["hasComplement"] = !getAddressComplement().isEmpty();
 
     return data;
 }

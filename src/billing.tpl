@@ -66,8 +66,10 @@
     %
     \small
     {{ address }}\\
+    {{#hasComplement}}
     {{ complement }}\\
-    {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
+    {{/hasComplement}}
+   {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
     \Telefon~{{ phone }}\\
     \Letter\texttt{%
     {{ email }}
@@ -90,6 +92,11 @@
     ~\\{{company}}\\[.35ex]
     \small
     {{address}}\\
+%
+    {{#hasComplement}}
+    {{complement}}\\
+    {{/hasComplement}}
+%
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
     \Telefon~{{ phone }}\\
     \Letter\texttt{ {{ email }} }
