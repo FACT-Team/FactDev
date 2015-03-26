@@ -67,7 +67,6 @@ QVariantHash Billing::getDataMap()
     billing["title"] = _title;
     billing["description"] = _description;
     billing["date"] = _date.toString("dddd d MMMM yyyy");
-    //billing["paid"] = _isPaid ? "Payée" : "";
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
     data["billing"] = billing;//

@@ -11,7 +11,9 @@ CREATE TABLE Customer
     email VARCHAR(64),
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
-    fax VARCHAR(16)
+    fax VARCHAR(16),
+    complementAddress VARCHAR(128),
+    website VARCHAR(128)
 );
 
 CREATE TABLE Project
@@ -82,7 +84,9 @@ CREATE TABLE User
     noSiret VARCHAR(16),
     workspaceName VARCHAR(64),
     workspacePath TEXT,
-    pdflatexcommand VARCHAR(256)
+    pdflatexcommand VARCHAR(256),
+    complementAddress VARCHAR(128),
+    website VARCHAR(128)
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC, lastnameReferent);

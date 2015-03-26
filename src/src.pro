@@ -97,7 +97,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/delegates/textareadelegate.cpp \
     gui/widgets/path/chosefilewidget.cpp \
     gui/widgets/path/chosedirectorywidget.cpp \
-    gui/widgets/path/chosepathwidget.cpp
+    gui/widgets/path/chosepathwidget.cpp\
+    gui/widgets/checkfields/checkwebsite.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -210,7 +211,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/delegates/textareadelegate.h \
     gui/widgets/path/chosefilewidget.h \
     gui/widgets/path/chosedirectorywidget.h \
-    gui/widgets/path/chosepathwidget.h
+    gui/widgets/path/chosepathwidget.h\
+    gui/widgets/checkfields/checkwebsite.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -246,10 +248,4 @@ OTHER_FILES += \
         sql/tests/projects.sql \
         sql/tests/removeuselessdata.sql \
         main.dox \
-
-DISTFILES += \
-    sql/tests/removeuselessdata.sql \
-    sql/tests/billingrate.sql \
-    sql/removetables.sql \
-    billing.tpl
-
+        billing.tpl

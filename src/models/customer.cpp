@@ -43,6 +43,8 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
+    setWebsite(             customer->getWebsite());
+    setAddressComplement(   customer->getAddressComplement());
 }
 
 void Customer::remove()
@@ -63,6 +65,14 @@ QVariantHash Customer::getDataMap()
     data["mobilephone"] = getMobilePhone();
     data["phone"]       = getPhone();
     data["fax"]         = getFax();
+
+    if(!getWebsite().isEmpty()) {
+        data["website"]     = getWebsite();
+    }
+
+    if(!getAddressComplement().isEmpty()) {
+        data["complement"]     = getAddressComplement();
+    }
 
     return data;
 }

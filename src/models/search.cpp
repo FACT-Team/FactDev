@@ -127,7 +127,7 @@ void Search::filterOnCustomersWithoutProject(
         "SELECT DISTINCT c.idCustomer as cidcustomer, "
         "c.firstnameReferent as cfirstnameReferent, "
         "UPPER(c.lastnameReferent) as clastnameReferent, "
-        "c.company as ccompany, "
+        "c.company as ccompany, c.complementAddress as ccomplement, c.website as cwebsite, "
         "c.address as caddress, c.postalCode as cpostalcode, "
         "c.city as ccity, c.country as ccountry, c.email as cemail, "
         "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "

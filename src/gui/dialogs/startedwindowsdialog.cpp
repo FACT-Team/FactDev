@@ -39,7 +39,6 @@ void StartedWindowsDialog::nextToPage3()
 }
 void StartedWindowsDialog::databaseTypeChanged(void) {
     databaseTypeChanged(ui->cbDbType->currentIndex());
-    qDebug() << "coucou";
 }
 
 void StartedWindowsDialog::databaseTypeChanged(const int index)
@@ -122,6 +121,8 @@ void StartedWindowsDialog::accept() {
     _user->setMobilePhone(ui->leMobile->text());
     _user->setNoSiret(ui->leNoSiret->text());
     _user->setPdflatexPath(ui->wdgPdflatex->getField());
+    _user->setWebsite(ui->leWebsite->text());
+    _user->setAddressComplement(ui->leComplement->text());
     _user->commit();
 
     QDialog::accept();
@@ -148,6 +149,8 @@ void StartedWindowsDialog::checkFields() {
             || (ui->lePhone->isValid() && ui->leMobile->text().isEmpty()) )
         && ui->leNoSiret->isValid() && !ui->wdgPdflatex->getField().isEmpty()
         && isDatabaseTypeValid()
+        && ui->leNoSiret->isValid()
+        && isDatabaseTypeValid() && ui->leWebsite->isValid()
         );
 }
 

@@ -50,6 +50,8 @@ Models::User *UserDatabase::getUser(const int pId)
         user->setWorkspaceName(value(q,"workspaceName").toString());
         user->setWorkspacePath(value(q,"workspacePath").toString());
         user->setPdflatexPath(value(q, "pdflatexcommand").toString());
+        user->setAddressComplement(value(q,"complementAddress").toString());
+        user->setWebsite(value(q,"website").toString());
     } else {
         user = NULL;
     }
@@ -65,7 +67,8 @@ void UserDatabase::updateUser(const Models::User& pUser) {
                 "title = :title, address = :address, postalCode = :postalCode, "
                 "city = :city, email = :email, mobilePhone = :mobilePhone, "
                 "phone = :phone, noSiret = :noSiret, "
-                "workspaceName = :workspaceName, workspacePath = :workspacePath, pdflatexcommand=:pdflatex "
+                "workspaceName = :workspaceName, workspacePath = :workspacePath, pdflatexcommand=:pdflatex, "
+                "complementAddress=:complementAddress, website=:website "
                 "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
@@ -84,6 +87,9 @@ void UserDatabase::updateUser(const Models::User& pUser) {
     q.bindValue(":workspaceName", pUser.getWorkspaceName());
     q.bindValue(":workspacePath", pUser.getWorkspacePath());
     q.bindValue(":pdflatex", pUser.getPdflatexPath());
+    q.bindValue(":complementAddress", pUser.getAddressComplement());
+    q.bindValue(":website", pUser.getWebsite());
+
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'éditer les informations du User",

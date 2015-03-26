@@ -40,6 +40,13 @@ QVariantHash User::getDataMap()
     data["city"]        = getCity();
     data["phone"]       = getPhone();
     data["email"]       = getEmail();
+    if(!getWebsite().isEmpty()) {
+        data["website"]     = getWebsite();
+    }
+
+    if(!getAddressComplement().isEmpty()) {
+        data["complement"]     = getAddressComplement();
+    }
 
     return data;
 }
@@ -101,6 +108,9 @@ void User::hydrat(int id)
     setWorkspaceName(       user->getWorkspaceName());
     setWorkspacePath(       user->getWorkspacePath());
     setPdflatexPath( user->getPdflatexPath());
+    setWebsite(             user->getWebsite());
+    setAddressComplement(   user->getAddressComplement());
+
     if (getWorkspaceName().isEmpty()) {
         setWorkspaceName("FactDev");
         toCommit =  true;

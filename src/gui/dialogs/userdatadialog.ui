@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>468</width>
-    <height>458</height>
+    <height>527</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,161 +62,22 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab1PersonalData">
       <attribute name="title">
        <string>Données personnelles</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QLabel" name="lbLastname">
-         <property name="text">
-          <string>Nom</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="0">
-        <widget class="QLabel" name="lbMobilePhone">
-         <property name="text">
-          <string>Tél. mobile</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0">
+       <item row="13" column="0">
         <widget class="QLabel" name="lbNoSiret">
          <property name="text">
           <string>N° Siret</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0" colspan="2">
-        <widget class="QGroupBox" name="groupBox">
-         <property name="title">
-          <string>Adresse</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="2">
-           <widget class="QLabel" name="lbCity">
-            <property name="text">
-             <string>Ville</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="lbAddress">
-            <property name="text">
-             <string>N°, Rue</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>24</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" colspan="3">
-           <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>24</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>24</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="lbPostalCode">
-            <property name="text">
-             <string>Code Postal</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="lbEmail">
-         <property name="text">
-          <string>Email</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="lbPhone">
-         <property name="text">
-          <string>Tél. fixe</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="lbCompany">
-         <property name="text">
-          <string>Société</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="lbTitle">
-         <property name="text">
-          <string>Activité</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="lbFirstname">
-         <property name="text">
-          <string>Prénom</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>24</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>24</height>
-          </size>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="1">
         <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leCompany">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>24</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -235,18 +96,8 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>24</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
+       <item row="6" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -256,7 +107,190 @@
         </widget>
        </item>
        <item row="11" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Adresse</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="2" column="2">
+           <widget class="QLabel" name="lbCity">
+            <property name="text">
+             <string>Ville</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="3">
+           <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leAddress">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbPostalCode">
+            <property name="text">
+             <string>Code Postal</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbAddress">
+            <property name="text">
+             <string>N°, Rue</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Complément</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QLineEdit" name="leAddressComplement">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>24</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="lbFirstname">
+         <property name="text">
+          <string>Prénom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lbLastname">
+         <property name="text">
+          <string>Nom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="lbTitle">
+         <property name="text">
+          <string>Activité</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lbCompany">
+         <property name="text">
+          <string>Société</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="lbPhone">
+         <property name="text">
+          <string>Tél. fixe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="lbEmail">
+         <property name="text">
+          <string>Email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leFirstname">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="lbMobilePhone">
+         <property name="text">
+          <string>Tél. mobile</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
         <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckFieldsLetters" name="leLastname">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Site Web</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="Gui::Widgets::CheckFields::CheckWebsite" name="leWebsite">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -283,6 +317,8 @@
       <zorder>lePhone</zorder>
       <zorder>leMobilePhone</zorder>
       <zorder>leNoSiret</zorder>
+      <zorder>label</zorder>
+      <zorder>leWebsite</zorder>
      </widget>
      <widget class="QWidget" name="tab2Workspace">
       <attribute name="title">
@@ -450,10 +486,19 @@
    </slots>
   </customwidget>
   <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckWebsite</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkwebsite.h</header>
+   <container>1</container>
+   <slots>
+    <signal>textChanged()</signal>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>Gui::Widgets::Path::ChoseDirectoryWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/path/chosedirectorywidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -462,16 +507,18 @@
   <tabstop>leCompany</tabstop>
   <tabstop>leTitle</tabstop>
   <tabstop>leAddress</tabstop>
+  <tabstop>leAddressComplement</tabstop>
   <tabstop>lePostalCode</tabstop>
   <tabstop>leCity</tabstop>
   <tabstop>leEmail</tabstop>
+  <tabstop>leWebsite</tabstop>
   <tabstop>lePhone</tabstop>
   <tabstop>leMobilePhone</tabstop>
   <tabstop>leNoSiret</tabstop>
   <tabstop>btnValid</tabstop>
   <tabstop>btnCancel</tabstop>
-  <tabstop>tabUserData</tabstop>
   <tabstop>leWorkspaceName</tabstop>
+  <tabstop>tabUserData</tabstop>
  </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
@@ -485,7 +532,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>347</x>
-     <y>440</y>
+     <y>509</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
@@ -501,7 +548,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>450</x>
-     <y>440</y>
+     <y>509</y>
     </hint>
     <hint type="destinationlabel">
      <x>389</x>
@@ -537,7 +584,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>447</x>
-     <y>76</y>
+     <y>67</y>
     </hint>
    </hints>
   </connection>
@@ -613,7 +660,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>166</y>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>404</x>
@@ -629,7 +676,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>166</y>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>422</x>
@@ -644,8 +691,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>283</x>
-     <y>221</y>
+     <x>390</x>
+     <y>216</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -676,8 +723,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>246</x>
-     <y>243</y>
+     <x>257</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -692,12 +739,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>238</x>
-     <y>239</y>
+     <x>257</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>260</x>
-     <y>252</y>
+     <x>257</x>
+     <y>276</y>
     </hint>
    </hints>
   </connection>
@@ -708,8 +755,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>412</x>
-     <y>234</y>
+     <x>435</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -724,12 +771,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>350</x>
-     <y>230</y>
+     <x>435</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>372</x>
-     <y>233</y>
+     <x>435</x>
+     <y>276</y>
     </hint>
    </hints>
   </connection>
@@ -741,7 +788,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>293</y>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -756,12 +803,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>315</x>
-     <y>293</y>
+     <x>353</x>
+     <y>320</y>
     </hint>
     <hint type="destinationlabel">
-     <x>253</x>
-     <y>280</y>
+     <x>335</x>
+     <y>320</y>
     </hint>
    </hints>
   </connection>
@@ -773,7 +820,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>323</y>
+     <y>380</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -789,11 +836,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>323</y>
+     <y>380</y>
     </hint>
     <hint type="destinationlabel">
      <x>447</x>
-     <y>323</y>
+     <y>380</y>
     </hint>
    </hints>
   </connection>
@@ -805,7 +852,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>353</y>
+     <y>410</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -820,12 +867,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>380</x>
-     <y>353</y>
+     <x>418</x>
+     <y>410</y>
     </hint>
     <hint type="destinationlabel">
-     <x>402</x>
-     <y>353</y>
+     <x>440</x>
+     <y>410</y>
     </hint>
    </hints>
   </connection>
@@ -837,7 +884,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>383</y>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -853,11 +900,59 @@
    <hints>
     <hint type="sourcelabel">
      <x>447</x>
-     <y>383</y>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
-     <x>304</x>
-     <y>383</y>
+     <x>342</x>
+     <y>440</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leWebsite</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>350</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leWebsite</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leWebsite</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>214</x>
+     <y>349</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leAddressComplement</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>285</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>569</x>
+     <y>233</y>
     </hint>
    </hints>
   </connection>

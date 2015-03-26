@@ -13,6 +13,8 @@
 \usepackage{float}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{ifthen}
 
 \ifpdf
 \usepackage[pdftex]{graphicx}
@@ -65,10 +67,32 @@
     %
     \small
     {{ address }}\\
-    {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
+
+    \newcommand{\complementUser}{%
+    {{complement}}%
+    }
+    \ifthenelse{\equal{\complementUser}{}}{
+    }
+    {
+        \complementUser{}\\
+    }
+   {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
     \Telefon~{{ phone }}\\
     \Letter\texttt{%
     {{ email }}
+    }
+    \newcommand{\websiteUser}{%
+    {{website}}%
+    }
+    \ifthenelse{\equal{\websiteUser}{}}{
+    }
+    {
+        \newline\Mundus~\texttt{%
+            \href{%
+                websiteUser{}
+            }\\
+        }
+
     }
     {{/user}}
     \end{minipage}\\[1em]
@@ -81,9 +105,28 @@
     ~\\{{company}}\\[.35ex]
     \small
     {{address}}\\
+%
+\newcommand{\complementCustomer}{%
+{{\complement}}%
+}
+\ifthenelse{\equal{\complementCustomer}{}}{
+}
+{
+    \complementCustomer{}\\
+}
+%
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
     \Telefon~{{ phone }}\\
     \Letter\texttt{ {{ email }} }
+    \newcommand{\websiteCustomer}{%
+    {{website}}%
+    }
+    \ifthenelse{\equal{\websiteCustomer}{}}{
+    }
+    {
+        \newline\Mundus~\texttt{\href{\websiteCustomer}}
+    }
+
     {{/customer}}
     }
     \end{minipage}
