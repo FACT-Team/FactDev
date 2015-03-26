@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>245</width>
-    <height>228</height>
+    <height>205</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -73,6 +73,13 @@
      </property>
     </widget>
    </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QLabel" name="lbName">
+     <property name="text">
+      <string>Monsieur a A</string>
+     </property>
+    </widget>
+   </item>
    <item row="5" column="0">
     <widget class="QLabel" name="lbTitleFax">
      <property name="maximumSize">
@@ -86,10 +93,10 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="QLabel" name="lbName">
+   <item row="7" column="0" colspan="2">
+    <widget class="QLabel" name="lbAddress">
      <property name="text">
-      <string>Monsieur a A</string>
+      <string>1 rue du trou du cul </string>
      </property>
     </widget>
    </item>
@@ -111,6 +118,13 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
+   <item row="8" column="0" colspan="2">
+    <widget class="QLabel" name="lbPostalCodeCityCountry">
+     <property name="text">
+      <string>12345 MACHINCHOSE</string>
+     </property>
+    </widget>
+   </item>
    <item row="6" column="0" colspan="2">
     <widget class="QLabel" name="lbEmail">
      <property name="text">
@@ -118,17 +132,22 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="0" colspan="2">
-    <widget class="QLabel" name="lbAddress">
-     <property name="text">
-      <string>1 rue du trou du cul </string>
+   <item row="9" column="0" colspan="2">
+    <widget class="QLabel" name="lbImage">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
      </property>
-    </widget>
-   </item>
-   <item row="8" column="0" colspan="2">
-    <widget class="QLabel" name="lbPostalCodeCityCountry">
+     <property name="maximumSize">
+      <size>
+       <width>250</width>
+       <height>250</height>
+      </size>
+     </property>
      <property name="text">
-      <string>12345 MACHINCHOSE</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;image&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

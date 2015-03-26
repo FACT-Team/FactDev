@@ -155,7 +155,6 @@ QString People::getExtensionImage() const
 void People::setExtensionImage(const QString &ext)
 {
     _extensionImage = ext;
-    qDebug() << "set: " << _extensionImage;
 }
 
 
