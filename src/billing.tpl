@@ -51,26 +51,31 @@
 \begin{document}
     \thispagestyle{firststyle}
     \begin{minipage}[t]{.6\textwidth}
-    {{#user}}
-    \raggedright
-    {
-    {
-    {{ firstName}} {{ lastName }}
-    }
-    }\\[.35ex]
-    %
-    \textit{%
-    {{ title }}%
-    }\\~\\
-    %
-    \small
-    {{ address }}\\
-    {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
-    \Telefon~{{ phone }}\\
-    \Letter\texttt{%
-    {{ email }}
-    }
-    {{/user}}
+        {{#user}}
+            \raggedright
+            {
+                {
+                   {{ firstName}} {{ lastName }}
+                }
+            }\\[.35ex]
+            %
+            \textit{%
+            {{ title }}%
+            }\\~\\
+            %
+            \small
+            {{ address }}\\
+            {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
+            {{#phone}}
+            \Telefon~{{ phone }}\\
+            {{/phone}}
+            {{#mobilePhone}}
+            \Mobilefone~{{ mobilePhone }}\\
+            {{/mobilePhone}}
+            \Letter\texttt{%
+            {{ email }}
+            }
+        {{/user}}
     \end{minipage}\\[1em]
     %
     \hfill
@@ -82,7 +87,12 @@
     \small
     {{address}}\\
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
+    {{#phone}}
     \Telefon~{{ phone }}\\
+    {{/phone}}
+    {{#mobilePhone}}
+    Mobilefone~{{ mobilePhone }}\\
+    {{/mobilePhone}}
     \Letter\texttt{ {{ email }} }
     {{/customer}}
     }
