@@ -211,7 +211,7 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
 {
     QPixmap imgCustomer;
     QSqlQuery q;
-    q.prepare("SELECT image  FROM Customer WHERE idCustomer = :pId");
+    q.prepare("SELECT image FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
@@ -225,7 +225,8 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
     if(q.first()) {
         imgCustomer =
                 QPixmap::fromImage(
-                    QImage::fromData(q.value("image").toByteArray()));
+                    QImage::loadFromData(q.value("image").toByteArray()));
+
         //QImage buffImage;
         //buffImage.loadFromData(valeur(q, "diagramme").toByteArray());
         //seance->setDiagramme(buffImage)
@@ -246,9 +247,9 @@ void CustomerDatabase::setCustomerImage(const Models::Customer &pCustomer) {
 
 //    if (pCustomer.getImage().save(&buffer,"PNG")) {
         qDebug() << byteArray.size();
-        for (int i=0; i < byteArray.length(); i++) {
-            qDebug() << byteArray[i];
-        }
+//        for (int i=0; i < byteArray.length(); i++) {
+//            qDebug() << byteArray[i];
+//        }
         qDebug() << "saving...";
 
         q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");

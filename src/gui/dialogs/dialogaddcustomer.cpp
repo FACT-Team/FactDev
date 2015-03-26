@@ -1,5 +1,6 @@
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "ui_dialogaddcustomer.h"
+#include <QDebug>
 
 namespace Gui {
 namespace Dialogs {
@@ -10,6 +11,7 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     ui(new Ui::DialogAddCustomer)
 {
     ui->setupUi(this);
+
     if (id != 0) {
         _custom = QSharedPointer<Models::Customer>(new Customer(id));
         fillFields();
@@ -18,6 +20,7 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
         _custom = QSharedPointer<Models::Customer>(new Customer());
     }
     _custom->setId(id);
+    _custom->setToRemoved(false);
     emit checkFields();
 }
 
@@ -54,6 +57,7 @@ void DialogAddCustomer::accept() {
 
     _custom->commit();
 
+    //qDebug() << ui->wgtLogo->getImage().isNull();
     if (!ui->wgtLogo->getImage().isNull()) {
         _custom->setImage(ui->wgtLogo->getImage());
     }
