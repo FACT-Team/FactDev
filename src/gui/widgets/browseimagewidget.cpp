@@ -31,6 +31,7 @@ QPixmap BrowseImageWidget::getImage()
 void BrowseImageWidget::setImage(const QPixmap &img)
 {
     _img = img;
+    ui->lbIcon->setPixmap(_img);
 }
 
 
@@ -40,10 +41,15 @@ void BrowseImageWidget::browseImagePath()
                 this,
                 tr("Ouvrir une image"),
                 "",
-                tr("Images (*.png *.xpm *.jpg *.eps)"));
+                tr("Images (*.png *.xpm *.jpg)"));
     QFileInfo fileInfo(file);
     setImageScaled(fileInfo.filePath());
     ui->lbIcon->setPixmap(_img);
+    _extension =  Utils::String::getExtensionFile(fileInfo.fileName());
+}
+QString BrowseImageWidget::getExtension() const
+{
+    return _extension;
 }
 
 }

@@ -4,6 +4,7 @@
 #include "database/database.h"
 #include "exceptions/dbexception.h"
 #include "models/user.h"
+#include "utils/image.h"
 
 namespace Databases {
 
@@ -55,7 +56,7 @@ public:
      * customer <i>pCustomer</i>
      * @param pUser User
      */
-    void setUserImage(const Models::User& pUser);
+    void setUserImage(Models::User &pUser);
 
 };
 }

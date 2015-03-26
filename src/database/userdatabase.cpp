@@ -97,7 +97,7 @@ void UserDatabase::updateUser(const Models::User& pUser) {
 
 QPixmap UserDatabase::getUserImage(const int pId)
 {
-    QPixmap imgUser;
+    QPixmap img;
     QSqlQuery q;
     q.prepare("SELECT image  FROM User WHERE idUser = :pId");
     q.bindValue(":pId", pId);
@@ -109,35 +109,26 @@ QPixmap UserDatabase::getUserImage(const int pId)
                     lastError(q),
                     1.5);
     }
-
+    q.next();
     if(q.first()) {
-        imgUser =
-                QPixmap::fromImage(
-                    QImage::fromData(q.value("image").toByteArray()));
+        img = Utils::Image::bytesToPixmap(q.value("image").toByteArray());
     }
 
-    return imgUser;
+    return img;
 }
 
-void UserDatabase::setUserImage(const Models::User& pUser)
+void UserDatabase::setUserImage(Models::User& pUser)
 {
     QSqlQuery q;
 
-    QImage image(pUser.getImage().toImage());
-    qDebug() << image.size();
-    QByteArray byteArray;
-    QBuffer buffer(&byteArray);
-    buffer.open(QIODevice::WriteOnly);
-    image.save(&buffer);
+    QByteArray byteArray = Utils::Image::pixmapToBytes(
+                pUser.getImage(),
+                pUser.getExtensionImage());
 
-    q.prepare(
-                "UPDATE User "
-                "SET image = :image "
-                "WHERE idUser = :id ");
+    q.prepare("UPDATE User SET image = :image WHERE idUser = :id ");
 
     q.bindValue(":id", pUser.getId());
     q.bindValue(":image", byteArray);
-    //q.addBindValue(byteArray);
 
     if(!q.exec()) {
         throw new DbException(

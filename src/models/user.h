@@ -98,6 +98,12 @@ public:
     void setNoSiret(const QString &noSiret);
 
     /**
+     * @brief User::getImage Return the compagny image
+     * @return compagny image
+     */
+    QPixmap getImage();
+
+    /**
      * @brief User::setImage Change the current image by the new <i>image</i>
      * @param image New image
      */

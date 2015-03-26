@@ -49,7 +49,10 @@ void UserDataDialog::fillFields() {
     } else {
         ui->leWorkspacePath->setText(_user->getWorkspacePath());
     }
-    ui->wgtLogo->setImage(_user->getImage());
+    if (!_user->getImage().isNull()) {
+        ui->wgtLogo->setImage(_user->getImage());
+    }
+
 
 }
 
@@ -83,11 +86,9 @@ void UserDataDialog::accept() {
     _user->commit();
 
     if (!ui->wgtLogo->getImage().isNull()) {
+        _user->setExtensionImage(ui->wgtLogo->getExtension());
         _user->setImage(ui->wgtLogo->getImage());
     }
-    _user->commit();
-
-
 
     QDialog::accept();
 }

@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QFileDialog>
 #include <QStandardPaths>
+#include "utils/string.h"
 
 namespace Ui {
 class BrowseImageWidget;
@@ -49,6 +50,13 @@ public:
      */
     void setImage(const QPixmap &img);
 
+    /**
+     * @brief BrowseImageWidgetextension::getExtension Return extension of the
+     * image file
+     * @return Extension of image file
+     */
+    QString getExtension() const;
+
 public slots:
 
     /**
@@ -60,6 +68,7 @@ public slots:
 private:
     Ui::BrowseImageWidget *ui;  //!< User interface
     QPixmap _img;               //!< image
+    QString _extension;         //!< image extension
 };
 
 }

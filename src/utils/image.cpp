@@ -7,21 +7,28 @@ Image::Image()
 
 }
 
-QByteArray Image::pixmapToBytes(QPixmap pix)
+QByteArray Image::pixmapToBytes(const QPixmap pix, const QString ext)
 {
-    return imageToBytes(pixmapToImage(pix));
+    return imageToBytes(pixmapToImage(pix),ext);
 }
 
-QImage Image::pixmapToImage(QPixmap pix)
+QImage Image::pixmapToImage(const QPixmap pix)
 {
     return QImage(pix.toImage());
 }
 
-QByteArray Image::imageToBytes(QImage image) {
+QPixmap Image::bytesToPixmap(const QByteArray bytes)
+{
+    return QPixmap::fromImage(QImage::fromData(bytes));
+}
+
+QByteArray Image::imageToBytes(QImage image, const QString ext) {
     QByteArray bytesArray;
+    QByteArray extArray = ext.toLocal8Bit();
     QBuffer buffer(&bytesArray);
     buffer.open(QIODevice::WriteOnly);
-    image.save(&buffer, "PNG"); // writes image into ba in PNG format
+
+    image.save(&buffer, extArray.data());
 
     return bytesArray;
 }

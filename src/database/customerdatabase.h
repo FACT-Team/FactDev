@@ -143,7 +143,7 @@ public:
      * customer <i>pCustomer</i>
      * @param pCustomer Customer
      */
-    void setCustomerImage(const Models::Customer &pCustomer);
+    void setCustomerImage(Customer &pCustomer);
 
 private:
     //!< Singleton instance of CustomerDatabase

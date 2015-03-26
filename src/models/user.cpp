@@ -139,6 +139,14 @@ void User::setNoSiret(const QString &noSiret)
     _noSiret = noSiret;
 }
 
+QPixmap User::getImage()
+{
+    if (_image.isNull()) {
+        _image = UserDatabase::instance()->getUserImage(getId());
+    }
+    return _image;
+}
+
 void User::setImage(const QPixmap image)
 {
     _image = image;

@@ -1,4 +1,5 @@
 #include "models/people.h"
+#include <QDebug>
 
 namespace Models {
 
@@ -146,6 +147,18 @@ bool People::operator !=(const People &u)
 {
     return !(*this == u);
 }
+QString People::getExtensionImage() const
+{
+    return _extensionImage;
+}
+
+void People::setExtensionImage(const QString &ext)
+{
+    _extensionImage = ext;
+    qDebug() << "set: " << _extensionImage;
+}
+
+
 
 
 }

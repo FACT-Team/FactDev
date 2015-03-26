@@ -151,6 +151,18 @@ public:
     void setImage(const QPixmap &image);
 
     /**
+     * @brief People::getExtensionImage Return the extension of the image file
+     * @return Extension of image file
+     */
+    QString getExtensionImage() const;
+    /**
+     * @brief People::setExtensionImage Change the extension of the image file
+     * by the new <i>ext</i>
+     * @param ext Extension file
+     */
+    void setExtensionImage(const QString &ext);
+
+    /**
      * @brief People::operator == Re-define the operator "==" to compare if
      * the current People is the same to the other <b>People</b> <i>c</i>
      * Return TRUE if both Peoples are the same, else FALSE
@@ -182,6 +194,7 @@ private:
     QString _phone;         //!< Number of desktop phone
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _fax;           //!< Fax number of the people
+    QString _extensionImage;//!< Image extension
 
 };
 }

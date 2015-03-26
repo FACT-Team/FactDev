@@ -209,7 +209,7 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
 
 QPixmap CustomerDatabase::getCustomerImage(const int pId)
 {
-    QPixmap imgCustomer;
+    QPixmap img;
     QSqlQuery q;
     q.prepare("SELECT image FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -221,57 +221,35 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
                     lastError(q),
                     1.9);
     }
+    q.next();
 
     if(q.first()) {
-        imgCustomer =
-                QPixmap::fromImage(
-                    QImage::loadFromData(q.value("image").toByteArray()));
-
-        //QImage buffImage;
-        //buffImage.loadFromData(valeur(q, "diagramme").toByteArray());
-        //seance->setDiagramme(buffImage)
+        img =  Utils::Image::bytesToPixmap(q.value("image").toByteArray());
     }
 
-    return imgCustomer;
+    return img;
 }
 
-void CustomerDatabase::setCustomerImage(const Models::Customer &pCustomer) {
+void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
     QSqlQuery q;
 
-    //QImage image(pCustomer.getImage().toImage());
-    //qDebug() << image.size();
-    QByteArray byteArray = Utils::Image::pixmapToBytes(pCustomer.getImage());
+    QByteArray byteArray = Utils::Image::pixmapToBytes(
+                pCustomer.getImage(),
+                pCustomer.getExtensionImage());
 
-//    QBuffer buffer(&byteArray);
-//    buffer.open(QIODevice::WriteOnly);
+    q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");
 
-//    if (pCustomer.getImage().save(&buffer,"PNG")) {
-        qDebug() << byteArray.size();
-//        for (int i=0; i < byteArray.length(); i++) {
-//            qDebug() << byteArray[i];
-//        }
-        qDebug() << "saving...";
-
-        q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");
-
-        q.bindValue(":id", pCustomer.getId());
-        q.bindValue(":image", byteArray);
+    q.bindValue(":id", pCustomer.getId());
+    q.bindValue(":image", byteArray);
 
 
-        if(!q.exec()) {
-            throw new DbException(
-                        "Impossible de modifier l'image du Customer",
-                        "BddCustomer::setCustomerImage",
-                        lastError(q),
-                        1.3);
-        }
-
-        qDebug() << byteArray.size();
-//    } else {
-//        qDebug() << "save FAILED";
-//    }
-
-
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de modifier l'image du Customer",
+                    "BddCustomer::setCustomerImage",
+                    lastError(q),
+                    1.3);
+    }
 
 }
 
