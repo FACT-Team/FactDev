@@ -74,7 +74,7 @@ int sqliteExecution(QCoreApplication& a)
     Databases::Database::instance(true);
     int ret = RUN_ALL_TESTS();
     std::cout << "-- Clean of database" << std::endl;
-    Databases::Database::instance()->cleanDatabase();
+//    Databases::Database::instance()->cleanDatabase();
     delete Databases::Database::instance();
     return ret;
 }
