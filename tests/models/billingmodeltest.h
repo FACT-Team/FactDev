@@ -21,6 +21,7 @@ private slots:
     void hydrat();
     void hydratWithContributories();
     void commitRemove();
+    void testSumQuantity();
 private:
     Billing* b1;
     Billing* b2;

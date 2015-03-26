@@ -180,6 +180,7 @@ void ContributoriesWidget::updatePrice()
                 _modelsContributories[ui->stack->currentIndex()];
         QPair<Models::Project*, Models::Rate> currentProject =
                 _modelProjects->getProject(ui->stack->currentIndex());
+
         ui->sbSubSum->setValue(
                     currentContributory->getSumQuantity()
                     * currentProject.second.getHourlyRate());

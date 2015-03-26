@@ -5,7 +5,7 @@
 #include "models/project.h"
 #include "models/contributory.h"
 #include "models/rate.h"
-
+#include "models/user.h"
 namespace Models {
 /**
  * @author Antoine de Roquemaurel

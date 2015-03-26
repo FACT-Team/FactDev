@@ -139,3 +139,13 @@ void BillingModelTest::hydratWithContributories() {
     }
 
 }
+
+void BillingModelTest::testSumQuantity() {
+//    Billing b(1);
+//    double ret = 0.0;
+//    QCOMPARE(b.getContributories().getNbProjects(), 3);
+//    for(Project* p : b.getContributories().getProjects()) {
+//        ret += p->getCost();
+//    }
+//    QCOMPARE(b.getSumQuantity()*b.getSumRate(), ret);
+}

@@ -139,7 +139,7 @@ void CustomerModelTest::getNameFolder()
 
 void CustomerModelTest::turnoverComputeTest() {
     Customer c(17);
-    QCOMPARE(c.getTurnover(), 812.076);
+    QCOMPARE(Utils::Double::round(c1.getTurnover(), 2), 0.);
     Customer c2(8);
-    QCOMPARE(c2.getTurnover(), 339.99);
+    QCOMPARE(Utils::Double::round(c2.getTurnover(), 2), 147.16);
 }

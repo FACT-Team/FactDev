@@ -149,6 +149,11 @@ public:
      */
     void setPdflatexPath(const QString &getPdflatexPath);
 
+    /**
+     * @brief nbHoursPerDays The number of hours per days who the user work⋅
+     * @return The number of hours per days
+     */
+    int getNbHoursPerDays();
 private:
     QString _title;         //!< User/Company description on it activity
     QString _noSiret;       //!< SIRET number (company registration number)

@@ -2,7 +2,7 @@
 #define PROJECTMODELTEST_H
 #include "QTestRunner/testrunner.h"
 #include "models/project.h"
-
+#include "utils/double.h"
 using namespace Models;
 
 

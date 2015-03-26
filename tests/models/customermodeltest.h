@@ -2,6 +2,7 @@
 #define CUSTOMERMODELTEST_H
 #include "QTestRunner/testrunner.h"
 #include "models/customer.h"
+#include "utils/double.h"
 
 using namespace Models;
 class CustomerModelTest : public QObject

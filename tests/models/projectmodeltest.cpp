@@ -135,13 +135,11 @@ void ProjectModelTest::getProjectsTable(void) {
         QFAIL(e->what());
     }
 }
-
 void ProjectModelTest::turnoverComputeTest() {
     Project p1(28);
     Project p2(42);
     Project p3(23);
-
-    QCOMPARE(p1.getCost(), 141.25);
-    QCOMPARE(p2.getCost(), 49.186);
-    QCOMPARE(p3.getCost(), 621.64);
+    QCOMPARE(Utils::Double::round(p1.getCost(), 2), 20.18);
+    QCOMPARE(Utils::Double::round(p2.getCost(), 2), 20.39);
+    QCOMPARE(Utils::Double::round(p3.getCost(), 2), 174.52);
 }
