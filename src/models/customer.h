@@ -74,7 +74,7 @@ public:
      * @brief Customer::getImage Return the compagny image
      * @return compagny image
      */
-    QPixmap getImage() const;
+    QPixmap getImage();
 
     /**
      * @brief Customer::setImage Change the current image by the new

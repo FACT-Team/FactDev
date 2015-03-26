@@ -95,13 +95,12 @@ double Customer::getTurnover() const {
     return ret;
 }
 
-QPixmap Customer::getImage() const
+QPixmap Customer::getImage()
 {
     if (_image.isNull()) {
-        return CustomerDatabase::instance()->getCustomerImage(getId());
-    } else {
-        return _image;
+        _image = CustomerDatabase::instance()->getCustomerImage(getId());
     }
+    return _image;
 }
 
 void Customer::setImage(const QPixmap image)
