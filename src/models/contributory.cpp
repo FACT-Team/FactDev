@@ -7,7 +7,7 @@ namespace Models {
 Contributory::Contributory()
 {
     _description = "";
-    _nbHours = 0.;
+    quantity = 0.;
     _id = 0;
     _toRemoved = false;
     _project = new Project();
@@ -40,7 +40,7 @@ void Contributory::hydrat(int id)
 {
     Contributory* c = ContributoryDatabase::instance()->getContributory(id);
     _description = c->getDescription();
-    _nbHours = c->getNbHours();
+    quantity = c->getNbHours();
     _project = c->getProject();
     delete c;
 }
@@ -56,7 +56,7 @@ QVariantHash Contributory::getDataMap()
     QVariantHash data;
 
     data["project"] = _project->getName();
-    data["nbHours"] = _nbHours;
+    data["nbHours"] = quantity;
     data["contributoryDescription"] = _description;
     data["contributoryLongDescription"] = _longDescription;
     return data;
@@ -73,12 +73,12 @@ void Contributory::setProject(Project* id)
 }
 double Contributory::getNbHours() const
 {
-    return _nbHours;
+    return quantity;
 }
 
 void Contributory::setNbHours(double value)
 {
-    _nbHours = value;
+    quantity = value;
 }
 QString Contributory::getDescription() const
 {

@@ -2,8 +2,13 @@
 #define CONTRIBUTORY_H
 #include "models/project.h"
 #include "models/imodel.h"
+#include "models/unit.h"
 
 namespace Models {
+/**
+ * @brief The Unit enum Unity of work : hour or day
+ */
+
 /**
  * @author
  * @brief The Contributory class
@@ -113,7 +118,8 @@ public:
 
 private:
     Project* _project;          //!< Contributory project
-    double _nbHours;            //!< Number of work hours of this contribution
+    double quantity;            //!< Quantity of work of this contribution
+    Unit unit;                  //!< Unit of work of this contribution
     QString _description;       //!< Contributory description
     QString _longDescription;   //!< Long contributory description
 };

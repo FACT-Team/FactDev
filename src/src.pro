@@ -98,7 +98,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/path/chosefilewidget.cpp \
     gui/widgets/path/chosedirectorywidget.cpp \
     gui/widgets/path/chosepathwidget.cpp\
-    gui/widgets/checkfields/checkwebsite.cpp
+    gui/widgets/checkfields/checkwebsite.cpp \
+    models/unit.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -212,7 +213,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/path/chosefilewidget.h \
     gui/widgets/path/chosedirectorywidget.h \
     gui/widgets/path/chosepathwidget.h\
-    gui/widgets/checkfields/checkwebsite.h
+    gui/widgets/checkfields/checkwebsite.h \
+    models/unit.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
