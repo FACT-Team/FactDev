@@ -77,7 +77,12 @@
         \complementUser{}\\
     }
    {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
-    \Telefon~{{ phone }}\\
+	{{#phone}}
+	\Telefon~{{ phone }}\\
+	{{/phone}}
+	{{#mobilePhone}}
+	\Mobilefone~{{ mobilePhone }}\\
+	{{/mobilePhone}}
     \Letter\texttt{%
     {{ email }}
     }
@@ -116,7 +121,15 @@
 }
 %
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
+    {{#phone}}
     \Telefon~{{ phone }}\\
+    {{/phone}}
+    {{#mobilePhone}}
+    Mobilefone~{{ mobilePhone }}\\
+    {{/mobilePhone}}
+    {{#fax}}
+    \Faxmachine~{{ fax }}\\
+    {{/fax}}
     \Letter\texttt{ {{ email }} }
     \newcommand{\websiteCustomer}{%
     {{website}}%

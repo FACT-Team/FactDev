@@ -39,6 +39,8 @@ QVariantHash User::getDataMap()
     data["postalCode"]  = getPostalCode();
     data["city"]        = getCity();
     data["phone"]       = getPhone();
+    data["mobilePhone"]       = getMobilePhone();
+    data["fax"]       = getMobilePhone();
     data["email"]       = getEmail();
     if(!getWebsite().isEmpty()) {
         data["website"]     = getWebsite();
