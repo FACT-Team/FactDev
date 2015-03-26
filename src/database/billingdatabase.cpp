@@ -466,7 +466,7 @@ QList<Billing> BillingDatabase::getBillingsBetweenDates(QDate begin, QDate end)
 int BillingDatabase::getNbBills()
 {
     QSqlQuery q;
-    q.prepare("select count(*) from Billing where isBilling = 1");
+    q.prepare("select distinct count(*) from Billing where isBilling = 1");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Factures",
@@ -481,7 +481,7 @@ int BillingDatabase::getNbBills()
 int BillingDatabase::getNbBillsPaid()
 {
     QSqlQuery q;
-    q.prepare("select count(*) from Billing where isBilling = 1 and isPaid = 1");
+    q.prepare("select distinct count(*) from Billing where isBilling = 1 and isPaid = 1");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Factures",
@@ -496,7 +496,7 @@ int BillingDatabase::getNbBillsPaid()
 int BillingDatabase::getNbQuotes()
 {
     QSqlQuery q;
-    q.prepare("select count(*) from Billing where isBilling == 0");
+    q.prepare("select distinct count(*) from Billing where isBilling == 0");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Devis",
@@ -511,7 +511,7 @@ int BillingDatabase::getNbQuotes()
 int BillingDatabase::getNbDocs()
 {
     QSqlQuery q;
-    q.prepare("select count(*) from Billing");
+    q.prepare("select distinct count(*) from Billing");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Documents",
@@ -526,13 +526,12 @@ int BillingDatabase::getNbDocs()
 int BillingDatabase::getNbBills(const int customerId)
 {
     QSqlQuery q;
-    q.prepare("select count(*) "
-              "from Customer c, Project p, BillingProject bp, Billing b "
-              "where c.idCustomer = p.idCustomer "
-              "and p.idProject = bp.idProject "
-              "and bp.idBilling = b.idBilling "
-              "and isBilling = 1 "
-              "and c.idCustomer = :customerId ");
+    q.prepare("select count(*) from Billing where idBilling in "
+              "(select distinct bp.idBilling "
+              "from BillingProject bp, Project p "
+              "where p.idCustomer = :customerId "
+              "and p.idProject = bp.idProject) "
+              "and isBilling = 1");
     q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(
@@ -548,13 +547,12 @@ int BillingDatabase::getNbBills(const int customerId)
 int BillingDatabase::getNbBillsPaid(const int customerId)
 {
     QSqlQuery q;
-    q.prepare("select count(*) "
-              "from Customer c, Project p, BillingProject bp, Billing b "
-              "where c.idCustomer = p.idCustomer "
-              "and p.idProject = bp.idProject "
-              "and bp.idBilling = b.idBilling "
-              "and isBilling = 1 and isPaid = 1 "
-              "and c.idCustomer = :customerId ");
+    q.prepare("select count(*) from Billing where idBilling in "
+              "(select distinct bp.idBilling "
+              "from BillingProject bp, Project p "
+              "where p.idCustomer = :customerId "
+              "and p.idProject = bp.idProject) "
+              "and isBilling = 1 and isPaid = 1 ");
     q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(
@@ -570,13 +568,12 @@ int BillingDatabase::getNbBillsPaid(const int customerId)
 int BillingDatabase::getNbQuotes(const int customerId)
 {
     QSqlQuery q;
-    q.prepare("select count(*) "
-              "from Customer c, Project p, BillingProject bp, Billing b "
-              "where c.idCustomer = p.idCustomer "
-              "and p.idProject = bp.idProject "
-              "and bp.idBilling = b.idBilling "
-              "and isBilling = 0 "
-              "and c.idCustomer = :customerId ");
+    q.prepare("select count(*) from Billing where idBilling in "
+              "(select distinct bp.idBilling "
+              "from BillingProject bp, Project p "
+              "where p.idCustomer = :customerId "
+              "and p.idProject = bp.idProject) "
+              "and isBilling = 0 ");
     q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(
@@ -592,12 +589,11 @@ int BillingDatabase::getNbQuotes(const int customerId)
 int BillingDatabase::getNbDocs(const int customerId)
 {
     QSqlQuery q;
-    q.prepare("select count(*) "
-              "from Customer c, Project p, BillingProject bp, Billing b "
-              "where c.idCustomer = p.idCustomer "
-              "and p.idProject = bp.idProject "
-              "and bp.idBilling = b.idBilling "
-              "and c.idCustomer = :customerId ");
+    q.prepare("select count(*) from Billing where idBilling in "
+              "(select distinct bp.idBilling "
+              "from BillingProject bp, Project p "
+              "where p.idCustomer = :customerId "
+              "and p.idProject = bp.idProject) ");
     q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(

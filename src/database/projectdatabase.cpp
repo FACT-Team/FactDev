@@ -202,38 +202,19 @@ int ProjectDatabase::getNbProjects()
     return value(q, "nb_p").toInt();
 }
 
-int ProjectDatabase::getNbProjects(const int customerId)
-{
+int ProjectDatabase::getNbProjects(const int customerId) {
     QSqlQuery q;
-
-    q.prepare("SELECT count(*) FROM Project");
-
+    q.prepare("SELECT count(*) FROM Project WHERE idCustomer = :customerId");
+    q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible d'éditer les informations du Project",
-                    "BddProject::getNbProject",
+                    "Impossible de récupérer le nombre de projets du client",
+                    "ProjectDatabase::getNbProjects",
                     lastError(q),
                     1.6);
     }
     q.first();
     return q.value(0).toInt();
-}
-
-int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
-    QSqlQuery q;
-
-    q.prepare("SELECT count(*) AS nb_p FROM Project WHERE idCustomer = :pId");
-    q.bindValue(":pId", pId);
-    if(!q.exec()) {
-        throw new DbException(
-                    "Impossible d'éditer les informations du Project",
-                    "BddProject::getNbProjectForACustomer",
-                    lastError(q),
-                    1.6);
-    }
-    q.next();
-
-    return value(q, "nb_p").toInt();
 }
 
 QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Models::Customer> c) {
