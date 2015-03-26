@@ -167,6 +167,11 @@ public:
     int getNbQuotes();
     int getNbDocs();
 
+    int getNbBills(const int customerId);
+    int getNbBillsPaid(const int customerId);
+    int getNbQuotes(const int customerId);
+    int getNbDocs(const int customerId);
+
 private:
     static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase
 

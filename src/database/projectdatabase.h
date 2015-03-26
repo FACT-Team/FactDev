@@ -73,6 +73,8 @@ public:
      */
     int getNbProjects();
 
+    int getNbProjects(const int customerId);
+
     /**
      * @brief ProjectDatabase:getNbProjectsForACustomer Return the number of
      * projects existing for an identify customer <i>pId</i>

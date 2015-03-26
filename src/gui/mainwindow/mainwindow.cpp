@@ -128,7 +128,6 @@ void MainWindow::addBill()
 void MainWindow::addDoc(bool isBilling) {
     if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
         updateTableBillings(getCurrentProjectId());
-        updateCostAndTurnover();
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
@@ -255,6 +254,7 @@ void MainWindow::billingIsPaid()
             billing.commit();
             updateButtons();
             updateTableBillings(getCurrentProjectId());
+            updateCostAndTurnover();
         }
     }
 }
@@ -290,7 +290,6 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
             break;
         case ItemType::BILLING:
             updateTableBillings(getCurrentProjectId());
-            updateCostAndTurnover();
             changeCustomerTable();
             ui->trCustomers->expand(ui->trCustomers->currentIndex());
             changeProjectsTable();
@@ -337,7 +336,6 @@ void MainWindow::editDoc()
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
-        updateCostAndTurnover();
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());

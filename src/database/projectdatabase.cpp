@@ -202,6 +202,23 @@ int ProjectDatabase::getNbProjects()
     return value(q, "nb_p").toInt();
 }
 
+int ProjectDatabase::getNbProjects(const int customerId)
+{
+    QSqlQuery q;
+
+    q.prepare("SELECT count(*) FROM Project");
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible d'éditer les informations du Project",
+                    "BddProject::getNbProject",
+                    lastError(q),
+                    1.6);
+    }
+    q.first();
+    return q.value(0).toInt();
+}
+
 int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
     QSqlQuery q;
 

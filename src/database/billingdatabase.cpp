@@ -465,10 +465,8 @@ QList<Billing> BillingDatabase::getBillingsBetweenDates(QDate begin, QDate end)
 
 int BillingDatabase::getNbBills()
 {
-    int count = -1;
     QSqlQuery q;
-    q.prepare("SELECT DISTINCT count(*) "
-              "FROM Billing WHERE isBilling = 1");
+    q.prepare("select count(*) from Billing where isBilling = 1");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Factures",
@@ -476,64 +474,140 @@ int BillingDatabase::getNbBills()
                     lastError(q),
                     1.3);
     }
-    if (q.next()) {
-            count = q.value(0).toInt();
-    }
-    return count;
+    q.first();
+    return q.value(0).toInt();
 }
 
 int BillingDatabase::getNbBillsPaid()
 {
-    int count = -1;
     QSqlQuery q;
     q.prepare("select count(*) from Billing where isBilling = 1 and isPaid = 1");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Factures",
-                    "BddCustomer::getNbBills",
+                    "BillingDatabase::getNbBillsPaid",
                     lastError(q),
                     1.3);
     }
-    if (q.next()) {
-            count = q.value(0).toInt();
-    }
-    return count;
+    q.first();
+    return q.value(0).toInt();
 }
 
 int BillingDatabase::getNbQuotes()
 {
-    int count = -1;
     QSqlQuery q;
     q.prepare("select count(*) from Billing where isBilling == 0");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Devis",
-                    "BddCustomer::getNBQuotes",
+                    "BillingDatabase::getNbQuotes",
                     lastError(q),
                     1.3);
     }
-    if (q.next()) {
-            count = q.value(0).toInt();
-    }
-    return count;
+    q.first();
+    return q.value(0).toInt();
 }
 
 int BillingDatabase::getNbDocs()
 {
-    int count = -1;
     QSqlQuery q;
     q.prepare("select count(*) from Billing");
     if(!q.exec()) {
         throw new DbException(
                     "Impossible de récupérer le nombre de Documents",
-                    "BddCustomer::getNbDocs",
+                    "BillingDatabase::getNbDocs",
                     lastError(q),
                     1.3);
     }
-    if (q.next()) {
-            count = q.value(0).toInt();
+    q.first();
+    return q.value(0).toInt();
+}
+
+int BillingDatabase::getNbBills(const int customerId)
+{
+    QSqlQuery q;
+    q.prepare("select count(*) "
+              "from Customer c, Project p, BillingProject bp, Billing b "
+              "where c.idCustomer = p.idCustomer "
+              "and p.idProject = bp.idProject "
+              "and bp.idBilling = b.idBilling "
+              "and isBilling = 1 "
+              "and c.idCustomer = :customerId ");
+    q.bindValue(":customerId", customerId);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Factures du client",
+                    "BillingDatabase::getNbBills",
+                    lastError(q),
+                    1.3);
     }
-    return count;
+    q.first();
+    return q.value(0).toInt();
+}
+
+int BillingDatabase::getNbBillsPaid(const int customerId)
+{
+    QSqlQuery q;
+    q.prepare("select count(*) "
+              "from Customer c, Project p, BillingProject bp, Billing b "
+              "where c.idCustomer = p.idCustomer "
+              "and p.idProject = bp.idProject "
+              "and bp.idBilling = b.idBilling "
+              "and isBilling = 1 and isPaid = 1 "
+              "and c.idCustomer = :customerId ");
+    q.bindValue(":customerId", customerId);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Factures du client",
+                    "BillingDatabase::getNbBills",
+                    lastError(q),
+                    1.3);
+    }
+    q.first();
+    return q.value(0).toInt();
+}
+
+int BillingDatabase::getNbQuotes(const int customerId)
+{
+    QSqlQuery q;
+    q.prepare("select count(*) "
+              "from Customer c, Project p, BillingProject bp, Billing b "
+              "where c.idCustomer = p.idCustomer "
+              "and p.idProject = bp.idProject "
+              "and bp.idBilling = b.idBilling "
+              "and isBilling = 0 "
+              "and c.idCustomer = :customerId ");
+    q.bindValue(":customerId", customerId);
+    if(!q.exec()) {
+        throw new DbException(
+            "Impossible de récupérer le nombre de Factures payées du client",
+            "BillingDatabase::getNbBills",
+            lastError(q),
+            1.3);
+    }
+    q.first();
+    return q.value(0).toInt();
+}
+
+int BillingDatabase::getNbDocs(const int customerId)
+{
+    QSqlQuery q;
+    q.prepare("select count(*) "
+              "from Customer c, Project p, BillingProject bp, Billing b "
+              "where c.idCustomer = p.idCustomer "
+              "and p.idProject = bp.idProject "
+              "and bp.idBilling = b.idBilling "
+              "and c.idCustomer = :customerId ");
+    q.bindValue(":customerId", customerId);
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de récupérer le nombre de Documents du client",
+                    "BillingDatabase::getNbDocs",
+                    lastError(q),
+                    1.3);
+    }
+    q.first();
+    return q.value(0).toInt();
 }
 
 }

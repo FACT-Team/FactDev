@@ -9,7 +9,7 @@ using namespace Databases;
 namespace Gui {
 namespace Dialogs {
 
-StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent) :
+StatisticsDialog::StatisticsDialog(bool global, int customerId, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::StatisticsDialog)
 {
@@ -19,11 +19,6 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
     int nbBills, nbBillsPaid, nbQuotes, nbProjects;
     double turnover;
 
-    Customer *c;
-    if (idCustomer != 0) {
-        c = new Customer(idCustomer);
-    }
-
     if (global) {
         ui->lblTitle->setText("Statistiques globales");
         nbBills = BillingDatabase::instance()->getNbBills();
@@ -32,11 +27,13 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
         nbProjects = ProjectDatabase::instance()->getNbProjects();
         turnover = Models::Statistics::getGlobalTurnover();
     } else {
-        ui->lblTitle->setText("Statistiques du client " + c->getCompany());
-        nbBills = BillingDatabase::instance()->getNbBills();
-        nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid();
-        nbQuotes = BillingDatabase::instance()->getNbQuotes();
-        nbProjects = ProjectDatabase::instance()->getNbProjects();
+        Customer c(customerId);
+        ui->lblTitle->setText("Statistiques du client " + c.getCompany());
+        nbBills = BillingDatabase::instance()->getNbBills(customerId);
+        nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid(customerId);
+        nbQuotes = BillingDatabase::instance()->getNbQuotes(customerId);
+        nbProjects = ProjectDatabase::instance()->getNbProjects(customerId);
+        turnover = c.getTurnover();
     }
 
     QString txt = QString::number(nbBills);
@@ -48,7 +45,7 @@ StatisticsDialog::StatisticsDialog(bool global, int idCustomer, QWidget *parent)
     if (nbBillsPaid == 0 || nbBillsPaid == 1) {
         txt += " payée.";
     } else if (nbBillsPaid > 1) {
-        txt = " payées.";
+        txt += " payées.";
     }
     ui->lblBills->setText(txt);
     ui->lblQuotes->setText(QString::number(nbQuotes) + " devis.");
