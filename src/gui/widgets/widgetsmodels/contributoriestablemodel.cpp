@@ -30,11 +30,13 @@ QVariant ContributoriesTableModel::data(
     Models::Rate r;
 
     const Contributory & contributory = _contributories[index.row()];
+//    qDebug() << "=)" << contributory.getUnit().getype();
+
     switch (index.column()) {
     case 0: return contributory.getDescription();
     case 1: return contributory.getLongDescription();
-    case 2: return contributory.getNbHours()/r.getNbDailyHours();
-    case 3: return 0; // TODO unit
+    case 2: return contributory.getQuantity()/r.getNbDailyHours();
+    case 3: return contributory.getUnit().getype();
     default: return QVariant();
     };
 }
@@ -73,11 +75,11 @@ bool ContributoriesTableModel::setData(
             _contributories[index.row()].setLongDescription(value.toString());
             break;
         case 2:
-            _contributories[index.row()].setNbHours(
+            _contributories[index.row()].setQuantity(
                         value.toDouble()*r.getNbDailyHours());
             break;
         case 3:
-            // TODO unit.
+            _contributories[index.row()].setUnit(Unit((TypeUnit)value.toInt()));
             break;
         default:
             Log::instance(WARNING) << "Error, in default case of "
@@ -131,7 +133,7 @@ double ContributoriesTableModel::getSumQuantity() const
 {
     double ret(0);
     for(Contributory c : _contributories) {
-        ret += c.getNbHours();
+        ret += c.getQuantity();
     }
 
     return ret;

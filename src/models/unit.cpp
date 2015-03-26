@@ -6,6 +6,11 @@ Unit::Unit(TypeUnit type)
     _type = type;
 }
 
+Unit::Unit()
+{
+
+}
+
 QString Unit::toString()
 {
     return _type == DAY ? "Jour" : "Heure";

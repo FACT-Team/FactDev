@@ -8,12 +8,12 @@ ContributoryModelTest::ContributoryModelTest()
 void ContributoryModelTest::setup()
 {
     c1.setDescription("Une descriptoin");
-    c1.setNbHours(42);
+    c1.setQuantity(42);
     c1.setProject(new Project(23));
     c1.setToRemoved(false);
 
     c2.setDescription("Une descriptoin");
-    c2.setNbHours(42);
+    c2.setQuantity(42);
     c2.setProject(new Project(23));
     c2.setToRemoved(false);
 }
@@ -34,7 +34,7 @@ void ContributoryModelTest::equals2()
 void ContributoryModelTest::notEquals()
 {
     setup();
-    c1.setNbHours(1337);
+    c1.setQuantity(1337);
     QVERIFY(c1 != c2);
 }
 

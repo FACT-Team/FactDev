@@ -40,7 +40,8 @@ void Contributory::hydrat(int id)
 {
     Contributory* c = ContributoryDatabase::instance()->getContributory(id);
     _description = c->getDescription();
-    quantity = c->getNbHours();
+    quantity = c->getQuantity();
+    _unit = c->getUnit();
     _project = c->getProject();
     delete c;
 }
@@ -71,12 +72,12 @@ void Contributory::setProject(Project* id)
 {
     _project = id;
 }
-double Contributory::getNbHours() const
+double Contributory::getQuantity() const
 {
     return quantity;
 }
 
-void Contributory::setNbHours(double value)
+void Contributory::setQuantity(double value)
 {
     quantity = value;
 }
@@ -93,7 +94,7 @@ void Contributory::setDescription(const QString &description)
 bool Contributory::operator ==(const Contributory &c)
 {
     return (getDescription() == c.getDescription() &&
-            getNbHours() == c.getNbHours());
+            getQuantity() == c.getQuantity() && getUnit() == c.getUnit());
 }
 
 bool Contributory::operator !=(const Contributory &c)
@@ -109,6 +110,16 @@ void Contributory::setLongDescription(const QString &longDescription)
 {
     _longDescription = longDescription;
 }
+Unit Contributory::getUnit() const
+{
+    return _unit;
+}
+
+void Contributory::setUnit(const Unit &value)
+{
+    _unit = value;
+}
+
 
 }
 

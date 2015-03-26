@@ -75,13 +75,13 @@ public:
      * @brief getNbHours Number of work hour of a contributory
      * @return Then number of hours
      */
-    double getNbHours() const;
+    double getQuantity() const;
 
     /**
      * @brief setNbHours Change nbHours
      * @param value The new value of nbHours
      */
-    void setNbHours(double value);
+    void setQuantity(double value);
 
     /**
      * @brief getDescription Description of a contributory
@@ -113,13 +113,34 @@ public:
      */
     bool operator !=(const Contributory &c);
 
+    /**
+     * @brief getLongDescription A contributory has a long description : display in tex appendix
+     * @return The long description
+     */
     QString getLongDescription() const;
+
+    /**
+     * @brief setLongDescription Change the long description
+     * @param getLongDescription The new description
+     */
     void setLongDescription(const QString &getLongDescription);
+
+    /**
+     * @brief getUnit Return the unit (hour or day) of contributory
+     * @return The unit
+     */
+    Unit getUnit() const;
+
+    /**
+     * @brief setUnit Change the unit
+     * @param value The new unit
+     */
+    void setUnit(const Unit &value);
 
 private:
     Project* _project;          //!< Contributory project
     double quantity;            //!< Quantity of work of this contribution
-    Unit unit;                  //!< Unit of work of this contribution
+    Unit _unit;                  //!< Unit of work of this contribution
     QString _description;       //!< Contributory description
     QString _longDescription;   //!< Long contributory description
 };

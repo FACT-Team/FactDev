@@ -14,7 +14,16 @@ enum TypeUnit{HOUR, DAY};
 class Unit
 {
 public:
+    /**
+     * @brief Unit Construct an unit with init type
+     * @param type The unit Type;
+     */
     Unit(TypeUnit type);
+
+    /**
+     * @brief Unit Construct an unit
+     */
+    Unit();
 
     /**
      * @brief toString Return String for unit type.

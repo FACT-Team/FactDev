@@ -168,7 +168,7 @@ double ContributoriesList::getSumRate()
 
     for(QPair<Project*,Models::Rate>* key : keys()) {
         for(Contributory c : getContributories(key->first)) {
-            ret += c.getNbHours() * key->second.getDailyRate();
+            ret += c.getQuantity() * key->second.getDailyRate();
         }
     }
 
@@ -179,7 +179,7 @@ double ContributoriesList::getSumQuantity()
 {
     double ret = 0.0;
     for(Contributory c : *getAllContributories()) {
-        ret += c.getNbHours();
+        ret += c.getQuantity();
     }
 
     return ret;
