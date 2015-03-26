@@ -46,6 +46,7 @@ int mysqlExecution(int argc, char**argv)
     std::cout << "=== Execution des tests de FactDev v" << QString::number(Parameters::VERSION).toStdString() << " avec MySQL ===" << std::endl;
 
     if(argc >= 3) {
+        Databases::AccessDatabase::init();
         Databases::AccessDatabase::_address = argv[1];
         Databases::AccessDatabase::_userDb = argv[2];
         Databases::AccessDatabase::_password = argv[3];
