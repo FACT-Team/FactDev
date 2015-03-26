@@ -40,6 +40,7 @@ QVariantHash User::getDataMap()
     data["city"]        = getCity();
     data["phone"]       = getPhone();
     data["mobilePhone"]       = getMobilePhone();
+    data["fax"]       = getMobilePhone();
     data["email"]       = getEmail();
 
     return data;
