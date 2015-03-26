@@ -49,6 +49,7 @@ Models::User *UserDatabase::getUser(const int pId)
         user->setNoSiret(value(q,"noSiret").toString());
         user->setWorkspaceName(value(q,"workspaceName").toString());
         user->setWorkspacePath(value(q,"workspacePath").toString());
+        user->setPdflatexPath(value(q, "pdflatexcommand").toString());
     } else {
         user = NULL;
     }
@@ -64,7 +65,7 @@ void UserDatabase::updateUser(const Models::User& pUser) {
                 "title = :title, address = :address, postalCode = :postalCode, "
                 "city = :city, email = :email, mobilePhone = :mobilePhone, "
                 "phone = :phone, noSiret = :noSiret, "
-                "workspaceName = :workspaceName, workspacePath = :workspacePath "
+                "workspaceName = :workspaceName, workspacePath = :workspacePath, pdflatexcommand=:pdflatex "
                 "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
@@ -82,7 +83,7 @@ void UserDatabase::updateUser(const Models::User& pUser) {
     q.bindValue(":noSiret", pUser.getNoSiret());
     q.bindValue(":workspaceName", pUser.getWorkspaceName());
     q.bindValue(":workspacePath", pUser.getWorkspacePath());
-
+    q.bindValue(":pdflatex", pUser.getPdflatexPath());
     if(!q.exec()) {
         throw new DbException(
                     "Impossible d'éditer les informations du User",
