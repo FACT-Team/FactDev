@@ -12,7 +12,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     setupUi();
     setupSignalsSlots();
-    QSettings settings("FACT Team", "FactDev");
+
+    QString environment;
+
+#if QT_NO_DEBUG
+    environment = "release";
+#else
+    environment = "debug";
+#endif
+
+    QSettings settings("FACT Team", "FactDev-"+environment);
     Databases::AccessDatabase::init();
     if(!Databases::AccessDatabase::_exists/* | !QFile(settings.value("dbPath").toString()+"/"+Parameters::DB_FILENAME).exists()*/) {
         StartedWindowsDialog w;

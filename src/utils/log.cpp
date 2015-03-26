@@ -6,7 +6,7 @@ Log* Log::_instance = 0;
 TypeLog Log::_type = INFO;
 
 Log::Log() {
-    QSettings settings("FactDev", "FACT");
+
     _file = new QFile(
                 QCoreApplication::applicationDirPath()+"/"+"/message.log");
     bool exists = _file->exists();

@@ -72,10 +72,17 @@ void Database::changeDatabase(DbType dbType)
 void Database::open() {
     mDatabase = QSqlDatabase::database();
     bool creerStructure = false;
+    QString environment;
+
+#if QT_NO_DEBUG
+    environment = "release";
+#else
+    environment = "debug";
+#endif
 
     if(!AccessDatabase::_exists || AccessDatabase::_dbType == SQLITE)
     {
-        _settings = new QSettings("FACT", "FactDev");
+        _settings = new QSettings("FACT", "FactDev-"+environment);
         _settings->setValue("dbPath", QCoreApplication::applicationDirPath());
         _isMysql = false;
         if(!QFile::exists(
