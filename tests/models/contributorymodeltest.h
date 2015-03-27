@@ -4,6 +4,7 @@
 
 #include "models/contributory.h"
 
+#include "utils/double.h"
 using namespace Models;
 
 class ContributoryModelTest : public QObject
@@ -22,6 +23,7 @@ private slots:
     void hydrat();
     void commitRemove();
 
+    void getRateTest();
 private:
     void setup(void);
 

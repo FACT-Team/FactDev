@@ -3,6 +3,7 @@
 #include "models/project.h"
 #include "models/imodel.h"
 #include "models/unit.h"
+#include "models/calculable.h"
 
 namespace Models {
 /**
@@ -13,7 +14,7 @@ namespace Models {
  * @author
  * @brief The Contributory class
  */
-class Contributory : public IModel
+class Contributory : public IModel, public Calculable
 {
 public:
     /**
@@ -50,6 +51,12 @@ public:
      * @brief Contributory::remove Remove the current Contributory
      */
     void remove();
+
+    /**
+     * @brief getRate Return the rate of a contributory
+     * @return The rate
+     */
+    double getRate(const bool paied=false);
 
     /**
      * @brief getDataMap Get all data of model with a HashMap key/value
@@ -137,10 +144,23 @@ public:
      */
     void setUnit(const Unit &value);
 
+    /**
+     * @brief getHourlyRate Hourly rate for this contributory
+     * @return  The hourly rate
+     */
+    double getHourlyRate() const;
+
+    /**
+     * @brief setHourlyRate Change the hourly rate for this contributory
+     * @param value The hourly rate
+     */
+    void setHourlyRate(double value);
+
 private:
     Project* _project;          //!< Contributory project
-    double quantity;            //!< Quantity of work of this contribution
-    Unit _unit;                  //!< Unit of work of this contribution
+    double _quantity;            //!< Quantity of work of this contributory
+    double _hourlyRate;         //!< Hourly rate for this contributory
+    Unit _unit;                  //!< Unit of work of this contributory
     QString _description;       //!< Contributory description
     QString _longDescription;   //!< Long contributory description
 };

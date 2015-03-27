@@ -90,3 +90,23 @@ void ContributoryModelTest::commitRemove()
         QFAIL(e->what());
     }
 }
+
+void ContributoryModelTest::getRateTest() {
+    Contributory c;
+    Project p;
+
+    c.setQuantity(5);
+    c.setUnit(Unit(HOUR));
+    c.setHourlyRate(15);
+    QCOMPARE(c.getRate(), 75.);
+    c.setUnit(Unit(DAY));
+    QCOMPARE(c.getRate(), 525.);
+    c.setProject(&p);
+    c.setHourlyRate(0.0);
+    p.setDailyRate(250);
+    QCOMPARE(c.getRate(), 1250.);
+
+    c.setUnit(Unit(HOUR));
+    QCOMPARE(Utils::Double::round(c.getRate(), 2), 178.57);
+
+}

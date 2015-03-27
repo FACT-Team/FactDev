@@ -7,14 +7,16 @@ namespace Models {
 Contributory::Contributory()
 {
     _description = "";
-    quantity = 0.;
+    _quantity = 0.;
     _id = 0;
     _toRemoved = false;
     _project = new Project();
+    _hourlyRate = 0.0;
 }
 
 Contributory::Contributory(int id)
 {
+    _hourlyRate = 0.0;
     hydrat(id);
     _id = id;
 }
@@ -40,7 +42,7 @@ void Contributory::hydrat(int id)
 {
     Contributory* c = ContributoryDatabase::instance()->getContributory(id);
     _description = c->getDescription();
-    quantity = c->getQuantity();
+    _quantity = c->getQuantity();
     _unit = c->getUnit();
     _project = c->getProject();
     delete c;
@@ -52,12 +54,27 @@ void Contributory::remove()
     ContributoryDatabase::instance()->removeContributory(_id);
 }
 
+double Contributory::getRate(const bool paied)
+{
+    double ret = 0.0;
+    if(_hourlyRate == 0.0) {
+        _hourlyRate = _project->getDailyRate()/User(1).getNbHoursPerDays();
+    }
+    if(_unit.getype() == HOUR) {
+        ret = _quantity * _hourlyRate;
+    } else {
+        ret = _quantity * _hourlyRate * User(1).getNbHoursPerDays();
+    }
+
+    return ret;
+}
+
 QVariantHash Contributory::getDataMap()
 {
     QVariantHash data;
 
     data["project"] = _project->getName();
-    data["nbHours"] = quantity;
+    data["nbHours"] = _quantity;
     data["contributoryDescription"] = _description;
     data["contributoryLongDescription"] = _longDescription;
     return data;
@@ -74,12 +91,12 @@ void Contributory::setProject(Project* id)
 }
 double Contributory::getQuantity() const
 {
-    return quantity;
+    return _quantity;
 }
 
 void Contributory::setQuantity(double value)
 {
-    quantity = value;
+    _quantity = value;
 }
 QString Contributory::getDescription() const
 {
@@ -119,6 +136,16 @@ void Contributory::setUnit(const Unit &value)
 {
     _unit = value;
 }
+double Contributory::getHourlyRate() const
+{
+    return _hourlyRate;
+}
+
+void Contributory::setHourlyRate(double value)
+{
+    _hourlyRate = value;
+}
+
 
 
 }
