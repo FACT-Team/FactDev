@@ -26,8 +26,8 @@ public:
     static QPair<int, double> getTurnoverBetweenDates(QDate begin, QDate end);
 
     /**
-     * @brief getGlobalTurnover get the global turnover
-     * @return double with global turnover
+     * @brief Get the global turnover
+     * @return The global turnover
      */
     static double getGlobalTurnover();
 };

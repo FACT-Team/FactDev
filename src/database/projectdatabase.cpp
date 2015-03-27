@@ -204,11 +204,15 @@ int ProjectDatabase::getNbProjects()
 
 int ProjectDatabase::getNbProjects(const int customerId) {
     QSqlQuery q;
-    q.prepare("SELECT count(*) FROM Project WHERE idCustomer = :customerId");
+    QString request("SELECT COUNT(idProject) FROM Project");
+    if (customerId > 0) {
+        request += " WHERE idCustomer = :customerId";
+    }
+    q.prepare(request);
     q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible de récupérer le nombre de projets du client",
+                    "Impossible de récupérer le nombre de projets",
                     "ProjectDatabase::getNbProjects",
                     lastError(q),
                     1.6);

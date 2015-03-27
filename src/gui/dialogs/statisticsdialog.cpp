@@ -14,25 +14,19 @@ StatisticsDialog::StatisticsDialog(bool global, int customerId, QWidget *parent)
     ui(new Ui::StatisticsDialog)
 {
     ui->setupUi(this);
-    //setWindowTitle("Statistiques");
 
-    int nbBills, nbBillsPaid, nbQuotes, nbProjects;
+    int nbBills(    BillingDatabase::instance()->getNbBills(customerId));
+    int nbBillsPaid(BillingDatabase::instance()->getNbBillsPaid(customerId));
+    int nbQuotes(   BillingDatabase::instance()->getNbQuotes(customerId));
+    int nbProjects( ProjectDatabase::instance()->getNbProjects(customerId));
     double turnover;
 
     if (global) {
         ui->lblTitle->setText("Statistiques globales");
-        nbBills = BillingDatabase::instance()->getNbBills();
-        nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid();
-        nbQuotes = BillingDatabase::instance()->getNbQuotes();
-        nbProjects = ProjectDatabase::instance()->getNbProjects();
         turnover = Models::Statistics::getGlobalTurnover();
     } else {
         Customer c(customerId);
         ui->lblTitle->setText("Statistiques du client " + c.getCompany());
-        nbBills = BillingDatabase::instance()->getNbBills(customerId);
-        nbBillsPaid = BillingDatabase::instance()->getNbBillsPaid(customerId);
-        nbQuotes = BillingDatabase::instance()->getNbQuotes(customerId);
-        nbProjects = ProjectDatabase::instance()->getNbProjects(customerId);
         turnover = c.getTurnover();
     }
 
@@ -58,8 +52,6 @@ StatisticsDialog::StatisticsDialog(bool global, int customerId, QWidget *parent)
     }
     ui->lblProject->setText(txt);
     ui->lblTurnover->setText(QString::number(turnover, 'f', 2) + " € de chiffre d'affaire généré.");
-
-
 }
 
 StatisticsDialog::~StatisticsDialog()

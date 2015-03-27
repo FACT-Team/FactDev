@@ -20,8 +20,8 @@ class StatisticsDialog : public QDialog
 
 public:
     /**
-     * @brief StatisticsDialog::StatisticsDialog Construct a windows StatisticsDialog
-     * @param global if is the global stats or customer stats
+     * @brief Construct a windows StatisticsDialog
+     * @param global if it's the global stats or customer stats
      * @param idCustomer the id of the Customer
      */
     explicit StatisticsDialog(bool global = true, int idCustomer = 0, QWidget *parent = 0);

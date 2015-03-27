@@ -74,10 +74,10 @@ public:
     int getNbProjects();
 
     /**
-     * @brief ProjectDatabase:getNbProjects Return the number of
-     * projects existing for an identify customer
-     * @param customerId
-     * @return number of projects
+     * @brief Get the number of projects
+     * @param customerId If customerId isn't specified if it's not valid,
+     * get all projects else get the specified customer projects
+     * @return Number of projects in the database for all or for a customer
      */
     int getNbProjects(const int customerId);
 
