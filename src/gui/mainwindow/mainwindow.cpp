@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     updateUser();
     showMaximized();
     responsiveCustomerTable();
+
 }
 
 void MainWindow::setupUi()
