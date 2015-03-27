@@ -131,3 +131,12 @@ void CustomerDatabaseTest::getNbCustomersTest() {
         QFAIL(e->what());
     }
 }
+
+void CustomerDatabaseTest::getCustomers() {
+    try {
+        QList<Customer> l =  Databases::CustomerDatabase::instance()->getCustomers();
+        QVERIFY(l.size() == 22);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}

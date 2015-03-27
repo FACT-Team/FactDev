@@ -29,6 +29,7 @@ private slots:
      void getAllBillingsOnly();
      void getBillingsBetweenDates();
      void getAllBillingsOfProjectTest();
+     void getNb();
 private:
      Billing* b1;
      int _lastInsert;
