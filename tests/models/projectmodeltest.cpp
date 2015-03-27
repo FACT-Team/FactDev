@@ -141,7 +141,7 @@ void ProjectModelTest::turnoverComputeTest() {
     Project p2(42);
     Project p3(23);
 
-    QCOMPARE(p1.getCost(), 84.0);
+    QCOMPARE(p1.computeProjectCost(), 84.0);
     QCOMPARE(p2.getCost(), 15.586);
     QCOMPARE(p3.getCost(), 521.64);
 }

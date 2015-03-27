@@ -47,17 +47,17 @@ void BillingModelTest::notEquals()
 
 void BillingModelTest::commitRemove()
 {
-//    try {
-//        Billing b1(12);
-//        b1.setIsBilling(false);
-//        b1.setIsPaid(false);
-//        b1.setToRemoved(true);
+    try {
+       Billing b1(12);
+       b1.setIsBilling(false);
+        b1.setIsPaid(false);
+        b1.setToRemoved(true);
 
-//        b1.commit();
-//        QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
-//    } catch(DbException* e) {
-//        QFAIL(e->what());
-//    }
+        b1.commit();
+        QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void BillingModelTest::commitUpdate()
