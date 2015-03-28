@@ -78,10 +78,10 @@
     }
    {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
 	{{#phone}}
-	\Telefon~{{ phone }}\\
+        \Telefon~{{ phone }}\\[.35ex]
 	{{/phone}}
 	{{#mobilePhone}}
-	\Mobilefone~{{ mobilePhone }}\\
+        \Mobilefone~{{ mobilePhone }}\\[.35ex]
 	{{/mobilePhone}}
     \Letter\texttt{%
     {{ email }}
@@ -92,10 +92,8 @@
     \ifthenelse{\equal{\websiteUser}{}}{
     }
     {
-        \newline\Mundus~\texttt{%
-            \href{%
-                websiteUser{}
-            }\\
+        \newline[.35ex]\Mundus~\texttt{%
+            \websiteUser{}
         }
 
     }
@@ -122,13 +120,13 @@
 %
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
     {{#phone}}
-    \Telefon~{{ phone }}\\
+    \Telefon~{{ phone }}\\[.35ex]
     {{/phone}}
     {{#mobilePhone}}
-    Mobilefone~{{ mobilePhone }}\\
+    Mobilefone~{{ mobilePhone }}\\[.35ex]
     {{/mobilePhone}}
     {{#fax}}
-    \Faxmachine~{{ fax }}\\
+    \Faxmachine~{{ fax }}\\[.35ex]
     {{/fax}}
     \Letter\texttt{ {{ email }} }
     \newcommand{\websiteCustomer}{%
@@ -137,7 +135,7 @@
     \ifthenelse{\equal{\websiteCustomer}{}}{
     }
     {
-        \newline\Mundus~\texttt{\href{\websiteCustomer}}
+        \newline\Mundus~\texttt{\websiteCustomer}
     }
 
     {{/customer}}
