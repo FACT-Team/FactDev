@@ -18,6 +18,7 @@
 #include "generator/texgenerator.h"
 #include "generator/pdfgenerator.h"
 
+#include "utils/double.h"
 namespace Models {
 /**
  * @author Antoine de Roquemaurel

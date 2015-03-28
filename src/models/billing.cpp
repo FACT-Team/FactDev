@@ -69,7 +69,7 @@ QVariantHash Billing::getDataMap()
     billing["date"] = _date.toString("dddd d MMMM yyyy");
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
-    data["billing"] = billing;//
+    data["billing"] = billing;
 
     QVariantList table;
     QVariantHash project;
@@ -80,8 +80,16 @@ QVariantHash Billing::getDataMap()
         table << project;
         project.clear();
     }
-    data["totalRate"] = getSumRate();
-    data["totalQuantity"] = getSumQuantity();
+    data["totalRate"] = Utils::Double::round(getPrice(), 2);
+
+    if(Utils::Double::round(getSumQuantity(), 2) < 1) {
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2) * User(1).getNbHoursPerDays();
+        data["totalUnit"] = Unit(HOUR).toString(data["totalQuantity"].toDouble() < 1);
+    } else {
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2);
+        data["totalUnit"] = Unit(DAY).toString(data["totalQuantity"].toDouble() < 1);
+    }
+
 
     data["table"] = _contributories.getDataMap();
 

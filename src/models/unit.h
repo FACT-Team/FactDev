@@ -29,7 +29,7 @@ public:
      * @brief toString Return String for unit type.
      * @return The unit in String
      */
-    QString toString();
+    QString toString(const bool plurial=false);
 
     /**
      * @brief getype The unit Type

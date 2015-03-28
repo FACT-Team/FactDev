@@ -5,6 +5,7 @@
 #include "models/unit.h"
 #include "models/calculable.h"
 
+#include "utils/double.h"
 namespace Models {
 /**
  * @brief The Unit enum Unity of work : hour or day

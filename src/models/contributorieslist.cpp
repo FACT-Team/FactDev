@@ -172,12 +172,8 @@ QVariantList ContributoriesList::getDataMap()
         project["descriptionproject"] = key->first->getDescription();
         project["indexproject"] = i++;
         for(Contributory c : getContributories(key->first)) {
+            c.setHourlyRate(key->second.getHourlyRate());
             buff = c.getDataMap();
-            buff["price"] = key->second.getDailyRate()
-                            * buff["nbHours"].toDouble();
-            sum += key->second.getDailyRate()
-                    * buff["nbHours"].toDouble();
-            subdays += buff["nbHours"].toDouble();
             buff["firstcontributory"] = j == 1;
             buff["lastcontributory"] = j == getContributories(key->first).count();
             buff["nbcontributories"] = getContributories(key->first).count();
@@ -187,8 +183,16 @@ QVariantList ContributoriesList::getDataMap()
         }
         j = 1;
         project["contributories"] = contributories;
-        project["subtotal"] = sum;
-        project["subdays"] = subdays;
+        project["subtotal"] = Utils::Double::round(getPrice(key->first), 2);
+
+        if(Utils::Double::round(getSumQuantity(key->first), 2) < 1) {
+            project["subquantity"] = getSumQuantity(key->first) * User(1).getNbHoursPerDays();
+            project["subunit"] = Unit(HOUR).toString(project["subquantity"].toDouble() > 1);
+        } else {
+            project["subquantity"] = Utils::Double::round(getSumQuantity(key->first), 2);
+            project["subunit"] = Unit(DAY).toString(project["subquantity"].toDouble() > 1);
+        }
+
         sum = 0.0;
         subdays = 0.0;
         contributories.clear();

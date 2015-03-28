@@ -36,8 +36,7 @@ database/customerdatabasetest.h \
     models/contributorymodeltest.h \
     utils/itemtypetest.h \
     models/contributorylisttest.h \
-    utils/pointerstest.h \
-    utils/double.h
+    utils/pointerstest.h
 
 SOURCES += \
     #QTestRunner/main.cpp \
@@ -61,10 +60,7 @@ database/customerdatabasetest.cpp \
     utils/itemtypetest.cpp \
     models/contributorylisttest.cpp \
     main.cpp \
-    utils/pointerstest.cpp \
-    utils/double.cpp
-  #  CustomTestPrinter.cpp \
-   # database/customerdatabasetest.cpp
+    utils/pointerstest.cpp
 
 RESOURCES += \
     test.qrc

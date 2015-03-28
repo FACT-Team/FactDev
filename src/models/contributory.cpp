@@ -85,9 +85,11 @@ QVariantHash Contributory::getDataMap()
     QVariantHash data;
 
     data["project"] = _project->getName();
-    data["nbHours"] = _quantity;
+    data["quantity"] = QString::number(_quantity);
+    data["unit"] = _unit.toString(getQuantity() > 1);
     data["contributoryDescription"] = _description;
     data["contributoryLongDescription"] = _longDescription;
+    data["price"] = Utils::Double::round(getPrice(), 2);
     return data;
 }
 

@@ -11,9 +11,14 @@ Unit::Unit()
 
 }
 
-QString Unit::toString()
+QString Unit::toString(const bool plurial)
 {
-    return _type == DAY ? "Jour" : "Heure";
+    if(plurial) {
+        return _type == DAY ? "Jours" : "Heures";
+    } else {
+        return _type == DAY ? "Jour" : "Heure";
+    }
+
 }
 
 TypeUnit Unit::getype() const

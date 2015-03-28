@@ -9,6 +9,8 @@
 #include "models/user.h"
 #include "models/calculable.h"
 
+#include "utils/double.h"
+
 namespace Models {
 /**
  * @author Antoine de Roquemaurel
