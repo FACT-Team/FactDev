@@ -25,7 +25,7 @@ WdgModels::CustomersTableModel*
     WdgModels::CustomersTableModel* ret
             = new WdgModels::CustomersTableModel();
     QSqlQuery q;
-
+    qDebug() << filter;
     q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
                "c.firstnameReferent as cfirstnameReferent, "
                "UPPER(c.lastnameReferent) as clastnameReferent, "
