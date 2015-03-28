@@ -100,8 +100,13 @@ void ContributoryListTest::getPriceOfProject() {
     contributories.addContributory(c5); // 350
 
     QCOMPARE(contributories.getPrice(p1), 1560.);
+    QCOMPARE(contributories.getPrice(p1), contributories.getSumQuantity(p1)*7 * 120);
+
     QCOMPARE(contributories.getPrice(p2), 742.);
+    QCOMPARE(contributories.getPrice(p2), contributories.getSumQuantity(p2)*7 * 28);
+
     QCOMPARE(contributories.getPrice(p3), 840.);
+    QCOMPARE(contributories.getPrice(p3), contributories.getSumQuantity(p3)*7 * 12);
 }
 
 void ContributoryListTest::getQuantityTest()

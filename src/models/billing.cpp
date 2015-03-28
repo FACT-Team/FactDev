@@ -88,6 +88,11 @@ QVariantHash Billing::getDataMap()
     return data;
 }
 
+double Billing::getPrice(bool paied)
+{
+    _contributories.getPrice(paied);
+}
+
 void Billing::generateTex()
 {
     Generator::TexGenerator g(":/tpl/billingtpl");
