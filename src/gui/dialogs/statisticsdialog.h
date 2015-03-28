@@ -27,6 +27,12 @@ public:
     explicit StatisticsDialog(bool global = true, int idCustomer = 0, QWidget *parent = 0);
     ~StatisticsDialog();
 
+    /**
+     * @brief Get the correct terminaison
+     * @param nb
+     */
+    QString singularPlural(int nb);
+
 private:
     Ui::StatisticsDialog *ui;
 };

@@ -13,7 +13,7 @@ QPair<int, double>  Statistics::getTurnoverBetweenDates(QDate begin, QDate end)
     double turnover = 0.0;
     QList<Project*> projects = Databases::ProjectDatabase::instance()->getAllProjects();
     QList<Billing> bills;
-    QList<Billing> billsBetweenDates = BillingDatabase::instance()->getBillingsBetweenDates(begin, end);
+    QList<Billing> billsBetweenDates = BillingDatabase::instance()->getBillsBetweenDates(begin, end);
 
     for (Project *p : projects) {
         bills = BillingDatabase::instance()->getBillsPaid(p->getId());

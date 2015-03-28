@@ -250,7 +250,7 @@ void BillingDatabaseTest::getBillingsBetweenDates()
     bills.append(Billing(2));
 
     bills2 = Databases::BillingDatabase::instance()
-            ->getBillingsBetweenDates(QDate(2015,2,13),QDate(2035,2,13));
+            ->getBillsBetweenDates(QDate(2015,2,13),QDate(2035,2,13));
 
 
     QCOMPARE(bills2.count(), 1);

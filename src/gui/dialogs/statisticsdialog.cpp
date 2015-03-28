@@ -30,28 +30,25 @@ StatisticsDialog::StatisticsDialog(bool global, int customerId, QWidget *parent)
         turnover = c.getTurnover();
     }
 
-    QString txt = QString::number(nbBills);
-    if (nbBills == 0 || nbBills == 1) {
-        txt += " facture dont " + QString::number(nbBillsPaid);
-    } else if (nbBills > 1) {
-        txt += " factures dont " + QString::number(nbBillsPaid);
-    }
-    if (nbBillsPaid == 0 || nbBillsPaid == 1) {
-        txt += " payée.";
-    } else if (nbBillsPaid > 1) {
-        txt += " payées.";
-    }
+    QString txt = QString::number(nbBills) + " facture"
+            + singularPlural(nbBills) + " dont " + QString::number(nbBillsPaid)
+            + " payée" + singularPlural(nbBillsPaid) + ".";
+
     ui->lblBills->setText(txt);
     ui->lblQuotes->setText(QString::number(nbQuotes) + " devis.");
 
-    txt = QString::number(nbProjects);
-    if (nbProjects == 0 || nbProjects == 1) {
-        txt += " projet.";
-    } else if (nbProjects > 1) {
-        txt += " projets.";
-    }
+    txt = QString::number(nbProjects) + " projet"
+            + singularPlural(nbProjects) + ".";
+
     ui->lblProject->setText(txt);
-    ui->lblTurnover->setText(QString::number(turnover, 'f', 2) + " € de chiffre d'affaire généré.");
+    ui->lblTurnover->setText(QString::number(turnover, 'f', 2)
+                             + " € de chiffre d'affaire généré.");
+}
+
+QString StatisticsDialog::singularPlural(int nb) {
+    QString ret("");
+    if (nb > 1) ret = "s";
+    return ret;
 }
 
 StatisticsDialog::~StatisticsDialog()

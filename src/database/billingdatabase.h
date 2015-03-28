@@ -140,13 +140,12 @@ public:
     QMap<Project *, Billing *> getAllBillingsOfProject();
 
     /**
-     * @brief BillingDatabase::getBillingsBetweenDates get billings in the list
-     * between <i>begin</i> and <i>end</i> dates
+     * @brief Get the bills between <i>begin</i> and <i>end</i> dates
      * @param begin
      * @param end
-     * @return the list of <b>Billing</b>
+     * @return the list of <b>Bills</b>
      */
-    QList<Billing> getBillingsBetweenDates(QDate begin, QDate end);
+    QList<Billing> getBillsBetweenDates(QDate begin, QDate end);
 
     /**
      * @brief Get the bills

@@ -372,7 +372,7 @@ QMap<Project*, Billing*> BillingDatabase::getAllBillingsOfProject()
     return map;
 }
 
-QList<Billing> BillingDatabase::getBillingsBetweenDates(QDate begin, QDate end)
+QList<Billing> BillingDatabase::getBillsBetweenDates(QDate begin, QDate end)
 {
     // select * from billing where date between '2015-01-01' and '2015-03-19' and isBilling=1 ;
     QList<Billing> bills;
