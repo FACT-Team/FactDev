@@ -14,8 +14,8 @@ QWidget *UnitComboDelegate::createEditor(QWidget *parent,
                                          const QModelIndex &index) const
 {
     QComboBox* editor = new QComboBox(parent);
-    editor->addItem("Jours", QVariant(0));
-    editor->addItem("Heures", QVariant(1));
+    editor->addItem("Heures", QVariant(0));
+    editor->addItem("Jours", QVariant(1));
 
     return editor;
 }
@@ -28,7 +28,7 @@ void UnitComboDelegate::paint(QPainter *painter,
 {
     QStyleOptionViewItemV4 myOption = option;
     int value = index.model()->data(index, Qt::EditRole).toInt();
-    QString text = value == 0 ? "Jours" : "Heures";
+    QString text = value == 1 ? "Jours" : "Heures";
     myOption.text = text;
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem,

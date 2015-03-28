@@ -174,15 +174,13 @@ void ContributoriesWidget::updateUi()
 
 void ContributoriesWidget::updatePrice()
 {
-    // TODO put me in Billing
     if(_modelsContributories.count() > 0) {
         WdgModels::ContributoriesTableModel* currentContributory =
                 _modelsContributories[ui->stack->currentIndex()];
         QPair<Models::Project*, Models::Rate> currentProject =
                 _modelProjects->getProject(ui->stack->currentIndex());
 
-        ui->sbSubSum->setValue(
-                    currentContributory->getSumQuantity()
+        ui->sbSubSum->setValue(currentContributory->getSumQuantity()
                     * currentProject.second.getHourlyRate());
 
         double value = 0.0;

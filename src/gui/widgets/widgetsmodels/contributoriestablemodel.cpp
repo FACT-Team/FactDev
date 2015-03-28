@@ -30,7 +30,6 @@ QVariant ContributoriesTableModel::data(
     Models::Rate r;
 
     const Contributory & contributory = _contributories[index.row()];
-//    qDebug() << "=)" << contributory.getUnit().getype();
 
     switch (index.column()) {
     case 0: return contributory.getDescription();
@@ -133,7 +132,7 @@ double ContributoriesTableModel::getSumQuantity() const
 {
     double ret(0);
     for(Contributory c : _contributories) {
-        ret += c.getQuantity();
+        ret += c.getSumQuantity();
     }
 
     return ret;
