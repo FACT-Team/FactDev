@@ -92,7 +92,7 @@
     \ifthenelse{\equal{\websiteUser}{}}{
     }
     {
-        \newline[.35ex]\Mundus~\texttt{%
+        \\\Mundus~\texttt{%
             \websiteUser{}
         }
 
@@ -135,7 +135,7 @@
     \ifthenelse{\equal{\websiteCustomer}{}}{
     }
     {
-        \newline\Mundus~\texttt{\websiteCustomer}
+        \\\Mundus~\texttt{\websiteCustomer}
     }
 
     {{/customer}}
@@ -154,31 +154,32 @@
     {{description}}\\~\\
     {{/billing}}
 
+
     \begin{table}[H]
-        \centering
-        \begin{tabular}{|p{4.0cm}|p{1.8cm}|p{6cm}|p{1.7cm}|p{1.2cm}|r|}
+        \hspace{-30px}
+        \begin{tabular}{|p{3.5cm}|p{1.75cm}|p{8.2cm}|p{1.2cm}|p{1.2cm}|r|}
             \hline
-            \textbf{Application} & \textbf{Tarif journalier} &\textbf{Prestation} & \textbf{Quantité}& \textbf{Unité} & \textbf{Tarif\footnotemark}\\
+            \textbf{Application} & \textbf{Tarif journalier} &\textbf{Prestation} & \textbf{Qté.}& \textbf{Unité} & \textbf{Tarif\footnotemark}\\
             {{#table}}
                 {{#contributories}}
 
                 {{#firstcontributory}}
                 \cline{0-5}
                     \multirow{ {{ nbcontributories }} }{*}{\texttt{[{{indexproject}}]} {{ nameproject }} } &
-                    \multirow{ {{ nbcontributories }} }{*}{ \begin{minipage}{1.8cm}\begin{flushright} {{rateproject}}~\euro{} \end{flushright}\end{minipage} }
+                    \multirow{ {{ nbcontributories }} }{*}{ \begin{minipage}{1.75cm}\begin{flushright} {{rateproject}}~\euro{} \end{flushright}\end{minipage} }
                 {{/firstcontributory}}
                 {{^firstcontributory}}
                 &
                 {{/firstcontributory}}
                     & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} &
-                     \begin{minipage}{1.7cm}\begin{flushright} {{ quantity }}\end{flushright}\end{minipage}&
+                     \begin{minipage}{1.2cm}\begin{flushright} {{ quantity }}\end{flushright}\end{minipage}&
                      \begin{minipage}{1.2cm}\begin{flushright} {{ unit }}\end{flushright}\end{minipage}&
                      {{ price }}~\euro{}\\
                 \cline{3-6}
 
                 {{#lastcontributory}}
                 \cline{0-2}
-                \multicolumn{3}{|r|}{\textbf{Sous-Total} } & \begin{minipage}{1.7cm}\begin{flushright} \textbf{ {{ subquantity }} } \end{flushright}\end{minipage}&
+                \multicolumn{3}{|r|}{\textbf{Sous-Total} } & \begin{minipage}{1.2cm}\begin{flushright} \textbf{ {{ subquantity }} } \end{flushright}\end{minipage}&
                 \begin{minipage}{1.2cm}\begin{flushright} {{subunit}} \end{flushright}\end{minipage}& \textbf{ {{subtotal}}~\euro{}}\\
                 {{/lastcontributory}}
                 {{/contributories}}
@@ -186,7 +187,7 @@
             {{/table}}
             \hline
             \hline
-            \multicolumn{3}{|r|}{\textbf{Total} } & \begin{minipage}{1.7cm}\begin{flushright} \textbf{ {{ totalQuantity }} }\end{flushright}\end{minipage} &
+            \multicolumn{3}{|r|}{\textbf{Total} } & \begin{minipage}{1.2cm}\begin{flushright} \textbf{ {{ totalQuantity }} }\end{flushright}\end{minipage} &
             \begin{minipage}{1.2cm}\begin{flushright} Jours\end{flushright}\end{minipage}&
             \textbf{ {{ totalRate}}~\euro{}}\\
             \hline
