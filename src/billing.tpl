@@ -223,9 +223,7 @@
     \section{Détails des projets}
         \begin{description}
         {{#table}}
-            {{#contributories}}
             \item[\texttt{[{{indexproject}}]} {{ nameproject }}] {{ descriptionproject }}
-            {{/contributories}}
         {{/table}}
         \end{description}
 
