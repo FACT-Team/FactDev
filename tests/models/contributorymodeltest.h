@@ -24,6 +24,7 @@ private slots:
     void commitRemove();
 
     void getRateTest();
+    void getQuantityTest();
 private:
     void setup(void);
 

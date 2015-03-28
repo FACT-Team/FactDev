@@ -14,6 +14,14 @@ public:
      * @return The price
      */
     virtual double getPrice(bool paied=false) = 0;
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of days) of the Contributories
+     * @return sum of quantity in days
+     */
+    virtual double getSumQuantity() = 0;
+
 };
 
 }

@@ -108,5 +108,18 @@ void ContributoryModelTest::getRateTest() {
 
     c.setUnit(Unit(HOUR));
     QCOMPARE(Utils::Double::round(c.getPrice(), 2), 178.57);
+}
+
+
+void ContributoryModelTest::getQuantityTest() {
+    Contributory c;
+    Project p;
+
+    c.setQuantity(5);
+    c.setUnit(Unit(HOUR));
+    c.setHourlyRate(15);
+    QCOMPARE(Utils::Double::round(c.getSumQuantity(), 3), 0.714);
+    c.setUnit(Unit(DAY));
+    QCOMPARE(c.getSumQuantity(), 5.);
 
 }

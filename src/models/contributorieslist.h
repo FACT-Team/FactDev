@@ -32,6 +32,28 @@ public:
     double getPrice(bool isPaied=false);
 
     /**
+     * @brief getPrice Return price of project
+     * @param project The project
+     * @return The price
+     */
+    double getPrice(Models::Project *project);
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of hours) of the Contributories
+     * @return sum of quantity in days
+     */
+    double getSumQuantity();
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of hours) of the Contributories of project
+     * @param project The project
+     * @return sum of quantity in days
+     */
+    double getSumQuantity(Models::Project *project);
+
+    /**
      * @brief ContributoriesList::getRate
      * @param project
      * @return
@@ -111,12 +133,6 @@ public:
      */
     double getSumRate();
 
-    /**
-     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
-     * (number of hours) of the Contributories
-     * @return sum of quantity
-     */
-    double getSumQuantity();
 
     /**
      * @brief ContributoriesList::getCustomer Return the Customers linked to
@@ -144,10 +160,25 @@ public:
      * @return List of billing and value linked
      */
     QVariantList getDataMap();
-
 private:
+    /**
+     * @brief getPrice Get price of list of contributories
+     * @param contributories The contributories
+     * @param r The rate of contributories
+     * @return  The price of contributories
+     */
+    double getPrice(const QList<Contributory> &contributories, Models::Rate r);
+
+    /**
+     * @brief getQuantity Get quantity of a contributories list
+     * @param contributories THe contributories
+     * @return THe quantity (in days)
+     */
+    double getSumQuantity(const QList<Contributory>& contributories);
+
     int _idBilling; //!< Billing ID
     bool _insert;   //!< an element is inserted
+
 };
 }
 #endif // CONTRIBUTORIESLIST_H

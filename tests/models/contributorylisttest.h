@@ -4,6 +4,7 @@
 
 #include "models/contributorieslist.h"
 
+#include "utils/double.h"
 using namespace Models;
 
 class ContributoryListTest : public QObject
@@ -14,7 +15,22 @@ public:
 private slots:
     void addProject();
     void getPriceTest();
+    void getPriceOfProject();
 
+    void getQuantityTest();
+    void getQuantityOfProjectTest();
+private:
+    void setup();
+
+    Project* p1;
+    Project* p2;
+    Project* p3;
+
+    Contributory c1;
+    Contributory c2;
+    Contributory c3;
+    Contributory c4;
+    Contributory c5;
 };
 DECLARE_TEST(ContributoryListTest)
 

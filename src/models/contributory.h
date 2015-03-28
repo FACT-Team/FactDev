@@ -59,6 +59,13 @@ public:
     double getPrice(const bool paied=false);
 
     /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of hours) of the Contributories
+     * @return sum of quantity in hours
+     */
+    double getSumQuantity();
+
+    /**
      * @brief getDataMap Get all data of model with a HashMap key/value
      * @return Model's data
      */

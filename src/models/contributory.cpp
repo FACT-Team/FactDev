@@ -69,6 +69,17 @@ double Contributory::getPrice(const bool paied)
     return ret;
 }
 
+double Contributory::getSumQuantity()
+{
+    double ret;
+    if(_unit.getype() == DAY) {
+        ret = _quantity;
+    } else {
+        ret = _quantity / User(1).getNbHoursPerDays();
+    }
+    return ret;
+}
+
 QVariantHash Contributory::getDataMap()
 {
     QVariantHash data;

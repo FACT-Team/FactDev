@@ -15,6 +15,24 @@ ContributoriesList::~ContributoriesList()
 {
 
 }
+double ContributoriesList::getPrice(const QList<Contributory>& contributories, Models::Rate r) {
+    double ret = 0.0;
+    for(Contributory c : contributories) {
+        c.setHourlyRate(r.getHourlyRate());
+        ret += c.getPrice();
+    }
+
+    return ret;
+}
+
+double ContributoriesList::getSumQuantity(const QList<Contributory>& contributories) {
+    double ret = 0.0;
+    for(Contributory c : contributories) {
+        ret += c.getSumQuantity();
+    }
+
+    return ret;
+}
 
 double ContributoriesList::getPrice(bool isPaied)
 {
@@ -23,10 +41,17 @@ double ContributoriesList::getPrice(bool isPaied)
     double machin;
     for (auto it = cbegin(); it != cend(); ++it) {
         key = it.key();
-        for(Contributory c : it.value()) {
-            c.setHourlyRate(getRate(key->first).getHourlyRate());
-            ret += c.getPrice();
-            machin = c.getPrice();
+        ret += getPrice(it.value(), getRate(key->first));
+    }
+
+    return ret;
+}
+
+double ContributoriesList::getPrice(Models::Project* project) {
+    double ret = 0.0;
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
+        if(pair->first->getId() == project->getId()) {
+            ret += getPrice(getContributories(pair->first), getRate(project));
         }
     }
 
@@ -185,11 +210,7 @@ double ContributoriesList::getSumRate()
     User u(1);
     for(QPair<Project*,Models::Rate>* key : keys()) {
         for(Contributory c : getContributories(key->first)) {
-            if(c.getUnit().getype() == HOUR) {
-                ret += (c.getQuantity()/u.getNbHoursPerDays()) * key->second.getDailyRate();
-            } else {
-                ret += c.getQuantity() * key->second.getDailyRate();
-            }
+            ret += c.getSumQuantity();
         }
     }
 
@@ -198,13 +219,15 @@ double ContributoriesList::getSumRate()
 
 double ContributoriesList::getSumQuantity()
 {
+    return getSumQuantity(*getAllContributories());
+}
+
+double ContributoriesList::getSumQuantity(Project *project)
+{
     double ret = 0.0;
-    User u(1);
-    for(Contributory c : *getAllContributories()) {
-        if(c.getUnit().getype() == HOUR) {
-            ret += (c.getQuantity()/u.getNbHoursPerDays());
-        } else {
-            ret += c.getQuantity();
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
+        if(pair->first->getId() == project->getId()) {
+            ret += getSumQuantity(getContributories(pair->first));
         }
     }
 
