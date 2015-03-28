@@ -98,15 +98,15 @@ void ContributoryModelTest::getRateTest() {
     c.setQuantity(5);
     c.setUnit(Unit(HOUR));
     c.setHourlyRate(15);
-    QCOMPARE(c.getRate(), 75.);
+    QCOMPARE(c.getPrice(), 75.);
     c.setUnit(Unit(DAY));
-    QCOMPARE(c.getRate(), 525.);
+    QCOMPARE(c.getPrice(), 525.);
     c.setProject(&p);
     c.setHourlyRate(0.0);
     p.setDailyRate(250);
-    QCOMPARE(c.getRate(), 1250.);
+    QCOMPARE(c.getPrice(), 1250.);
 
     c.setUnit(Unit(HOUR));
-    QCOMPARE(Utils::Double::round(c.getRate(), 2), 178.57);
+    QCOMPARE(Utils::Double::round(c.getPrice(), 2), 178.57);
 
 }

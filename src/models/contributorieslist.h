@@ -2,17 +2,20 @@
 #define CONTRIBUTORIESLIST_H
 
 #include <QMap>
+
 #include "models/project.h"
 #include "models/contributory.h"
 #include "models/rate.h"
 #include "models/user.h"
+#include "models/calculable.h"
+
 namespace Models {
 /**
  * @author Antoine de Roquemaurel
  * @brief The ContributoriesList class List of contributories
  */
 class ContributoriesList
-        : private QMap<QPair<Project*,Models::Rate>*,QList<Contributory> >
+        : private QMap<QPair<Project*,Models::Rate>*,QList<Contributory> >, public Calculable
 {
 public:
     /**
@@ -21,6 +24,19 @@ public:
      */
     ContributoriesList();
     ~ContributoriesList();
+
+    /**
+     * @brief getPrice Return the price of a contributories list
+     * @return The price
+     */
+    double getPrice(bool isPaied=false);
+
+    /**
+     * @brief ContributoriesList::getRate
+     * @param project
+     * @return
+     */
+    Models::Rate getRate(Models::Project *project);
 
     /**
      * @brief ContributoriesList::commit Update or insert data into the database
@@ -121,13 +137,6 @@ public:
      * @return List of all contributories
      */
     QList<Contributory> *getAllContributories();
-
-    /**
-     * @brief ContributoriesList::getRate
-     * @param project
-     * @return
-     */
-    Models::Rate getRate(Models::Project *project);
 
     /**
      * @brief ContributoriesList::getDataMap Return a list of Billing and it

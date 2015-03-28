@@ -16,6 +16,33 @@ ContributoriesList::~ContributoriesList()
 
 }
 
+double ContributoriesList::getPrice(bool isPaied)
+{
+    QPair<Project*, Models::Rate>* key;
+    double ret = 0.0;
+    double machin;
+    for (auto it = cbegin(); it != cend(); ++it) {
+        key = it.key();
+        for(Contributory c : it.value()) {
+            c.setHourlyRate(getRate(key->first).getHourlyRate());
+            ret += c.getPrice();
+            machin = c.getPrice();
+        }
+    }
+
+    return ret;
+}
+
+Models::Rate ContributoriesList::getRate(Models::Project* project)
+{
+    for(QPair<Project*, Models::Rate>* pair : keys()) {
+        if(pair->first->getId() == project->getId()) {
+            return pair->second;
+        }
+    }
+    return Models::Rate();
+}
+
 void ContributoriesList::commit()
 {
     // Commits contributories
@@ -101,16 +128,6 @@ QList<Project*> ContributoriesList::getProjects()
         projects.append(pair->first);
     }
     return projects;
-}
-
-Models::Rate ContributoriesList::getRate(Models::Project* project)
-{
-    for(QPair<Project*, Models::Rate>* pair : keys()) {
-        if(pair->first->getId() == project->getId()) {
-            return pair->second;
-        }
-    }
-    return Models::Rate();
 }
 
 QVariantList ContributoriesList::getDataMap()

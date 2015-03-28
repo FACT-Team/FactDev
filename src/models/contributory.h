@@ -53,10 +53,10 @@ public:
     void remove();
 
     /**
-     * @brief getRate Return the rate of a contributory
-     * @return The rate
+     * @brief getPrice Return the price of a contributory
+     * @return The price
      */
-    double getRate(const bool paied=false);
+    double getPrice(const bool paied=false);
 
     /**
      * @brief getDataMap Get all data of model with a HashMap key/value

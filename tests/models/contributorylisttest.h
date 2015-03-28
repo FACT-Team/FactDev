@@ -13,6 +13,7 @@ public:
     ContributoryListTest();
 private slots:
     void addProject();
+    void getPriceTest();
 
 };
 DECLARE_TEST(ContributoryListTest)

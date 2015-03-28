@@ -10,10 +10,10 @@ class Calculable
 {
 public:
     /**
-     * @brief getRate Return the rate of a calculable object
-     * @return The rate
+     * @brief getPrice Return the price of a calculable object
+     * @return The price
      */
-    virtual double getRate(bool paied=false) = 0;
+    virtual double getPrice(bool paied=false) = 0;
 };
 
 }

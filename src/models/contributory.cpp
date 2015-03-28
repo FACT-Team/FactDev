@@ -54,7 +54,7 @@ void Contributory::remove()
     ContributoryDatabase::instance()->removeContributory(_id);
 }
 
-double Contributory::getRate(const bool paied)
+double Contributory::getPrice(const bool paied)
 {
     double ret = 0.0;
     if(_hourlyRate == 0.0) {
