@@ -14,8 +14,8 @@ QWidget *UnitComboDelegate::createEditor(QWidget *parent,
                                          const QModelIndex &index) const
 {
     QComboBox* editor = new QComboBox(parent);
-    editor->addItem("Heures", QVariant(0));
     editor->addItem("Jours", QVariant(1));
+    editor->addItem("Heures", QVariant(0));
 
     return editor;
 }

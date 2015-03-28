@@ -34,7 +34,7 @@ QVariant ContributoriesTableModel::data(
     switch (index.column()) {
     case 0: return contributory.getDescription();
     case 1: return contributory.getLongDescription();
-    case 2: return contributory.getQuantity()/r.getNbDailyHours();
+    case 2: return contributory.getQuantity();
     case 3: return contributory.getUnit().getype();
     default: return QVariant();
     };
@@ -74,8 +74,7 @@ bool ContributoriesTableModel::setData(
             _contributories[index.row()].setLongDescription(value.toString());
             break;
         case 2:
-            _contributories[index.row()].setQuantity(
-                        value.toDouble()*r.getNbDailyHours());
+            _contributories[index.row()].setQuantity(value.toDouble());
             break;
         case 3:
             _contributories[index.row()].setUnit(Unit((TypeUnit)value.toInt()));

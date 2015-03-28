@@ -180,8 +180,9 @@ void ContributoriesWidget::updatePrice()
         QPair<Models::Project*, Models::Rate> currentProject =
                 _modelProjects->getProject(ui->stack->currentIndex());
 
+        qDebug() << currentContributory->getSumQuantity();
         ui->sbSubSum->setValue(currentContributory->getSumQuantity()
-                    * currentProject.second.getHourlyRate());
+                    * currentProject.second.getDailyRate());
 
         double value = 0.0;
         int i = 0;
@@ -189,7 +190,7 @@ void ContributoriesWidget::updatePrice()
             : _modelsContributories)
         {
             value += contributory->getSumQuantity()
-                    * _modelProjects->getProject(i++).second.getHourlyRate();
+                    * _modelProjects->getProject(i++).second.getDailyRate();
         }
         ui->sbAllSums->setValue(value);
     }
