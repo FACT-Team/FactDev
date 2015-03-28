@@ -21,6 +21,7 @@ void Customer::commit() {
     if(_id == 0) {
         _id = CustomerDatabase::instance()->addCustomer(*this);
     } else if(_toRemoved){
+        qDebug() << "XXX";
         remove();
     } else {
         CustomerDatabase::instance()->updateCustomer(*this);
@@ -44,6 +45,7 @@ void Customer::hydrat(int id)
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
     setIsArchived(          customer->isArchived());
+    setToRemoved(false);
 }
 
 void Customer::remove()
