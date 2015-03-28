@@ -232,7 +232,6 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
 
     if(q.first()) {
         customer = getCustomer(q);
-        qDebug() << customer->getId();
     }
 
     return customer;

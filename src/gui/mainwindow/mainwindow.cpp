@@ -350,15 +350,19 @@ void MainWindow::removeCustomer() {
 
 void MainWindow::archiveCustomer()
 {
+    Customer c(getCurrentCustomerId());
     if (QMessageBox::warning(this,"Archivage d'un client",
-                             "Voulez vous archiver le client ?",
+                             "Voulez vous archiver le client "
+                             + c.getFirstname() + " "
+                             + c.getLastname() + " ?",
                              "Archiver",
                              "Annuler") == 0) {
-        Customer c(getCurrentCustomerId());
+
         c.setIsArchived(true);
         c.commit();
         updateTableCustomers();
         updateTree();
+        updateButtons();
     }
 }
 
@@ -738,6 +742,7 @@ void MainWindow::updateButtons()
 
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
+    ui->btnArchiveCustom->setEnabled(canModify);
 
     if(ui->tblCustomers->currentIndex().row() == -1
             && !ui->tblCustomers->selectionModel()->hasSelection()) {
