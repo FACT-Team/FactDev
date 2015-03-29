@@ -33,7 +33,8 @@ void CustomerDataWidget::printUserData()
     setLabel(ui->lbPostalCodeCityCountry,user->getPostalCode()
              + " " + user->getCity());
     ui->lbImage->setPixmap(
-                user->getImage().scaled(128,128, Qt::KeepAspectRatio));
+                user->getImage().scaled(96,96, Qt::KeepAspectRatio));
+
 
 }
 
@@ -52,8 +53,7 @@ void CustomerDataWidget::printInformations(int id)
              + " " + custom->getCity());
     setLabel(ui->lbFax, custom->getFax(), ui->lbTitleFax);
     ui->lbImage->setPixmap(
-                custom->getImage().scaled(128,128, Qt::KeepAspectRatio));
-
+                custom->getImage().scaled(96,96, Qt::KeepAspectRatio));
 
 }
 

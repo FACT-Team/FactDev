@@ -214,17 +214,15 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
     q.prepare("SELECT image FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
 
-    if(!q.exec()) {
-        throw new DbException(
-                    "Impossible de récupérer l'image du Customer ",
-                    "BddCustomer::getCustomerImage",
-                    lastError(q),
-                    1.9);
-    }
-    q.next();
+    if (q.exec()) {
+        q.next();
+        if(q.first()) {
+            img =  Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+        }
 
-    if(q.first()) {
-        img =  Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+    }
+    if (img.size().isEmpty()) {
+        img = QPixmap(":/icons/customer");
     }
 
     return img;

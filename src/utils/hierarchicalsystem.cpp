@@ -12,8 +12,7 @@ HierarchicalSystem::HierarchicalSystem() {
 void HierarchicalSystem::getAllProjects()
 {
     Customer c;
-    for (Project* p: Databases::ProjectDatabase::instance()->getAllProjects())
-    {
+    for (Project* p: Databases::ProjectDatabase::instance()->getAllProjects()) {
         c = *(p->getCustomer());
         addProjectToCustomer(p, c);
     }
