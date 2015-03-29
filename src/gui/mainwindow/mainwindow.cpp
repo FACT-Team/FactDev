@@ -137,7 +137,6 @@ void MainWindow::addBill()
 void MainWindow::addDoc(bool isBilling) {
     if (AddQuoteDialog(isBilling, getCurrentCustomerId()).exec()) {
         updateTableBillings(getCurrentProjectId());
-        updateCostAndTurnover();
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
@@ -174,6 +173,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::responsiveCustomerTable()
 {
     int w = ui->tblCustomers->width();
+
+    ui->tblCustomers->resizeColumnsToContents();
 
     if (w > 650) {
         ui->tblCustomers->hideColumn(0);
@@ -262,6 +263,7 @@ void MainWindow::billingIsPaid()
             billing.commit();
             updateButtons();
             updateTableBillings(getCurrentProjectId());
+            updateCostAndTurnover();
         }
     }
 }
@@ -297,7 +299,6 @@ void MainWindow::removeItem(QTableView *tbl, ItemType itemType)
             break;
         case ItemType::BILLING:
             updateTableBillings(getCurrentProjectId());
-            updateCostAndTurnover();
             changeCustomerTable();
             ui->trCustomers->expand(ui->trCustomers->currentIndex());
             changeProjectsTable();
@@ -344,7 +345,6 @@ void MainWindow::editDoc()
 
     if (editDocDialog.exec()) {
         updateTableBillings(getCurrentProjectId());
-        updateCostAndTurnover();
         updateTree();
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
@@ -416,6 +416,16 @@ void MainWindow::computeTurnover()
     ComputeTurnoverDialog cp;
 
     cp.exec();
+}
+
+void MainWindow::globalStatistics()
+{
+    StatisticsDialog(true).exec();
+}
+
+void MainWindow::customerStatistics()
+{
+    StatisticsDialog(false, getCurrentCustomerId()).exec();
 }
 
 void MainWindow::search(QString text)
@@ -742,12 +752,12 @@ void MainWindow::updateButtons()
                     || ui->stackedWidget->currentIndex() == 2)
             && ui->tblProjects->currentIndex().row() > -1
             && ui->tblProjects->selectionModel()->hasSelection();
-
     bool billingIsSelected = ui->stackedWidget->currentIndex() == 2
             && ui->tblQuotes->currentIndex().row() > -1
             && ui->tblQuotes->selectionModel()->hasSelection();
-
     bool isBillingPaid = false;
+    bool customerSelected = ui->tblCustomers->currentIndex().row() > -1
+            && ui->tblCustomers->selectionModel()->hasSelection();
 
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
@@ -760,6 +770,7 @@ void MainWindow::updateButtons()
 
     ui->actionNewQuote->setEnabled(canAdd);
     ui->actionNewBill->setEnabled(canAdd);
+    ui->actCustomerStatistics->setEnabled(customerSelected);
     ui->wdgTblProjectsToolBar->updateBtn(canAdd);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);

@@ -96,6 +96,12 @@
           </item>
           <item row="0" column="0" colspan="7">
            <widget class="QTableView" name="tblCustomers">
+            <property name="minimumSize">
+             <size>
+              <width>811</width>
+              <height>526</height>
+             </size>
+            </property>
             <property name="contextMenuPolicy">
              <enum>Qt::CustomContextMenu</enum>
             </property>
@@ -387,7 +393,7 @@
      <x>0</x>
      <y>0</y>
      <width>1413</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -427,6 +433,8 @@
      <string>Statistiques</string>
     </property>
     <addaction name="actComputeTurnover"/>
+    <addaction name="actCustomerStatistics"/>
+    <addaction name="actGlobalStatistics"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuClient"/>
@@ -458,14 +466,8 @@
   <widget class="QDockWidget" name="dockWidget_2">
    <property name="minimumSize">
     <size>
-     <width>280</width>
+     <width>270</width>
      <height>70</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>280</width>
-     <height>524287</height>
     </size>
    </property>
    <property name="font">
@@ -482,12 +484,6 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
-    <property name="minimumSize">
-     <size>
-      <width>300</width>
-      <height>0</height>
-     </size>
-    </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
@@ -573,14 +569,8 @@
   <widget class="QDockWidget" name="dockWidget_4">
    <property name="minimumSize">
     <size>
-     <width>280</width>
+     <width>270</width>
      <height>200</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>280</width>
-     <height>524287</height>
     </size>
    </property>
    <property name="font">
@@ -762,6 +752,19 @@
   <action name="actComputeTurnover">
    <property name="text">
     <string>Calculer CA d'une période</string>
+   </property>
+  </action>
+  <action name="actCustomerStatistics">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Statistiques du client</string>
+   </property>
+  </action>
+  <action name="actGlobalStatistics">
+   <property name="text">
+    <string>Statistiques globales</string>
    </property>
   </action>
  </widget>
@@ -972,8 +975,8 @@
    <slot>customersTableToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>373</x>
-     <y>96</y>
+     <x>667</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>1026</x>
@@ -1100,8 +1103,8 @@
    <slot>changeCustomerTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>373</x>
-     <y>96</y>
+     <x>667</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>415</x>
@@ -1164,8 +1167,8 @@
    <slot>changeDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>698</x>
-     <y>274</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>502</x>
@@ -1180,8 +1183,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>576</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1228,8 +1231,8 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1111</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>827</x>
@@ -1276,8 +1279,8 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>998</x>
-     <y>677</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1292,8 +1295,8 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>912</x>
-     <y>676</y>
+     <x>392</x>
+     <y>123</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1330,6 +1333,38 @@
     <hint type="destinationlabel">
      <x>903</x>
      <y>741</y>
+     </hint>
+    </hints>
+   </connection>
+   <connection>
+   <sender>actGlobalStatistics</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>globalStatistics()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actCustomerStatistics</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>customerStatistics()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>359</y>
     </hint>
    </hints>
   </connection>
@@ -1370,5 +1405,7 @@
   <slot>copyDoc()</slot>
   <slot>computeTurnover()</slot>
   <slot>archiveCustomer()</slot>
+  <slot>globalStatistics()</slot>
+  <slot>customerStatistics()</slot>
  </slots>
 </ui>

@@ -108,7 +108,6 @@ void BillingDatabaseTest::addBillingProject()
         }
 
         q.first();
-        qDebug() << q.isNull(0);
         QVERIFY(q.value("idProject").toInt()==project &&
                 q.value("idBilling").toInt()==billing &&
                 q.value("idContributory").toInt()==contributory);
@@ -232,7 +231,7 @@ void BillingDatabaseTest::getAllBillingsOnly()
 {
  bool billing = true;
 
- for (Billing b : Databases::BillingDatabase::instance()->getAllBillingsOnly(23)) {
+ for (Billing b : Databases::BillingDatabase::instance()->getBillsPaid(23)) {
      if (!b.isBilling()) {
          billing = false;
      }
@@ -251,7 +250,7 @@ void BillingDatabaseTest::getBillingsBetweenDates()
     bills.append(Billing(2));
 
     bills2 = Databases::BillingDatabase::instance()
-            ->getBillingsBetweenDates(QDate(2015,2,13),QDate(2035,2,13));
+            ->getBillsBetweenDates(QDate(2015,2,13),QDate(2035,2,13));
 
 
     QCOMPARE(bills2.count(), 1);
@@ -270,6 +269,23 @@ void BillingDatabaseTest::getAllBillingsOfProjectTest() {
         QCOMPARE(projets.count(), 77);
         QCOMPARE(projets.values().count(), 77);
         // TODO others tests ? I don't want… Tired ! And I want a cofee ! =)
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}
+
+void BillingDatabaseTest::getNb()
+{
+    try {
+        QVERIFY( Databases::BillingDatabase::instance()->getNbBills() == 16);
+        QVERIFY( Databases::BillingDatabase::instance()->getNbBillsPaid() == 1);
+        QVERIFY( Databases::BillingDatabase::instance()->getNbQuotes() == 17);
+        QVERIFY( Databases::BillingDatabase::instance()->getNbDocs() == 33);
+
+        QVERIFY( Databases::BillingDatabase::instance()->getNbBills(17) == 3);
+        QVERIFY( Databases::BillingDatabase::instance()->getNbBillsPaid(17) == 1);
+        QVERIFY( Databases::BillingDatabase::instance()->getNbQuotes(17) == 2);
+        QVERIFY( Databases::BillingDatabase::instance()->getNbDocs(17) == 5);
     } catch(DbException* e) {
         QFAIL(e->what());
     }

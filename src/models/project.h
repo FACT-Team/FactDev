@@ -176,10 +176,10 @@ public:
     bool operator !=(const Project &p);
 
     /**
-     * @brief Project::costCompute compute the <b>Project</b> <i>cost</i>
+     * @brief Project::computeProjectCost compute the <b>Project</b> <i>cost</i>
      * @return the project cost
      */
-    double getCost();
+    double computeProjectCost();
 
 private:
     QString _name;          //!< Project name

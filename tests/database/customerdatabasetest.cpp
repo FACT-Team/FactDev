@@ -118,17 +118,26 @@ void CustomerDatabaseTest::getCustomerTreeException()
         QVERIFY(true);
     }
 
-    /*try {
+    try {
         Databases::CustomerDatabase::instance()->getTree("");
         QVERIFY(true);
     } catch(DbException*) {
         QFAIL("Exception not thrown");
-    }*/
+    }
 }
 
 void CustomerDatabaseTest::getNbCustomersTest() {
     try {
         QCOMPARE(Databases::CustomerDatabase::instance()->getNbCustomers(), 22);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}
+
+void CustomerDatabaseTest::getCustomers() {
+    try {
+        QList<Customer> l =  Databases::CustomerDatabase::instance()->getCustomers();
+        QVERIFY(l.size() == 22);
     } catch(DbException* e) {
         QFAIL(e->what());
     }

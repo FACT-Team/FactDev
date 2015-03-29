@@ -339,4 +339,34 @@ int CustomerDatabase::getNbCustomers() {
 
     return value(q, "nb_p").toInt();
 }
+
+QList<Customer> CustomerDatabase::getCustomers() {
+    QList<Customer> customers;
+    QSqlQuery q;
+
+    q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
+                "c.firstnameReferent as cfirstnameReferent, "
+                "UPPER(c.lastnameReferent) as clastnameReferent, "
+                "c.company as ccompany, "
+                "c.address as caddress, c.postalCode as cpostalcode, "
+                "c.city as ccity, c.country as ccountry, c.email as cemail, "
+                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "FROM Customer c "
+                "ORDER BY 4, 3"
+                );
+
+     if(!q.exec()) {
+         throw new DbException(
+                     "Impossible d'obtenir la liste des Customers",
+                     "CustomerDatabase::getCustomers",
+                     lastError(q),
+                     1.1);
+     }
+
+     while(q.next()) {
+         Customer c = *getCustomer(q);
+         customers.append(c);
+     }
+     return customers;
+}
 }

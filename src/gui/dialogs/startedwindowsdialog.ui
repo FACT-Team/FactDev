@@ -202,7 +202,14 @@
            <height>40</height>
           </size>
          </property>
-        </spacer>
+         </spacer>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lbLastname">
+         <property name="text">
+          <string>Nom</string>
+         </property>
+        </widget>
        </item>
        <item row="5" column="0" colspan="5">
         <widget class="Gui::Widgets::DatabaseSettingsWidget" name="wdgDbType" native="true">

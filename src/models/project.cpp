@@ -56,7 +56,7 @@ void Project::hydrat(int id)
     _endDate = p->getEndDate();
     _dailyRate = p->getDailyRate();
     _customer = p->getCustomer();
-    _cost = getCost();
+    _cost = computeProjectCost();
 }
 
 void Project::remove()
@@ -154,11 +154,11 @@ bool Project::operator !=(const Project &p)
     return !(*this == p);
 }
 
-double Project::getCost()
+double Project::computeProjectCost()
 {
     double ret(0.0);
     QList<Billing> bills =
-            Databases::BillingDatabase::instance()->getBillings(_id);
+            Databases::BillingDatabase::instance()->getBillsPaid(_id);
     for (Billing bill : bills) {
         ContributoriesList cl =
                 Databases::ContributoryDatabase::instance()

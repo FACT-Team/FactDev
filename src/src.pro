@@ -98,7 +98,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/path/chosefilewidget.cpp \
     gui/widgets/path/chosedirectorywidget.cpp \
     gui/widgets/path/chosepathwidget.cpp\
-    gui/widgets/checkfields/checkwebsite.cpp
+    gui/widgets/checkfields/checkwebsite.cpp\
+    gui/dialogs/statisticsdialog.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -163,7 +164,6 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/popup.h \
     gui/dialogs/addprojectdialog.h \
     database/projectdatabase.h \
-    gui/dialogs/addcontributorydialog.h \
     gui/widgets/comboboxmodelwidget.h \
     utils/string.h \
     gui/widgets/searchwidget.h \
@@ -212,7 +212,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/path/chosefilewidget.h \
     gui/widgets/path/chosedirectorywidget.h \
     gui/widgets/path/chosepathwidget.h\
-    gui/widgets/checkfields/checkwebsite.h
+    gui/widgets/checkfields/checkwebsite.h\
+    gui/dialogs/statisticsdialog.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -232,7 +233,9 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/databasesettingswidget.ui \
     gui/dialogs/computeturnoverdialog.ui \
-    gui/widgets/path/chosepathwidget.ui
+    gui/widgets/path/chosepathwidget.ui\
+    gui/dialogs/statisticsdialog.ui
+
 RESOURCES += \
     icons.qrc \
     utilsfiles.qrc

@@ -86,7 +86,7 @@ void ProjectDatabaseTest::getNbProjects()
 void ProjectDatabaseTest::getNbProjectsForACustomer()
 {
     try {
-        QCOMPARE(4, Databases::ProjectDatabase::instance()->getNbProjectsForACustomer(1));
+        QCOMPARE(4, Databases::ProjectDatabase::instance()->getNbProjects(1));
     } catch(DbException* e) {
         QFAIL(e->what());
     }
