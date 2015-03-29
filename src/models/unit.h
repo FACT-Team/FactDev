@@ -6,7 +6,7 @@ namespace Models {
 /**
  * @brief The TypeUnit enum Type Unit : hour or days.
  */
-enum TypeUnit{HOUR, DAY};
+enum TypeUnit{HOUR, DAY, MONTH};
 
 /**
  * @brief The Unit class An unity for billing calculs

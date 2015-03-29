@@ -57,13 +57,16 @@ void Contributory::remove()
 double Contributory::getPrice(const bool paied)
 {
     double ret = 0.0;
+    User u(1);
     if(_hourlyRate == 0.0) {
-        _hourlyRate = _project->getDailyRate()/User(1).getNbHoursPerDays();
+        _hourlyRate = _project->getDailyRate()/u.getNbHoursPerDays();
     }
     if(_unit.getype() == HOUR) {
         ret = _quantity * _hourlyRate;
-    } else {
-        ret = _quantity * _hourlyRate * User(1).getNbHoursPerDays();
+    } else if(_unit.getype() == DAY){
+        ret = _quantity * _hourlyRate * u.getNbHoursPerDays();
+    } else if(_unit.getype() == MONTH) {
+        ret = _quantity * _hourlyRate * u.getNbHoursPerDays() * u.getNbDaysPerMonths();
     }
 
     return ret;
@@ -72,11 +75,18 @@ double Contributory::getPrice(const bool paied)
 double Contributory::getSumQuantity()
 {
     double ret;
-    if(_unit.getype() == DAY) {
+    switch(_unit.getype()) {
+    case DAY:
         ret = _quantity;
-    } else {
+        break;
+    case HOUR:
         ret = _quantity / User(1).getNbHoursPerDays();
+        break;
+    case MONTH:
+        ret = _quantity * User(1).getNbDaysPerMonths();
+        break;
     }
+
     return ret;
 }
 

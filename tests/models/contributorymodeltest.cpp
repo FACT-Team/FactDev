@@ -99,6 +99,8 @@ void ContributoryModelTest::getRateTest() {
     c.setUnit(Unit(HOUR));
     c.setHourlyRate(15);
     QCOMPARE(c.getPrice(), 75.);
+    c.setUnit(Unit(MONTH));
+    QCOMPARE(c.getPrice(), 10500.);
     c.setUnit(Unit(DAY));
     QCOMPARE(c.getPrice(), 525.);
     c.setProject(&p);

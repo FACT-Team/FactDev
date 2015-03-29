@@ -16,6 +16,7 @@ QWidget *UnitComboDelegate::createEditor(QWidget *parent,
     QComboBox* editor = new QComboBox(parent);
     editor->addItem("Jours", QVariant(1));
     editor->addItem("Heures", QVariant(0));
+    editor->addItem("Mois", QVariant(2));
 
     return editor;
 }
@@ -28,7 +29,9 @@ void UnitComboDelegate::paint(QPainter *painter,
 {
     QStyleOptionViewItemV4 myOption = option;
     int value = index.model()->data(index, Qt::EditRole).toInt();
-    QString text = value == 1 ? "Jours" : "Heures";
+    QStringList list;
+    list << "Jours" << "Heures" << "Mois";
+    QString text = list.at(value);
     myOption.text = text;
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem,

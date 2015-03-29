@@ -200,4 +200,9 @@ int User::getNbHoursPerDays()
     return Rate().getNbDailyHours();
 }
 
+int User::getNbDaysPerMonths()
+{
+    return 20;
+}
+
 }

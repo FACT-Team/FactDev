@@ -31,6 +31,7 @@ private:
     Contributory c3;
     Contributory c4;
     Contributory c5;
+    Contributory c6;
 };
 DECLARE_TEST(ContributoryListTest)
 

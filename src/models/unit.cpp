@@ -14,9 +14,29 @@ Unit::Unit()
 QString Unit::toString(const bool plurial)
 {
     if(plurial) {
-        return _type == DAY ? "Jours" : "Heures";
+        switch(_type) {
+        case DAY:
+            return "Jours";
+            break;
+        case HOUR:
+            return "Heures";
+            break;
+        case MONTH:
+            return "Mois";
+            break;
+        }
     } else {
-        return _type == DAY ? "Jour" : "Heure";
+        switch(_type) {
+        case DAY:
+            return "Jour";
+            break;
+        case HOUR:
+            return "Heure";
+            break;
+        case MONTH:
+            return "Mois";
+            break;
+        }
     }
 
 }

@@ -37,6 +37,9 @@ void ContributoryListTest::setup()
     c5.setUnit(Unit(HOUR));
     c5.setProject(p1);
 
+    c6.setQuantity(2);
+    c6.setUnit(Unit(MONTH));
+    c6.setProject(p1);
 }
 
 
@@ -72,13 +75,15 @@ void ContributoryListTest::getPriceTest() {
     c2.setProject(p2);
     c3.setProject(p3);
     c4.setProject(p1);
+    c6.setProject(p3);
 
     contributories2.addContributory(c1); // 1440€
     contributories2.addContributory(c2); // 392€
     contributories2.addContributory(c3); // 840€
     contributories2.addContributory(c4); // 120€
+    contributories2.addContributory(c6); // 3360€
 
-    QCOMPARE(contributories2.getPrice(), 2792.);
+    QCOMPARE(contributories2.getPrice(), 6152.);
 }
 
 void ContributoryListTest::getPriceOfProject() {
