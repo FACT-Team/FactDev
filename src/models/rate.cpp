@@ -22,13 +22,15 @@ Rate::Rate()
 
 void Rate::setDailyRate(const double& value)
 {
-    _hourly = value >= getLegalRate() * getNbDailyHours() ?
-                value / getNbDailyHours() : getLegalRate();
+//    _hourly = value >= getLegalRate() * getNbDailyHours() ?
+//                value / getNbDailyHours() : getLegalRate();
+    _hourly = value / getNbDailyHours();
 }
 
 void Rate::setHourlyRate(const double& value)
 {
-    _hourly = value >= getLegalRate() ? value : getLegalRate();
+//    _hourly = value >= getLegalRate() ? value : getLegalRate();
+    _hourly = value;
 }
 
 double Rate::getDailyRate() const

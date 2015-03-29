@@ -30,7 +30,7 @@ void UnitComboDelegate::paint(QPainter *painter,
     QStyleOptionViewItemV4 myOption = option;
     int value = index.model()->data(index, Qt::EditRole).toInt();
     QStringList list;
-    list << "Jours" << "Heures" << "Mois";
+    list << "Heures" << "Jours" << "Mois";
     QString text = list.at(value >= 0 ? value : 0);
     myOption.text = text;
 
