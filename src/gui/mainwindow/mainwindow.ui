@@ -380,7 +380,7 @@
      <x>0</x>
      <y>0</y>
      <width>1413</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -753,6 +753,10 @@
    </property>
   </action>
   <action name="actComputeTurnover">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/img/turnover.png</normaloff>:/icons/img/turnover.png</iconset>
+   </property>
    <property name="text">
     <string>Calculer CA d'une période</string>
    </property>

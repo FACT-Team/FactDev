@@ -44,7 +44,8 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
-
+    setExtensionImage(      customer->getExtensionImage());
+    setImage(               customer->getImage());
 }
 
 void Customer::remove()
