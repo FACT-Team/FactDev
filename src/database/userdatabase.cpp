@@ -120,7 +120,7 @@ void UserDatabase::setUserImage(Models::User& pUser)
     QSqlQuery q;
 
     QByteArray byteArray = Utils::Image::pixmapToBytes(
-                pUser.getImage(),
+                *pUser.getImage(),
                 pUser.getExtensionImage());
 
     q.prepare("UPDATE User SET image = :image WHERE idUser = :id ");

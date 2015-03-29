@@ -41,14 +41,14 @@ public:
      * @brief BrowseImageWidget::getIcon Return the icon selected
      * @return image
      */
-    QPixmap getImage();
+    QPixmap *getImage();
 
     /**
      * @brief BrowseImageWidget::setImgage Change the current image by the new
      * <i>img</i>
      * @param img New image
      */
-    void setImage(const QPixmap &img);
+    void setImage(QPixmap *img);
 
     /**
      * @brief BrowseImageWidgetextension::getExtension Return extension of the
@@ -67,7 +67,7 @@ public slots:
 
 private:
     Ui::BrowseImageWidget *ui;  //!< User interface
-    QPixmap _img;               //!< image
+    QPixmap* _img;              //!< image
     QString _extension;         //!< image extension
 };
 

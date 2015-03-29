@@ -19,19 +19,19 @@ BrowseImageWidget::~BrowseImageWidget()
 
 void BrowseImageWidget::setImageScaled(QString path, int width, int height)
 {
-    _img.load(path);
-    _img.scaled(width,height,Qt::KeepAspectRatio);
+    _img->load(path);
+    _img->scaled(width,height,Qt::KeepAspectRatio);
 }
 
-QPixmap BrowseImageWidget::getImage()
+QPixmap* BrowseImageWidget::getImage()
 {
     return _img;
 }
 
-void BrowseImageWidget::setImage(const QPixmap &img)
+void BrowseImageWidget::setImage(QPixmap *img)
 {
     _img = img;
-    ui->lbIcon->setPixmap(_img);
+    ui->lbIcon->setPixmap(*_img);
 }
 
 
@@ -44,7 +44,7 @@ void BrowseImageWidget::browseImagePath()
                 tr("Images (*.png *.xpm *.jpg)"));
     QFileInfo fileInfo(file);
     setImageScaled(fileInfo.filePath());
-    ui->lbIcon->setPixmap(_img);
+    ui->lbIcon->setPixmap(*_img);
     _extension =  Utils::String::getExtensionFile(fileInfo.fileName());
 }
 QString BrowseImageWidget::getExtension() const

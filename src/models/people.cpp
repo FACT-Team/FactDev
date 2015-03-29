@@ -118,12 +118,12 @@ void People::setFax(const QString &fax)
     _fax = fax;
 }
 
-QPixmap People::getImage() const
+QPixmap *People::getImage() const
 {
     return _image;
 }
 
-void People::setImage(const QPixmap &image)
+void People::setImage(QPixmap *image)
 {
     _image = image;
 }
@@ -147,6 +147,7 @@ bool People::operator !=(const People &u)
 {
     return !(*this == u);
 }
+
 QString People::getExtensionImage() const
 {
     return _extensionImage;

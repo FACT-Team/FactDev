@@ -213,7 +213,7 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
     QSqlQuery q;
     q.prepare("SELECT image FROM Customer WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
-
+    //Debug()
     if (q.exec()) {
         q.next();
         if(q.first()) {
@@ -232,7 +232,7 @@ void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
     QSqlQuery q;
 
     QByteArray byteArray = Utils::Image::pixmapToBytes(
-                pCustomer.getImage(),
+                *pCustomer.getImage(),
                 pCustomer.getExtensionImage());
 
     q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");

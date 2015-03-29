@@ -74,14 +74,14 @@ public:
      * @brief Customer::getImage Return the compagny image
      * @return compagny image
      */
-    QPixmap getImage();
+    QPixmap *getImage();
 
     /**
      * @brief Customer::setImage Change the current image by the new
      * <i>image</i>
      * @param image New image
      */
-    void setImage(const QPixmap image);
+    void setImage(QPixmap *image);
 
 
 private:

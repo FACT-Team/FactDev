@@ -143,12 +143,12 @@ public:
      * @brief People::getImage Return the compagny image
      * @return compagny image
      */
-    QPixmap getImage() const;
+    virtual QPixmap *getImage() const;
     /**
      * @brief People::setImage Modify the current compagny image by <i>image</i>
      * @param image Compagny image
      */
-    void setImage(const QPixmap &image);
+    virtual void setImage(QPixmap *image);
 
     /**
      * @brief People::getExtensionImage Return the extension of the image file
@@ -180,7 +180,7 @@ public:
     bool operator !=(const People &c);
 
 protected:
-    QPixmap _image;         //!< Compagny image
+    QPixmap* _image;         //!< Compagny image
 
 private:
     QString _firstname;     //!< People firstname
