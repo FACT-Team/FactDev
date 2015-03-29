@@ -21,7 +21,6 @@ void Customer::commit() {
     if(_id == 0) {
         _id = CustomerDatabase::instance()->addCustomer(*this);
     } else if(_toRemoved){
-        qDebug() << "XXX";
         remove();
     } else {
         CustomerDatabase::instance()->updateCustomer(*this);
