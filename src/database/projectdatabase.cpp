@@ -29,6 +29,7 @@ Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
                 QSharedPointer<Models::Customer>(
                     new Models::Customer(value(q,"idCustomer").toInt())));
 
+
     return project;
 }
 

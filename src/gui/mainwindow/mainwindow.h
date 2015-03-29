@@ -149,6 +149,11 @@ public slots:
      */
     void removeCustomer();
     /**
+     * @brief MainWindow::archiveCustomer open a pop-up to confirm the
+     * archiving of the customer, if ok archive the customer
+     */
+    void archiveCustomer();
+    /**
      * @brief MainWindow::addQuote open window to add a new quote
      * @see AddQuoteDialog
      */
@@ -315,7 +320,8 @@ private:
      * @param filter
      * @param row optional parameter for select the row in table
      */
-    void updateTableCustomers(QString filter="", const int row = -1);
+    void updateTableCustomers(QString filter="WHERE isArchived = 0"
+            , const int row = -1);
     /**
      * @brief MainWindow::updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
@@ -325,9 +331,8 @@ private:
 
     /**
      * @brief MainWindow::updateTree Update the tree view
-     * (just client in the first version)
      */
-    void updateTree(QString filter="");
+    void updateTree(QString filter="WHERE isArchived = 0");
 
     /**
      * @brief MainWindow::updateUser Update user data panel

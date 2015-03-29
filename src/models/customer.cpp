@@ -45,6 +45,8 @@ void Customer::hydrat(int id)
     setFax(                 customer->getFax());
     setWebsite(             customer->getWebsite());
     setAddressComplement(   customer->getAddressComplement());
+    setIsArchived(          customer->isArchived());
+    setToRemoved(false);
 }
 
 void Customer::remove()
@@ -100,6 +102,16 @@ double Customer::getTurnover() const {
         ret += project.getCost();
     }
     return ret;
+}
+
+bool Customer::isArchived() const
+{
+    return _isArchived;
+}
+
+void Customer::setIsArchived(const bool isArchived)
+{
+    _isArchived = isArchived;
 }
 
 }

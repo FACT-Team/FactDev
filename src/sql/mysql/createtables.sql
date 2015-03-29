@@ -13,7 +13,8 @@ CREATE TABLE Customer
     phone VARCHAR(16),
     fax VARCHAR(16),
     complementAddress VARCHAR(128),
-    website VARCHAR(128)
+    website VARCHAR(128),
+    isArchived BOOLEAN
 );
 
 CREATE TABLE Project

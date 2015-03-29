@@ -53,6 +53,8 @@ void DialogAddCustomer::accept() {
     _custom->setFax(ui->leFax->text());
     _custom->setWebsite(ui->leWebsite->text());
     _custom->setAddressComplement(ui->leComplement->text());
+    _custom->setIsArchived(false);
+
     _custom->commit();
     QDialog::accept();
 }

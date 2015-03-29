@@ -15,6 +15,7 @@ CustomerDatabaseTest::CustomerDatabaseTest()
     c1.setMobilePhone("02030405");
     c1.setPhone("03040506");
     c1.setPostalCode("31500");
+    c1.setIsArchived(false);
 
 }
 
@@ -82,6 +83,7 @@ void CustomerDatabaseTest::selectCustomerFound()
         c1.setPhone("01 02 03 04 05");
         c1.setMobilePhone("02 03 04 05 06");
         c1.setFax("05 35 11 79 67");
+        c1.setIsArchived(0);
 
         QVERIFY(c2 != 0);
         QVERIFY(c1 == *c2);
