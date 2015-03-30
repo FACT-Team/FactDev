@@ -38,7 +38,7 @@ double ContributoriesList::getPrice(bool isPaied)
 {
     QPair<Project*, Models::Rate>* key;
     double ret = 0.0;
-    double machin;
+
     for (auto it = cbegin(); it != cend(); ++it) {
         key = it.key();
         ret += getPrice(it.value(), getRate(key->first));

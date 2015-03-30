@@ -98,7 +98,7 @@ QVariantHash Billing::getDataMap()
 
 double Billing::getPrice(bool paied)
 {
-    _contributories.getPrice(paied);
+    return _contributories.getPrice(paied);
 }
 
 void Billing::generateTex()

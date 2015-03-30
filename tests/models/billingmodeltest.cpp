@@ -147,7 +147,7 @@ void BillingModelTest::getPriceTest() {
         testB1 += b1.getContributories().getPrice(p);
     }
 
-    QCOMPARE(714.74, Utils::Double::round(b1.getPrice(), 2));
+    QCOMPARE(Utils::Double::round(b1.getPrice(), 2), 714.74);
     QCOMPARE(b1.getContributories().getPrice(), b1.getPrice());
     QCOMPARE(testB1, b1.getPrice());
 
