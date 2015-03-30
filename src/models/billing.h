@@ -123,12 +123,6 @@ public:
     void addContributory(Contributory &c);
 
     /**
-     * @brief Billing::getSumRate. return <b>Billing</b> Rate
-     * @return
-     */
-    double getSumRate();
-
-    /**
      * @brief Billing::getTitle. return title of <b>Billing</b>
      * @return title of Billing
      */

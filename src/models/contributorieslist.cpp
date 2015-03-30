@@ -208,19 +208,6 @@ int ContributoriesList::getNbProjects()
     return count();
 }
 
-double ContributoriesList::getSumRate()
-{
-    double ret = 0.0;
-    User u(1);
-    for(QPair<Project*,Models::Rate>* key : keys()) {
-        for(Contributory c : getContributories(key->first)) {
-            ret += c.getSumQuantity();
-        }
-    }
-
-    return ret;
-}
-
 double ContributoriesList::getSumQuantity()
 {
     return getSumQuantity(*getAllContributories());

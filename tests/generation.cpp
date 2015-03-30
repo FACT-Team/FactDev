@@ -55,6 +55,16 @@ void Generation::GenerationSimpleBilling() {
         QVERIFY(QFile("/tmp/test10.tex").exists());
         gen.generate(Models::Billing(11).getDataMap(), "/tmp/test11.tex");
         QVERIFY(QFile("/tmp/test11.tex").exists());
+
+        Models::Billing b;
+        Contributory c;
+        c.setHourlyRate(5);
+        c.setQuantity(1);
+        c.setUnit(Unit(HOUR));
+        b.addContributory(c);
+        c.getProject()->setCustomer(QSharedPointer<Customer>(new Customer(1)));
+        gen.generate(b.getDataMap(), "/tmp/test.tex");
+        QVERIFY(QFile("/tmp/test.tex").exists());
     } catch(DbException* e) {
         QFAIL(e->what());
     }

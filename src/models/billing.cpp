@@ -25,9 +25,10 @@ void Billing::commit()
 {
     Database::Database::instance()->openTransaction();
     bool insert = _id == 0;
+
     if(insert) {
         _id = BillingDatabase::instance()->addBilling(*this);
-    } else if(_toRemoved){
+    } else if(_toRemoved) {
         remove();
     } else {
         BillingDatabase::instance()->updateBilling(*this);
@@ -191,11 +192,6 @@ ContributoriesList& Billing::getContributories()
 void Billing::addContributory(Contributory& c)
 {
     _contributories.addContributory(c);
-}
-
-double Billing::getSumRate()
-{
-    return _contributories.getSumRate();
 }
 
 double Billing::getSumQuantity()

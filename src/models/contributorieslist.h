@@ -129,14 +129,6 @@ public:
     int getNbProjects();
 
     /**
-     * @brief ContributoriesList::getSumRate Return the sum of the
-     * contributories rates
-     * @return Sum of contributories rates
-     */
-    double getSumRate();
-
-
-    /**
      * @brief ContributoriesList::getCustomer Return the Customers linked to
      * theses contributories
      * @return Customer
