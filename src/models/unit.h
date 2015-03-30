@@ -8,6 +8,7 @@ namespace Models {
  */
 enum TypeUnit{HOUR, DAY, MONTH};
 
+
 /**
  * @brief The Unit class An unity for billing calculs
  */

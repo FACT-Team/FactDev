@@ -24,6 +24,8 @@ QString Unit::toString(const bool plurial)
         case MONTH:
             return "Mois";
             break;
+        default:
+            return "Heures";
         }
     } else {
         switch(_type) {
@@ -36,6 +38,8 @@ QString Unit::toString(const bool plurial)
         case MONTH:
             return "Mois";
             break;
+        default:
+            return "Heures";
         }
     }
 

@@ -1,6 +1,7 @@
 #ifndef DOUBLE_H
 #define DOUBLE_H
 #include <math.h>
+#include <cmath>
 
 namespace Utils {
 
