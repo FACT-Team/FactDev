@@ -33,8 +33,8 @@ void CustomerDataWidget::printUserData()
     setLabel(ui->lbPostalCodeCityCountry,user->getPostalCode()
              + " " + user->getCity());
 
-//    ui->lbImage->setPixmap(
-//                user->getImage()->scaled(96,96, Qt::KeepAspectRatio));
+   ui->lbImage->setPixmap(
+                user->getImage()->scaled(96,96, Qt::KeepAspectRatio));
 
 
 }

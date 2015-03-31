@@ -16,6 +16,7 @@ public:
      * @brief People::People Construct a People
      */
     People();
+    ~People();
 
     /**
      * @brief People::People Construct a People
