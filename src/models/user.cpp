@@ -7,13 +7,11 @@ using namespace Databases;
 namespace Models {
 User::User() : People()
 {
-    _toRemoved = false;
 }
 
-User::User(int id) : People()
+User::User(int id) : People(id)
 {
     hydrat(id);
-    _toRemoved = false;
 }
 
 void User::commit() {

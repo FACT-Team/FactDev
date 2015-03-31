@@ -6,6 +6,14 @@ namespace Models {
 People::People()
 {
     _image = 0;
+    setId(0);
+    _toRemoved = false;
+}
+
+People::People(int id)
+{
+    _toRemoved = false;
+    _image = 0;
 }
 
 QString People::getFirstname() const

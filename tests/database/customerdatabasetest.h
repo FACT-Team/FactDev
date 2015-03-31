@@ -18,7 +18,6 @@ private slots:
     void selectCustomerNotFound();
     void selectCustomerFound();
     void getCustomerTableException();
-    void getCustomerTreeException();
     void getNbCustomersTest();
 private:
     Customer c1;

@@ -4,7 +4,6 @@
 #include <QStandardItem>
 #include <QPixmap>
 
-#include "models/imodel.h"
 #include "models/people.h"
 
 namespace Models {
@@ -13,7 +12,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The Customer class Customer
  */
-class Customer : public People, public IModel
+class Customer : public People
 {
 public:
     /**
@@ -28,7 +27,9 @@ public:
     Customer(int id);
 
     /**
-     * @brief Customer::commit Update customer data on the database
+     * @brief Customer::Customer Constuct a People who is specidied by
+     *  <i>id</i>
+     * @param id Customer identify
      */
     void commit();
 

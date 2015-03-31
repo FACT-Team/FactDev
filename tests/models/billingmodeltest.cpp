@@ -140,12 +140,3 @@ void BillingModelTest::hydratWithContributories() {
 
 }
 
-void BillingModelTest::testGetItem() {
-    try {
-        Models::Billing b(1);
-        QVERIFY(b.getItem()->data(Qt::DisplayRole).toString() == "02-2015 Coucou");
-    } catch(DbException* e) {
-        QFAIL(e->what());
-    }
-}
-

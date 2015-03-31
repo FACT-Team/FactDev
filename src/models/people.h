@@ -3,17 +3,24 @@
 #include <QString>
 #include <QPixmap>
 
+#include "models/imodel.h"
+
 namespace Models {
 /**
  * @brief The People class People
  */
-class People
+class People : public IModel
 {
 public:
     /**
      * @brief People::People Construct a People
      */
     People();
+
+    /**
+     * @brief People::People Construct a People
+     */
+    People(int id);
 
     /**
      * @brief People::getFirstname Return the People firstname

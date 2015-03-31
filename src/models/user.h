@@ -17,7 +17,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The User class <b>User</b> of it application
  */
-class User : public People, public IModel
+class User : public People
 {
 public:
     /**

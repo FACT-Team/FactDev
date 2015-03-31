@@ -10,14 +10,11 @@ using namespace Databases;
 namespace Models {
 Customer::Customer() : People()
 {
-    setId(0);
-    _toRemoved = false;
 }
 
-Customer::Customer(int id) : People()
+Customer::Customer(int id) : People(id)
 {
     hydrat(id);
-    _toRemoved = false;
 }
 
 void Customer::commit() {
