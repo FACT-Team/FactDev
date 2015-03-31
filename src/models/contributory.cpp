@@ -7,14 +7,16 @@ namespace Models {
 Contributory::Contributory()
 {
     _description = "";
-    _nbHours = 0.;
+    _quantity = 0.;
     _id = 0;
     _toRemoved = false;
     _project = new Project();
+    _hourlyRate = 0.0;
 }
 
 Contributory::Contributory(int id)
 {
+    _hourlyRate = 0.0;
     hydrat(id);
     _id = id;
 }
@@ -40,7 +42,8 @@ void Contributory::hydrat(int id)
 {
     Contributory* c = ContributoryDatabase::instance()->getContributory(id);
     _description = c->getDescription();
-    _nbHours = c->getNbHours();
+    _quantity = c->getQuantity();
+    _unit = c->getUnit();
     _project = c->getProject();
     delete c;
 }
@@ -51,14 +54,52 @@ void Contributory::remove()
     ContributoryDatabase::instance()->removeContributory(_id);
 }
 
+double Contributory::getPrice(const bool paied)
+{
+    double ret = 0.0;
+    User u(1);
+    if(_hourlyRate == 0.0) {
+        _hourlyRate = _project->getDailyRate()/u.getNbHoursPerDays();
+    }
+    if(_unit.getype() == HOUR) {
+        ret = _quantity * _hourlyRate;
+    } else if(_unit.getype() == DAY){
+        ret = _quantity * _hourlyRate * u.getNbHoursPerDays();
+    } else if(_unit.getype() == MONTH) {
+        ret = _quantity * _hourlyRate * u.getNbHoursPerDays() * u.getNbDaysPerMonths();
+    }
+
+    return ret;
+}
+
+double Contributory::getSumQuantity()
+{
+    double ret;
+    switch(_unit.getype()) {
+    case DAY:
+        ret = _quantity;
+        break;
+    case HOUR:
+        ret = _quantity / User(1).getNbHoursPerDays();
+        break;
+    case MONTH:
+        ret = _quantity * User(1).getNbDaysPerMonths();
+        break;
+    }
+
+    return ret;
+}
+
 QVariantHash Contributory::getDataMap()
 {
     QVariantHash data;
 
     data["project"] = _project->getName();
-    data["nbHours"] = _nbHours;
+    data["quantity"] = QString::number(_quantity);
+    data["unit"] = _unit.toString(getQuantity() > 1);
     data["contributoryDescription"] = _description;
     data["contributoryLongDescription"] = _longDescription;
+    data["price"] = Utils::Double::round(getPrice(), 2);
     return data;
 }
 
@@ -71,14 +112,14 @@ void Contributory::setProject(Project* id)
 {
     _project = id;
 }
-double Contributory::getNbHours() const
+double Contributory::getQuantity() const
 {
-    return _nbHours;
+    return _quantity;
 }
 
-void Contributory::setNbHours(double value)
+void Contributory::setQuantity(double value)
 {
-    _nbHours = value;
+    _quantity = value;
 }
 QString Contributory::getDescription() const
 {
@@ -93,7 +134,7 @@ void Contributory::setDescription(const QString &description)
 bool Contributory::operator ==(const Contributory &c)
 {
     return (getDescription() == c.getDescription() &&
-            getNbHours() == c.getNbHours());
+            getQuantity() == c.getQuantity() && getUnit() == c.getUnit());
 }
 
 bool Contributory::operator !=(const Contributory &c)
@@ -109,6 +150,26 @@ void Contributory::setLongDescription(const QString &longDescription)
 {
     _longDescription = longDescription;
 }
+Unit Contributory::getUnit() const
+{
+    return _unit;
+}
+
+void Contributory::setUnit(const Unit &value)
+{
+    _unit = value;
+}
+double Contributory::getHourlyRate() const
+{
+    return _hourlyRate;
+}
+
+void Contributory::setHourlyRate(double value)
+{
+    _hourlyRate = value;
+}
+
+
 
 }
 

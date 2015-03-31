@@ -63,8 +63,6 @@ database/customerdatabasetest.cpp \
     main.cpp \
     utils/pointerstest.cpp \
     models/statisticmodeltest.cpp
-  #  CustomTestPrinter.cpp \
-   # database/customerdatabasetest.cpp
 
 RESOURCES += \
     test.qrc

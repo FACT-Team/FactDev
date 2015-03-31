@@ -51,10 +51,6 @@ public:
      */
     void accept();
     /**
-     * @brief AddQuoteDialog::reject Cancel the operation and close the windows
-     */
-    void reject();
-    /**
      * @brief AddQuoteDialog::getCopy return if <b>AddQuoteDialog</b> is an add
      * by copy of Billing/quote or if it's edition or add of Billing/quote
      * @return if it's a copy or not

@@ -25,9 +25,10 @@ void Billing::commit()
 {
     Database::Database::instance()->openTransaction();
     bool insert = _id == 0;
+
     if(insert) {
         _id = BillingDatabase::instance()->addBilling(*this);
-    } else if(_toRemoved){
+    } else if(_toRemoved) {
         remove();
     } else {
         BillingDatabase::instance()->updateBilling(*this);
@@ -69,7 +70,7 @@ QVariantHash Billing::getDataMap()
     billing["date"] = _date.toString("dddd d MMMM yyyy");
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
-    data["billing"] = billing;//
+    data["billing"] = billing;
 
     QVariantList table;
     QVariantHash project;
@@ -80,12 +81,25 @@ QVariantHash Billing::getDataMap()
         table << project;
         project.clear();
     }
-    data["totalRate"] = getSumRate();
-    data["totalQuantity"] = getSumQuantity();
+    data["totalRate"] = Utils::Double::round(getPrice(), 2);
+
+    if(Utils::Double::round(getSumQuantity(), 2) < 1) {
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2) * User(1).getNbHoursPerDays();
+        data["totalUnit"] = Unit(HOUR).toString(data["totalQuantity"].toDouble() < 1);
+    } else {
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2);
+        data["totalUnit"] = Unit(DAY).toString(data["totalQuantity"].toDouble() < 1);
+    }
+
 
     data["table"] = _contributories.getDataMap();
 
     return data;
+}
+
+double Billing::getPrice(bool paied)
+{
+    return _contributories.getPrice(paied);
 }
 
 void Billing::generateTex()
@@ -178,11 +192,6 @@ ContributoriesList& Billing::getContributories()
 void Billing::addContributory(Contributory& c)
 {
     _contributories.addContributory(c);
-}
-
-double Billing::getSumRate()
-{
-    return _contributories.getSumRate();
 }
 
 double Billing::getSumQuantity()

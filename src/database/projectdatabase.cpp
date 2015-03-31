@@ -47,7 +47,6 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
     project->setCustomer(
                 QSharedPointer<Models::Customer>(
                     new Models::Customer(value(q, "idCustomer").toInt())));
-    project->setCost(project->computeProjectCost());
     return project;
 
 }
@@ -274,8 +273,6 @@ QList<Project> ProjectDatabase::getProjects(const int customerId) {
         project.setName(value(q,"name").toString());
         project.setDescription(value(q,"description").toString());
         project.setDailyRate(value(q,"dailyRate").toDouble());
-        project.setCost(project.computeProjectCost());
-        //project.setCustomer(c);
         ret.append(project);
     }
 

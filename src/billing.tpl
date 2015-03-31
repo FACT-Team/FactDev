@@ -78,10 +78,10 @@
     }
    {{ postalCode}}, \bsc{ {{ city }} }\\[.35ex]
 	{{#phone}}
-	\Telefon~{{ phone }}\\
+        \Telefon~{{ phone }}\\[.35ex]
 	{{/phone}}
 	{{#mobilePhone}}
-	\Mobilefone~{{ mobilePhone }}\\
+        \Mobilefone~{{ mobilePhone }}\\[.35ex]
 	{{/mobilePhone}}
     \Letter\texttt{%
     {{ email }}
@@ -92,10 +92,8 @@
     \ifthenelse{\equal{\websiteUser}{}}{
     }
     {
-        \newline\Mundus~\texttt{%
-            \href{%
-                websiteUser{}
-            }\\
+        \\\Mundus~\texttt{%
+            \websiteUser{}
         }
 
     }
@@ -122,13 +120,13 @@
 %
     {{postalcode}}, \bsc{ {{city}} }\\[.35ex]
     {{#phone}}
-    \Telefon~{{ phone }}\\
+    \Telefon~{{ phone }}\\[.35ex]
     {{/phone}}
     {{#mobilePhone}}
-    Mobilefone~{{ mobilePhone }}\\
+    Mobilefone~{{ mobilePhone }}\\[.35ex]
     {{/mobilePhone}}
     {{#fax}}
-    \Faxmachine~{{ fax }}\\
+    \Faxmachine~{{ fax }}\\[.35ex]
     {{/fax}}
     \Letter\texttt{ {{ email }} }
     \newcommand{\websiteCustomer}{%
@@ -137,7 +135,7 @@
     \ifthenelse{\equal{\websiteCustomer}{}}{
     }
     {
-        \newline\Mundus~\texttt{\href{\websiteCustomer}}
+        \\\Mundus~\texttt{\websiteCustomer}
     }
 
     {{/customer}}
@@ -156,35 +154,42 @@
     {{description}}\\~\\
     {{/billing}}
 
+
     \begin{table}[H]
-        \centering
-        \begin{tabular}{|p{4.2cm}|p{1.8cm}|p{7cm}|p{1.6cm}|r|}
+        \hspace{-30px}
+        \begin{tabular}{|p{3.5cm}|p{1.75cm}|p{8.2cm}|p{1.2cm}|p{1.2cm}|r|}
             \hline
-            \textbf{Application} & \textbf{Tarif journalier} &\textbf{Prestation} & \textbf{Nombre de jours} & \textbf{Tarif\footnotemark}\\
+            \textbf{Application} & \textbf{Tarif journalier} &\textbf{Prestation} & \textbf{Qté.}& \textbf{Unité} & \textbf{Tarif\footnotemark}\\
             {{#table}}
                 {{#contributories}}
 
                 {{#firstcontributory}}
-                \cline{0-4}
+                \cline{0-5}
                     \multirow{ {{ nbcontributories }} }{*}{\texttt{[{{indexproject}}]} {{ nameproject }} } &
-                    \multirow{ {{ nbcontributories }} }{*}{ \begin{minipage}{1.8cm}\begin{flushright} {{rateproject}}~\euro{} \end{flushright}\end{minipage} }
+                    \multirow{ {{ nbcontributories }} }{*}{ \begin{minipage}{1.75cm}\begin{flushright} {{rateproject}}~\euro{} \end{flushright}\end{minipage} }
                 {{/firstcontributory}}
                 {{^firstcontributory}}
                 &
                 {{/firstcontributory}}
-                    & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} & \begin{minipage}{1.6cm}\begin{flushright} {{ nbHours }} \end{flushright}\end{minipage}& {{ price }}\euro{}\\
-                \cline{3-5}
+                    & \texttt{[{{indexproject}}.{{indexcontributory}}]} {{ contributoryDescription }} &
+                     \begin{minipage}{1.2cm}\begin{flushright} {{ quantity }}\end{flushright}\end{minipage}&
+                     \begin{minipage}{1.2cm}\begin{flushright} {{ unit }}\end{flushright}\end{minipage}&
+                     {{ price }}~\euro{}\\
+                \cline{3-6}
 
                 {{#lastcontributory}}
                 \cline{0-2}
-                \multicolumn{3}{|r|}{\textbf{Sous-Total} } & \begin{minipage}{1.6cm}\begin{flushright} \textbf{ {{ subdays }} } \end{flushright}\end{minipage}& \textbf{ {{subtotal}} ~\euro{}}\\
+                \multicolumn{3}{|r|}{\textbf{Sous-Total} } & \begin{minipage}{1.2cm}\begin{flushright} \textbf{ {{ subquantity }} } \end{flushright}\end{minipage}&
+                \begin{minipage}{1.2cm}\begin{flushright} {{subunit}} \end{flushright}\end{minipage}& \textbf{ {{subtotal}}~\euro{}}\\
                 {{/lastcontributory}}
                 {{/contributories}}
 
             {{/table}}
             \hline
             \hline
-            \multicolumn{3}{|r|}{\textbf{Total} } & \begin{minipage}{1.6cm}\begin{flushright} \textbf{ {{ totalQuantity }} } \end{flushright}\end{minipage}& \textbf{ {{ totalRate}}~\euro{}}\\
+            \multicolumn{3}{|r|}{\textbf{Total} } & \begin{minipage}{1.2cm}\begin{flushright} \textbf{ {{ totalQuantity }} }\end{flushright}\end{minipage} &
+            \begin{minipage}{1.2cm}\begin{flushright} Jours\end{flushright}\end{minipage}&
+            \textbf{ {{ totalRate}}~\euro{}}\\
             \hline
         \end{tabular}
         \caption{Les différentes prestations à la tâche, leur nombre de jour de travail et le tarif associé}
@@ -217,9 +222,7 @@
     \section{Détails des projets}
         \begin{description}
         {{#table}}
-            {{#contributories}}
             \item[\texttt{[{{indexproject}}]} {{ nameproject }}] {{ descriptionproject }}
-            {{/contributories}}
         {{/table}}
         \end{description}
 

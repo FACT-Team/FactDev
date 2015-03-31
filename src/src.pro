@@ -99,7 +99,10 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/widgets/path/chosedirectorywidget.cpp \
     gui/widgets/path/chosepathwidget.cpp\
     gui/widgets/checkfields/checkwebsite.cpp\
-    gui/dialogs/statisticsdialog.cpp
+    gui/dialogs/statisticsdialog.cpp \
+    models/unit.cpp \
+    models/calculable.cpp \
+    utils/double.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -213,7 +216,9 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/path/chosedirectorywidget.h \
     gui/widgets/path/chosepathwidget.h\
     gui/widgets/checkfields/checkwebsite.h\
-    gui/dialogs/statisticsdialog.h
+    gui/dialogs/statisticsdialog.h \
+    models/unit.h \
+    models/calculable.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

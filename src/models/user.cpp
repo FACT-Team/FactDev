@@ -195,4 +195,14 @@ void User::setPdflatexPath(const QString &pdflatexPath)
     _pdflatexPath = pdflatexPath;
 }
 
+int User::getNbHoursPerDays()
+{
+    return Rate().getNbDailyHours();
+}
+
+int User::getNbDaysPerMonths()
+{
+    return 20;
+}
+
 }

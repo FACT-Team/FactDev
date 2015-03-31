@@ -45,7 +45,8 @@ CREATE TABLE Contributory
     idContributory INTEGER PRIMARY KEY AUTO_INCREMENT,
     description TEXT,
     longdescription TEXT,
-    nbHours INTEGER
+    quantity DOUBLE,
+    unit INTEGER(2)
 );
 
 CREATE TABLE BillingProject

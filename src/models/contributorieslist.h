@@ -2,9 +2,14 @@
 #define CONTRIBUTORIESLIST_H
 
 #include <QMap>
+
 #include "models/project.h"
 #include "models/contributory.h"
 #include "models/rate.h"
+#include "models/user.h"
+#include "models/calculable.h"
+
+#include "utils/double.h"
 
 namespace Models {
 /**
@@ -12,7 +17,7 @@ namespace Models {
  * @brief The ContributoriesList class List of contributories
  */
 class ContributoriesList
-        : private QMap<QPair<Project*,Models::Rate>*,QList<Contributory> >
+        : private QMap<QPair<Project*,Models::Rate>*,QList<Contributory> >, public Calculable
 {
 public:
     /**
@@ -21,6 +26,41 @@ public:
      */
     ContributoriesList();
     ~ContributoriesList();
+
+    /**
+     * @brief getPrice Return the price of a contributories list
+     * @return The price
+     */
+    double getPrice(bool isPaied=false);
+
+    /**
+     * @brief getPrice Return price of project
+     * @param project The project
+     * @return The price
+     */
+    double getPrice(Models::Project *project);
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of hours) of the Contributories
+     * @return sum of quantity in days
+     */
+    double getSumQuantity();
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of hours) of the Contributories of project
+     * @param project The project
+     * @return sum of quantity in days
+     */
+    double getSumQuantity(Models::Project *project);
+
+    /**
+     * @brief ContributoriesList::getRate
+     * @param project
+     * @return
+     */
+    Models::Rate getRate(Models::Project *project);
 
     /**
      * @brief ContributoriesList::commit Update or insert data into the database
@@ -89,20 +129,6 @@ public:
     int getNbProjects();
 
     /**
-     * @brief ContributoriesList::getSumRate Return the sum of the
-     * contributories rates
-     * @return Sum of contributories rates
-     */
-    double getSumRate();
-
-    /**
-     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
-     * (number of hours) of the Contributories
-     * @return sum of quantity
-     */
-    double getSumQuantity();
-
-    /**
      * @brief ContributoriesList::getCustomer Return the Customers linked to
      * theses contributories
      * @return Customer
@@ -123,22 +149,30 @@ public:
     QList<Contributory> *getAllContributories();
 
     /**
-     * @brief ContributoriesList::getRate
-     * @param project
-     * @return
-     */
-    Models::Rate getRate(Models::Project *project);
-
-    /**
      * @brief ContributoriesList::getDataMap Return a list of Billing and it
      * value linked which indicates if it is inserting or not
      * @return List of billing and value linked
      */
     QVariantList getDataMap();
-
 private:
+    /**
+     * @brief getPrice Get price of list of contributories
+     * @param contributories The contributories
+     * @param r The rate of contributories
+     * @return  The price of contributories
+     */
+    double getPrice(const QList<Contributory> &contributories, Models::Rate r);
+
+    /**
+     * @brief getQuantity Get quantity of a contributories list
+     * @param contributories THe contributories
+     * @return THe quantity (in days)
+     */
+    double getSumQuantity(const QList<Contributory>& contributories);
+
     int _idBilling; //!< Billing ID
     bool _insert;   //!< an element is inserted
+
 };
 }
 #endif // CONTRIBUTORIESLIST_H

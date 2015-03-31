@@ -14,7 +14,8 @@ void PdfGenerator::generate(QString inputDir, QString filename)
     args << filename+".tex";
     process.start(_pdflatexPath, args);
     process.waitForFinished();
-
+    process.start(_pdflatexPath, args);
+    process.waitForFinished();
 
     QFile(inputDir+"/"+filename+".aux").remove();
     QFile(inputDir+"/"+filename+".log").remove();

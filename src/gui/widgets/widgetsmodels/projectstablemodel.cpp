@@ -85,9 +85,6 @@ bool Gui::Widgets::WdgModels::ProjectsTableModel::setData(
         case 4:
             _projects[index.row()].setEndDate(value.toDate());
             break;
-        case 5:
-            _projects[index.row()].setCost(value.toDouble());
-            break;
         default:
             Log::instance(WARNING)
                     << "Error, in default case of ProjectsTableModel::setData";

@@ -117,12 +117,6 @@ public:
     double getCost() const;
 
     /**
-     * @brief Project::setCost Modify the <b>Project</b> <i>cost</i>
-     * @param cost the projectCost
-     */
-    void setCost(double cost);
-
-    /**
      * @brief Project::getDailyRate Return the daily rate estimated for this
      * project
      * @return the daily rate linket to the current project
@@ -174,12 +168,6 @@ public:
      * @return boolean
      */
     bool operator !=(const Project &p);
-
-    /**
-     * @brief Project::computeProjectCost compute the <b>Project</b> <i>cost</i>
-     * @return the project cost
-     */
-    double computeProjectCost();
 
 private:
     QString _name;          //!< Project name

@@ -98,6 +98,7 @@ QString Customer::getNameFolder() const
 double Customer::getTurnover() const {
     double ret(0.0);
     QList<Project> projects = Databases::ProjectDatabase::instance()->getProjects(getId());
+
     for (Project project : projects) {
         ret += project.getCost();
     }

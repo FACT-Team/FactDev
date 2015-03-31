@@ -4,6 +4,7 @@
 
 #include "models/billing.h"
 #include "database/billingdatabase.h"
+#include "utils/double.h"
 
 using namespace Models;
 class BillingModelTest : public QObject
@@ -21,7 +22,8 @@ private slots:
     void hydrat();
     void hydratWithContributories();
     void commitRemove();
-    void testGetItem();
+    void sumQuantityTest();
+    void getPriceTest();
 private:
     Billing* b1;
     Billing* b2;
