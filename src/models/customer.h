@@ -2,6 +2,7 @@
 #define CUSTOMER_H
 #include <QString>
 #include <QStandardItem>
+#include <QPixmap>
 
 #include "models/imodel.h"
 #include "models/people.h"

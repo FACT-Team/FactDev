@@ -8,13 +8,16 @@
 using namespace Databases;
 
 namespace Models {
-Customer::Customer()
+Customer::Customer() : People()
 {
     setId(0);
+    _toRemoved = false;
 }
 
-Customer::Customer(int id) {
+Customer::Customer(int id) : People()
+{
     hydrat(id);
+    _toRemoved = false;
 }
 
 void Customer::commit() {
@@ -96,7 +99,7 @@ double Customer::getTurnover() const {
 
 QPixmap * Customer::getImage()
 {
-    if (_image == NULL) {
+    if (_image == NULL || _image->isNull()) {
         setImage(new QPixmap(
                     CustomerDatabase::instance()->getCustomerImage(getId())));
     }

@@ -5,7 +5,7 @@ namespace Models {
 
 People::People()
 {
-
+    _image = 0;
 }
 
 QString People::getFirstname() const
