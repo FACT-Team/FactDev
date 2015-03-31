@@ -95,7 +95,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     database/accessdatabase.cpp \
     models/statistics.cpp \
     gui/widgets/browseimagewidget.cpp \
-    utils/image.cpp
+    utils/image.cpp \
+    utils/windowsettings.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -206,7 +207,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     database/accessdatabase.h \
     models/statistics.h \
     gui/widgets/browseimagewidget.h \
-    utils/image.h
+    utils/image.h \
+    utils/windowsettings.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \

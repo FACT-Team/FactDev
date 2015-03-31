@@ -9,9 +9,8 @@ People::People()
     setId(0);
     _toRemoved = false;
 }
-People::~People() {
 
-}
+People::~People() {}
 
 People::People(int id)
 {

@@ -35,7 +35,7 @@ Models::User *UserDatabase::getUser(const int pId)
                     lastError(q),
                     1.2);
     }
-
+    q.next();
     if(q.first()) {
         user = new Models::User();
         user->setId(value(q, "idUser").toInt());

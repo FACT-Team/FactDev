@@ -10,7 +10,7 @@ UserDatabaseTest::UserDatabaseTest()
 void UserDatabaseTest::getUserTest()
 {
     try {
-        Models::User* u1 = Databases::UserDatabase::instance()->getUser();
+        Models::User *u1 = Databases::UserDatabase::instance()->getUser();
         Models::User u2;
         u2.setId(1);
         u2.setFirstname("Jean");
@@ -27,7 +27,6 @@ void UserDatabaseTest::getUserTest()
         u2.setFax("");
         u1->setFax("");
 
-        bool b = *u1 == u2;
         QVERIFY(*u1 == u2);
     } catch(DbException* e) {
         QFAIL(e->what());
