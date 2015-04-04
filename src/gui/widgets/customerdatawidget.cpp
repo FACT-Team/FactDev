@@ -36,7 +36,7 @@ void CustomerDataWidget::printUserData()
     setLabel(ui->complement, user->getAddressComplement());
 
    ui->lbImage->setPixmap(
-                user->getImage()->scaled(96,96, Qt::KeepAspectRatio));
+                user->getImage()->scaled(70,70, Qt::KeepAspectRatio));
 }
 
 void CustomerDataWidget::printInformations(int id)
@@ -57,7 +57,7 @@ void CustomerDataWidget::printInformations(int id)
     setLabel(ui->complement, custom->getAddressComplement());
 
     ui->lbImage->setPixmap(
-                    custom->getImage()->scaled(96,96, Qt::KeepAspectRatio));
+                    custom->getImage()->scaled(70,70, Qt::KeepAspectRatio));
 
 
 }

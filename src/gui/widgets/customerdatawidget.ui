@@ -289,7 +289,7 @@ font-weight: bold;</string>
      <property name="minimumSize">
       <size>
        <width>96</width>
-       <height>96</height>
+       <height>70</height>
       </size>
      </property>
      <property name="maximumSize">

@@ -24,7 +24,7 @@ Models::User *UserDatabase::getUser(const int pId)
     Models::User* user;
     q.prepare("SELECT idUser, firstname, lastname, company, title, address, "
               "postalCode, city, email, mobilePhone, phone, noSiret, "
-              "workspaceName, workspacePath  "
+              "workspaceName, workspacePath, pdflatexcommand, complementAddress,website  "
               "FROM User WHERE idUser = :pId");
     q.bindValue(":pId", pId);
 
