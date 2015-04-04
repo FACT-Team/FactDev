@@ -44,6 +44,10 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
+    setWebsite(             customer->getWebsite());
+    setAddressComplement(   customer->getAddressComplement());
+    setIsArchived(          customer->isArchived());
+    setToRemoved(false);
 }
 
 void Customer::remove()
@@ -64,6 +68,14 @@ QVariantHash Customer::getDataMap()
     data["mobilephone"] = getMobilePhone();
     data["phone"]       = getPhone();
     data["fax"]         = getFax();
+
+    if(!getWebsite().isEmpty()) {
+        data["website"]     = getWebsite();
+    }
+
+    if(!getAddressComplement().isEmpty()) {
+        data["complement"]     = getAddressComplement();
+    }
 
     return data;
 }
@@ -88,6 +100,7 @@ double Customer::getTurnover() const {
     double ret(0.0);
     QList<Project> projects =
             Databases::ProjectDatabase::instance()->getProjects(getId());
+
     for (Project project : projects) {
         ret += project.getCost();
     }
@@ -108,6 +121,16 @@ void Customer::setImage(QPixmap *image)
     _image = image;
     CustomerDatabase::instance()->setCustomerImage(*this);
     commit();
+}
+
+bool Customer::isArchived() const
+{
+    return _isArchived;
+}
+
+void Customer::setIsArchived(const bool isArchived)
+{
+    _isArchived = isArchived;
 }
 
 }

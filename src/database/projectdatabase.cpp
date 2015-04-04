@@ -29,6 +29,7 @@ Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
                 QSharedPointer<Models::Customer>(
                     new Models::Customer(value(q,"idCustomer").toInt())));
 
+
     return project;
 }
 
@@ -46,7 +47,6 @@ QSharedPointer<Models::Project> ProjectDatabase::updateProject(QSqlQuery& q)
     project->setCustomer(
                 QSharedPointer<Models::Customer>(
                     new Models::Customer(value(q, "idCustomer").toInt())));
-    project->setCost(project->getCost());
     return project;
 
 }
@@ -202,21 +202,23 @@ int ProjectDatabase::getNbProjects()
     return value(q, "nb_p").toInt();
 }
 
-int ProjectDatabase::getNbProjectsForACustomer(const int pId) {
+int ProjectDatabase::getNbProjects(const int customerId) {
     QSqlQuery q;
-
-    q.prepare("SELECT count(*) AS nb_p FROM Project WHERE idCustomer = :pId");
-    q.bindValue(":pId", pId);
+    QString request("SELECT COUNT(idProject) FROM Project");
+    if (customerId > 0) {
+        request += " WHERE idCustomer = :customerId";
+    }
+    q.prepare(request);
+    q.bindValue(":customerId", customerId);
     if(!q.exec()) {
         throw new DbException(
-                    "Impossible d'éditer les informations du Project",
-                    "BddProject::getNbProjectForACustomer",
+                    "Impossible de récupérer le nombre de projets",
+                    "ProjectDatabase::getNbProjects",
                     lastError(q),
                     1.6);
     }
-    q.next();
-
-    return value(q, "nb_p").toInt();
+    q.first();
+    return q.value(0).toInt();
 }
 
 QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Models::Customer> c) {
@@ -271,8 +273,6 @@ QList<Project> ProjectDatabase::getProjects(const int customerId) {
         project.setName(value(q,"name").toString());
         project.setDescription(value(q,"description").toString());
         project.setDailyRate(value(q,"dailyRate").toDouble());
-        project.setCost(project.getCost());
-        //project.setCustomer(c);
         ret.append(project);
     }
 

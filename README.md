@@ -2,6 +2,9 @@ FactDev
 =======
 [![Build Status](https://api.travis-ci.org/FACT-Team/FactDev.svg?branch=S4)](https://travis-ci.org/FACT-Team/FactDev)
  <a href='https://coveralls.io/r/FACT-Team/FactDev'><img src='https://coveralls.io/repos/FACT-Team/FactDev/badge.svg' alt='Coverage Status' /></a> 
+ 
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/FACT-Team/FactDev.svg)](http://isitmaintained.com/project/FACT-Team/FactDev "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/FACT-Team/FactDev.svg)](http://isitmaintained.com/project/FACT-Team/FactDev "Percentage of issues still open")
 
 # Team
 FACT team is a team for Universitiy Project. Members of this team are : 

@@ -2,13 +2,20 @@
 #define CONTRIBUTORY_H
 #include "models/project.h"
 #include "models/imodel.h"
+#include "models/unit.h"
+#include "models/calculable.h"
 
+#include "utils/double.h"
 namespace Models {
+/**
+ * @brief The Unit enum Unity of work : hour or day
+ */
+
 /**
  * @author
  * @brief The Contributory class
  */
-class Contributory : public IModel
+class Contributory : public IModel, public Calculable
 {
 public:
     /**
@@ -47,6 +54,19 @@ public:
     void remove();
 
     /**
+     * @brief getPrice Return the price of a contributory
+     * @return The price
+     */
+    double getPrice(const bool paied=false);
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of hours) of the Contributories
+     * @return sum of quantity in hours
+     */
+    double getSumQuantity();
+
+    /**
      * @brief getDataMap Get all data of model with a HashMap key/value
      * @return Model's data
      */
@@ -70,13 +90,13 @@ public:
      * @brief getNbHours Number of work hour of a contributory
      * @return Then number of hours
      */
-    double getNbHours() const;
+    double getQuantity() const;
 
     /**
      * @brief setNbHours Change nbHours
      * @param value The new value of nbHours
      */
-    void setNbHours(double value);
+    void setQuantity(double value);
 
     /**
      * @brief getDescription Description of a contributory
@@ -108,12 +128,47 @@ public:
      */
     bool operator !=(const Contributory &c);
 
+    /**
+     * @brief getLongDescription A contributory has a long description : display in tex appendix
+     * @return The long description
+     */
     QString getLongDescription() const;
+
+    /**
+     * @brief setLongDescription Change the long description
+     * @param getLongDescription The new description
+     */
     void setLongDescription(const QString &getLongDescription);
+
+    /**
+     * @brief getUnit Return the unit (hour or day) of contributory
+     * @return The unit
+     */
+    Unit getUnit() const;
+
+    /**
+     * @brief setUnit Change the unit
+     * @param value The new unit
+     */
+    void setUnit(const Unit &value);
+
+    /**
+     * @brief getHourlyRate Hourly rate for this contributory
+     * @return  The hourly rate
+     */
+    double getHourlyRate() const;
+
+    /**
+     * @brief setHourlyRate Change the hourly rate for this contributory
+     * @param value The hourly rate
+     */
+    void setHourlyRate(double value);
 
 private:
     Project* _project;          //!< Contributory project
-    double _nbHours;            //!< Number of work hours of this contribution
+    double _quantity;            //!< Quantity of work of this contributory
+    double _hourlyRate;         //!< Hourly rate for this contributory
+    Unit _unit;                  //!< Unit of work of this contributory
     QString _description;       //!< Contributory description
     QString _longDescription;   //!< Long contributory description
 };

@@ -52,14 +52,21 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab1PersonalData">
       <attribute name="title">
        <string>Données personnelles</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="21" column="1" colspan="5">
+       <item row="23" column="0">
+        <widget class="QLabel" name="lbMobilePhone">
+         <property name="text">
+          <string>Tél. mobile</string>
+         </property>
+        </widget>
+       </item>
+       <item row="23" column="1" colspan="5">
         <widget class="Gui::Widgets::CheckFields::CheckPhone" name="leMobilePhone">
          <property name="minimumSize">
           <size>
@@ -86,7 +93,7 @@
          </property>
         </widget>
        </item>
-       <item row="20" column="1" colspan="5">
+       <item row="22" column="1" colspan="5">
         <widget class="Gui::Widgets::CheckFields::CheckPhone" name="lePhone">
          <property name="minimumSize">
           <size>
@@ -96,21 +103,14 @@
          </property>
         </widget>
        </item>
-       <item row="19" column="0">
+       <item row="20" column="0">
         <widget class="QLabel" name="lbEmail">
          <property name="text">
           <string>Email</string>
          </property>
         </widget>
        </item>
-       <item row="20" column="0">
-        <widget class="QLabel" name="lbPhone">
-         <property name="text">
-          <string>Tél. fixe</string>
-         </property>
-        </widget>
-       </item>
-       <item row="19" column="1" colspan="5">
+       <item row="20" column="1" colspan="5">
         <widget class="Gui::Widgets::CheckFields::CheckEmail" name="leEmail">
          <property name="minimumSize">
           <size>
@@ -120,13 +120,27 @@
          </property>
         </widget>
        </item>
-       <item row="18" column="0" colspan="6">
+       <item row="22" column="0">
+        <widget class="QLabel" name="lbPhone">
+         <property name="text">
+          <string>Tél. fixe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="19" column="0" colspan="6">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Adresse</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="2">
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Complément</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
            <widget class="QLabel" name="lbCity">
             <property name="text">
              <string>Ville</string>
@@ -140,7 +154,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="2" column="1">
            <widget class="Gui::Widgets::CheckFields::CheckPostalCode" name="lePostalCode">
             <property name="minimumSize">
              <size>
@@ -160,7 +174,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="3">
+          <item row="2" column="3">
            <widget class="Gui::Widgets::CheckFields::CheckCity" name="leCity">
             <property name="minimumSize">
              <size>
@@ -170,17 +184,34 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
+          <item row="2" column="0">
            <widget class="QLabel" name="lbPostalCode">
             <property name="text">
              <string>Code Postal</string>
             </property>
            </widget>
           </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QLineEdit" name="leAddressComplement">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>22</height>
+             </size>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="5" column="0">
+        <widget class="QLabel" name="lbTitle">
+         <property name="text">
+          <string>Activité</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
         <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leTitle">
          <property name="minimumSize">
           <size>
@@ -190,7 +221,7 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="6" column="1">
         <widget class="Gui::Widgets::CheckFields::CheckSiretNumber" name="leNoSiret">
          <property name="minimumSize">
           <size>
@@ -200,7 +231,7 @@
          </property>
         </widget>
        </item>
-       <item row="14" column="0" colspan="6">
+       <item row="15" column="0" colspan="6">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -213,10 +244,10 @@
          </property>
         </spacer>
        </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="lbTitle">
+       <item row="3" column="0">
+        <widget class="QLabel" name="lbCompany">
          <property name="text">
-          <string>Activité</string>
+          <string>Société</string>
          </property>
         </widget>
        </item>
@@ -230,27 +261,6 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="lbCompany">
-         <property name="text">
-          <string>Société</string>
-         </property>
-        </widget>
-       </item>
-       <item row="21" column="0">
-        <widget class="QLabel" name="lbMobilePhone">
-         <property name="text">
-          <string>Tél. mobile</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="lbLastname">
-         <property name="text">
-          <string>Nom</string>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="1">
         <widget class="Gui::Widgets::CheckFields::CheckUntilField" name="leCompany">
          <property name="minimumSize">
@@ -261,14 +271,21 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lbLastname">
+         <property name="text">
+          <string>Nom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
         <widget class="QLabel" name="lbNoSiret">
          <property name="text">
           <string>N° Siret</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="0" colspan="5">
+       <item row="7" column="0" colspan="5">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <spacer name="horizontalSpacer_2">
@@ -297,12 +314,26 @@
              <height>150</height>
             </size>
            </property>
-           <zorder>groupBox</zorder>
-           <zorder>lbLastname</zorder>
-           <zorder>horizontalSpacer_2</zorder>
           </widget>
          </item>
         </layout>
+       </item>
+       <item row="21" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Site Web</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="1" colspan="5">
+        <widget class="Gui::Widgets::CheckFields::CheckWebsite" name="leWebsite">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>22</height>
+          </size>
+         </property>
+        </widget>
        </item>
       </layout>
       <zorder>lbPhone</zorder>
@@ -323,32 +354,20 @@
       <zorder>leTitle</zorder>
       <zorder>lbNoSiret</zorder>
       <zorder>leNoSiret</zorder>
-      <zorder>horizontalLayoutWidget</zorder>
+      <zorder>label_3</zorder>
+      <zorder>leWebsite</zorder>
      </widget>
      <widget class="QWidget" name="tab2Workspace">
       <attribute name="title">
        <string>Environnement de travail</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="1" column="1">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="1">
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
           <string>Répertoire</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout_5">
+         <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
            <widget class="QLabel" name="lbWorkspaceName">
             <property name="text">
@@ -356,14 +375,10 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QPushButton" name="btnBrowseWorkspace">
-            <property name="text">
-             <string>Parcourir</string>
-            </property>
-            <property name="icon">
-             <iconset resource="../../icons.qrc">
-              <normaloff>:/icons/img/folder.png</normaloff>:/icons/img/folder.png</iconset>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="leWorkspaceName">
+            <property name="placeholderText">
+             <string>FactDev</string>
             </property>
            </widget>
           </item>
@@ -375,21 +390,52 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="leWorkspacePath">
-            <property name="placeholderText">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" colspan="2">
-           <widget class="QLineEdit" name="leWorkspaceName">
-            <property name="placeholderText">
-             <string>FactDev</string>
-            </property>
-           </widget>
+           <widget class="Gui::Widgets::Path::ChoseDirectoryWidget" name="wdgWorkspacePath" native="true"/>
           </item>
          </layout>
         </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>LaTeX</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0" rowspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Chemin vers pdflatex</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="2" colspan="2">
+           <widget class="Gui::Widgets::Path::ChoseFileWidget" name="wdgPdflatex" native="true"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;FactDev utilise le logiciel LaTeX afin de pouvoir générer des devis et des factures au format PDF.&lt;br/&gt;Si vous ne possédez pas LaTeX, veuillez l'installer avant de configurer le logiciel. &lt;br/&gt;LaTeX est fourni avec le programme pdflatex, c'est le chemin vers ce fichier que vous devez fournir&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -455,6 +501,22 @@
    </slots>
   </customwidget>
   <customwidget>
+   <class>Gui::Widgets::BrowseImageWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/browseimagewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CheckFields::CheckWebsite</class>
+   <extends>QLineEdit</extends>
+   <header>gui/widgets/checkfields/checkwebsite.h</header>
+   <container>1</container>
+   <slots>
+    <signal>textChanged()</signal>
+    <slot>fieldTextChanged(QString)</slot>
+   </slots>
+  </customwidget>
+  <customwidget>
    <class>Gui::Widgets::CheckFields::CheckFieldsLetters</class>
    <extends>QLineEdit</extends>
    <header>gui/widgets/checkfields/checkfieldsletters.h</header>
@@ -471,10 +533,18 @@
    </slots>
   </customwidget>
   <customwidget>
-   <class>Gui::Widgets::BrowseImageWidget</class>
+   <class>Gui::Widgets::Path::ChoseFileWidget</class>
    <extends>QWidget</extends>
-   <header>gui/widgets/browseimagewidget.h</header>
+   <header>gui/widgets/path/chosefilewidget.h</header>
    <container>1</container>
+   <slots>
+    <signal>textChanged()</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::Path::ChoseDirectoryWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/path/chosedirectorywidget.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -487,8 +557,6 @@
   <tabstop>btnCancel</tabstop>
   <tabstop>tabUserData</tabstop>
   <tabstop>leWorkspaceName</tabstop>
-  <tabstop>leWorkspacePath</tabstop>
-  <tabstop>btnBrowseWorkspace</tabstop>
  </tabstops>
  <resources>
   <include location="../../icons.qrc"/>
@@ -523,22 +591,6 @@
     <hint type="destinationlabel">
      <x>389</x>
      <y>375</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnBrowseWorkspace</sender>
-   <signal>clicked()</signal>
-   <receiver>UserDataDialog</receiver>
-   <slot>browseWorkspacePath()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>405</x>
-     <y>121</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>467</x>
-     <y>121</y>
     </hint>
    </hints>
   </connection>

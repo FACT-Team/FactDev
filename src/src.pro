@@ -96,7 +96,16 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     models/statistics.cpp \
     gui/widgets/browseimagewidget.cpp \
     utils/image.cpp \
-    utils/windowsettings.cpp
+    utils/windowsettings.cpp\
+	gui/widgets/delegates/textareadelegate.cpp \
+    gui/widgets/path/chosefilewidget.cpp \
+    gui/widgets/path/chosedirectorywidget.cpp \
+    gui/widgets/path/chosepathwidget.cpp\
+    gui/widgets/checkfields/checkwebsite.cpp\
+    gui/dialogs/statisticsdialog.cpp \
+    models/unit.cpp \
+    models/calculable.cpp \
+    utils/double.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -161,7 +170,6 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/popup.h \
     gui/dialogs/addprojectdialog.h \
     database/projectdatabase.h \
-    gui/dialogs/addcontributorydialog.h \
     gui/widgets/comboboxmodelwidget.h \
     utils/string.h \
     gui/widgets/searchwidget.h \
@@ -208,7 +216,15 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     models/statistics.h \
     gui/widgets/browseimagewidget.h \
     utils/image.h \
-    utils/windowsettings.h
+    utils/windowsettings.h\
+    gui/widgets/delegates/textareadelegate.h \
+    gui/widgets/path/chosefilewidget.h \
+    gui/widgets/path/chosedirectorywidget.h \
+    gui/widgets/path/chosepathwidget.h\
+    gui/widgets/checkfields/checkwebsite.h\
+    gui/dialogs/statisticsdialog.h \
+    models/unit.h \
+    models/calculable.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -228,7 +244,9 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/databasesettingswidget.ui \
     gui/dialogs/computeturnoverdialog.ui \
-    gui/widgets/browseimagewidget.ui
+    gui/widgets/browseimagewidget.ui\
+    gui/widgets/path/chosepathwidget.ui\
+    gui/dialogs/statisticsdialog.ui
 
 RESOURCES += \
     icons.qrc \
@@ -245,10 +263,4 @@ OTHER_FILES += \
         sql/tests/projects.sql \
         sql/tests/removeuselessdata.sql \
         main.dox \
-        billing.tpl\
-
-DISTFILES += \
-    sql/tests/removeuselessdata.sql \
-    sql/tests/billingrate.sql \
-    sql/removetables.sql
-
+        billing.tpl

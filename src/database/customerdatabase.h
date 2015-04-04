@@ -145,6 +145,12 @@ public:
      */
     void setCustomerImage(Customer &pCustomer);
 
+	/**
+     * @brief CustomerDatabase::getCustomers Return all the customers
+     * @return QList of customers
+     */
+    QList<Customer> getCustomers();
+
 private:
     //!< Singleton instance of CustomerDatabase
     static CustomerDatabase* _instance;

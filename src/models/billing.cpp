@@ -25,9 +25,10 @@ void Billing::commit()
 {
     Database::Database::instance()->openTransaction();
     bool insert = _id == 0;
+
     if(insert) {
         _id = BillingDatabase::instance()->addBilling(*this);
-    } else if(_toRemoved){
+    } else if(_toRemoved) {
         remove();
     } else {
         BillingDatabase::instance()->updateBilling(*this);
@@ -67,10 +68,9 @@ QVariantHash Billing::getDataMap()
     billing["title"] = _title;
     billing["description"] = _description;
     billing["date"] = _date.toString("dddd d MMMM yyyy");
-    //billing["paid"] = _isPaid ? "Payée" : "";
     data["user"]  = Models::User(1).getDataMap();
     data["customer"] = _contributories.getCustomer()->getDataMap();
-    data["billing"] = billing;//
+    data["billing"] = billing;
 
     QVariantList table;
     QVariantHash project;
@@ -81,12 +81,25 @@ QVariantHash Billing::getDataMap()
         table << project;
         project.clear();
     }
-    data["totalRate"] = getSumRate();
-    data["totalQuantity"] = getSumQuantity();
+    data["totalRate"] = Utils::Double::round(getPrice(), 2);
+
+    if(Utils::Double::round(getSumQuantity(), 2) < 1) {
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2) * User(1).getNbHoursPerDays();
+        data["totalUnit"] = Unit(HOUR).toString(data["totalQuantity"].toDouble() < 1);
+    } else {
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2);
+        data["totalUnit"] = Unit(DAY).toString(data["totalQuantity"].toDouble() < 1);
+    }
+
 
     data["table"] = _contributories.getDataMap();
 
     return data;
+}
+
+double Billing::getPrice(bool paied)
+{
+    return _contributories.getPrice(paied);
 }
 
 void Billing::generateTex()
@@ -99,7 +112,7 @@ void Billing::generateTex()
 void Billing::generatePdf()
 {
     generateTex();
-    Generator::PdfGenerator g;
+    Generator::PdfGenerator g(User(1).getPdflatexPath());
     g.generate(getFolder(), getFilename());
 }
 
@@ -154,7 +167,8 @@ QStandardItem *Billing::getItem()
 {
     QStandardItem *itemBillQuote =
             new QStandardItem(_date.toString("MM-yyyy")+ " " + _title);
-    itemBillQuote->setIcon(QIcon(":icons/img/"+QString((_isBilling == 0 ? "quote" : "bill"))));
+
+    itemBillQuote->setIcon(QIcon(":icons/"+QString(_isBilling == 0 ? "quote" : "bill")));
 
     return itemBillQuote;
 
@@ -178,11 +192,6 @@ ContributoriesList& Billing::getContributories()
 void Billing::addContributory(Contributory& c)
 {
     _contributories.addContributory(c);
-}
-
-double Billing::getSumRate()
-{
-    return _contributories.getSumRate();
 }
 
 double Billing::getSumQuantity()

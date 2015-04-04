@@ -171,6 +171,30 @@ public:
     void setExtensionImage(const QString &ext);
 
     /**
+     * @brief getAddressComplement Return the address complement (Building, Appartment, …)
+     * @return The address complement
+     */
+    QString getAddressComplement() const;
+
+    /**
+     * @brief setAddressComplement Change the address complement
+     * @param addressComplement The new complement
+     */
+    void setAddressComplement(const QString &addressComplement);
+
+    /**
+     * @brief getWebsite Website of People
+     * @return The website url
+     */
+    QString getWebsite() const;
+
+    /**
+     * @brief setWebsite Change the url of website
+     * @param website The new URL
+     */
+    void setWebsite(const QString &website);
+
+    /**
      * @brief People::operator == Re-define the operator "==" to compare if
      * the current People is the same to the other <b>People</b> <i>c</i>
      * Return TRUE if both Peoples are the same, else FALSE
@@ -195,6 +219,7 @@ private:
     QString _lastname;      //!< People lastname
     QString _company;       //!< Company name of the People
     QString _address;       //!< Name and number of street
+    QString _addressComplement; //!< Add address complement (Building, appartment, …)
     QString _postalCode;    //!< Postal code
     QString _city;          //!< City
     QString _country;       //!< Country
@@ -203,6 +228,8 @@ private:
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _fax;           //!< Fax number of the people
     QString _extensionImage;//!< Image extension
+    QString _website;       //!< Website
+
 
 };
 }

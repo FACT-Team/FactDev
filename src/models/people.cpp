@@ -169,6 +169,24 @@ void People::setExtensionImage(const QString &ext)
 }
 
 
+QString People::getAddressComplement() const
+{
+    return _addressComplement;
+}
+
+void People::setAddressComplement(const QString &complementAddress)
+{
+    _addressComplement = complementAddress;
+}
+QString People::getWebsite() const
+{
+    return _website;
+}
+
+void People::setWebsite(const QString &website)
+{
+    _website = website;
+}
 
 
 }

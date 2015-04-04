@@ -19,7 +19,8 @@ ContributoryDatabase* ContributoryDatabase::instance()throw(DbException*)
 Models::Contributory* ContributoryDatabase::getContributory(QSqlQuery& q) {
     Models::Contributory* contributory = new Models::Contributory();
     contributory->setId(value(q, "idContributory").toInt());
-    contributory->setNbHours(value(q, "nbHours").toDouble());
+    contributory->setQuantity(value(q, "quantity").toDouble());
+    contributory->setUnit(Unit((TypeUnit)(value(q, "unit").toInt())));
     contributory->setDescription(value(q, "cdescription").toString());
     contributory->setLongDescription(value(q, "clongdescription").toString());
 
@@ -54,7 +55,7 @@ Models::Contributory* ContributoryDatabase::getContributory(const int idContribu
     Models::Contributory* contributory;
 
     q.prepare("SELECT idContributory, description as cdescription, "
-              "longdescription as clongdescription, nbhours "
+              "longdescription as clongdescription, quantity, unit "
               "FROM Contributory WHERE idContributory = :pId");
     q.bindValue(":pId", idContributory);
 
@@ -87,7 +88,7 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBilling(
                 " Project.dailyRate as dailyRate, Project.idCustomer, "
                 " Contributory.idContributory, Contributory.description as cdescription, "
                 "Contributory.longdescription as clongdescription, "
-                " Billing.idBilling, nbHours "
+                " Billing.idBilling, quantity, unit "
                 " FROM BillingProject, Project, Billing, Contributory "
                 " WHERE BillingProject.idBilling = :idBilling "
                 " AND Project.idProject = BillingProject.idProject "
@@ -119,13 +120,14 @@ int ContributoryDatabase::addContributory(
     QSqlQuery q;
     q.prepare(
                 "INSERT INTO Contributory "
-                "(description, longdescription, nbHours)"
+                "(description, longdescription, quantity, unit)"
                 " VALUES "
-                "(:description, :longdescription, :nbHours)"
+                "(:description, :longdescription, :quantity, :unit)"
                 );
 
     q.bindValue(":description", pContributory.getDescription());
-    q.bindValue(":nbHours", pContributory.getNbHours());
+    q.bindValue(":quantity", pContributory.getQuantity());
+    q.bindValue(":unit", pContributory.getUnit().getype());
     q.bindValue(":longdescription", pContributory.getLongDescription());
     if(!q.exec()) {
         throw new DbException(
@@ -143,13 +145,14 @@ void ContributoryDatabase::updateContributory(
     QSqlQuery q;
     q.prepare("UPDATE Contributory SET "
               "description=:description, longdescription=:longdescription,"
-              "nbHours=:nbHours "
+              "quantity=:quantity, unit=:unit "
               "WHERE idContributory=:idContributory"
               );
 
     q.bindValue(":description", pContributory.getDescription());
     q.bindValue(":longdescription", pContributory.getLongDescription());
-    q.bindValue(":nbHours", pContributory.getNbHours());
+    q.bindValue(":quantity", pContributory.getQuantity());
+    q.bindValue(":unit", pContributory.getUnit().getype());
     q.bindValue(":idContributory",pContributory.getId());
 
     if(!q.exec()) {
@@ -200,19 +203,19 @@ Models::ContributoriesList ContributoryDatabase::getContributoriesByBillingAndPr
     Models::ContributoriesList contributories;
 
     q.prepare(
-        "SELECT DISTINCT Project.idProject as idProject,"
-        " Project.name as name, Project.description as pdescription, "
-        " Project.dailyRate as dailyRate, Project.idCustomer, "
-        " Contributory.idContributory, Contributory.description as cdescription, "
-        " Contributory.longdescription as clongdescription, "
-        " Billing.idBilling, nbHours "
-        " FROM BillingProject, Project, Billing, Contributory "
-        " WHERE BillingProject.idBilling = :idBilling "
-        " AND Project.idProject = BillingProject.idProject "
-        " AND Billing.idBilling = BillingProject.idBilling "
-        " AND Contributory.idContributory = BillingProject.idContributory "
-        " AND Project.idProject = :idProject "
-        "ORDER BY Project.idProject ");
+                "SELECT DISTINCT Project.idProject as idProject,"
+                " Project.name as name, Project.description as pdescription, "
+                " Project.dailyRate as dailyRate, Project.idCustomer, "
+                " Contributory.idContributory, Contributory.description as cdescription, "
+                " Contributory.longdescription as clongdescription, "
+                " Billing.idBilling, quantity, unit "
+                " FROM BillingProject, Project, Billing, Contributory "
+                " WHERE BillingProject.idBilling = :idBilling "
+                " AND Project.idProject = BillingProject.idProject "
+                " AND Billing.idBilling = BillingProject.idBilling "
+                " AND Contributory.idContributory = BillingProject.idContributory "
+                " AND Project.idProject = :idProject "
+                "ORDER BY Project.idProject ");
 
     q.bindValue(":idBilling", billingId);
     q.bindValue(":idProject", projectId);

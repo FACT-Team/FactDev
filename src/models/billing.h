@@ -4,24 +4,28 @@
 #include <QDate>
 #include <QMap>
 #include <QList>
+#include <QIcon>
 
 #include "models/imodel.h"
 #include "models/project.h"
 #include "models/contributory.h"
 #include "models/user.h"
 #include "models/contributorieslist.h"
+#include "models/calculable.h"
+
 #include "database/contributorydatabase.h"
 
 #include "generator/texgenerator.h"
 #include "generator/pdfgenerator.h"
 
+#include "utils/double.h"
 namespace Models {
 /**
  * @author Antoine de Roquemaurel
  * @author Florent Berbie
  * @brief The Billing class : Billing or Quote of a Customer
  */
-class Billing : public IModel
+class Billing : public IModel, public Calculable
 {
 public:
     /**
@@ -61,6 +65,19 @@ public:
      * @return Model's data
      */
     QVariantHash getDataMap();
+
+    /**
+     * @brief getPrice Return the price of a calculable object
+     * @return The price
+     */
+    double getPrice(bool paied=false);
+
+    /**
+     * @brief ContributoriesList::getSumQuantity Return the sum of quantity
+     * (number of days) of the Contributories
+     * @return sum of quantity in days
+     */
+    double getSumQuantity();
 
     /**
      * @brief Billing::generateTex Generate a .tex file for the billing
@@ -104,18 +121,6 @@ public:
      * @param c The new Contributory
      */
     void addContributory(Contributory &c);
-
-    /**
-     * @brief Billing::getSumRate. return <b>Billing</b> Rate
-     * @return
-     */
-    double getSumRate();
-
-    /**
-     * @brief Billing::getSumQuantity. return <b>Billing</b> total by time
-     * @return time in hours
-     */
-    double getSumQuantity();
 
     /**
      * @brief Billing::getTitle. return title of <b>Billing</b>

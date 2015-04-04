@@ -33,8 +33,8 @@ QVariant Gui::Widgets::WdgModels::BillingsTableModel::data(
     switch (index.column()) {
     case 0: return billing.getId();
     case 1: return QImage(
-                    ":/icons/img/"
-                    + QString((billing.isBilling() ? "bill.png"  : "quote.png"))
+                    ":icons/"
+                    + QString((billing.isBilling() ? "bill"  : "quote"))
                     ).scaled(25,25);
     case 2: return billing.getNumber();
     case 3: return billing.getTitle();

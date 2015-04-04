@@ -26,6 +26,7 @@ void UserDatabaseTest::getUserTest()
         u2.setNoSiret("12345678912340");
         u2.setFax("");
         u1->setFax("");
+        u1->setPdflatexPath("pdflatex");
 
         QVERIFY(*u1 == u2);
     } catch(DbException* e) {
@@ -63,6 +64,7 @@ void UserDatabaseTest::updateUserTest()
         u2->setMobilePhone("0616641337");
         u2->setPhone("0836656565");
         u2->setNoSiret("12345678912340");
+        u2->setPdflatexPath("pdflatex");
 
         QVERIFY(*u1 == *u2);
 

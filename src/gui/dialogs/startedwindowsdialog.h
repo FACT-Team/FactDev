@@ -92,6 +92,12 @@ public slots:
     void databaseTypeChanged(const int index);
 
     /**
+     * @brief StartedWindowsDialog::databaseTypeChanged Listener on the
+     * Database type combobox
+     */
+    void databaseTypeChanged(void);
+
+    /**
      * @brief StartedWindowsDialog::updateNextButton Check if the next button is
      *  enabled
      */

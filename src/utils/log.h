@@ -5,7 +5,6 @@
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QDebug>
-#include <QSettings>
 #include <QString>
 
 #include "parameters.h"

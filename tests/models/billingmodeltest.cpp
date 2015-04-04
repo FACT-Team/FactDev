@@ -47,17 +47,17 @@ void BillingModelTest::notEquals()
 
 void BillingModelTest::commitRemove()
 {
-//    try {
-//        Billing b1(12);
-//        b1.setIsBilling(false);
-//        b1.setIsPaid(false);
-//        b1.setToRemoved(true);
+    try {
+        Billing b1(12);
+        b1.setIsBilling(false);
+        b1.setIsPaid(false);
+        b1.setToRemoved(true);
 
-//        b1.commit();
-//        QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
-//    } catch(DbException* e) {
-//        QFAIL(e->what());
-//    }
+        b1.commit();
+        QVERIFY(Databases::BillingDatabase::instance()->getBilling(12) == 0);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
 }
 
 void BillingModelTest::commitUpdate()
@@ -140,3 +140,49 @@ void BillingModelTest::hydratWithContributories() {
 
 }
 
+void BillingModelTest::getPriceTest() {
+    Billing b1(1);
+    double testB1 = 0.0;
+    for(Project* p : b1.getContributories().getProjects()) {
+        testB1 += b1.getContributories().getPrice(p);
+    }
+
+    QCOMPARE(Utils::Double::round(b1.getPrice(), 2), 714.74);
+    QCOMPARE(b1.getContributories().getPrice(), b1.getPrice());
+    QCOMPARE(testB1, b1.getPrice());
+
+    Billing b2(2);
+    double testB2 = 0.0;
+    for(Project* p : b2.getContributories().getProjects()) {
+        testB2 += b2.getContributories().getPrice(p);
+    }
+
+    QCOMPARE(550.7, Utils::Double::round(b2.getPrice(), 2));
+    QCOMPARE(b1.getContributories().getPrice(), b1.getPrice());
+    QCOMPARE(testB2, b2.getPrice());
+
+    Billing b3(3);
+    double testB3 = 0.0;
+    for(Project* p : b3.getContributories().getProjects()) {
+        testB3 += b3.getContributories().getPrice(p);
+    }
+
+    QCOMPARE(790.85, Utils::Double::round(b3.getPrice(), 2));
+    QCOMPARE(b3.getContributories().getPrice(), b3.getPrice());
+    QCOMPARE(testB3, b3.getPrice());
+
+}
+
+void BillingModelTest::sumQuantityTest() {
+    Billing b1(1);
+    QCOMPARE(7.71, Utils::Double::round(b1.getSumQuantity(), 2));
+    QCOMPARE(b1.getContributories().getSumQuantity(), b1.getSumQuantity());
+
+    Billing b2(2);
+    QCOMPARE(6.43, Utils::Double::round(b2.getSumQuantity(), 2));
+    QCOMPARE(b2.getContributories().getSumQuantity(), b2.getSumQuantity());
+
+    Billing b3(3);
+    QCOMPARE(11., Utils::Double::round(b3.getSumQuantity(), 2));
+    QCOMPARE(b3.getContributories().getSumQuantity(), b3.getSumQuantity());
+}

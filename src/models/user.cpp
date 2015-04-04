@@ -38,7 +38,16 @@ QVariantHash User::getDataMap()
     data["postalCode"]  = getPostalCode();
     data["city"]        = getCity();
     data["phone"]       = getPhone();
+    data["mobilePhone"]       = getMobilePhone();
+    data["fax"]       = getMobilePhone();
     data["email"]       = getEmail();
+    if(!getWebsite().isEmpty()) {
+        data["website"]     = getWebsite();
+    }
+
+    if(!getAddressComplement().isEmpty()) {
+        data["complement"]     = getAddressComplement();
+    }
 
     return data;
 }
@@ -99,6 +108,9 @@ void User::hydrat(int id)
     setNoSiret(             user->getNoSiret());
     setWorkspaceName(       user->getWorkspaceName());
     setWorkspacePath(       user->getWorkspacePath());
+    setPdflatexPath( user->getPdflatexPath());
+    setWebsite(             user->getWebsite());
+    setAddressComplement(   user->getAddressComplement());
 
     if (getWorkspaceName().isEmpty()) {
         setWorkspaceName("FactDev");
@@ -188,4 +200,24 @@ bool User::operator !=(const User &u)
             || getNoSiret() == u.getNoSiret()
             ||  getTitle() == u.getTitle();
 }
+QString User::getPdflatexPath() const
+{
+    return _pdflatexPath;
+}
+
+void User::setPdflatexPath(const QString &pdflatexPath)
+{
+    _pdflatexPath = pdflatexPath;
+}
+
+int User::getNbHoursPerDays()
+{
+    return Rate().getNbDailyHours();
+}
+
+int User::getNbDaysPerMonths()
+{
+    return 20;
+}
+
 }

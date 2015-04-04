@@ -149,11 +149,35 @@ public:
      */
     bool operator !=(const User &u);
 
+    /**
+     * @brief getPdflatexPath The path of pdflatex
+     * @return The pdflatex path
+     */
+    QString getPdflatexPath() const;
+
+    /**
+     * @brief setPdflatexPath Change the pdflatex command path.
+     * @param getPdflatexPath The new command
+     */
+    void setPdflatexPath(const QString &getPdflatexPath);
+
+    /**
+     * @brief nbHoursPerDays The number of hours per days who the user work.
+     * @return The number of hours per days
+     */
+    int getNbHoursPerDays();
+
+    /**
+     * @brief getNbDaysPerMonths The number of days per months who the user work.
+     * @return The number of days per months
+     */
+    int getNbDaysPerMonths();
 private:
     QString _title;         //!< User/Company description on it activity
     QString _noSiret;       //!< SIRET number (company registration number)
     QString _workspaceName; //!< Workspace name
     QString _workspacePath; //!< Workspace directory path
+    QString _pdflatexPath; //!< Path to pdflatex command
 };
 }
 #endif // USER_H

@@ -103,12 +103,15 @@ void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
     _modelsContributories << new WdgModels::ContributoriesTableModel();
     view->setModel(_modelsContributories.last());
     view->setEditTriggers(QAbstractItemView::DoubleClicked);
+    view->setItemDelegateForColumn(0, new Delegates::TextareaDelegate());
+    view->setItemDelegateForColumn(1, new Delegates::TextareaDelegate());
     view->setItemDelegateForColumn(2, new Delegates::DoubleSpinBoxDelegate());
     view->setItemDelegateForColumn(3, new Delegates::UnitComboDelegate());
     view->setColumnWidth(0, 200);
     view->setColumnWidth(1, 450);
     view->setColumnWidth(2, 70);
     view->setColumnWidth(3, 70);
+    view->verticalHeader()->setDefaultSectionSize(60);
 
     connect(view->itemDelegateForColumn(2),
             SIGNAL(closeEditor(QWidget*)),
@@ -171,15 +174,14 @@ void ContributoriesWidget::updateUi()
 
 void ContributoriesWidget::updatePrice()
 {
-    // TODO put me in Billing
     if(_modelsContributories.count() > 0) {
         WdgModels::ContributoriesTableModel* currentContributory =
                 _modelsContributories[ui->stack->currentIndex()];
         QPair<Models::Project*, Models::Rate> currentProject =
                 _modelProjects->getProject(ui->stack->currentIndex());
-        ui->sbSubSum->setValue(
-                    currentContributory->getSumQuantity()
-                    * currentProject.second.getHourlyRate());
+
+        ui->sbSubSum->setValue(currentContributory->getSumQuantity()
+                    * currentProject.second.getDailyRate());
 
         double value = 0.0;
         int i = 0;
@@ -187,7 +189,7 @@ void ContributoriesWidget::updatePrice()
             : _modelsContributories)
         {
             value += contributory->getSumQuantity()
-                    * _modelProjects->getProject(i++).second.getHourlyRate();
+                    * _modelProjects->getProject(i++).second.getDailyRate();
         }
         ui->sbAllSums->setValue(value);
     }

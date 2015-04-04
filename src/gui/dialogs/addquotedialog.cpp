@@ -34,10 +34,6 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         ui->dateEditQuote->setDate(QDate::currentDate());
         ui->btnDocChange->hide();
         fillQuoteBilling(isBilling);
-
-        /*setWindowTitle((isBilling ? "Nouvelle facture " : "Nouveau devis ")+
-                       QString::number(getNumber())+ " de " +
-                       (Customer(idCustomer).getCompany()));*/
     }
     _quote->setIsBilling(isBilling);
 
@@ -81,10 +77,6 @@ void AddQuoteDialog::accept() {
     _quote->generatePdf();
 
     QDialog::accept();
-}
-
-void AddQuoteDialog::reject() {
-    QDialog::reject();
 }
 
 bool AddQuoteDialog::getCopy() const

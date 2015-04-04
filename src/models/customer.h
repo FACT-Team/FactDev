@@ -85,9 +85,20 @@ public:
      */
     void setImage(QPixmap *image);
 
+    /**
+     * @brief Customer::isArchived Return if the <b>Customer</b> is archived
+     * @return true or false
+     */
+    bool isArchived() const;
+    /**
+     * @brief Customer::setIsArchived set the <i>isArchived</i> parameter
+     * @param isArchived
+     */
+    void setIsArchived(const bool isArchived);
 
 private:
     double  _turnover;          //!< Turnover/revenue of the customer
+    bool _isArchived;           //!< if the customer is archived
 };
 }
 #endif // CUSTOMER_H
