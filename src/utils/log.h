@@ -29,11 +29,6 @@ public:
     static Log &instance(TypeLog type=INFO);
 
     /**
-     * @brief Log::~Log
-     */
-    ~Log();
-
-    /**
      * @brief Log::write. Write log message in file
      * @param text
      */

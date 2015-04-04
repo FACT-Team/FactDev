@@ -2,6 +2,8 @@
 #define WINDOWSETTINGS_H
 #include <QDesktopWidget>
 
+namespace Gui {
+namespace Utils {
 /**
  * @author Florent Berbie
  * @brief The WindowSettings class Utils function on windows
@@ -9,12 +11,6 @@
 class WindowSettings
 {
 public:
-    /**
-     * @brief WindowSettings::WindowSettings Construct a WindowSettings
-     */
-    WindowSettings();
-    ~WindowSettings();
-
     /**
      * @brief WindowSettings::setMaximumSize Adapt the resolution of the window
      * <i>w</i>  to take all screen
@@ -30,4 +26,6 @@ public:
     static void setPositionToCenter(QWidget &w);
 };
 
+}
+}
 #endif // WINDOWSETTINGS_H

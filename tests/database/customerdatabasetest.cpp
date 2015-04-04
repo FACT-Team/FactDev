@@ -108,7 +108,16 @@ void CustomerDatabaseTest::getCustomerTableException()
         QFAIL("Exception not thrown");
     }
 }
+void CustomerDatabaseTest::getTreeException()
+{
+    try {
+        Databases::CustomerDatabase::instance()->getTree("FROM Billing");
+        QFAIL("Exception not thrown");
+    } catch(DbException*) {
+        QVERIFY(true);
+    }
 
+}
 void CustomerDatabaseTest::getNbCustomersTest() {
     try {
         QCOMPARE(Databases::CustomerDatabase::instance()->getNbCustomers(), 22);

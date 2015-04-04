@@ -112,7 +112,7 @@ QPixmap UserDatabase::getUserImage(const int pId)
     if (q.exec()) {
         q.next();
         if(q.first()) {
-            img = Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+            img = Gui::Utils::Image::bytesToPixmap(q.value("image").toByteArray());
         }
     }
     if (img.size().isEmpty()) {
@@ -126,7 +126,7 @@ void UserDatabase::setUserImage(Models::User& pUser)
 {
     QSqlQuery q;
 
-    QByteArray byteArray = Utils::Image::pixmapToBytes(
+    QByteArray byteArray = Gui::Utils::Image::pixmapToBytes(
                 *pUser.getImage(),
                 pUser.getExtensionImage());
 

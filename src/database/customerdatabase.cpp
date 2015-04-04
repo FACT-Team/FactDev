@@ -223,7 +223,7 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
     if (q.exec()) {
         q.next();
         if(q.first()) {
-            img =  Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+            img =  Gui::Utils::Image::bytesToPixmap(q.value("image").toByteArray());
         }
 
     }
@@ -237,7 +237,7 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
 void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
     QSqlQuery q;
     qDebug() << pCustomer.getLastname() << " - " << pCustomer.getImage()->size();
-    QByteArray byteArray = Utils::Image::pixmapToBytes(
+    QByteArray byteArray = Gui::Utils::Image::pixmapToBytes(
                 *pCustomer.getImage(),
                 pCustomer.getExtensionImage());
 

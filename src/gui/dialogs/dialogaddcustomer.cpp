@@ -1,6 +1,6 @@
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "ui_dialogaddcustomer.h"
-#include "utils/windowsettings.h"
+#include "gui/utils/windowsettings.h"
 #include <QDebug>
 
 #include <QDebug>
@@ -13,7 +13,7 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     ui(new Ui::DialogAddCustomer)
 {
     ui->setupUi(this);
-    WindowSettings::setPositionToCenter(*this);
+    Utils::WindowSettings::setPositionToCenter(*this);
 
     if (id != 0) {
         _custom = QSharedPointer<Models::Customer>(new Customer(id));

@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     } else {
         qDebug() << "Some tests failed…";
     }
+
     return  ret;
 }
 

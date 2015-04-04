@@ -1,14 +1,7 @@
 #include "windowsettings.h"
 
-WindowSettings::WindowSettings()
-{
-
-}
-
-WindowSettings::~WindowSettings()
-{
-
-}
+namespace Gui {
+namespace Utils {
 
 void WindowSettings::setMaximumSize(QWidget &w)
 {
@@ -25,3 +18,5 @@ void WindowSettings::setPositionToCenter(QWidget &w)
     w.move(x,y);
 }
 
+}
+}

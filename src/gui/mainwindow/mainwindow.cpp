@@ -4,7 +4,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gui/dialogs/startedwindowsdialog.h"
-#include "utils/windowsettings.h"
+#include "gui/utils/windowsettings.h"
 
 using namespace Utils;
 
@@ -40,7 +40,7 @@ void MainWindow::setupUi()
 {
     ui->setupUi(this);
 
-    WindowSettings::setMaximumSize(*this);
+    Utils::WindowSettings::setMaximumSize(*this);
 
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
@@ -708,7 +708,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
 
 void MainWindow::updateTableBillings(const int idProject, const int row)
 {
-    Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
+    ::Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     ui->tblQuotes->setModel(
         Databases::BillingDatabase::instance()->getBillingsTable(idProject));
     ui->lblDocs->setText("Factures et Devis du projet <b>"

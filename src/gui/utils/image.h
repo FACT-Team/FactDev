@@ -4,6 +4,7 @@
 #include <QPixmap>
 #include <QBuffer>
 
+namespace Gui {
 namespace Utils {
 
 /**
@@ -13,11 +14,6 @@ namespace Utils {
 class Image
 {
 public:
-    /**
-     * @brief Image::Image Construct an Image
-     */
-    Image();
-
     /**
      * @brief Image::imageToBytes Return a QByteArray of the QImage <i>image</i>
      * @param image An image
@@ -50,5 +46,6 @@ public:
     static QPixmap bytesToPixmap(const QByteArray bytes);
 };
 
+}
 }
 #endif // IMAGE_H

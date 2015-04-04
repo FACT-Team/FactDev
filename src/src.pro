@@ -95,8 +95,8 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     database/accessdatabase.cpp \
     models/statistics.cpp \
     gui/widgets/browseimagewidget.cpp \
-    utils/image.cpp \
-    utils/windowsettings.cpp\
+    gui/utils/image.cpp \
+    gui/utils/windowsettings.cpp\
 	gui/widgets/delegates/textareadelegate.cpp \
     gui/widgets/path/chosefilewidget.cpp \
     gui/widgets/path/chosedirectorywidget.cpp \
@@ -215,8 +215,8 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     database/accessdatabase.h \
     models/statistics.h \
     gui/widgets/browseimagewidget.h \
-    utils/image.h \
-    utils/windowsettings.h\
+    gui/utils/image.h \
+    gui/utils/windowsettings.h\
     gui/widgets/delegates/textareadelegate.h \
     gui/widgets/path/chosefilewidget.h \
     gui/widgets/path/chosedirectorywidget.h \

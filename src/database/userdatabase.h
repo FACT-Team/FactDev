@@ -4,7 +4,7 @@
 #include "database/database.h"
 #include "exceptions/dbexception.h"
 #include "models/user.h"
-#include "utils/image.h"
+#include "gui/utils/image.h"
 
 namespace Databases {
 

@@ -1,11 +1,7 @@
 #include "image.h"
 
+namespace Gui {
 namespace Utils {
-
-Image::Image()
-{
-
-}
 
 QByteArray Image::pixmapToBytes(const QPixmap pix, const QString ext)
 {
@@ -33,4 +29,5 @@ QByteArray Image::imageToBytes(QImage image, const QString ext) {
     return bytesArray;
 }
 
+}
 }
