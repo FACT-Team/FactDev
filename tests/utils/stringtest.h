@@ -12,6 +12,7 @@ public:
     StringTest();
 private slots:
     void firstLetterToUpperTest(void);
+    void getExtensionFile();
 };
 
 DECLARE_TEST(StringTest)
