@@ -1,6 +1,7 @@
 #include "customerdatabasetest.h"
 #include "database/customerdatabase.h"
 
+#include <QPixmap>
 CustomerDatabaseTest::CustomerDatabaseTest()
 {
     c1.setAddress("Address");
@@ -115,6 +116,12 @@ void CustomerDatabaseTest::getTreeException()
         QFAIL("Exception not thrown");
     } catch(DbException*) {
         QVERIFY(true);
+    }
+    try {
+        Databases::CustomerDatabase::instance()->getTree();
+        QVERIFY(true);
+    } catch(DbException*) {
+        QFAIL("Exception not thrown");
     }
 
 }
