@@ -52,7 +52,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab1PersonalData">
       <attribute name="title">
@@ -287,19 +287,6 @@
        </item>
        <item row="7" column="0" colspan="5">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item>
           <widget class="Gui::Widgets::BrowseImageWidget" name="wgtLogo" native="true">
            <property name="minimumSize">
@@ -569,8 +556,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>334</x>
-     <y>471</y>
+     <x>501</x>
+     <y>587</y>
     </hint>
     <hint type="destinationlabel">
      <x>140</x>
@@ -585,8 +572,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>445</x>
-     <y>471</y>
+     <x>604</x>
+     <y>587</y>
     </hint>
     <hint type="destinationlabel">
      <x>389</x>
@@ -621,8 +608,8 @@
      <y>57</y>
     </hint>
     <hint type="destinationlabel">
-     <x>414</x>
-     <y>52</y>
+     <x>470</x>
+     <y>76</y>
     </hint>
    </hints>
   </connection>
@@ -697,8 +684,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>431</x>
-     <y>141</y>
+     <x>487</x>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>404</x>
@@ -713,8 +700,8 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>412</x>
-     <y>140</y>
+     <x>468</x>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>422</x>
@@ -729,8 +716,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>168</x>
-     <y>196</y>
+     <x>286</x>
+     <y>359</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -745,12 +732,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>408</x>
-     <y>200</y>
+     <x>526</x>
+     <y>359</y>
     </hint>
     <hint type="destinationlabel">
-     <x>369</x>
-     <y>206</y>
+     <x>487</x>
+     <y>359</y>
     </hint>
    </hints>
   </connection>
@@ -761,8 +748,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>246</x>
-     <y>243</y>
+     <x>339</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -777,12 +764,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>238</x>
-     <y>239</y>
+     <x>339</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
-     <x>250</x>
-     <y>227</y>
+     <x>339</x>
+     <y>403</y>
     </hint>
    </hints>
   </connection>
@@ -793,8 +780,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>412</x>
-     <y>234</y>
+     <x>592</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -809,12 +796,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>350</x>
-     <y>230</y>
+     <x>592</x>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
-     <x>372</x>
-     <y>233</y>
+     <x>592</x>
+     <y>403</y>
     </hint>
    </hints>
   </connection>
@@ -825,8 +812,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>297</y>
+     <x>488</x>
+     <y>436</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -841,12 +828,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>271</x>
-     <y>297</y>
+     <x>327</x>
+     <y>436</y>
     </hint>
     <hint type="destinationlabel">
-     <x>253</x>
-     <y>280</y>
+     <x>309</x>
+     <y>436</y>
     </hint>
    </hints>
   </connection>
@@ -857,8 +844,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>328</y>
+     <x>488</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -873,12 +860,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>328</y>
+     <x>488</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
-     <x>432</x>
-     <y>328</y>
+     <x>488</x>
+     <y>505</y>
     </hint>
    </hints>
   </connection>
@@ -889,8 +876,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>359</y>
+     <x>488</x>
+     <y>535</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -905,12 +892,12 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>336</x>
-     <y>359</y>
+     <x>392</x>
+     <y>535</y>
     </hint>
     <hint type="destinationlabel">
-     <x>358</x>
-     <y>359</y>
+     <x>414</x>
+     <y>535</y>
     </hint>
    </hints>
   </connection>
@@ -921,8 +908,8 @@
    <slot>checkFields()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>390</y>
+     <x>488</x>
+     <y>196</y>
     </hint>
     <hint type="destinationlabel">
      <x>467</x>
@@ -937,12 +924,44 @@
    <slot>fieldTextChanged(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>432</x>
-     <y>390</y>
+     <x>488</x>
+     <y>196</y>
     </hint>
     <hint type="destinationlabel">
-     <x>260</x>
-     <y>390</y>
+     <x>316</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leWebsite</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>UserDataDialog</receiver>
+   <slot>checkFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>531</x>
+     <y>453</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>723</x>
+     <y>450</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leWebsite</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>leWebsite</receiver>
+   <slot>fieldTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>460</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>459</y>
     </hint>
    </hints>
   </connection>

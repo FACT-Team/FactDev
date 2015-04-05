@@ -5,7 +5,7 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include "utils/string.h"
-
+#include "gui/widgets/path/chosefilewidget.h"
 namespace Ui {
 class BrowseImageWidget;
 }

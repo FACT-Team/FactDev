@@ -10,6 +10,7 @@ BrowseImageWidget::BrowseImageWidget(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    ((Gui::Widgets::Path::ChoseFileWidget*)ui->widget)->setTypeFiles("Images (*.png *.xpm *.jpg)");
 }
 
 BrowseImageWidget::~BrowseImageWidget()
@@ -37,12 +38,7 @@ void BrowseImageWidget::setImage(QPixmap *img)
 
 void BrowseImageWidget::browseImagePath()
 {    
-    QString file = QFileDialog::getOpenFileName(
-                this,
-                tr("Ouvrir une image"),
-                "",
-                tr("Images (*.png *.xpm *.jpg)"));
-    QFileInfo fileInfo(file);
+    QFileInfo fileInfo(ui->widget->getField());
     setImageScaled(fileInfo.filePath());
     ui->lbIcon->setPixmap(*_img);
     _extension =  Utils::String::getExtensionFile(fileInfo.fileName());
