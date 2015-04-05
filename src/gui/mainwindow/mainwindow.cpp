@@ -1,8 +1,11 @@
+#include <QDesktopWidget>
 #include <QStandardPaths>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gui/dialogs/startedwindowsdialog.h"
-#include <QDesktopWidget>
+#include "gui/utils/windowsettings.h"
+
 using namespace Utils;
 
 namespace Gui {
@@ -30,14 +33,14 @@ MainWindow::MainWindow(QWidget *parent) :
     updateUser();
     showMaximized();
     responsiveCustomerTable();
+
 }
 
 void MainWindow::setupUi()
 {
     ui->setupUi(this);
 
-    QDesktopWidget screen;
-    setMaximumSize(screen.width(), screen.height());
+    Utils::WindowSettings::setMaximumSize(*this);
 
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
@@ -705,7 +708,7 @@ void MainWindow::updateTableProjects(const int pId, const int row)
 
 void MainWindow::updateTableBillings(const int idProject, const int row)
 {
-    Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
+    ::Utils::pointers::deleteIfNotNull(ui->tblQuotes->model());
     ui->tblQuotes->setModel(
         Databases::BillingDatabase::instance()->getBillingsTable(idProject));
     ui->lblDocs->setText("Factures et Devis du projet <b>"

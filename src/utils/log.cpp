@@ -25,11 +25,6 @@ Log& Log::instance(TypeLog type) {
     return *_instance;
 }
 
-Log::~Log() {
-    _file->close();
-    delete _instance;
-}
-
 inline QString Log::typeLog2String(TypeLog type) {
     QStringList list;
     list << "INFO"<<"ERROR"<<"WARNING";

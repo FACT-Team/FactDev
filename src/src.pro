@@ -94,7 +94,10 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/dialogs/computeturnoverdialog.cpp\
     database/accessdatabase.cpp \
     models/statistics.cpp \
-    gui/widgets/delegates/textareadelegate.cpp \
+    gui/widgets/browseimagewidget.cpp \
+    gui/utils/image.cpp \
+    gui/utils/windowsettings.cpp\
+	gui/widgets/delegates/textareadelegate.cpp \
     gui/widgets/path/chosefilewidget.cpp \
     gui/widgets/path/chosedirectorywidget.cpp \
     gui/widgets/path/chosepathwidget.cpp\
@@ -211,6 +214,9 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/dialogs/computeturnoverdialog.h \
     database/accessdatabase.h \
     models/statistics.h \
+    gui/widgets/browseimagewidget.h \
+    gui/utils/image.h \
+    gui/utils/windowsettings.h\
     gui/widgets/delegates/textareadelegate.h \
     gui/widgets/path/chosefilewidget.h \
     gui/widgets/path/chosedirectorywidget.h \
@@ -238,6 +244,7 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/startedwindowsdialog.ui \
     gui/widgets/databasesettingswidget.ui \
     gui/dialogs/computeturnoverdialog.ui \
+    gui/widgets/browseimagewidget.ui\
     gui/widgets/path/chosepathwidget.ui\
     gui/dialogs/statisticsdialog.ui
 

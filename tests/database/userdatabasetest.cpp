@@ -10,7 +10,7 @@ UserDatabaseTest::UserDatabaseTest()
 void UserDatabaseTest::getUserTest()
 {
     try {
-        Models::User* u1 = Databases::UserDatabase::instance()->getUser();
+        Models::User *u1 = Databases::UserDatabase::instance()->getUser();
         Models::User u2;
         u2.setId(1);
         u2.setFirstname("Jean");
@@ -28,7 +28,6 @@ void UserDatabaseTest::getUserTest()
         u1->setFax("");
         u1->setPdflatexPath("pdflatex");
 
-        bool b = *u1 == u2;
         QVERIFY(*u1 == u2);
     } catch(DbException* e) {
         QFAIL(e->what());
@@ -72,5 +71,15 @@ void UserDatabaseTest::updateUserTest()
     } catch(DbException* e) {
         QFAIL(e->what());
     }
+}
 
+void UserDatabaseTest::imageTest() {
+    QPixmap* p = new QPixmap(":/icons/FactDev");
+    Models::User* u1 = Databases::UserDatabase::instance()->getUser();
+    u1->setImage(p);
+    u1->setExtensionImage("PNG");
+    QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == QPixmap(":/icons/img/company.png").toImage());
+    Databases::UserDatabase::instance()->setUserImage(*u1);
+    QVERIFY(u1->getImage()->toImage() == p->toImage());
+    QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == QPixmap(":/icons/FactDev").toImage());
 }

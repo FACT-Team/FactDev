@@ -1,4 +1,5 @@
 #include "database/userdatabase.h"
+#include <QBuffer>
 
 namespace Databases {
 
@@ -21,8 +22,10 @@ Models::User *UserDatabase::getUser(const int pId)
 {
     QSqlQuery q;
     Models::User* user;
-
-    q.prepare("SELECT * FROM User WHERE idUser = :pId");
+    q.prepare("SELECT idUser, firstname, lastname, company, title, address, "
+              "postalCode, city, email, mobilePhone, phone, noSiret, "
+              "workspaceName, workspacePath, pdflatexcommand, complementAddress,website  "
+              "FROM User WHERE idUser = :pId");
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
@@ -32,7 +35,7 @@ Models::User *UserDatabase::getUser(const int pId)
                     lastError(q),
                     1.2);
     }
-
+    q.next();
     if(q.first()) {
         user = new Models::User();
         user->setId(value(q, "idUser").toInt());
@@ -96,6 +99,48 @@ void UserDatabase::updateUser(const Models::User& pUser) {
                     "BddUser::updateUser",
                     lastError(q),
                     1.4);
+    }
+}
+
+QPixmap UserDatabase::getUserImage(const int pId)
+{
+    QPixmap img;
+    QSqlQuery q;
+    q.prepare("SELECT image  FROM User WHERE idUser = :pId");
+    q.bindValue(":pId", pId);
+
+    if (q.exec()) {
+        q.next();
+        if(q.first()) {
+            img = Gui::Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+        }
+    }
+    if (img.size().isEmpty()) {
+        img = QPixmap(":/icons/img/company.png");
+    }
+
+    return img;
+}
+
+void UserDatabase::setUserImage(Models::User& pUser)
+{
+    QSqlQuery q;
+
+    QByteArray byteArray = Gui::Utils::Image::pixmapToBytes(
+                *pUser.getImage(),
+                pUser.getExtensionImage());
+
+    q.prepare("UPDATE User SET image = :image WHERE idUser = :id ");
+
+    q.bindValue(":id", pUser.getId());
+    q.bindValue(":image", byteArray);
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de modifier l'image de l'utilisateur",
+                    "BddUser::setUserImage",
+                    lastError(q),
+                    1.6);
     }
 }
 }

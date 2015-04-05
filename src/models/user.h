@@ -17,7 +17,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The User class <b>User</b> of it application
  */
-class User : public People, public IModel
+class User : public People
 {
 public:
     /**
@@ -96,6 +96,18 @@ public:
      * @param noSiret SIRET number
      */
     void setNoSiret(const QString &noSiret);
+
+    /**
+     * @brief User::getImage Return the compagny image
+     * @return compagny image
+     */
+    QPixmap *getImage();
+
+    /**
+     * @brief User::setImage Change the current image by the new <i>image</i>
+     * @param image New image
+     */
+    void setImage(QPixmap *image);
 
     /**
      * @brief User::getWorkspaceName Return the name of the workspace user

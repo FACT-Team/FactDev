@@ -24,6 +24,7 @@ private slots:
     void commitRemove();
     void sumQuantityTest();
     void getPriceTest();
+
 private:
     Billing* b1;
     Billing* b2;

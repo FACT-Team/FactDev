@@ -47,6 +47,7 @@ public:
      */
     void reject();
 
+    void browseWorkspacePath();
 public slots:
     /**
      * @brief UserDataDialog::checkFields Check all fields of dialog

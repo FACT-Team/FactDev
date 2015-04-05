@@ -26,7 +26,9 @@ void ContributoryListTest::setup()
     c2.setProject(p1);
 
     c3.setQuantity(10);
-    c3.setUnit(Unit(DAY));
+    Unit u;
+    u.setType(DAY);
+    c3.setUnit(u);
     c3.setProject(p1);
 
     c4.setQuantity(1);

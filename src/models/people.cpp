@@ -1,10 +1,21 @@
 #include "models/people.h"
+#include <QDebug>
 
 namespace Models {
 
 People::People()
 {
+    _image = 0;
+    setId(0);
+    _toRemoved = false;
+}
 
+People::~People() {}
+
+People::People(int id)
+{
+    _toRemoved = false;
+    _image = 0;
 }
 
 QString People::getFirstname() const
@@ -117,6 +128,16 @@ void People::setFax(const QString &fax)
     _fax = fax;
 }
 
+QPixmap *People::getImage() const
+{
+    return _image;
+}
+
+void People::setImage(QPixmap *image)
+{
+    _image = image;
+}
+
 bool People::operator ==(const People &p)
 {
     return  p.getFirstname() == getFirstname()
@@ -136,6 +157,18 @@ bool People::operator !=(const People &u)
 {
     return !(*this == u);
 }
+
+QString People::getExtensionImage() const
+{
+    return _extensionImage;
+}
+
+void People::setExtensionImage(const QString &ext)
+{
+    _extensionImage = ext;
+}
+
+
 QString People::getAddressComplement() const
 {
     return _addressComplement;

@@ -12,6 +12,7 @@ CREATE TABLE Customer
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
     fax VARCHAR(16),
+    image BLOB,
     complementAddress VARCHAR(128),
     website VARCHAR(128),
     isArchived BOOLEAN
@@ -86,6 +87,7 @@ CREATE TABLE User
     noSiret VARCHAR(16),
     workspaceName VARCHAR(64),
     workspacePath TEXT,
+    image BLOB,
     pdflatexcommand VARCHAR(256),
     complementAddress VARCHAR(128),
     website VARCHAR(128)

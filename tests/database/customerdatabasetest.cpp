@@ -1,6 +1,7 @@
 #include "customerdatabasetest.h"
 #include "database/customerdatabase.h"
 
+#include <QPixmap>
 CustomerDatabaseTest::CustomerDatabaseTest()
 {
     c1.setAddress("Address");
@@ -108,7 +109,22 @@ void CustomerDatabaseTest::getCustomerTableException()
         QFAIL("Exception not thrown");
     }
 }
+void CustomerDatabaseTest::getTreeException()
+{
+    try {
+        Databases::CustomerDatabase::instance()->getTree("FROM Billing");
+        QFAIL("Exception not thrown");
+    } catch(DbException*) {
+        QVERIFY(true);
+    }
+    try {
+        Databases::CustomerDatabase::instance()->getTree();
+        QVERIFY(true);
+    } catch(DbException*) {
+        QFAIL("Exception not thrown");
+    }
 
+}
 void CustomerDatabaseTest::getNbCustomersTest() {
     try {
         QCOMPARE(Databases::CustomerDatabase::instance()->getNbCustomers(), 22);
@@ -124,4 +140,14 @@ void CustomerDatabaseTest::getCustomers() {
     } catch(DbException* e) {
         QFAIL(e->what());
     }
+}
+
+void CustomerDatabaseTest::imageTest() {
+    QPixmap* p = new QPixmap(":/icons/FactDev");
+    c1.setImage(p);
+    c1.setExtensionImage("PNG");
+    QVERIFY(Databases::CustomerDatabase::instance()->getCustomerImage(c1.getId()).toImage() == QPixmap(":/icons/customer").toImage());
+    Databases::CustomerDatabase::instance()->setCustomerImage(c1);
+    QVERIFY(c1.getImage()->toImage() == p->toImage());
+    QVERIFY(Databases::CustomerDatabase::instance()->getCustomerImage(c1.getId()).toImage() == QPixmap(":/icons/FactDev").toImage());
 }

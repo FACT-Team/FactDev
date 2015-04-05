@@ -20,6 +20,8 @@ private slots:
     void getCustomerTableException();
     void getNbCustomersTest();
     void getCustomers();
+    void getTreeException();
+    void imageTest();
 private:
     Customer c1;
     int _lastInsert;

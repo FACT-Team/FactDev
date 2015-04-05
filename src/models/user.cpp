@@ -7,10 +7,9 @@ using namespace Databases;
 namespace Models {
 User::User() : People()
 {
-
 }
 
-User::User(int id) : People()
+User::User(int id) : People(id)
 {
     hydrat(id);
 }
@@ -149,6 +148,22 @@ QString User::getNoSiret() const
 void User::setNoSiret(const QString &noSiret)
 {
     _noSiret = noSiret;
+}
+
+QPixmap *User::getImage()
+{
+    if (_image == NULL || _image->isNull()) {
+        _image = new QPixmap(
+                    UserDatabase::instance()->getUserImage(getId()));
+    }
+    return _image;
+}
+
+void User::setImage(QPixmap *image)
+{
+    _image = image;
+    UserDatabase::instance()->setUserImage(*this);
+    commit();
 }
 
 QString User::getWorkspaceName() const

@@ -115,7 +115,8 @@ throw(DbException*)
             QSqlQuery q3;
 
             q3.prepare(
-                     "SELECT DISTINCT b.isPaid, b.description, b.idBilling,title,number,isBilling,date "
+                     "SELECT DISTINCT b.isPaid, b.description, "
+                     "b.idBilling,title,number,isBilling,date "
                      "FROM Billing b, BillingProject bp "
                      "WHERE idProject = :idproject "
                      "AND b.idBilling = bp.idBilling ORDER BY date DESC");
@@ -130,7 +131,8 @@ throw(DbException*)
             }
             // Manage any bill/quote of a project of a customer
             while (q3.next()) {
-                itemProject->appendRow(Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
+                itemProject->appendRow(
+                            Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
             }
 
             itemCustomer->appendRow(itemProject);
@@ -211,6 +213,51 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":isArchived", pCustomer.isArchived());
 }
 
+QPixmap CustomerDatabase::getCustomerImage(const int pId)
+{
+    QPixmap img;
+    QSqlQuery q;
+    q.prepare("SELECT image FROM Customer WHERE idCustomer = :pId");
+    q.bindValue(":pId", pId);
+    //Debug()
+    if (q.exec()) {
+        q.next();
+        if(q.first()) {
+            img =  Gui::Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+        }
+
+    }
+    if (img.size().isEmpty()) {
+        img = QPixmap(":/icons/customer");
+    }
+
+    return img;
+}
+
+void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
+    QSqlQuery q;
+    qDebug() << pCustomer.getLastname() << " - " << pCustomer.getImage()->size();
+    QByteArray byteArray = Gui::Utils::Image::pixmapToBytes(
+                *pCustomer.getImage(),
+                pCustomer.getExtensionImage());
+
+    q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");
+
+    q.bindValue(":id", pCustomer.getId());
+    q.bindValue(":image", byteArray);
+
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de modifier l'image du Customer",
+                    "BddCustomer::setCustomerImage",
+                    lastError(q),
+                    1.3);
+    }
+    qDebug() << pCustomer.getLastname() << " - " << "Image inserted";
+
+}
+
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
     QSqlQuery q;
     QSharedPointer<Models::Customer> customer;
@@ -249,8 +296,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.prepare(
                 "INSERT INTO Customer "
                 "(firstnameReferent, lastnameReferent, company, address, "
-                "postalCode, city, country, email, mobilePhone, phone, fax,"
-                " complementAddress, website, isArchived)"
+                "postalCode, city, country, email, mobilePhone, phone, fax, complementAddress, website, isArchived) "
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
                 ":postalCode, :city, :country, :email,:mobilePhone, :phone,"
@@ -311,7 +357,6 @@ void CustomerDatabase::removeCustomer(const int pId)
 {
     QSqlQuery q;
     q.prepare("DELETE FROM Customer WHERE idCustomer=:pId");
-
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {

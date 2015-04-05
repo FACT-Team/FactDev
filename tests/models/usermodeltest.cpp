@@ -28,10 +28,15 @@ UserModelTest::UserModelTest()
     u2.setNoSiret("12345678912340");
     u2.setPdflatexPath("pdflatex");
 
+
+
 }
 
 void UserModelTest::equals1()
 {
+    u1.setExtensionImage("jpg");
+    QVERIFY(u1.getExtensionImage() == "jpg");
+
     QVERIFY(u1 == u2);
 }
 

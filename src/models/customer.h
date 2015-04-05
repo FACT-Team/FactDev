@@ -2,8 +2,8 @@
 #define CUSTOMER_H
 #include <QString>
 #include <QStandardItem>
+#include <QPixmap>
 
-#include "models/imodel.h"
 #include "models/people.h"
 
 namespace Models {
@@ -12,7 +12,7 @@ namespace Models {
  * @author Florent Berbie
  * @brief The Customer class Customer
  */
-class Customer : public People, public IModel
+class Customer : public People
 {
 public:
     /**
@@ -27,7 +27,9 @@ public:
     Customer(int id);
 
     /**
-     * @brief Customer::commit Update customer data on the database
+     * @brief Customer::Customer Constuct a People who is specidied by
+     *  <i>id</i>
+     * @param id Customer identify
      */
     void commit();
 
@@ -69,6 +71,20 @@ public:
      * @return turnover
      */
     double getTurnover() const;
+
+    /**
+     * @brief Customer::getImage Return the compagny image
+     * @return compagny image
+     */
+    QPixmap *getImage();
+
+    /**
+     * @brief Customer::setImage Change the current image by the new
+     * <i>image</i>
+     * @param image New image
+     */
+    void setImage(QPixmap *image);
+
     /**
      * @brief Customer::isArchived Return if the <b>Customer</b> is archived
      * @return true or false
@@ -79,6 +95,7 @@ public:
      * @param isArchived
      */
     void setIsArchived(const bool isArchived);
+
 private:
     double  _turnover;          //!< Turnover/revenue of the customer
     bool _isArchived;           //!< if the customer is archived

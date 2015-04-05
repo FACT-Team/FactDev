@@ -34,6 +34,9 @@ void CustomerDataWidget::printUserData()
              + " " + user->getCity());
     setLabel(ui->website, "<a href=\""+user->getWebsite()+"\">"+user->getWebsite()+"</a>");
     setLabel(ui->complement, user->getAddressComplement());
+
+   ui->lbImage->setPixmap(
+                user->getImage()->scaled(70,70, Qt::KeepAspectRatio));
 }
 
 void CustomerDataWidget::printInformations(int id)
@@ -52,6 +55,10 @@ void CustomerDataWidget::printInformations(int id)
     setLabel(ui->lbFax, custom->getFax(), ui->lbTitleFax);
     setLabel(ui->website, "<a href=\""+custom->getWebsite()+"\">"+custom->getWebsite()+"</a>");
     setLabel(ui->complement, custom->getAddressComplement());
+
+    ui->lbImage->setPixmap(
+                    custom->getImage()->scaled(70,70, Qt::KeepAspectRatio));
+
 
 }
 

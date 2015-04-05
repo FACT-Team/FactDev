@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1413</width>
-    <height>720</height>
+    <height>492</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -99,7 +99,7 @@
             <property name="minimumSize">
              <size>
               <width>811</width>
-              <height>526</height>
+              <height>300</height>
              </size>
             </property>
             <property name="contextMenuPolicy">
@@ -393,7 +393,7 @@
      <x>0</x>
      <y>0</y>
      <width>1413</width>
-     <height>22</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -750,6 +750,10 @@
    </property>
   </action>
   <action name="actComputeTurnover">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/img/turnover.png</normaloff>:/icons/img/turnover.png</iconset>
+   </property>
    <property name="text">
     <string>Calculer CA d'une période</string>
    </property>
@@ -1333,10 +1337,10 @@
     <hint type="destinationlabel">
      <x>903</x>
      <y>741</y>
-     </hint>
-    </hints>
-   </connection>
-   <connection>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>actGlobalStatistics</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
