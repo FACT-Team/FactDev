@@ -1,0 +1,292 @@
+\chapter{Conventions de programmation en C++}
+Voici les conventions d'écriture que nous avons fixé, il faudra les
+respecter pour que nous ayons un code propre et homogène, de plus elles
+ont été fixées pour que ce soit le plus simple pour nous (lecture rapide,
+propreté etc\ldots{}).
+
+\begin{attention}
+Elles peuvent encore évoluer
+\end{attention}
+
+\section{English, of course !}\label{english-of-course}
+
+Tout le code, et les \texttt{commits}, doivent être rédigés en Anglais. Soit, les
+noms de classes, de méthodes, de fichiers, de variables, d'attributs, et
+même les commentaires ;-) C'est pas compliqué, mais au moins, on se met
+tous d'accord, et puis voilà :)
+
+\section{Le nommage}\label{le-nommage}
+
+\subsection{Les attributs}\label{les-attributs}
+
+Les attributs doivent toujours commencer avec une minuscule, pour
+séparer les mots, on les sépare avec une majuscule : utilisation de la
+Camel Case. Les noms de variables claires et explicite, quitte à ce
+qu'il soit un peu long, on a l'auto complétion que diable! Donc les
+variables d'une lettre, à bannir! (à part le i dans le cas d'un for,
+s'il n'est pas réutilisé après le for)
+
+Les attributs seront préfixés par \texttt{\_} afin de pouvoir les reconnaître
+facilement.
+
+\begin{lstlisting}[language=C++,numbers=none]
+int _superField; 
+bool _youLostTheGame;
+\end{lstlisting}
+
+\subsection{Les noms de constantes}\label{les-noms-de-constantes}
+
+Les constantes doivent être tout en majuscule, les différents mots de la
+constante sont séparés par des underscore (\texttt{\_}). Même remarque que pour
+les attributs, choisissez des noms de constantes clairs, compréhensibles
+par tous, pas seulement par ceux qui sont dans votre tête!
+
+\begin{lstlisting}[language=C++]
+const int MY_BEAUTIFUL_CONSTANT; 
+const bool YOU_LOST_THE_GAME_AGAIN; 
+const QString CONST;
+\end{lstlisting}
+
+\begin{exemple}
+	On évite d'utiliser les \texttt{\#define} afin de garder un typage fort
+\end{exemple}
+
+\subsection{Les noms de méthodes}\label{les-noms-de-muxe9thodes}
+
+Les méthodes doivent commencer par une minuscule, et séparer les
+différents mots par une majuscule(Camel case).
+
+Les fonctions ne retournant rien (procédures) doivent toujours être à
+l'infinitif.
+
+\`A l'opposé les fonctions 
+retournant quelques choses doivent être au
+participe passé. Il faut décomposer au maximum, n'hésitez pas à faire
+une méthode \texttt{private} si besoin est, c'est toujours plus clair
+d'avoir une fonction, dictant explicitement ce qu'elle fait par son nom
+que 10 lignes de code bizarroïdes avec 2-3 lignes de commentaire! Et donc, les noms de fonctions sont essentiels!!
+
+\begin{lstlisting}[language=C++]
+void display(QString textToDisplay) { 
+    qDebug() << texteAAffiche; 
+}
+
+bool test(int first, int second) { 
+	return (first + second);
+} 
+\end{lstlisting}
+
+\paragraph{Les accesseurs}\label{les-accesseurs}
+
+Les getters et les setters doivent être respectivement préfixés par
+\texttt{get} et \texttt{set} suivi du nom \emph{exact} de l'attribut,
+même si le get ne respecte pas la convention de Qt.
+
+\begin{lstlisting}[language=C++]
+int getValue(); 
+void setValue(int);
+\end{lstlisting}
+
+\subsection{Les noms de classes ou d'interface}\label{les-noms-de-classes-ou-dinterface}
+
+Les noms de classe ou d'interface doivent tous commencer par une
+majuscule, les différents mots sont séparés par une majuscule,
+choisissez des noms de classes claires! (oui, je me répète, mais c'est
+ce qui fait toute la compréhension facile, ou non, d'un programme les
+noms de variables, classe, paramètre, méthodes etc\ldots{} )
+
+\section{L'indentation}\label{lindentation}
+
+La règle est simple, on ouvre une accolade, la ligne suivante sera
+décalée vers la droite(une tab = 4 caractères), on ferme une accolade, on
+décale l'accolade vers la gauche et tout ce qui suit.
+
+Également, si une ligne est trop longue, on va à la ligne, et décalons
+d'une ligne vers la droite, une fois l'instruction finie, on redécale
+vers la gauche.
+
+Dans le cas d'un switch, le break doit s'aligner avec le case 42: tout
+ce qui est entre case et break sera indenté.
+
+Merci de mettre un espace avant chaque accolade, oui je sais je suis
+psychorigide, mais c'est moche sinon.
+
+\begin{lstlisting}[language=C++]
+class MaSuperClasse { 
+public: 
+	MaSuperClasse(int test, QString, machin, double _chose);
+	int method();
+
+private: 
+	int _test;
+	QString _machin;
+	double _chose;
+};
+
+MaSuperClasse::MaSuperClasse(int test, QString machin, double chose) {
+	_test = test;
+	_machin = machin; 
+	_chose = chose; 
+}
+
+MaSuperClasse::method() {
+	qDebug() << "Hello World";
+	switch(yatta) {
+		case 42:
+		   // ^^
+		   break;
+		case 1337:
+		   // ...
+		   break;
+		default: 
+		   //
+	}
+}
+\end{lstlisting}
+
+\section{Les accolades}\label{les-accolades}
+
+Les accolades ouvrantes sont positionnées à la fin de la ligne demandant
+une accolade (\texttt{switch}, \texttt{if}, \texttt{class}, \texttt{else}, \texttt{else if}, \ldots{})
+
+Les accolades fermantes sont positionnées une ligne après la dernière
+instruction. (avec une désindentation) Les \texttt{else} et \texttt{else if} se mettent sur la 
+même ligne que l'accolade fermante.
+
+
+\begin{lstlisting}[language=C++]
+int superMethod(void) {     
+	if(true) {
+		// bla bla     
+	} else if(false) {
+		// bla bla      
+	} else { 
+		//instruction 
+	}
+}
+\end{lstlisting}
+
+\section{Les types}\label{les-types}
+
+Pour les types, au maximum, il vaut mieux privilégier les classes de Qt
+plutôt que les Types C++, autrement dit, on va utiliser les types
+suivants(c'est facile, ça commence pas un Q :) ) :
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Primitives : \texttt{int}, \texttt{double}, \texttt{char},
+  \texttt{unsigned}, \texttt{bool}, \ldots{}
+\item
+  \texttt{QString}, \texttt{QVariant}, \texttt{QNumber}, \texttt{QDate},
+  \texttt{QTime}, \texttt{QDateTime}
+\item
+  Collections : \texttt{QList\textless{}Type\textgreater{}},
+  \texttt{QSet\textless{}Type\textgreater{}},
+  \texttt{QStack\textless{}Type\textgreater{}},
+  \texttt{QQueue\textless{}Type\textgreater{}},
+  \texttt{QLinkedList\textless{}Type\textgreater{}},
+  \texttt{QVector\textless{}Type\textgreater{}},
+  \texttt{QMap\textless{}Type1, Type2\textgreater{}} \ldots{}
+\end{itemize}
+
+Je vous ferais p'têtre un wiki sur les types cool en Qt\ldots{} Mais
+sinon la doc est vraiment très bien faite ! Au pire, c'est assez intuitif
+« je veux une pile\ldots{} Ça commence par Q. Comment on dit pile ?
+Stack ? Ah ben \texttt{QStack}. »
+
+\section{Les bonnes pratiques}\label{les-bonnes-pratiques}
+
+\subsection{Le mot clé \texttt{const}}\label{le-mot-cluxe9-const}
+
+Dès que vous pouvez\ldots{} hop un \texttt{const}.
+
+Autrement dit : si vous ne modifiez jamais un paramètre, un attribut, une
+variable où que sait-je, on met un const. Ça permet de n'avoir aucune
+ambiguïté, c'est clair, et quelqu'un qui utilise la méthode sait que le
+paramètre ne serait pas modifié.
+
+\subsection{Le mot clé \texttt{void}}\label{le-mot-cluxe9-void} 
+Une méthode ne contenant aucun paramètre \emph{doit} contenir void,
+c'est comme ça.
+
+\begin{lstlisting}[language=C++,numbers=none]
+void aSuperMethod(void);
+\end{lstlisting}
+
+\subsection{Longueur du code}\label{longueur-du-code}
+
+Une ligne ne doit pas excéder 100 caractères, une méthode ne doit pas
+excéder 60 lignes, un fichier doit être assez court\ldots{} Mais ça on
+verra sur le moment ;-)
+
+\section{Conventions des composants
+graphiques}\label{conventions-des-composants-graphiques}
+\begin{tabular}{c|c}
+Element & Préfix\\
+\hline
+Combo & cb\\
+Menus & mn\\
+LineEdit & le\\
+Buttons & btn\\
+Table & tbl\\
+Label & lb\\
+TextEdit & te\\
+Tree & tr\\
+Dock & dck\\
+Checkbox & chk\\
+WIdget & wdg\\
+\end{tabular}
+
+\section{Conventions de documentation}\label{conventions-de-documentation}
+
+\subsubsection{Pour une classe}\label{pour-une-classe}
+
+
+\begin{lstlisting}[language=C++,numbers=none]
+/**
+ * @author Nom de(s) la personne ayant programmé la classe sous la forme: Prénom Nom
+ * @brief The MaClass class (généré automatiquement) Role de la classe 
+ */
+\end{lstlisting}
+
+\subsubsection{Pour un attribut ou une méthode}
+\begin{lstlisting}[language=C++,numbers=none]
+/**
+ * @brief MaClass\dotsmaMethode Ce que fait la méthode
+ * @see [optionnelle] Si cela fait référence à une autre méthode/classe/objet alors on écrit le nom de cette
+ * méthode/classe/objet
+ * @param parametre1 Brève description du paramètre attendu et de ce qu'il représente 
+ * @param parametre2 \ldots
+ * @param parametreN \ldots
+ * @return ce qui est retourné
+ */
+\end{lstlisting}
+
+\subsubsection{Remarques}
+On peut utiliser les balises HTML pour la documentation. Par exemple, dans @brief si on a une méthode addCustomer(int id), sa description pourrait
+être: 
+\begin{lstlisting}[language=C++,numbers=none]
+/**
+ * @brief Customer\dotsaddCustomer Ajoute un nouveau client 
+ *  possédant l'identifiant <i>id</i>``. 
+ */
+\end{lstlisting}
+
+On utilisera alors comme convention: - Pour un paramètre << pParam >> passé en paramètre: 
+\begin{lstlisting}[language=C++,numbers=none]
+/**
+ * ...<i>pParam</i>
+ */
+\end{lstlisting}
+
+- Pour le nom d'une classe << MaClass >> 
+\begin{lstlisting}[language=C++,numbers=none]
+/**
+ * ...<b>MaClass</b>
+ */
+\end{lstlisting}
+
+\begin{attention}
+Éviter les accents dans la documentation (Par exemple, ça sera @author Cedric Rohaut et non Cédric Rohaut)
+\end{attention}

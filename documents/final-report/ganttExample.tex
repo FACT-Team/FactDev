@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\title{Outline Proposal}
+\author{Teresa Green}
+
+% End of preamble, beginning of proposal outline document
+
+\begin{document}
+\maketitle
+
+\section{Workplan}
+
+\begin{figure}[H]
+
+\centering
+\begin{ganttchart}[y unit title=0.4cm,
+y unit chart=0.5cm,
+vgrid,hgrid, 
+title label anchor/.style={below=-1.6ex},
+title left shift=.05,
+title right shift=-.05,
+title height=1,
+bar/.style={fill=gray!50},
+incomplete/.style={fill=white},
+progress label text={},
+bar height=0.7,
+group right shift=0,
+group top shift=.6,
+group height=.3,
+group peaks height =.2
+]
+{1}{20}
+%labels
+\gantttitle{Project}{20} \\
+\gantttitle{Dec}{4} 
+\gantttitle{Jan}{4} 
+\gantttitle{Feb}{4} 
+\gantttitle{Mar}{4} 
+\gantttitle{Apr}{4} \\
+%tasks
+\ganttbar{Outline Proposal}{1}{2} \\
+\ganttbar{Research}{3}{8} \\
+\ganttbar{Literature Review}{9}{10} \\
+\ganttbar{Ethics Test}{11}{15} \\
+\ganttbar[progress=33]{Progress Report}{20}{22} \\
+\ganttbar{Final Report}{18}{19} \\
+\ganttbar{task 7}{16}{18} 
+
+%relations
+
+\ganttlink{elem0}{elem1} 
+\ganttlink{elem0}{elem3} 
+\ganttlink{elem1}{elem2} 
+\ganttlink{elem3}{elem4} 
+\ganttlink{elem1}{elem5} 
+\ganttlink{elem3}{elem5} 
+\ganttlink{elem2}{elem6} 
+\ganttlink{elem3}{elem6} 
+\end{ganttchart}
+
+\caption{Gantt Chart - Workplan}
+
+\end{figure}
+\end{document}

@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage{lmodern}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\input{../LaTexTemplate/templates/couleurs.tex}
+
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} 
+\usepackage{marvosym}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=1.7cm, bottom=1.7cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{verbatim}
+\usepackage[urlbordercolor={1 1 1}, linkbordercolor={1 1 1}, linkcolor=vert1, urlcolor=bleu, colorlinks=true]{hyperref}
+\usepackage{tikz} %Vectoriel
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{multido}
+\usepackage{amssymb}
+\usepackage{slashbox}
+\usepackage{float}
+\usepackage[francais]{minitoc}
+\usepackage[final]{pdfpages} 
+\usepackage{pgfgantt}
+\usepackage{graphicx} % Required for box manipulation
+\usepackage{makeidx}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+
+
+\newcommand{\titre}{Bilan du Projet}
+\newcommand{\logoFooter}{\begin{minipage}{0.1\textwidth}\includegraphics[width=2cm]{../../images/FACT_official.png}\end{minipage}}
+\newcommand{\titreFooter}{Bilan du Projet FactDev} 
+\newcommand{\subtitle}{FactDev} 
+\newcommand{\auteur}{}
+\newcommand{\semestre}{}
+\newcommand{\annee}{2015}
+
+
+\newcommand{\pole}{}
+\newcommand{\sigle}{}
+\newcommand{\FactDev}{\textit{FactDev}}
+\newcommand{\key}[1]{\textit{#1}}
+\newcommand{\approved}{true}
+
+\makeindex
+\usepackage[totoc]{idxlayout}
+
+
+\input{../LaTexTemplate/templates/listings.tex}
+\input{../LaTexTemplate/templates/classroomsTemplates/l3/cours.tex}
+\input{../LaTexTemplate/templates/remarquesExempleAttention.tex}
+\input{../LaTexTemplate/templates/polices.tex}
+\input{../LaTexTemplate/templates/affichageChapitre.tex}
+
+\input{../LaTexTemplate/templates/cover/couverture.tex}
+\makeatother
+\includeonly {
+contents/0-preambule,
+contents/projet,
+contents/methodologie,
+contents/resultats
+}
+\begin{document}
+	\thispagestyle{empty} % Removes page numbers
+	\titleBC
+	\dominitoc
+	\setcounter{tocdepth}{1}
+	\setcounter{secnumdepth}{3}
+	\setcounter{minitocdepth}{1}
+	
+	\tableofcontents
+	
+	\include{contents/0-preambule}
+	\include{contents/projet}
+	\include{contents/methodologie}
+	\include{contents/resultats}
+	\appendix
+	\include{contents/cppConventions}
+	\chapter{Backlog product}
+	\begin{sidewaysfigure}[ht]
+		\includegraphics{backlog.pdf}
+	\end{sidewaysfigure}
+	\include{contents/references}
+	\listoffigures
+	\printindex
+
+\end{document}
