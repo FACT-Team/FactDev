@@ -49,7 +49,7 @@ public slots:
      * @brief ProjectsWidget::updateBtn Update the toolbar in tblProjects
      * @param boolean if a row is selected
      */
-    void updateBtn(bool b);
+    void updateBtn(bool b, bool remove=true);
 
 signals:
     /**
