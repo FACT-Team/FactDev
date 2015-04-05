@@ -81,5 +81,5 @@ void UserDatabaseTest::imageTest() {
     QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == QPixmap(":/icons/img/company.png").toImage());
     Databases::UserDatabase::instance()->setUserImage(*u1);
     QVERIFY(u1->getImage()->toImage() == p->toImage());
-    QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == p->toImage());
+    QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == QPixmap(":/icons/FactDev").toImage());
 }
