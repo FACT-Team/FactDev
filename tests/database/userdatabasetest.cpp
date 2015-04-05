@@ -71,5 +71,15 @@ void UserDatabaseTest::updateUserTest()
     } catch(DbException* e) {
         QFAIL(e->what());
     }
+}
 
+void UserDatabaseTest::imageTest() {
+    QPixmap* p = new QPixmap(":/icons/FactDev");
+    Models::User* u1 = Databases::UserDatabase::instance()->getUser();
+    u1->setImage(p);
+    u1->setExtensionImage("PNG");
+    QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == QPixmap(":/icons/img/company.png").toImage());
+    Databases::UserDatabase::instance()->setUserImage(*u1);
+    QVERIFY(u1->getImage()->toImage() == p->toImage());
+    QVERIFY(Databases::UserDatabase::instance()->getUserImage(u1->getId()).toImage() == p->toImage());
 }

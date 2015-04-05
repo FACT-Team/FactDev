@@ -141,3 +141,13 @@ void CustomerDatabaseTest::getCustomers() {
         QFAIL(e->what());
     }
 }
+
+void CustomerDatabaseTest::imageTest() {
+    QPixmap* p = new QPixmap(":/icons/FactDev");
+    c1.setImage(p);
+    c1.setExtensionImage("PNG");
+    QVERIFY(Databases::CustomerDatabase::instance()->getCustomerImage(c1.getId()).toImage() == QPixmap(":/icons/customer").toImage());
+    Databases::CustomerDatabase::instance()->setCustomerImage(c1);
+    QVERIFY(c1.getImage()->toImage() == p->toImage());
+    QVERIFY(Databases::CustomerDatabase::instance()->getCustomerImage(c1.getId()).toImage() == p->toImage());
+}

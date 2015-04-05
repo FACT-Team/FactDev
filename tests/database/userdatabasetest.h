@@ -17,6 +17,7 @@ private slots:
     void getUserTest(void);
     void updateUserTest(void);
     void noGetUserTest();
+    void imageTest();
 };
 
 DECLARE_TEST(UserDatabaseTest)
