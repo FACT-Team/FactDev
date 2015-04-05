@@ -4,6 +4,7 @@
 #include "database/database.h"
 #include "exceptions/dbexception.h"
 #include "models/user.h"
+#include "gui/utils/image.h"
 
 namespace Databases {
 
@@ -42,6 +43,20 @@ public:
      * @brief UserDatabase::updateUser Update informations about the user
      */
     void updateUser(const Models::User&);
+
+    /**
+     * @brief UserDatabase::getUserImage Return a User image
+     * @param pId Customer id
+     * @return User image
+     */
+    QPixmap getUserImage(const int pId=1);
+
+    /**
+     * @brief UserDatabase::setUserImage Change the image of the
+     * customer <i>pCustomer</i>
+     * @param pUser User
+     */
+    void setUserImage(Models::User &pUser);
 
 };
 }

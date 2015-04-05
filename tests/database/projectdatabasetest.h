@@ -20,6 +20,9 @@ private slots:
     void selectCustomerFound();
     void getNbProjects();
     void getNbProjectsForACustomer();
+    void getAllProjectsTest();
+    void getCostProjectTest();
+    void getProjectOfCustomer();
 private:
     Models::Project p1;
     int _lastInsert;

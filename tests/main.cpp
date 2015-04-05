@@ -19,9 +19,10 @@ int sqliteExecution(QCoreApplication& a);
 #include <QtCore/QDebug>
 
 
+
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QApplication a(argc, argv);
     int ret = 0;
 
     if(sqliteExecution(a) != 0) {
@@ -37,6 +38,7 @@ int main(int argc, char *argv[])
     } else {
         qDebug() << "Some tests failed…";
     }
+
     return  ret;
 }
 
@@ -46,6 +48,7 @@ int mysqlExecution(int argc, char**argv)
     std::cout << "=== Execution des tests de FactDev v" << QString::number(Parameters::VERSION).toStdString() << " avec MySQL ===" << std::endl;
 
     if(argc >= 3) {
+        Databases::AccessDatabase::init();
         Databases::AccessDatabase::_address = argv[1];
         Databases::AccessDatabase::_userDb = argv[2];
         Databases::AccessDatabase::_password = argv[3];
@@ -74,7 +77,7 @@ int sqliteExecution(QCoreApplication& a)
     Databases::Database::instance(true);
     int ret = RUN_ALL_TESTS();
     std::cout << "-- Clean of database" << std::endl;
-    Databases::Database::instance()->cleanDatabase();
+//    Databases::Database::instance()->cleanDatabase();
     delete Databases::Database::instance();
     return ret;
 }

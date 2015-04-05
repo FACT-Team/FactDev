@@ -11,7 +11,11 @@ CREATE TABLE Customer
     email VARCHAR(64),
     mobilePhone VARCHAR(16),
     phone VARCHAR(16),
-    fax VARCHAR(16)
+    fax VARCHAR(16),
+    image BLOB,
+    complementAddress VARCHAR(128),
+    website VARCHAR(128),
+    isArchived BOOLEAN
 );
 
 CREATE TABLE Project
@@ -42,7 +46,8 @@ CREATE TABLE Contributory
     idContributory INTEGER PRIMARY KEY AUTOINCREMENT,
     description TEXT,
     longdescription TEXT,
-    nbHours INTEGER
+    quantity DOUBLE,
+    unit INTEGER(2)
 );
 
 CREATE TABLE BillingProject
@@ -81,7 +86,11 @@ CREATE TABLE User
     phone VARCHAR(16),
     noSiret VARCHAR(16),
     workspaceName VARCHAR(64),
-    workspacePath TEXT
+    workspacePath TEXT,
+    image BLOB,
+    pdflatexcommand VARCHAR(256),
+    complementAddress VARCHAR(128),
+    website VARCHAR(128)
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC, lastnameReferent);

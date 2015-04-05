@@ -5,7 +5,6 @@
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QDebug>
-#include <QSettings>
 #include <QString>
 
 #include "parameters.h"
@@ -28,11 +27,6 @@ public:
      * @return Instance of logger.
      */
     static Log &instance(TypeLog type=INFO);
-
-    /**
-     * @brief Log::~Log
-     */
-    ~Log();
 
     /**
      * @brief Log::write. Write log message in file

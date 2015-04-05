@@ -18,8 +18,10 @@ private slots:
     void selectCustomerNotFound();
     void selectCustomerFound();
     void getCustomerTableException();
-    void getCustomerTreeException();
     void getNbCustomersTest();
+    void getCustomers();
+    void getTreeException();
+    void imageTest();
 private:
     Customer c1;
     int _lastInsert;

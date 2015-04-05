@@ -25,14 +25,14 @@ WdgModels::CustomersTableModel*
     WdgModels::CustomersTableModel* ret
             = new WdgModels::CustomersTableModel();
     QSqlQuery q;
-
     q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
                "c.firstnameReferent as cfirstnameReferent, "
                "UPPER(c.lastnameReferent) as clastnameReferent, "
-               "c.company as ccompany, "
+               "c.company as ccompany, c.complementAddress as ccomplement, c.website as cwebsite, "
                "c.address as caddress, c.postalCode as cpostalcode, "
                "c.city as ccity, c.country as ccountry, c.email as cemail, "
-               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+               "c.isArchived as cisArchived "
                "FROM Customer c "+filter+" "
                "ORDER BY 4, 3"
                );
@@ -68,7 +68,9 @@ throw(DbException*)
                 "c.company as ccompany, "
                 "c.address as caddress, c.postalCode as cpostalcode, "
                 "c.city as ccity, c.country as ccountry, c.email as cemail, "
-                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+                "c.complementAddress as ccomplement, c.website as cwebsite,"
+                "c.isArchived as cisArchived "
                 "FROM Customer c "+filter+" "
                 "ORDER BY 4, 3 "
                 );
@@ -113,7 +115,8 @@ throw(DbException*)
             QSqlQuery q3;
 
             q3.prepare(
-                     "SELECT DISTINCT b.isPaid, b.description, b.idBilling,title,number,isBilling,date "
+                     "SELECT DISTINCT b.isPaid, b.description, "
+                     "b.idBilling,title,number,isBilling,date "
                      "FROM Billing b, BillingProject bp "
                      "WHERE idProject = :idproject "
                      "AND b.idBilling = bp.idBilling ORDER BY date DESC");
@@ -128,7 +131,8 @@ throw(DbException*)
             }
             // Manage any bill/quote of a project of a customer
             while (q3.next()) {
-                itemProject->appendRow(Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
+                itemProject->appendRow(
+                            Databases::BillingDatabase::instance()->getBilling(q3)->getItem());
             }
 
             itemCustomer->appendRow(itemProject);
@@ -183,6 +187,9 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
     customer->setPhone(value(q,"cphone").toString());
     customer->setMobilePhone(value(q,"cmobilePhone").toString());
     customer->setFax(value(q,"cfax").toString());
+    customer->setAddressComplement(value(q,"ccomplement").toString());
+    customer->setWebsite(value(q,"cwebsite").toString());
+    customer->setIsArchived(value(q,"cisArchived").toBool());
 
     return customer;
 }
@@ -201,6 +208,54 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
     q.bindValue(":fax", pCustomer.getFax());
+    q.bindValue(":complementAddress", pCustomer.getAddressComplement());
+    q.bindValue(":website", pCustomer.getWebsite());
+    q.bindValue(":isArchived", pCustomer.isArchived());
+}
+
+QPixmap CustomerDatabase::getCustomerImage(const int pId)
+{
+    QPixmap img;
+    QSqlQuery q;
+    q.prepare("SELECT image FROM Customer WHERE idCustomer = :pId");
+    q.bindValue(":pId", pId);
+    //Debug()
+    if (q.exec()) {
+        q.next();
+        if(q.first()) {
+            img =  Gui::Utils::Image::bytesToPixmap(q.value("image").toByteArray());
+        }
+
+    }
+    if (img.size().isEmpty()) {
+        img = QPixmap(":/icons/customer");
+    }
+
+    return img;
+}
+
+void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
+    QSqlQuery q;
+    qDebug() << pCustomer.getLastname() << " - " << pCustomer.getImage()->size();
+    QByteArray byteArray = Gui::Utils::Image::pixmapToBytes(
+                *pCustomer.getImage(),
+                pCustomer.getExtensionImage());
+
+    q.prepare("UPDATE Customer SET image = :image WHERE idCustomer = :id ");
+
+    q.bindValue(":id", pCustomer.getId());
+    q.bindValue(":image", byteArray);
+
+
+    if(!q.exec()) {
+        throw new DbException(
+                    "Impossible de modifier l'image du Customer",
+                    "BddCustomer::setCustomerImage",
+                    lastError(q),
+                    1.3);
+    }
+    qDebug() << pCustomer.getLastname() << " - " << "Image inserted";
+
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
@@ -212,7 +267,9 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
               "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
               "c.address as caddress, c.postalCode as cpostalcode, "
               "c.city as ccity, c.country as ccountry, c.email as cemail, "
-              "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+              "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+              "c.complementAddress as ccomplement, c.website as cwebsite, "
+              "c.isArchived as cisArchived "
               "FROM Customer c "
               "WHERE idCustomer = :pId");
     q.bindValue(":pId", pId);
@@ -239,10 +296,11 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.prepare(
                 "INSERT INTO Customer "
                 "(firstnameReferent, lastnameReferent, company, address, "
-                "postalCode, city, country, email, mobilePhone, phone, fax)"
+                "postalCode, city, country, email, mobilePhone, phone, fax, complementAddress, website, isArchived) "
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email,:mobilePhone, :phone,:fax)"
+                ":postalCode, :city, :country, :email,:mobilePhone, :phone,"
+                ":fax, :complementAddress, :website, :isArchived)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
@@ -256,6 +314,9 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
+    q.bindValue(":complementAddress", pCustomer.getAddressComplement());
+    q.bindValue(":website", pCustomer.getWebsite());
+    q.bindValue(":isArchived", pCustomer.isArchived());
 
     if(!q.exec()) {
         throw new DbException(
@@ -276,7 +337,9 @@ void CustomerDatabase::updateCustomer(Models::Customer &pCustomer) {
                 "lastnameReferent=:lastnameReferent, company=:company, "
                 "address=:address, postalCode=:postalCode, city=:city, "
                 "country=:country, email=:email, mobilePhone=:mobilePhone, "
-                "phone=:phone, fax=:fax "
+                "phone=:phone, fax=:fax,  complementAddress=:complementAddress,"
+                " website=:website, isArchived=:isArchived, "
+                "phone=:phone, fax=:fax, isArchived=:isArchived "
                 "WHERE idCustomer=:idCustomer");
     updateCustomer(q, pCustomer);
 
@@ -294,7 +357,6 @@ void CustomerDatabase::removeCustomer(const int pId)
 {
     QSqlQuery q;
     q.prepare("DELETE FROM Customer WHERE idCustomer=:pId");
-
     q.bindValue(":pId", pId);
 
     if(!q.exec()) {
@@ -322,5 +384,35 @@ int CustomerDatabase::getNbCustomers() {
     q.next();
 
     return value(q, "nb_p").toInt();
+}
+
+QList<Customer> CustomerDatabase::getCustomers() {
+    QList<Customer> customers;
+    QSqlQuery q;
+
+    q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
+                "c.firstnameReferent as cfirstnameReferent, "
+                "UPPER(c.lastnameReferent) as clastnameReferent, "
+                "c.company as ccompany, "
+                "c.address as caddress, c.postalCode as cpostalcode, "
+                "c.city as ccity, c.country as ccountry, c.email as cemail, "
+                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax "
+                "FROM Customer c "
+                "ORDER BY 4, 3"
+                );
+
+     if(!q.exec()) {
+         throw new DbException(
+                     "Impossible d'obtenir la liste des Customers",
+                     "CustomerDatabase::getCustomers",
+                     lastError(q),
+                     1.1);
+     }
+
+     while(q.next()) {
+         Customer c = *getCustomer(q);
+         customers.append(c);
+     }
+     return customers;
 }
 }

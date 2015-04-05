@@ -65,7 +65,7 @@ QVariant CustomersTableModel::headerData(int section,
     switch (section) {
     case 0: return "ID";
     case 1: return "Société";
-    case 2: return "NOM";
+    case 2: return "Nom";
     case 3: return "Prénom";
     case 4: return "Téléphone";
     case 5: return "E-mail";

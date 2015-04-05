@@ -8,12 +8,12 @@
 using namespace Databases;
 
 namespace Models {
-Customer::Customer()
+Customer::Customer() : People()
 {
-    setId(0);
 }
 
-Customer::Customer(int id) {
+Customer::Customer(int id) : People(id)
+{
     hydrat(id);
 }
 
@@ -29,7 +29,8 @@ void Customer::commit() {
 
 void Customer::hydrat(int id)
 {
-    QSharedPointer<Customer> customer = CustomerDatabase::instance()->getCustomer(id);
+    QSharedPointer<Customer> customer =
+            CustomerDatabase::instance()->getCustomer(id);
 
     setId(id);
     setFirstname(           customer->getFirstname());
@@ -43,6 +44,10 @@ void Customer::hydrat(int id)
     setPhone(               customer->getPhone());
     setMobilePhone(         customer->getMobilePhone());
     setFax(                 customer->getFax());
+    setWebsite(             customer->getWebsite());
+    setAddressComplement(   customer->getAddressComplement());
+    setIsArchived(          customer->isArchived());
+    setToRemoved(false);
 }
 
 void Customer::remove()
@@ -63,6 +68,14 @@ QVariantHash Customer::getDataMap()
     data["mobilephone"] = getMobilePhone();
     data["phone"]       = getPhone();
     data["fax"]         = getFax();
+
+    if(!getWebsite().isEmpty()) {
+        data["website"]     = getWebsite();
+    }
+
+    if(!getAddressComplement().isEmpty()) {
+        data["complement"]     = getAddressComplement();
+    }
 
     return data;
 }
@@ -85,11 +98,39 @@ QString Customer::getNameFolder() const
 
 double Customer::getTurnover() const {
     double ret(0.0);
-    QList<Project> projects = Databases::ProjectDatabase::instance()->getProjects(getId());
+    QList<Project> projects =
+            Databases::ProjectDatabase::instance()->getProjects(getId());
+
     for (Project project : projects) {
         ret += project.getCost();
     }
     return ret;
+}
+
+QPixmap * Customer::getImage()
+{
+    if (_image == NULL || _image->isNull()) {
+        _image = new QPixmap(
+                    CustomerDatabase::instance()->getCustomerImage(getId()));
+    }
+    return _image;
+}
+
+void Customer::setImage(QPixmap *image)
+{
+    _image = image;
+    CustomerDatabase::instance()->setCustomerImage(*this);
+    commit();
+}
+
+bool Customer::isArchived() const
+{
+    return _isArchived;
+}
+
+void Customer::setIsArchived(const bool isArchived)
+{
+    _isArchived = isArchived;
 }
 
 }

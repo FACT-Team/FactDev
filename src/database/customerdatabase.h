@@ -1,6 +1,8 @@
 #ifndef BDDCUSTOMER_H
 #define BDDCUSTOMER_H
 
+#include <QPixmap>
+#include <QBuffer>
 #include "database/database.h"
 #include "database/billingdatabase.h"
 #include "exceptions/dbexception.h"
@@ -8,6 +10,7 @@
 #include "models/billing.h"
 #include "utils/log.h"
 #include "utils/string.h"
+#include "gui/utils/image.h"
 #include "gui/widgets/widgetsmodels/customerstablemodel.h"
 
 using namespace Exceptions;
@@ -127,6 +130,26 @@ public:
      * @param q SQL request
      */
     void updateCustomer(QSqlQuery &q, Customer &pCustomer);
+
+    /**
+     * @brief CustomerDatabase::getCustomerImage Return a Customer image
+     * @param pId Customer id
+     * @return Customer image
+     */
+    QPixmap getCustomerImage(const int pId);
+
+    /**
+     * @brief CustomerDatabase::setCustomerImage Change the image of the
+     * customer <i>pCustomer</i>
+     * @param pCustomer Customer
+     */
+    void setCustomerImage(Customer &pCustomer);
+
+	/**
+     * @brief CustomerDatabase::getCustomers Return all the customers
+     * @return QList of customers
+     */
+    QList<Customer> getCustomers();
 
 private:
     //!< Singleton instance of CustomerDatabase

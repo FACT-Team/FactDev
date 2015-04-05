@@ -86,10 +86,46 @@ void ProjectDatabaseTest::getNbProjects()
 void ProjectDatabaseTest::getNbProjectsForACustomer()
 {
     try {
-        QCOMPARE(4, Databases::ProjectDatabase::instance()->getNbProjectsForACustomer(1));
+        QCOMPARE(4, Databases::ProjectDatabase::instance()->getNbProjects(1));
     } catch(DbException* e) {
         QFAIL(e->what());
     }
 }
 
+void ProjectDatabaseTest::getAllProjectsTest() {
+    try {
+        QList<Models::Project*> projects = Databases::ProjectDatabase::instance()->getAllProjects();
+        QCOMPARE(projects.count(), 49);
+        QCOMPARE(projects.first()->getId(), 1);
+        QCOMPARE(projects[5]->getId(), 6);
+        QCOMPARE(projects.last()->getId(), 50);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}
 
+void ProjectDatabaseTest::getCostProjectTest() {
+    try {
+        QList<Models::Project*> projects = Databases::ProjectDatabase::instance()->getAllProjects();
+        double test = 0.0;
+        for(Project* p : projects) {
+            test += p->getCost();
+        }
+        QCOMPARE(Databases::ProjectDatabase::instance()->getCostProjects(projects), test);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}
+
+void ProjectDatabaseTest::getProjectOfCustomer() {
+    try {
+        QMap<int, Project> projects = Databases::ProjectDatabase::instance()->getProjectsOfCustomer(QSharedPointer<Customer>(new Customer(1)));
+        QCOMPARE(projects.count(), 4);
+        QCOMPARE(projects[9].getId(), 9);
+        QCOMPARE(projects[14].getId(), 14);
+        QCOMPARE(projects[47].getId(), 47);
+        QCOMPARE(projects[48].getId(), 48);
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}

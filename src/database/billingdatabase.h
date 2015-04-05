@@ -30,7 +30,7 @@ public:
     static BillingDatabase* instance()throw(DbException*);
 
     /**
-     * @brief BillingDatabase::getCustomer get informations about the billing
+     * @brief BillingDatabase::getBilling get informations about the billing
      * identified by <i>pId</i>
      * @param pId billing id
      * @return the Billing
@@ -140,28 +140,58 @@ public:
     QMap<Project *, Billing *> getAllBillingsOfProject();
 
     /**
-     * @brief BillingDatabase::getBillings get bills by project
-     * @param projectId
-     * @return List with bills
-     */
-    QList<Billing> getBillings(const int projectId);
-
-    /**
-     * @brief BillingDatabase::getAllBillingsOnly get all billings which aren't
-     * quotes for the project <i>p</i>
-     * @param p
-     * @return the list of <b>Billing</b>
-     */
-    QList<Billing> getAllBillingsOnly(const int idProject);
-
-    /**
-     * @brief BillingDatabase::getBillingsBetweenDates get billings in the list
-     * between <i>begin</i> and <i>end</i> dates
+     * @brief Get the bills between <i>begin</i> and <i>end</i> dates
      * @param begin
      * @param end
-     * @return the list of <b>Billing</b>
+     * @return the list of <b>Bills</b>
      */
-    QList<Billing> getBillingsBetweenDates(QDate begin, QDate end);
+    QList<Billing> getBillsBetweenDates(QDate begin, QDate end);
+
+    /**
+     * @brief Get the bills
+     * @param projectId Get the specified project bills
+     * @return The list of bills
+     */
+    QList<Billing> getBills(const int projectId = 0);
+
+    /**
+     * @brief Get the bills paid
+     * @param projectId Get the specified project bills paid
+     * @return The list of bills paid
+     */
+    QList<Billing> getBillsPaid(const int projectId = 0);
+
+    /**
+     * @brief Get the number of bills
+     * @param customerId If customerId isn't specified or if it's not valid,
+     * get all bills else get the specified customer bills
+     * @return Number of bills in the database for all or for a customer
+     */
+    int getNbBills(const int customerId = 0);
+
+    /**
+     * @brief Get the number of bills paid
+     * @param customerId If customerId isn't specified if it's not valid,
+     * get all bills paid else get the specified customer bills paid
+     * @return Number of bills paid in the database for all or for a customer
+     */
+    int getNbBillsPaid(const int customerId = 0);
+
+    /**
+     * @brief Get the number of quotes
+     * @param customerId If customerId isn't specified or if it's not valid,
+     * get all quotes else get the specified customer quotes
+     * @return Number of quotes in the database for all or for a customer
+     */
+    int getNbQuotes(const int customerId = 0);
+
+    /**
+     * @brief Get the number of documents
+     * @param customerId If customerId isn't specified or if if it's not valid,
+     * get all documents else get the specified customer documents
+     * @return Number of quotes in the database for all or for a customer
+     */
+    int getNbDocs(const int customerId  = 0);
 
 private:
     static BillingDatabase* _instance;//!< Singleton instance of BillingDatabase

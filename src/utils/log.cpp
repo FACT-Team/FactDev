@@ -6,7 +6,7 @@ Log* Log::_instance = 0;
 TypeLog Log::_type = INFO;
 
 Log::Log() {
-    QSettings settings("FactDev", "FACT");
+
     _file = new QFile(
                 QCoreApplication::applicationDirPath()+"/"+"/message.log");
     bool exists = _file->exists();
@@ -23,11 +23,6 @@ Log& Log::instance(TypeLog type) {
 
     _type = type;
     return *_instance;
-}
-
-Log::~Log() {
-    _file->close();
-    delete _instance;
 }
 
 inline QString Log::typeLog2String(TypeLog type) {

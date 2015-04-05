@@ -26,6 +26,7 @@
 #include "gui/dialogs/addprojectdialog.h"
 #include "gui/dialogs/addquotedialog.h"
 #include "gui/dialogs/computeturnoverdialog.h"
+#include "gui/dialogs/statisticsdialog.h"
 #include "gui/docks/searchdock.h"
 
 
@@ -149,6 +150,11 @@ public slots:
      */
     void removeCustomer();
     /**
+     * @brief MainWindow::archiveCustomer open a pop-up to confirm the
+     * archiving of the customer, if ok archive the customer
+     */
+    void archiveCustomer();
+    /**
      * @brief MainWindow::addQuote open window to add a new quote
      * @see AddQuoteDialog
      */
@@ -180,11 +186,11 @@ public slots:
     /**
      * @brief MainWindow::removeProject Remove a project for a customer
      */
-    void removeProject(void);
+    void removeProject();
     /**
      * @brief MainWindow::editProject Modify the customer project
      */
-    void editProject(void);
+    void editProject();
     /**
      * @brief MainWindow::aboutQt show Qt's details
      */
@@ -205,7 +211,7 @@ public slots:
     /**
      * @brief updateButton Update all button to disable or enabled its
      */
-    void updateButtons(void);
+    void updateButtons();
 
     /**
      * @brief MainWindow::editDoc Edit the quote or bill of the project
@@ -233,6 +239,16 @@ public slots:
      * of a period turnover
      */
     void computeTurnover();
+
+    /**
+     * @brief MainWindow::globalStatistics
+     */
+    void globalStatistics();
+
+    /**
+     * @brief MainWindow::customerStatistics
+     */
+    void customerStatistics();
 
 private slots:
     /**
@@ -315,7 +331,8 @@ private:
      * @param filter
      * @param row optional parameter for select the row in table
      */
-    void updateTableCustomers(QString filter="", const int row = -1);
+    void updateTableCustomers(QString filter="WHERE isArchived = 0"
+            , const int row = -1);
     /**
      * @brief MainWindow::updateTableProjects Update the table of projects view
      * @param filter Only projects corresponding with the filter are selected
@@ -325,9 +342,8 @@ private:
 
     /**
      * @brief MainWindow::updateTree Update the tree view
-     * (just client in the first version)
      */
-    void updateTree(QString filter="");
+    void updateTree(QString filter="WHERE isArchived = 0");
 
     /**
      * @brief MainWindow::updateUser Update user data panel
@@ -353,7 +369,7 @@ private:
      * @param tbl a table
      * @param item an item in the table <i>tbl</i>
      */
-    void removeItem(QTableView* tbl, Utils::ItemType item);
+    void removeItem(QTableView* tbl, ::Utils::ItemType item);
 
     /**
      * @brief MainWindow::getCurrentTableId Get the ID of the item selected in

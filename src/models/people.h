@@ -1,18 +1,27 @@
 #ifndef PEOPLE_H
 #define PEOPLE_H
 #include <QString>
+#include <QPixmap>
+
+#include "models/imodel.h"
 
 namespace Models {
 /**
  * @brief The People class People
  */
-class People
+class People : public IModel
 {
 public:
     /**
      * @brief People::People Construct a People
      */
     People();
+    ~People();
+
+    /**
+     * @brief People::People Construct a People
+     */
+    People(int id);
 
     /**
      * @brief People::getFirstname Return the People firstname
@@ -139,6 +148,53 @@ public:
     void setFax(const QString &fax);
 
     /**
+     * @brief People::getImage Return the compagny image
+     * @return compagny image
+     */
+    virtual QPixmap *getImage() const;
+    /**
+     * @brief People::setImage Modify the current compagny image by <i>image</i>
+     * @param image Compagny image
+     */
+    virtual void setImage(QPixmap *image);
+
+    /**
+     * @brief People::getExtensionImage Return the extension of the image file
+     * @return Extension of image file
+     */
+    QString getExtensionImage() const;
+    /**
+     * @brief People::setExtensionImage Change the extension of the image file
+     * by the new <i>ext</i>
+     * @param ext Extension file
+     */
+    void setExtensionImage(const QString &ext);
+
+    /**
+     * @brief getAddressComplement Return the address complement (Building, Appartment, …)
+     * @return The address complement
+     */
+    QString getAddressComplement() const;
+
+    /**
+     * @brief setAddressComplement Change the address complement
+     * @param addressComplement The new complement
+     */
+    void setAddressComplement(const QString &addressComplement);
+
+    /**
+     * @brief getWebsite Website of People
+     * @return The website url
+     */
+    QString getWebsite() const;
+
+    /**
+     * @brief setWebsite Change the url of website
+     * @param website The new URL
+     */
+    void setWebsite(const QString &website);
+
+    /**
      * @brief People::operator == Re-define the operator "==" to compare if
      * the current People is the same to the other <b>People</b> <i>c</i>
      * Return TRUE if both Peoples are the same, else FALSE
@@ -155,11 +211,15 @@ public:
      */
     bool operator !=(const People &c);
 
+protected:
+    QPixmap* _image;         //!< Compagny image
+
 private:
     QString _firstname;     //!< People firstname
     QString _lastname;      //!< People lastname
     QString _company;       //!< Company name of the People
     QString _address;       //!< Name and number of street
+    QString _addressComplement; //!< Add address complement (Building, appartment, …)
     QString _postalCode;    //!< Postal code
     QString _city;          //!< City
     QString _country;       //!< Country
@@ -167,6 +227,10 @@ private:
     QString _phone;         //!< Number of desktop phone
     QString _mobilePhone;   //!< Professionnal number of mobile phone
     QString _fax;           //!< Fax number of the people
+    QString _extensionImage;//!< Image extension
+    QString _website;       //!< Website
+
+
 };
 }
 

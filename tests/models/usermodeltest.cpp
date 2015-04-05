@@ -13,6 +13,7 @@ UserModelTest::UserModelTest()
     u1.setMobilePhone("0616641337");
     u1.setPhone("0836656565");
     u1.setNoSiret("12345678912340");
+    u1.setPdflatexPath("pdflatex");
 
     u2.setFirstname("Jean");
     u2.setLastname("Bonneau");
@@ -25,11 +26,17 @@ UserModelTest::UserModelTest()
     u2.setMobilePhone("0616641337");
     u2.setPhone("0836656565");
     u2.setNoSiret("12345678912340");
+    u2.setPdflatexPath("pdflatex");
+
+
 
 }
 
 void UserModelTest::equals1()
 {
+    u1.setExtensionImage("jpg");
+    QVERIFY(u1.getExtensionImage() == "jpg");
+
     QVERIFY(u1 == u2);
 }
 

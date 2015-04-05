@@ -42,11 +42,11 @@ void searchWidget::search(QString text)
             "background-position: right;"
             "background-repeat: no-repeat;     "
             "border-radius: 0px;"
-            "height: 23px;"
+            "height: 25px;"
             "border: 1px solid #bbb;";
     QString styleSearchNoBackground =
             "border-radius: 0px;"
-            "height: 23px;"
+            "height: 25px;"
             "border: 1px solid #bbb;";
 
     if(ui->leSearch->text() != "") {

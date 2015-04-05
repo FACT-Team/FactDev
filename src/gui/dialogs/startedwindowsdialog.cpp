@@ -37,6 +37,9 @@ void StartedWindowsDialog::nextToPage3()
     //ui->lbIcon->setPixmap(getImage(":/icons/customer"));
     ui->lbIcon->setPixmap(getImage(":/icons/img/company.png"));
 }
+void StartedWindowsDialog::databaseTypeChanged(void) {
+    databaseTypeChanged(ui->cbDbType->currentIndex());
+}
 
 void StartedWindowsDialog::databaseTypeChanged(const int index)
 {
@@ -79,7 +82,7 @@ void StartedWindowsDialog::databaseTypeChanged(const int index)
 
 bool StartedWindowsDialog::isDatabaseTypeValid()
 {
-    return  (isDatabaseCentralized() && ui->wdgDbType->isValid())
+    return  !ui->wdgPdflatex->getField().isEmpty() && (isDatabaseCentralized() && ui->wdgDbType->isValid())
             || ui->cbDbType->currentText() == "Locale";
 }
 
@@ -117,7 +120,9 @@ void StartedWindowsDialog::accept() {
     _user->setPhone(ui->lePhone->text());
     _user->setMobilePhone(ui->leMobile->text());
     _user->setNoSiret(ui->leNoSiret->text());
-
+    _user->setPdflatexPath(ui->wdgPdflatex->getField());
+    _user->setWebsite(ui->leWebsite->text());
+    _user->setAddressComplement(ui->leComplement->text());
     _user->commit();
 
     QDialog::accept();
@@ -142,8 +147,10 @@ void StartedWindowsDialog::checkFields() {
         && ((ui->lePhone->isValid() && ui->leMobile->isValid())
             || (ui->lePhone->text().isEmpty() && ui->leMobile->isValid())
             || (ui->lePhone->isValid() && ui->leMobile->text().isEmpty()) )
-        && ui->leNoSiret->isValid()
+        && ui->leNoSiret->isValid() && !ui->wdgPdflatex->getField().isEmpty()
         && isDatabaseTypeValid()
+        && ui->leNoSiret->isValid()
+        && isDatabaseTypeValid() && ui->leWebsite->isValid()
         );
 }
 

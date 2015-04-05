@@ -6,7 +6,7 @@
         <file>img/add_project_color.png</file>
         <file>img/add_project.png</file>
         <file>img/add_quote.png</file>
-        <file>img/bill.png</file>
+        <file alias="bill">img/bill.png</file>
         <file>img/cancel.png</file>
         <file>img/company.png</file>
         <file>img/contributory.png</file>
@@ -44,7 +44,7 @@
         <file>img/print.png</file>
         <file>img/project_color.png</file>
         <file>img/project.png</file>
-        <file>img/quote.png</file>
+        <file alias="quote">img/quote.png</file>
         <file>img/rate.png</file>
         <file>img/redo.png</file>
         <file>img/refresh.png</file>
@@ -87,10 +87,14 @@
         <file>img/coffee_ready.png</file>
         <file>img/img32/ok_pay.png</file>
         <file>img/bill_to_quote.png</file>
-        <file>img/all_customers.png</file>
+        <file alias="all_customers">img/all_customers.png</file>
         <file>img/copy_bill.png</file>
         <file>img/copy_quote.png</file>
         <file>img/quote_to_bill.png</file>
+        <file>img/archive.png</file>
+        <file>img/turnover.png</file>
+        <file>stats.png</file>
+        <file>img/website.png</file>
     </qresource>
     <qresource prefix="/">
         <file>../icons/img/256/remove_contributory.png</file>

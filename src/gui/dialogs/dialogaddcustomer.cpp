@@ -1,6 +1,9 @@
 #include "gui/dialogs/dialogaddcustomer.h"
 #include "ui_dialogaddcustomer.h"
+#include "gui/utils/windowsettings.h"
+#include <QDebug>
 
+#include <QDebug>
 namespace Gui {
 namespace Dialogs {
 
@@ -10,6 +13,8 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
     ui(new Ui::DialogAddCustomer)
 {
     ui->setupUi(this);
+    Utils::WindowSettings::setPositionToCenter(*this);
+
     if (id != 0) {
         _custom = QSharedPointer<Models::Customer>(new Customer(id));
         fillFields();
@@ -18,6 +23,7 @@ DialogAddCustomer::DialogAddCustomer(int id, QWidget *parent) :
         _custom = QSharedPointer<Models::Customer>(new Customer());
     }
     _custom->setId(id);
+    _custom->setToRemoved(false);
     emit checkFields();
 }
 
@@ -33,10 +39,15 @@ void DialogAddCustomer::fillFields() {
     ui->lePhone->setText(_custom->getPhone());
     ui->leMobilePhone->setText(_custom->getMobilePhone());
     ui->leFax->setText(_custom->getFax());
+
+    if (!_custom->getImage()->isNull()) {
+        ui->wgtLogo->setImage(_custom->getImage());
+    }
+    ui->leWebsite->setText(_custom->getWebsite());
+    ui->leComplement->setText(_custom->getAddressComplement());
 }
 
 void DialogAddCustomer::accept() {
-
     _custom->setLastname(ui->leLastNameReferent->text());
     _custom->setFirstname(ui->leFirstNameReferent->text());
     _custom->setCompany(ui->leCompany->text());
@@ -47,9 +58,17 @@ void DialogAddCustomer::accept() {
     _custom->setEmail(ui->leEmail->text());
     _custom->setPhone(ui->lePhone->text());
     _custom->setMobilePhone(ui->leMobilePhone->text());
-    _custom->setFax(ui->leFax->text());
+    _custom->setFax(ui->leFax->text());    
+    _custom->setWebsite(ui->leWebsite->text());
+    _custom->setAddressComplement(ui->leComplement->text());
+    _custom->setIsArchived(false);
 
     _custom->commit();
+
+    if (!ui->wgtLogo->getImage()->isNull()) {
+        _custom->setExtensionImage(ui->wgtLogo->getExtension());
+        _custom->setImage(ui->wgtLogo->getImage());
+    }
     QDialog::accept();
 }
 
@@ -91,7 +110,7 @@ void DialogAddCustomer::checkFields() {
         && ((ui->lePhone->isValid() && ui->leMobilePhone->isValid())
             || (ui->lePhone->text().isEmpty() && ui->leMobilePhone->isValid())
             || (ui->lePhone->isValid() && ui->leMobilePhone->text().isEmpty()) )
-        && (ui->leFax->text().isEmpty() || ui->leFax->isValid())
+        && (ui->leFax->text().isEmpty() || ui->leFax->isValid()) && ui->leWebsite->isValid()
         );
 }
 
