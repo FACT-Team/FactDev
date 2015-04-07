@@ -799,10 +799,9 @@ void MainWindow::updateButtons()
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);
     ui->btnPdf->setEnabled(billingIsSelected);
-    ui->btnCopyDoc->setEnabled(billingIsSelected);
+    ui->btnCopyDoc->setEnabled(billingIsSelected && !isLocked);
 
     if (billingIsSelected) {
-
         Billing b(getCurrentQuoteId());
         QString textButton = b.isBilling() ? "la facture": "le devis";
         QString iconButton = b.isBilling() ? "bill": "quote";
@@ -815,9 +814,9 @@ void MainWindow::updateButtons()
         ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png"
                                                     : ":icons/img/copy_quote"));
 
-        if (isBillingPaid || !b.isBilling()) {
+        if (isBillingPaid || !b.isBilling() || isLocked) {
             ui->btnBillingIsPaid->setEnabled(false);
-            if (isBillingPaid) {
+            if (isBillingPaid || isLocked) {
                 ui->btnRemoveDoc->setEnabled(false);
                 ui->btnEditDoc->setEnabled(false);
             }
