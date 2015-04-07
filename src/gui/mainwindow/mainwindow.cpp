@@ -764,6 +764,11 @@ void MainWindow::updateButtons()
 
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
+
+    if(ui->tblCustomers->currentIndex().row() != -1) {
+        QSharedPointer<Customer> customer(new Customer(getCurrentCustomerId()));
+        ui->btnDelCustomer->setEnabled(ProjectDatabase::instance()->getProjectsOfCustomer(customer).count() == 0);
+    }
     ui->btnArchiveCustom->setEnabled(canModify);
 
     if(ui->tblCustomers->currentIndex().row() == -1
@@ -774,7 +779,11 @@ void MainWindow::updateButtons()
     ui->actionNewQuote->setEnabled(canAdd);
     ui->actionNewBill->setEnabled(canAdd);
     ui->actCustomerStatistics->setEnabled(customerSelected);
-    ui->wdgTblProjectsToolBar->updateBtn(canAdd);
+    bool buff;
+    if(ui->tblProjects->currentIndex().row() != -1) {
+        buff = BillingDatabase::instance()->getBillingsTable(getCurrentProjectId())->rowCount(ui->tblProjects->currentIndex()) == 0;
+    }
+    ui->wdgTblProjectsToolBar->updateBtn(canAdd, buff);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);
     ui->btnPdf->setEnabled(billingIsSelected);
