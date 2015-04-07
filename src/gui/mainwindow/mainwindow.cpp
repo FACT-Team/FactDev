@@ -115,9 +115,7 @@ void MainWindow::addCustomer()
 void MainWindow::addProject()
 {
     AddProjectDialog *addProjectDialog =
-            ui->stackedWidget->currentIndex() == 1 ?
-                new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())
-              : new AddProjectDialog();
+                new AddProjectDialog(0, ui->tblCustomers->currentIndex().row());
 
     if (addProjectDialog->exec()) {
         updateTableProjects(getCurrentCustomerId());
