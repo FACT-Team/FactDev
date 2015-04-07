@@ -51,7 +51,7 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="btnLockProject">
      <property name="text">
       <string>Verrouiler le projet</string>
      </property>
@@ -112,7 +112,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>btnLockProject</sender>
    <signal>released()</signal>
    <receiver>ProjectsWidget</receiver>
    <slot>lockSelectedProject()</slot>

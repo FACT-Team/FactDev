@@ -79,6 +79,7 @@ void Project::unlock() {
 }
 
 bool Project::isLocked() const {
+    qDebug() << _endDate.isNull();
     return !_endDate.isNull() && _endDate <= QDate::currentDate();
 }
 

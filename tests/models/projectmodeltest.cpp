@@ -35,8 +35,14 @@ void ProjectModelTest::commitLock() {
 
         p1.commit();
 
-        p2 = Databases::ProjectDatabase::instance()->getProject(p1.getId());
+        p2 = new Project(p1.getId());
         QVERIFY(!p2->isLocked());
+
+        p1.lock();
+        p1.commit();
+        p2 = new Project(p1.getId());
+        QVERIFY(p2->isLocked());
+
     } catch(DbException*e ) {
         QFAIL(e->what());
     }

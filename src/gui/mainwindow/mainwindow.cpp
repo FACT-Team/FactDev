@@ -332,8 +332,10 @@ void MainWindow::editProject() {
 }
 
 void MainWindow::lockProject() {
-    // TODO
-    qDebug() << "Not implemented";
+    Project p(getCurrentProjectId());
+    p.lock();
+    p.commit();
+    updateTableProjects(getCurrentCustomerId());
 }
 
 void MainWindow::editUser()
@@ -766,7 +768,7 @@ void MainWindow::updateButtons()
     bool isBillingPaid = false;
     bool customerSelected = ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection();
-
+    bool projectSelected = ui->tblProjects->currentIndex().row() > -1 && ui->tblProjects->selectionModel()->hasSelection();
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
 
@@ -785,10 +787,15 @@ void MainWindow::updateButtons()
     ui->actionNewBill->setEnabled(canAdd);
     ui->actCustomerStatistics->setEnabled(customerSelected);
     bool buff;
-    if(ui->tblProjects->currentIndex().row() != -1) {
+
+    bool isLocked = false;
+    if (projectSelected) {
         buff = BillingDatabase::instance()->getBillingsTable(getCurrentProjectId())->rowCount(ui->tblProjects->currentIndex()) == 0;
+
+        isLocked = Project(getCurrentProjectId()).isLocked();
     }
-    ui->wdgTblProjectsToolBar->updateBtn(canAdd, buff);
+
+    ui->wdgTblProjectsToolBar->updateBtn(canAdd, buff, isLocked);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);
     ui->btnPdf->setEnabled(billingIsSelected);
