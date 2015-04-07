@@ -38,6 +38,7 @@ Project::~Project()
 
 void Project::commit() {
     if(_id == 0) {
+        _beginDate = QDate::currentDate();
         _id = ProjectDatabase::instance()->addProject(*this);
     } else if(_toRemoved) {
         remove();
