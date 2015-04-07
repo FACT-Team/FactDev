@@ -53,7 +53,7 @@
    <item row="0" column="3">
     <widget class="QPushButton" name="btnLockProject">
      <property name="text">
-      <string>Verrouiler le projet</string>
+      <string>Clôturer le projet</string>
      </property>
     </widget>
    </item>

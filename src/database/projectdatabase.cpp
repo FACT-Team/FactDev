@@ -224,7 +224,7 @@ int ProjectDatabase::getNbProjects(const int customerId) {
     return q.value(0).toInt();
 }
 
-QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Models::Customer> c) {
+QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer<Models::Customer> c, const bool projectLocked) {
     QSqlQuery q;
     QMap<int, Models::Project> ret;
     Models::Project project;
@@ -244,7 +244,11 @@ QMap<int, Models::Project> ProjectDatabase::getProjectsOfCustomer(QSharedPointer
         project.setDescription(value(q,"description").toString());
         project.setDailyRate(value(q,"dailyRate").toDouble());
         project.setCustomer(c);
-        ret.insert(project.getId(), project);
+        project.setBeginDate(value(q, "beginDate").toDate());
+        project.setEndDate(value(q, "endDate").toDate());
+        if(projectLocked || !project.isLocked()) {
+            ret.insert(project.getId(), project);
+        }
     }
 
     return ret;

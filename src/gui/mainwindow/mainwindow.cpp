@@ -145,12 +145,6 @@ void MainWindow::addDoc(bool isBilling) {
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
         changeProjectsTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
-
-        // For security and crash of the application
-        // if we remove a project in a doc and we save it
-        // or if we are in a project and we associate the doc with an other project
-        // go back to the panel projectsTable
-        // ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
