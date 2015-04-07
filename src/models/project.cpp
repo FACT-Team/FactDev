@@ -69,6 +69,19 @@ QVariantHash Project::getDataMap()
     return QVariantHash();
 }
 
+void Project::lock()
+{
+    _endDate = QDate::currentDate();
+}
+
+void Project::unlock() {
+    _endDate = QDate();
+}
+
+bool Project::isLocked() const {
+    return !_endDate.isNull() && _endDate <= QDate::currentDate();
+}
+
 QString Project::getName() const
 {
     return _name;

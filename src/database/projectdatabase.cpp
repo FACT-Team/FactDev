@@ -22,8 +22,8 @@ Models::Project* ProjectDatabase::getProject(QSqlQuery& q) {
     project->setId(value(q, "idProject").toInt());
     project->setName(value(q,"name").toString());
     project->setDescription(value(q,"pdescription").toString());
-    //project->setBeginDate(value(q,"beginDate").toDate());
-    //project->setEndDate(value(q,"endDate").toDate());
+    project->setBeginDate(value(q,"beginDate").toDate());
+    project->setEndDate(value(q,"endDate").toDate());
     project->setDailyRate(value(q,"dailyRate").toDouble());
     project->setCustomer(
                 QSharedPointer<Models::Customer>(
@@ -116,14 +116,15 @@ int ProjectDatabase::addProject(const Models::Project &pProject)
 
     q.prepare(
                 "INSERT INTO Project "
-                "(name, description, beginDate, dailyRate, idCustomer)"
+                "(name, description, beginDate, dailyRate, idCustomer, endDate)"
                 " VALUES "
-                "(:name, :description, :beginDate, :dailyRate, :idCustomer)"
+                "(:name, :description, :beginDate, :dailyRate, :idCustomer, :endDate)"
                 );
 
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
-    q.bindValue(":beginDate",pProject.getBeginDate().toString());
+    q.bindValue(":beginDate",pProject.getBeginDate());
+    q.bindValue(":endDate",pProject.getEndDate());
     q.bindValue(":dailyRate", pProject.getDailyRate());
     q.bindValue(":idCustomer", pProject.getCustomer()->getId());
 
@@ -147,7 +148,7 @@ void ProjectDatabase::updateProject(const Models::Project &pProject)
     // Function transfer maybe later.
     q.prepare(
                 "UPDATE Project SET "
-                "name = :name, description = :description, dailyRate = :dailyRate "
+                "name = :name, description = :description, dailyRate = :dailyRate, beginDate=:beginDate, endDate=:endDate "
                 "WHERE idProject= :idProject");
 
     q.bindValue(":idProject", pProject.getId());
@@ -155,6 +156,8 @@ void ProjectDatabase::updateProject(const Models::Project &pProject)
     q.bindValue(":name", pProject.getName());
     q.bindValue(":description", pProject.getDescription());
     q.bindValue(":dailyRate", pProject.getDailyRate());
+    q.bindValue(":beginDate", pProject.getBeginDate());
+    q.bindValue(":endDate", pProject.getEndDate());
 
 
     if(!q.exec()) {

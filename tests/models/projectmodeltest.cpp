@@ -16,6 +16,49 @@ ProjectModelTest::ProjectModelTest()
     QVariantHash q = p3.getDataMap();
     bool b = p3 < p2;
 }
+void ProjectModelTest::lock() {
+    p1.lock();
+    QVERIFY(p1.getEndDate() == QDate::currentDate());
+}
+
+void ProjectModelTest::commitLock() {
+
+    try {
+        p1.setId(0);
+        p1.lock();
+        p1.commit();
+        Project* p2 = Databases::ProjectDatabase::instance()->getProject(p1.getId());
+        QVERIFY(p2->isLocked());
+
+        p1.unlock();
+        p1.setToRemoved(false);
+
+        p1.commit();
+
+        p2 = Databases::ProjectDatabase::instance()->getProject(p1.getId());
+        QVERIFY(!p2->isLocked());
+    } catch(DbException*e ) {
+        QFAIL(e->what());
+    }
+}
+
+void ProjectModelTest::unlock() {
+    p1.lock();
+    p1.unlock();
+    QVERIFY(p1.getEndDate().isNull());
+    QVERIFY(!p1.isLocked());
+}
+
+void ProjectModelTest::isLocked() {
+    p1.lock();
+    QVERIFY(p1.isLocked());
+    p1.unlock();
+    QVERIFY(!p1.isLocked());
+    p1.setEndDate(QDate(2010, 1, 1));
+    QVERIFY(p1.isLocked());
+    p1.setEndDate(QDate(2050, 1, 1));
+    QVERIFY(!p1.isLocked());
+}
 
 void ProjectModelTest::equals1()
 {
