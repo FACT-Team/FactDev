@@ -52,7 +52,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab1PersonalData">
       <attribute name="title">
@@ -349,6 +349,31 @@
        <string>Environnement de travail</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_5">
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Charge de travail</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="0" column="0">
+           <widget class="Gui::Widgets::UserDailyHoursWidget" name="wdgWorkQuantity" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>100</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
@@ -382,7 +407,7 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="2" column="0">
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
           <string>LaTeX</string>
@@ -401,7 +426,7 @@
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="3" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;FactDev utilise le logiciel LaTeX afin de pouvoir générer des devis et des factures au format PDF.&lt;br/&gt;Si vous ne possédez pas LaTeX, veuillez l'installer avant de configurer le logiciel. &lt;br/&gt;LaTeX est fourni avec le programme pdflatex, c'est le chemin vers ce fichier que vous devez fournir&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -411,7 +436,7 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item row="4" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -532,6 +557,12 @@
    <class>Gui::Widgets::Path::ChoseDirectoryWidget</class>
    <extends>QWidget</extends>
    <header>gui/widgets/path/chosedirectorywidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::UserDailyHoursWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/userdailyhourswidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserDailyHoursWidget</class>
+ <widget class="QWidget" name="UserDailyHoursWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>322</width>
+    <height>153</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="3" column="0">
+    <widget class="QLabel" name="lbWeeklyDays">
+     <property name="text">
+      <string>        Jours / semaine</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="lbDailyhours">
+     <property name="text">
+      <string>        Heures /  jour</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="lbMonthlyDays">
+     <property name="text">
+      <string>        Jours / mois</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="lbWeeklyHours">
+     <property name="text">
+      <string>        Heures / semaine </string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="6">
+    <widget class="QLabel" name="lbWorkQuantity">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Travail en nombre de :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1" colspan="2">
+    <widget class="QDoubleSpinBox" name="sbDailyHours">
+     <property name="maximum">
+      <double>24.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>7.000000000000000</double>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1" colspan="2">
+    <widget class="QDoubleSpinBox" name="sbWeeklyDays">
+     <property name="maximum">
+      <double>7.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>5.000000000000000</double>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1" colspan="2">
+    <widget class="QDoubleSpinBox" name="sbWeeklyHours">
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="maximum">
+      <double>168.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>35.000000000000000</double>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1" colspan="2">
+    <widget class="QDoubleSpinBox" name="sbMonthlyDays">
+     <property name="maximum">
+      <double>5208.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>20.000000000000000</double>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3" colspan="3">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="3" colspan="3">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="3" colspan="3">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="7" column="3" colspan="3">
+    <spacer name="horizontalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>sbDailyHours</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>UserDailyHoursWidget</receiver>
+   <slot>dailyHoursValueHasChanged(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>289</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>481</x>
+     <y>47</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sbWeeklyDays</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>UserDailyHoursWidget</receiver>
+   <slot>weeklyDaysValueHasChanged(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>620</x>
+     <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sbMonthlyDays</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>UserDailyHoursWidget</receiver>
+   <slot>monthlyDaysValueHasChanged(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>351</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>dailyHoursValueHasChanged(double)</slot>
+  <slot>weeklyDaysValueHasChanged(double)</slot>
+  <slot>monthlyDaysValueHasChanged(double)</slot>
+ </slots>
+</ui>
