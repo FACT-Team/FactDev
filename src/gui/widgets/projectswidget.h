@@ -51,6 +51,10 @@ public slots:
      */
     void updateBtn(bool b, bool remove=true);
 
+    /**
+     * @brief lockSelectedProject Event which sends a signal to lock the selected project.
+     */
+    void lockSelectedProject();
 signals:
     /**
      * @brief ProjectsWidget::addProject Add a new project to the current
@@ -59,14 +63,20 @@ signals:
     void addProject();
 
     /**
-     * @brief ProjectsWidget::editProject Edit the current Customer selected
+     * @brief ProjectsWidget::editProject Edit the current Project selected
      */
     void editProject();
 
     /**
-     * @brief ProjectsWidget::removeProject Remove the current Customer selected
+     * @brief ProjectsWidget::removeProject Remove the current Project selected
      */
     void removeProject();
+
+    /**
+     * @brief lockProject Lock the current project.
+     */
+    void lockProject();
+
 
 private:
     Ui::ProjectsWidget *ui; //!< User interface of <b>ProjectsWidget</b>

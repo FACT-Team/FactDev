@@ -32,5 +32,12 @@ void ProjectsWidget::updateBtn(bool b, bool remove) {
     ui->btnDeleteProject->setEnabled(b && remove);
     ui->btnEditProject->setEnabled(b);
 }
+
+void ProjectsWidget::lockSelectedProject()
+{
+    emit lockProject();
+}
+
+
 }
 }

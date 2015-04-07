@@ -331,6 +331,11 @@ void MainWindow::editProject() {
     }
 }
 
+void MainWindow::lockProject() {
+    // TODO
+    qDebug() << "Not implemented";
+}
+
 void MainWindow::editUser()
 {
     if (UserDataDialog().exec()) {

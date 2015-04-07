@@ -789,6 +789,7 @@
     <signal>editProject()</signal>
     <signal>removeProject()</signal>
     <signal>addProject()</signal>
+    <signal>lockProject()</signal>
    </slots>
   </customwidget>
  </customwidgets>
@@ -803,8 +804,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1106</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -819,8 +820,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1019</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -835,8 +836,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>689</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -851,8 +852,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>819</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -995,8 +996,8 @@
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>433</x>
-     <y>117</y>
+     <x>327</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -1027,8 +1028,8 @@
    <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>667</x>
-     <y>223</y>
+     <x>374</x>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1043,8 +1044,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>585</x>
-     <y>119</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1059,8 +1060,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1112</x>
-     <y>678</y>
+     <x>1122</x>
+     <y>446</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1075,8 +1076,8 @@
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1112</x>
-     <y>678</y>
+     <x>1122</x>
+     <y>446</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1091,8 +1092,8 @@
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1112</x>
-     <y>678</y>
+     <x>1122</x>
+     <y>446</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1123,8 +1124,8 @@
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>667</x>
-     <y>223</y>
+     <x>374</x>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -1171,8 +1172,8 @@
    <slot>changeDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>502</x>
@@ -1187,8 +1188,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1203,8 +1204,8 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>776</x>
-     <y>677</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>609</x>
@@ -1235,8 +1236,8 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>827</x>
@@ -1251,8 +1252,8 @@
    <slot>changeTree()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>393</y>
+     <x>90</x>
+     <y>133</y>
     </hint>
     <hint type="destinationlabel">
      <x>292</x>
@@ -1283,8 +1284,8 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1299,8 +1300,8 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1331,8 +1332,8 @@
    <slot>archiveCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>866</x>
-     <y>671</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>903</x>
@@ -1369,6 +1370,22 @@
     <hint type="destinationlabel">
      <x>706</x>
      <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgTblProjectsToolBar</sender>
+   <signal>lockProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>lockProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1008</x>
+     <y>436</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>959</x>
+     <y>627</y>
     </hint>
    </hints>
   </connection>
@@ -1411,5 +1428,6 @@
   <slot>archiveCustomer()</slot>
   <slot>globalStatistics()</slot>
   <slot>customerStatistics()</slot>
+  <slot>lockProject()</slot>
  </slots>
 </ui>
