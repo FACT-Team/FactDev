@@ -27,13 +27,60 @@
 {Logiciel de devis et Facturation}
 \subtitle {FactDev}
 
+\newcommand{\authors}{%
+Antoine de \bsc{Roquemaurel}\newline Florent \bsc{Berbie}\newline Cédric \bsc{Rohaut}\newline Manantsoa Andriamihary \bsc{Razanajatovo}
+}
+\newcommand{\FlorentSpeak}{%
+\author[
+\textbf{\color{white} F}lorent\\
+\textbf{A}ntoine\\
+\textbf{C}édric\\
+Manan\textbf{T}soa
+]{\authors}
+}
+
+\newcommand{\AntoineSpeak}{%
+\author[
+\textbf{F}lorent\\
+\textbf{\color{white} A}ntoine\\
+\textbf{C}édric\\
+Manan\textbf{T}soa
+]{\authors}
+}
+
+\newcommand{\CedricSpeak}{%
+\author[
+\textbf{F}lorent\\
+\textbf{A}ntoine\\
+\textbf{\color{white}C}édric\\
+Manan\textbf{T}soa
+]{\authors}
+}
+
+\newcommand{\TsooSpeak}{
+\author[
+\textbf{F}lorent\\
+\textbf{A}ntoine\\
+\textbf{C}édric\\
+Manan\textbf{\color{white}T}soa
+]{\authors}
+}
+
+\newcommand{\NooneSpeak}{
 \author[
 \textbf{F}lorent\\
 \textbf{A}ntoine\\
 \textbf{C}édric\\
 Manan\textbf{T}soa
-] 
-{Antoine de \bsc{Roquemaurel}\newline Florent \bsc{Berbie}\newline Cédric \bsc{Rohaut}\newline Manantsoa Andriamihary \bsc{Razanajatovo}}
+]{\authors}
+}
+\author[
+\textbf{F}lorent\\
+\textbf{A}ntoine\\
+\textbf{C}édric\\
+Manan\textbf{T}soa
+] % (facultatif, \`a utiliser seulement avec plusieurs auteurs)
+{\authors}
 
 \institute[] 
 {
@@ -56,14 +103,15 @@ M1 Informatique -- Développement Logiciel
 }
 
 \begin{document}
-	\setbeamertemplate{sidebar left}{}
+	\sidetoc{no}
+	\NooneSpeak{}
 	\begin{frame}
 		\titlepage
 	\end{frame}
 
 	\input{contents/intro.tex}
 
-	\setbeamertemplate{sidebar left}[sidebar theme]
+	\sidetoc{yes}
 	\section{Le projet} % Intro + Projet &=&  4'
 	\input{contents/project.tex}
 	\section{La méthodologie} %  Méthodo = 8'
@@ -75,6 +123,8 @@ M1 Informatique -- Développement Logiciel
 	\input{contents/conclude.tex}
 
 	% Slide for questions
+	\sidetoc{no}
+	\NooneSpeak{}
 	\begin{frame}{Avez-vous des questions ?}
 		\begin{figure}[H]
 			\centering
@@ -82,7 +132,6 @@ M1 Informatique -- Développement Logiciel
 		\end{figure}
 	\end{frame}
 
-	\setbeamertemplate{sidebar left}{}
 	\begin{frame}
 		\titlepage
 	\end{frame}
