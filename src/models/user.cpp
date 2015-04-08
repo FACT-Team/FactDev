@@ -230,6 +230,16 @@ void User::setNbDaysPerWeek(double value)
 {
     _nbDaysPerWeek = value;
 }
+
+double User::getNbHoursPerWeek() const
+{
+    return _nbDaysPerWeek * _nbHoursPerDay;
+}
+
+double User::getNbHoursPerMonth() const
+{
+    return _nbDaysPerMonth * _nbHoursPerDay;
+}
 double User::getNbDaysPerMonth() const
 {
     return _nbDaysPerMonth;

@@ -52,6 +52,39 @@ public slots:
      */
     void monthlyDaysValueHasChanged(const double value);
 
+    /**
+     * @brief getNbDaysPerWeek The number of days per week
+     * @return The new value
+     */
+    double getNbDaysPerWeek() const;
+
+    /**
+     * @brief getNbDaysPerMonths The number of days per months who the user work.
+     * @return The number of days per months
+     */
+    double getNbDaysPerMonth() const;
+
+    /**
+     * @brief nbHoursPerDays The number of hours per days who the user work.
+     * @return The number of hours per days
+     */
+    double getNbHoursPerDay() const;
+
+    /**
+     * @brief setNbDaysPerWeek Change the number of days per week
+     * @param value The new value
+     */
+    void setNbDaysPerWeek(double value);
+    /**
+     * @brief setNbDaysPerMonth Change the number of days per month
+     * @param getNbDaysPerMonth The new value
+     */
+    void setNbDaysPerMonth(double getNbDaysPerMonth);
+    /**
+     * @brief setNbHoursPerDay Change the number of hours per day
+     * @param value The new value
+     */
+    void setNbHoursPerDay(double value);
 
 private:
     Ui::UserDailyHoursWidget *ui;       //!< User interface

@@ -38,6 +38,36 @@ void UserDailyHoursWidget::monthlyDaysValueHasChanged(const double value) {
     updateWorkQuantity(value);
 }
 
+double UserDailyHoursWidget::getNbDaysPerWeek() const
+{
+    return ui->sbWeeklyDays->value();
+}
+
+double UserDailyHoursWidget::getNbDaysPerMonth() const
+{
+    return ui->sbMonthlyDays->value();
+}
+
+double UserDailyHoursWidget::getNbHoursPerDay() const
+{
+    return ui->sbDailyHours->value();
+}
+
+void UserDailyHoursWidget::setNbDaysPerWeek(double value)
+{
+    ui->sbWeeklyDays->setValue(value);
+}
+
+void UserDailyHoursWidget::setNbDaysPerMonth(double value)
+{
+    ui->sbMonthlyDays->setValue(value);
+}
+
+void UserDailyHoursWidget::setNbHoursPerDay(double value)
+{
+    ui->sbDailyHours->setValue(value);
+}
+
 void UserDailyHoursWidget::updateWorkQuantity(const double value)
 {
     switch (_idQuantity) {

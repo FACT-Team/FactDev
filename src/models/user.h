@@ -166,6 +166,10 @@ public:
      * @return The number of hours per days
      */
     double getNbHoursPerDay() const;
+    /**
+     * @brief setNbHoursPerDay Change the number of hours per day
+     * @param value The new value
+     */
     void setNbHoursPerDay(double value);
 
     /**
@@ -173,11 +177,35 @@ public:
      * @return The number of days per months
      */
     double getNbDaysPerMonth() const;
+    /**
+     * @brief setNbDaysPerMonth Change the number of days per month
+     * @param getNbDaysPerMonth The new value
+     */
     void setNbDaysPerMonth(double getNbDaysPerMonth);
 
+    /**
+     * @brief getNbDaysPerWeek The number of days per week
+     * @return The new value
+     */
     double getNbDaysPerWeek() const;
+
+    /**
+     * @brief setNbDaysPerWeek Change the number of days per week
+     * @param value The new value
+     */
     void setNbDaysPerWeek(double value);
 
+    /**
+     * @brief getNbHoursPerWeek The number of hours per weeks.
+     * @return The number of hours
+     */
+    double getNbHoursPerWeek() const;
+
+    /**
+     * @brief getNbHoursPerMonth The number of hours per months.
+     * @return The number of hours.
+     */
+    double getNbHoursPerMonth() const;
 
 private:
     QString _title;         //!< User/Company description on it activity
