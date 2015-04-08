@@ -143,12 +143,6 @@ void MainWindow::addDoc(bool isBilling) {
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
         changeProjectsTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
-
-        // For security and crash of the application
-        // if we remove a project in a doc and we save it
-        // or if we are in a project and we associate the doc with an other project
-        // go back to the panel projectsTable
-        // ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
@@ -327,6 +321,13 @@ void MainWindow::editProject() {
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
+}
+
+void MainWindow::lockProject() {
+    Project p(getCurrentProjectId());
+    p.lock();
+    p.commit();
+    updateTableProjects(getCurrentCustomerId());
 }
 
 void MainWindow::editUser()
@@ -759,7 +760,7 @@ void MainWindow::updateButtons()
     bool isBillingPaid = false;
     bool customerSelected = ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection();
-
+    bool projectSelected = ui->tblProjects->currentIndex().row() > -1 && ui->tblProjects->selectionModel()->hasSelection();
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
 
@@ -778,17 +779,21 @@ void MainWindow::updateButtons()
     ui->actionNewBill->setEnabled(canAdd);
     ui->actCustomerStatistics->setEnabled(customerSelected);
     bool buff;
-    if(ui->tblProjects->currentIndex().row() != -1) {
+
+    bool isLocked = false;
+    if (projectSelected) {
         buff = BillingDatabase::instance()->getBillingsTable(getCurrentProjectId())->rowCount(ui->tblProjects->currentIndex()) == 0;
+
+        isLocked = Project(getCurrentProjectId()).isLocked();
     }
-    ui->wdgTblProjectsToolBar->updateBtn(canAdd, buff);
+
+    ui->wdgTblProjectsToolBar->updateBtn(canAdd, buff, isLocked);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);
     ui->btnPdf->setEnabled(billingIsSelected);
-    ui->btnCopyDoc->setEnabled(billingIsSelected);
+    ui->btnCopyDoc->setEnabled(billingIsSelected && !isLocked);
 
     if (billingIsSelected) {
-
         Billing b(getCurrentQuoteId());
         QString textButton = b.isBilling() ? "la facture": "le devis";
         QString iconButton = b.isBilling() ? "bill": "quote";
@@ -801,9 +806,9 @@ void MainWindow::updateButtons()
         ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png"
                                                     : ":icons/img/copy_quote"));
 
-        if (isBillingPaid || !b.isBilling()) {
+        if (isBillingPaid || !b.isBilling() || isLocked) {
             ui->btnBillingIsPaid->setEnabled(false);
-            if (isBillingPaid) {
+            if (isBillingPaid || isLocked) {
                 ui->btnRemoveDoc->setEnabled(false);
                 ui->btnEditDoc->setEnabled(false);
             }

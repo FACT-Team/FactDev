@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
+    <width>629</width>
     <height>52</height>
    </rect>
   </property>
@@ -14,17 +14,6 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="2">
-    <widget class="QPushButton" name="btnEditProject">
-     <property name="text">
-      <string>Modifier Projet</string>
-     </property>
-     <property name="icon">
-      <iconset resource="../../icons.qrc">
-       <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0">
     <widget class="QPushButton" name="btnCreateProject">
      <property name="toolTip">
@@ -39,6 +28,17 @@
      </property>
     </widget>
    </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="btnEditProject">
+     <property name="text">
+      <string>Modifier Projet</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../icons.qrc">
+       <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="1">
     <widget class="QPushButton" name="btnDeleteProject">
      <property name="text">
@@ -47,6 +47,13 @@
      <property name="icon">
       <iconset resource="../../icons.qrc">
        <normaloff>:/icons/img/256/remove_project.png</normaloff>:/icons/img/256/remove_project.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QPushButton" name="btnLockProject">
+     <property name="text">
+      <string>Clôturer le projet</string>
      </property>
     </widget>
    </item>
@@ -68,7 +75,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>107</x>
-     <y>321</y>
+     <y>51</y>
     </hint>
    </hints>
   </connection>
@@ -84,7 +91,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>309</x>
-     <y>458</y>
+     <y>51</y>
     </hint>
    </hints>
   </connection>
@@ -100,7 +107,23 @@
     </hint>
     <hint type="destinationlabel">
      <x>347</x>
-     <y>405</y>
+     <y>51</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnLockProject</sender>
+   <signal>released()</signal>
+   <receiver>ProjectsWidget</receiver>
+   <slot>lockSelectedProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>550</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>553</x>
+     <y>97</y>
     </hint>
    </hints>
   </connection>
@@ -109,5 +132,6 @@
   <slot>newProject()</slot>
   <slot>removeSelectedProject()</slot>
   <slot>editSelectedProject()</slot>
+  <slot>lockSelectedProject()</slot>
  </slots>
 </ui>

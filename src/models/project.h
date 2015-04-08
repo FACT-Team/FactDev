@@ -61,6 +61,21 @@ public:
     QVariantHash getDataMap();
 
     /**
+     * @brief lock Lock the current project and change endDate by today();
+     */
+    void lock();
+
+    /**
+     * @brief isLocked Return true if the project is locked : end Date of project is passed.
+     */
+    bool isLocked() const;
+
+    /**
+     * @brief unlock Unlock the current project;
+     */
+    void unlock();
+
+    /**
      * @brief Project::getName Return the project name
      * @return project name
      */
@@ -168,7 +183,6 @@ public:
      * @return boolean
      */
     bool operator !=(const Project &p);
-
 private:
     QString _name;          //!< Project name
     QString _description;   //!< Description on the targets of this project

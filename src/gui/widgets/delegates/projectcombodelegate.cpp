@@ -9,7 +9,7 @@ ProjectComboDelegate::ProjectComboDelegate(
     : ComboBoxDelegate(parent)
 {
     _projects =
-            Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c);
+            Databases::ProjectDatabase::instance()->getProjectsOfCustomer(c, false);
     _locked = false;
 }
 

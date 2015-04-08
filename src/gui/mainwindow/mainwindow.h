@@ -250,6 +250,10 @@ public slots:
      */
     void customerStatistics();
 
+    /**
+     * @brief lockProject Lock the current project
+     */
+    void lockProject();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu
