@@ -12,11 +12,13 @@ Contributory::Contributory()
     _toRemoved = false;
     _project = new Project();
     _hourlyRate = 0.0;
+    _unit = HOUR;
 }
 
 Contributory::Contributory(int id)
 {
     _hourlyRate = 0.0;
+    _unit = HOUR;
     hydrat(id);
     _id = id;
 }

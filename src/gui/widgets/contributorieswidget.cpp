@@ -113,6 +113,9 @@ void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
     view->setColumnWidth(3, 70);
     view->verticalHeader()->setDefaultSectionSize(60);
 
+    connect(view->itemDelegateForColumn(3),
+            SIGNAL(closeEditor(QWidget*)),
+            SLOT(updatePrice()));
     connect(view->itemDelegateForColumn(2),
             SIGNAL(closeEditor(QWidget*)),
             SLOT(updatePrice()));
