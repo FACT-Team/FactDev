@@ -165,19 +165,31 @@ public:
      * @brief nbHoursPerDays The number of hours per days who the user work.
      * @return The number of hours per days
      */
-    int getNbHoursPerDays();
+    double getNbHoursPerDay() const;
+    void setNbHoursPerDay(double value);
 
     /**
      * @brief getNbDaysPerMonths The number of days per months who the user work.
      * @return The number of days per months
      */
-    int getNbDaysPerMonths();
+    double getNbDaysPerMonth() const;
+    void setNbDaysPerMonth(double getNbDaysPerMonth);
+
+    double getNbDaysPerWeek() const;
+    void setNbDaysPerWeek(double value);
+
+
 private:
     QString _title;         //!< User/Company description on it activity
     QString _noSiret;       //!< SIRET number (company registration number)
     QString _workspaceName; //!< Workspace name
     QString _workspacePath; //!< Workspace directory path
     QString _pdflatexPath; //!< Path to pdflatex command
+
+    double _nbHoursPerDay;
+    double _nbDaysPerWeek;
+    double _nbDaysPerMonth;
+
 };
 }
 #endif // USER_H

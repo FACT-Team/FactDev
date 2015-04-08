@@ -20,6 +20,7 @@ private slots:
     void hydrat();
     void commitRemove();
 
+    void workLoadTest();
 private:
     User u1;
     User u2;

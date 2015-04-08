@@ -100,7 +100,7 @@
    <item row="7" column="1" colspan="2">
     <widget class="QDoubleSpinBox" name="sbMonthlyDays">
      <property name="maximum">
-      <double>5208.000000000000000</double>
+      <double>31.000000000000000</double>
      </property>
      <property name="value">
       <double>20.000000000000000</double>

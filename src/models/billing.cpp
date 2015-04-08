@@ -84,7 +84,7 @@ QVariantHash Billing::getDataMap()
     data["totalRate"] = Utils::Double::round(getPrice(), 2);
 
     if(Utils::Double::round(getSumQuantity(), 2) < 1) {
-        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2) * User(1).getNbHoursPerDays();
+        data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2) * User(1).getNbHoursPerDay();
         data["totalUnit"] = Unit(HOUR).toString(data["totalQuantity"].toDouble() < 1);
     } else {
         data["totalQuantity"] = Utils::Double::round(getSumQuantity(), 2);
