@@ -45,7 +45,7 @@ double Rate::getHourlyRate() const
 
 int Rate::getNbDailyHours() const
 {
-    return NB_DAILY_HOURS;
+    return User(1).getNbHoursPerDay();
 }
 
 double Rate::getLegalRate() const
