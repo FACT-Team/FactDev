@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -123,6 +123,10 @@
            <widget class="QPushButton" name="btnArchiveCustom">
             <property name="text">
              <string>Archiver client</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../icons.qrc">
+              <normaloff>:/icons/img/archive.png</normaloff>:/icons/img/archive.png</iconset>
             </property>
            </widget>
           </item>

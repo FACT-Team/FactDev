@@ -221,15 +221,15 @@ void MainWindow::responsiveBillingTable()
     if (w > 700) {
         ui->tblQuotes->hideColumn(0);
         ui->tblQuotes->setColumnWidth(1, w*0.045);
-        ui->tblQuotes->setColumnWidth(2, w*0.045);
-        ui->tblQuotes->setColumnWidth(3, w*0.2);
-        ui->tblQuotes->setColumnWidth(4, w*0.5);
+        ui->tblQuotes->setColumnWidth(2, w*0.09);
+        ui->tblQuotes->setColumnWidth(3, w*0.355);
+        ui->tblQuotes->setColumnWidth(4, w*0.285);
         ui->tblQuotes->setColumnWidth(5, w*0.15);
-        ui->tblQuotes->setColumnWidth(6, w*0.05);
+        ui->tblQuotes->setColumnWidth(6, w*0.07);
     } else {
         ui->tblQuotes->hideColumn(0);
         ui->tblQuotes->setColumnWidth(1, 40);
-        ui->tblQuotes->setColumnWidth(2, 40);
+        ui->tblQuotes->setColumnWidth(2, 60);
         ui->tblQuotes->setColumnWidth(3, 200);
         ui->tblQuotes->setColumnWidth(4, 250);
         ui->tblQuotes->setColumnWidth(5, 130);
@@ -310,6 +310,7 @@ void MainWindow::editCustomer() {
         updateTree();
         ui->trCustomers->setCurrentIndex(rootTree());
     }
+    updateButtons();
 }
 
 void MainWindow::editProject() {
@@ -321,6 +322,7 @@ void MainWindow::editProject() {
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
+    updateButtons();
 }
 
 void MainWindow::lockProject() {
@@ -335,6 +337,7 @@ void MainWindow::editUser()
     if (UserDataDialog().exec()) {
         updateUser();
     }
+    updateButtons();
 }
 
 void MainWindow::editDoc()
@@ -353,10 +356,12 @@ void MainWindow::editDoc()
         changeProjectsTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
+    updateButtons();
 }
 
 void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
+    updateButtons();
 }
 
 void MainWindow::archiveCustomer()
@@ -375,14 +380,17 @@ void MainWindow::archiveCustomer()
         updateTree();
         updateButtons();
     }
+    updateButtons();
 }
 
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
+    updateButtons();
 }
 
 void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
+    updateButtons();
 }
 
 void MainWindow::copyDoc()
@@ -397,6 +405,7 @@ void MainWindow::copyDoc()
         updateTableBillings(getCurrentProjectId());
         updateTree();
     }
+    updateButtons();
 }
 
 void MainWindow::openPdf()
@@ -410,7 +419,7 @@ void MainWindow::openPdf()
     QFileInfo pdf(bill.getPath()+".pdf");
 
     QDesktopServices::openUrl(QUrl("file:///"+pdf.absoluteFilePath()));
-
+    updateButtons();
 }
 
 void MainWindow::computeTurnover()
