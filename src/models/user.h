@@ -214,9 +214,9 @@ private:
     QString _workspacePath; //!< Workspace directory path
     QString _pdflatexPath; //!< Path to pdflatex command
 
-    double _nbHoursPerDay;
-    double _nbDaysPerWeek;
-    double _nbDaysPerMonth;
+    double _nbHoursPerDay; //!< Number of hours per day
+    double _nbDaysPerWeek; //!< Number of days per week
+    double _nbDaysPerMonth; //!< Number of days per month
 
 };
 }
