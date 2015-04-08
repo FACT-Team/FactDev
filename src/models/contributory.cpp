@@ -12,11 +12,13 @@ Contributory::Contributory()
     _toRemoved = false;
     _project = new Project();
     _hourlyRate = 0.0;
+    _unit = HOUR;
 }
 
 Contributory::Contributory(int id)
 {
     _hourlyRate = 0.0;
+    _unit = HOUR;
     hydrat(id);
     _id = id;
 }
@@ -59,14 +61,14 @@ double Contributory::getPrice(const bool paied)
     double ret = 0.0;
     User u(1);
     if(_hourlyRate == 0.0) {
-        _hourlyRate = _project->getDailyRate()/u.getNbHoursPerDays();
+        _hourlyRate = _project->getDailyRate()/u.getNbHoursPerDay();
     }
     if(_unit.getype() == HOUR) {
         ret = _quantity * _hourlyRate;
     } else if(_unit.getype() == DAY){
-        ret = _quantity * _hourlyRate * u.getNbHoursPerDays();
+        ret = _quantity * _hourlyRate * u.getNbHoursPerDay();
     } else if(_unit.getype() == MONTH) {
-        ret = _quantity * _hourlyRate * u.getNbHoursPerDays() * u.getNbDaysPerMonths();
+        ret = _quantity * _hourlyRate * u.getNbHoursPerDay() * u.getNbDaysPerMonth();
     }
 
     return ret;
@@ -80,10 +82,10 @@ double Contributory::getSumQuantity()
         ret = _quantity;
         break;
     case HOUR:
-        ret = _quantity / User(1).getNbHoursPerDays();
+        ret = _quantity / User(1).getNbHoursPerDay();
         break;
     case MONTH:
-        ret = _quantity * User(1).getNbDaysPerMonths();
+        ret = _quantity * User(1).getNbDaysPerMonth();
         break;
     }
 

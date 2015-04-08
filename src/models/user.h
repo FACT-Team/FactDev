@@ -165,19 +165,59 @@ public:
      * @brief nbHoursPerDays The number of hours per days who the user work.
      * @return The number of hours per days
      */
-    int getNbHoursPerDays();
+    double getNbHoursPerDay() const;
+    /**
+     * @brief setNbHoursPerDay Change the number of hours per day
+     * @param value The new value
+     */
+    void setNbHoursPerDay(double value);
 
     /**
      * @brief getNbDaysPerMonths The number of days per months who the user work.
      * @return The number of days per months
      */
-    int getNbDaysPerMonths();
+    double getNbDaysPerMonth() const;
+    /**
+     * @brief setNbDaysPerMonth Change the number of days per month
+     * @param getNbDaysPerMonth The new value
+     */
+    void setNbDaysPerMonth(double getNbDaysPerMonth);
+
+    /**
+     * @brief getNbDaysPerWeek The number of days per week
+     * @return The new value
+     */
+    double getNbDaysPerWeek() const;
+
+    /**
+     * @brief setNbDaysPerWeek Change the number of days per week
+     * @param value The new value
+     */
+    void setNbDaysPerWeek(double value);
+
+    /**
+     * @brief getNbHoursPerWeek The number of hours per weeks.
+     * @return The number of hours
+     */
+    double getNbHoursPerWeek() const;
+
+    /**
+     * @brief getNbHoursPerMonth The number of hours per months.
+     * @return The number of hours.
+     */
+    double getNbHoursPerMonth() const;
+
 private:
     QString _title;         //!< User/Company description on it activity
     QString _noSiret;       //!< SIRET number (company registration number)
     QString _workspaceName; //!< Workspace name
     QString _workspacePath; //!< Workspace directory path
     QString _pdflatexPath; //!< Path to pdflatex command
+
+    double _nbHoursPerDay; //!< Number of hours per day
+    double _nbDaysPerWeek; //!< Number of days per week
+    double _nbDaysPerMonth; //!< Number of days per month
+
 };
 }
 #endif // USER_H

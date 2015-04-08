@@ -96,3 +96,39 @@ void UserModelTest::commitRemove()
     u1.commit();
     QVERIFY(*Databases::UserDatabase::instance()->getUser() == u1);
 }
+
+void UserModelTest::workLoadTest() {
+    try {
+        u1.setToRemoved(false);
+
+        // I work ever and ever…
+        u1.setNbDaysPerMonth(25);
+        u1.setNbDaysPerWeek(6);
+        u1.setNbHoursPerDay(10);
+
+        QCOMPARE(u1.getNbDaysPerMonth(), 25.);
+        QCOMPARE(u1.getNbDaysPerWeek(), 6.);
+        QCOMPARE(u1.getNbHoursPerDay(), 10.);
+        QCOMPARE(u1.getNbHoursPerMonth(), 250.);
+        QCOMPARE(u1.getNbHoursPerWeek(), 60.);
+        u1.commit();
+        User u2(1);
+        QCOMPARE(u2.getNbDaysPerMonth(), 25.);
+        QCOMPARE(u2.getNbDaysPerWeek(), 6.);
+        QCOMPARE(u2.getNbHoursPerDay(), 10.);
+        QCOMPARE(u2.getNbHoursPerMonth(), 250.);
+        QCOMPARE(u2.getNbHoursPerWeek(), 60.);
+
+
+        // Reinit values for calculs tests
+        u1.setNbDaysPerMonth(20);
+        u1.setNbDaysPerWeek(5);
+        u1.setNbHoursPerDay(7);
+        QCOMPARE(u1.getNbHoursPerMonth(), 140.);
+        QCOMPARE(u1.getNbHoursPerWeek(), 35.);
+
+        u1.commit();
+    } catch(DbException* e) {
+        QFAIL(e->what());
+    }
+}

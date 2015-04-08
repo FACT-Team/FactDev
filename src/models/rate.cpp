@@ -22,14 +22,11 @@ Rate::Rate()
 
 void Rate::setDailyRate(const double& value)
 {
-//    _hourly = value >= getLegalRate() * getNbDailyHours() ?
-//                valueE     / getNbDailyHours() : getLegalRate();
     _hourly = value / getNbDailyHours();
 }
 
 void Rate::setHourlyRate(const double& value)
 {
-//    _hourly = value >= getLegalRate() ? value : getLegalRate();
     _hourly = value;
 }
 
@@ -45,7 +42,7 @@ double Rate::getHourlyRate() const
 
 int Rate::getNbDailyHours() const
 {
-    return NB_DAILY_HOURS;
+    return User(1).getNbHoursPerDay();
 }
 
 double Rate::getLegalRate() const
