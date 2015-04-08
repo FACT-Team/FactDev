@@ -47,7 +47,9 @@ WdgModels::CustomersTableModel*
 
     while(q.next()) {
         Customer c = *getCustomer(q);
-        ret->append(c);
+        if(!c.isArchived()) {
+            ret->append(c);
+        }
     }
 
     return ret;

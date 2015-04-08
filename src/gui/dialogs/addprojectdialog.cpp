@@ -29,7 +29,6 @@ AddProjectDialog::~AddProjectDialog()
 }
 
 void AddProjectDialog::accept() {
-
     _project.setName(ui->leNameProject->text());
     _project.setDescription(ui->leDescription->toPlainText());
     _project.setBeginDate(QDate::currentDate());
