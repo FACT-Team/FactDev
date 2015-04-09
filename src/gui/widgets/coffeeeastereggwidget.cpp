@@ -26,14 +26,6 @@ void CoffeeEasterEggWidget::setupUI() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(true);
-    /*
-    ":/icons/img/coffee_level0.png"
-    ":/icons/img/coffee_level1.png"
-    ":/icons/img/coffee_level2.png"
-    ":/icons/img/coffee_level3.png"
-    ":/icons/img/coffee_level4.png"
-    ":/icons/img/coffee_ready.png"
-    */
 }
 
 void CoffeeEasterEggWidget::makeCoffeeInProgress() {

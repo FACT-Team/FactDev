@@ -13,7 +13,9 @@ namespace Gui {
 namespace Widgets {
 
 /**
- * @brief The CoffeeEasterEggWidget class
+ * @author Florent Berbie
+ * @brief The CoffeeEasterEggWidget class Easter egg class because we need
+ * coffee
  */
 class CoffeeEasterEggWidget : public QWidget
 {
@@ -21,31 +23,70 @@ class CoffeeEasterEggWidget : public QWidget
 
 public:
     /**
-     * @brief CoffeeEasterEggWidget
-     * @param parent
+     * @brief CoffeeEasterEggWidget::CoffeeEasterEggWidget Construct a
+     *  CoffeeEasterEggWidget
+     * @param parent QWidget parent
      */
     explicit CoffeeEasterEggWidget(QWidget *parent = 0);
     ~CoffeeEasterEggWidget();
 
+    /**
+     * @brief CoffeeEasterEggWidget::setupUI Init user interface
+     */
     void setupUI();
 
-
-
+    /**
+     * @brief CoffeeEasterEggWidget::makeCoffeeFirstStep First step to make
+     * coffee
+     */
     void makeCoffeeFirstStep();
+
+    /**
+     * @brief CoffeeEasterEggWidget::makeCoffeeSecondStep Second step to make
+     * coffee
+     */
     void makeCoffeeSecondStep();
+
+    /**
+     * @brief CoffeeEasterEggWidget::makeCoffeeThirdStep Third step to make
+     * coffee
+     */
     void makeCoffeeThirdStep();
+
+    /**
+     * @brief CoffeeEasterEggWidget::makeCoffeeFourthStep Fourth step to make
+     * coffee
+     */
     void makeCoffeeFourthStep();
+
+    /**
+     * @brief CoffeeEasterEggWidget::makeCoffeeReadyStep Last step to make
+     * coffee
+     */
     void makeCoffeeReadyStep();
+
+    /**
+     * @brief CoffeeEasterEggWidget::isDrinked Return TRUE if coffee has been
+     * drinked, else FALSE
+     * @return boolean
+     */
     bool isDrinked();
 
 public slots:
+    /**
+     * @brief CoffeeEasterEggWidget::makeCoffeeInProgress Make Coffee
+     */
     void makeCoffeeInProgress();
+
+    /**
+     * @brief CoffeeEasterEggWidget::nextState Go to the next state to make
+     * coffee
+     */
     void nextState();
 private:
-    Ui::CoffeeEasterEggWidget *ui;
-    int _state;
-    int _drinked;
-
+    Ui::CoffeeEasterEggWidget *ui;  //!< User interface
+    int _state;                     //!< current state to make coffee
+    int _drinked;                   //!< coffee has been drinked
 };
 }
 }
