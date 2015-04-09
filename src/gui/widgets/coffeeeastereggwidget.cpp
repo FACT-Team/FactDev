@@ -36,8 +36,7 @@ void CoffeeEasterEggWidget::setupUI() {
     */
 }
 
-void CoffeeEasterEggWidget::makeCoffeeInProgress()
-{
+void CoffeeEasterEggWidget::makeCoffeeInProgress() {
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(nextState()));
     timer->start(1000);

@@ -29,7 +29,7 @@ public:
 
     void setupUI();
 
-    void makeCoffeeInProgress();
+
 
     void makeCoffeeFirstStep();
     void makeCoffeeSecondStep();
@@ -39,6 +39,7 @@ public:
     bool isDrinked();
 
 public slots:
+    void makeCoffeeInProgress();
     void nextState();
 private:
     Ui::CoffeeEasterEggWidget *ui;

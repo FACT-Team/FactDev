@@ -87,5 +87,25 @@
  <resources>
   <include location="../../icons.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnCoffeeMaker</sender>
+   <signal>clicked()</signal>
+   <receiver>CoffeeEasterEggWidget</receiver>
+   <slot>makeCoffeeInProgress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>209</x>
+     <y>347</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>makeCoffeeInProgress()</slot>
+ </slots>
 </ui>
