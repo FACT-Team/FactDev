@@ -238,7 +238,7 @@ void MainWindow::responsiveBillingTable()
 }
 
 bool MainWindow::isEasterEgg(const QString filter) {
-    return filter == "FleuryMigeon42";
+    return _searchDock->getText() == "FleuryMigeon42";
 }
 
 
@@ -705,8 +705,6 @@ void MainWindow::updateTableCustomers(QString filter, const int row) {
         }
         responsiveCustomerTable();
     } else {
-
-        qDebug() << "test";
         changeEasterEgg();
     }
 

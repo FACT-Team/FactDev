@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTimer>
+#include <QDebug>
 #include "gui/utils/image.h"
 
 namespace Ui {
@@ -85,6 +86,7 @@ public slots:
     void nextState();
 private:
     Ui::CoffeeEasterEggWidget *ui;  //!< User interface
+    QTimer *_timer;                  //!< Timer of coffeeMaker
     int _state;                     //!< current state to make coffee
     int _drinked;                   //!< coffee has been drinked
 };

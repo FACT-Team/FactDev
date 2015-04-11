@@ -29,9 +29,11 @@ void CoffeeEasterEggWidget::setupUI() {
 }
 
 void CoffeeEasterEggWidget::makeCoffeeInProgress() {
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(nextState()));
-    timer->start(1000);
+    _timer = new QTimer(this);
+    _state = 1;
+    connect(_timer, SIGNAL(timeout()), this, SLOT(nextState()));
+    _timer->start(1000);
+    qDebug() << "makeCoffeeInProgress";
 
 }
 
@@ -44,6 +46,7 @@ void CoffeeEasterEggWidget::makeCoffeeFirstStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
+    _state = 2;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeSecondStep() {
@@ -55,6 +58,7 @@ void CoffeeEasterEggWidget::makeCoffeeSecondStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
+    _state = 3;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeThirdStep() {
@@ -66,6 +70,7 @@ void CoffeeEasterEggWidget::makeCoffeeThirdStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
+    _state = 4;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeFourthStep() {
@@ -77,6 +82,7 @@ void CoffeeEasterEggWidget::makeCoffeeFourthStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
+    _state = 5;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeReadyStep() {
@@ -91,7 +97,10 @@ void CoffeeEasterEggWidget::makeCoffeeReadyStep() {
         ui->btnCoffeeMaker->setEnabled(false);
         _drinked++;
     } else {
-        setupUI();
+        _timer->stop();
+        delete _timer;
+        setupUI();        
+
     }
 
 }
@@ -101,6 +110,7 @@ bool CoffeeEasterEggWidget::isDrinked() {
 }
 
 void CoffeeEasterEggWidget::nextState() {
+    qDebug() << "nextState -->" + _state;
     switch(_state) {
     case 0:
         setupUI();
@@ -123,6 +133,7 @@ void CoffeeEasterEggWidget::nextState() {
     default:
         setupUI();
     }
+
 }
 
 
