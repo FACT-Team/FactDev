@@ -148,8 +148,12 @@ void MainWindow::addDoc(bool isBilling) {
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
-{
-   switch (ui->stackedWidget->currentIndex()) {
+{    
+    if (height() < 540) {
+        tabifyDockWidget(ui->dockUserData, ui->dockCustomerData);
+    }
+
+    switch (ui->stackedWidget->currentIndex()) {
         case 0:
             responsiveCustomerTable();
             break;
