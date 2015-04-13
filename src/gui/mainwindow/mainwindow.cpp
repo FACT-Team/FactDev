@@ -168,18 +168,24 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::responsiveCustomerTable()
 {
     int w = ui->tblCustomers->width();
-
-    ui->tblCustomers->resizeColumnsToContents();
+    double fixedRatio = 115.0;
+    int nbCompleteColumns = 3;
+    double complete = 0.2 + 0.125 + 0.125 + + 0.25 + 2*(fixedRatio/w);
 
     if (w > 650) {
         ui->tblCustomers->hideColumn(0);
-        ui->tblCustomers->setColumnWidth(0, w*0.0);
-        ui->tblCustomers->setColumnWidth(1, w*0.15);
-        ui->tblCustomers->setColumnWidth(2, w*0.15);
-        ui->tblCustomers->setColumnWidth(3, w*0.15);
-        ui->tblCustomers->setColumnWidth(4, w*0.15);
+        ui->tblCustomers->setColumnWidth(0, w*(0.0));
+        ui->tblCustomers->setColumnWidth(
+                    1, w*(0.2 + (1.0-complete)/nbCompleteColumns));
+        ui->tblCustomers->setColumnWidth(
+                    2, w*(0.123 + (1.0-complete)/nbCompleteColumns));
+        ui->tblCustomers->setColumnWidth(
+                    3, w*(0.123 + (1.0-complete)/nbCompleteColumns));
+        ui->tblCustomers->setColumnWidth(4, fixedRatio);
         ui->tblCustomers->setColumnWidth(5, w*0.25);
-        ui->tblCustomers->setColumnWidth(6, w*0.145);
+        ui->tblCustomers->setColumnWidth(6, fixedRatio);
+
+
     } else {
         ui->tblCustomers->hideColumn(0);
         ui->tblCustomers->setColumnWidth(0, 0);
@@ -196,36 +202,46 @@ void MainWindow::responsiveCustomerTable()
 void MainWindow::responsiveProjectTable()
 {
     int w = ui->tblProjects->width();
+    int nbCompleteColumns = 2;
+    double complete = 0.15 + 0.5 + 2*(100.0/w) + (80.0/w);
 
     if (w > 400) {
-        ui->tblProjects->setColumnWidth(0, w*0.1);
-        ui->tblProjects->setColumnWidth(1,w*0.15);
-        ui->tblProjects->setColumnWidth(2, w*0.5);
-        ui->tblProjects->setColumnWidth(3, w*0.125);
-        ui->tblProjects->setColumnWidth(4, w*0.125);
-        ui->tblProjects->setColumnWidth(5,w*0.095);
+        ui->tblProjects->hideColumn(0);
+        ui->tblProjects->setColumnWidth(0, w*0.0);
+        ui->tblProjects->setColumnWidth(
+                    1, w*(0.145 + (1.0-complete)/nbCompleteColumns));
+        ui->tblProjects->setColumnWidth(
+                    2, w*(0.5 + (1.0-complete)/nbCompleteColumns));
+        ui->tblProjects->setColumnWidth(3, 100.0);
+        ui->tblProjects->setColumnWidth(4, 100.0);
+        ui->tblProjects->setColumnWidth(5, 80.0);
     } else {
-        ui->tblProjects->setColumnWidth(0, 100);
+        ui->tblProjects->hideColumn(0);
+        ui->tblProjects->setColumnWidth(0, 0);
         ui->tblProjects->setColumnWidth(1, 150);
         ui->tblProjects->setColumnWidth(2, 200);
-        ui->tblProjects->setColumnWidth(3, 122);
-        ui->tblProjects->setColumnWidth(4, 122);
-        ui->tblProjects->setColumnWidth(5, 100);
+        ui->tblProjects->setColumnWidth(3, 100);
+        ui->tblProjects->setColumnWidth(4, 100);
+        ui->tblProjects->setColumnWidth(5, 80);
     }
 }
 
 void MainWindow::responsiveBillingTable()
 {
     int w = ui->tblQuotes->width();
+    int nbCompleteColumns = 2;
+    double complete = (30.0/w) + 2*(70.0/w) + 0.355 + 0.285 + (100.0/w);
 
     if (w > 700) {
         ui->tblQuotes->hideColumn(0);
-        ui->tblQuotes->setColumnWidth(1, w*0.045);
-        ui->tblQuotes->setColumnWidth(2, w*0.09);
-        ui->tblQuotes->setColumnWidth(3, w*0.355);
-        ui->tblQuotes->setColumnWidth(4, w*0.285);
-        ui->tblQuotes->setColumnWidth(5, w*0.15);
-        ui->tblQuotes->setColumnWidth(6, w*0.07);
+        ui->tblQuotes->setColumnWidth(1, 30);
+        ui->tblQuotes->setColumnWidth(2, 70);
+        ui->tblQuotes->setColumnWidth(
+                    3, w*(0.35 + (1.0-complete)/nbCompleteColumns));
+        ui->tblQuotes->setColumnWidth(
+                    4, w*(0.285+ (1.0-complete)/nbCompleteColumns));
+        ui->tblQuotes->setColumnWidth(5, 100);
+        ui->tblQuotes->setColumnWidth(6, 70);
     } else {
         ui->tblQuotes->hideColumn(0);
         ui->tblQuotes->setColumnWidth(1, 40);

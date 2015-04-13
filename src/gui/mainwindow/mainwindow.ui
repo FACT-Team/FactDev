@@ -533,7 +533,7 @@
    <addaction name="actionNewQuote"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget_2">
+  <widget class="QDockWidget" name="dockCustomerData">
    <property name="minimumSize">
     <size>
      <width>270</width>
@@ -642,7 +642,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidget_4">
+  <widget class="QDockWidget" name="dockUserData">
    <property name="minimumSize">
     <size>
      <width>270</width>
