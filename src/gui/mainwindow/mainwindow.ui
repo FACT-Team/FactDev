@@ -838,11 +838,19 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/stats.png</normaloff>:/icons/stats.png</iconset>
+   </property>
    <property name="text">
     <string>Statistiques du client</string>
    </property>
   </action>
   <action name="actGlobalStatistics">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/stats.png</normaloff>:/icons/stats.png</iconset>
+   </property>
    <property name="text">
     <string>Statistiques globales</string>
    </property>
