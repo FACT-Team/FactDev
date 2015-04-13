@@ -44,6 +44,18 @@ public:
      * @return QPixmap from bytes
      */
     static QPixmap bytesToPixmap(const QByteArray bytes);
+
+    /**
+     * @brief Image::getImage Return a scaled image from the
+     * icon specified by it <i>path</i>. The image returned has a resolution of
+     * <i>width</i>*<i>height</i> (default 256*256)
+     * @param path Icon path
+     * @param width Icon width
+     * @param height Icon height
+     * @return Scaled image
+     */
+    static QPixmap getImage(QString path, int width = 256, int height = 256);
+
 };
 
 }

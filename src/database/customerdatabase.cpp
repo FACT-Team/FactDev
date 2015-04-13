@@ -238,7 +238,6 @@ QPixmap CustomerDatabase::getCustomerImage(const int pId)
 
 void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
     QSqlQuery q;
-    qDebug() << pCustomer.getLastname() << " - " << pCustomer.getImage()->size();
     QByteArray byteArray = Gui::Utils::Image::pixmapToBytes(
                 *pCustomer.getImage(),
                 pCustomer.getExtensionImage());
@@ -256,8 +255,6 @@ void CustomerDatabase::setCustomerImage(Models::Customer &pCustomer) {
                     lastError(q),
                     1.3);
     }
-    qDebug() << pCustomer.getLastname() << " - " << "Image inserted";
-
 }
 
 QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {

@@ -26,6 +26,12 @@ public:
     explicit SearchDock(QWidget *parent=0, Qt::WindowFlags flags = 0);
     ~SearchDock();
 
+    /**
+     * @brief SearchDock::getText Get the current text searched
+     * @return Text searched
+     */
+    QString getText() const;
+
 public slots:
     /**
      * @brief SearchDock::search Search elements in database which correspond
@@ -43,6 +49,7 @@ signals:
 
 private:
     Ui::SearchDock *ui; //!< User interface
+    QString _text;      //!< Search text
 
 };
 
