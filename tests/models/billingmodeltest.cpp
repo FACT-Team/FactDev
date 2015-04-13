@@ -173,6 +173,14 @@ void BillingModelTest::getPriceTest() {
 
 }
 
+void BillingModelTest::isBillingOrQuote() {
+    b1->setIsBilling(true);
+    QCOMPARE(b1->isBilling(), true);
+
+    b1->setIsBilling(false);
+    QCOMPARE(b1->isBilling(), false);
+}
+
 void BillingModelTest::sumQuantityTest() {
     Billing b1(1);
     QCOMPARE(7.71, Utils::Double::round(b1.getSumQuantity(), 2));

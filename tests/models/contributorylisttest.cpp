@@ -191,14 +191,4 @@ void ContributoryListTest::testDifferentUnit()
     QCOMPARE(true, c.getUnit() != Unit(HOUR));
 }
 
-void ContributoryListTest::testInsert()
-{
-    Project* p = new Project(4);
-    Contributory c;
-    c.setQuantity(40);
-    c.setUnit(Unit(MONTH));
-    c.setProject(p);
-
-    QCOMPARE(true, c.getUnit() != Unit(HOUR));
-}
 
