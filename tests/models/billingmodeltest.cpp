@@ -181,6 +181,15 @@ void BillingModelTest::isBillingOrQuote() {
     QCOMPARE(b1->isBilling(), false);
 }
 
+void BillingModelTest::billingDateInferiorToDate()
+{
+    b1->setDate(QDate(1995, 5, 17));
+    QCOMPARE(true, b1->getDate() < QDate(1995, 5, 20));
+
+    b1->setDate(QDate(1995, 5, 17));
+    QCOMPARE(false, b1->getDate() > QDate(1995, 5, 20));
+}
+
 void BillingModelTest::sumQuantityTest() {
     Billing b1(1);
     QCOMPARE(7.71, Utils::Double::round(b1.getSumQuantity(), 2));

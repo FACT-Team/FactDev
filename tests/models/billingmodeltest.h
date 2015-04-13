@@ -25,6 +25,7 @@ private slots:
     void sumQuantityTest();
     void getPriceTest();
     void isBillingOrQuote();
+    void billingDateInferiorToDate();
 
 private:
     Billing* b1;
