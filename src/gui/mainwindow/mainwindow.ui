@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1247</width>
-    <height>691</height>
+    <width>1278</width>
+    <height>683</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>600</width>
         <height>0</height>
        </size>
       </property>
@@ -104,8 +104,8 @@
            <widget class="QTableView" name="tblCustomers">
             <property name="minimumSize">
              <size>
-              <width>811</width>
-              <height>300</height>
+              <width>600</width>
+              <height>200</height>
              </size>
             </property>
             <property name="contextMenuPolicy">
@@ -468,7 +468,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1247</width>
+     <width>1278</width>
      <height>20</height>
     </rect>
    </property>
@@ -652,7 +652,7 @@
    <property name="minimumSize">
     <size>
      <width>270</width>
-     <height>200</height>
+     <height>100</height>
     </size>
    </property>
    <property name="font">
