@@ -4,10 +4,12 @@
 namespace Gui {
 namespace Dialogs {
 
-AddProjectDialog::AddProjectDialog(int idProject, int noRowCustomer, QWidget *parent) :
-    QDialog(parent), ui(new Ui::AddProjectDialog)
+AddProjectDialog::AddProjectDialog(
+        int idProject, int noRowCustomer, QWidget *parent)
+    : QDialog(parent), ui(new Ui::AddProjectDialog)
 {
     ui->setupUi(this);
+    Gui::Utils::WindowSettings::setPositionToCenter(*this);
 
     ui->wdgSearch->selectCustomer(noRowCustomer);
     ui->leNameProject->setFocus();

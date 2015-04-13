@@ -41,6 +41,7 @@ void MainWindow::setupUi()
     ui->setupUi(this);
 
     Utils::WindowSettings::setMaximumSize(*this);
+    Utils::WindowSettings::setPositionToCenter(*this);
 
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
@@ -148,7 +149,7 @@ void MainWindow::addDoc(bool isBilling) {
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    switch (ui->stackedWidget->currentIndex()) {
+   switch (ui->stackedWidget->currentIndex()) {
         case 0:
             responsiveCustomerTable();
             break;
@@ -244,12 +245,12 @@ void MainWindow::responsiveBillingTable()
         ui->tblQuotes->setColumnWidth(6, 70);
     } else {
         ui->tblQuotes->hideColumn(0);
-        ui->tblQuotes->setColumnWidth(1, 40);
-        ui->tblQuotes->setColumnWidth(2, 60);
+        ui->tblQuotes->setColumnWidth(1, 30);
+        ui->tblQuotes->setColumnWidth(2, 70);
         ui->tblQuotes->setColumnWidth(3, 200);
         ui->tblQuotes->setColumnWidth(4, 250);
-        ui->tblQuotes->setColumnWidth(5, 130);
-        ui->tblQuotes->setColumnWidth(6, 50);
+        ui->tblQuotes->setColumnWidth(5, 100);
+        ui->tblQuotes->setColumnWidth(6, 70);
     }
 }
 
