@@ -237,6 +237,10 @@ void MainWindow::responsiveBillingTable()
     }
 }
 
+bool MainWindow::isEasterEgg(const QString filter) {
+    return _searchDock->getText() == "FleuryMigeon42";
+}
+
 
 
 void MainWindow::billingIsPaid()
@@ -576,6 +580,11 @@ void MainWindow::changeDocsTable()
     updateButtons();
 }
 
+void MainWindow::changeEasterEgg()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
 void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
@@ -685,15 +694,20 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 
 void MainWindow::updateTableCustomers(QString filter, const int row) {
-    ui->tblCustomers->setModel(
-        Databases::CustomerDatabase::instance()->getCustomersTable(filter));    
+    if (!isEasterEgg(filter)) {
+        ui->tblCustomers->setModel(
+            Databases::CustomerDatabase::instance()->getCustomersTable(filter));
 
-    if (row > -1) {
-        ui->tblCustomers->selectRow(row);
+        if (row > -1) {
+            ui->tblCustomers->selectRow(row);
+        } else {
+            ui->tblCustomers->clearSelection();
+        }
+        responsiveCustomerTable();
     } else {
-        ui->tblCustomers->clearSelection();
+        changeEasterEgg();
     }
-    responsiveCustomerTable();
+
 }
 
 void MainWindow::updateTableProjects(const int pId, const int row)
@@ -744,13 +758,17 @@ void MainWindow::updateCostAndTurnover()
                 ui->tblCustomers->currentIndex().row());
 }
 
-void MainWindow::updateTree(QString filter)
-{
-    if (ui->trCustomers->model() != NULL) {
-        delete ui->trCustomers->model();
+void MainWindow::updateTree(QString filter) {
+    if (!isEasterEgg(filter)) {
+        if (ui->trCustomers->model() != NULL) {
+            delete ui->trCustomers->model();
+        }
+        ui->trCustomers->setModel(
+                    Databases::CustomerDatabase::instance()->getTree(filter));
+    } else {
+        changeEasterEgg();
     }
-    ui->trCustomers->setModel(
-                Databases::CustomerDatabase::instance()->getTree(filter));
+
 }
 
 void MainWindow::updateButtons()
