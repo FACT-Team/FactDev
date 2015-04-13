@@ -17,7 +17,7 @@ CoffeeEasterEggWidget::~CoffeeEasterEggWidget()
 }
 
 void CoffeeEasterEggWidget::setupUI() {
-    _state = 0;
+    _state = INIT;
     _drinked = 0;
     ui->lbCoffee->setPixmap(
                 Gui::Utils::Image::getImage(":/icons/img/coffee_level0.png"));
@@ -30,15 +30,13 @@ void CoffeeEasterEggWidget::setupUI() {
 
 void CoffeeEasterEggWidget::makeCoffeeInProgress() {
     _timer = new QTimer(this);
-    _state = 1;
+    _state = FIRST_STEP;
     connect(_timer, SIGNAL(timeout()), this, SLOT(nextState()));
     _timer->start(1000);
-    qDebug() << "makeCoffeeInProgress";
-
 }
 
 void CoffeeEasterEggWidget::makeCoffeeFirstStep() {
-    _state = 1;
+    _state = FIRST_STEP;
     ui->lbCoffee->setPixmap(
                 Gui::Utils::Image::getImage(":/icons/img/coffee_level1.png"));
     ui->lbScreenControl->setText("<html><head/><body><p align=""center"">"
@@ -46,11 +44,11 @@ void CoffeeEasterEggWidget::makeCoffeeFirstStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
-    _state = 2;
+    _state = SECOND_STEP;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeSecondStep() {
-    _state = 2;
+    _state = SECOND_STEP;
     ui->lbCoffee->setPixmap(
                 Gui::Utils::Image::getImage(":/icons/img/coffee_level2.png"));
     ui->lbScreenControl->setText("<html><head/><body><p align=""center"">"
@@ -58,11 +56,11 @@ void CoffeeEasterEggWidget::makeCoffeeSecondStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
-    _state = 3;
+   _state = THIRD_STEP;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeThirdStep() {
-    _state = 3;
+   _state = THIRD_STEP;
     ui->lbCoffee->setPixmap(
                 Gui::Utils::Image::getImage(":/icons/img/coffee_level3.png"));
     ui->lbScreenControl->setText("<html><head/><body><p align=""center"">"
@@ -70,11 +68,11 @@ void CoffeeEasterEggWidget::makeCoffeeThirdStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
-    _state = 4;
+    _state = FOURTH_STEP;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeFourthStep() {
-    _state = 4;
+    _state = FOURTH_STEP;
     ui->lbCoffee->setPixmap(
                 Gui::Utils::Image::getImage(":/icons/img/coffee_level4.png"));
     ui->lbScreenControl->setText("<html><head/><body><p align=""center"">"
@@ -82,11 +80,11 @@ void CoffeeEasterEggWidget::makeCoffeeFourthStep() {
                                  "</p></body></html>");
     ui->btnCoffeeMaker->setText("Faire le café !");
     ui->btnCoffeeMaker->setEnabled(false);
-    _state = 5;
+    _state = READY;
 }
 
 void CoffeeEasterEggWidget::makeCoffeeReadyStep() {
-    _state = 5;
+    _state = READY;
     if (!isDrinked()) {
         ui->lbCoffee->setPixmap(
                     Gui::Utils::Image::getImage(":/icons/img/coffee_ready.png"));
@@ -110,24 +108,23 @@ bool CoffeeEasterEggWidget::isDrinked() {
 }
 
 void CoffeeEasterEggWidget::nextState() {
-    qDebug() << "nextState -->" + _state;
     switch(_state) {
-    case 0:
+    case INIT:
         setupUI();
         break;
-    case 1:
+    case FIRST_STEP:
         makeCoffeeFirstStep();
         break;
-    case 2:
+    case SECOND_STEP:
         makeCoffeeSecondStep();
         break;
-    case 3:
+    case THIRD_STEP:
         makeCoffeeThirdStep();
         break;
-    case 4:
+    case FOURTH_STEP:
         makeCoffeeFourthStep();
         break;
-    case 5:
+    case READY:
         makeCoffeeReadyStep();
         break;
     default:

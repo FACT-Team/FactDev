@@ -14,6 +14,18 @@ namespace Gui {
 namespace Widgets {
 
 /**
+ * @brief The CoffeeState enum
+ */
+enum CoffeeState {
+    INIT,
+    FIRST_STEP,
+    SECOND_STEP,
+    THIRD_STEP,
+    FOURTH_STEP,
+    READY
+};
+
+/**
  * @author Florent Berbie
  * @brief The CoffeeEasterEggWidget class Easter egg class because we need
  * coffee
@@ -21,6 +33,7 @@ namespace Widgets {
 class CoffeeEasterEggWidget : public QWidget
 {
     Q_OBJECT
+
 
 public:
     /**
@@ -86,8 +99,8 @@ public slots:
     void nextState();
 private:
     Ui::CoffeeEasterEggWidget *ui;  //!< User interface
-    QTimer *_timer;                  //!< Timer of coffeeMaker
-    int _state;                     //!< current state to make coffee
+    QTimer *_timer;                 //!< Timer of coffeeMaker
+    CoffeeState _state;             //!< current state to make coffee
     int _drinked;                   //!< coffee has been drinked
 };
 }
