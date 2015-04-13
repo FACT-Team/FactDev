@@ -22,6 +22,8 @@ private slots:
 
     void testMonthQuantity();
     void testDifferentUnit();
+
+    void testInsert();
 private:
     void setup();
 
