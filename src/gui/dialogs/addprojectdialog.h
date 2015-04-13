@@ -8,6 +8,7 @@
 #include "models/customer.h"
 
 #include "gui/mainwindow/mainwindow.h"
+#include "gui/utils/windowsettings.h"
 
 namespace Ui {
 class AddProjectDialog;

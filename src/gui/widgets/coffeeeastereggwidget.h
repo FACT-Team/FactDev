@@ -34,7 +34,6 @@ class CoffeeEasterEggWidget : public QWidget
 {
     Q_OBJECT
 
-
 public:
     /**
      * @brief CoffeeEasterEggWidget::CoffeeEasterEggWidget Construct a

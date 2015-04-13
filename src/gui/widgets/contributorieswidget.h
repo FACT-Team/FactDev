@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QStandardItem>
 #include <QSpinBox>
+#include <QTableView>
 
 #include "models/contributory.h"
 #include "models/contributorieslist.h"
@@ -59,6 +60,10 @@ public:
      * @param list the <b>ContributoriesList</b>
      */
     void add(ContributoriesList &list);
+
+    void responsiveProjectsTable();
+    void responsiveContributoriesTable(QTableView *view);
+
 public slots:
     /**
      * @brief ContributoriesWidget::add Add a new empty contributory

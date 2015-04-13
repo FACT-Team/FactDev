@@ -55,6 +55,10 @@
      <property name="text">
       <string>Clôturer le projet</string>
      </property>
+     <property name="icon">
+      <iconset resource="../../icons.qrc">
+       <normaloff>:/icons/img/lock.png</normaloff>:/icons/img/lock.png</iconset>
+     </property>
     </widget>
    </item>
   </layout>

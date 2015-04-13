@@ -6,6 +6,7 @@
 #include "database/billingdatabase.h"
 
 #include "gui/widgets/contributorieswidget.h"
+#include "gui/utils/windowsettings.h"
 
 using namespace Models;
 

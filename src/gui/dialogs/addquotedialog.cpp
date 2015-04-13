@@ -12,8 +12,14 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
     _idCustomer(idCustomer)
 {
     ui->setupUi(this);
-    ui->wdgContributories = new Gui::Widgets::ContributoriesWidget(QSharedPointer<Customer>(new Customer(idCustomer)), this);
-    connect(ui->wdgContributories, SIGNAL(contributoryChanged()), this, SLOT(updateBtn()));
+    Gui::Utils::WindowSettings::setPositionToCenter(*this);
+    ui->wdgContributories =
+            new Gui::Widgets::ContributoriesWidget(
+                QSharedPointer<Customer>(new Customer(idCustomer)), this);
+    connect(ui->wdgContributories,
+            SIGNAL(contributoryChanged()),
+            this,
+            SLOT(updateBtn()));
 
     if (id != 0) {
         _quote = new Billing(id);

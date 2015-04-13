@@ -28,7 +28,8 @@ WdgModels::CustomersTableModel*
     q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
                "c.firstnameReferent as cfirstnameReferent, "
                "UPPER(c.lastnameReferent) as clastnameReferent, "
-               "c.company as ccompany, c.complementAddress as ccomplement, c.website as cwebsite, "
+               "c.company as ccompany, c.complementAddress as ccomplement, "
+               "c.website as cwebsite, "
                "c.address as caddress, c.postalCode as cpostalcode, "
                "c.city as ccity, c.country as ccountry, c.email as cemail, "
                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
@@ -64,18 +65,18 @@ throw(DbException*)
 
     QSqlQuery q;
 
-    q.prepare(  "SELECT DISTINCT c.idCustomer as cidcustomer, "
-                "c.firstnameReferent as cfirstnameReferent, "
-                "UPPER(c.lastnameReferent) as clastnameReferent, "
-                "c.company as ccompany, "
-                "c.address as caddress, c.postalCode as cpostalcode, "
-                "c.city as ccity, c.country as ccountry, c.email as cemail, "
-                "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
-                "c.complementAddress as ccomplement, c.website as cwebsite,"
-                "c.isArchived as cisArchived "
-                "FROM Customer c "+filter+" "
-                "ORDER BY 4, 3 "
-                );
+    q.prepare( "SELECT DISTINCT c.idCustomer as cidcustomer, "
+               "c.firstnameReferent as cfirstnameReferent, "
+               "UPPER(c.lastnameReferent) as clastnameReferent, "
+               "c.company as ccompany, c.complementAddress as ccomplement, "
+               "c.website as cwebsite, "
+               "c.address as caddress, c.postalCode as cpostalcode, "
+               "c.city as ccity, c.country as ccountry, c.email as cemail, "
+               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
+               "c.isArchived as cisArchived "
+               "FROM Customer c "+filter+" "
+               "ORDER BY 4, 3"
+               );
 
     if(!q.exec()) {
         throw new DbException(
@@ -148,7 +149,7 @@ throw(DbException*)
 
 QStandardItem *CustomerDatabase::getItemRoot() {
     QStandardItem* itemRoot = new QStandardItem("Tous les clients");
-    itemRoot->setIcon(QIcon(":icons/img/all_customers.png"));
+    itemRoot->setIcon(QIcon(":/icons/all_customers"));
     return itemRoot;
 }
 
@@ -263,11 +264,12 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(const int pId) {
 
     q.prepare("SELECT DISTINCT c.idCustomer as cidcustomer, "
               "c.firstnameReferent as cfirstnameReferent, "
-              "c.lastnameReferent as clastnameReferent, c.company as ccompany, "
+              "UPPER(c.lastnameReferent) as clastnameReferent, "
+              "c.company as ccompany, "
               "c.address as caddress, c.postalCode as cpostalcode, "
               "c.city as ccity, c.country as ccountry, c.email as cemail, "
               "c.phone as cphone, c.mobilephone as cmobilephone, c.fax as cfax, "
-              "c.complementAddress as ccomplement, c.website as cwebsite, "
+              "c.complementAddress as ccomplement, c.website as cwebsite,"
               "c.isArchived as cisArchived "
               "FROM Customer c "
               "WHERE idCustomer = :pId");

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>360</width>
-    <height>301</height>
+    <height>338</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -26,28 +26,22 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
+   <item row="2" column="1">
+    <widget class="QLabel" name="lbPhone">
      <property name="minimumSize">
       <size>
-       <width>24</width>
-       <height>24</height>
+       <width>0</width>
+       <height>20</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>24</width>
-       <height>24</height>
+       <width>16777215</width>
+       <height>20</height>
       </size>
      </property>
      <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../../icons.qrc">:/icons/img/company.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
+      <string>Phone +33674801256</string>
      </property>
     </widget>
    </item>
@@ -72,6 +66,25 @@ font-weight: bold;</string>
      </property>
      <property name="text">
       <string>&lt;b&gt;Organisation A&lt;/b&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="lbName">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Monsieur a A</string>
      </property>
     </widget>
    </item>
@@ -100,22 +113,28 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QLabel" name="lbName">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
      <property name="minimumSize">
       <size>
-       <width>0</width>
-       <height>20</height>
+       <width>24</width>
+       <height>24</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
-       <height>20</height>
+       <width>24</width>
+       <height>24</height>
       </size>
      </property>
      <property name="text">
-      <string>Monsieur a A</string>
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../../icons.qrc">:/icons/img/company.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -141,25 +160,6 @@ font-weight: bold;</string>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QLabel" name="lbPhone">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Phone +33674801256</string>
      </property>
     </widget>
    </item>
@@ -207,75 +207,6 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="lbTitleFax">
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../../icons.qrc">:/icons/img/fax.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLabel" name="lbFax">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Fax +33674801256</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="label_2">
-     <property name="minimumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="../../icons.qrc">:/icons/img/email.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="5" column="1">
     <widget class="QLabel" name="lbEmail">
      <property name="minimumSize">
@@ -292,6 +223,13 @@ font-weight: bold;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;a.A@truc.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLabel" name="website">
+     <property name="text">
+      <string>TextLabel</string>
      </property>
     </widget>
    </item>
@@ -320,12 +258,106 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="1">
-    <widget class="QLabel" name="website">
+   <item row="7" column="1">
+    <widget class="QLabel" name="lbAddress">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>345</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>42 chemin de la chose</string>
      </property>
     </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLabel" name="lbFax">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Fax +33674801256</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="lbTitleFax">
+     <property name="minimumSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../../icons.qrc">:/icons/img/fax.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="minimumSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../../icons.qrc">:/icons/img/email.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item row="7" column="0">
     <widget class="QLabel" name="label_3">
@@ -352,26 +384,7 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="1">
-    <widget class="QLabel" name="lbAddress">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>345</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>42 chemin de la chose</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="1">
+   <item row="9" column="1">
     <widget class="QLabel" name="lbPostalCodeCityCountry">
      <property name="minimumSize">
       <size>
@@ -390,32 +403,19 @@ font-weight: bold;</string>
      </property>
     </widget>
    </item>
-   <item row="9" column="1">
+   <item row="8" column="1">
     <widget class="QLabel" name="complement">
      <property name="text">
-      <string>TextLabel</string>
+      <string>Complément addresse</string>
      </property>
     </widget>
    </item>
-   <item row="10" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="11" column="0" colspan="2">
+   <item row="10" column="1">
     <widget class="QLabel" name="lbImage">
      <property name="minimumSize">
       <size>
        <width>96</width>
-       <height>70</height>
+       <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
