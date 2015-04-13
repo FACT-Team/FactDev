@@ -293,6 +293,7 @@ private slots:
      * when we change the selected doc in tblQuotes
      */
     void changeDocsTable();
+
     /**
      * @brief MainWindow::changeEasterEgg function to update the view
      * when we change the selected dock in easter egg

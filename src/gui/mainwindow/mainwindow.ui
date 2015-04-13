@@ -22,7 +22,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -1476,6 +1476,22 @@
     <hint type="destinationlabel">
      <x>959</x>
      <y>627</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblQuotes</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openPdf()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>721</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>719</x>
+     <y>359</y>
     </hint>
    </hints>
   </connection>
