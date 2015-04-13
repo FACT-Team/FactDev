@@ -163,3 +163,25 @@ void ContributoryListTest::getQuantityOfProjectTest()
 
 }
 
+void ContributoryListTest::testMonthQuantity()
+{
+    Project* p = new Project(4);
+    Contributory c;
+    c.setQuantity(40);
+    c.setUnit(Unit(MONTH));
+    c.setProject(p);
+
+    QVERIFY(c.getUnit() == Unit(MONTH));
+}
+
+void ContributoryListTest::testDifferentUnit()
+{
+    Project* p = new Project(4);
+    Contributory c;
+    c.setQuantity(40);
+    c.setUnit(Unit(MONTH));
+    c.setProject(p);
+
+    QCOMPARE(true, c.getUnit() != Unit(HOUR));
+}
+
