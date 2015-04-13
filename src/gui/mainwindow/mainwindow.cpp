@@ -115,8 +115,14 @@ void MainWindow::addCustomer()
 
 void MainWindow::addProject()
 {
-    AddProjectDialog *addProjectDialog =
+    AddProjectDialog *addProjectDialog;
+    if (ui->tblCustomers->currentIndex().row() == -1) {
+         addProjectDialog = new AddProjectDialog(0, 0);
+    } else {
+        addProjectDialog =
                 new AddProjectDialog(0, ui->tblCustomers->currentIndex().row());
+    }
+
 
     if (addProjectDialog->exec()) {
         updateTableProjects(getCurrentCustomerId());
