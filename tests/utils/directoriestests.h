@@ -12,6 +12,7 @@ public:
     ~DirectoriesTests();
 private slots:
     void validDirectoriesTest();
+    void invalidDirectoriesTest();
 };
 
 DECLARE_TEST(DirectoriesTests)
