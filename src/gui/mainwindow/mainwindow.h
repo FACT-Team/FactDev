@@ -262,6 +262,9 @@ public slots:
      */
     void lockProject();
 
+    /**
+     * @brief MainWindow::mergeDocks
+     */
     void mergeDocks();
 private slots:
     /**

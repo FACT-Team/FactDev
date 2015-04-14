@@ -363,7 +363,7 @@ void MainWindow::lockProject() {
 }
 
 void MainWindow::mergeDocks() {
-    if (height() < 540) {
+    if (height() < 700 && height() != 683) {
         tabifyDockWidget(ui->dockUserData, ui->dockCustomerData);
     }
 }
