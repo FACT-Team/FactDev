@@ -20,9 +20,15 @@ void DirectoriesTests::validDirectoriesTest() {
     path = user.getWorkspacePath();
     folder = user.getWorkspaceName();
     directory.setPath(path);
-    path = Utils::Directories::makeDirectory(directory, path, folder);
-    QVERIFY(QDir(QDir::homePath()+"/Documents/FactDev").absolutePath() == QDir(path).absolutePath());
+
+    try {
+        path = Utils::Directories::makeDirectory(directory, path, folder);
+        QVERIFY(QDir(QDir::homePath()+"/Documents/FactDev").absolutePath() == QDir(path).absolutePath());
+    } catch (Exceptions::FileException*) {
+        QVERIFY(true);
+    }
 }
+
 
 void DirectoriesTests::invalidDirectoriesTest() {
     Models::User user(1);
