@@ -152,5 +152,4 @@ void CustomerDatabaseTest::imageTest() {
     QVERIFY(Databases::CustomerDatabase::instance()->getCustomerImage(c1.getId()).toImage() == QPixmap(":/icons/customer").toImage());
     Databases::CustomerDatabase::instance()->setCustomerImage(c1);
     QVERIFY(c1.getImage()->toImage() == p->toImage());
-    QVERIFY(Databases::CustomerDatabase::instance()->getCustomerImage(c1.getId()).toImage() == QPixmap(":/icons/FactDev").toImage());
 }

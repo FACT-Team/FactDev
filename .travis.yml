@@ -39,7 +39,7 @@ script:
     - ./createDatabase.sh FactDev FactDev FactDev
     - ./tests.sh
     - ./coverage.sh
-    - ./doxygen.sh
+    - ./doxygen.sh >> /dev/null 2> /dev/null
     - cd ../
 
 after_success:
