@@ -178,20 +178,20 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 {
     QSharedPointer<Models::Customer> customer =
             QSharedPointer<Models::Customer>(new Models::Customer());
-    customer->setId(value(q, "cidCustomer").toInt());
+    customer->setId(value(q, "cidCustomer").toInt());    
     customer->setFirstname(value(q,"cfirstnameReferent").toString());
     customer->setLastname(value(q,"clastnameReferent").toString());
     customer->setCompany(value(q,"ccompany").toString());
+    customer->setAddressComplement(value(q,"ccomplement").toString());
+    customer->setWebsite(value(q,"cwebsite").toString());
     customer->setAddress(value(q,"caddress").toString());
     customer->setPostalCode(value(q,"cpostalCode").toString());
     customer->setCity(value(q,"ccity").toString());
     customer->setCountry(value(q,"ccountry").toString());
-    customer->setEmail(value(q,"cemail").toString());
+    customer->setEmail(value(q,"cemail").toString());    
     customer->setPhone(value(q,"cphone").toString());
     customer->setMobilePhone(value(q,"cmobilePhone").toString());
-    customer->setFax(value(q,"cfax").toString());
-    customer->setAddressComplement(value(q,"ccomplement").toString());
-    customer->setWebsite(value(q,"cwebsite").toString());
+    customer->setFax(value(q,"cfax").toString());    
     customer->setIsArchived(value(q,"cisArchived").toBool());
 
     return customer;
@@ -199,7 +199,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 
 void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
 {
-    q.bindValue(":idCustomer", pCustomer.getId());
+    q.bindValue(":idCustomer", pCustomer.getId());    
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
     q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
@@ -297,21 +297,22 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.prepare(
                 "INSERT INTO Customer "
                 "(firstnameReferent, lastnameReferent, company, address, "
-                "postalCode, city, country, email, mobilePhone, phone, fax, complementAddress, website, isArchived) "
+                "postalCode, city, country, email, phone, mobilePhone, fax, "
+                "complementAddress, website, isArchived) "
                 " VALUES "
                 "(:firstnameReferent, :lastnameReferent, :company, :address, "
-                ":postalCode, :city, :country, :email,:mobilePhone, :phone,"
+                ":postalCode, :city, :country, :email,:phone, :mobilePhone, "
                 ":fax, :complementAddress, :website, :isArchived)"
                 );
 
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
-    q.bindValue(":lastnameReferent", pCustomer.getLastname());
+    q.bindValue(":lastnameReferent", pCustomer.getLastname().toUpper());
     q.bindValue(":company", pCustomer.getCompany());
     q.bindValue(":address", pCustomer.getAddress());
     q.bindValue(":postalCode", pCustomer.getPostalCode());
     q.bindValue(":city", pCustomer.getCity());
     q.bindValue(":country", pCustomer.getCountry());
-    q.bindValue(":email", pCustomer.getEmail());
+    q.bindValue(":email", pCustomer.getEmail());    
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
