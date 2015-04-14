@@ -21,7 +21,7 @@ void DirectoriesTests::validDirectoriesTest() {
     folder = user.getWorkspaceName();
     directory.setPath(path);
     path = Utils::Directories::makeDirectory(directory, path, folder);
-    QVERIFY("/home/florent/Documents/FactDev" == path);
+    QVERIFY(QDir(QDir::homePath()+"/Documents/FactDev").absolutePath() == QDir(path).absolutePath());
 }
 
 void DirectoriesTests::invalidDirectoriesTest() {
@@ -45,11 +45,6 @@ void DirectoriesTests::invalidDirectoriesTest() {
         QFAIL("Exception not thrown");
     } catch (Exceptions::FileException*) {
         QVERIFY(true);
-    } catch (const std::exception& e) {
-        QVERIFY(true);
     }
-
-
-
 }
 
