@@ -56,10 +56,11 @@
 \input{../LaTexTemplate/templates/cover/couverture.tex}
 \makeatother
 \includeonly {
-contents/0-preambule,
+contents/preambule,
 contents/projet,
 contents/methodologie,
-contents/resultats
+contents/resultats,
+contents/conclusion
 }
 \begin{document}
 	\thispagestyle{empty} % Removes page numbers
@@ -71,10 +72,11 @@ contents/resultats
 	
 	\tableofcontents
 	
-	\include{contents/0-preambule}
+	\include{contents/preambule}
 	\include{contents/projet}
 	\include{contents/methodologie}
 	\include{contents/resultats}
+	\include{contents/conclusion}
 	\appendix
 	\include{contents/cppConventions}
 	\chapter{Backlog product}
