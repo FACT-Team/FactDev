@@ -144,6 +144,36 @@ void searchTest::searchBillOrQuoteNumber()
     }
 }
 
+void searchTest::searchGetTests()
+{
+    _search.setText("test");
+    QVERIFY(_search.getText() == "test");
+
+    _search.setSearchInBillsQuotes(true);
+    QCOMPARE(true, _search.getSearchInBillsQuotes());
+    _search.setSearchInCompanies(true);
+    QCOMPARE(true, _search.getSearchInCompanies());
+    _search.setSearchInContributories(true);
+    QCOMPARE(true, _search.searchInContributories());
+    _search.setSearchInProjects(true);
+    QCOMPARE(true, _search.getSearchInProjects());
+    _search.setSearchInReferentLastname(true);
+    QCOMPARE(true, _search.getSearchInReferentLastname());
+
+    _search.setSearchInBillsQuotes(false);
+    QCOMPARE(false, _search.getSearchInBillsQuotes());
+    _search.setSearchInCompanies(false);
+    QCOMPARE(false, _search.getSearchInCompanies());
+    _search.setSearchInContributories(false);
+    QCOMPARE(false, _search.searchInContributories());
+    _search.setSearchInProjects(false);
+    QCOMPARE(false, _search.getSearchInProjects());
+    _search.setSearchInReferentLastname(false);
+    QCOMPARE(false, _search.getSearchInReferentLastname());
+
+
+}
+
 void searchTest::searchWithoutFilters()
 {
     _search.setGroupFilter(true);

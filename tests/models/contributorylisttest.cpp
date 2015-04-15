@@ -161,5 +161,34 @@ void ContributoryListTest::getQuantityOfProjectTest()
     QCOMPARE(Utils::Double::round(contributories.getSumQuantity(p2), 3), 3.786);
     QCOMPARE(Utils::Double::round(contributories.getSumQuantity(p3), 2), 10.00);
 
+    contributories.setInsert(false);
+    QCOMPARE(false, contributories.isInsert());
+
+    contributories.setIdBilling(42);
+    QCOMPARE(42, contributories.getIdBilling());
+
 }
+
+void ContributoryListTest::testMonthQuantity()
+{
+    Project* p = new Project(4);
+    Contributory c;
+    c.setQuantity(40);
+    c.setUnit(Unit(MONTH));
+    c.setProject(p);
+
+    QVERIFY(c.getUnit() == Unit(MONTH));
+}
+
+void ContributoryListTest::testDifferentUnit()
+{
+    Project* p = new Project(4);
+    Contributory c;
+    c.setQuantity(40);
+    c.setUnit(Unit(MONTH));
+    c.setProject(p);
+
+    QCOMPARE(true, c.getUnit() != Unit(HOUR));
+}
+
 

@@ -120,6 +120,7 @@ void ContributoryModelTest::getQuantityTest() {
     c.setQuantity(5);
     c.setUnit(Unit(HOUR));
     c.setHourlyRate(15);
+    QCOMPARE(15.0, c.getHourlyRate());
     QCOMPARE(Utils::Double::round(c.getSumQuantity(), 3), 0.714);
     c.setUnit(Unit(DAY));
     QCOMPARE(c.getSumQuantity(), 5.);

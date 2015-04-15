@@ -261,6 +261,11 @@ public slots:
      * @brief lockProject Lock the current project
      */
     void lockProject();
+
+    /**
+     * @brief MainWindow::mergeDocks
+     */
+    void mergeDocks();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu

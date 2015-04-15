@@ -141,7 +141,7 @@ void People::setImage(QPixmap *image)
 bool People::operator ==(const People &p)
 {
     return  p.getFirstname() == getFirstname()
-            && p.getLastname() == getLastname()
+            && p.getLastname().toUpper() == getLastname().toUpper()
             && p.getCompany() == getCompany()
             && p.getAddress() == getAddress()
             && p.getPostalCode() == getPostalCode()

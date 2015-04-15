@@ -24,6 +24,7 @@ private slots:
     void searchContributoryDescription();
     void searchBillOrQuoteTitle();
     void searchBillOrQuoteNumber();
+    void searchGetTests();
 private:
     Search _search;
 };

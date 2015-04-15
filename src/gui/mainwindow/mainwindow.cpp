@@ -76,6 +76,7 @@ int MainWindow::getCurrentTableId(QTableView *tbl) {
 }
 
 int MainWindow::getCurrentCustomerId() {
+    mergeDocks();
     return getCurrentTableId(ui->tblCustomers);
 }
 
@@ -155,9 +156,7 @@ void MainWindow::addDoc(bool isBilling) {
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {    
-    if (height() < 540) {
-        tabifyDockWidget(ui->dockUserData, ui->dockCustomerData);
-    }
+    mergeDocks();
 
     switch (ui->stackedWidget->currentIndex()) {
         case 0:
@@ -361,6 +360,12 @@ void MainWindow::lockProject() {
     p.lock();
     p.commit();
     updateTableProjects(getCurrentCustomerId());
+}
+
+void MainWindow::mergeDocks() {
+    if (height() < 700 && height() != 683) {
+        tabifyDockWidget(ui->dockUserData, ui->dockCustomerData);
+    }
 }
 
 void MainWindow::editUser()

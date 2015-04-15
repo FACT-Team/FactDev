@@ -19,6 +19,9 @@ private slots:
 
     void getQuantityTest();
     void getQuantityOfProjectTest();
+
+    void testMonthQuantity();
+    void testDifferentUnit();
 private:
     void setup();
 

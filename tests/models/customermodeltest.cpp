@@ -57,7 +57,8 @@ void CustomerModelTest::commitInsert()
     c1.setId(0);
     try {
         c1.commit();
-        QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(c1.getId());
+        QSharedPointer<Customer> c2 =
+                Databases::CustomerDatabase::instance()->getCustomer(c1.getId());
         QVERIFY(*c2 == c1);
     } catch(DbException* e) {
         QFAIL(e->what());
@@ -72,7 +73,8 @@ void CustomerModelTest::commitUpdate()
         c1.setId(id);
         c1.setToRemoved(false);
         c1.commit();
-        QSharedPointer<Customer> c2 = Databases::CustomerDatabase::instance()->getCustomer(id);
+        QSharedPointer<Customer> c2 =
+                Databases::CustomerDatabase::instance()->getCustomer(id);
 
         QVERIFY(c2 != 0);
         QVERIFY(*c2 == c1);

@@ -58,7 +58,7 @@ int mysqlExecution(int argc, char**argv)
         Databases::Database::instance(true);
     } else {
         std::cerr << "Bad parameters ! "<< std::endl;
-        return EXIT_FAILURE;
+        return 0;
     }
 
     ret = RUN_ALL_TESTS();

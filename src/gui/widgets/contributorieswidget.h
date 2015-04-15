@@ -61,7 +61,17 @@ public:
      */
     void add(ContributoriesList &list);
 
+    /**
+     * @brief ContributoriesList::responsiveProjectsTable Update UI to do
+     * responsive projects table
+     */
     void responsiveProjectsTable();
+
+    /**
+     * @brief ContributoriesList::responsiveContributoriesTable Update the
+     * contributories table <i>view</i> to do responsive.
+     * @param view Specific contributories table
+     */
     void responsiveContributoriesTable(QTableView *view);
 
 public slots:
