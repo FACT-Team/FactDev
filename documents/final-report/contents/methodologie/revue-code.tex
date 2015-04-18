@@ -26,4 +26,10 @@ Cette vérification est aisé via l'outil \Github{} qui permet de rajouter des c
 
 L'on procède également à la vérification de la documentation. Chaque méthode et attribut doit être documenté. Là aussi, il faut que la documentation respecte les conventions d'écritures. 
 
-Une fois les remarques faites sur le code et sa documentation, l'on passe aux tests fonctionnels. On se rend donc sur la branche \Git en question et l'on vérifie que la fonction répond bien à la \UserStory et qu'il n'existe aucun bug. Bien entendu, on s'assure que ça n'a pas entraîné de régression sur d'autres parties du logiciel. C'est aussi le moment de proposer des modifications sur le plan ergonomique si besoin est.  
+Une fois les remarques faites sur le code et sa documentation, l'on passe aux tests fonctionnels. On se rend donc sur la branche \Git{} en question et l'on vérifie que la fonction répond bien à la \UserStory{} et qu'il n'existe aucun bug. Bien entendu, on s'assure que ça n'a pas entraîné de régression sur d'autres parties du logiciel. C'est aussi le moment de proposer des modifications sur le plan ergonomique si besoin est.  
+
+Enfin, avant d'intégrer, l'on vérifie que les outils (\Travis{} et \Coveralls) ne s'y opposent pas c'est-à-dire que :
+\begin{itemize}
+	\item le \Build{}\footnote{Un \Build est un artefact logiciel autonome résultant de conversion de fichiers de code source en code exécutable} passe, c'est-à-dire qu'il compile sans erreur.
+	\item la couverture de code n'a pas régressé 
+\end{itemize}
