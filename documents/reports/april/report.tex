@@ -1,0 +1,145 @@
+\documentclass[12pt,a4paper,openany]{article}
+\usepackage{lmodern}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\input{../../LaTexTemplate/templates/couleurs.tex}
+
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} 
+\usepackage{marvosym}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=1.7cm, bottom=1.7cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{verbatim}
+\usepackage[urlbordercolor={1 1 1}, linkbordercolor={1 1 1}, linkcolor=vert1, urlcolor=bleu, colorlinks=true]{hyperref}
+\usepackage{tikz} %Vectoriel
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{multido}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[francais]{minitoc}
+\usepackage[final]{pdfpages} 
+\usepackage{graphicx} % Required for box manipulation
+\usepackage{makeidx}
+
+\newcommand{\titre}{FactDev :\\\vspace{10px} Création de devis et facture} 
+\newcommand{\titreFooter}{\includegraphics[width=2cm]{../../../images/FACT_official.png}~~~FactDev : Création de devis et facture} 
+\newcommand{\subtitle}{Compte Rendu mensuel : Mois d'Avril}
+\newcommand{\auteur}{Équipe FACT}
+\newcommand{\semestre}{~}
+\newcommand{\annee}{2015}
+\newcommand{\logo}{../../LaTexTemplate/templates/ups.jpg}
+
+
+\newcommand{\pole}{}
+\newcommand{\sigle}{~}
+\makeindex
+\usepackage[totoc]{idxlayout}
+
+
+\input{../../LaTexTemplate/templates/listings.tex}
+\input{../../LaTexTemplate/templates/article.tex}
+\input{../../LaTexTemplate/templates/remarquesExempleAttentionArticle.tex}
+\input{../../LaTexTemplate/templates/polices.tex}
+\input{../../LaTexTemplate/templates/affichageChapitreArticle.tex}
+
+\input{../../LaTexTemplate/templates/cover/couverture.tex}
+\makeatother
+\includeonly {
+}
+\begin{document}
+	\thispagestyle{empty} % Removes page numbers
+	\titleBC 
+	\newpage
+	\setcounter{tocdepth}{1}
+	\setcounter{secnumdepth}{3}
+	
+	\tableofcontents
+	\newpage
+	\section{Le logiciel : FactDev}
+	FactDev est un logiciel de Facture \& Devis développé par l'équipe FACT dans le cadre d'un projet de Master à l'Université Paul Sabatier composé de : 
+	\begin{itemize}
+		\item \textbf{F}lorent Berbie
+		\item \textbf{A}ntoine de Roquemaurel
+		\item \textbf{C}édric Rohaut
+		\item Andriamihary Manan\textbf{T}soa Razanajatovo
+	\end{itemize}
+
+	Plus d’informations sur \Mundus~\url{http://fact-team.github.io}
+
+	Notre enseignant tuteur est Frédéric \bsc{Migeon}.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=6cm]{../FACTDev.png}
+		\caption{Logo de FactDev}
+	\end{figure}
+
+ 	\section{Période couverte}
+	Du 01 Avril 2015 au 30 Avril 2015.
+
+	\section{Résumé des travaux de la période}
+	\subsection{Sprint 5}
+	Comme évoqué dans le rapport précédent où nous venions d'entamer le Sprint 5, celui-ci devait répondre aux exigences suivantes :
+	\begin{description}
+		\item [Bugs] Correction de bugs
+		\item [Client] Ajouter et modifier des informations sur les clients (complément d'adresse, logo de l'entreprise...)
+		\item [Facture] Modification des factures en fonction des nouvelles informations du client
+		\item [Statistiques] Fournir un ensemble de statistiques (nombre de projets par client, nombre de factures par projet...)
+	\end{description}
+	Le deuxième et troisième avait déjà été réalisé, il ne manquait plus qu'à corriger quelques bugs et faire des fonctions statistiques. 
+	
+	\subsection{Sprint 6}
+	Le Sprint 6 quand à lui consiste à peaufiner le logiciel sur différents plan: 
+	\begin{description}
+		\item [Ergonomique] Modification de l'interface, rendre plus cohérent l'ensemble
+		\item [Fonctionnel] Ajouter des contraintes fonctionnel au projet
+	\end{description}
+	Outre le logiciel FactDev, une partie du Sprint est consacré à la rédaction des documents et à la préparation à la soutenance. 
+	\section{Travaux effectivement réalisés en fin de période}\label{work}
+	L'ensemble des bugs répertoriés existant au moment du cinquième Sprint ont été corrigé. Il s’agissait principalement de bugs liés à l'ajout de nouvelles informations sur les clients ou sur l'utilisateur qui n'avait pas été prise en compte sur d'autres partie du logiciel. Par exemple, certaines informations du client n'étaient pas mentionnées sur la facture PDF générée. De plus, le logiciel dispose maintenant d'informations statistiques sur un client ou un projet particulier ainsi que des statistiques globales.  
+
+	Le dernier Sprint (Sprint 6) consista à ajouter quelques fonctionnalité telles que pouvoir modifier le nombre d'heures de travail par jour de l'utilisateur et adapter les factures en fonction. Les projets ont maintenant des dates de début et de fin. Il est possible de clôturer un projet et ainsi indiquer que les factures à ce projet ne peuvent plus être modifiées. Il est également impossible de supprimer de la base de données un client ayant une facture ou plus payées. \\
+	L'interface graphique du logiciel a également été amélioré et est désormais \textit{« responsive »}, c'est-à-dire qu'elle s'adapte à la résolution de l'écran : taille des colonnes dans les tableaux, fusionnement de zones du logiciel en plusieurs onglets, etc. \\
+	De plus, nous avons rédigé les différents documents (bilan du projet, le diaporama et ce document). 
+	
+	Enfin nous avons ajouté de nouveaux tests pour augmenter notre couverture de code de 87 à 90\%.   
+	
+	\section{Charge de travail pour le groupe}
+	\subsection{Charge estimé}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{l|c|c}
+			\textbf{Désignation} & \textbf{Fréquence} & \textbf{Total}\\
+			\hline
+			Réunions tuteur & 1h / semaine & 3h\\
+			Réunions de travail & 4h / semaine & 12h\\
+			Travail personnel & 8h / semaine & 24h
+		\end{tabular}
+		\caption{Charge de travail constatée}
+	\end{table}
+
+	\subsection{Charge constatés}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{l|c|c}
+			\textbf{Désignation} & \textbf{Fréquence} & \textbf{Total}\\
+			\hline
+			Réunions tuteur & 1h / semaine & 3h\\
+			Réunions de travail & 4h / semaine & 12h\\
+			\textbf{Travail personnel} & \textbf{10h / semaine} & \textbf{30h}
+		\end{tabular}
+		\caption{Charge de travail estimée}
+	\end{table}
+	Nous avons conservé le même temps de travail qu'au Sprints précédant car ces Sprints étaient plus court au niveau des fonctionnalités à implanter dans le logiciel mais demandait plus de temps pour la rédaction des documents.  
+
+	
+	\section{Problèmes techniques constatés}
+	Assez peu de problèmes pour la fin de ce projet, les bugs restants étaient dû à des dépendances forte entre plusieurs composants du logiciel. Nous avons procéder à du \textit{refactoring} de notre code, ce qui nous alors permis de diminuer cette dépendance et de résoudre facilement les bugs existants. 
+
+	\section{Décisions prises}
+	Pour le dernier Sprint, le choix a été porté de donner une importance plus grande à la rédaction des divers documents étant donné que le logiciel remplissait déjà quasi totalités des exigences demandées.
+	De plus nous tenions à finir le diaporama en avance afin de pouvoir faire des oraux d’entraînements avant la soutenance. 
+
+	
+\end{document}
