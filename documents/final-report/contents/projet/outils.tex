@@ -47,9 +47,62 @@ postes clients. Ce besoin a été couvert à l'aide de MySQL, ainsi le logiciel 
 
 
 \subsection{Versionnement}
-
+\begin{wrapfigure}{l}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.28\textwidth]{../beamer/logos/git.png}\\~\\
+\includegraphics[width=0.32\textwidth]{../beamer/logos/github.png}
+\end{center}
+\caption{Versionnement -- Git et Github}
+\end{wrapfigure}
+%% TODO replace … by references (section, subsection, …)
+Étant 4 développeurs au sein de ce projet, il était indispensable de choisir un moyen de pouvoir travailler ensemble, simplement, mais
+également de pouvoir annuler une erreur. Pour cela, nous avons choisi d'utiliser le système développé par Linus \bsc{Torvalds}, Git\footnote{Git
+est le Système de Versionnement présenté dans l'UE DCLL}.\\
+Le choix de Git s'est fait d'une part, car c'est un système de version distribué, et possédant un excellent système de branche, nous ayant
+permis de mettre en place notre système de branche présenté section \ref{integration-continue}.\\
+D'autre part, plusieurs plateformes
+permettant de travailler avec Git existent sur Internet, l'une d'entre elle ayant particulièrement retenue notre attention: Github.\\
+Github nous a ainsi permis de stocker notre code, noter les exigences à l'aide des issues, faire de la revue de code à l'aide des Pull
+Requests(…), lier nos builds Travis(…) et la couverture de code à une pull requests, et plus simplement : communiquer entre nos.
 
 \subsection{Qualité du code}
+\subsubsection{Coveralls: Couverture de code}
+Notre souhait était d'avoir un logiciel possédant 90\% de couverture de code par les tests. Afin de nous aider dans cet objectif, coveralls
+nous indiquait le pourcentage, mais aussi les lignes testées ou non testées, tout en gardant un historique afin de savoir si nous
+augmentions ou diminuions cette couverture.
 
+\subsubsection{Travis: Intégration continue}
+Lorsqu'un développeur envoie des données au serveur, Travis effectue automatiquement des actions afin de signaler si le build << passe >>,
+ou échoue. Plus d'informations sur son fonctionnement section TODO \ldots
 
+\subsubsection{Doxygen: Documentation technique}
+La documentation technique s'est fait au moyen de Doxygen, outils très connu dans le monde C++ et permettant de générer cette documentation
+en de nombreux formats différents, notamment HTML, XML, RTF, \LaTeX{}, \ldots
+
+\begin{figure}[H]
+	\centering
+\includegraphics[height=1.9cm]{../beamer/logos/travis.png}~~
+\includegraphics[height=0.8cm]{../beamer/logos/doxygen.png}~~
+\includegraphics[height=1.9cm]{../beamer/logos/coveralls.png}
+\caption{Outils pour la qualité du code : Travis, Doxygen et Coveralls}
+\end{figure}
 \subsection{Organisation}
+\subsubsection{IRC : les réunions}
+Étant dans différents groupes de TP, et n'habitant pas au même endroit, il était difficile de se rencontrer régulièrement pour effectuer des
+réunions d'avancements régulières\footnote{Notamment les « Mêlées » Scrum, pour plus d'information section TODO blalba}. La solution a été
+d'utiliser un canal IRC, en cas de problème, nous pouvions demander de l'aide à quelqu'un du groupe de connecté, et si nous fixions une
+réunions nous étions tous présents afin de discuter de nos avancées, problèmes et de ce qu'il restait à faire.
+
+\subsubsection{Google Drive : Le backlog et l'organisation générale}
+Nous avons utilisé Google Drive pour stocker plusieurs documents, notamment le \textit{Product Backlog}\footnote{Pour plus d'informations
+section todo bla bla bla} qui était alimenté par le \textit{product owner}.  Nous nous sommes également servit de Google Drive afin de rédiger les
+rapports mensuels, mais aussi pour créer les diagrammes d'avancée d'un sprint. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.12\textwidth]{../beamer/logos/irc.png}~~
+	\includegraphics[height=0.12\textwidth]{../beamer/logos/drive.png}
+\caption{Outils pour l'organisation avec IRC et Google Drive}
+\end{figure}
+
+
