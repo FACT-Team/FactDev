@@ -1,1 +1,55 @@
 \section{Les outils}
+Afin de respecter les attentes du client, et de développer correctement le logiciel présenté section \ref{logiciel}, nous avons utilisés un
+certain nombres d'outils, dans divers domaines.
+
+\subsection{Outils de développement}
+Afin de développer à proprement parler le logiciel, nous avons utilisés plusieurs technologies. 
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.38\textwidth]{../beamer/logos/qt.png}
+\end{center}
+\caption{Le développement -- Qt}
+\end{wrapfigure}
+Proposé par le client, il a été choisi de développer le logiciel en C++, en utilisant le framework Qt. 
+En effet, ce langage permet d'avoir un logiciel qui soit rapide, et peu gourmand en mémoire. Cependant, il était nécessaire d'utiliser un
+framework de développement, et ce pour plusieurs raisons : 
+\begin{itemize}
+	\item Développer rapidement une interface claire, uniforme
+	\item Avoir un logiciel Multi-Plateforme, executable sous Windows, Linux et Mac OS
+	\item Faciliter les lectures et écritures à une base de données 
+\end{itemize}
+En plus de ces avantages certains, Qt améliore le langage C++ afin de garder la même rapidité d'exécution tout en simplifiant l'écriture de
+certains concepts\footnote{Simplification de la gestion de la mémoire, Ajout du \textit{foreach}, redéfinition de tous les types de bases, …}.
+
+\newpage
+\begin{wrapfigure}{l}{0.3\textwidth}
+\begin{center}
+	\Huge \LaTeX
+\end{center}
+\caption{La mise en formex -- \LaTeX}
+\end{wrapfigure}
+Un des besoins du client, était la génération des factures et des devis au format PDF. Avant le développement du logiciel, ce besoin était
+fait << à la main >>, en \LaTeX{}, avec un \textit{template} rédigé. Afin de regarder la même mise en forme des devis et des factures, nous
+devions générer du \LaTeX{} en réutilisant ce template.\\ Une fois ce fichier \texttt{.tex} généré, nous faisons appel à un compilateur \LaTeX{} afin d'en sortir un fichier PDF.
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.18\textwidth]{../beamer/logos/sqlite.png}~
+\includegraphics[width=0.18\textwidth]{../beamer/logos/mysql.png}
+\end{center}
+\caption{Bases de données}
+\end{wrapfigure}
+Le logiciel utilise une base de données pour sauvegarder les différents clients, devis, factures etc… Le besoin initial était de pouvoir
+sauvegarder ça sur un ordinateur : le système de SQLite permet cela très simplement, tout est sauvegardé dans un fichier binaire.\\ Une fois
+avancé dans le projet, une autre solution est apparu : posséder un serveur de base de données afin d'utiliser le logiciel avec plusieurs
+postes clients. Ce besoin a été couvert à l'aide de MySQL, ainsi le logiciel permet de choisir l'une ou l'autre des manières de procéder.
+
+
+\subsection{Versionnement}
+
+
+\subsection{Qualité du code}
+
+
+\subsection{Organisation}
