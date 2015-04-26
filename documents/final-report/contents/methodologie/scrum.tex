@@ -1,0 +1,63 @@
+\section{La méthode Scrum}\label{methodeScrum}
+Cette méthode, basée sur les stratégies itératives et incrémentales, permet de produire à la
+fin de chaque Sprint (incrément/itération) une version stable et testable du logiciel. L'avantage
+par rapport aux méthodes plus << classiques >> (cycle en V,...) se situe principalement dans l'absence
+d'effet tunnel durant le développement. De par les nombreuses réunions avec les différentes parties prenantes,
+le ou les clients peuvent donner un retour (feedback) sur l'incrément qui leur est proposé et ainsi
+s'assurer que le produit final correspondra parfaitement à leurs attentes.  
+
+\subsection{Définitions}
+
+\subsubsection{Le Sprint}
+Un sprint correspond à un incrément dans la méthode \Scrum. Il peut durer entre quelques heures et un mois (pour se situer un peu, nos sprints duraient deux semaines). Le Sprint se déroule toujours de la même façon:
+\begin{itemize}
+	\item[Des \Melees{} quotidiennes] durant laquelle sont décidées les différentes \UserStories{} et \TechnicalStories{} au travers d'un \PlanningPoker.
+	\item[Une revue de Sprint] durant laquelle le logiciel est présenté au client.
+\end{itemize}
+
+Un Sprint fournit toujours :
+\begin{itemize}
+	\item - une démonstration des nouvelles fonctionnalités logicielles
+	\item - des tests unitaires
+	\item - une documentation du code (au format HTML et PDF)
+	\item - un manuel d’utilisateur à jour des nouvelles fonctionnalités
+\end{itemize}
+\subsubsection{Les \Melees} 
+Les \Melees{} sont des réunions quotidiennes durant lesquelles sont définies les différentes \UserStories{} et \TechnicalStories{} à accomplir. Ces dernières sont toutes décidées à travers un \PlanningPoker.
+
+\subsubsection{Le \PlanningPoker}
+C'est au cours du \PlanningPoker{} que sont décidées les différentes \UserStories{} du \Backlog{} de produit qui vont être accomplies. Pour chaque \UserStory{} est défini un niveau de priorité:
+\begin{description}
+	\item[Must] : La Story doit obligatoirement être réalisée lors du Sprint
+	\item[Should] : La Story devra être réalisée (dans la mesure du possible)
+	\item[Could] : La Story pourra être réalisée car elle n’a aucun impact sur les autres tâches
+	\item[Would] : La Story ne sera pas nécessairement faite et sera alors reportée au prochain Sprint
+\end{description}
+
+\subsubsection{\UserStory{} <<finie>>}
+Une \UserStory{} est considérée comme terminée lorsqu’elle est fonctionnelle d’un point de vue
+utilisateur c’est-à-dire :
+\begin{itemize}
+\item Lorsque les tests unitaires (pour la base de données ou pour les modèles) sont validés
+\item Lorsque les tests d’intégrations sont validés
+\item Lorsque chaque méthode est documentée 
+\end{itemize}
+
+\subsubsection{Le \Backlog}
+Le \Backlog{} du produit correspond à une liste de toutes les \UserStories{} et \TechnicalStories{} des différents \Sprints. Chaque élément du \Backlog{} produit représente une fonctionnalité, un besoin, une amélioration ou un correctif, auquel sont associés une description et une estimation du poids de l'\UserStory{} ou la \TechnicalStory{}.
+
+\subsection{Les différents rôles}
+La méthode \Scrum{} possède des rôles qui lui sont propres : le Scrum Master, le Product Owner
+et l’équipe de développement.
+
+\subsubsection{Le Scrum Master}
+Le Scrum Master aura pour mission principale de guider les développeurs dans l’application
+de la méthode \Scrum. Il veillera à ce que la méthode soit comprise de tous et appliquée de façon
+correcte. Il aura le rôle de meneur lors de phases importantes d’application de la méthode telles
+que le Planning Poker ou encore les mêlées quotidiennes.
+
+\subsubsection{Le Product Owner}
+Le Product owner est la seule personne responsable du carnet de produit et de sa gestion. Ce
+carnet comprend l’expression de tous les items associés à une priorité (l’importance pour le client).
+La compréhension de ceux-ci ainsi que la vérification du travail fourni est sous la responsabilité du
+Product owner.
