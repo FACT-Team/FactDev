@@ -156,7 +156,7 @@
         <item row="2" column="0" colspan="3">
          <widget class="QTableView" name="tblProjects">
           <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
+           <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::SelectedClicked</set>
           </property>
           <property name="alternatingRowColors">
            <bool>true</bool>
