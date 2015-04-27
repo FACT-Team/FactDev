@@ -10,7 +10,7 @@ StartedWindowsDialog::StartedWindowsDialog(QWidget *parent) :
     ui(new Ui::StartedWindowsDialog)
 {
     ui->setupUi(this);
-
+    Gui::Utils::WindowSettings::setPositionToCenter(*this);
     ui->wdgStack->setCurrentIndex(0);
     ui->lbIcon->setPixmap(getImage(":/icons/FactDev"));
     ui->wdgDbType->hide();

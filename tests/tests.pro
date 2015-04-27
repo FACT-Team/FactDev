@@ -37,7 +37,9 @@ database/customerdatabasetest.h \
     utils/itemtypetest.h \
     models/contributorylisttest.h \
     utils/pointerstest.h \
-    models/statisticmodeltest.h
+    models/statisticmodeltest.h \
+    utils/hierarchicalsystemtest.h \
+    utils/directoriestests.h
 
 SOURCES += \
     #QTestRunner/main.cpp \
@@ -62,7 +64,9 @@ database/customerdatabasetest.cpp \
     models/contributorylisttest.cpp \
     main.cpp \
     utils/pointerstest.cpp \
-    models/statisticmodeltest.cpp
+    models/statisticmodeltest.cpp \
+    utils/hierarchicalsystemtest.cpp \
+    utils/directoriestests.cpp
 
 RESOURCES += \
     test.qrc

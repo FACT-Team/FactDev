@@ -41,6 +41,7 @@ void MainWindow::setupUi()
     ui->setupUi(this);
 
     Utils::WindowSettings::setMaximumSize(*this);
+    Utils::WindowSettings::setPositionToCenter(*this);
 
     _searchDock = new Docks::SearchDock();
     addDockWidget(Qt::LeftDockWidgetArea, _searchDock);
@@ -75,6 +76,7 @@ int MainWindow::getCurrentTableId(QTableView *tbl) {
 }
 
 int MainWindow::getCurrentCustomerId() {
+    mergeDocks();
     return getCurrentTableId(ui->tblCustomers);
 }
 
@@ -114,10 +116,14 @@ void MainWindow::addCustomer()
 
 void MainWindow::addProject()
 {
-    AddProjectDialog *addProjectDialog =
-            ui->stackedWidget->currentIndex() == 1 ?
-                new AddProjectDialog(0, ui->tblCustomers->currentIndex().row())
-              : new AddProjectDialog();
+    AddProjectDialog *addProjectDialog;
+    if (ui->tblCustomers->currentIndex().row() == -1) {
+         addProjectDialog = new AddProjectDialog(0, 0);
+    } else {
+        addProjectDialog =
+                new AddProjectDialog(0, ui->tblCustomers->currentIndex().row());
+    }
+
 
     if (addProjectDialog->exec()) {
         updateTableProjects(getCurrentCustomerId());
@@ -145,17 +151,13 @@ void MainWindow::addDoc(bool isBilling) {
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
         changeProjectsTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
-
-        // For security and crash of the application
-        // if we remove a project in a doc and we save it
-        // or if we are in a project and we associate the doc with an other project
-        // go back to the panel projectsTable
-        // ui->stackedWidget->setCurrentIndex(1);
     }
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
-{
+{    
+    mergeDocks();
+
     switch (ui->stackedWidget->currentIndex()) {
         case 0:
             responsiveCustomerTable();
@@ -176,18 +178,24 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 void MainWindow::responsiveCustomerTable()
 {
     int w = ui->tblCustomers->width();
-
-    ui->tblCustomers->resizeColumnsToContents();
+    double fixedRatio = 115.0;
+    int nbCompleteColumns = 3;
+    double complete = 0.2 + 0.125 + 0.125 + + 0.25 + 2*(fixedRatio/w);
 
     if (w > 650) {
         ui->tblCustomers->hideColumn(0);
-        ui->tblCustomers->setColumnWidth(0, w*0.0);
-        ui->tblCustomers->setColumnWidth(1, w*0.15);
-        ui->tblCustomers->setColumnWidth(2, w*0.15);
-        ui->tblCustomers->setColumnWidth(3, w*0.15);
-        ui->tblCustomers->setColumnWidth(4, w*0.15);
+        ui->tblCustomers->setColumnWidth(0, w*(0.0));
+        ui->tblCustomers->setColumnWidth(
+                    1, w*(0.2 + (1.0-complete)/nbCompleteColumns));
+        ui->tblCustomers->setColumnWidth(
+                    2, w*(0.123 + (1.0-complete)/nbCompleteColumns));
+        ui->tblCustomers->setColumnWidth(
+                    3, w*(0.123 + (1.0-complete)/nbCompleteColumns));
+        ui->tblCustomers->setColumnWidth(4, fixedRatio);
         ui->tblCustomers->setColumnWidth(5, w*0.25);
-        ui->tblCustomers->setColumnWidth(6, w*0.145);
+        ui->tblCustomers->setColumnWidth(6, fixedRatio);
+
+
     } else {
         ui->tblCustomers->hideColumn(0);
         ui->tblCustomers->setColumnWidth(0, 0);
@@ -204,45 +212,59 @@ void MainWindow::responsiveCustomerTable()
 void MainWindow::responsiveProjectTable()
 {
     int w = ui->tblProjects->width();
+    int nbCompleteColumns = 2;
+    double complete = 0.15 + 0.5 + 2*(100.0/w) + (80.0/w);
 
     if (w > 400) {
-        ui->tblProjects->setColumnWidth(0, w*0.1);
-        ui->tblProjects->setColumnWidth(1,w*0.15);
-        ui->tblProjects->setColumnWidth(2, w*0.5);
-        ui->tblProjects->setColumnWidth(3, w*0.125);
-        ui->tblProjects->setColumnWidth(4, w*0.125);
-        ui->tblProjects->setColumnWidth(5,w*0.095);
+        ui->tblProjects->hideColumn(0);
+        ui->tblProjects->setColumnWidth(0, w*0.0);
+        ui->tblProjects->setColumnWidth(
+                    1, w*(0.145 + (1.0-complete)/nbCompleteColumns));
+        ui->tblProjects->setColumnWidth(
+                    2, w*(0.5 + (1.0-complete)/nbCompleteColumns));
+        ui->tblProjects->setColumnWidth(3, 100.0);
+        ui->tblProjects->setColumnWidth(4, 100.0);
+        ui->tblProjects->setColumnWidth(5, 80.0);
     } else {
-        ui->tblProjects->setColumnWidth(0, 100);
+        ui->tblProjects->hideColumn(0);
+        ui->tblProjects->setColumnWidth(0, 0);
         ui->tblProjects->setColumnWidth(1, 150);
         ui->tblProjects->setColumnWidth(2, 200);
-        ui->tblProjects->setColumnWidth(3, 122);
-        ui->tblProjects->setColumnWidth(4, 122);
-        ui->tblProjects->setColumnWidth(5, 100);
+        ui->tblProjects->setColumnWidth(3, 100);
+        ui->tblProjects->setColumnWidth(4, 100);
+        ui->tblProjects->setColumnWidth(5, 80);
     }
 }
 
 void MainWindow::responsiveBillingTable()
 {
     int w = ui->tblQuotes->width();
+    int nbCompleteColumns = 2;
+    double complete = (30.0/w) + 2*(70.0/w) + 0.355 + 0.285 + (100.0/w);
 
     if (w > 700) {
         ui->tblQuotes->hideColumn(0);
-        ui->tblQuotes->setColumnWidth(1, w*0.045);
-        ui->tblQuotes->setColumnWidth(2, w*0.045);
-        ui->tblQuotes->setColumnWidth(3, w*0.2);
-        ui->tblQuotes->setColumnWidth(4, w*0.5);
-        ui->tblQuotes->setColumnWidth(5, w*0.15);
-        ui->tblQuotes->setColumnWidth(6, w*0.05);
+        ui->tblQuotes->setColumnWidth(1, 30);
+        ui->tblQuotes->setColumnWidth(2, 70);
+        ui->tblQuotes->setColumnWidth(
+                    3, w*(0.35 + (1.0-complete)/nbCompleteColumns));
+        ui->tblQuotes->setColumnWidth(
+                    4, w*(0.285+ (1.0-complete)/nbCompleteColumns));
+        ui->tblQuotes->setColumnWidth(5, 100);
+        ui->tblQuotes->setColumnWidth(6, 70);
     } else {
         ui->tblQuotes->hideColumn(0);
-        ui->tblQuotes->setColumnWidth(1, 40);
-        ui->tblQuotes->setColumnWidth(2, 40);
+        ui->tblQuotes->setColumnWidth(1, 30);
+        ui->tblQuotes->setColumnWidth(2, 70);
         ui->tblQuotes->setColumnWidth(3, 200);
         ui->tblQuotes->setColumnWidth(4, 250);
-        ui->tblQuotes->setColumnWidth(5, 130);
-        ui->tblQuotes->setColumnWidth(6, 50);
+        ui->tblQuotes->setColumnWidth(5, 100);
+        ui->tblQuotes->setColumnWidth(6, 70);
     }
+}
+
+bool MainWindow::isEasterEgg(const QString filter) {
+    return _searchDock->getText() == "FleuryMigeon42";
 }
 
 
@@ -318,6 +340,7 @@ void MainWindow::editCustomer() {
         updateTree();
         ui->trCustomers->setCurrentIndex(rootTree());
     }
+    updateButtons();
 }
 
 void MainWindow::editProject() {
@@ -329,6 +352,20 @@ void MainWindow::editProject() {
         changeCustomerTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
+    updateButtons();
+}
+
+void MainWindow::lockProject() {
+    Project p(getCurrentProjectId());
+    p.lock();
+    p.commit();
+    updateTableProjects(getCurrentCustomerId());
+}
+
+void MainWindow::mergeDocks() {
+    if (height() < 700 && height() != 683) {
+        tabifyDockWidget(ui->dockUserData, ui->dockCustomerData);
+    }
 }
 
 void MainWindow::editUser()
@@ -336,6 +373,7 @@ void MainWindow::editUser()
     if (UserDataDialog().exec()) {
         updateUser();
     }
+    updateButtons();
 }
 
 void MainWindow::editDoc()
@@ -354,10 +392,12 @@ void MainWindow::editDoc()
         changeProjectsTable();
         ui->trCustomers->expand(ui->trCustomers->currentIndex());
     }
+    updateButtons();
 }
 
 void MainWindow::removeCustomer() {
     removeItem(ui->tblCustomers, ItemType(ItemType::CUSTOMER, "client"));
+    updateButtons();
 }
 
 void MainWindow::archiveCustomer()
@@ -376,14 +416,17 @@ void MainWindow::archiveCustomer()
         updateTree();
         updateButtons();
     }
+    updateButtons();
 }
 
 void MainWindow::removeProject() {
     removeItem(ui->tblProjects, ItemType(ItemType::PROJECT, "projet"));
+    updateButtons();
 }
 
 void MainWindow::removeDoc() {
     removeItem(ui->tblQuotes, ItemType(ItemType::BILLING, "document"));
+    updateButtons();
 }
 
 void MainWindow::copyDoc()
@@ -398,6 +441,7 @@ void MainWindow::copyDoc()
         updateTableBillings(getCurrentProjectId());
         updateTree();
     }
+    updateButtons();
 }
 
 void MainWindow::openPdf()
@@ -411,7 +455,7 @@ void MainWindow::openPdf()
     QFileInfo pdf(bill.getPath()+".pdf");
 
     QDesktopServices::openUrl(QUrl("file:///"+pdf.absoluteFilePath()));
-
+    updateButtons();
 }
 
 void MainWindow::computeTurnover()
@@ -568,6 +612,11 @@ void MainWindow::changeDocsTable()
     updateButtons();
 }
 
+void MainWindow::changeEasterEgg()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
 void MainWindow::customersTableToProjectsTable()
 {
     updateTableProjects(getCurrentCustomerId());
@@ -677,15 +726,20 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 
 void MainWindow::updateTableCustomers(QString filter, const int row) {
-    ui->tblCustomers->setModel(
-        Databases::CustomerDatabase::instance()->getCustomersTable(filter));    
+    if (!isEasterEgg(filter)) {
+        ui->tblCustomers->setModel(
+            Databases::CustomerDatabase::instance()->getCustomersTable(filter));
 
-    if (row > -1) {
-        ui->tblCustomers->selectRow(row);
+        if (row > -1) {
+            ui->tblCustomers->selectRow(row);
+        } else {
+            ui->tblCustomers->clearSelection();
+        }
+        responsiveCustomerTable();
     } else {
-        ui->tblCustomers->clearSelection();
+        changeEasterEgg();
     }
-    responsiveCustomerTable();
+
 }
 
 void MainWindow::updateTableProjects(const int pId, const int row)
@@ -736,13 +790,17 @@ void MainWindow::updateCostAndTurnover()
                 ui->tblCustomers->currentIndex().row());
 }
 
-void MainWindow::updateTree(QString filter)
-{
-    if (ui->trCustomers->model() != NULL) {
-        delete ui->trCustomers->model();
+void MainWindow::updateTree(QString filter) {
+    if (!isEasterEgg(filter)) {
+        if (ui->trCustomers->model() != NULL) {
+            delete ui->trCustomers->model();
+        }
+        ui->trCustomers->setModel(
+                    Databases::CustomerDatabase::instance()->getTree(filter));
+    } else {
+        changeEasterEgg();
     }
-    ui->trCustomers->setModel(
-                Databases::CustomerDatabase::instance()->getTree(filter));
+
 }
 
 void MainWindow::updateButtons()
@@ -761,9 +819,14 @@ void MainWindow::updateButtons()
     bool isBillingPaid = false;
     bool customerSelected = ui->tblCustomers->currentIndex().row() > -1
             && ui->tblCustomers->selectionModel()->hasSelection();
-
+    bool projectSelected = ui->tblProjects->currentIndex().row() > -1 && ui->tblProjects->selectionModel()->hasSelection();
     ui->btnEdit->setEnabled(canModify);
     ui->btnDelCustomer->setEnabled(canModify);
+
+    if(ui->tblCustomers->currentIndex().row() != -1) {
+        QSharedPointer<Customer> customer(new Customer(getCurrentCustomerId()));
+        ui->btnDelCustomer->setEnabled(ProjectDatabase::instance()->getProjectsOfCustomer(customer).count() == 0);
+    }
     ui->btnArchiveCustom->setEnabled(canModify);
 
     if(ui->tblCustomers->currentIndex().row() == -1
@@ -774,14 +837,22 @@ void MainWindow::updateButtons()
     ui->actionNewQuote->setEnabled(canAdd);
     ui->actionNewBill->setEnabled(canAdd);
     ui->actCustomerStatistics->setEnabled(customerSelected);
-    ui->wdgTblProjectsToolBar->updateBtn(canAdd);
+    bool buff;
+
+    bool isLocked = false;
+    if (projectSelected) {
+        buff = BillingDatabase::instance()->getBillingsTable(getCurrentProjectId())->rowCount(ui->tblProjects->currentIndex()) == 0;
+
+        isLocked = Project(getCurrentProjectId()).isLocked();
+    }
+
+    ui->wdgTblProjectsToolBar->updateBtn(canAdd, buff, isLocked);
     ui->btnRemoveDoc->setEnabled(billingIsSelected);
     ui->btnEditDoc->setEnabled(billingIsSelected);
     ui->btnPdf->setEnabled(billingIsSelected);
-    ui->btnCopyDoc->setEnabled(billingIsSelected);
+    ui->btnCopyDoc->setEnabled(billingIsSelected && !isLocked);
 
     if (billingIsSelected) {
-
         Billing b(getCurrentQuoteId());
         QString textButton = b.isBilling() ? "la facture": "le devis";
         QString iconButton = b.isBilling() ? "bill": "quote";
@@ -794,9 +865,9 @@ void MainWindow::updateButtons()
         ui->btnCopyDoc->setIcon(QIcon(b.isBilling() ? ":icons/img/copy_bill.png"
                                                     : ":icons/img/copy_quote"));
 
-        if (isBillingPaid || !b.isBilling()) {
+        if (isBillingPaid || !b.isBilling() || isLocked) {
             ui->btnBillingIsPaid->setEnabled(false);
-            if (isBillingPaid) {
+            if (isBillingPaid || isLocked) {
                 ui->btnRemoveDoc->setEnabled(false);
                 ui->btnEditDoc->setEnabled(false);
             }

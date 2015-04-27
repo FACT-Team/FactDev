@@ -111,7 +111,9 @@ void User::hydrat(int id)
     setPdflatexPath( user->getPdflatexPath());
     setWebsite(             user->getWebsite());
     setAddressComplement(   user->getAddressComplement());
-
+    setNbDaysPerMonth(user->getNbDaysPerMonth());
+    setNbDaysPerWeek(user->getNbDaysPerWeek());
+    setNbHoursPerDay(user->getNbHoursPerDay());
     if (getWorkspaceName().isEmpty()) {
         setWorkspaceName("FactDev");
         toCommit =  true;
@@ -210,14 +212,45 @@ void User::setPdflatexPath(const QString &pdflatexPath)
     _pdflatexPath = pdflatexPath;
 }
 
-int User::getNbHoursPerDays()
+double User::getNbHoursPerDay() const
 {
-    return Rate().getNbDailyHours();
+    return _nbHoursPerDay;
 }
 
-int User::getNbDaysPerMonths()
+void User::setNbHoursPerDay(double value)
 {
-    return 20;
+    _nbHoursPerDay = value;
 }
+double User::getNbDaysPerWeek() const
+{
+    return _nbDaysPerWeek;
+}
+
+void User::setNbDaysPerWeek(double value)
+{
+    _nbDaysPerWeek = value;
+}
+
+double User::getNbHoursPerWeek() const
+{
+    return _nbDaysPerWeek * _nbHoursPerDay;
+}
+
+double User::getNbHoursPerMonth() const
+{
+    return _nbDaysPerMonth * _nbHoursPerDay;
+}
+double User::getNbDaysPerMonth() const
+{
+    return _nbDaysPerMonth;
+}
+
+void User::setNbDaysPerMonth(double nbDaysPerMonth)
+{
+    _nbDaysPerMonth = nbDaysPerMonth;
+}
+
+
+
 
 }

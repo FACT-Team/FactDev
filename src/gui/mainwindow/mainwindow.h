@@ -135,6 +135,13 @@ public:
      */
     void responsiveBillingTable();
 
+    /**
+     * @brief MainWindow::isEasterEgg Return TRUE if search <i>filter</i> is
+     * <b>FleuryMigeon42</b> else FALSE
+     * @param filter Search filter
+     * @return boolean
+     */
+    bool isEasterEgg(const QString filter);
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer
@@ -250,6 +257,15 @@ public slots:
      */
     void customerStatistics();
 
+    /**
+     * @brief lockProject Lock the current project
+     */
+    void lockProject();
+
+    /**
+     * @brief MainWindow::mergeDocks
+     */
+    void mergeDocks();
 private slots:
     /**
      * @brief MainWindow::openContextualMenuTable open contextual menu
@@ -282,6 +298,12 @@ private slots:
      * when we change the selected doc in tblQuotes
      */
     void changeDocsTable();
+
+    /**
+     * @brief MainWindow::changeEasterEgg function to update the view
+     * when we change the selected dock in easter egg
+     */
+    void changeEasterEgg();
     /**
      * @brief MainWindow::customersTableToProjectsTable changes projects with
      * the <i>index</i>

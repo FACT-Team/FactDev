@@ -105,7 +105,9 @@ SOURCES += gui/mainwindow/mainwindow.cpp \
     gui/dialogs/statisticsdialog.cpp \
     models/unit.cpp \
     models/calculable.cpp \
-    utils/double.cpp
+    utils/double.cpp \
+    gui/widgets/userdailyhourswidget.cpp \
+    gui/widgets/coffeeeastereggwidget.cpp
 
 HEADERS  += gui/mainwindow/mainwindow.h \
         utils/log.h\
@@ -224,7 +226,9 @@ HEADERS  += gui/mainwindow/mainwindow.h \
     gui/widgets/checkfields/checkwebsite.h\
     gui/dialogs/statisticsdialog.h \
     models/unit.h \
-    models/calculable.h
+    models/calculable.h \
+    gui/widgets/userdailyhourswidget.h \
+    gui/widgets/coffeeeastereggwidget.h
 
 
 FORMS    += gui/mainwindow/mainwindow.ui \
@@ -246,7 +250,9 @@ FORMS    += gui/mainwindow/mainwindow.ui \
     gui/dialogs/computeturnoverdialog.ui \
     gui/widgets/browseimagewidget.ui\
     gui/widgets/path/chosepathwidget.ui\
-    gui/dialogs/statisticsdialog.ui
+    gui/dialogs/statisticsdialog.ui \
+    gui/widgets/userdailyhourswidget.ui \
+    gui/widgets/coffeeeastereggwidget.ui
 
 RESOURCES += \
     icons.qrc \

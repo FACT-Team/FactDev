@@ -186,7 +186,7 @@ QVariantList ContributoriesList::getDataMap()
         project["subtotal"] = Utils::Double::round(getPrice(key->first), 2);
 
         if(Utils::Double::round(getSumQuantity(key->first), 2) < 1) {
-            project["subquantity"] = getSumQuantity(key->first) * User(1).getNbHoursPerDays();
+            project["subquantity"] = getSumQuantity(key->first) * User(1).getNbHoursPerDay();
             project["subunit"] = Unit(HOUR).toString(project["subquantity"].toDouble() > 1);
         } else {
             project["subquantity"] = Utils::Double::round(getSumQuantity(key->first), 2);

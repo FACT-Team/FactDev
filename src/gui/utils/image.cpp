@@ -18,6 +18,14 @@ QPixmap Image::bytesToPixmap(const QByteArray bytes)
     return QPixmap::fromImage(QImage::fromData(bytes));
 }
 
+QPixmap Image::getImage(QString path, int width, int height)
+{
+    QPixmap img(path);
+    img.scaled(width,height,Qt::KeepAspectRatio);
+
+    return img;
+}
+
 QByteArray Image::imageToBytes(QImage image, const QString ext) {
     QByteArray bytesArray;
     QByteArray extArray = ext.toLocal8Bit();

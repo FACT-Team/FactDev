@@ -87,7 +87,7 @@ public:
      * @return All projects of c with id in key
      */
     QMap<int, Models::Project> getProjectsOfCustomer(
-            QSharedPointer<Models::Customer> c);
+            QSharedPointer<Models::Customer> c, const bool projectLocked=true);
 
     /**
      * @brief getProjects Return all projects of a customer

@@ -90,7 +90,10 @@ CREATE TABLE User
     image BLOB,
     pdflatexcommand VARCHAR(256),
     complementAddress VARCHAR(128),
-    website VARCHAR(128)
+    website VARCHAR(128),
+    nbHoursPerDay DOUBLE,
+    nbDaysPerWeek DOUBLE,
+    nbDaysPerMonth DOUBLE
 );
 
 CREATE INDEX I_PK_CUSTOMER ON Customer (idCustomer ASC, lastnameReferent);

@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage{lmodern}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\input{../LaTexTemplate/templates/couleurs.tex}
+
+\usepackage{makeidx}
+\usepackage[utf8]{inputenc} 
+\usepackage{marvosym}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=1.7cm, bottom=1.7cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{verbatim}
+\usepackage[urlbordercolor={1 1 1}, linkbordercolor={1 1 1}, linkcolor=vert1, urlcolor=bleu, colorlinks=true]{hyperref}
+\usepackage{tikz} %Vectoriel
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{multido}
+\usepackage{amssymb}
+\usepackage{slashbox}
+\usepackage{float}
+\usepackage[francais]{minitoc}
+\usepackage[final]{pdfpages} 
+\usepackage{pgfgantt}
+\usepackage{graphicx} % Required for box manipulation
+\usepackage{makeidx}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage{lipsum}
+\usepackage{wrapfig}
+
+
+\newcommand{\titre}{Bilan du Projet}
+\newcommand{\logoFooter}{\begin{minipage}{0.1\textwidth}\includegraphics[width=2cm]{../../images/FACT_official.png}\end{minipage}}
+\newcommand{\titreFooter}{Bilan du Projet FactDev} 
+\newcommand{\subtitle}{FactDev} 
+\newcommand{\auteur}{}
+\newcommand{\semestre}{}
+\newcommand{\annee}{2015}
+
+
+\newcommand{\pole}{}
+\newcommand{\sigle}{}
+\newcommand{\FactDev}{\textit{FactDev}}
+\newcommand{\key}[1]{\textit{#1}}
+\newcommand{\Scrum}{\textit{Scrum}}
+\newcommand{\UserStory}{\textit{User story}}
+\newcommand{\UserStories}{\textit{User stories}}
+\newcommand{\TechnicalStory}{\textit{Technical story}}
+\newcommand{\TechnicalStories}{\textit{Technical stories}}
+\newcommand{\Stories}{\textit{Stories}}
+\newcommand{\Sprint}{\textit{Sprint}}
+\newcommand{\Sprints}{\textit{Sprints}}
+\newcommand{\PullRequest}{\textit{Pull Request}}
+\newcommand{\Release}{\textit{Release}}
+\newcommand{\Releases}{\textit{Releases}}
+\newcommand{\Melee}{\textit{mêlée}}
+\newcommand{\Melees}{\textit{mêlées}}
+\newcommand{\Git}{\textit{Git}}
+\newcommand{\Github}{\textit{Github}}
+\newcommand{\Issue}{\textit{issue}}
+\newcommand{\Issues}{\textit{issues}}
+\newcommand{\Commit}{\textit{commit}}
+\newcommand{\Commits}{\textit{commits}}
+\newcommand{\Travis}{\textit{Travis CI}}
+\newcommand{\Coveralls}{\textit{Coveralls}}
+\newcommand{\SonarQube}{\textit{SonarQube}}
+\newcommand{\BurnUp}{\textit{BurnUp Chart}}
+\newcommand{\Backlog}{\textit{Backlog}}
+\newcommand{\PlanningPoker}{\textit{Planning Poker}}
+\newcommand{\Build}{\textit{Build}}
+\newcommand{\Refactoring}{\textit{Refactoring}}
+\newcommand{\approved}{true}
+
+\makeindex
+\usepackage[totoc]{idxlayout}
+
+
+\input{../LaTexTemplate/templates/listings.tex}
+\input{../LaTexTemplate/templates/classroomsTemplates/l3/cours.tex}
+\input{../LaTexTemplate/templates/remarquesExempleAttention.tex}
+\input{../LaTexTemplate/templates/polices.tex}
+\input{../LaTexTemplate/templates/affichageChapitre.tex}
+
+\input{../LaTexTemplate/templates/cover/couverture.tex}
+\makeatother
+\includeonly {
+contents/preambule,
+contents/projet,
+contents/methodologie,
+contents/resultats,
+contents/conclusion
+}
+\begin{document}
+	\thispagestyle{empty} % Removes page numbers
+	\titleBC
+	\dominitoc
+	\setcounter{tocdepth}{1}
+	\setcounter{secnumdepth}{3}
+	\setcounter{minitocdepth}{1}
+	
+	\tableofcontents
+	
+	\include{contents/preambule}
+	\include{contents/projet}
+	\include{contents/methodologie}
+	\include{contents/resultats}
+	\include{contents/conclusion}
+	\appendix
+	\include{contents/cppConventions}
+	\chapter{Backlog product}\label{backlog}
+	\begin{sidewaysfigure}[ht]
+		\includegraphics{backlog.pdf}
+	\end{sidewaysfigure}
+	\include{contents/references}
+	\listoffigures
+	\printindex
+
+\end{document}

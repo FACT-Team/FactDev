@@ -21,7 +21,7 @@ install:
     - sudo apt-get install libmysqld-dev libmysqlclient-dev libqt5sql5-mysql libqt4-sql-mysql
     - sudo apt-get install mlocate
     - sudo apt-get install xvfb
-    - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/mkqtb8teeydsmrk/Qt5.2.0.tar.xz?dl=0 
+    - wget -O Qt5.2.0.tar.xz https://www.dropbox.com/s/vkqlecsep2mqp22/Qt5.2.0.tar.xz?dl=0
     - mkdir ~/Qt5.2.0 
     - tar -xJf Qt5.2.0.tar.xz -C ~/Qt5.2.0 
     - sudo chmod -R 777 ~/Qt5.2.0/
@@ -39,9 +39,10 @@ script:
     - ./createDatabase.sh FactDev FactDev FactDev
     - ./tests.sh
     - ./coverage.sh
-    - ./doxygen.sh
+    - ./doxygen.sh >> /dev/null 2> /dev/null
     - cd ../
 
 after_success:
     - cd fact-team.github.io/
     - git push https://${TOK}@github.com/FACT-Team/fact-team.github.io.git master
+

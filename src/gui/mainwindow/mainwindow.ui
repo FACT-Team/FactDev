@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1413</width>
-    <height>492</height>
+    <width>1278</width>
+    <height>683</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,14 @@
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="minimumSize">
+       <size>
+        <width>600</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -98,8 +104,8 @@
            <widget class="QTableView" name="tblCustomers">
             <property name="minimumSize">
              <size>
-              <width>811</width>
-              <height>300</height>
+              <width>600</width>
+              <height>200</height>
              </size>
             </property>
             <property name="contextMenuPolicy">
@@ -124,6 +130,10 @@
             <property name="text">
              <string>Archiver client</string>
             </property>
+            <property name="icon">
+             <iconset resource="../../icons.qrc">
+              <normaloff>:/icons/img/archive.png</normaloff>:/icons/img/archive.png</iconset>
+            </property>
            </widget>
           </item>
          </layout>
@@ -146,7 +156,7 @@
         <item row="2" column="0" colspan="3">
          <widget class="QTableView" name="tblProjects">
           <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
+           <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::SelectedClicked</set>
           </property>
           <property name="alternatingRowColors">
            <bool>true</bool>
@@ -202,7 +212,7 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>10</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="text">
@@ -277,7 +287,7 @@
               </property>
               <property name="font">
                <font>
-                <pointsize>10</pointsize>
+                <pointsize>11</pointsize>
                </font>
               </property>
               <property name="text">
@@ -383,6 +393,72 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="page_4">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="1">
+         <widget class="Gui::Widgets::CoffeeEasterEggWidget" name="wgtCoffeeMaker" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>400</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>206</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="1">
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -392,8 +468,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1413</width>
-     <height>27</height>
+     <width>1278</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -463,18 +539,18 @@
    <addaction name="actionNewQuote"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget_2">
+  <widget class="QDockWidget" name="dockCustomerData">
    <property name="minimumSize">
     <size>
-     <width>270</width>
+     <width>250</width>
      <height>70</height>
     </size>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="windowTitle">
@@ -522,14 +598,14 @@
    <property name="minimumSize">
     <size>
      <width>250</width>
-     <height>183</height>
+     <height>180</height>
     </size>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="windowTitle">
@@ -539,6 +615,12 @@
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_3">
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="font">
      <font>
       <pointsize>9</pointsize>
@@ -566,18 +648,18 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidget_4">
+  <widget class="QDockWidget" name="dockUserData">
    <property name="minimumSize">
     <size>
      <width>270</width>
-     <height>200</height>
+     <height>100</height>
     </size>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>12</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="windowTitle">
@@ -762,11 +844,19 @@
    <property name="enabled">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/stats.png</normaloff>:/icons/stats.png</iconset>
+   </property>
    <property name="text">
     <string>Statistiques du client</string>
    </property>
   </action>
   <action name="actGlobalStatistics">
+   <property name="icon">
+    <iconset resource="../../icons.qrc">
+     <normaloff>:/icons/stats.png</normaloff>:/icons/stats.png</iconset>
+   </property>
    <property name="text">
     <string>Statistiques globales</string>
    </property>
@@ -789,7 +879,14 @@
     <signal>editProject()</signal>
     <signal>removeProject()</signal>
     <signal>addProject()</signal>
+    <signal>lockProject()</signal>
    </slots>
+  </customwidget>
+  <customwidget>
+   <class>Gui::Widgets::CoffeeEasterEggWidget</class>
+   <extends>QWidget</extends>
+   <header>gui/widgets/coffeeeastereggwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
@@ -803,8 +900,8 @@
    <slot>editCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1106</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>764</x>
@@ -819,8 +916,8 @@
    <slot>removeCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1019</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -835,8 +932,8 @@
    <slot>addCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>689</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -851,8 +948,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>819</x>
-     <y>678</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>720</x>
@@ -995,8 +1092,8 @@
    <slot>backToCustomersTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>433</x>
-     <y>117</y>
+     <x>327</x>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>326</x>
@@ -1027,8 +1124,8 @@
    <slot>projectsTableToDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>667</x>
-     <y>223</y>
+     <x>374</x>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>920</x>
@@ -1043,8 +1140,8 @@
    <slot>backToProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>585</x>
-     <y>119</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>672</x>
@@ -1059,8 +1156,8 @@
    <slot>addProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1112</x>
-     <y>678</y>
+     <x>1122</x>
+     <y>446</y>
     </hint>
     <hint type="destinationlabel">
      <x>797</x>
@@ -1075,8 +1172,8 @@
    <slot>editProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1112</x>
-     <y>678</y>
+     <x>1122</x>
+     <y>446</y>
     </hint>
     <hint type="destinationlabel">
      <x>738</x>
@@ -1091,8 +1188,8 @@
    <slot>removeProject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1112</x>
-     <y>678</y>
+     <x>1122</x>
+     <y>446</y>
     </hint>
     <hint type="destinationlabel">
      <x>0</x>
@@ -1123,8 +1220,8 @@
    <slot>changeProjectsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>667</x>
-     <y>223</y>
+     <x>374</x>
+     <y>146</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -1171,8 +1268,8 @@
    <slot>changeDocsTable()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>502</x>
@@ -1187,8 +1284,8 @@
    <slot>editDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
@@ -1203,8 +1300,8 @@
    <slot>removeDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>776</x>
-     <y>677</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>609</x>
@@ -1235,8 +1332,8 @@
    <slot>openPdf()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>827</x>
@@ -1251,8 +1348,8 @@
    <slot>changeTree()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>393</y>
+     <x>90</x>
+     <y>133</y>
     </hint>
     <hint type="destinationlabel">
      <x>292</x>
@@ -1283,8 +1380,8 @@
    <slot>billingIsPaid()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -1299,8 +1396,8 @@
    <slot>copyDoc()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
-     <y>123</y>
+     <x>374</x>
+     <y>117</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1331,8 +1428,8 @@
    <slot>archiveCustomer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>866</x>
-     <y>671</y>
+     <x>383</x>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
      <x>903</x>
@@ -1368,6 +1465,38 @@
     </hint>
     <hint type="destinationlabel">
      <x>706</x>
+     <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wdgTblProjectsToolBar</sender>
+   <signal>lockProject()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>lockProject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1008</x>
+     <y>436</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>959</x>
+     <y>627</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tblQuotes</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openPdf()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>721</x>
+     <y>392</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>719</x>
      <y>359</y>
     </hint>
    </hints>
@@ -1411,5 +1540,6 @@
   <slot>archiveCustomer()</slot>
   <slot>globalStatistics()</slot>
   <slot>customerStatistics()</slot>
+  <slot>lockProject()</slot>
  </slots>
 </ui>

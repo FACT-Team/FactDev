@@ -1,5 +1,7 @@
 #ifndef PROJECTMODELTEST_H
 #define PROJECTMODELTEST_H
+#include <iostream>
+
 #include "QTestRunner/testrunner.h"
 #include "models/project.h"
 #include "utils/double.h"
@@ -25,6 +27,11 @@ private slots:
 
     void getProjectsTable();
     void turnoverComputeTest();
+    void lock();
+    void isLocked();
+
+    void unlock();
+    void commitLock();
 private:
     Project p1;
     Project p2;

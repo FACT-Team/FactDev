@@ -16,7 +16,6 @@ throw(Exceptions::FileException*)
                         directory.currentPath(),
                         1.1);
         }
-
     }
     directory.setPath(path + "/" + folder);
     return path + "/" + folder;

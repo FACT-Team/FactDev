@@ -3,7 +3,8 @@
 
 namespace Gui {
 namespace Docks {
-SearchDock::SearchDock(QWidget* parent, Qt::WindowFlags flags) : QDockWidget(parent, flags), ui(new Ui::SearchDock)
+SearchDock::SearchDock(QWidget* parent, Qt::WindowFlags flags)
+    : QDockWidget(parent, flags), ui(new Ui::SearchDock)
 
 {
     ui->setupUi(this);
@@ -18,6 +19,7 @@ SearchDock::~SearchDock()
 void SearchDock::search(QString text)
 {
     Models::Search s;
+    _text = text;
     QString styleSearchBackground =
     "background: url(:/icons/searchMini);"
     "background-position: right;"
@@ -30,7 +32,7 @@ void SearchDock::search(QString text)
     "height: 25px;"
     "border: 1px solid #bbb;";
     if(ui->leSearch->text() != "") {
-    ui->leSearch->setStyleSheet(styleSearchNoBackground);
+        ui->leSearch->setStyleSheet(styleSearchNoBackground);
     } else {
         ui->leSearch->setStyleSheet(styleSearchBackground);
     }
@@ -43,6 +45,10 @@ void SearchDock::search(QString text)
     s.setText(text);
 
     emit textChanged(s.getFilter());
+}
+QString SearchDock::getText() const
+{
+    return _text;
 }
 
 

@@ -38,7 +38,9 @@ void UserDataDialog::fillFields() {
     ui->wdgPdflatex->setField(_user->getPdflatexPath());
     ui->leWebsite->setText(_user->getWebsite());
     ui->leAddressComplement->setText(_user->getAddressComplement());
-
+    ui->wdgWorkQuantity->setNbDaysPerMonth(_user->getNbDaysPerMonth());
+    ui->wdgWorkQuantity->setNbDaysPerWeek(_user->getNbDaysPerWeek());
+    ui->wdgWorkQuantity->setNbHoursPerDay(_user->getNbHoursPerDay());
     if (ui->leWorkspaceName->text().isEmpty()) {
         _user->setWorkspaceName("FactDev");
         ui->leWorkspaceName->setText(_user->getWorkspaceName());
@@ -76,7 +78,9 @@ void UserDataDialog::accept() {
     _user->setPdflatexPath(ui->wdgPdflatex->getField());
     _user->setWebsite(ui->leWebsite->text());
     _user->setAddressComplement(ui->leAddressComplement->text());
-
+    _user->setNbDaysPerMonth(ui->wdgWorkQuantity->getNbDaysPerMonth());
+    _user->setNbDaysPerWeek(ui->wdgWorkQuantity->getNbDaysPerWeek());
+    _user->setNbHoursPerDay(ui->wdgWorkQuantity->getNbHoursPerDay());
     if (ui->leWorkspaceName->text().isEmpty()) {
         _user->setWorkspaceName("FactDev");
     } else {

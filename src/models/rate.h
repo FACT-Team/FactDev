@@ -3,6 +3,7 @@
 
 #include "database/ratedatabase.h"
 
+#include "models/user.h"
 namespace Models {
 
 /**

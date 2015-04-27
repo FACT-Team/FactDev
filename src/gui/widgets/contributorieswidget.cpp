@@ -21,14 +21,12 @@ ContributoriesWidget::ContributoriesWidget(
     ui->tblProjects->setItemDelegateForColumn(
                 2, new Delegates::DoubleSpinBoxDelegate());
     ui->tblProjects->setModel(_modelProjects);
-    ui->btnAddPrestation->hide();
-    ui->btnRmovePrestation->hide();
-    ui->lbContributoriesProject->hide();
     connect(ui->tblProjects->itemDelegateForColumn(0),
             SIGNAL(closeEditor(QWidget*)),
             SLOT(editing()));
     emit contributoryChanged();
     emit updateUi();
+    responsiveProjectsTable();
 }
 
 ContributoriesWidget::~ContributoriesWidget()
@@ -82,6 +80,27 @@ void ContributoriesWidget::add(ContributoriesList& list)
     emit contributoryChanged();
 }
 
+void ContributoriesWidget::responsiveProjectsTable()
+{
+
+    int w = ui->tblProjects->width();
+    double fixedRatio = 110;
+    ui->tblProjects->setColumnWidth(0,w*(0.99-(2*(fixedRatio/w))));
+    ui->tblProjects->setColumnWidth(1, fixedRatio);
+    ui->tblProjects->setColumnWidth(2, fixedRatio);
+}
+
+void ContributoriesWidget::responsiveContributoriesTable(QTableView* view)
+{
+    int w = view->width();
+    double complete = 0.2 + 0.25 + 2*(100.0/w);
+    view->setColumnWidth(0, w*(0.2 + (0.99-complete)/2));
+    view->setColumnWidth(1, w*(0.25 + (1.0-complete)/2));
+    view->setColumnWidth(2, 100.0);
+    view->setColumnWidth(3, 100.0);
+    view->verticalHeader()->setDefaultSectionSize(60);
+}
+
 void ContributoriesWidget::remove(void)
 {
     QTableView* view = (QTableView*)ui->stack->currentWidget();
@@ -107,19 +126,21 @@ void ContributoriesWidget::addProject(QPair<Project*, Rate>* p)
     view->setItemDelegateForColumn(1, new Delegates::TextareaDelegate());
     view->setItemDelegateForColumn(2, new Delegates::DoubleSpinBoxDelegate());
     view->setItemDelegateForColumn(3, new Delegates::UnitComboDelegate());
-    view->setColumnWidth(0, 200);
-    view->setColumnWidth(1, 450);
-    view->setColumnWidth(2, 70);
-    view->setColumnWidth(3, 70);
-    view->verticalHeader()->setDefaultSectionSize(60);
 
+    connect(view->itemDelegateForColumn(3),
+            SIGNAL(closeEditor(QWidget*)),
+            SLOT(updatePrice()));
     connect(view->itemDelegateForColumn(2),
             SIGNAL(closeEditor(QWidget*)),
             SLOT(updatePrice()));
     connect(view->itemDelegateForColumn(1),
             SIGNAL(closeEditor(QWidget*)),
             SLOT(updatePrice()));
+
+
+
     ui->stack->insertWidget(ui->stack->count(), view);
+    responsiveContributoriesTable(view);
     emit updateUi();
 }
 
@@ -161,15 +182,15 @@ void ContributoriesWidget::updateUi()
                 ui->tblProjects->currentIndex().row() != -1);
 
     if(_modelProjects->getSelectedProjects().count() > 0) {
-        ui->btnAddPrestation->show();
-        ui->btnRmovePrestation->show();
+        ui->btnAddPrestation->setEnabled(true);
+        ui->btnRmovePrestation->setEnabled(true);
         ui->lbContributoriesProject->show();
     } else {
-        ui->btnAddPrestation->hide();
-        ui->btnRmovePrestation->hide();
-        ui->lbContributoriesProject->hide();
+        ui->btnAddPrestation->setEnabled(false);
+        ui->btnRmovePrestation->setEnabled(false);
+        ui->lbContributoriesProject->show();
     }
-    updatePrice();
+    updatePrice();    
 }
 
 void ContributoriesWidget::updatePrice()

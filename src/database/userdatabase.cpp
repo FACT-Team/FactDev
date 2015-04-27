@@ -24,7 +24,7 @@ Models::User *UserDatabase::getUser(const int pId)
     Models::User* user;
     q.prepare("SELECT idUser, firstname, lastname, company, title, address, "
               "postalCode, city, email, mobilePhone, phone, noSiret, "
-              "workspaceName, workspacePath, pdflatexcommand, complementAddress,website  "
+              "workspaceName, workspacePath, pdflatexcommand, complementAddress,website,nbHoursPerDay,nbDaysPerWeek,nbDaysPerMonth  "
               "FROM User WHERE idUser = :pId");
     q.bindValue(":pId", pId);
 
@@ -55,6 +55,9 @@ Models::User *UserDatabase::getUser(const int pId)
         user->setPdflatexPath(value(q, "pdflatexcommand").toString());
         user->setAddressComplement(value(q,"complementAddress").toString());
         user->setWebsite(value(q,"website").toString());
+        user->setNbDaysPerMonth(value(q, "nbDaysPerMonth").toDouble());
+        user->setNbDaysPerWeek(value(q, "nbDaysPerWeek").toDouble());
+        user->setNbHoursPerDay(value(q, "nbHoursPerDay").toDouble());
     } else {
         user = NULL;
     }
@@ -71,7 +74,8 @@ void UserDatabase::updateUser(const Models::User& pUser) {
                 "city = :city, email = :email, mobilePhone = :mobilePhone, "
                 "phone = :phone, noSiret = :noSiret, "
                 "workspaceName = :workspaceName, workspacePath = :workspacePath, pdflatexcommand=:pdflatex, "
-                "complementAddress=:complementAddress, website=:website "
+                "complementAddress=:complementAddress, website=:website,"
+                "nbHoursPerDay=:nbHoursPerDay,nbDaysPerWeek=:nbDaysPerWeek,nbDaysPerMonth=:nbDaysPerMonth "
                 "WHERE idUser = :idUser");
 
     q.bindValue(":idUser", pUser.getId());
@@ -92,6 +96,10 @@ void UserDatabase::updateUser(const Models::User& pUser) {
     q.bindValue(":pdflatex", pUser.getPdflatexPath());
     q.bindValue(":complementAddress", pUser.getAddressComplement());
     q.bindValue(":website", pUser.getWebsite());
+
+    q.bindValue(":nbDaysPerMonth", pUser.getNbDaysPerMonth());
+    q.bindValue(":nbDaysPerWeek", pUser.getNbDaysPerWeek());
+    q.bindValue(":nbHoursPerDay", pUser.getNbHoursPerDay());
 
     if(!q.exec()) {
         throw new DbException(
