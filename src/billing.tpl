@@ -95,8 +95,8 @@
         \\\Mundus~\texttt{%
             \websiteUser{}
         }
-
-    }
+    }\newline~\newline
+    Numéro SIRET: {{siretNumber}}
     {{/user}}
     \end{minipage}\\[1em]
     %
