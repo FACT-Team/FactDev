@@ -1,4 +1,11 @@
 #!/bin/sh
-LD_LIBRARY_PATH=`pwd`
+
+dirname=`dirname $0`
+tmp="${dirname#?}"
+
+if [ "${dirname%$tmp}" != "/" ]; then
+dirname=$PWD/$dirname
+fi
+LD_LIBRARY_PATH=$dirname
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH
-./app
+$dirname/app
