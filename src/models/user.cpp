@@ -41,6 +41,8 @@ QVariantHash User::getDataMap()
     data["mobilePhone"]       = getMobilePhone();
     data["fax"]       = getMobilePhone();
     data["email"]       = getEmail();
+    data["siretNumber"] = getNoSiret();
+
     if(!getWebsite().isEmpty()) {
         data["website"]     = getWebsite();
     }
