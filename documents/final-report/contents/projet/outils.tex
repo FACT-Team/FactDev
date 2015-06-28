@@ -1,9 +1,9 @@
 \section{Les outils}
-Afin de respecter les attentes du client, et de développer correctement le logiciel présenté section \ref{logiciel}, nous avons utilisés un
-certain nombres d'outils, dans divers domaines.
+Afin de respecter les attentes du client, et de développer correctement le logiciel présenté section \ref{logiciel}, nous avons utilisé un
+certain nombre d'outils, dans divers domaines.
 
 \subsection{Outils de développement}
-Afin de développer à proprement parler le logiciel, nous avons utilisés plusieurs technologies. 
+Afin de développer à proprement parler le logiciel, nous avons utilisé plusieurs technologies. 
 
 \begin{wrapfigure}{r}{0.4\textwidth}
 \begin{center}
@@ -17,7 +17,7 @@ framework de développement, et ce pour plusieurs raisons :
 \begin{itemize}
 	\item Développer rapidement une interface claire, uniforme
 	\item Avoir un logiciel Multi-Plateforme, executable sous Windows, Linux et Mac OS
-	\item Faciliter les lectures et écritures à une base de données 
+	\item Faciliter les lectures et écritures d'une base de données 
 \end{itemize}
 En plus de ces avantages certains, Qt améliore le langage C++ afin de garder la même rapidité d'exécution tout en simplifiant l'écriture de
 certains concepts\footnote{Simplification de la gestion de la mémoire, Ajout du \textit{foreach}, redéfinition de tous les types de bases, …}.
@@ -42,7 +42,7 @@ devions générer du \LaTeX{} en réutilisant ce template.\\ Une fois ce fichier
 \end{wrapfigure}
 Le logiciel utilise une base de données pour sauvegarder les différents clients, devis, factures etc… Le besoin initial était de pouvoir
 sauvegarder ça sur un ordinateur : le système de SQLite permet cela très simplement, tout est sauvegardé dans un fichier binaire.\\ Une fois
-avancé dans le projet, une autre solution est apparu : posséder un serveur de base de données afin d'utiliser le logiciel avec plusieurs
+avancé dans le projet, une autre solution est apparue : posséder un serveur de base de données afin d'utiliser le logiciel avec plusieurs
 postes clients. Ce besoin a été couvert à l'aide de MySQL, ainsi le logiciel permet de choisir l'une ou l'autre des manières de procéder.
 
 
@@ -73,10 +73,10 @@ augmentions ou diminuions cette couverture.
 
 \subsubsection{Travis: Intégration continue}
 Lorsqu'un développeur envoie des données au serveur, Travis effectue automatiquement des actions afin de signaler si le build << passe >>,
-ou échoue. Plus d'informations sur son fonctionnement section TODO \ldots
+ou échoue. Plus d'informations sur son fonctionnement section \ref{integration-continue} \ldots
 
 \subsubsection{Doxygen: Documentation technique}
-La documentation technique s'est fait au moyen de Doxygen, outils très connu dans le monde C++ et permettant de générer cette documentation
+La documentation technique s'est faite au moyen de Doxygen, outils très connu dans le monde C++ et permettant de générer cette documentation
 en de nombreux formats différents, notamment HTML, XML, RTF, \LaTeX{}, \ldots
 
 \begin{figure}[H]
@@ -89,13 +89,13 @@ en de nombreux formats différents, notamment HTML, XML, RTF, \LaTeX{}, \ldots
 \subsection{Organisation}
 \subsubsection{IRC : les réunions}
 Étant dans différents groupes de TP, et n'habitant pas au même endroit, il était difficile de se rencontrer régulièrement pour effectuer des
-réunions d'avancements régulières\footnote{Notamment les « Mêlées » Scrum, pour plus d'information section TODO blalba}. La solution a été
+réunions d'avancements régulières\footnote{Notamment les « Mêlées » Scrum, pour plus d'information section \ref{methodeScrum}}. La solution a été
 d'utiliser un canal IRC, en cas de problème, nous pouvions demander de l'aide à quelqu'un du groupe de connecté, et si nous fixions une
 réunions nous étions tous présents afin de discuter de nos avancées, problèmes et de ce qu'il restait à faire.
 
 \subsubsection{Google Drive : Le backlog et l'organisation générale}
 Nous avons utilisé Google Drive pour stocker plusieurs documents, notamment le \textit{Product Backlog}\footnote{Pour plus d'informations
-section todo bla bla bla} qui était alimenté par le \textit{product owner}.  Nous nous sommes également servit de Google Drive afin de rédiger les
+section \ref{backlog}} qui était alimenté par le \textit{product owner}.  Nous nous sommes également servis de Google Drive afin de rédiger les
 rapports mensuels, mais aussi pour créer les diagrammes d'avancée d'un sprint. 
 
 \begin{figure}[H]

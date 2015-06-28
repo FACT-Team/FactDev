@@ -10,6 +10,7 @@
 \usepackage{wrapfig}
 \usepackage{times}
 \usepackage[T1]{fontenc}
+\usepackage[overlay,absolute]{textpos}
 
 \newcommand{\firstlogo}{FACT_official.png}
 \newcommand{\secondlogo}{ups.jpg}
@@ -90,8 +91,8 @@ M1 Informatique -- Développement Logiciel
 \vspace{-10px}
 }
 
-\date[ ~ ~ ~ JJ / MM / 2015] % (facultatif, peut être une abr\'eviation du nom de la conf\'erence)
-{JJ / MM / 2015}
+\date[ ~ ~ ~ 29 / 04 / 2015] % (facultatif, peut être une abr\'eviation du nom de la conf\'erence)
+{Mercredi 29 Avril 2015}
 
 \pgfdeclareimage[width=2.5cm]{le-logo}{../../images/FACT_official.png}
 \logo{\pgfuseimage{le-logo}}
@@ -103,6 +104,12 @@ M1 Informatique -- Développement Logiciel
 \end{frame}
 }
 
+<<<<<<< HEAD
+\setbeamerfont*{section in sidebar}{size=\fontsize{8px}{2em}\selectfont }
+=======
+\setbeamerfont*{section in sidebar}{size=\fontsize{8px}{2.3em}\selectfont }
+>>>>>>> b7a6178b42a7a79788e253d5159ded15637d623e
+\setbeamerfont*{subsection in sidebar}{size=\fontsize{5px}{1.5em}\selectfont }
 \begin{document}
 	\sidetoc{no}
 	\NooneSpeak{}
@@ -132,7 +139,11 @@ M1 Informatique -- Développement Logiciel
 			\includegraphics[width=5cm]{interrogation.png}
 		\end{figure}
 	\end{frame}
-
+	\vspace*{-7mm}    
+	\begin{frame}[plain]{Product Backlog}
+		\hspace*{-35mm}
+		\includegraphics[width=13.8cm]{backlog.pdf}
+	\end{frame}
 	\begin{frame}
 		\titlepage
 	\end{frame}
