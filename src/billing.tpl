@@ -83,9 +83,7 @@
 	{{#mobilePhone}}
         \Mobilefone~{{ mobilePhone }}\\[.35ex]
 	{{/mobilePhone}}
-    \Letter\texttt{%
-    {{ email }}
-    }
+    \Letter\texttt{~{{ email }} }
     \newcommand{\websiteUser}{%
     {{website}}%
     }
@@ -128,7 +126,7 @@
     {{#fax}}
     \Faxmachine~{{ fax }}\\[.35ex]
     {{/fax}}
-    \Letter\texttt{ {{ email }} }
+    \Letter\texttt{~{{ email }} }
     \newcommand{\websiteCustomer}{%
     {{website}}%
     }
