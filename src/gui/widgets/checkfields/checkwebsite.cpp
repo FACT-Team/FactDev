@@ -10,11 +10,11 @@ CheckWebsite::CheckWebsite(QWidget* w, QPushButton *btn)
 
 bool CheckWebsite::check(QString text)
 {
-    QRegExp ipAddessRgx("http://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"); // Ip address
+    QRegExp ipAddessRgx("http[s]{0,1}://[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}"); // Ip address
     ipAddessRgx.setCaseSensitivity(Qt::CaseInsensitive);
     ipAddessRgx.setPatternSyntax(QRegExp::RegExp);
 
-    QRegExp domainName("http://\\b[A-Z0-9._%+-]+\\.[A-Z]{2,4}\\b");
+    QRegExp domainName("http[s]{0,1}://\\b[A-Z0-9._%+-]+\\.[A-Z]{2,4}\\b");
     domainName.setCaseSensitivity(Qt::CaseInsensitive);
     domainName.setPatternSyntax(QRegExp::RegExp);
 
