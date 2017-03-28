@@ -1,7 +1,7 @@
 #ifndef Database_H
 #define Database_H
 
-#include <QtSql/QSql>
+#include <QtSql>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 #include <QtSql/QSqlRecord>

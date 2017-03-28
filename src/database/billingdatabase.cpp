@@ -326,7 +326,7 @@ int BillingDatabase::getMaxQuoteNumberOfCustomer(const int idCustomer)
     if(!q.exec()) {
         throw new DbException(
             "Impossible d'obtenir le numéro max du devis",
-            "BddContributory::getMaxBillingNumberOfCustomer",
+            "BddContributory::getMaxQuoteNumberOfCustomer",
             lastError(q),
             1.6);
     }
