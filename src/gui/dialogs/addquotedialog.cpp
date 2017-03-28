@@ -129,8 +129,8 @@ void AddQuoteDialog::fillQuoteBillingCopy(bool isBilling)
 void AddQuoteDialog::setQuoteIdNumber(int id, int idCustomer, bool isBilling)
 {
     _quote->setId(id);
-    _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumber(idCustomer)+1
-                                : Databases::BillingDatabase::instance()->getMaxQuoteNumber(idCustomer)+1);
+    _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumber()+1
+                                : Databases::BillingDatabase::instance()->getMaxQuoteNumber()+1);
 }
 
 void AddQuoteDialog::updateBtn() {
