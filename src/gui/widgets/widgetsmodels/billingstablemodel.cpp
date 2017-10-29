@@ -105,11 +105,6 @@ void Gui::Widgets::WdgModels::BillingsTableModel::append(const Billing &billing)
     endInsertRows();
 }
 
-void Gui::Widgets::WdgModels::BillingsTableModel::remove(const int i)
-{
-
-}
-
 Qt::ItemFlags Gui::Widgets::WdgModels::BillingsTableModel::flags(
         const QModelIndex &index) const
 {

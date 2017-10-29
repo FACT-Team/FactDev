@@ -15,7 +15,7 @@ public:
      * @brief RateDatabase::getInstance Return an instance of RateDatabase
      * @return Instance of RateDatabase
      */
-    static RateDatabase*  instance() throw (DbException*);
+    static RateDatabase*  instance();
 
     /**
      * @brief RateDatabase::addRateProject Add a new rate <i>hourlyRate</i> to
@@ -51,7 +51,7 @@ private:
     /**
      * @brief RateDatabase: is a singleton
      */
-    RateDatabase() throw (DbException*);
+    RateDatabase();
 
 };
 

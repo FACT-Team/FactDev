@@ -19,8 +19,7 @@ public:
     static QString makeDirectory(
             QDir &directory,
             const QString path,
-            const QString folder)
-    throw(Exceptions::FileException*);
+            const QString folder);
 };
 }
 #endif // DIRECTORIES_H

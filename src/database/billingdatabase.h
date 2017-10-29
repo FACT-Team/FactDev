@@ -27,7 +27,7 @@ public:
      * @see DbException
      * @return Instance of BillingDatabase
      */
-    static BillingDatabase* instance()throw(DbException*);
+    static BillingDatabase* instance();
 
     /**
      * @brief BillingDatabase::getBilling get informations about the billing
@@ -44,8 +44,7 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    WdgModels::BillingsTableModel *getBillingsTable(const int idProject)
-        throw(DbException*);
+    WdgModels::BillingsTableModel *getBillingsTable(const int idProject);
 
     /**
      * @brief BillingDatabase::addBilling Add the billing <i>pBilling</i> to
@@ -199,7 +198,7 @@ private:
     /**
      * @brief <b>BillingDatabase</b> is a singleton
      */
-    BillingDatabase() throw(DbException*) ;
+    BillingDatabase();
 };
 }
 #endif // BILLINGDATABASE_H

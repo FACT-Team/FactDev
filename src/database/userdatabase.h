@@ -22,14 +22,14 @@ private:
     /**
      * @brief UserDatabase: is a singleton
      */
-    UserDatabase()throw(DbException*) ;
+    UserDatabase();
 
 public:
     /**
      * @brief UserDatabase::getInstance Return an instance of UserDatabase
      * @return Instance of UserDatabase
      */
-    static UserDatabase* instance()throw(DbException*);
+    static UserDatabase* instance();
 
     /**
      * @brief UserDatabase::getUser Get informations about the user (identified

@@ -24,7 +24,7 @@ public:
      *  Construct a ProjectContributoriesTableModel
      * @param parent Parent widget
      */
-    ProjectContributoriesTableModel(QObject* parent = 0);
+    ProjectContributoriesTableModel();
 
     /**
      * @brief ProjectContributoriesTableModel::rowCount Number of contributories

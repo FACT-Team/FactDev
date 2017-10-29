@@ -110,7 +110,7 @@ void MainWindow::addCustomer()
     if (DialogAddCustomer().exec()) { // accept
         ui->stackedWidget->setCurrentIndex(0);
         updateTableCustomers();
-        updateTree();        
+        updateTree();
     }
 }
 
@@ -155,7 +155,7 @@ void MainWindow::addDoc(bool isBilling) {
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
-{    
+{
     mergeDocks();
 
     switch (ui->stackedWidget->currentIndex()) {
@@ -263,7 +263,7 @@ void MainWindow::responsiveBillingTable()
     }
 }
 
-bool MainWindow::isEasterEgg(const QString filter) {
+bool MainWindow::isEasterEgg() {
     return _searchDock->getText() == "FleuryMigeon42";
 }
 
@@ -561,7 +561,7 @@ void MainWindow::changeTree()
         Log::instance(WARNING) << "MainWindow::changeTree – "
                                   "I don't know what I'm doing here… ";
     }
-    updateButtons();    
+    updateButtons();
 }
 
 void MainWindow::changeCustomerTable()
@@ -726,7 +726,7 @@ void MainWindow::openContextualMenuTree(const QPoint point)
 
 
 void MainWindow::updateTableCustomers(QString filter, const int row) {
-    if (!isEasterEgg(filter)) {
+    if (!isEasterEgg()) {
         ui->tblCustomers->setModel(
             Databases::CustomerDatabase::instance()->getCustomersTable(filter));
 
@@ -791,7 +791,7 @@ void MainWindow::updateCostAndTurnover()
 }
 
 void MainWindow::updateTree(QString filter) {
-    if (!isEasterEgg(filter)) {
+    if (!isEasterEgg()) {
         if (ui->trCustomers->model() != NULL) {
             delete ui->trCustomers->model();
         }

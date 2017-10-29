@@ -25,8 +25,9 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         _quote = new Billing(id);
         fillFields();
         if (copy) {
-            setQuoteIdNumber(0,idCustomer,isBilling);
+            setQuoteIdNumber(0,isBilling);
             fillQuoteBillingCopy(isBilling);
+            ui->dateEditQuote->setDate(QDate::currentDate());
         }
         else {
             ui->btnDocChange->hide();
@@ -36,7 +37,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         }
     } else {
         _quote = new Billing();
-        setQuoteIdNumber(id,idCustomer,isBilling);
+        setQuoteIdNumber(id, isBilling);
         ui->dateEditQuote->setDate(QDate::currentDate());
         ui->btnDocChange->hide();
         fillQuoteBilling(isBilling);
@@ -126,7 +127,7 @@ void AddQuoteDialog::fillQuoteBillingCopy(bool isBilling)
     }
 }
 
-void AddQuoteDialog::setQuoteIdNumber(int id, int idCustomer, bool isBilling)
+void AddQuoteDialog::setQuoteIdNumber(int id, bool isBilling)
 {
     _quote->setId(id);
     _quote->setNumber(isBilling ? Databases::BillingDatabase::instance()->getMaxBillingNumber()+1

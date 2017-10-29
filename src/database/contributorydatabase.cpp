@@ -1,14 +1,14 @@
 #include "database/contributorydatabase.h"
 
 namespace Databases {
-ContributoryDatabase::ContributoryDatabase() throw(DbException*)  : Database() {
+ContributoryDatabase::ContributoryDatabase() : Database() {
     _instances << this;
 }
 
 // SINGLETON
 ContributoryDatabase* ContributoryDatabase::_instance = 0;
 
-ContributoryDatabase* ContributoryDatabase::instance()throw(DbException*)
+ContributoryDatabase* ContributoryDatabase::instance()
 {
     if (!_instance) {
         _instance = new ContributoryDatabase();

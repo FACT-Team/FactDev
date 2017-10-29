@@ -2,14 +2,14 @@
 
 namespace Databases {
 
-BillingDatabase::BillingDatabase() throw(DbException*)  : Database() {
+BillingDatabase::BillingDatabase() : Database() {
     _instances << this;
 }
 
 // SINGLETON
 BillingDatabase* BillingDatabase::_instance = 0;
 
-BillingDatabase* BillingDatabase::instance()throw(DbException*)
+BillingDatabase* BillingDatabase::instance()
 {
     if (!_instance) {
         _instance = new BillingDatabase();
@@ -50,7 +50,7 @@ Models::Billing* BillingDatabase::getBilling(const int pId) {
 }
 
 WdgModels::BillingsTableModel* BillingDatabase::getBillingsTable(
-        const int idProject) throw(DbException*)
+        const int idProject)
 {
     WdgModels::BillingsTableModel* ret = new WdgModels::BillingsTableModel();
     QSqlQuery q;

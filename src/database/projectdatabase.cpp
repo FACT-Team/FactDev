@@ -1,14 +1,14 @@
 #include "database/projectdatabase.h"
 namespace Databases {
 
-ProjectDatabase::ProjectDatabase() throw(DbException*) : Database() {
+ProjectDatabase::ProjectDatabase() : Database() {
     _instances << this;
 }
 
 // SINGLETON
 ProjectDatabase* ProjectDatabase::_instance = 0;
 
-ProjectDatabase *ProjectDatabase::instance() throw(DbException*)
+ProjectDatabase *ProjectDatabase::instance()
 {
     if (!_instance) {
         _instance = new ProjectDatabase();
@@ -287,7 +287,6 @@ QList<Project> ProjectDatabase::getProjects(const int customerId) {
 }
 
 WdgModels::ProjectsTableModel *ProjectDatabase::getProjectsTable(const int pId)
-throw(DbException*)
 {
     WdgModels::ProjectsTableModel* ret
             = new WdgModels::ProjectsTableModel();

@@ -4,8 +4,7 @@ namespace Gui {
 namespace Widgets {
 namespace WdgModels {
 
-ProjectContributoriesTableModel::ProjectContributoriesTableModel(
-        QObject *parent)
+ProjectContributoriesTableModel::ProjectContributoriesTableModel()
 {
 
 }

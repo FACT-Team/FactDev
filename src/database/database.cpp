@@ -7,7 +7,7 @@ bool Database::_dbInstance = 0;
 bool Database::isOpen = false;
 bool Database::_isMysql = false;
 
-Database* Database::instance(bool tests) throw(DbException*) {
+Database* Database::instance(bool tests) {
     if (_instance==0) {
         _instance = new Database(tests);
     }
@@ -21,10 +21,10 @@ void Database::setDatabase(QSqlDatabase sql) {
 }
 
 void Database::close() {
-    mDatabase.close();    
+    mDatabase.close();
 }
 
-Database::Database(bool tests) throw(DbException*) {
+Database::Database(bool tests) {
     if(!isOpen) {
         if(!tests) {
             AccessDatabase::init();
