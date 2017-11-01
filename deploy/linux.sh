@@ -2,7 +2,7 @@
 # -*- coding: UTF8 -*-
 
 #### CONFIGURATION ####
-qt_path="/opt/Qt/5.8/gcc_64"
+qt_path="/opt/Qt/5.9.1/gcc_64"
 make_path="make"
 build_path="/home/aroquemaurel/projets/qt/Fact/build-factdev-release"
 repo_path="/home/aroquemaurel/projets/qt/Fact/FactDev"
