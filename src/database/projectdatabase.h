@@ -30,7 +30,7 @@ public:
      * @brief ProjectDatabase::getInstance Return an instance of ProjectDatabase
      * @return Instance of ProjectDatabase
      */
-    static ProjectDatabase*  instance() throw (DbException*);
+    static ProjectDatabase*  instance();
 
     /**
      * @brief ProjectDatabase::getProject Get informations about the project
@@ -101,8 +101,7 @@ public:
       * @param filter Select only projects who are specified by <i>filter</i>
       * @return QStandardItemModel an item model for QTableView
       */
-    WdgModels::ProjectsTableModel* getProjectsTable(const int pId)
-        throw(DbException*);
+    WdgModels::ProjectsTableModel* getProjectsTable(const int pId);
 
     /**
      * @brief getProject Obtain a project without new query
@@ -131,7 +130,7 @@ private:
     /**
      * @brief ProjectDatabase: is a singleton
      */
-    ProjectDatabase() throw (DbException*);
+    ProjectDatabase();
 
 };
 }

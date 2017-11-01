@@ -3,14 +3,14 @@
 
 namespace Databases {
 
-UserDatabase::UserDatabase() throw(DbException*)  : Database() {
+UserDatabase::UserDatabase() : Database() {
     _instances << this;
 }
 
 // SINGLETON
 UserDatabase* UserDatabase::_instance = 0;
 
-UserDatabase* UserDatabase::instance()throw(DbException*) {
+UserDatabase* UserDatabase::instance(){
     if (!_instance) {
         _instance = new UserDatabase();
     }

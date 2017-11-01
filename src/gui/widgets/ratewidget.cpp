@@ -1,6 +1,8 @@
 #include "ratewidget.h"
 #include "ui_ratewidget.h"
 
+
+// TODO AR : Classe à supprimer ? AUcune méthode ne fait quoi que ce soit.
 namespace Gui {
 namespace Widgets {
 RateWidget::RateWidget(QWidget *parent) :
@@ -30,6 +32,7 @@ void RateWidget::setWidgetDailyRateValue(double value)
 
 double RateWidget::getDailyRate() {
 //    return ui->sbDailyRate->value();
+    return 0d;
 }
 
 void RateWidget::setDailyRate() {
@@ -45,6 +48,7 @@ void RateWidget::setDailyRate() {
 
 double RateWidget::getHourlyRate() {
 //    return ui->sbHourlyRate->value();
+    return 0d;
 }
 
 void RateWidget::setHourlyRate() {

@@ -2,14 +2,14 @@
 #include <QDebug>
 
 namespace Databases {
-CustomerDatabase::CustomerDatabase() throw(DbException*)  : Database() {
+CustomerDatabase::CustomerDatabase() : Database() {
     _instances << this;
 }
 
 // SINGLETON
 CustomerDatabase* CustomerDatabase::_instance = 0;
 
-CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
+CustomerDatabase*CustomerDatabase::instance()
 {
     if (!_instance) {
         _instance = new CustomerDatabase();
@@ -20,7 +20,7 @@ CustomerDatabase*CustomerDatabase::instance()throw(DbException*)
 
 
 WdgModels::CustomersTableModel*
-    CustomerDatabase::getCustomersTable(QString filter) throw(DbException*)
+    CustomerDatabase::getCustomersTable(QString filter)
 {
     WdgModels::CustomersTableModel* ret
             = new WdgModels::CustomersTableModel();
@@ -59,7 +59,6 @@ WdgModels::CustomersTableModel*
 
 
 QStandardItemModel* CustomerDatabase::getTree(QString filter)
-throw(DbException*)
 {
     QStandardItemModel* ret = new QStandardItemModel();
 
@@ -178,7 +177,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 {
     QSharedPointer<Models::Customer> customer =
             QSharedPointer<Models::Customer>(new Models::Customer());
-    customer->setId(value(q, "cidCustomer").toInt());    
+    customer->setId(value(q, "cidCustomer").toInt());
     customer->setFirstname(value(q,"cfirstnameReferent").toString());
     customer->setLastname(value(q,"clastnameReferent").toString());
     customer->setCompany(value(q,"ccompany").toString());
@@ -188,10 +187,10 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
     customer->setPostalCode(value(q,"cpostalCode").toString());
     customer->setCity(value(q,"ccity").toString());
     customer->setCountry(value(q,"ccountry").toString());
-    customer->setEmail(value(q,"cemail").toString());    
+    customer->setEmail(value(q,"cemail").toString());
     customer->setPhone(value(q,"cphone").toString());
     customer->setMobilePhone(value(q,"cmobilePhone").toString());
-    customer->setFax(value(q,"cfax").toString());    
+    customer->setFax(value(q,"cfax").toString());
     customer->setIsArchived(value(q,"cisArchived").toBool());
 
     return customer;
@@ -199,7 +198,7 @@ QSharedPointer<Models::Customer> CustomerDatabase::getCustomer(QSqlQuery &q)
 
 void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
 {
-    q.bindValue(":idCustomer", pCustomer.getId());    
+    q.bindValue(":idCustomer", pCustomer.getId());
     q.bindValue(":firstnameReferent", pCustomer.getFirstname());
     q.bindValue(":lastnameReferent", pCustomer.getLastname());
     q.bindValue(":company", pCustomer.getCompany());
@@ -209,7 +208,7 @@ void CustomerDatabase::updateCustomer(QSqlQuery &q, Customer &pCustomer)
     q.bindValue(":country", pCustomer.getCountry());
     q.bindValue(":email", (pCustomer.getEmail()));
     q.bindValue(":phone", pCustomer.getPhone());
-    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());    
+    q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());
     q.bindValue(":complementAddress", pCustomer.getAddressComplement());
     q.bindValue(":website", pCustomer.getWebsite());
@@ -312,7 +311,7 @@ int CustomerDatabase::addCustomer(const Models::Customer &pCustomer) {
     q.bindValue(":postalCode", pCustomer.getPostalCode());
     q.bindValue(":city", pCustomer.getCity());
     q.bindValue(":country", pCustomer.getCountry());
-    q.bindValue(":email", pCustomer.getEmail());    
+    q.bindValue(":email", pCustomer.getEmail());
     q.bindValue(":phone", pCustomer.getPhone());
     q.bindValue(":mobilePhone", pCustomer.getMobilePhone());
     q.bindValue(":fax", pCustomer.getFax());

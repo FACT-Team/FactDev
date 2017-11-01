@@ -90,7 +90,7 @@ public:
      * @param idCustomer the id of the customer to set the <i>number</i>
      * @param isBilling if it's a quote or a Billing
      */
-    void setQuoteIdNumber(int id, int idCustomer, bool isBilling);
+    void setQuoteIdNumber(int id, bool isBilling);
 
 public slots:
     void updateBtn(void);

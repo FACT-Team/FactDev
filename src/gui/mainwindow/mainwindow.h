@@ -141,7 +141,7 @@ public:
      * @param filter Search filter
      * @return boolean
      */
-    bool isEasterEgg(const QString filter);
+    bool isEasterEgg();
 public slots:
     /**
      * @brief MainWindow::addCustomer open window to add a new customer

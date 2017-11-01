@@ -163,8 +163,7 @@ QVariantList ContributoriesList::getDataMap()
     QVariantHash buff;
     int i = 1;
     int j = 1;
-    double sum = 0.0;
-    double subdays = 0.0;
+
     for(QPair<Project*,Models::Rate>* key : keys()) {
         project["nameproject"] = key->first->getName();
         project["rateproject"] = key->second.getDailyRate();
@@ -193,8 +192,6 @@ QVariantList ContributoriesList::getDataMap()
             project["subunit"] = Unit(DAY).toString(project["subquantity"].toDouble() > 1);
         }
 
-        sum = 0.0;
-        subdays = 0.0;
         contributories.clear();
         ret << project;
         project.clear();

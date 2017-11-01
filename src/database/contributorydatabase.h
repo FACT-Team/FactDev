@@ -31,7 +31,7 @@ public:
      * @see DbException
      * @return Instance of ContributoryDatabase
      */
-    static ContributoryDatabase* instance()throw(DbException*);
+    static ContributoryDatabase* instance();
 
     /**
      * @brief ContributoryDatabase::getCustomer get informations
@@ -93,7 +93,7 @@ private:
     /**
      * @brief <b>ContributoryDatabase</b> is a singleton
      */
-    ContributoryDatabase() throw(DbException*) ;
+    ContributoryDatabase();
 
 };
 }

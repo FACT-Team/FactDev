@@ -205,14 +205,6 @@ void BillingDatabaseTest::getBilling()
 
         Billing b = *Databases::BillingDatabase::instance()->getBilling(q);
 
-        bool test = b.getId() == 1
-                && b.getTitle() == "Coucou"
-                && b.getDescription() == "Mon super devis de la mort qui rox du poulet"
-                && b.getNumber() == 1
-                && b.getDate().year() == 2015
-                && b.getDate().day() == 13
-                && b.getDate().month() == 2
-                && b.isPaid() == 1;
         QVERIFY(b.getId() == 1
                 && b.getTitle() == "Coucou"
                 && b.getDescription() == "Mon super devis de la mort qui rox du poulet"

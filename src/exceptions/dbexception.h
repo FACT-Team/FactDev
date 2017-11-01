@@ -32,7 +32,7 @@ public:
     /**
      * @brief ~DbException
      */
-    virtual ~DbException() throw()
+    virtual ~DbException()
     {
 
     }

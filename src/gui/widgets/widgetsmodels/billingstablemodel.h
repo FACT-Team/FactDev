@@ -77,12 +77,6 @@ public:
     void append(const Billing &billing);
 
     /**
-     * @brief BillingsTableModel::remove Remove a line
-     * @param i The number of line to remove
-     */
-    void remove(const int i);
-
-    /**
      * @brief BillingsTableModel::flags Differents table flags
      * @param index The cell who we want to know flags
      * @return Flags

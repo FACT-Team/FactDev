@@ -2,14 +2,14 @@
 
 namespace Databases {
 
-RateDatabase::RateDatabase() throw(DbException*) : Database() {
+RateDatabase::RateDatabase() : Database() {
     _instances << this;
 }
 
 // SINGLETON
 RateDatabase* RateDatabase::_instance = 0;
 
-RateDatabase *RateDatabase::instance() throw(DbException*)
+RateDatabase *RateDatabase::instance()
 {
     if (!_instance) {
         _instance = new RateDatabase();

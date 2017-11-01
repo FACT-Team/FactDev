@@ -18,7 +18,7 @@ using namespace Utils;
 using namespace Gui::Widgets;
 
 namespace Databases {
-/** 
+/**
  * @author Antoine de Roquemaurel
  * @author Manantsoa Razanajatovo
  * @author Florent Berbie
@@ -37,7 +37,7 @@ public:
      * @see DbException
      * @return Instance of CustomerDatabase
      */
-    static CustomerDatabase* instance()throw(DbException*);
+    static CustomerDatabase* instance();
 
     /**
      * @brief CustomerDatabase::getCustomersTable Return an item model of
@@ -46,8 +46,7 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTableView
      */
-    WdgModels::CustomersTableModel* getCustomersTable(QString filter="")
-        throw(DbException*);
+    WdgModels::CustomersTableModel* getCustomersTable(QString filter="");
 
 
     /**
@@ -57,7 +56,7 @@ public:
      * @throw DbException
      * @return QStandardItemModel an item model for QTreeView
      */
-    QStandardItemModel *getTree(QString filter="") throw(DbException*);
+    QStandardItemModel *getTree(QString filter="");
 
     /**
      * @brief CustomerDatabase::getCustomer get informations about the customer
@@ -145,7 +144,7 @@ public:
      */
     void setCustomerImage(Customer &pCustomer);
 
-	/**
+    /**
      * @brief CustomerDatabase::getCustomers Return all the customers
      * @return QList of customers
      */
@@ -158,7 +157,7 @@ private:
     /**
      * @brief <b>CustomerDatabase</b> is a singleton
      */
-    CustomerDatabase() throw(DbException*) ;
+    CustomerDatabase();
 };
 }
 #endif // BDDCUSTOMER_H
