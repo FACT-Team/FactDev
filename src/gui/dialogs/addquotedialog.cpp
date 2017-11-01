@@ -27,6 +27,7 @@ AddQuoteDialog::AddQuoteDialog(bool isBilling, int idCustomer, int id, bool copy
         if (copy) {
             setQuoteIdNumber(0,idCustomer,isBilling);
             fillQuoteBillingCopy(isBilling);
+            ui->dateEditQuote->setDate(QDate::currentDate());
         }
         else {
             ui->btnDocChange->hide();
